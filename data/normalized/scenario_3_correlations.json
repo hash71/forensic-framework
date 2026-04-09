@@ -1,0 +1,200 @@
+{
+  "scenario": "3",
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s3_006",
+        "evt_s3_007",
+        "evt_s3_008"
+      ],
+      "description": "2 failed login(s) for user_04 followed by successful login from 185.220.101.34",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s3_008"
+      ],
+      "description": "user_04 logged in from unusual IP 185.220.101.34 (expected: 192.168.1.104)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_026",
+        "evt_s3_027"
+      ],
+      "description": "user_04 had privilege change then downloaded 13 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s3_006",
+        "evt_s3_007",
+        "evt_s3_008",
+        "evt_s3_009",
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_013",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_020",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_025",
+        "evt_s3_026",
+        "evt_s3_027",
+        "evt_s3_029",
+        "evt_s3_030"
+      ],
+      "description": "user_04 had 23 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s3_006",
+        "evt_s3_007",
+        "evt_s3_008",
+        "evt_s3_009",
+        "evt_s3_010",
+        "evt_s3_011"
+      ],
+      "description": "user_04 generated 6 events in 7 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s3_007",
+        "evt_s3_008",
+        "evt_s3_009",
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_013",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_020",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_025",
+        "evt_s3_026",
+        "evt_s3_027"
+      ],
+      "description": "user_04 generated 20 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_013",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_020",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_025",
+        "evt_s3_026",
+        "evt_s3_027",
+        "evt_s3_029"
+      ],
+      "description": "user_04 generated 18 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_013",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_020",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_025",
+        "evt_s3_026",
+        "evt_s3_027",
+        "evt_s3_029",
+        "evt_s3_030"
+      ],
+      "description": "user_04 generated 18 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s3_010",
+        "evt_s3_029",
+        "evt_s3_006",
+        "evt_s3_007",
+        "evt_s3_008",
+        "evt_s3_030",
+        "evt_s3_009",
+        "evt_s3_025",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_013",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_020",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_026",
+        "evt_s3_027"
+      ],
+      "description": "user_04 has activity across 4 source types: admin, auth, database, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 9,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 6,
+    "info": 1
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "scenario": "4",
+  "findings": [
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s4_002",
+        "evt_s4_004",
+        "evt_s4_005"
+      ],
+      "description": "user_03 accessed 2 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s4_006",
+        "evt_s4_007"
+      ],
+      "description": "user_03 had 2 event(s) outside normal working hours (09:00-17:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s4_002",
+        "evt_s4_001",
+        "evt_s4_006",
+        "evt_s4_007",
+        "evt_s4_016",
+        "evt_s4_017",
+        "evt_s4_027",
+        "evt_s4_014",
+        "evt_s4_025",
+        "evt_s4_026",
+        "evt_s4_003",
+        "evt_s4_004",
+        "evt_s4_005",
+        "evt_s4_008",
+        "evt_s4_009",
+        "evt_s4_010",
+        "evt_s4_011",
+        "evt_s4_012",
+        "evt_s4_013",
+        "evt_s4_018",
+        "evt_s4_019",
+        "evt_s4_020",
+        "evt_s4_021",
+        "evt_s4_022",
+        "evt_s4_023",
+        "evt_s4_024"
+      ],
+      "description": "user_03 has activity across 4 source types: admin, auth, email, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 3,
+  "severity_summary": {
+    "warning": 2,
+    "info": 1
+  }
+}

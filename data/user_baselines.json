@@ -1,0 +1,45 @@
+{
+  "user_01": {
+    "department": "finance",
+    "role": "financial_analyst",
+    "normal_hours": "08:30-18:00",
+    "timezone": "Asia/Dhaka",
+    "normal_ips": ["192.168.1.100"],
+    "normal_directories": ["/data/finance/"],
+    "avg_files_per_day": 4,
+    "avg_downloads_per_day": 1
+  },
+  "user_02": {
+    "department": "engineering",
+    "role": "senior_developer",
+    "normal_hours": "09:00-19:00",
+    "timezone": "Asia/Dhaka",
+    "normal_ips": ["192.168.1.102"],
+    "normal_directories": ["/data/engineering/", "/data/shared/project_alpha/", "/data/shared/project_beta/"],
+    "avg_files_per_day": 8,
+    "avg_downloads_per_day": 3,
+    "travel_note": "Frequently travels internationally. IP varies when traveling.",
+    "project_memberships": ["project_alpha", "project_beta"]
+  },
+  "user_03": {
+    "department": "hr",
+    "role": "hr_specialist",
+    "normal_hours": "09:00-17:30",
+    "timezone": "Asia/Dhaka",
+    "normal_ips": ["192.168.1.103"],
+    "normal_directories": ["/data/hr/"],
+    "avg_files_per_day": 5,
+    "avg_downloads_per_day": 1
+  },
+  "user_04": {
+    "department": "finance",
+    "role": "junior_accountant",
+    "normal_hours": "09:00-17:00",
+    "timezone": "Asia/Dhaka",
+    "normal_ips": ["192.168.1.104"],
+    "normal_directories": ["/data/finance/"],
+    "avg_files_per_day": 3,
+    "avg_downloads_per_day": 0,
+    "access_level": "read_only"
+  }
+}

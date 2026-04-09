@@ -1,0 +1,89 @@
+{
+  "scenario": 4,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_005"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/expense_breakdown.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T14:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_009"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/budget_forecast.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T10:45:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_010"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/vendor_payments.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T11:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_011"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/hiring/candidate_pipeline.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T13:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_012"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/hiring/offer_letters_template.docx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T14:15:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_013"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/profit_loss_march.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T15:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_018"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/revenue_q1.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T11:15:00+06:00"
+    }
+  ],
+  "alert_count": 7,
+  "rules_triggered": 1,
+  "severity_summary": {
+    "warning": 7,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

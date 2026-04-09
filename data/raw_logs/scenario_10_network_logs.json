@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2026-04-06T08:00:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "192.168.1.102",
+    "dst_ip": "finance.internal.company.bd",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-06T08:05:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "192.168.1.102",
+    "dst_ip": "fileserver.internal.company.bd",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-06T08:15:00+06:00",
+    "event_type": "firewall_allow",
+    "protocol": "SMB",
+    "src_ip": "192.168.1.102",
+    "dst_ip": "192.168.1.200:445",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-06T08:30:00+06:00",
+    "event_type": "firewall_allow",
+    "protocol": "HTTPS",
+    "src_ip": "192.168.1.102",
+    "dst_ip": "192.168.1.20:443",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  }
+]

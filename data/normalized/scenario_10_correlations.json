@@ -1,0 +1,23 @@
+{
+  "scenario": "10",
+  "findings": [
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s10_005",
+        "evt_s10_011",
+        "evt_s10_006",
+        "evt_s10_007",
+        "evt_s10_008",
+        "evt_s10_009",
+        "evt_s10_010"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 1,
+  "severity_summary": {
+    "info": 1
+  }
+}

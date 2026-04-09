@@ -1,0 +1,97 @@
+{
+  "scenario": 11,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s11_011"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 91.92.109.50. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-06T15:30:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s11_012"
+      ],
+      "user": "user_02",
+      "description": "Privilege change detected for user_02. Resource: role",
+      "timestamp": "2026-04-06T15:35:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s11_012",
+        "evt_s11_014",
+        "evt_s11_015"
+      ],
+      "user": "user_02",
+      "description": "Privilege escalation at 2026-04-06T15:35:00+06:00 followed by 2 file download(s) within 30 minutes",
+      "timestamp": "2026-04-06T15:35:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s11_013"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/confidential/ is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T15:38:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s11_014"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/confidential/customer_data.csv is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T15:40:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s11_015"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/performance_reviews_2025.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T15:42:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s11_017"
+      ],
+      "user": "user_02",
+      "description": "Log deletion detected by user_02. Target: /var/log/syslog",
+      "timestamp": "2026-04-06T15:50:00+06:00"
+    }
+  ],
+  "alert_count": 7,
+  "rules_triggered": [
+    "R001",
+    "R003",
+    "R005",
+    "R006",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 4,
+    "critical": 3
+  },
+  "verdict": "attack"
+}

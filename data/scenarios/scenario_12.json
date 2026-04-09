@@ -1,0 +1,198 @@
+{
+  "scenario_id": "scenario_12",
+  "name": "conflicting_signals",
+  "label": "ATTACK",
+  "description": "Evidence contradicts itself. user_01 accesses sensitive files from an unusual IP, then a VPN connection log appears with a timestamp AFTER the file access. If the VPN were legitimate, it should precede the access. The VPN log appears fabricated to retroactively justify unauthorized access. Data is exfiltrated via personal email.",
+  "events": [
+    {
+      "event_id": "evt_s12_001",
+      "timestamp": "2026-04-06T14:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "login",
+      "resource": null,
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "geo_location": "Singapore",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+        "note": "Unusual IP - user_01 normally connects from 192.168.1.100"
+      }
+    },
+    {
+      "event_id": "evt_s12_002",
+      "timestamp": "2026-04-06T14:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "directory_listing"
+      }
+    },
+    {
+      "event_id": "evt_s12_003",
+      "timestamp": "2026-04-06T14:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/tax_returns.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "warning",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s12_004",
+      "timestamp": "2026-04-06T14:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/audit_2025.csv",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 12582912,
+        "file_size_display": "12MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s12_005",
+      "timestamp": "2026-04-06T14:15:00+06:00",
+      "source_type": "network",
+      "user": "user_01",
+      "action": "vpn_connect",
+      "resource": "vpn-gateway.company.bd",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "vpn_protocol": "OpenVPN",
+        "assigned_internal_ip": "10.8.0.15",
+        "note": "VPN connection established 15 minutes AFTER login and 5 minutes AFTER sensitive file download - should have preceded access if legitimate remote work"
+      }
+    },
+    {
+      "event_id": "evt_s12_006",
+      "timestamp": "2026-04-06T14:20:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/report_q1.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read",
+        "note": "Normal file access - mixing in legitimate activity"
+      }
+    },
+    {
+      "event_id": "evt_s12_007",
+      "timestamp": "2026-04-06T14:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/vendor_payments_q1.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 6291456,
+        "file_size_display": "6MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s12_008",
+      "timestamp": "2026-04-06T14:30:00+06:00",
+      "source_type": "email",
+      "user": "user_01",
+      "action": "mail_sent",
+      "resource": "personal.user01@gmail.com",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "recipients": ["personal.user01@gmail.com"],
+        "subject": "backup files",
+        "attachment": "audit_2025.csv",
+        "attachment_size_bytes": 12582912,
+        "mail_server": "smtp.company.bd",
+        "note": "Sensitive data sent to personal email"
+      }
+    },
+    {
+      "event_id": "evt_s12_009",
+      "timestamp": "2026-04-06T14:35:00+06:00",
+      "source_type": "email",
+      "user": "user_01",
+      "action": "mail_sent",
+      "resource": "personal.user01@gmail.com",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "recipients": ["personal.user01@gmail.com"],
+        "subject": "more backup",
+        "attachment": "vendor_payments_q1.xlsx",
+        "attachment_size_bytes": 6291456,
+        "mail_server": "smtp.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s12_010",
+      "timestamp": "2026-04-06T14:40:00+06:00",
+      "source_type": "network",
+      "user": "user_01",
+      "action": "vpn_disconnect",
+      "resource": "vpn-gateway.company.bd",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "vpn_duration_minutes": 25,
+        "bytes_transferred_out": 19922944
+      }
+    },
+    {
+      "event_id": "evt_s12_011",
+      "timestamp": "2026-04-06T14:45:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 45
+      }
+    }
+  ]
+}

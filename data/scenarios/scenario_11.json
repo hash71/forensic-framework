@@ -1,0 +1,325 @@
+{
+  "scenario_id": "scenario_11",
+  "name": "benign_then_compromised",
+  "label": "ATTACK",
+  "description": "user_02 works normally for 6 hours (10 benign events), then the account is compromised by an attacker from a new IP at 15:30. The attacker escalates privileges, exfiltrates sensitive data across departments, exports a database table, and deletes logs. 80% of events are benign, 20% are the attack. The challenge is finding the transition point.",
+  "events": [
+    {
+      "event_id": "evt_s11_001",
+      "timestamp": "2026-04-06T09:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64)"
+      }
+    },
+    {
+      "event_id": "evt_s11_002",
+      "timestamp": "2026-04-06T09:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/sprint_board.md",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_003",
+      "timestamp": "2026-04-06T10:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/api_docs_v2.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_004",
+      "timestamp": "2026-04-06T10:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/deployment_guide.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1048576,
+        "file_size_display": "1MB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s11_005",
+      "timestamp": "2026-04-06T11:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/requirements.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_006",
+      "timestamp": "2026-04-06T12:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/test_results_q1.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_007",
+      "timestamp": "2026-04-06T13:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/design_spec.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2097152,
+        "file_size_display": "2MB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s11_008",
+      "timestamp": "2026-04-06T13:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/code_review_notes.md",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_009",
+      "timestamp": "2026-04-06T14:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/release_notes_v3.1.md",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 524288,
+        "file_size_display": "512KB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s11_010",
+      "timestamp": "2026-04-06T15:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/timeline.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s11_011",
+      "timestamp": "2026-04-06T15:30:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "geo_location": "Bulgaria",
+        "user_agent": "Mozilla/5.0 (Windows NT 6.1; rv:45.0) Gecko/20100101 Firefox/45.0",
+        "note": "Second concurrent session from foreign IP - original session still active"
+      }
+    },
+    {
+      "event_id": "evt_s11_012",
+      "timestamp": "2026-04-06T15:35:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "critical",
+      "metadata": {
+        "previous_role": "senior_developer",
+        "new_role": "admin",
+        "change_type": "self_escalation"
+      }
+    },
+    {
+      "event_id": "evt_s11_013",
+      "timestamp": "2026-04-06T15:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "warning",
+      "metadata": {
+        "access_type": "directory_listing"
+      }
+    },
+    {
+      "event_id": "evt_s11_014",
+      "timestamp": "2026-04-06T15:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/customer_data.csv",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 47185920,
+        "file_size_display": "45MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s11_015",
+      "timestamp": "2026-04-06T15:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/hr/performance_reviews_2025.xlsx",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 8388608,
+        "file_size_display": "8MB",
+        "access_type": "download",
+        "classification": "confidential",
+        "note": "Cross-department access: engineering user downloading HR data"
+      }
+    },
+    {
+      "event_id": "evt_s11_016",
+      "timestamp": "2026-04-06T15:45:00+06:00",
+      "source_type": "database",
+      "user": "user_02",
+      "action": "db_export",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "db_server": "192.168.1.30",
+        "table": "customers",
+        "rows_exported": 48500,
+        "export_size_bytes": 125829120,
+        "export_size_display": "120MB"
+      }
+    },
+    {
+      "event_id": "evt_s11_017",
+      "timestamp": "2026-04-06T15:50:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "log_delete",
+      "resource": "/var/log/syslog",
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "critical",
+      "metadata": {
+        "action_type": "anti_forensics",
+        "target_log": "/var/log/syslog"
+      }
+    },
+    {
+      "event_id": "evt_s11_018",
+      "timestamp": "2026-04-06T15:55:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "91.92.109.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_002",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 25
+      }
+    },
+    {
+      "event_id": "evt_s11_019",
+      "timestamp": "2026-04-06T18:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 540,
+        "note": "Legitimate session logout - user_02 was unaware of concurrent compromised session"
+      }
+    }
+  ]
+}

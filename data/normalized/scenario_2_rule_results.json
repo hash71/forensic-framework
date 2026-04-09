@@ -1,0 +1,158 @@
+{
+  "scenario": 2,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_001"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 103.28.45.67. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T08:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_001"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:15 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T08:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_002"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:30 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T08:30:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_009"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 103.28.45.67. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T21:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_009"
+      ],
+      "user": "user_02",
+      "description": "Activity at 21:30 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T21:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_010"
+      ],
+      "user": "user_02",
+      "description": "Activity at 21:45 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T21:45:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_011"
+      ],
+      "user": "user_02",
+      "description": "Activity at 22:00 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T22:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_012"
+      ],
+      "user": "user_02",
+      "description": "Activity at 22:15 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T22:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_013"
+      ],
+      "user": "user_02",
+      "description": "Activity at 22:30 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T22:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_014"
+      ],
+      "user": "user_02",
+      "description": "Activity at 22:45 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T22:45:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_015"
+      ],
+      "user": "user_02",
+      "description": "Activity at 23:00 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T23:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_016"
+      ],
+      "user": "user_02",
+      "description": "Activity at 23:10 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T23:10:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s2_017"
+      ],
+      "user": "user_02",
+      "description": "Activity at 23:25 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T23:25:00+06:00"
+    }
+  ],
+  "alert_count": 13,
+  "rules_triggered": [
+    "R001",
+    "R002"
+  ],
+  "severity_summary": {
+    "warning": 13,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

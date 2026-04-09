@@ -1,0 +1,225 @@
+[
+  {
+    "event_id": "evt_s14_001",
+    "timestamp": "2026-04-07T02:00:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_002",
+    "timestamp": "2026-04-07T02:01:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_003",
+    "timestamp": "2026-04-07T02:02:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_004",
+    "timestamp": "2026-04-07T02:03:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_005",
+    "timestamp": "2026-04-07T02:05:00+06:00",
+    "source_type": "auth",
+    "user": "user_02",
+    "action": "login",
+    "resource": null,
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": "sess_user_02_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_006",
+    "timestamp": "2026-04-07T02:06:00+06:00",
+    "source_type": "admin",
+    "user": "user_04",
+    "action": "privilege_change",
+    "resource": "role",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "detail": "{\"previous_role\": \"read_only\", \"new_role\": \"read_write\", \"change_type\": \"self_escalation\"}"
+    }
+  },
+  {
+    "event_id": "evt_s14_007",
+    "timestamp": "2026-04-07T02:08:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/customer_data_2025.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 47185920
+    }
+  },
+  {
+    "event_id": "evt_s14_008",
+    "timestamp": "2026-04-07T02:10:00+06:00",
+    "source_type": "file_access",
+    "user": "user_02",
+    "action": "file_read",
+    "resource": "/data/engineering/source_code/",
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": "sess_user_02_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_009",
+    "timestamp": "2026-04-07T02:11:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/transaction_log_q1.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 39845888
+    }
+  },
+  {
+    "event_id": "evt_s14_010",
+    "timestamp": "2026-04-07T02:12:00+06:00",
+    "source_type": "file_access",
+    "user": "user_02",
+    "action": "file_read",
+    "resource": "/data/engineering/source_code/proprietary_algo.py",
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": "sess_user_02_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_011",
+    "timestamp": "2026-04-07T02:14:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 12582912
+    }
+  },
+  {
+    "event_id": "evt_s14_012",
+    "timestamp": "2026-04-07T02:15:00+06:00",
+    "source_type": "file_access",
+    "user": "user_02",
+    "action": "file_download",
+    "resource": "/data/engineering/source_code/ml_model_weights.tar.gz",
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": "sess_user_02_20260407_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 2147483648
+    }
+  },
+  {
+    "event_id": "evt_s14_013",
+    "timestamp": "2026-04-07T02:18:00+06:00",
+    "source_type": "admin",
+    "user": "user_04",
+    "action": "log_delete",
+    "resource": "/var/log/file_access.log",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "critical",
+    "metadata": {
+      "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/file_access.log\"}"
+    }
+  },
+  {
+    "event_id": "evt_s14_014",
+    "timestamp": "2026-04-07T02:20:00+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "success",
+    "resource": "d2F0Y2hkb2c.data-exfil.com",
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "protocol": "tcp",
+      "dst_ip": "d2F0Y2hkb2c.data-exfil.com"
+    }
+  },
+  {
+    "event_id": "evt_s14_015",
+    "timestamp": "2026-04-07T02:22:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s14_016",
+    "timestamp": "2026-04-07T02:25:00+06:00",
+    "source_type": "auth",
+    "user": "user_02",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "10.0.0.99",
+    "status": "success",
+    "session_id": "sess_user_02_20260407_001",
+    "severity": "info",
+    "metadata": {}
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "scenario": "2",
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s2_001"
+      ],
+      "description": "user_02 logged in from unusual IP 103.28.45.67 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s2_009"
+      ],
+      "description": "user_02 logged in from unusual IP 103.28.45.67 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s2_001",
+        "evt_s2_002",
+        "evt_s2_009",
+        "evt_s2_010",
+        "evt_s2_011",
+        "evt_s2_012",
+        "evt_s2_013",
+        "evt_s2_014",
+        "evt_s2_015",
+        "evt_s2_016",
+        "evt_s2_017"
+      ],
+      "description": "user_02 had 11 event(s) outside normal working hours (09:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s2_001",
+        "evt_s2_008",
+        "evt_s2_009",
+        "evt_s2_017",
+        "evt_s2_002",
+        "evt_s2_003",
+        "evt_s2_004",
+        "evt_s2_005",
+        "evt_s2_006",
+        "evt_s2_007",
+        "evt_s2_010",
+        "evt_s2_011",
+        "evt_s2_012",
+        "evt_s2_013",
+        "evt_s2_014",
+        "evt_s2_015",
+        "evt_s2_016"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

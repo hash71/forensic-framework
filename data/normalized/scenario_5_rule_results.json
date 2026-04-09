@@ -1,0 +1,47 @@
+{
+  "scenario": 5,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s5_019"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/salary_bands.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T13:45:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s5_023"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/employee_reviews.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T14:50:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s5_027"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/performance_reviews_2025.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T16:05:00+06:00"
+    }
+  ],
+  "alert_count": 3,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 3,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

@@ -1,0 +1,80 @@
+{
+  "verdict": "YES",
+  "incident_occurred": true,
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an authorized user (user_04) with 'read_only' access and a baseline of 0 downloads per day performing 6 file downloads. Crucially, this user accessed files outside their department (Engineering projects) and outside their normal working hours. This behavior violates the 'INSIDER THREAT' guidance regarding scope expansion and unauthorized data collection, distinguishing it from legitimate maintenance or normal work.",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s15_002",
+      "description": "user_04 logs in successfully from normal IP 192.168.1.104.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s15_006",
+      "description": "user_04 performs first file download (accounts_receivable_q1.xlsx), violating baseline of 0 downloads/day.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s15_012",
+      "description": "user_04 accesses /data/shared/project_alpha/budget_impact.xlsx, crossing departmental boundaries (Finance to Engineering).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s15_015",
+      "description": "user_04 accesses /data/shared/project_beta/cost_estimate.xlsx, expanding scope to a second engineering project.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s15_018",
+      "description": "user_04 downloads bank_reconciliation_q1.xlsx, continuing the pattern of bulk data exfiltration.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s15_019",
+      "description": "user_04 downloads general_ledger_q1.xlsx (5.2MB), a high-value financial file.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s15_020",
+      "description": "user_04 accesses /data/shared/project_alpha/deliverables_summary.xlsx at 17:15, outside normal hours (09:00-17:00) and outside department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s15_023",
+      "description": "user_04 logs out at 19:00, well outside normal hours, after completing the data collection.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s15_006",
+    "evt_s15_010",
+    "evt_s15_012",
+    "evt_s15_014",
+    "evt_s15_015",
+    "evt_s15_018",
+    "evt_s15_019",
+    "evt_s15_020",
+    "evt_s15_023"
+  ],
+  "evidence_against": [
+    "evt_s15_002",
+    "evt_s15_004",
+    "evt_s15_008",
+    "evt_s15_011"
+  ],
+  "gaps": [
+    "No ticket number or maintenance justification metadata found for the cross-department access or off-hours activity.",
+    "No evidence of user_04's specific role permissions regarding the Engineering shared folders (though baseline suggests they shouldn't be there).",
+    "No network traffic logs to confirm if the downloaded files were actually exfiltrated to an external destination."
+  ],
+  "narrative": "user_04, a junior accountant with read-only access and a baseline of zero daily downloads, engaged in a systematic data collection campaign. The user downloaded six financial files and accessed engineering project data outside their department and normal working hours, indicating a high-probability insider threat and unauthorized data exfiltration."
+}

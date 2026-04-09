@@ -1,0 +1,434 @@
+{
+  "test_a": [
+    {
+      "scenario": 3,
+      "mode": "raw_logs",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 3,
+      "mode": "full_pipeline",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 4,
+      "mode": "raw_logs",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 1
+    },
+    {
+      "scenario": 4,
+      "mode": "full_pipeline",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 5,
+      "mode": "raw_logs",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "100%",
+      "hallucinations": 1
+    },
+    {
+      "scenario": 5,
+      "mode": "full_pipeline",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "100%",
+      "hallucinations": 0
+    }
+  ],
+  "test_b": [
+    {
+      "scenario": 3,
+      "removal_pct": "0%",
+      "trial": "-",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 30
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "20%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 24
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "20%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 24
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "20%",
+      "trial": "3",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 24
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "40%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "67%",
+      "hallucinations": 0,
+      "events_remaining": 18
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "40%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 18
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "40%",
+      "trial": "3",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 18
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "60%",
+      "trial": "1",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 12
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "60%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "67%",
+      "hallucinations": 0,
+      "events_remaining": 12
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "60%",
+      "trial": "3",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "67%",
+      "hallucinations": 1,
+      "events_remaining": 12
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "80%",
+      "trial": "1",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "50%",
+      "hallucinations": 0,
+      "events_remaining": 6
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "80%",
+      "trial": "2",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "50%",
+      "hallucinations": 0,
+      "events_remaining": 6
+    },
+    {
+      "scenario": 3,
+      "removal_pct": "80%",
+      "trial": "3",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 6
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "0%",
+      "trial": "-",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 27
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "20%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 22
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "20%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 22
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "20%",
+      "trial": "3",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 1,
+      "events_remaining": 22
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "40%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 17
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "40%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 17
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "40%",
+      "trial": "3",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 17
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "60%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 11
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "60%",
+      "trial": "2",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 11
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "60%",
+      "trial": "3",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 1,
+      "events_remaining": 11
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "80%",
+      "trial": "1",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 6
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "80%",
+      "trial": "2",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "83%",
+      "hallucinations": 0,
+      "events_remaining": 6
+    },
+    {
+      "scenario": 4,
+      "removal_pct": "80%",
+      "trial": "3",
+      "verdict": "INSUFFICIENT",
+      "correct": false,
+      "recall": "83%",
+      "hallucinations": 1,
+      "events_remaining": 6
+    }
+  ],
+  "test_c": [
+    {
+      "scenario": 3,
+      "ratio": "original",
+      "total_events": 30,
+      "noise_events": 0,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 3,
+      "ratio": "1:1",
+      "total_events": 60,
+      "noise_events": 30,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 3,
+      "ratio": "1:2",
+      "total_events": 90,
+      "noise_events": 60,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 3,
+      "ratio": "1:5",
+      "total_events": 180,
+      "noise_events": 150,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "67%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 4,
+      "ratio": "original",
+      "total_events": 27,
+      "noise_events": 0,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 4,
+      "ratio": "1:1",
+      "total_events": 54,
+      "noise_events": 27,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 4,
+      "ratio": "1:2",
+      "total_events": 81,
+      "noise_events": 54,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    },
+    {
+      "scenario": 4,
+      "ratio": "1:5",
+      "total_events": 162,
+      "noise_events": 135,
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "hallucinations": 0
+    }
+  ],
+  "test_d": [
+    {
+      "scenario": 3,
+      "jitter": "none",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "timeline_correct": true,
+      "chain_order_ok": true
+    },
+    {
+      "scenario": 3,
+      "jitter": "5min",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "timeline_correct": false,
+      "chain_order_ok": true
+    },
+    {
+      "scenario": 3,
+      "jitter": "30min",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "timeline_correct": false,
+      "chain_order_ok": true
+    },
+    {
+      "scenario": 3,
+      "jitter": "2hr",
+      "verdict": "YES",
+      "correct": true,
+      "recall": "83%",
+      "timeline_correct": false,
+      "chain_order_ok": true
+    }
+  ]
+}

@@ -1,0 +1,463 @@
+{
+  "scenario": 4,
+  "alerts": [
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s4_002"
+      ],
+      "user": "user_03",
+      "description": "Privilege change detected for user_03. Resource: /data/finance/reports/",
+      "timestamp": "2026-04-01T09:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_004"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/revenue_q1.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T11:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0032"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T11:09:16.396201+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_005"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/expense_breakdown.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T14:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0047"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T16:30:15.441947+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_006"
+      ],
+      "user": "user_03",
+      "description": "Activity at 17:45 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T17:45:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0048"
+      ],
+      "user": "user_03",
+      "description": "Activity at 18:50 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T18:50:55.548228+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0048"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T18:50:55.548228+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0050"
+      ],
+      "user": "user_01",
+      "description": "Activity at 20:20 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T20:20:22.176049+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0050"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T20:20:22.176049+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0012"
+      ],
+      "user": "user_02",
+      "description": "Activity at 21:44 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T21:44:34.966923+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0037"
+      ],
+      "user": "user_02",
+      "description": "Activity at 22:24 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T22:24:43.999451+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0037"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T22:24:43.999451+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0046"
+      ],
+      "user": "user_03",
+      "description": "Login from unusual IP 192.168.1.102. Normal IPs: ['192.168.1.103']",
+      "timestamp": "2026-04-01T22:33:47.999688+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0046"
+      ],
+      "user": "user_03",
+      "description": "Activity at 22:33 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T22:33:47.999688+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0013"
+      ],
+      "user": "user_02",
+      "description": "Activity at 01:38 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-02T01:38:17.900585+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0031"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:55 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-02T02:55:33.687279+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_007"
+      ],
+      "user": "user_03",
+      "description": "Activity at 08:45 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-02T08:45:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_009"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/budget_forecast.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T10:45:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_010"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/vendor_payments.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T11:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_011"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/hiring/candidate_pipeline.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T13:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_012"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/hiring/offer_letters_template.docx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T14:15:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_013"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/profit_loss_march.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T15:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0015"
+      ],
+      "user": "user_01",
+      "description": "Activity at 18:35 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-02T18:35:42.404317+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0008"
+      ],
+      "user": "user_01",
+      "description": "Activity at 21:11 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-02T21:11:47.385831+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0003"
+      ],
+      "user": "user_01",
+      "description": "Activity at 23:09 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-02T23:09:31.817330+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0003"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-02T23:09:31.817330+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0006"
+      ],
+      "user": "user_02",
+      "description": "Activity at 00:17 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-03T00:17:22.192469+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0006"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T00:17:22.192469+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0009"
+      ],
+      "user": "user_03",
+      "description": "Activity at 00:32 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-03T00:32:03.251611+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0045"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:02 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-03T03:02:11.609791+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0045"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-03T03:02:11.609791+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0001"
+      ],
+      "user": "user_03",
+      "description": "Activity at 04:33 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-03T04:33:49.119686+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0001"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T04:33:49.119686+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0016"
+      ],
+      "user": "user_02",
+      "description": "Activity at 07:45 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-03T07:45:47.373980+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0053"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T09:42:04.151108+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_018"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/revenue_q1.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T11:15:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_019"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/budget_forecast.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T13:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_020"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/hiring/candidate_pipeline.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T14:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_021"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/expense_breakdown.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T15:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s4_0020"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-03T15:18:53.319032+06:00"
+    }
+  ],
+  "alert_count": 41,
+  "rules_triggered": 4,
+  "severity_summary": {
+    "warning": 40,
+    "critical": 1
+  },
+  "verdict": "attack"
+}

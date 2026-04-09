@@ -1,0 +1,1164 @@
+{
+  "scenario": 13,
+  "total_events": 28,
+  "timeline": [
+    {
+      "event_id": "evt_s13_001",
+      "timestamp": "2026-04-01T09:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_002",
+      "timestamp": "2026-04-01T10:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/employee_roster.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_003",
+      "timestamp": "2026-04-01T14:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/payroll_summary_q1.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 348160
+      }
+    },
+    {
+      "event_id": "evt_s13_004",
+      "timestamp": "2026-04-01T17:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_005",
+      "timestamp": "2026-04-02T09:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_006",
+      "timestamp": "2026-04-02T10:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/benefits_plan.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_007",
+      "timestamp": "2026-04-02T13:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/engineering/architecture_overview.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 286720
+      }
+    },
+    {
+      "event_id": "evt_s13_008",
+      "timestamp": "2026-04-02T17:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_009",
+      "timestamp": "2026-04-03T09:20:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_010",
+      "timestamp": "2026-04-03T11:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/training_schedule.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_011",
+      "timestamp": "2026-04-03T15:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/budget_allocation.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 460800
+      }
+    },
+    {
+      "event_id": "evt_s13_012",
+      "timestamp": "2026-04-03T17:20:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_013",
+      "timestamp": "2026-04-04T09:05:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_014",
+      "timestamp": "2026-04-04T10:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/leave_tracker.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_015",
+      "timestamp": "2026-04-04T14:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/confidential/salary_structure_2026.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 532480
+      }
+    },
+    {
+      "event_id": "evt_s13_016",
+      "timestamp": "2026-04-04T17:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_017",
+      "timestamp": "2026-04-05T09:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260405_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_018",
+      "timestamp": "2026-04-05T10:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/recruitment_pipeline.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260405_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_019",
+      "timestamp": "2026-04-05T15:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/expense_reports_q1.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260405_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 389120
+      }
+    },
+    {
+      "event_id": "evt_s13_020",
+      "timestamp": "2026-04-05T17:25:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260405_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_021",
+      "timestamp": "2026-04-06T09:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_022",
+      "timestamp": "2026-04-06T11:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/onboarding_checklist.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_023",
+      "timestamp": "2026-04-06T14:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/engineering/infrastructure_diagram.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 296960
+      }
+    },
+    {
+      "event_id": "evt_s13_024",
+      "timestamp": "2026-04-06T17:05:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_025",
+      "timestamp": "2026-04-07T09:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_026",
+      "timestamp": "2026-04-07T10:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/exit_interview_template.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s13_027",
+      "timestamp": "2026-04-07T14:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/revenue_by_division.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 419840
+      }
+    },
+    {
+      "event_id": "evt_s13_028",
+      "timestamp": "2026-04-07T17:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_03": [
+      {
+        "event_id": "evt_s13_001",
+        "timestamp": "2026-04-01T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_002",
+        "timestamp": "2026-04-01T10:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/employee_roster.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_003",
+        "timestamp": "2026-04-01T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/payroll_summary_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 348160
+        }
+      },
+      {
+        "event_id": "evt_s13_004",
+        "timestamp": "2026-04-01T17:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_005",
+        "timestamp": "2026-04-02T09:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_006",
+        "timestamp": "2026-04-02T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/benefits_plan.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_007",
+        "timestamp": "2026-04-02T13:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/architecture_overview.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 286720
+        }
+      },
+      {
+        "event_id": "evt_s13_008",
+        "timestamp": "2026-04-02T17:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_009",
+        "timestamp": "2026-04-03T09:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_010",
+        "timestamp": "2026-04-03T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/training_schedule.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_011",
+        "timestamp": "2026-04-03T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/budget_allocation.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 460800
+        }
+      },
+      {
+        "event_id": "evt_s13_012",
+        "timestamp": "2026-04-03T17:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_013",
+        "timestamp": "2026-04-04T09:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_014",
+        "timestamp": "2026-04-04T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/leave_tracker.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_015",
+        "timestamp": "2026-04-04T14:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/hr/confidential/salary_structure_2026.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 532480
+        }
+      },
+      {
+        "event_id": "evt_s13_016",
+        "timestamp": "2026-04-04T17:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_017",
+        "timestamp": "2026-04-05T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_018",
+        "timestamp": "2026-04-05T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/recruitment_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_019",
+        "timestamp": "2026-04-05T15:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/expense_reports_q1.csv",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 389120
+        }
+      },
+      {
+        "event_id": "evt_s13_020",
+        "timestamp": "2026-04-05T17:25:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_021",
+        "timestamp": "2026-04-06T09:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_022",
+        "timestamp": "2026-04-06T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/onboarding_checklist.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_023",
+        "timestamp": "2026-04-06T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/infrastructure_diagram.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 296960
+        }
+      },
+      {
+        "event_id": "evt_s13_024",
+        "timestamp": "2026-04-06T17:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_025",
+        "timestamp": "2026-04-07T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_026",
+        "timestamp": "2026-04-07T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/exit_interview_template.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_027",
+        "timestamp": "2026-04-07T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/revenue_by_division.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 419840
+        }
+      },
+      {
+        "event_id": "evt_s13_028",
+        "timestamp": "2026-04-07T17:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_03_20260401_001": [
+      {
+        "event_id": "evt_s13_001",
+        "timestamp": "2026-04-01T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_002",
+        "timestamp": "2026-04-01T10:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/employee_roster.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_003",
+        "timestamp": "2026-04-01T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/payroll_summary_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 348160
+        }
+      },
+      {
+        "event_id": "evt_s13_004",
+        "timestamp": "2026-04-01T17:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260402_001": [
+      {
+        "event_id": "evt_s13_005",
+        "timestamp": "2026-04-02T09:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_006",
+        "timestamp": "2026-04-02T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/benefits_plan.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_007",
+        "timestamp": "2026-04-02T13:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/architecture_overview.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 286720
+        }
+      },
+      {
+        "event_id": "evt_s13_008",
+        "timestamp": "2026-04-02T17:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260403_001": [
+      {
+        "event_id": "evt_s13_009",
+        "timestamp": "2026-04-03T09:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_010",
+        "timestamp": "2026-04-03T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/training_schedule.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_011",
+        "timestamp": "2026-04-03T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/budget_allocation.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 460800
+        }
+      },
+      {
+        "event_id": "evt_s13_012",
+        "timestamp": "2026-04-03T17:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260404_001": [
+      {
+        "event_id": "evt_s13_013",
+        "timestamp": "2026-04-04T09:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_014",
+        "timestamp": "2026-04-04T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/leave_tracker.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_015",
+        "timestamp": "2026-04-04T14:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/hr/confidential/salary_structure_2026.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 532480
+        }
+      },
+      {
+        "event_id": "evt_s13_016",
+        "timestamp": "2026-04-04T17:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260405_001": [
+      {
+        "event_id": "evt_s13_017",
+        "timestamp": "2026-04-05T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_018",
+        "timestamp": "2026-04-05T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/recruitment_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_019",
+        "timestamp": "2026-04-05T15:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/expense_reports_q1.csv",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 389120
+        }
+      },
+      {
+        "event_id": "evt_s13_020",
+        "timestamp": "2026-04-05T17:25:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260406_001": [
+      {
+        "event_id": "evt_s13_021",
+        "timestamp": "2026-04-06T09:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_022",
+        "timestamp": "2026-04-06T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/onboarding_checklist.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_023",
+        "timestamp": "2026-04-06T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/infrastructure_diagram.pdf",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 296960
+        }
+      },
+      {
+        "event_id": "evt_s13_024",
+        "timestamp": "2026-04-06T17:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_03_20260407_001": [
+      {
+        "event_id": "evt_s13_025",
+        "timestamp": "2026-04-07T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_026",
+        "timestamp": "2026-04-07T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/exit_interview_template.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s13_027",
+        "timestamp": "2026-04-07T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/revenue_by_division.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 419840
+        }
+      },
+      {
+        "event_id": "evt_s13_028",
+        "timestamp": "2026-04-07T17:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-01T09:15:00+06:00",
+    "end": "2026-04-07T17:00:00+06:00"
+  }
+}

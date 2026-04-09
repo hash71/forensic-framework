@@ -1,0 +1,255 @@
+{
+  "scenario": 14,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_001"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:00 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:00:00+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_001",
+        "evt_s14_002",
+        "evt_s14_003"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 3 failures within 5 minutes for user_04 (window start: 2026-04-07T02:00:00+06:00)",
+      "timestamp": "2026-04-07T02:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:01 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:01:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_003"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:02 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:02:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_004"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 185.220.101.34. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-04-07T02:03:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_004"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:03 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:03:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_005"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 10.0.0.99. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-07T02:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_005"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:05 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-07T02:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_006"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:06 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:06:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s14_006"
+      ],
+      "user": "user_04",
+      "description": "Privilege change detected for user_04. Resource: role",
+      "timestamp": "2026-04-07T02:06:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s14_006",
+        "evt_s14_007",
+        "evt_s14_009",
+        "evt_s14_011"
+      ],
+      "user": "user_04",
+      "description": "Privilege escalation at 2026-04-07T02:06:00+06:00 followed by 3 file download(s) within 30 minutes",
+      "timestamp": "2026-04-07T02:06:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_007"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:08 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:08:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_008"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:10 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-07T02:10:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:11 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:11:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_010"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:12 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-07T02:12:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:14 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:14:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_012"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:15 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-07T02:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:18 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:18:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s14_013"
+      ],
+      "user": "user_04",
+      "description": "Log deletion detected by user_04. Target: /var/log/file_access.log",
+      "timestamp": "2026-04-07T02:18:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_015"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:22 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T02:22:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s14_016"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:25 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-07T02:25:00+06:00"
+    }
+  ],
+  "alert_count": 21,
+  "rules_triggered": [
+    "R001",
+    "R002",
+    "R003",
+    "R006",
+    "R007",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 18,
+    "critical": 3
+  },
+  "verdict": "attack"
+}

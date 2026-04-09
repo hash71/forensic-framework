@@ -1,0 +1,25 @@
+{
+  "scenario": 12,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s12_001"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 103.45.67.89. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-06T14:00:00+06:00"
+    }
+  ],
+  "alert_count": 1,
+  "rules_triggered": [
+    "R001"
+  ],
+  "severity_summary": {
+    "warning": 1,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

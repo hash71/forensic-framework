@@ -1,0 +1,1627 @@
+[
+  {
+    "scenario": 1,
+    "scenario_name": "normal_baseline",
+    "ground_truth_label": "BENIGN",
+    "rule_verdict": "no_alert",
+    "llm_verdict": "NO",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "BENIGN",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "BENIGN",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 0,
+      "detected_steps": 0,
+      "recall_pct": null,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": null,
+      "llm_precision": null
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": null,
+      "llm_seconds": null
+    },
+    "rule_breakdown": {},
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 0.0,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 1,
+      "event_references": {
+        "total_references": 5,
+        "valid_references": 5,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 0,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "evidence_grounding": 0.0
+      },
+      "actor_references": {
+        "suspect": null,
+        "suspect_in_events": false,
+        "actors_in_events": [
+          "user_01"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 1,
+        "entities_valid": 1,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 10,
+    "scenario_name": "delayed_out_of_order_events",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "ATTACK",
+      "rule_correct": false,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 2,
+      "detected_steps": 0,
+      "recall_pct": 0.0,
+      "missed_steps": [
+        "cross_department_access",
+        "network_recon"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.0,
+      "llm_precision": 0.0
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": 10200.0,
+      "llm_seconds": 7200.0
+    },
+    "rule_breakdown": {
+      "R005": {
+        "triggered": true,
+        "alert_count": 3,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 2,
+      "evidence_grounding_pct": 80.0,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 10,
+      "event_references": {
+        "total_references": 10,
+        "valid_references": 9,
+        "invalid_references": [
+          "R005"
+        ],
+        "hallucinated_events": 1
+      },
+      "timeline_correctness": {
+        "chain_length": 4,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 5,
+        "supported_claims": 4,
+        "unsupported_claims": 1,
+        "evidence_grounding": 80.0
+      },
+      "actor_references": {
+        "suspect": "user_02",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_02"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 3,
+        "entities_valid": 3,
+        "unknown_entities": []
+      },
+      "hallucination_count": 2,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 11,
+    "scenario_name": "benign_then_compromised",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 4,
+      "detected_steps": 3,
+      "recall_pct": 75.0,
+      "missed_steps": [
+        "account_takeover"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.4286,
+      "llm_precision": 0.4286
+    },
+    "f1": {
+      "rule_f1": 0.4616,
+      "llm_f1": 0.5455
+    },
+    "time_to_detect": {
+      "rule_seconds": -300.0,
+      "llm_seconds": -300.0
+    },
+    "rule_breakdown": {
+      "R001": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R005": {
+        "triggered": true,
+        "alert_count": 3,
+        "contributed_to_detection": false
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 87.5,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 11,
+      "event_references": {
+        "total_references": 25,
+        "valid_references": 25,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 7,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 8,
+        "supported_claims": 7,
+        "unsupported_claims": 1,
+        "evidence_grounding": 87.5
+      },
+      "actor_references": {
+        "suspect": "user_02",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_02"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 2,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 12,
+    "scenario_name": "conflicting_signals",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "ATTACK",
+      "rule_correct": false,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 3,
+      "detected_steps": 0,
+      "recall_pct": 0.0,
+      "missed_steps": [
+        "unauthorized_access_before_vpn",
+        "data_exfiltration_email",
+        "vpn_timestamp_anomaly"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.0,
+      "llm_precision": 0.0
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": 0.0,
+      "llm_seconds": 0.0
+    },
+    "rule_breakdown": {
+      "R001": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 2,
+      "evidence_grounding_pct": 85.71,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 12,
+      "event_references": {
+        "total_references": 12,
+        "valid_references": 12,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 6,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 7,
+        "supported_claims": 6,
+        "unsupported_claims": 1,
+        "evidence_grounding": 85.71
+      },
+      "actor_references": {
+        "suspect": "user_01",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_01"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 1,
+        "unknown_entities": [
+          {
+            "type": "ip_address",
+            "value": "192.168.1.100",
+            "error": "IP address '192.168.1.100' not found in any event"
+          }
+        ]
+      },
+      "hallucination_count": 2,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 13,
+    "scenario_name": "ultra_slow_exfiltration_7days",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "ATTACK",
+      "rule_correct": false,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 1,
+      "detected_steps": 0,
+      "recall_pct": 0.0,
+      "missed_steps": [
+        "systematic_cross_dept_collection_7days"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.0,
+      "llm_precision": 0.0
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": 18900.0,
+      "llm_seconds": 18900.0
+    },
+    "rule_breakdown": {
+      "R005": {
+        "triggered": true,
+        "alert_count": 6,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 2,
+      "evidence_grounding_pct": 85.71,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 13,
+      "event_references": {
+        "total_references": 13,
+        "valid_references": 12,
+        "invalid_references": [
+          "R005"
+        ],
+        "hallucinated_events": 1
+      },
+      "timeline_correctness": {
+        "chain_length": 6,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 7,
+        "supported_claims": 6,
+        "unsupported_claims": 1,
+        "evidence_grounding": 85.71
+      },
+      "actor_references": {
+        "suspect": "user_03",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_03"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 1,
+        "entities_valid": 1,
+        "unknown_entities": []
+      },
+      "hallucination_count": 2,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 14,
+    "scenario_name": "false_flag_misdirection",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 4,
+      "detected_steps": 0,
+      "recall_pct": 0.0,
+      "missed_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_02_lateral_movement",
+        "source_code_exfiltration",
+        "dns_tunnel"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.0,
+      "llm_precision": 0.0
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": 0.0,
+      "llm_seconds": 0.0
+    },
+    "rule_breakdown": {
+      "R002": {
+        "triggered": true,
+        "alert_count": 15,
+        "contributed_to_detection": false
+      },
+      "R007": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R001": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 88.89,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 14,
+      "event_references": {
+        "total_references": 18,
+        "valid_references": 18,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 8,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 9,
+        "supported_claims": 8,
+        "unsupported_claims": 1,
+        "evidence_grounding": 88.89
+      },
+      "actor_references": {
+        "suspect": "user_04",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_02",
+          "user_04"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 2,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 15,
+    "scenario_name": "end_of_quarter_legitimate_bulk",
+    "ground_truth_label": "BENIGN",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "BENIGN",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": false
+    },
+    "event_recall": {
+      "total_steps": 0,
+      "detected_steps": 0,
+      "recall_pct": null,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 10,
+      "llm_fp": true,
+      "false_positive_rate_pct": 38.46
+    },
+    "precision": {
+      "rule_precision": null,
+      "llm_precision": null
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": null,
+      "llm_seconds": null
+    },
+    "rule_breakdown": {
+      "R005": {
+        "triggered": true,
+        "alert_count": 5,
+        "contributed_to_detection": false
+      },
+      "R002": {
+        "triggered": true,
+        "alert_count": 5,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 88.89,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 15,
+      "event_references": {
+        "total_references": 21,
+        "valid_references": 21,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 8,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 9,
+        "supported_claims": 8,
+        "unsupported_claims": 1,
+        "evidence_grounding": 88.89
+      },
+      "actor_references": {
+        "suspect": "user_04",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_01",
+          "user_04"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 5,
+        "entities_valid": 5,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 2,
+    "scenario_name": "noisy_benign",
+    "ground_truth_label": "BENIGN",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "NO",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "BENIGN",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "BENIGN",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 0,
+      "detected_steps": 0,
+      "recall_pct": null,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 13,
+      "llm_fp": false,
+      "false_positive_rate_pct": 76.47
+    },
+    "precision": {
+      "rule_precision": null,
+      "llm_precision": null
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": null,
+      "llm_seconds": null
+    },
+    "rule_breakdown": {
+      "R001": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      },
+      "R002": {
+        "triggered": true,
+        "alert_count": 11,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 0.0,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 2,
+      "event_references": {
+        "total_references": 17,
+        "valid_references": 17,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 0,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "evidence_grounding": 0.0
+      },
+      "actor_references": {
+        "suspect": null,
+        "suspect_in_events": false,
+        "actors_in_events": [
+          "user_02"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 0,
+        "entities_valid": 0,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 3,
+    "scenario_name": "obvious_attack",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 6,
+      "detected_steps": 5,
+      "recall_pct": 83.33,
+      "missed_steps": [
+        "logout"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.2069,
+      "llm_precision": 1.0
+    },
+    "f1": {
+      "rule_f1": 0.3315,
+      "llm_f1": 0.9091
+    },
+    "time_to_detect": {
+      "rule_seconds": 540.0,
+      "llm_seconds": 540.0
+    },
+    "rule_breakdown": {
+      "R002": {
+        "triggered": true,
+        "alert_count": 23,
+        "contributed_to_detection": false
+      },
+      "R007": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R001": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R004": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 85.71,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 3,
+      "event_references": {
+        "total_references": 24,
+        "valid_references": 24,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 6,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 7,
+        "supported_claims": 6,
+        "unsupported_claims": 1,
+        "evidence_grounding": 85.71
+      },
+      "actor_references": {
+        "suspect": "user_04",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_04"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 1,
+        "volume_claims_valid": 1,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 2,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 4,
+    "scenario_name": "subtle_attack",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 6,
+      "detected_steps": 5,
+      "recall_pct": 83.33,
+      "missed_steps": [
+        "login_normal"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.0714,
+      "llm_precision": 1.0
+    },
+    "f1": {
+      "rule_f1": 0.1,
+      "llm_f1": 0.9091
+    },
+    "time_to_detect": {
+      "rule_seconds": 1800.0,
+      "llm_seconds": 1800.0
+    },
+    "rule_breakdown": {
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R005": {
+        "triggered": true,
+        "alert_count": 11,
+        "contributed_to_detection": false
+      },
+      "R002": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 2,
+      "evidence_grounding_pct": 83.33,
+      "timeline_correct": false
+    },
+    "hallucination_report": {
+      "scenario": 4,
+      "event_references": {
+        "total_references": 23,
+        "valid_references": 23,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 5,
+        "chronologically_correct": false,
+        "out_of_order_steps": [
+          5
+        ]
+      },
+      "unsupported_claims": {
+        "total_claims": 6,
+        "supported_claims": 5,
+        "unsupported_claims": 1,
+        "evidence_grounding": 83.33
+      },
+      "actor_references": {
+        "suspect": "user_03",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_03"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 2,
+        "unknown_entities": []
+      },
+      "hallucination_count": 2,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 5,
+    "scenario_name": "concurrent_activity_lateral_movement",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "ATTACK",
+      "rule_correct": false,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 4,
+      "detected_steps": 4,
+      "recall_pct": 100.0,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 1.0,
+      "llm_precision": 0.8571
+    },
+    "f1": {
+      "rule_f1": 0.8571,
+      "llm_f1": 0.9231
+    },
+    "time_to_detect": {
+      "rule_seconds": 14220.0,
+      "llm_seconds": -2580.0
+    },
+    "rule_breakdown": {
+      "R005": {
+        "triggered": true,
+        "alert_count": 3,
+        "contributed_to_detection": true
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 2,
+      "evidence_grounding_pct": 87.5,
+      "timeline_correct": false
+    },
+    "hallucination_report": {
+      "scenario": 5,
+      "event_references": {
+        "total_references": 30,
+        "valid_references": 30,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 7,
+        "chronologically_correct": false,
+        "out_of_order_steps": [
+          7
+        ]
+      },
+      "unsupported_claims": {
+        "total_claims": 8,
+        "supported_claims": 7,
+        "unsupported_claims": 1,
+        "evidence_grounding": 87.5
+      },
+      "actor_references": {
+        "suspect": "user_02",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_01",
+          "user_02",
+          "user_03"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 6,
+        "entities_valid": 6,
+        "unknown_entities": []
+      },
+      "hallucination_count": 2,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 6,
+    "scenario_name": "afterhours_maintenance_benign",
+    "ground_truth_label": "BENIGN",
+    "rule_verdict": "attack",
+    "llm_verdict": "NO",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "BENIGN",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "BENIGN",
+      "rule_correct": false,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 0,
+      "detected_steps": 0,
+      "recall_pct": null,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 33,
+      "llm_fp": false,
+      "false_positive_rate_pct": 132.0
+    },
+    "precision": {
+      "rule_precision": null,
+      "llm_precision": null
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": null,
+      "llm_seconds": null
+    },
+    "rule_breakdown": {
+      "R001": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R002": {
+        "triggered": true,
+        "alert_count": 25,
+        "contributed_to_detection": false
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 4,
+        "contributed_to_detection": false
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 0.0,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 6,
+      "event_references": {
+        "total_references": 6,
+        "valid_references": 6,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 0,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "evidence_grounding": 0.0
+      },
+      "actor_references": {
+        "suspect": null,
+        "suspect_in_events": false,
+        "actors_in_events": [
+          "user_02"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 0,
+        "entities_valid": 0,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 7,
+    "scenario_name": "credential_stuffing_failed",
+    "ground_truth_label": "BENIGN",
+    "rule_verdict": "suspicious",
+    "llm_verdict": "NO",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "BENIGN",
+      "rule_mapped": "BENIGN",
+      "llm_mapped": "BENIGN",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 0,
+      "detected_steps": 0,
+      "recall_pct": null,
+      "missed_steps": []
+    },
+    "false_positives": {
+      "rule_fp_count": 20,
+      "llm_fp": false,
+      "false_positive_rate_pct": 100.0
+    },
+    "precision": {
+      "rule_precision": null,
+      "llm_precision": null
+    },
+    "f1": {
+      "rule_f1": 0.0,
+      "llm_f1": 0.0
+    },
+    "time_to_detect": {
+      "rule_seconds": null,
+      "llm_seconds": null
+    },
+    "rule_breakdown": {
+      "R002": {
+        "triggered": true,
+        "alert_count": 14,
+        "contributed_to_detection": false
+      },
+      "R007": {
+        "triggered": true,
+        "alert_count": 6,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 0.0,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 7,
+      "event_references": {
+        "total_references": 20,
+        "valid_references": 20,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 0,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 1,
+        "supported_claims": 0,
+        "unsupported_claims": 1,
+        "evidence_grounding": 0.0
+      },
+      "actor_references": {
+        "suspect": null,
+        "suspect_in_events": false,
+        "actors_in_events": [
+          "user_01",
+          "user_04"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 2,
+        "entities_valid": 2,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 8,
+    "scenario_name": "full_infrastructure_attack",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 8,
+      "detected_steps": 1,
+      "recall_pct": 12.5,
+      "missed_steps": [
+        "sql_injection_probe",
+        "credential_dump",
+        "authentication_with_stolen_creds",
+        "database_exfiltration",
+        "file_server_access",
+        "dns_tunnel_exfiltration",
+        "log_deletion_cleanup"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.4,
+      "llm_precision": 0.0833
+    },
+    "f1": {
+      "rule_f1": 0.1905,
+      "llm_f1": 0.1
+    },
+    "time_to_detect": {
+      "rule_seconds": -60.0,
+      "llm_seconds": -540.0
+    },
+    "rule_breakdown": {
+      "R012": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": false
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 92.31,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 8,
+      "event_references": {
+        "total_references": 25,
+        "valid_references": 25,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 12,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 13,
+        "supported_claims": 12,
+        "unsupported_claims": 1,
+        "evidence_grounding": 92.31
+      },
+      "actor_references": {
+        "suspect": "user_admin",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_admin",
+          "webapp_service"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 1,
+        "entities_valid": 1,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  },
+  {
+    "scenario": 9,
+    "scenario_name": "incomplete_logs_missing_auth",
+    "ground_truth_label": "ATTACK",
+    "rule_verdict": "attack",
+    "llm_verdict": "YES",
+    "llm_confidence": "HIGH",
+    "is_mock": false,
+    "verdict_accuracy": {
+      "ground_truth": "ATTACK",
+      "rule_mapped": "ATTACK",
+      "llm_mapped": "ATTACK",
+      "rule_correct": true,
+      "llm_correct": true
+    },
+    "event_recall": {
+      "total_steps": 4,
+      "detected_steps": 2,
+      "recall_pct": 50.0,
+      "missed_steps": [
+        "missing_auth_evidence",
+        "unauthorized_downloads"
+      ]
+    },
+    "false_positives": {
+      "rule_fp_count": 0,
+      "llm_fp": false,
+      "false_positive_rate_pct": 0.0
+    },
+    "precision": {
+      "rule_precision": 0.25,
+      "llm_precision": 0.4286
+    },
+    "f1": {
+      "rule_f1": 0.3333,
+      "llm_f1": 0.4616
+    },
+    "time_to_detect": {
+      "rule_seconds": -300.0,
+      "llm_seconds": -300.0
+    },
+    "rule_breakdown": {
+      "R002": {
+        "triggered": true,
+        "alert_count": 7,
+        "contributed_to_detection": false
+      },
+      "R003": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R008": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      },
+      "R005": {
+        "triggered": true,
+        "alert_count": 2,
+        "contributed_to_detection": false
+      },
+      "R006": {
+        "triggered": true,
+        "alert_count": 1,
+        "contributed_to_detection": true
+      }
+    },
+    "llm_quality": {
+      "hallucination_count": 1,
+      "evidence_grounding_pct": 87.5,
+      "timeline_correct": true
+    },
+    "hallucination_report": {
+      "scenario": 9,
+      "event_references": {
+        "total_references": 14,
+        "valid_references": 14,
+        "invalid_references": [],
+        "hallucinated_events": 0
+      },
+      "timeline_correctness": {
+        "chain_length": 7,
+        "chronologically_correct": true,
+        "out_of_order_steps": []
+      },
+      "unsupported_claims": {
+        "total_claims": 8,
+        "supported_claims": 7,
+        "unsupported_claims": 1,
+        "evidence_grounding": 87.5
+      },
+      "actor_references": {
+        "suspect": "user_04",
+        "suspect_in_events": true,
+        "actors_in_events": [
+          "user_04"
+        ]
+      },
+      "temporal_claims": {
+        "temporal_claims_checked": 0,
+        "temporal_claims_valid": 0,
+        "temporal_errors": []
+      },
+      "volume_claims": {
+        "volume_claims_checked": 0,
+        "volume_claims_valid": 0,
+        "volume_errors": []
+      },
+      "entity_consistency": {
+        "entities_checked": 4,
+        "entities_valid": 4,
+        "unknown_entities": []
+      },
+      "hallucination_count": 1,
+      "hallucination_free": false
+    }
+  }
+]

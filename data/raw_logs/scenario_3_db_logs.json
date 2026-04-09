@@ -1,0 +1,24 @@
+[
+  {
+    "timestamp": "2026-04-01T02:50:00+06:00",
+    "event_type": "db_login_failed",
+    "username": "user_04",
+    "database": "",
+    "query": "postgresql://192.168.1.30:5432/company_db",
+    "src_ip": "185.220.101.34",
+    "result": "failure",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-01T03:15:00+06:00",
+    "event_type": "db_query",
+    "username": "user_04",
+    "database": "",
+    "query": "SELECT * FROM financial_records LIMIT 100",
+    "src_ip": "185.220.101.34",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  }
+]

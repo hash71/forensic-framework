@@ -1,0 +1,102 @@
+[
+  {
+    "event_id": "evt_s4_005",
+    "timestamp": "2026-04-01T14:30:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_read",
+    "resource": "/data/finance/reports/expense_breakdown.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "access_type": "read"
+    }
+  },
+  {
+    "event_id": "evt_s4_009",
+    "timestamp": "2026-04-02T10:45:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_read",
+    "resource": "/data/finance/reports/budget_forecast.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260402_001",
+    "severity": "info",
+    "metadata": {
+      "access_type": "read"
+    }
+  },
+  {
+    "event_id": "evt_s4_025",
+    "timestamp": "2026-04-02T16:30:00+06:00",
+    "source_type": "network",
+    "user": "user_03",
+    "action": "vpn_disconnect",
+    "resource": "vpn.internal.company.bd",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260402_001",
+    "severity": "info",
+    "metadata": {
+      "vpn_server": "vpn.internal.company.bd",
+      "session_duration_minutes": 465,
+      "bytes_uploaded": 1048576,
+      "bytes_downloaded": 5242880
+    }
+  },
+  {
+    "event_id": "evt_s4_019",
+    "timestamp": "2026-04-03T13:00:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_download",
+    "resource": "/data/finance/reports/budget_forecast.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260403_001",
+    "severity": "medium",
+    "metadata": {
+      "file_size_bytes": 798720,
+      "file_size_display": "780KB",
+      "access_type": "download"
+    }
+  },
+  {
+    "event_id": "evt_s4_027",
+    "timestamp": "2026-04-03T16:45:00+06:00",
+    "source_type": "email",
+    "user": "user_03",
+    "action": "mail_sent",
+    "resource": "candidate_pipeline.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260403_001",
+    "severity": "critical",
+    "metadata": {
+      "recipient": "recruiter@competitor.com",
+      "attachment": "candidate_pipeline.xlsx",
+      "attachment_size_bytes": 573440,
+      "attachment_size_display": "560KB",
+      "mail_server": "smtp.internal.company.bd",
+      "description": "Hiring pipeline data sent to competitor recruiter - smoking gun evidence"
+    }
+  },
+  {
+    "event_id": "evt_s4_023",
+    "timestamp": "2026-04-03T17:15:00+06:00",
+    "source_type": "auth",
+    "user": "user_03",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260403_001",
+    "severity": "info",
+    "metadata": {
+      "session_duration_minutes": 480
+    }
+  }
+]

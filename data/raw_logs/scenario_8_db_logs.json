@@ -1,0 +1,68 @@
+[
+  {
+    "timestamp": "2026-04-05T14:04:00+06:00",
+    "event_type": "db_query",
+    "username": "webapp_service",
+    "database": "",
+    "query": "SELECT username,password FROM users",
+    "src_ip": "192.168.1.50",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:05:00+06:00",
+    "event_type": "db_query",
+    "username": "webapp_service",
+    "database": "",
+    "query": "SELECT * FROM pg_shadow",
+    "src_ip": "192.168.1.50",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:12:00+06:00",
+    "event_type": "db_login",
+    "username": "user_admin",
+    "database": "",
+    "query": "postgresql://192.168.1.30:5432/company_db",
+    "src_ip": "45.33.32.156",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:13:00+06:00",
+    "event_type": "db_query",
+    "username": "user_admin",
+    "database": "",
+    "query": "SELECT * FROM customers LIMIT 1000",
+    "src_ip": "45.33.32.156",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:14:00+06:00",
+    "event_type": "db_export",
+    "username": "user_admin",
+    "database": "",
+    "query": "postgresql://192.168.1.30:5432/company_db/customers",
+    "src_ip": "45.33.32.156",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:15:00+06:00",
+    "event_type": "db_export",
+    "username": "user_admin",
+    "database": "",
+    "query": "postgresql://192.168.1.30:5432/company_db/transactions",
+    "src_ip": "45.33.32.156",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  }
+]

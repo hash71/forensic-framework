@@ -1,0 +1,107 @@
+[
+  {
+    "event_id": "evt_s3_023",
+    "timestamp": "2026-04-01T02:39:00+06:00",
+    "source_type": "web_server",
+    "user": null,
+    "action": "http_request",
+    "resource": "/api/v1/users",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "http_method": "GET",
+      "status_code": 401,
+      "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+      "response_reason": "unauthorized"
+    }
+  },
+  {
+    "event_id": "evt_s3_009",
+    "timestamp": "2026-04-01T03:01:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/loan_portfolio.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 29360128,
+      "file_size_display": "28MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_011",
+    "timestamp": "2026-04-01T03:05:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/swift_messages_march.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 23068672,
+      "file_size_display": "22MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_013",
+    "timestamp": "2026-04-01T03:08:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_read",
+    "resource": "/data/finance/confidential/",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "access_type": "directory_listing"
+    }
+  },
+  {
+    "event_id": "evt_s3_014",
+    "timestamp": "2026-04-01T03:09:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/audit_trail_2025.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 32505856,
+      "file_size_display": "31MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_017",
+    "timestamp": "2026-04-01T03:15:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/tax_filings_2025.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 19922944,
+      "file_size_display": "19MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  }
+]

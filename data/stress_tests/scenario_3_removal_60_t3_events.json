@@ -1,0 +1,218 @@
+[
+  {
+    "event_id": "evt_s3_022",
+    "timestamp": "2026-04-01T02:38:00+06:00",
+    "source_type": "web_server",
+    "user": null,
+    "action": "http_request",
+    "resource": "/admin/login",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "http_method": "GET",
+      "status_code": 403,
+      "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+      "response_reason": "forbidden"
+    }
+  },
+  {
+    "event_id": "evt_s3_023",
+    "timestamp": "2026-04-01T02:39:00+06:00",
+    "source_type": "web_server",
+    "user": null,
+    "action": "http_request",
+    "resource": "/api/v1/users",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "http_method": "GET",
+      "status_code": 401,
+      "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+      "response_reason": "unauthorized"
+    }
+  },
+  {
+    "event_id": "evt_s3_025",
+    "timestamp": "2026-04-01T02:42:00+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "dns_query",
+    "resource": "auth.internal.company.bd",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "query_type": "A",
+      "resolved_ip": "192.168.1.10",
+      "dns_server": "192.168.1.1",
+      "description": "Reconnaissance - resolving authentication server"
+    }
+  },
+  {
+    "event_id": "evt_s3_001",
+    "timestamp": "2026-04-01T02:47:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "auth_method": "password",
+      "failure_reason": "invalid_password",
+      "geo_location": "Tor exit node (Germany)",
+      "attempt_number": 1
+    }
+  },
+  {
+    "event_id": "evt_s3_002",
+    "timestamp": "2026-04-01T02:48:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "auth_method": "password",
+      "failure_reason": "invalid_password",
+      "geo_location": "Tor exit node (Germany)",
+      "attempt_number": 2
+    }
+  },
+  {
+    "event_id": "evt_s3_005",
+    "timestamp": "2026-04-01T02:54:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/customer_data_2025.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 47185920,
+      "file_size_display": "45MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_006",
+    "timestamp": "2026-04-01T02:56:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/transaction_log_q1.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 39845888,
+      "file_size_display": "38MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_012",
+    "timestamp": "2026-04-01T03:07:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/board_strategy_2026.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "access_type": "download",
+      "classification": "confidential",
+      "failure_reason": "permission_denied"
+    }
+  },
+  {
+    "event_id": "evt_s3_015",
+    "timestamp": "2026-04-01T03:11:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/vendor_contracts.pdf",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 8388608,
+      "file_size_display": "8MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_018",
+    "timestamp": "2026-04-01T03:16:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/insurance_claims.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 7340032,
+      "file_size_display": "7MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_027",
+    "timestamp": "2026-04-01T02:50:00+06:00",
+    "source_type": "database",
+    "user": "user_04",
+    "action": "db_login_failed",
+    "resource": "postgresql://192.168.1.30:5432/company_db",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "db_engine": "PostgreSQL",
+      "db_server": "192.168.1.30",
+      "db_port": 5432,
+      "failure_reason": "invalid_credentials",
+      "description": "Attacker attempted database access with compromised user credentials"
+    }
+  },
+  {
+    "event_id": "evt_s3_030",
+    "timestamp": "2026-04-01T03:20:00+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "dns_query",
+    "resource": "logs.internal.company.bd",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "query_type": "A",
+      "resolved_ip": "192.168.1.15",
+      "dns_server": "192.168.1.1",
+      "description": "Reconnaissance - resolving log server before log deletion"
+    }
+  }
+]

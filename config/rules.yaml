@@ -1,0 +1,60 @@
+rules:
+  - id: R001
+    name: unusual_login_ip
+    severity: warning
+    condition: source_ip NOT IN user.normal_ips AND action == login
+
+  - id: R002
+    name: off_hours_access
+    severity: warning
+    condition: timestamp outside user.normal_hours
+
+  - id: R003
+    name: privilege_escalation
+    severity: critical
+    condition: action == privilege_change
+
+  - id: R004
+    name: bulk_download
+    severity: critical
+    condition: count(file_download, window=30min) > 5
+
+  - id: R005
+    name: cross_department_access
+    severity: warning
+    condition: resource directory NOT IN user.normal_directories
+
+  - id: R006
+    name: log_deletion
+    severity: critical
+    condition: action == log_delete
+
+  - id: R007
+    name: failed_login_spike
+    severity: warning
+    condition: count(login failures, window=5min) >= 2
+
+  - id: R008
+    name: privilege_then_download
+    severity: critical
+    condition: privilege_change FOLLOWED BY file_download WITHIN 30min
+
+  - id: R009
+    name: dns_tunnel_detection
+    severity: critical
+    condition: count(dns_query to same domain, window=5min) > 20
+
+  - id: R010
+    name: sql_injection_attempt
+    severity: critical
+    condition: web_server event with status 500 AND url contains SQL keywords (UNION, SELECT, OR, DROP, --)
+
+  - id: R011
+    name: data_exfiltration_volume
+    severity: critical
+    condition: total bytes_transferred outbound > 100MB in 30min window
+
+  - id: R012
+    name: lateral_movement
+    severity: warning
+    condition: same user authenticated from different server types (auth + database + web) WITHIN 30min

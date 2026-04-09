@@ -1,0 +1,67 @@
+{
+  "scenario": 3,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:01 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:01:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:05 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:08 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:08:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_014"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:09 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:09:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_017"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:15:00+06:00"
+    }
+  ],
+  "alert_count": 5,
+  "rules_triggered": 1,
+  "severity_summary": {
+    "warning": 5,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

@@ -1,0 +1,61 @@
+{
+  "scenario": "5",
+  "findings": [
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s5_001",
+        "evt_s5_031",
+        "evt_s5_004",
+        "evt_s5_008",
+        "evt_s5_012",
+        "evt_s5_020"
+      ],
+      "description": "user_01 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s5_002",
+        "evt_s5_033",
+        "evt_s5_005",
+        "evt_s5_007",
+        "evt_s5_009",
+        "evt_s5_011",
+        "evt_s5_013",
+        "evt_s5_017",
+        "evt_s5_018",
+        "evt_s5_019",
+        "evt_s5_021",
+        "evt_s5_023",
+        "evt_s5_024",
+        "evt_s5_025",
+        "evt_s5_027",
+        "evt_s5_028",
+        "evt_s5_029",
+        "evt_s5_032"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s5_003",
+        "evt_s5_030",
+        "evt_s5_006",
+        "evt_s5_010",
+        "evt_s5_014",
+        "evt_s5_022",
+        "evt_s5_026"
+      ],
+      "description": "user_03 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 3,
+  "severity_summary": {
+    "info": 3
+  }
+}

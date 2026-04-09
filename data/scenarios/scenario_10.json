@@ -1,0 +1,206 @@
+{
+  "scenario_id": "scenario_10",
+  "name": "delayed_out_of_order_events",
+  "label": "ATTACK",
+  "description": "Network logs arrived 2 hours late due to log aggregation delay. user_02 accesses cross-department finance files. Network events have timestamps 2 hours before auth events but actually occurred simultaneously. The pipeline must reconcile out-of-order timestamps to detect the cross-department access and network reconnaissance.",
+  "events": [
+    {
+      "event_id": "evt_s10_001",
+      "timestamp": "2026-04-06T08:00:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "dns_query",
+      "resource": "finance.internal.company.bd",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "query_type": "A",
+        "resolved_ip": "192.168.1.200",
+        "dns_server": "192.168.1.1",
+        "log_delay_hours": 2,
+        "original_timestamp": "2026-04-06T10:00:00+06:00",
+        "description": "DNS query for finance server - timestamp delayed by 2 hours due to log aggregation"
+      }
+    },
+    {
+      "event_id": "evt_s10_002",
+      "timestamp": "2026-04-06T08:05:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "dns_query",
+      "resource": "fileserver.internal.company.bd",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "query_type": "A",
+        "resolved_ip": "192.168.1.20",
+        "dns_server": "192.168.1.1",
+        "log_delay_hours": 2,
+        "original_timestamp": "2026-04-06T10:05:00+06:00",
+        "description": "DNS query for file server - timestamp delayed"
+      }
+    },
+    {
+      "event_id": "evt_s10_003",
+      "timestamp": "2026-04-06T08:15:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "firewall_allow",
+      "resource": "192.168.1.200:445",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "direction": "internal",
+        "protocol": "SMB",
+        "destination_ip": "192.168.1.200",
+        "destination_port": 445,
+        "log_delay_hours": 2,
+        "original_timestamp": "2026-04-06T10:15:00+06:00",
+        "description": "Internal connection to finance server - timestamp delayed"
+      }
+    },
+    {
+      "event_id": "evt_s10_004",
+      "timestamp": "2026-04-06T08:30:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "firewall_allow",
+      "resource": "192.168.1.20:443",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "direction": "internal",
+        "protocol": "HTTPS",
+        "destination_ip": "192.168.1.20",
+        "destination_port": 443,
+        "log_delay_hours": 2,
+        "original_timestamp": "2026-04-06T10:30:00+06:00",
+        "description": "Connection to file server - timestamp delayed"
+      }
+    },
+    {
+      "event_id": "evt_s10_005",
+      "timestamp": "2026-04-06T10:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64)"
+      }
+    },
+    {
+      "event_id": "evt_s10_006",
+      "timestamp": "2026-04-06T10:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/design.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s10_007",
+      "timestamp": "2026-04-06T10:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/architecture_v3.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s10_008",
+      "timestamp": "2026-04-06T10:50:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "warning",
+      "metadata": {
+        "access_type": "directory_listing",
+        "note": "Engineering user browsing finance confidential directory"
+      }
+    },
+    {
+      "event_id": "evt_s10_009",
+      "timestamp": "2026-04-06T11:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/budget_2026.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 8388608,
+        "file_size_display": "8MB",
+        "access_type": "download",
+        "classification": "confidential",
+        "note": "Cross-department access: engineering user downloading finance data"
+      }
+    },
+    {
+      "event_id": "evt_s10_010",
+      "timestamp": "2026-04-06T11:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/revenue_forecast.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 4194304,
+        "file_size_display": "4MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s10_011",
+      "timestamp": "2026-04-06T11:30:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 90
+      }
+    }
+  ]
+}

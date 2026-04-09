@@ -1,0 +1,151 @@
+{
+  "scenario": 9,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_001"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:30 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:32 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:32:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_004"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:35 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:35:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s9_004"
+      ],
+      "user": "user_04",
+      "description": "Privilege change detected for user_04. Resource: role",
+      "timestamp": "2026-04-06T02:35:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s9_004",
+        "evt_s9_006"
+      ],
+      "user": "user_04",
+      "description": "Privilege escalation at 2026-04-06T02:35:00+06:00 followed by 1 file download(s) within 30 minutes",
+      "timestamp": "2026-04-06T02:35:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_005"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:37 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:37:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_005"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/hr/ is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-06T02:37:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_006"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:38 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:38:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_006"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/hr/salary_bands.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-06T02:38:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_007"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:40 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:40:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s9_007"
+      ],
+      "user": "user_04",
+      "description": "Log deletion detected by user_04. Target: /var/log/auth.log",
+      "timestamp": "2026-04-06T02:40:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s9_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:42 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-06T02:42:00+06:00"
+    }
+  ],
+  "alert_count": 12,
+  "rules_triggered": [
+    "R002",
+    "R003",
+    "R005",
+    "R006",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 9,
+    "critical": 3
+  },
+  "verdict": "attack"
+}

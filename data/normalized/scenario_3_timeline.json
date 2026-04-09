@@ -1,0 +1,1348 @@
+{
+  "scenario": 3,
+  "total_events": 30,
+  "timeline": [
+    {
+      "event_id": "evt_s3_001",
+      "timestamp": "2026-04-01T02:38:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_error",
+      "resource": "/admin/login",
+      "source_ip": "185.220.101.34",
+      "status": "403",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+        "method": "GET",
+        "status_code": 403
+      }
+    },
+    {
+      "event_id": "evt_s3_002",
+      "timestamp": "2026-04-01T02:39:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_error",
+      "resource": "/api/v1/users",
+      "source_ip": "185.220.101.34",
+      "status": "401",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+        "method": "GET",
+        "status_code": 401
+      }
+    },
+    {
+      "event_id": "evt_s3_003",
+      "timestamp": "2026-04-01T02:40:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "files.internal.company.bd",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "files.internal.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s3_004",
+      "timestamp": "2026-04-01T02:42:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "auth.internal.company.bd",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "auth.internal.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s3_005",
+      "timestamp": "2026-04-01T02:45:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "192.168.1.10:22",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "SSH",
+        "dst_ip": "192.168.1.10:22"
+      }
+    },
+    {
+      "event_id": "evt_s3_006",
+      "timestamp": "2026-04-01T02:47:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_007",
+      "timestamp": "2026-04-01T02:48:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_008",
+      "timestamp": "2026-04-01T02:49:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_009",
+      "timestamp": "2026-04-01T02:50:00+06:00",
+      "source_type": "database",
+      "user": "user_04",
+      "action": "db_login_failed",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_010",
+      "timestamp": "2026-04-01T02:52:00+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"previous_role\": \"read_only\", \"new_role\": \"read_write\", \"change_type\": \"self_escalation\"}"
+      }
+    },
+    {
+      "event_id": "evt_s3_011",
+      "timestamp": "2026-04-01T02:54:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/customer_data_2025.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 47185920
+      }
+    },
+    {
+      "event_id": "evt_s3_012",
+      "timestamp": "2026-04-01T02:56:30+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/transaction_log_q1.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 39845888
+      }
+    },
+    {
+      "event_id": "evt_s3_013",
+      "timestamp": "2026-04-01T02:58:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_014",
+      "timestamp": "2026-04-01T02:59:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 12582912
+      }
+    },
+    {
+      "event_id": "evt_s3_015",
+      "timestamp": "2026-04-01T03:01:30+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/loan_portfolio.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 29360128
+      }
+    },
+    {
+      "event_id": "evt_s3_016",
+      "timestamp": "2026-04-01T03:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/credit_risk_model.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 15728640
+      }
+    },
+    {
+      "event_id": "evt_s3_017",
+      "timestamp": "2026-04-01T03:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/swift_messages_march.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 23068672
+      }
+    },
+    {
+      "event_id": "evt_s3_018",
+      "timestamp": "2026-04-01T03:06:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "185.220.101.34:443",
+      "source_ip": "192.168.1.10",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "HTTPS",
+        "dst_ip": "185.220.101.34:443",
+        "bytes_transferred": 52428800
+      }
+    },
+    {
+      "event_id": "evt_s3_019",
+      "timestamp": "2026-04-01T03:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/board_strategy_2026.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_020",
+      "timestamp": "2026-04-01T03:08:30+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_021",
+      "timestamp": "2026-04-01T03:09:30+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/audit_trail_2025.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 32505856
+      }
+    },
+    {
+      "event_id": "evt_s3_022",
+      "timestamp": "2026-04-01T03:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/vendor_contracts.pdf",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 8388608
+      }
+    },
+    {
+      "event_id": "evt_s3_023",
+      "timestamp": "2026-04-01T03:13:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/board_minutes_q1.pdf",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4194304
+      }
+    },
+    {
+      "event_id": "evt_s3_024",
+      "timestamp": "2026-04-01T03:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/tax_filings_2025.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 19922944
+      }
+    },
+    {
+      "event_id": "evt_s3_025",
+      "timestamp": "2026-04-01T03:15:00+06:00",
+      "source_type": "database",
+      "user": "user_04",
+      "action": "db_query",
+      "resource": "SELECT * FROM financial_records LIMIT 100",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s3_026",
+      "timestamp": "2026-04-01T03:16:30+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/insurance_claims.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 7340032
+      }
+    },
+    {
+      "event_id": "evt_s3_027",
+      "timestamp": "2026-04-01T03:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/regulatory_correspondence.pdf",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3145728
+      }
+    },
+    {
+      "event_id": "evt_s3_028",
+      "timestamp": "2026-04-01T03:20:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "logs.internal.company.bd",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "logs.internal.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s3_029",
+      "timestamp": "2026-04-01T03:21:00+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "log_delete",
+      "resource": "/var/log/file_access.log",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/file_access.log\"}"
+      }
+    },
+    {
+      "event_id": "evt_s3_030",
+      "timestamp": "2026-04-01T03:23:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "unknown_user": [
+      {
+        "event_id": "evt_s3_001",
+        "timestamp": "2026-04-01T02:38:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/admin/login",
+        "source_ip": "185.220.101.34",
+        "status": "403",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+          "method": "GET",
+          "status_code": 403
+        }
+      },
+      {
+        "event_id": "evt_s3_002",
+        "timestamp": "2026-04-01T02:39:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/api/v1/users",
+        "source_ip": "185.220.101.34",
+        "status": "401",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+          "method": "GET",
+          "status_code": 401
+        }
+      },
+      {
+        "event_id": "evt_s3_003",
+        "timestamp": "2026-04-01T02:40:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "files.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "files.internal.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s3_004",
+        "timestamp": "2026-04-01T02:42:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "auth.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "auth.internal.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s3_005",
+        "timestamp": "2026-04-01T02:45:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "192.168.1.10:22",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "SSH",
+          "dst_ip": "192.168.1.10:22"
+        }
+      },
+      {
+        "event_id": "evt_s3_018",
+        "timestamp": "2026-04-01T03:06:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "185.220.101.34:443",
+        "source_ip": "192.168.1.10",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "HTTPS",
+          "dst_ip": "185.220.101.34:443",
+          "bytes_transferred": 52428800
+        }
+      },
+      {
+        "event_id": "evt_s3_028",
+        "timestamp": "2026-04-01T03:20:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "logs.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "logs.internal.company.bd"
+        }
+      }
+    ],
+    "user_04": [
+      {
+        "event_id": "evt_s3_006",
+        "timestamp": "2026-04-01T02:47:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_007",
+        "timestamp": "2026-04-01T02:48:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_008",
+        "timestamp": "2026-04-01T02:49:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_009",
+        "timestamp": "2026-04-01T02:50:00+06:00",
+        "source_type": "database",
+        "user": "user_04",
+        "action": "db_login_failed",
+        "resource": "postgresql://192.168.1.30:5432/company_db",
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_010",
+        "timestamp": "2026-04-01T02:52:00+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"previous_role\": \"read_only\", \"new_role\": \"read_write\", \"change_type\": \"self_escalation\"}"
+        }
+      },
+      {
+        "event_id": "evt_s3_011",
+        "timestamp": "2026-04-01T02:54:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/customer_data_2025.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 47185920
+        }
+      },
+      {
+        "event_id": "evt_s3_012",
+        "timestamp": "2026-04-01T02:56:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/transaction_log_q1.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 39845888
+        }
+      },
+      {
+        "event_id": "evt_s3_013",
+        "timestamp": "2026-04-01T02:58:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_014",
+        "timestamp": "2026-04-01T02:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s3_015",
+        "timestamp": "2026-04-01T03:01:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/loan_portfolio.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29360128
+        }
+      },
+      {
+        "event_id": "evt_s3_016",
+        "timestamp": "2026-04-01T03:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/credit_risk_model.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 15728640
+        }
+      },
+      {
+        "event_id": "evt_s3_017",
+        "timestamp": "2026-04-01T03:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/swift_messages_march.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 23068672
+        }
+      },
+      {
+        "event_id": "evt_s3_019",
+        "timestamp": "2026-04-01T03:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/board_strategy_2026.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_020",
+        "timestamp": "2026-04-01T03:08:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_021",
+        "timestamp": "2026-04-01T03:09:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/audit_trail_2025.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 32505856
+        }
+      },
+      {
+        "event_id": "evt_s3_022",
+        "timestamp": "2026-04-01T03:11:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/vendor_contracts.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 8388608
+        }
+      },
+      {
+        "event_id": "evt_s3_023",
+        "timestamp": "2026-04-01T03:13:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/board_minutes_q1.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4194304
+        }
+      },
+      {
+        "event_id": "evt_s3_024",
+        "timestamp": "2026-04-01T03:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/tax_filings_2025.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 19922944
+        }
+      },
+      {
+        "event_id": "evt_s3_025",
+        "timestamp": "2026-04-01T03:15:00+06:00",
+        "source_type": "database",
+        "user": "user_04",
+        "action": "db_query",
+        "resource": "SELECT * FROM financial_records LIMIT 100",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_026",
+        "timestamp": "2026-04-01T03:16:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/insurance_claims.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7340032
+        }
+      },
+      {
+        "event_id": "evt_s3_027",
+        "timestamp": "2026-04-01T03:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/regulatory_correspondence.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3145728
+        }
+      },
+      {
+        "event_id": "evt_s3_029",
+        "timestamp": "2026-04-01T03:21:00+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "log_delete",
+        "resource": "/var/log/file_access.log",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/file_access.log\"}"
+        }
+      },
+      {
+        "event_id": "evt_s3_030",
+        "timestamp": "2026-04-01T03:23:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "no_session": [
+      {
+        "event_id": "evt_s3_001",
+        "timestamp": "2026-04-01T02:38:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/admin/login",
+        "source_ip": "185.220.101.34",
+        "status": "403",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+          "method": "GET",
+          "status_code": 403
+        }
+      },
+      {
+        "event_id": "evt_s3_002",
+        "timestamp": "2026-04-01T02:39:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/api/v1/users",
+        "source_ip": "185.220.101.34",
+        "status": "401",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+          "method": "GET",
+          "status_code": 401
+        }
+      },
+      {
+        "event_id": "evt_s3_003",
+        "timestamp": "2026-04-01T02:40:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "files.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "files.internal.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s3_004",
+        "timestamp": "2026-04-01T02:42:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "auth.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "auth.internal.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s3_005",
+        "timestamp": "2026-04-01T02:45:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "192.168.1.10:22",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "SSH",
+          "dst_ip": "192.168.1.10:22"
+        }
+      },
+      {
+        "event_id": "evt_s3_009",
+        "timestamp": "2026-04-01T02:50:00+06:00",
+        "source_type": "database",
+        "user": "user_04",
+        "action": "db_login_failed",
+        "resource": "postgresql://192.168.1.30:5432/company_db",
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_010",
+        "timestamp": "2026-04-01T02:52:00+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"previous_role\": \"read_only\", \"new_role\": \"read_write\", \"change_type\": \"self_escalation\"}"
+        }
+      },
+      {
+        "event_id": "evt_s3_018",
+        "timestamp": "2026-04-01T03:06:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "185.220.101.34:443",
+        "source_ip": "192.168.1.10",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "HTTPS",
+          "dst_ip": "185.220.101.34:443",
+          "bytes_transferred": 52428800
+        }
+      },
+      {
+        "event_id": "evt_s3_025",
+        "timestamp": "2026-04-01T03:15:00+06:00",
+        "source_type": "database",
+        "user": "user_04",
+        "action": "db_query",
+        "resource": "SELECT * FROM financial_records LIMIT 100",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_028",
+        "timestamp": "2026-04-01T03:20:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "logs.internal.company.bd",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "logs.internal.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s3_029",
+        "timestamp": "2026-04-01T03:21:00+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "log_delete",
+        "resource": "/var/log/file_access.log",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/file_access.log\"}"
+        }
+      }
+    ],
+    "sess_user_04_20260401_001": [
+      {
+        "event_id": "evt_s3_006",
+        "timestamp": "2026-04-01T02:47:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_007",
+        "timestamp": "2026-04-01T02:48:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_008",
+        "timestamp": "2026-04-01T02:49:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_011",
+        "timestamp": "2026-04-01T02:54:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/customer_data_2025.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 47185920
+        }
+      },
+      {
+        "event_id": "evt_s3_012",
+        "timestamp": "2026-04-01T02:56:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/transaction_log_q1.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 39845888
+        }
+      },
+      {
+        "event_id": "evt_s3_013",
+        "timestamp": "2026-04-01T02:58:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_014",
+        "timestamp": "2026-04-01T02:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s3_015",
+        "timestamp": "2026-04-01T03:01:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/loan_portfolio.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29360128
+        }
+      },
+      {
+        "event_id": "evt_s3_016",
+        "timestamp": "2026-04-01T03:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/credit_risk_model.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 15728640
+        }
+      },
+      {
+        "event_id": "evt_s3_017",
+        "timestamp": "2026-04-01T03:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/swift_messages_march.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 23068672
+        }
+      },
+      {
+        "event_id": "evt_s3_019",
+        "timestamp": "2026-04-01T03:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/board_strategy_2026.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "failure",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_020",
+        "timestamp": "2026-04-01T03:08:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s3_021",
+        "timestamp": "2026-04-01T03:09:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/audit_trail_2025.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 32505856
+        }
+      },
+      {
+        "event_id": "evt_s3_022",
+        "timestamp": "2026-04-01T03:11:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/vendor_contracts.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 8388608
+        }
+      },
+      {
+        "event_id": "evt_s3_023",
+        "timestamp": "2026-04-01T03:13:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/board_minutes_q1.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4194304
+        }
+      },
+      {
+        "event_id": "evt_s3_024",
+        "timestamp": "2026-04-01T03:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/tax_filings_2025.xlsx",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 19922944
+        }
+      },
+      {
+        "event_id": "evt_s3_026",
+        "timestamp": "2026-04-01T03:16:30+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/insurance_claims.csv",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7340032
+        }
+      },
+      {
+        "event_id": "evt_s3_027",
+        "timestamp": "2026-04-01T03:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/regulatory_correspondence.pdf",
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3145728
+        }
+      },
+      {
+        "event_id": "evt_s3_030",
+        "timestamp": "2026-04-01T03:23:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "185.220.101.34",
+        "status": "success",
+        "session_id": "sess_user_04_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-01T02:38:00+06:00",
+    "end": "2026-04-01T03:23:00+06:00"
+  }
+}

@@ -1,0 +1,365 @@
+{
+  "scenario": 3,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_006"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:47 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:47:00+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_006",
+        "evt_s3_007"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 2 failures within 5 minutes for user_04 (window start: 2026-04-01T02:47:00+06:00)",
+      "timestamp": "2026-04-01T02:47:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_007"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:48:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_008"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 185.220.101.34. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_008"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:49 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:50 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:50:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_010"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:52 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_010"
+      ],
+      "user": "user_04",
+      "description": "Privilege change detected for user_04. Resource: role",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_026",
+        "evt_s3_027"
+      ],
+      "user": "user_04",
+      "description": "Privilege escalation at 2026-04-01T02:52:00+06:00 followed by 13 file download(s) within 30 minutes",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:54:00+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_019",
+        "evt_s3_021",
+        "evt_s3_022",
+        "evt_s3_023",
+        "evt_s3_024",
+        "evt_s3_026",
+        "evt_s3_027"
+      ],
+      "user": "user_04",
+      "description": "Bulk download detected: 13 files downloaded within 30 minutes (window start: 2026-04-01T02:54:00+06:00)",
+      "timestamp": "2026-04-01T02:54:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_012"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:56 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:56:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:58 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:58:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_014"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:59 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_015"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:01 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:01:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_016"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:03 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:03:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_017"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:05 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_019"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:07 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:07:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_020"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:08 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:08:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_021"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:09 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:09:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_022"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:11 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:11:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_023"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:13 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:13:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_024"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_025"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_026"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:16 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:16:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_027"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:18 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:18:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_029"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:21 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:21:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_029"
+      ],
+      "user": "user_04",
+      "description": "Log deletion detected by user_04. Target: /var/log/file_access.log",
+      "timestamp": "2026-04-01T03:21:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_030"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:23 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:23:00+06:00"
+    }
+  ],
+  "alert_count": 29,
+  "rules_triggered": [
+    "R001",
+    "R002",
+    "R003",
+    "R004",
+    "R006",
+    "R007",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 25,
+    "critical": 4
+  },
+  "verdict": "attack"
+}

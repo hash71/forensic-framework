@@ -1,0 +1,84 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an authorized user (user_02) accessing sensitive HR data (salary bands, employee reviews, performance reviews) outside their department and normal directories. This activity occurred after a mid-session IP change from a known internal IP to an external/VPN IP (10.0.0.55), which is a strong indicator of session hijacking or unauthorized remote access. The combination of cross-departmental access to sensitive PII/financial data and the anomalous IP shift within a single session confirms a security incident.",
+  "suspect": "user_02",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s5_002",
+      "description": "Legitimate login by user_02 from normal IP 192.168.1.102, establishing session sess_user_02_20260403_001.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s5_016",
+      "description": "Network connection established from external IP 10.0.0.55 to user_02's internal host, preceding the IP change in the session.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s5_017",
+      "description": "Mid-session IP change: user_02's session (sess_user_02_20260403_001) switches source IP from 192.168.1.102 to 10.0.0.55. This indicates potential session hijacking or unauthorized remote access.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s5_019",
+      "description": "Cross-department access: user_02 reads /data/hr/salary_bands.xlsx, a sensitive HR file outside their authorized scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s5_023",
+      "description": "Continued cross-department access: user_02 reads /data/hr/employee_reviews.xlsx.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s5_027",
+      "description": "Continued cross-department access: user_02 reads /data/hr/performance_reviews_2025.xlsx.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s5_025",
+      "description": "Large data download: user_02 downloads a 45MB codebase snapshot, potentially exfiltrating intellectual property.",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "evidence_for": [
+    "evt_s5_016",
+    "evt_s5_017",
+    "evt_s5_018",
+    "evt_s5_019",
+    "evt_s5_021",
+    "evt_s5_023",
+    "evt_s5_025",
+    "evt_s5_027",
+    "evt_s5_028",
+    "evt_s5_029",
+    "evt_s5_032"
+  ],
+  "evidence_against": [
+    "evt_s5_002",
+    "evt_s5_005",
+    "evt_s5_007",
+    "evt_s5_009",
+    "evt_s5_011",
+    "evt_s5_013",
+    "evt_s5_018",
+    "evt_s5_021",
+    "evt_s5_024",
+    "evt_s5_028",
+    "evt_s5_029",
+    "evt_s5_032"
+  ],
+  "gaps": [
+    "No explicit ticket number or maintenance justification metadata for the HR file access events.",
+    "No logs indicating if user_02 was physically traveling at the time of the IP change to 10.0.0.55.",
+    "No DLP (Data Loss Prevention) logs confirming if the downloaded files were actually exfiltrated off-network."
+  ],
+  "narrative": "User_02, a senior developer, exhibited suspicious behavior starting with a mid-session IP change from their normal office IP to an external IP (10.0.0.55), strongly suggesting session hijacking. Following this change, the user accessed multiple sensitive HR files (salary bands, reviews) outside their departmental scope and downloaded a large codebase snapshot. This pattern of cross-departmental data access combined with the anomalous network behavior confirms a security incident involving unauthorized data access."
+}

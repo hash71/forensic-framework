@@ -1,0 +1,109 @@
+[
+  {
+    "event_id": "evt_s3_022",
+    "timestamp": "2026-04-01T02:38:00+06:00",
+    "source_type": "web_server",
+    "user": null,
+    "action": "http_request",
+    "resource": "/admin/login",
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "http_method": "GET",
+      "status_code": 403,
+      "user_agent": "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1)",
+      "response_reason": "forbidden"
+    }
+  },
+  {
+    "event_id": "evt_s3_006",
+    "timestamp": "2026-04-01T02:56:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/transaction_log_q1.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 39845888,
+      "file_size_display": "38MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_008",
+    "timestamp": "2026-04-01T02:59:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 12582912,
+      "file_size_display": "12MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_009",
+    "timestamp": "2026-04-01T03:01:30+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/loan_portfolio.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 29360128,
+      "file_size_display": "28MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_020",
+    "timestamp": "2026-04-01T03:21:00+06:00",
+    "source_type": "admin",
+    "user": "user_04",
+    "action": "log_delete",
+    "resource": "/var/log/file_access.log",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "action_type": "anti_forensics",
+      "target_log": "/var/log/file_access.log"
+    }
+  },
+  {
+    "event_id": "evt_s3_029",
+    "timestamp": "2026-04-01T03:15:00+06:00",
+    "source_type": "database",
+    "user": "user_04",
+    "action": "db_query",
+    "resource": "postgresql://192.168.1.30:5432/company_db",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "db_engine": "PostgreSQL",
+      "db_server": "192.168.1.30",
+      "query": "SELECT * FROM financial_records LIMIT 100",
+      "rows_returned": 100,
+      "description": "Attacker queried financial records after file exfiltration"
+    }
+  }
+]

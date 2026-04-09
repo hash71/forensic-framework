@@ -1,0 +1,102 @@
+{
+  "scenario": "7",
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s7_001",
+        "evt_s7_002",
+        "evt_s7_003",
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006",
+        "evt_s7_007",
+        "evt_s7_008",
+        "evt_s7_015"
+      ],
+      "description": "8 failed login(s) for user_01 followed by successful login from 192.168.1.100",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s7_001",
+        "evt_s7_002",
+        "evt_s7_003",
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006",
+        "evt_s7_007",
+        "evt_s7_008"
+      ],
+      "description": "user_01 had 8 event(s) outside normal working hours (08:30-18:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s7_009",
+        "evt_s7_010",
+        "evt_s7_011",
+        "evt_s7_012",
+        "evt_s7_013",
+        "evt_s7_014"
+      ],
+      "description": "user_04 had 6 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s7_001",
+        "evt_s7_002",
+        "evt_s7_003",
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006"
+      ],
+      "description": "user_01 generated 6 events in 4 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s7_009",
+        "evt_s7_010",
+        "evt_s7_011",
+        "evt_s7_012",
+        "evt_s7_013",
+        "evt_s7_014"
+      ],
+      "description": "user_04 generated 6 events in 8 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s7_001",
+        "evt_s7_002",
+        "evt_s7_003",
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006",
+        "evt_s7_007",
+        "evt_s7_008",
+        "evt_s7_015",
+        "evt_s7_020",
+        "evt_s7_016",
+        "evt_s7_017",
+        "evt_s7_018",
+        "evt_s7_019"
+      ],
+      "description": "user_01 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 6,
+  "severity_summary": {
+    "critical": 1,
+    "warning": 4,
+    "info": 1
+  }
+}

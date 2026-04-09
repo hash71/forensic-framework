@@ -1,0 +1,1108 @@
+{
+  "scenario": 15,
+  "total_events": 26,
+  "timeline": [
+    {
+      "event_id": "evt_s15_001",
+      "timestamp": "2026-04-07T09:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_002",
+      "timestamp": "2026-04-07T09:05:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_003",
+      "timestamp": "2026-04-07T09:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/report_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_004",
+      "timestamp": "2026-04-07T09:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/report_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_005",
+      "timestamp": "2026-04-07T10:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/budget_2026.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3145728
+      }
+    },
+    {
+      "event_id": "evt_s15_006",
+      "timestamp": "2026-04-07T10:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/accounts_receivable_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2097152
+      }
+    },
+    {
+      "event_id": "evt_s15_007",
+      "timestamp": "2026-04-07T10:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/revenue_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4194304
+      }
+    },
+    {
+      "event_id": "evt_s15_008",
+      "timestamp": "2026-04-07T11:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/cashflow_march.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_009",
+      "timestamp": "2026-04-07T11:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/expense_summary_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2621440
+      }
+    },
+    {
+      "event_id": "evt_s15_010",
+      "timestamp": "2026-04-07T12:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/accounts_payable_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1572864
+      }
+    },
+    {
+      "event_id": "evt_s15_011",
+      "timestamp": "2026-04-07T13:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/depreciation_schedule.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_012",
+      "timestamp": "2026-04-07T13:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/budget_impact.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_013",
+      "timestamp": "2026-04-07T14:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/forecast_q2_2026.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3670016
+      }
+    },
+    {
+      "event_id": "evt_s15_014",
+      "timestamp": "2026-04-07T14:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/tax_withholdings_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1048576
+      }
+    },
+    {
+      "event_id": "evt_s15_015",
+      "timestamp": "2026-04-07T15:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/cost_estimate.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_016",
+      "timestamp": "2026-04-07T15:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/intercompany_transfers_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2097152
+      }
+    },
+    {
+      "event_id": "evt_s15_017",
+      "timestamp": "2026-04-07T16:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/milestone_report.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_018",
+      "timestamp": "2026-04-07T16:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/bank_reconciliation_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1835008
+      }
+    },
+    {
+      "event_id": "evt_s15_019",
+      "timestamp": "2026-04-07T17:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/general_ledger_q1.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5242880
+      }
+    },
+    {
+      "event_id": "evt_s15_020",
+      "timestamp": "2026-04-07T17:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/deliverables_summary.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_021",
+      "timestamp": "2026-04-07T17:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/consolidated_pnl_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6291456
+      }
+    },
+    {
+      "event_id": "evt_s15_022",
+      "timestamp": "2026-04-07T18:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/finance_allocation.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_023",
+      "timestamp": "2026-04-07T19:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_024",
+      "timestamp": "2026-04-07T19:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/balance_sheet_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4718592
+      }
+    },
+    {
+      "event_id": "evt_s15_025",
+      "timestamp": "2026-04-07T19:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/trial_balance_q1.xlsx",
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s15_026",
+      "timestamp": "2026-04-07T20:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.100",
+      "status": "success",
+      "session_id": "sess_user_01_20260407_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_01": [
+      {
+        "event_id": "evt_s15_001",
+        "timestamp": "2026-04-07T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_003",
+        "timestamp": "2026-04-07T09:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_005",
+        "timestamp": "2026-04-07T10:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/budget_2026.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3145728
+        }
+      },
+      {
+        "event_id": "evt_s15_007",
+        "timestamp": "2026-04-07T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/revenue_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4194304
+        }
+      },
+      {
+        "event_id": "evt_s15_009",
+        "timestamp": "2026-04-07T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/expense_summary_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2621440
+        }
+      },
+      {
+        "event_id": "evt_s15_011",
+        "timestamp": "2026-04-07T13:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/depreciation_schedule.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_013",
+        "timestamp": "2026-04-07T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/forecast_q2_2026.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3670016
+        }
+      },
+      {
+        "event_id": "evt_s15_016",
+        "timestamp": "2026-04-07T15:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/intercompany_transfers_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2097152
+        }
+      },
+      {
+        "event_id": "evt_s15_017",
+        "timestamp": "2026-04-07T16:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/milestone_report.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_021",
+        "timestamp": "2026-04-07T17:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/consolidated_pnl_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s15_022",
+        "timestamp": "2026-04-07T18:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/finance_allocation.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_024",
+        "timestamp": "2026-04-07T19:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/balance_sheet_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4718592
+        }
+      },
+      {
+        "event_id": "evt_s15_025",
+        "timestamp": "2026-04-07T19:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/trial_balance_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_026",
+        "timestamp": "2026-04-07T20:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "user_04": [
+      {
+        "event_id": "evt_s15_002",
+        "timestamp": "2026-04-07T09:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_004",
+        "timestamp": "2026-04-07T09:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_006",
+        "timestamp": "2026-04-07T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/accounts_receivable_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2097152
+        }
+      },
+      {
+        "event_id": "evt_s15_008",
+        "timestamp": "2026-04-07T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/cashflow_march.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_010",
+        "timestamp": "2026-04-07T12:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/accounts_payable_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1572864
+        }
+      },
+      {
+        "event_id": "evt_s15_012",
+        "timestamp": "2026-04-07T13:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/budget_impact.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_014",
+        "timestamp": "2026-04-07T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/tax_withholdings_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1048576
+        }
+      },
+      {
+        "event_id": "evt_s15_015",
+        "timestamp": "2026-04-07T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/cost_estimate.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_018",
+        "timestamp": "2026-04-07T16:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/bank_reconciliation_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1835008
+        }
+      },
+      {
+        "event_id": "evt_s15_019",
+        "timestamp": "2026-04-07T17:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/general_ledger_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5242880
+        }
+      },
+      {
+        "event_id": "evt_s15_020",
+        "timestamp": "2026-04-07T17:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/deliverables_summary.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_023",
+        "timestamp": "2026-04-07T19:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_01_20260407_001": [
+      {
+        "event_id": "evt_s15_001",
+        "timestamp": "2026-04-07T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_003",
+        "timestamp": "2026-04-07T09:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_005",
+        "timestamp": "2026-04-07T10:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/budget_2026.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3145728
+        }
+      },
+      {
+        "event_id": "evt_s15_007",
+        "timestamp": "2026-04-07T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/revenue_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4194304
+        }
+      },
+      {
+        "event_id": "evt_s15_009",
+        "timestamp": "2026-04-07T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/expense_summary_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2621440
+        }
+      },
+      {
+        "event_id": "evt_s15_011",
+        "timestamp": "2026-04-07T13:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/depreciation_schedule.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_013",
+        "timestamp": "2026-04-07T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/forecast_q2_2026.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3670016
+        }
+      },
+      {
+        "event_id": "evt_s15_016",
+        "timestamp": "2026-04-07T15:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/intercompany_transfers_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2097152
+        }
+      },
+      {
+        "event_id": "evt_s15_017",
+        "timestamp": "2026-04-07T16:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/milestone_report.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_021",
+        "timestamp": "2026-04-07T17:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/consolidated_pnl_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s15_022",
+        "timestamp": "2026-04-07T18:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/finance_allocation.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_024",
+        "timestamp": "2026-04-07T19:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/balance_sheet_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4718592
+        }
+      },
+      {
+        "event_id": "evt_s15_025",
+        "timestamp": "2026-04-07T19:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/trial_balance_q1.xlsx",
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_026",
+        "timestamp": "2026-04-07T20:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.100",
+        "status": "success",
+        "session_id": "sess_user_01_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_04_20260407_001": [
+      {
+        "event_id": "evt_s15_002",
+        "timestamp": "2026-04-07T09:05:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_004",
+        "timestamp": "2026-04-07T09:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_006",
+        "timestamp": "2026-04-07T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/accounts_receivable_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2097152
+        }
+      },
+      {
+        "event_id": "evt_s15_008",
+        "timestamp": "2026-04-07T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/finance/cashflow_march.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_010",
+        "timestamp": "2026-04-07T12:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/accounts_payable_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1572864
+        }
+      },
+      {
+        "event_id": "evt_s15_012",
+        "timestamp": "2026-04-07T13:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/budget_impact.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_014",
+        "timestamp": "2026-04-07T14:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/tax_withholdings_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1048576
+        }
+      },
+      {
+        "event_id": "evt_s15_015",
+        "timestamp": "2026-04-07T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/cost_estimate.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_018",
+        "timestamp": "2026-04-07T16:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/bank_reconciliation_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1835008
+        }
+      },
+      {
+        "event_id": "evt_s15_019",
+        "timestamp": "2026-04-07T17:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/general_ledger_q1.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5242880
+        }
+      },
+      {
+        "event_id": "evt_s15_020",
+        "timestamp": "2026-04-07T17:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/deliverables_summary.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s15_023",
+        "timestamp": "2026-04-07T19:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260407_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-07T09:00:00+06:00",
+    "end": "2026-04-07T20:00:00+06:00"
+  }
+}

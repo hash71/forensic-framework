@@ -1,0 +1,36 @@
+{
+  "verdict": "NO",
+  "incident_occurred": false,
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows multiple failed login attempts (evt_s7_001 through evt_s7_014) from various external IPs targeting user_01 and user_04. However, every single one of these attempts resulted in a 'failure' status. There is no evidence of a successful login, session establishment, or data access following these attempts. The subsequent activity for user_01 (evt_s7_015 through evt_s7_020) occurred during normal business hours from their standard IP address (192.168.1.100) and involved accessing files within their normal department directory (/data/finance/). This activity is consistent with legitimate work and does not indicate a breach or insider threat.",
+  "suspect": null,
+  "attack_chain": [],
+  "evidence_for": [],
+  "evidence_against": [
+    "evt_s7_001",
+    "evt_s7_002",
+    "evt_s7_003",
+    "evt_s7_004",
+    "evt_s7_005",
+    "evt_s7_006",
+    "evt_s7_007",
+    "evt_s7_008",
+    "evt_s7_009",
+    "evt_s7_010",
+    "evt_s7_011",
+    "evt_s7_012",
+    "evt_s7_013",
+    "evt_s7_014",
+    "evt_s7_015",
+    "evt_s7_016",
+    "evt_s7_017",
+    "evt_s7_018",
+    "evt_s7_019",
+    "evt_s7_020"
+  ],
+  "gaps": [
+    "No evidence of successful authentication following the brute-force attempts.",
+    "No evidence of data exfiltration or access to files outside the user's normal scope."
+  ],
+  "narrative": "The environment experienced a series of failed brute-force login attempts against user_01 and user_04 from external IPs between 02:01 and 02:23. All attempts failed, and no unauthorized access was achieved. Subsequent activity by user_01 was legitimate, occurring during normal hours from a trusted IP with access restricted to their standard finance directory."
+}

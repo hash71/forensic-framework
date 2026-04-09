@@ -1,0 +1,1985 @@
+{
+  "scenario": 3,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0107"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:38 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:38:07.655989+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0107"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:38:07.655989+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0070"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:38 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:38:25.373065+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0070"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:38:25.373065+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0091"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:39 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:39:07.566554+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0005"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:40 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:40:02.892393+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0005"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:40:02.892393+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0037"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:40 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:40:26.351031+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0037"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:40:26.351031+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0023"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:40 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:40:41.022707+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0023"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:40:41.022707+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0128"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:40 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:40:41.948641+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0128"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:40:41.948641+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0101"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:40 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:40:43.485241+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0138"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:41 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:41:07.880637+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0138"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:41:07.880637+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0020"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:41 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:41:12.185352+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0067"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:41 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:41:33.214547+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0141"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:41 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:41:49.384008+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0141"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/monthly_summary.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:41:49.384008+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0062"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:42 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:42:04.024193+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0062"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:42:04.024193+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0127"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:42 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:42:11.721275+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0133"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:43 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:43:10.190347+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0012"
+      ],
+      "user": "user_03",
+      "description": "Login from unusual IP 192.168.1.101. Normal IPs: ['192.168.1.103']",
+      "timestamp": "2026-04-01T02:43:19.819218+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0012"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:43 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:43:19.819218+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0040"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:43 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:43:27.850425+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0063"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.103. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T02:45:29.184924+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0063"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:45 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:45:29.184924+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0111"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:45 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:45:50.464744+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0111"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:45:50.464744+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0004"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:46 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:46:04.492168+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0137"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:46 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:46:09.795007+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0137"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:46:09.795007+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0001"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:46 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:46:37.160627+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0001"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:46:37.160627+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0000"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.105. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T02:46:39.977592+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0000"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:46 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:46:39.977592+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_001"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:47 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:47:00+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_001",
+        "evt_s3_002"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 2 failures within 5 minutes for user_04 (window start: 2026-04-01T02:47:00+06:00)",
+      "timestamp": "2026-04-01T02:47:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0105"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:47 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:47:14.055053+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:48:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0022"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:48 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:48:06.985516+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0022"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:48:06.985516+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0052"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:48:44.774969+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0017"
+      ],
+      "user": "user_03",
+      "description": "Login from unusual IP 192.168.1.101. Normal IPs: ['192.168.1.103']",
+      "timestamp": "2026-04-01T02:48:47.635980+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0017"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:48:47.635980+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0045"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:48:58.073446+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0045"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:48:58.073446+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_003"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 185.220.101.34. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_003"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:49 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0079"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:49 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:49:16.692360+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0108"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:49 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:49:16.766331+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_027"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:50 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:50:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0048"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:50 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:50:01.366190+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0048"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:50:01.366190+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0119"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.101. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T02:50:22.543199+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0119"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:50 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:50:22.543199+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0034"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:50 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:50:58.188047+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0149"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:51 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:51:01.507254+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0075"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:51 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:51:17.123035+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0075"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:51:17.123035+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0148"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.101. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T02:51:33.832277+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0148"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:51 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:51:33.832277+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_004"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:52 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_004"
+      ],
+      "user": "user_04",
+      "description": "Privilege change detected for user_04. Resource: role",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_004",
+        "evt_s3_005",
+        "evt_s3_006",
+        "evt_s3_008",
+        "evt_s3_009",
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_018",
+        "evt_s3_019"
+      ],
+      "user": "user_04",
+      "description": "Privilege escalation at 2026-04-01T02:52:00+06:00 followed by 13 file download(s) within 30 minutes",
+      "timestamp": "2026-04-01T02:52:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0064"
+      ],
+      "user": "user_03",
+      "description": "Login from unusual IP 192.168.1.100. Normal IPs: ['192.168.1.103']",
+      "timestamp": "2026-04-01T02:52:35.811600+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0064"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:52 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:52:35.811600+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0082"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:52 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:52:42.141639+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_005"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:54:00+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_005",
+        "evt_s3_006",
+        "evt_s3_008",
+        "evt_s3_009",
+        "evt_s3_010",
+        "evt_s3_011",
+        "evt_s3_012",
+        "evt_s3_014",
+        "evt_s3_015",
+        "evt_s3_016",
+        "evt_s3_017",
+        "evt_s3_018",
+        "evt_s3_019"
+      ],
+      "user": "user_04",
+      "description": "Bulk download detected: 13 files downloaded within 30 minutes (window start: 2026-04-01T02:54:00+06:00)",
+      "timestamp": "2026-04-01T02:54:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0081"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:54:25.125329+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0081"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:54:25.125329+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0099"
+      ],
+      "user": "user_03",
+      "description": "Login from unusual IP 192.168.1.105. Normal IPs: ['192.168.1.103']",
+      "timestamp": "2026-04-01T02:54:40.430889+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0099"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:54:40.430889+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0051"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:54:58.467146+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0051"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/monthly_summary.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:54:58.467146+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0060"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:55 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:55:06.025373+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0060"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:55:06.025373+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0059"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:55 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:55:53.204974+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0059"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/monthly_summary.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:55:53.204974+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0124"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:55 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:55:56.571497+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0124"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:55:56.571497+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_006"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:56 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:56:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0112"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:56 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:56:56.593504+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0145"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:57 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:57:20.766810+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0145"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T02:57:20.766810+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0065"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:57 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:57:22.854327+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0065"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T02:57:22.854327+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0143"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.102. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T02:57:56.405031+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0143"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:57 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:57:56.405031+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_007"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:58 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:58:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0113"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.103. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T02:58:10.343079+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0113"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:58 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:58:10.343079+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0114"
+      ],
+      "user": "user_03",
+      "description": "Activity at 02:58 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T02:58:20.414634+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0114"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/monthly_summary.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T02:58:20.414634+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0089"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:58 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T02:58:27.922275+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_008"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:59 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0132"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:59 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T02:59:41.911370+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0055"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:00 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:00:36.186105+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0055"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T03:00:36.186105+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0044"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:00 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:00:53.954441+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0044"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T03:00:53.954441+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:01 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:01:30+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0139"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.105. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T03:01:52.303259+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0139"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:01:52.303259+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0039"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:02 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:02:42.893026+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_010"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:03 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:03:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:05 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0061"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:05 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:05:47.140546+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0061"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/monthly_summary.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T03:05:47.140546+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_012"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:07 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:07:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0080"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.105. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T03:07:05.119644+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0080"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:07 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:07:05.119644+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0021"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:07 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:07:45.194216+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0021"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T03:07:45.194216+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0125"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:07 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:07:55.791230+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0125"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:07:55.791230+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0146"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:08 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:08:01.257909+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0146"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T03:08:01.257909+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0096"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:08 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:08:10.312791+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:08 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:08:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0066"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:08 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:08:40.861003+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0117"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:08 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:08:52.463239+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0117"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:08:52.463239+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_014"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:09 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:09:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0087"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:10 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:10:35.385123+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_015"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:11 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:11:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0027"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:11 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:11:03.241593+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0027"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:11:03.241593+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0085"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:11 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:11:35.710247+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0142"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:11 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:11:56.976874+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_016"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:13 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:13:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0058"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.103. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T03:13:10.118286+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0058"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:13 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:13:10.118286+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0115"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:13 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:13:14.712889+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0115"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-01T03:13:14.712889+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0110"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:13 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:13:32.958593+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0078"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:14 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:14:05.216285+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0011"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:14 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:14:30.083606+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0009"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:14 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:14:59.712242+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0009"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:14:59.712242+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_017"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_029"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:15:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0077"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:15 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:15:28.665029+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0077"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:15:28.665029+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0049"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:15 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:15:41.184991+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0049"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/hr/policies/handbook.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:15:41.184991+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0134"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:16 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:16:01.918936+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0134"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/team_notes.docx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T03:16:01.918936+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_018"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:16 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:16:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0033"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:16 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:16:35.879355+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0036"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:16 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:16:55.258577+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0036"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/readme.txt is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T03:16:55.258577+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0109"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.105. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T03:16:59.409299+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0109"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:16 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:16:59.409299+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0095"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.101. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T03:17:55.600133+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0095"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:17 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:17:55.600133+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_019"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:18 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:18:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0024"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:19 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:19:27.219828+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0126"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:19 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:19:32.059596+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0090"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:20 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:20:18.788108+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0090"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/docs/api_guide.md is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T03:20:18.788108+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0006"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:20 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:20:29.041960+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0006"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/meeting_minutes.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-01T03:20:29.041960+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0043"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 192.168.1.103. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-04-01T03:20:37.064004+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0043"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:20 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-04-01T03:20:37.064004+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0102"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:20 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:20:42.329128+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_020"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:21 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:21:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s3_020"
+      ],
+      "user": "user_04",
+      "description": "Log deletion detected by user_04. Target: /var/log/file_access.log",
+      "timestamp": "2026-04-01T03:21:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0086"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:21 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:21:19.811891+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0130"
+      ],
+      "user": "user_03",
+      "description": "Activity at 03:21 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-04-01T03:21:34.676288+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0147"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:22 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:22:18.003277+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0094"
+      ],
+      "user": "user_01",
+      "description": "Login from unusual IP 192.168.1.102. Normal IPs: ['192.168.1.100']",
+      "timestamp": "2026-04-01T03:22:49.003912+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_noise_s3_0094"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:22 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-01T03:22:49.003912+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_021"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:23 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:23:00+06:00"
+    }
+  ],
+  "alert_count": 177,
+  "rules_triggered": 8,
+  "severity_summary": {
+    "warning": 173,
+    "critical": 4
+  },
+  "verdict": "attack"
+}

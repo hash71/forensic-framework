@@ -1,0 +1,120 @@
+{
+  "scenario": "14",
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s14_001",
+        "evt_s14_002",
+        "evt_s14_003",
+        "evt_s14_004"
+      ],
+      "description": "3 failed login(s) for user_04 followed by successful login from 185.220.101.34",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s14_004"
+      ],
+      "description": "user_04 logged in from unusual IP 185.220.101.34 (expected: 192.168.1.104)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s14_005"
+      ],
+      "description": "user_02 logged in from unusual IP 10.0.0.99 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s14_006",
+        "evt_s14_007",
+        "evt_s14_009",
+        "evt_s14_011"
+      ],
+      "description": "user_04 had privilege change then downloaded 3 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s14_001",
+        "evt_s14_002",
+        "evt_s14_003",
+        "evt_s14_004",
+        "evt_s14_006",
+        "evt_s14_007",
+        "evt_s14_009",
+        "evt_s14_011",
+        "evt_s14_013",
+        "evt_s14_015"
+      ],
+      "description": "user_04 had 10 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s14_005",
+        "evt_s14_008",
+        "evt_s14_010",
+        "evt_s14_012",
+        "evt_s14_016"
+      ],
+      "description": "user_02 had 5 event(s) outside normal working hours (09:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s14_001",
+        "evt_s14_002",
+        "evt_s14_003",
+        "evt_s14_004",
+        "evt_s14_006",
+        "evt_s14_007"
+      ],
+      "description": "user_04 generated 6 events in 8 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s14_006",
+        "evt_s14_013",
+        "evt_s14_001",
+        "evt_s14_002",
+        "evt_s14_003",
+        "evt_s14_004",
+        "evt_s14_015",
+        "evt_s14_007",
+        "evt_s14_009",
+        "evt_s14_011"
+      ],
+      "description": "user_04 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s14_005",
+        "evt_s14_016",
+        "evt_s14_008",
+        "evt_s14_010",
+        "evt_s14_012"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 9,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 5,
+    "info": 2
+  }
+}

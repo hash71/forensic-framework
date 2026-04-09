@@ -1,0 +1,183 @@
+{
+  "scenarios": [
+    {
+      "id": "scenario_1",
+      "name": "normal_baseline",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": { "rule_based": "no_alert", "llm_assisted": "no_alert" }
+    },
+    {
+      "id": "scenario_2",
+      "name": "noisy_benign",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+    },
+    {
+      "id": "scenario_3",
+      "name": "obvious_attack",
+      "label": "ATTACK",
+      "attacker": "user_ext_01 (using user_04 credentials)",
+      "attack_steps": [
+        "failed_login_attempts",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion",
+        "logout"
+      ],
+      "expected_detection": { "rule_based": "full_detection", "llm_assisted": "full_detection" }
+    },
+    {
+      "id": "scenario_4",
+      "name": "subtle_attack",
+      "label": "ATTACK",
+      "attacker": "user_03",
+      "attack_steps": [
+        "login_normal",
+        "minor_privilege_change",
+        "slow_scope_expansion_day1",
+        "slow_scope_expansion_day2",
+        "systematic_download_day3",
+        "data_exfiltration_complete"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+    },
+    {
+      "id": "scenario_5",
+      "name": "concurrent_activity_lateral_movement",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_02 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_hr_access_1",
+        "unauthorized_hr_access_2",
+        "unauthorized_hr_access_3"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+    },
+    {
+      "id": "scenario_6",
+      "name": "afterhours_maintenance_benign",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+    },
+    {
+      "id": "scenario_7",
+      "name": "credential_stuffing_failed",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+    },
+    {
+      "id": "scenario_8",
+      "name": "full_infrastructure_attack",
+      "label": "ATTACK",
+      "attacker": "external (using user_admin credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "credential_dump",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "file_server_access",
+        "dns_tunnel_exfiltration",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+    },
+    {
+      "id": "scenario_9",
+      "name": "incomplete_logs_missing_auth",
+      "label": "ATTACK",
+      "attacker": "external (using user_04 credentials, auth log missing)",
+      "attack_steps": [
+        "missing_auth_evidence",
+        "unauthorized_downloads",
+        "privilege_escalation",
+        "log_deletion"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
+      "challenge": "No login event exists. Downloads appear without authentication context. Auth log was deleted by the attacker."
+    },
+    {
+      "id": "scenario_10",
+      "name": "delayed_out_of_order_events",
+      "label": "ATTACK",
+      "attacker": "user_02 (compromised or insider)",
+      "attack_steps": [
+        "cross_department_access",
+        "network_recon"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
+      "challenge": "Network events have timestamps 2 hours before auth events due to log aggregation delay. Pipeline must reconcile out-of-order timestamps."
+    },
+    {
+      "id": "scenario_11",
+      "name": "benign_then_compromised",
+      "label": "ATTACK",
+      "attacker": "external (account takeover of user_02 at 15:30)",
+      "attack_steps": [
+        "account_takeover",
+        "privilege_escalation",
+        "data_exfiltration",
+        "log_deletion"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
+      "challenge": "80% benign events, 20% attack. Must identify the transition point at 15:30 when a second session from a foreign IP begins."
+    },
+    {
+      "id": "scenario_12",
+      "name": "conflicting_signals",
+      "label": "ATTACK",
+      "attacker": "user_01 (compromised or insider)",
+      "attack_steps": [
+        "unauthorized_access_before_vpn",
+        "data_exfiltration_email",
+        "vpn_timestamp_anomaly"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
+      "challenge": "VPN connection timestamp is AFTER the sensitive file access. If VPN was legitimate, it should precede access. Suggests fabricated VPN log."
+    },
+    {
+      "id": "scenario_13",
+      "name": "ultra_slow_exfiltration_7days",
+      "label": "ATTACK",
+      "attacker": "user_03 (insider threat)",
+      "attack_steps": [
+        "systematic_cross_dept_collection_7days"
+      ],
+      "expected_detection": { "rule_based": "missed", "llm_assisted": "partial" },
+      "challenge": "1 small file downloaded per day for 7 days. Each day looks normal individually. Only the cross-department pattern over 7 days reveals systematic collection."
+    },
+    {
+      "id": "scenario_14",
+      "name": "false_flag_misdirection",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_02)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_02_lateral_movement",
+        "source_code_exfiltration",
+        "dns_tunnel"
+      ],
+      "expected_detection": { "rule_based": "partial", "llm_assisted": "partial" },
+      "challenge": "Loud decoy attack on user_04 masks quiet simultaneous attack on user_02 via internal lateral movement. Both attacks must be identified."
+    },
+    {
+      "id": "scenario_15",
+      "name": "end_of_quarter_legitimate_bulk",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" },
+      "challenge": "High volume downloads, late hours, some cross-dept access (user_01 accessing shared project files without baseline project membership). All legitimate quarter-end reporting."
+    }
+  ]
+}
