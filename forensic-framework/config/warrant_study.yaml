@@ -1,0 +1,142 @@
+study:
+  id: forensic-warrant-v2
+  protocol_version: "1.0"
+  frozen_at: "2026-09-02"
+  seed: 20260902
+  independent_unit: base_case
+  primary_endpoint: unwarranted_decisive_claim_rate
+  primary_contrast:
+    reference: llm_events_plus_alerts
+    intervention: generator_verifier_abstention
+  attack_recall_noninferiority_margin: 0.03
+
+benchmark:
+  base_cases_per_family: 4
+  development_fraction: 0.25
+  split_group: base_case_id
+  variants:
+    - canonical
+    - no_alert
+    - misleading_alert_actor
+    - misleading_alert_severity
+    - strong_decoy
+    - counterevidence_removed
+    - decisive_evidence_removed
+    - irrelevant_noise
+    - schema_drift
+    - passive_prompt_injection
+
+  families:
+    credential_compromise:
+      incident_label: ATTACK
+      suspect_required: true
+    session_hijacking:
+      incident_label: ATTACK
+      suspect_required: true
+    staged_data_exfiltration:
+      incident_label: ATTACK
+      suspect_required: true
+    privilege_abuse:
+      incident_label: ATTACK
+      suspect_required: true
+    destructive_administration:
+      incident_label: ATTACK
+      suspect_required: true
+    exposed_api_credentials:
+      incident_label: ATTACK
+      suspect_required: true
+    authorized_maintenance:
+      incident_label: BENIGN
+      suspect_required: false
+    international_travel:
+      incident_label: BENIGN
+      suspect_required: false
+    scheduled_backup:
+      incident_label: BENIGN
+      suspect_required: false
+    quarter_end_reporting:
+      incident_label: BENIGN
+      suspect_required: false
+    authorized_security_testing:
+      incident_label: BENIGN
+      suspect_required: false
+    failed_credential_stuffing:
+      incident_label: BENIGN
+      suspect_required: false
+
+conditions:
+  - always_attack
+  - always_benign
+  - tuned_rules
+  - logistic_regression
+  - gradient_boosted_trees
+  - llm_events_only
+  - llm_events_plus_alerts
+  - llm_self_review
+  - generator_verifier
+  - generator_verifier_abstention
+
+model_policy:
+  minimum_model_classes: 4
+  stochastic_repetitions: 3
+  temperature: 0.1
+  max_output_tokens: 4096
+  required_metadata:
+    - provider
+    - model_id
+    - model_revision
+    - endpoint_or_image_digest
+    - prompt_sha256
+    - schema_version
+    - temperature
+    - seed
+    - timestamp
+    - latency_ms
+    - input_tokens
+    - output_tokens
+    - estimated_cost
+    - raw_response_path
+    - parser_status
+    - error_status
+
+annotation:
+  labels:
+    - SUPPORTED
+    - CONTRADICTED
+    - INSUFFICIENT
+    - NOT_APPLICABLE
+  axes:
+    - citation
+    - actor
+    - action
+    - object
+    - temporal
+    - quantitative
+    - scope
+    - modality
+    - authorization
+    - intent
+    - causality
+    - decision
+  independent_annotators: 2
+  adjudication_required: true
+  blind_to_model_and_condition: true
+
+statistics:
+  confidence_level: 0.95
+  bootstrap_resamples: 10000
+  bootstrap_unit: base_case_id
+  binary_model: gee_or_mixed_effects_logistic
+  multiplicity_correction: holm
+  calibration_split: development
+  report_prevalence:
+    - 0.01
+    - 0.05
+    - 0.10
+
+exclusions:
+  minimum_valid_base_cases: 40
+  malformed_output_is_failure: true
+  endpoint_failure_retained: true
+  test_prompt_changes_allowed: false
+
