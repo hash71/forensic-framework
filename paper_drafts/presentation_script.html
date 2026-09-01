@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Project reading guide</title>
+<style>
+  :root {
+    --bg:        #0A1518;
+    --card-bg:   #11212A;
+    --ink:       #E8EDED;
+    --body:      #B4C0C5;
+    --muted:     #7A8A90;
+    --border:    #1F3037;
+    --teal:      #26CCC2;
+    --teal-dark: #5DE3D8;
+    --peach:     #FFB76C;
+    --peach-dark:#FFCB8E;
+    --yellow:    #FFF57E;
+    --yellow-dk: #FFEA75;
+    --tint:        #15252A;
+    --tint-teal:   #0F2D2C;
+    --tint-peach:  #2B1E10;
+    --tint-yellow: #2B280E;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--body); background: var(--bg); line-height: 1.55; margin: 0; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  h1 { font-size: 22px; color: var(--ink); margin: 0 0 0.4rem; }
+  h2 { font-size: 18px; color: var(--ink); margin: 1.8rem 0 0.6rem; border-bottom: 0.5px solid var(--border); padding-bottom: 0.3rem; }
+  h3 { font-size: 14px; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.06em; margin: 1rem 0 0.3rem; }
+  p, li { font-size: 14.5px; }
+  ul, ol { margin: 0.3rem 0 0.7rem 1.4rem; padding: 0; }
+  li { margin: 0.25rem 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: #D6DDDD; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; background: var(--tint); padding: 1px 5px; border-radius: 3px; color: var(--teal-dark); }
+  header.top { border-left: 5px solid var(--teal); padding: 0.9rem 1.1rem; background: var(--tint); margin-bottom: 1.5rem; border-radius: 0 5px 5px 0; }
+  header.top p { margin: 0.3rem 0 0; color: var(--muted); font-size: 13.5px; }
+  .card { background: var(--card-bg); border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; padding: 0.9rem 1.1rem; margin: 0.7rem 0; }
+  .card.peach { border-left-color: var(--peach); }
+  .card.yellow { border-left-color: var(--yellow); }
+  .thread { padding: 0.6rem 0.9rem; background: var(--tint); border-radius: 4px; margin: 0.4rem 0; font-size: 14px; }
+  .thread b { color: var(--teal-dark); }
+  .num-step { display: inline-block; min-width: 24px; height: 24px; padding: 0 6px; background: var(--tint-teal); color: var(--teal-dark); border-radius: 4px; text-align: center; font-weight: 600; font-size: 12px; line-height: 24px; margin-right: 8px; }
+  .step { margin: 0.5rem 0; padding-left: 0; display: flex; align-items: flex-start; gap: 6px; font-size: 14.5px; }
+  .step .body-text { flex: 1; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0.5rem 0; }
+  .stat { background: var(--tint); padding: 0.6rem 0.8rem; border-radius: 4px; }
+  .stat .v { font-size: 22px; font-weight: 600; color: var(--ink); }
+  .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+  .pill.benign { background: var(--tint-teal); color: var(--teal-dark); }
+  .pill.attack { background: var(--tint-peach); color: var(--peach-dark); }
+  .pill.fail { background: var(--tint-yellow); color: var(--yellow-dk); }
+  hr { border: 0; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+  a { color: var(--teal-dark); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<h1>Project reading guide</h1>
+<p>Five sections: what we are doing, what we read, how the research is structured, what we will publish, and where work continues. About six minutes to read end-to-end.</p>
+</header>
+
+<!-- ============================== -->
+<h2>1. What we are trying to do</h2>
+
+<div class="card">
+<p><strong>The problem.</strong> Banks, government, and healthcare organisations run their own private clouds for compliance reasons. Unlike AWS or Azure, they have no unified audit plane. After an incident, evidence sits in seven disjoint log surfaces (authentication, file access, admin actions, network, database, web server, email). Triage takes days. Existing rule-based tools over-fire on benign noise; unconstrained LLMs hallucinate.</p>
+<p><strong>The goal.</strong> Build a hybrid forensic triage system that pairs deterministic rules with a constrained LLM, where every LLM claim must cite a specific event identifier and a validator checks the citations after the fact. Show empirically that this hybrid beats rules alone on the same evidence, while keeping every claim traceable.</p>
+<p><strong>The bounded claim we defend.</strong> "The system improves forensic triage accuracy under controlled conditions, but evidence-grounded citation validation only prevents unsupported references; it does not guarantee correct causal interpretation or correct suspect attribution." That sentence is the centre of the paper.</p>
+</div>
+
+<!-- ============================== -->
+<h2>2. Literature review</h2>
+<p>Thirteen papers across five thematic threads. The closest comparator is GenDFIR (entry under thread 3). Nobody in this literature has measured rules vs constrained LLMs side-by-side, with grounding enforced and failure cases preserved &mdash; that is the gap our work fills.</p>
+
+<div class="thread"><b>Thread 1 &middot; SIEM correlation and alert fatigue (2 papers)</b><br/>
+<em>Tariq et al. 2025</em> (ACM Computing Surveys) characterises alert fatigue as a structural &mdash; not incidental &mdash; problem in security operations centres. <em>Ban et al. 2023</em> propose AI-assisted alert suppression but do not address evidence-grounded reasoning over the underlying timeline.</div>
+
+<div class="thread"><b>Thread 2 &middot; LLMs in security operations (2 papers)</b><br/>
+<em>Habibzadeh et al. 2025</em> survey LLMs in SOC workflows and observe that the field lacks shared evaluation infrastructure. <em>Singh et al. 2025</em> ran a longitudinal study of 3,090 analyst queries across 45 SOC analysts: LLMs are used as cognitive aids, not as classifiers. This finding directly supports our triage-assistant framing.</div>
+
+<div class="thread"><b>Thread 3 &middot; LLMs for digital forensics (5 papers)</b><br/>
+<em>Studiawan, Breitinger and Scanlon 2025</em> propose a NIST-CFTT-inspired evaluation methodology and find that the same model swings from BLEU 0.15 to 0.95 depending on prompt structure &mdash; arguments about LLM forensic capability are often arguments about prompting. <em>Loumachi and Ghanem 2024 (GenDFIR)</em> is the most directly comparable system: rules + retrieval-augmented LLM for timeline analysis. They do not separate verdict from suspect from grounding integrity. <em>Cherif et al. 2025 (DFIR-Metric)</em> propose a broader DFIR benchmark with multiple sub-tasks. <em>Yin et al. 2025</em> articulate the reproducibility tension we cite in threats to validity. <em>Wickramasekara, Breitinger and Scanlon 2025</em> provide the earlier survey-style framing.</div>
+
+<div class="thread"><b>Thread 4 &middot; RAG and citation grounding (2 papers)</b><br/>
+<em>Huang et al. 2025</em> (ACM TOIS) propose the hallucination taxonomy we adopt. <em>Sharma 2025</em> establishes the central RAG finding that we lean on: citation correctness is necessary but not sufficient for output reliability &mdash; a model can cite real sources and still draw an unsupported conclusion. S14 in our work is the forensic-domain instance of exactly this distinction.</div>
+
+<div class="thread"><b>Thread 5 &middot; Insider threat and multi-day behaviour (2 papers)</b><br/>
+<em>Tuor et al. 2017</em> (AAAI workshop) is the foundational deep-learning baseline on the CERT insider-threat dataset. <em>Flynt 2026 (OrgForge-IT)</em> independently validates the verifiable-synthetic-benchmark approach with a ten-model leaderboard.</div>
+
+<!-- ============================== -->
+<h2>3. Research methodology</h2>
+<p>How we structured the work, in seven steps. Each step was completed before the next began.</p>
+
+<div class="step"><span class="num-step">1</span><div class="body-text"><strong>Define the question narrowly.</strong> We do post-incident <em>triage</em>, not real-time detection. The system reads already-collected logs and produces an investigative output that a human analyst reviews. We never claim autonomous detection.</div></div>
+
+<div class="step"><span class="num-step">2</span><div class="body-text"><strong>Survey existing approaches.</strong> Thirteen papers across five threads (above). Identify the gap: nobody compares rules with constrained LLMs side-by-side over the same evidence with grounding enforced.</div></div>
+
+<div class="step"><span class="num-step">3</span><div class="body-text"><strong>Design controlled scenarios with known ground truth.</strong> Fifteen scenarios: 5 BENIGN + 10 ATTACK. Four primary (S1&ndash;S4) match the original proposal scope; eleven extended (S5&ndash;S15) probe robustness and adversarial corner cases. We deliberately keep two failure cases (S14, S15) in the corpus rather than removing them.</div></div>
+
+<div class="step"><span class="num-step">4</span><div class="body-text"><strong>Build the system.</strong> Normalise logs from seven source types into a unified event schema. Reconstruct a chronological, session-grouped, cross-source-linked timeline. Implement two analysers: a transparent rule engine with twelve threshold-style rules in YAML, and a constrained LLM (Qwen 3.5-27B, open-weight) that must cite an <code>event_id</code> for every claim.</div></div>
+
+<div class="step"><span class="num-step">5</span><div class="body-text"><strong>Validate the LLM output deterministically.</strong> Seven-check post-hoc validator: event-ID existence, chronology, unsupported claim count, actor consistency, temporal claims, volume claims, entity consistency. The validator does <em>not</em> assess interpretive correctness &mdash; only structural grounding.</div></div>
+
+<div class="step"><span class="num-step">6</span><div class="body-text"><strong>Run and measure on three orthogonal axes.</strong> Verdict accuracy (correct binary classification). Suspect / attack-chain correctness (right actor and chain). Citation-grounding integrity (validator violations). Keep the three separate &mdash; S14 fails on the second but not the first or third, S15 on the first only.</div></div>
+
+<div class="step"><span class="num-step">7</span><div class="body-text"><strong>Document failure modes honestly.</strong> Threats to validity laid out openly: synthetic data, single model, transparent baseline, validator scope. The two failure scenarios stay in the corpus and become the seeds of the future-work plan.</div></div>
+
+<!-- ============================== -->
+<h2>4. Final product</h2>
+
+<div class="card peach">
+<h3 style="margin-top:0;">Term paper (current deliverable)</h3>
+<ul>
+<li><strong>Title:</strong> Augmenting rule-based private-cloud forensic investigation with evidence-grounded LLM reasoning.</li>
+<li><strong>Format:</strong> IEEE conference (double-column LaTeX), 16 pages typeset.</li>
+<li><strong>Sections:</strong> Abstract &middot; Introduction &middot; Background &middot; Related Work &middot; Methodology &middot; Results &middot; Discussion &middot; Conclusion.</li>
+<li><strong>Reproducibility:</strong> open code at commit <code>6c7ffbc</code>, all 15 LLM responses saved, S15 ablation evidence at <code>data/ablation/S15_no_rule_context.json</code> (5 runs, 5/5 reverse to NO).</li>
+</ul>
+</div>
+
+<div class="card yellow">
+<h3 style="margin-top:0;">What comes after the term paper</h3>
+<ul>
+<li><strong>Workshop paper</strong> at IEEE CloudCom or IEEE Big Data Security workshop &mdash; needs multi-model comparison, real-world dataset run, and a small human-analyst usefulness study.</li>
+<li><strong>Tool deployment</strong> in the institution's actual private-cloud environment &mdash; mostly engineering work: real log adapters, on-premises vLLM endpoint, scheduled processing.</li>
+<li><strong>Mid-tier IEEE conference / journal</strong> in 9&ndash;18 months, gated by real-world data and a stronger validator covering causal-overclaim and missing-alternative-explanation.</li>
+</ul>
+</div>
+
+<!-- ============================== -->
+<h2>5. Key numbers to remember</h2>
+<div class="stat-row">
+<div class="stat"><div class="k">Rule baseline</div><div class="v">66.7%</div><div class="k" style="margin-top:2px;">10 / 15 verdicts</div></div>
+<div class="stat" style="border-left: 2px solid var(--peach);"><div class="k" style="color: var(--peach-dark);">Constrained LLM</div><div class="v" style="color: var(--peach-dark);">93.3%</div><div class="k" style="margin-top:2px;">14 / 15 verdicts</div></div>
+<div class="stat"><div class="k">Validator</div><div class="v">13 / 15</div><div class="k" style="margin-top:2px;">no invalid citations</div></div>
+</div>
+
+<ul>
+<li><strong>+27 percentage points</strong> over the transparent rule baseline (not vs a tuned operational SIEM).</li>
+<li><strong>S14</strong> <span class="pill fail">FAIL</span> &mdash; the LLM gets the verdict right but identifies the decoy (<code>user_04</code>) as the suspect instead of the real attacker (<code>user_02</code>). Every cited event is real; the validator stays silent. <em>Citation grounding is necessary but not sufficient.</em></li>
+<li><strong>S15</strong> <span class="pill fail">FAIL</span> &mdash; the LLM's lone verdict failure (YES on a BENIGN scenario). A measured 5-run ablation that removes the rule-alert input reverses the verdict to NO on all 5 runs. <em>Rule output is suggestive context, not neutral input.</em></li>
+</ul>
+
+<!-- ============================== -->
+<h2>6. Where work continues</h2>
+<ul>
+<li><strong>Real-world dataset run</strong> &mdash; LANL authentication, DARPA OpTC, or anonymised institutional logs. The biggest credibility unlock.</li>
+<li><strong>Multi-model comparison</strong> &mdash; LLaMA 3.1, Mistral, Phi alongside Qwen so the result is not model-specific.</li>
+<li><strong>Adversarial robustness study</strong> extending S14 &mdash; vary the decoy:real activity ratio, decoy actor count, decoy event volume, and report when the LLM's suspect identification breaks.</li>
+<li><strong>Human-analyst usefulness study</strong> &mdash; even N=3 security practitioners rating LLM-narrative vs rule-alert outputs would close the construct-validity gap.</li>
+<li><strong>Stronger validator</strong> &mdash; extend coverage to causal overclaim and missing-alternative-explanation, the two hallucination categories the current validator does not address.</li>
+<li><strong>On-premises deployment</strong> &mdash; switch the LLM endpoint from Modal to local vLLM or Ollama, validate end-to-end without external API calls.</li>
+</ul>
+
+</div>
+</body>
+</html>

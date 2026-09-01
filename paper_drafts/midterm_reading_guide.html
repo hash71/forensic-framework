@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Midterm reading guide</title>
+<style>
+  :root {
+    --bg:        #0A1518;
+    --card-bg:   #11212A;
+    --ink:       #E8EDED;
+    --body:      #B4C0C5;
+    --muted:     #7A8A90;
+    --border:    #1F3037;
+    --teal:      #26CCC2;
+    --teal-dark: #5DE3D8;
+    --peach:     #FFB76C;
+    --peach-dark:#FFCB8E;
+    --yellow:    #FFF57E;
+    --yellow-dk: #FFEA75;
+    --tint:        #15252A;
+    --tint-teal:   #0F2D2C;
+    --tint-peach:  #2B1E10;
+    --tint-yellow: #2B280E;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: var(--body); background: var(--bg); line-height: 1.55; margin: 0; }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 1.5rem 1.25rem 4rem; }
+  h1 { font-size: 22px; color: var(--ink); margin: 0 0 0.4rem; }
+  h2 { font-size: 18px; color: var(--ink); margin: 1.8rem 0 0.6rem; border-bottom: 0.5px solid var(--border); padding-bottom: 0.3rem; }
+  h3 { font-size: 14px; color: var(--teal-dark); text-transform: uppercase; letter-spacing: 0.06em; margin: 1rem 0 0.3rem; }
+  p, li { font-size: 14.5px; }
+  ul, ol { margin: 0.3rem 0 0.7rem 1.4rem; padding: 0; }
+  li { margin: 0.25rem 0; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { color: #D6DDDD; }
+  code { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 13px; background: var(--tint); padding: 1px 5px; border-radius: 3px; color: var(--teal-dark); }
+  header.top { border-left: 5px solid var(--teal); padding: 0.9rem 1.1rem; background: var(--tint); margin-bottom: 1.5rem; border-radius: 0 5px 5px 0; }
+  header.top p { margin: 0.3rem 0 0; color: var(--muted); font-size: 13.5px; }
+  .stage-tag { display: inline-block; background: var(--tint-teal); color: var(--teal-dark); padding: 2px 9px; border-radius: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.4rem; }
+  .card { background: var(--card-bg); border-left: 3px solid var(--teal); border-radius: 0 6px 6px 0; padding: 0.9rem 1.1rem; margin: 0.7rem 0; }
+  .card.peach { border-left-color: var(--peach); }
+  .card.yellow { border-left-color: var(--yellow); }
+  .thread { padding: 0.6rem 0.9rem; background: var(--tint); border-radius: 4px; margin: 0.4rem 0; font-size: 14px; }
+  .thread b { color: var(--teal-dark); }
+  .num-step { display: inline-block; min-width: 24px; height: 24px; padding: 0 6px; background: var(--tint-teal); color: var(--teal-dark); border-radius: 4px; text-align: center; font-weight: 600; font-size: 12px; line-height: 24px; margin-right: 8px; }
+  .step { margin: 0.5rem 0; padding-left: 0; display: flex; align-items: flex-start; gap: 6px; font-size: 14.5px; }
+  .step .body-text { flex: 1; }
+  .stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 0.5rem 0; }
+  .stat { background: var(--tint); padding: 0.6rem 0.8rem; border-radius: 4px; }
+  .stat .v { font-size: 22px; font-weight: 600; color: var(--ink); }
+  .stat .k { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .pill { display: inline-block; padding: 1px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.04em; }
+  .pill.benign  { background: var(--tint-teal);   color: var(--teal-dark); }
+  .pill.attack  { background: var(--tint-peach);  color: var(--peach-dark); }
+  .pill.bound   { background: var(--tint-yellow); color: var(--yellow-dk); }
+  .preliminary-banner { background: var(--tint-yellow); color: var(--yellow-dk); padding: 0.55rem 0.9rem; border-radius: 4px; font-size: 13px; margin: 0.4rem 0 0.8rem; border-left: 3px solid var(--yellow); }
+  hr { border: 0; border-top: 0.5px solid var(--border); margin: 1.5rem 0; }
+  a { color: var(--teal-dark); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+<span class="stage-tag">Midterm &middot; Proposal stage</span>
+<h1>Midterm reading guide</h1>
+<p>Six sections: what we are proposing, what we read, how the work is structured, what we are delivering at midterm, what early signal we have, and what remains for the final paper. About six minutes to read end-to-end.</p>
+</header>
+
+<!-- ============================== -->
+<h2>1. What we are proposing</h2>
+
+<div class="card">
+<p><strong>The problem.</strong> Banks, government, and healthcare organisations run their own private clouds for compliance reasons. Unlike AWS or Azure, they have no unified audit plane. After an incident, evidence sits in seven disjoint log surfaces (authentication, file access, admin actions, network, database, web server, email). Triage takes days. Existing rule-based tools over-fire on benign noise; unconstrained LLMs hallucinate.</p>
+<p><strong>What we propose.</strong> A hybrid forensic-triage approach that pairs a transparent rule baseline with a constrained LLM operating over the same correlated timeline. The LLM is required to cite a specific event identifier for every claim it makes; a deterministic post-hoc check then verifies each citation against the input timeline. The contribution is the combination &mdash; transparent rules plus a citation-bound LLM, evaluated on three orthogonal correctness axes &mdash; not any individual component.</p>
+<p><strong>The bounded claim.</strong> Citation grounding can be made structurally checkable, but it is <em>necessary, not sufficient</em>: a model can cite real events and still draw an unsupported conclusion. Making this distinction visible &mdash; through a multi-axis evaluation that decouples verdict, suspect, and grounding integrity &mdash; is the central conceptual contribution of the proposal.</p>
+<p><strong>What this work is not.</strong> Not real-time detection. Not autonomous attribution. Not a tuned operational SIEM comparison. The proposed system reads already-collected logs and produces an investigative output that a human analyst reviews before any action is taken.</p>
+</div>
+
+<!-- ============================== -->
+<h2>2. Literature review</h2>
+<p>Thirteen papers across five thematic threads. The closest comparator is GenDFIR (thread 3). No published study compares deterministic rules and a citation-validated LLM side-by-side over the same evidence with verdict, suspect, and grounding integrity reported as separate axes &mdash; that is the gap the proposal fills.</p>
+
+<div class="thread"><b>Thread 1 &middot; SIEM correlation and alert fatigue (2 papers)</b><br/>
+<em>Tariq et al. 2025</em> (ACM Computing Surveys) characterises alert fatigue as a structural &mdash; not incidental &mdash; problem in security operations centres. <em>Ban et al. 2023</em> propose AI-assisted alert suppression but do not address evidence-grounded reasoning over the underlying timeline.</div>
+
+<div class="thread"><b>Thread 2 &middot; LLMs in security operations (2 papers)</b><br/>
+<em>Habibzadeh et al. 2025</em> survey LLMs in SOC workflows and observe that the field lacks shared evaluation infrastructure. <em>Singh et al. 2025</em> ran a longitudinal study of three thousand analyst queries across forty-five SOC analysts: LLMs are used as cognitive aids, not as classifiers. This finding directly supports the analyst-supervised triage posture we propose.</div>
+
+<div class="thread"><b>Thread 3 &middot; LLMs for digital forensics (5 papers)</b><br/>
+<em>Studiawan, Breitinger and Scanlon 2025</em> propose a NIST-CFTT-inspired evaluation methodology and find that the same model swings from BLEU 0.15 to 0.95 depending on prompt structure &mdash; arguments about LLM forensic capability are often arguments about prompting. <em>Loumachi and Ghanem 2024 (GenDFIR)</em> is the most directly comparable system: rules paired with retrieval-augmented LLM timeline analysis. Their evaluation does not separate verdict from suspect from grounding integrity. <em>Cherif et al. 2025 (DFIR-Metric)</em> propose a broader DFIR benchmark with multiple sub-tasks. <em>Yin et al. 2025</em> articulate the reproducibility tension. <em>Wickramasekara, Breitinger and Scanlon 2025</em> provide the earlier survey-style framing.</div>
+
+<div class="thread"><b>Thread 4 &middot; RAG and citation grounding (2 papers)</b><br/>
+<em>Huang et al. 2025</em> (ACM TOIS) propose the hallucination taxonomy this work adopts. <em>Sharma 2025</em> establishes the central RAG finding that the proposal leans on: citation correctness is necessary but not sufficient for output reliability &mdash; a model can cite real sources and still draw an unsupported conclusion. The S14 case below is the forensic-domain instance of that distinction.</div>
+
+<div class="thread"><b>Thread 5 &middot; Insider threat and multi-day behaviour (2 papers)</b><br/>
+<em>Tuor et al. 2017</em> (AAAI workshop) is the foundational deep-learning baseline on the CERT insider-threat dataset. <em>Flynt 2026 (OrgForge-IT)</em> independently validates the verifiable-synthetic-benchmark approach this work also adopts for ground-truth construction.</div>
+
+<!-- ============================== -->
+<h2>3. How the research is structured</h2>
+<p>Seven steps. The first four are complete at midterm; the last three are partially complete and continue into the final paper.</p>
+
+<div class="step"><span class="num-step">1</span><div class="body-text"><strong>Define the question narrowly.</strong> Post-incident <em>triage</em>, not real-time detection. The system reads already-collected logs and produces output a human analyst reviews. No autonomous attribution claim.</div></div>
+
+<div class="step"><span class="num-step">2</span><div class="body-text"><strong>Survey existing approaches.</strong> Thirteen papers across five threads (above). Identify the gap: nobody compares deterministic rules with a citation-validated LLM side-by-side, with verdict, suspect, and grounding reported separately.</div></div>
+
+<div class="step"><span class="num-step">3</span><div class="body-text"><strong>Design controlled scenarios with known ground truth.</strong> Fifteen scenarios: 5 BENIGN + 10 ATTACK. Four primary (S1&ndash;S4) match the original proposal scope; eleven extended (S5&ndash;S15) probe robustness and adversarial corner cases. Two failure cases (S14, S15) are deliberately retained in the corpus.</div></div>
+
+<div class="step"><span class="num-step">4</span><div class="body-text"><strong>Specify the proposed approach at a conceptual level.</strong> Logs from seven sources are normalised into a unified event schema and assembled into a chronological, session-grouped, cross-source-linked timeline. Two analysers consume the same timeline: a transparent rule baseline expressed as threshold and sequence predicates, and an open-weight LLM constrained to cite an event identifier for every claim. A deterministic citation check verifies the LLM's references after the fact.</div></div>
+
+<div class="step"><span class="num-step">5</span><div class="body-text"><strong>Define the evaluation on three orthogonal axes.</strong> Verdict accuracy (correct binary classification). Suspect / attack-chain correctness (right primary actor, right chain of evidence). Citation-grounding integrity (validator violations). Keeping these separate is essential &mdash; the central conceptual claim of the proposal is that they decouple in practice.</div></div>
+
+<div class="step"><span class="num-step">6</span><div class="body-text"><strong>Run a feasibility test against the corpus.</strong> A first-pass implementation has been exercised on all fifteen scenarios to test whether the proposed contract is workable. Early figures (Section&nbsp;5 below) are presented as preliminary indications, not as final results.</div></div>
+
+<div class="step"><span class="num-step">7</span><div class="body-text"><strong>Bound the claim and document limitations openly.</strong> Synthetic data, single open-weight model, transparent baseline (not tuned SIEM), validator scope limited to structural grounding. The two observed-limitation scenarios stay in the corpus and seed the remaining-work plan.</div></div>
+
+<!-- ============================== -->
+<h2>4. What we are delivering at midterm</h2>
+
+<div class="card">
+<h3 style="margin-top:0;">Midterm deliverable (now)</h3>
+<ul>
+<li><strong>Midterm progress report</strong> &mdash; IEEE conference format, four pages typeset, structured as a proposal: introduction, background and related work, proposed approach, proposed evaluation methodology, preliminary indications, remaining work, conclusion.</li>
+<li><strong>Presentation deck</strong> &mdash; seventeen slides covering motivation, current approaches, literature review, the gap, research question, methodology, proposed pipeline, proposed approach, proposed evaluation, preliminary indications, observed limitations, threats to validity, and conclusion.</li>
+<li><strong>This reading guide</strong> &mdash; condensed, single-page overview of the proposal, the literature, and the early signal.</li>
+</ul>
+</div>
+
+<div class="card peach">
+<h3 style="margin-top:0;">Final-paper deliverable (term-end)</h3>
+<ul>
+<li><strong>Full term paper</strong> &mdash; IEEE conference format, sixteen pages with implementation depth, statistical reporting, multi-model comparison, and a strengthened evaluation.</li>
+<li><strong>Implementation pass</strong> &mdash; first-pass code matures into a reproducible pipeline with all artefacts saved (scenarios, model outputs, validator traces, ablation runs).</li>
+<li><strong>Strengthened evaluation</strong> &mdash; addresses the bounds listed in step&nbsp;7 above.</li>
+</ul>
+</div>
+
+<div class="card yellow">
+<h3 style="margin-top:0;">After the term paper</h3>
+<ul>
+<li><strong>Workshop submission</strong> at IEEE CloudCom or IEEE Big Data Security workshop &mdash; gated by multi-model results and a small human-analyst study.</li>
+<li><strong>Tool deployment</strong> in a private-cloud environment &mdash; mostly engineering work: real log adapters, on-premises model endpoint, scheduled processing.</li>
+<li><strong>Mid-tier conference / journal</strong> in nine-to-eighteen months, gated by real-world data and a stronger validator covering causal-overclaim and missing-alternative-explanation.</li>
+</ul>
+</div>
+
+<!-- ============================== -->
+<h2>5. Preliminary indications</h2>
+<div class="preliminary-banner"><strong>What this section is.</strong> Early signal from a feasibility test on synthetic scenarios. Not the final evaluation. No statistical claim, no multi-model claim, no real-world claim.</div>
+
+<div class="stat-row">
+<div class="stat"><div class="k">Rule baseline</div><div class="v">10 / 15</div><div class="k" style="margin-top:2px;">verdicts correct</div></div>
+<div class="stat" style="border-left: 2px solid var(--peach);"><div class="k" style="color: var(--peach-dark);">Constrained LLM</div><div class="v" style="color: var(--peach-dark);">14 / 15</div><div class="k" style="margin-top:2px;">verdicts correct</div></div>
+<div class="stat"><div class="k">Citation check</div><div class="v">13 / 15</div><div class="k" style="margin-top:2px;">no invalid citations</div></div>
+</div>
+
+<p>The improvement appears concentrated on multi-day attack patterns no single rule covers, and on benign-but-noisy activity that produces large alert volume without a corresponding incident. Two characterised limitations already shape the remaining work.</p>
+
+<ul>
+<li><strong>S14</strong> <span class="pill bound">OBSERVED LIMITATION</span> &mdash; on the decoy-misdirection scenario, the LLM produces the correct binary verdict but identifies the decoy actor as the suspect. Every cited event is real; the structural check stays silent. <em>Citation grounding is necessary but not sufficient.</em></li>
+<li><strong>S15</strong> <span class="pill bound">OBSERVED LIMITATION</span> &mdash; the LLM returns ATTACK with rule alerts in its input on a BENIGN scenario. Under a diagnostic ablation that removes the rule-alert input, the same model on the same timeline returns BENIGN across five repeated runs. <em>Rule output, when supplied to a downstream LLM, is suggestive context, not neutral evidence.</em></li>
+</ul>
+
+<!-- ============================== -->
+<h2>6. Remaining work for the final paper</h2>
+<ul>
+<li><strong>Multi-model evaluation</strong> &mdash; repeat the corpus on at least one additional open-weight model so the indications above generalise beyond a single model.</li>
+<li><strong>Statistical reporting</strong> &mdash; run all scenarios with N&nbsp;=&nbsp;5 repeats at low temperature and report mean and standard deviation, since the underlying generation is not strictly deterministic.</li>
+<li><strong>Real-world dataset validation</strong> &mdash; apply the proposed pipeline to a public benchmark (LANL authentication, DARPA OpTC) or anonymised institutional logs. The principal step from controlled study to empirical study.</li>
+<li><strong>Adversarial robustness study</strong> extending S14 &mdash; vary the decoy-to-real activity ratio, decoy actor count, and decoy event volume, and report the perturbation level at which suspect identification breaks.</li>
+<li><strong>Stronger validator</strong> &mdash; extend the post-hoc check to address causal overclaim and missing-alternative-explanation, the two hallucination categories the present check does not cover.</li>
+<li><strong>Optional human-analyst study</strong> &mdash; even three security practitioners rating LLM-narrative against rule-alert outputs would close a known construct-validity gap.</li>
+</ul>
+
+</div>
+</body>
+</html>
