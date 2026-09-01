@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Plan — LLM-Assisted Forensic Investigation in Private Cloud</title>
+<style>
+  :root {
+    --bg: #0d1117; --surface: #161b22; --surface2: #1c2333;
+    --border: #30363d; --text: #e6edf3; --muted: #8b949e;
+    --blue: #58a6ff; --green: #3fb950; --red: #f85149;
+    --orange: #d29922; --purple: #bc8cff; --cyan: #39d2c0;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.7; }
+
+  .hero { background:linear-gradient(135deg,#0d1117,#1a1f35,#0d1117); border-bottom:1px solid var(--border); padding:50px 40px; text-align:center; }
+  .hero h1 { font-size:1.8rem; color:var(--blue); margin-bottom:10px; letter-spacing:-.5px; }
+  .hero p { color:var(--muted); max-width:700px; margin:0 auto; }
+  .tags { margin-top:16px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
+  .tag { padding:3px 12px; border-radius:16px; font-size:.75rem; font-weight:600; }
+  .t-blue { background:rgba(88,166,255,.12); color:var(--blue); border:1px solid rgba(88,166,255,.25); }
+  .t-green { background:rgba(63,185,80,.12); color:var(--green); border:1px solid rgba(63,185,80,.25); }
+  .t-purple { background:rgba(188,140,255,.12); color:var(--purple); border:1px solid rgba(188,140,255,.25); }
+  .t-orange { background:rgba(210,153,34,.12); color:var(--orange); border:1px solid rgba(210,153,34,.25); }
+
+  .container { max-width:960px; margin:0 auto; padding:40px 24px; }
+
+  .toc { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:24px 28px; margin-bottom:48px; }
+  .toc h2 { font-size:.82rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--muted); margin-bottom:14px; }
+  .toc-grid { display:grid; grid-template-columns:1fr 1fr; gap:5px 28px; }
+  .toc a { color:var(--blue); text-decoration:none; font-size:.88rem; display:block; padding:3px 0; }
+  .toc a:hover { color:#79c0ff; }
+  .toc a .num { color:var(--muted); margin-right:6px; }
+
+  section { margin-bottom:56px; }
+  section > h2 { font-size:1.3rem; font-weight:700; margin-bottom:18px; padding-bottom:10px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
+  .sn { background:var(--blue); color:var(--bg); font-size:.72rem; font-weight:700; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; }
+  h3 { font-size:1rem; color:var(--blue); margin:22px 0 8px; }
+  p { margin-bottom:12px; }
+  ul,ol { margin:8px 0 14px 22px; }
+  li { margin-bottom:5px; font-size:.92rem; }
+
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px 22px; margin:14px 0; }
+  blockquote { border-left:3px solid var(--blue); padding:14px 18px; background:rgba(88,166,255,.05); border-radius:0 8px 8px 0; margin:14px 0; font-style:italic; }
+  code { background:rgba(110,118,129,.2); padding:2px 7px; border-radius:4px; font-size:.88em; font-family:'SF Mono','Fira Code',monospace; }
+  pre { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:18px 20px; overflow-x:auto; margin:14px 0; font-size:.85rem; line-height:1.6; font-family:'SF Mono','Fira Code',monospace; color:var(--text); }
+
+  table { width:100%; border-collapse:collapse; margin:14px 0; font-size:.88rem; }
+  th { background:var(--surface2); padding:9px 12px; text-align:left; font-weight:600; font-size:.8rem; text-transform:uppercase; letter-spacing:.4px; color:var(--muted); border-bottom:1px solid var(--border); }
+  td { padding:9px 12px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tr:hover td { background:rgba(88,166,255,.03); }
+
+  .warn { background:rgba(248,81,73,.07); border:1px solid rgba(248,81,73,.25); border-radius:8px; padding:14px 18px; margin:14px 0; }
+  .warn-t { color:var(--red); font-weight:700; margin-bottom:4px; font-size:.9rem; }
+  .callout { background:rgba(57,210,192,.07); border:1px solid rgba(57,210,192,.25); border-radius:8px; padding:14px 18px; margin:14px 0; }
+  .callout-t { color:var(--cyan); font-weight:700; margin-bottom:4px; font-size:.9rem; }
+  .success { background:rgba(63,185,80,.07); border:1px solid rgba(63,185,80,.25); border-radius:8px; padding:14px 18px; margin:14px 0; }
+  .success-t { color:var(--green); font-weight:700; margin-bottom:4px; font-size:.9rem; }
+
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+
+  details { background:var(--surface); border:1px solid var(--border); border-radius:10px; margin:10px 0; overflow:hidden; }
+  summary { padding:12px 18px; cursor:pointer; font-weight:600; font-size:.92rem; user-select:none; list-style:none; display:flex; align-items:center; gap:8px; }
+  summary::before { content:'>'; font-family:monospace; color:var(--blue); transition:transform .2s; }
+  details[open] summary::before { transform:rotate(90deg); }
+  details > div { padding:0 18px 14px; }
+
+  .scenario-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0; }
+  .scenario-card { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:18px; }
+  .scenario-card.benign { border-left:3px solid var(--green); }
+  .scenario-card.attack { border-left:3px solid var(--red); }
+  .scenario-label { display:inline-block; padding:2px 10px; border-radius:12px; font-size:.72rem; font-weight:700; letter-spacing:.5px; margin-bottom:8px; }
+  .label-benign { background:rgba(63,185,80,.15); color:var(--green); }
+  .label-attack { background:rgba(248,81,73,.15); color:var(--red); }
+  .scenario-card h4 { font-size:.92rem; margin-bottom:6px; }
+  .scenario-card p { font-size:.86rem; color:var(--muted); margin-bottom:6px; }
+  .expected { font-size:.82rem; margin-top:8px; padding-top:8px; border-top:1px solid var(--border); }
+
+  .json-block { background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:18px 20px; margin:14px 0; font-family:'SF Mono','Fira Code',monospace; font-size:.83rem; line-height:1.6; overflow-x:auto; color:var(--muted); }
+  .jk { color:var(--blue); } .js { color:var(--green); } .jn { color:var(--orange); } .jl { color:var(--red); }
+
+  .tl-plan { position:relative; padding-left:32px; margin:20px 0; }
+  .tl-plan::before { content:''; position:absolute; left:12px; top:4px; bottom:4px; width:2px; background:var(--border); }
+  .tl-phase { position:relative; margin-bottom:24px; }
+  .tl-phase::before { content:''; position:absolute; left:-26px; top:6px; width:12px; height:12px; border-radius:50%; border:2px solid var(--blue); background:var(--bg); }
+  .tl-phase h4 { font-size:.92rem; color:var(--blue); margin-bottom:4px; }
+  .tl-phase .days { font-size:.8rem; color:var(--muted); margin-bottom:6px; }
+  .tl-phase ul { margin-left:0; list-style:none; }
+  .tl-phase li { font-size:.86rem; padding:2px 0; color:var(--muted); }
+  .tl-phase li::before { content:'[ ] '; font-family:monospace; color:var(--border); }
+
+  .diagram-container { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:32px; margin:24px 0; overflow-x:auto; }
+  .flow-box { fill:var(--surface2); stroke:var(--border); stroke-width:1.5; rx:8; }
+  .flow-box-accent { fill:rgba(88,166,255,.1); stroke:var(--blue); stroke-width:1.5; rx:8; }
+  .flow-box-green { fill:rgba(63,185,80,.1); stroke:var(--green); stroke-width:1.5; rx:8; }
+  .flow-box-red { fill:rgba(248,81,73,.08); stroke:var(--red); stroke-width:1.5; rx:8; }
+  .flow-box-purple { fill:rgba(188,140,255,.1); stroke:var(--purple); stroke-width:1.5; rx:8; }
+  .flow-box-orange { fill:rgba(210,153,34,.1); stroke:var(--orange); stroke-width:1.5; rx:8; }
+  .flow-text { fill:var(--text); font-family:system-ui; font-size:13px; font-weight:600; text-anchor:middle; dominant-baseline:central; }
+  .flow-text-small { fill:var(--muted); font-family:system-ui; font-size:11px; text-anchor:middle; dominant-baseline:central; }
+  .flow-arrow { stroke:var(--muted); stroke-width:1.5; fill:none; marker-end:url(#arrowhead); }
+
+  @media(max-width:700px) { .grid2,.grid3,.toc-grid,.scenario-grid { grid-template-columns:1fr; } .hero { padding:30px 18px; } .hero h1 { font-size:1.3rem; } }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs><marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#8b949e"/></marker></defs>
+</svg>
+
+<!-- HERO -->
+<header class="hero">
+  <h1>A Privacy-Preserving LLM-Assisted Framework for Post-Incident Forensic Investigation in Private Cloud Environments</h1>
+  <p>Research plan, literature review, gap analysis, system architecture, attack scenarios, evaluation design, and 14-day implementation roadmap.</p>
+  <div class="tags">
+    <span class="tag t-blue">Digital Forensics</span>
+    <span class="tag t-green">Cloud Security</span>
+    <span class="tag t-purple">Local LLM (Qwen 3.5)</span>
+    <span class="tag t-orange">Privacy-Preserving</span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- TOC -->
+<nav class="toc">
+  <h2>Contents</h2>
+  <div class="toc-grid">
+    <a href="#problem"><span class="num">01</span> Problem Statement</a>
+    <a href="#question"><span class="num">02</span> Research Question</a>
+    <a href="#contributions"><span class="num">03</span> Contributions</a>
+    <a href="#literature"><span class="num">04</span> Literature Review (Top 10)</a>
+    <a href="#gap"><span class="num">05</span> Gap Analysis</a>
+    <a href="#architecture"><span class="num">06</span> System Architecture</a>
+    <a href="#scenarios"><span class="num">07</span> Attack Scenarios</a>
+    <a href="#groundtruth"><span class="num">08</span> Ground Truth &amp; Log Schema</a>
+    <a href="#prompts"><span class="num">09</span> LLM Prompt Design</a>
+    <a href="#evaluation"><span class="num">10</span> Evaluation Metrics</a>
+    <a href="#stack"><span class="num">11</span> Tech Stack</a>
+    <a href="#setup"><span class="num">12</span> Environment Setup</a>
+    <a href="#timeline"><span class="num">13</span> 14-Day Plan</a>
+    <a href="#learn"><span class="num">14</span> What You Will Learn</a>
+    <a href="#risks"><span class="num">15</span> Risks &amp; Mitigations</a>
+    <a href="#structure"><span class="num">16</span> Project File Structure</a>
+  </div>
+</nav>
+
+<!-- 1. PROBLEM STATEMENT -->
+<section id="problem">
+  <h2><span class="sn">1</span> Problem Statement</h2>
+  <p>When a cyberattack hits an organization running private cloud infrastructure (VMware vSphere, OpenStack, etc.), investigators must reconstruct what happened from scattered, heterogeneous logs across hypervisors, VMs, network devices, and applications.</p>
+  <div class="card">
+    <div style="color:var(--red);font-weight:700;margin-bottom:8px">Current Problems</div>
+    <ul>
+      <li><strong>Logs are siloed</strong> &mdash; ESXi, guest OS, auth, file access, and network logs are all separate systems</li>
+      <li><strong>No unified forensic timeline</strong> exists by default in private cloud environments</li>
+      <li><strong>Public cloud has tooling; private cloud does not</strong> &mdash; AWS has CloudTrail/GuardDuty; VMware has nothing comparable</li>
+      <li><strong>Existing tools are fragmented</strong> &mdash; DFIR4vSphere, QELP, ESXimager each handle one piece but don't correlate</li>
+      <li><strong>Forensic evidence is sensitive</strong> &mdash; regulated industries cannot send logs to third-party LLM APIs</li>
+      <li><strong>Manual reconstruction</strong> is slow, error-prone, and depends on scarce expert availability</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 2. RESEARCH QUESTION -->
+<section id="question">
+  <h2><span class="sn">2</span> Research Question</h2>
+  <blockquote>Does a locally-deployed open-weight LLM improve post-incident forensic understanding when given structured, correlated evidence from private cloud environments &mdash; without introducing unacceptable errors?</blockquote>
+</section>
+
+<!-- 3. CONTRIBUTIONS -->
+<section id="contributions">
+  <h2><span class="sn">3</span> Research Contributions</h2>
+  <div class="grid2" style="margin-top:14px">
+    <div class="card" style="border-top:3px solid var(--blue)">
+      <div style="color:var(--blue);font-weight:700;font-size:.88rem;margin-bottom:6px">Contribution 1: Multi-Source Log Correlation Engine</div>
+      <p style="font-size:.86rem;margin:0">Ingests logs from multiple private cloud layers (hypervisor, VM, network, auth, file access) and normalizes them into a unified event schema for forensic analysis.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--purple)">
+      <div style="color:var(--purple);font-weight:700;font-size:.88rem;margin-bottom:6px">Contribution 2: Evidence-Grounded LLM Forensic Reasoning</div>
+      <p style="font-size:.86rem;margin:0">Feeds structured, correlated evidence to a locally-deployed LLM for incident reasoning &mdash; constrained to only reason over provided evidence, preventing hallucination.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--green)">
+      <div style="color:var(--green);font-weight:700;font-size:.88rem;margin-bottom:6px">Contribution 3: Privacy-Preserving Deployment</div>
+      <p style="font-size:.86rem;margin:0">Demonstrates that a local open-weight model can perform structured forensic reasoning comparable to traditional methods, without data leaving the security boundary.</p>
+    </div>
+    <div class="card" style="border-top:3px solid var(--orange)">
+      <div style="color:var(--orange);font-weight:700;font-size:.88rem;margin-bottom:6px">Contribution 4: Comparative Evaluation</div>
+      <p style="font-size:.86rem;margin:0">Rigorous comparison of rule-based-only vs LLM-assisted investigation across controlled attack scenarios, measuring detection quality, hallucination rate, and narrative usefulness.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. LITERATURE REVIEW -->
+<section id="literature">
+  <h2><span class="sn">4</span> Literature Review (Top 10 Papers)</h2>
+  <p>Systematic review of 60+ papers narrowed to the 10 most relevant works spanning cloud forensics, private cloud investigation, LLM-assisted forensics, and timeline reconstruction.</p>
+
+  <h3>Comparison Table</h3>
+  <div style="overflow-x:auto">
+  <table>
+    <tr>
+      <th style="min-width:180px">Paper</th>
+      <th>Year</th>
+      <th>Venue</th>
+      <th>Focus</th>
+      <th>Cloud Type</th>
+      <th>Uses AI/LLM</th>
+      <th>Key Limitation</th>
+    </tr>
+    <tr>
+      <td><strong>FROST: Digital Forensic Tools for OpenStack</strong><br><span style="color:var(--muted);font-size:.8rem">Dykstra &amp; Sherman</span></td>
+      <td>2013</td>
+      <td>Digital Investigation</td>
+      <td>Forensic acquisition toolkit</td>
+      <td style="color:var(--orange)">Private (OpenStack)</td>
+      <td style="color:var(--red)">No</td>
+      <td>OpenStack-only. 13 years old. No VMware.</td>
+    </tr>
+    <tr>
+      <td><strong>Cloud Log Forensics: Foundations &amp; Future Directions</strong><br><span style="color:var(--muted);font-size:.8rem">Multiple authors</span></td>
+      <td>2015</td>
+      <td>ACM Computing Surveys</td>
+      <td>Log correlation survey</td>
+      <td>General</td>
+      <td style="color:var(--red)">No</td>
+      <td>Pre-containers. No ML/AI integration.</td>
+    </tr>
+    <tr>
+      <td><strong>NIST Cloud Computing Forensic Science Challenges (IR 8006)</strong><br><span style="color:var(--muted);font-size:.8rem">Herman, Iorga et al.</span></td>
+      <td>2020</td>
+      <td>NIST</td>
+      <td>62 forensic challenges defined</td>
+      <td>General</td>
+      <td style="color:var(--red)">No</td>
+      <td>Identifies problems, not solutions.</td>
+    </tr>
+    <tr>
+      <td><strong>Cloud Digital Forensics: Beyond Tools, Techniques, and Challenges</strong><br><span style="color:var(--muted);font-size:.8rem">Malik et al.</span></td>
+      <td>2024</td>
+      <td>Sensors, MDPI</td>
+      <td>Comprehensive survey</td>
+      <td style="color:var(--blue)">Public (primary)</td>
+      <td style="color:var(--red)">No</td>
+      <td>Heavy public cloud focus. Private cloud barely addressed.</td>
+    </tr>
+    <tr>
+      <td><strong>Forensic Investigation, Challenges, and Issues of Cloud Data (SLR)</strong><br><span style="color:var(--muted);font-size:.8rem">Multiple authors</span></td>
+      <td>2024</td>
+      <td>Computers, MDPI</td>
+      <td>Systematic literature review (52 papers)</td>
+      <td style="color:var(--blue)">Public (primary)</td>
+      <td style="color:var(--red)">No</td>
+      <td>Limited private cloud discussion.</td>
+    </tr>
+    <tr>
+      <td><strong>ForensicLLM: A Local LLM for Digital Forensics</strong><br><span style="color:var(--muted);font-size:.8rem">Sharma et al.</span></td>
+      <td>2025</td>
+      <td>FSI: Digital Investigation (DFRWS)</td>
+      <td>Fine-tuned LLaMA-3.1-8B for forensics</td>
+      <td>None (general)</td>
+      <td style="color:var(--green)">Yes (local)</td>
+      <td>General-purpose. Not tailored to cloud or incident investigation.</td>
+    </tr>
+    <tr>
+      <td><strong>DFIR-Metric: Benchmark for Evaluating LLMs in DFIR</strong><br><span style="color:var(--muted);font-size:.8rem">Multiple authors</span></td>
+      <td>2025</td>
+      <td>Springer / arXiv</td>
+      <td>700 MCQs + 150 CTF challenges + 500 NIST cases</td>
+      <td>None (general)</td>
+      <td style="color:var(--green)">Yes (eval)</td>
+      <td>Tests general DFIR knowledge. No cloud-specific evaluation.</td>
+    </tr>
+    <tr>
+      <td><strong>Towards Standardized Methodology for LLM-Based Forensic Timeline Analysis</strong><br><span style="color:var(--muted);font-size:.8rem">Multiple authors</span></td>
+      <td>2025</td>
+      <td>FSI: Digital Investigation / arXiv</td>
+      <td>LLM timeline evaluation methodology</td>
+      <td>None (general)</td>
+      <td style="color:var(--green)">Yes</td>
+      <td><strong>LLM alone performs WORSE than rule-based.</strong> Hybrid approach untested.</td>
+    </tr>
+    <tr>
+      <td><strong>ProvSEEK: LLM-Driven Provenance Forensics for Threat Investigation</strong><br><span style="color:var(--muted);font-size:.8rem">Multiple authors</span></td>
+      <td>2025</td>
+      <td>arXiv</td>
+      <td>Agentic LLM framework for forensics</td>
+      <td>None (general)</td>
+      <td style="color:var(--green)">Yes (cloud API)</td>
+      <td>Cannot adapt to emerging threats. Uses cloud API, not local.</td>
+    </tr>
+    <tr>
+      <td><strong>Incident Response Planning Using Lightweight LLM with Reduced Hallucination</strong><br><span style="color:var(--muted);font-size:.8rem">Hammar et al.</span></td>
+      <td>2025</td>
+      <td>NDSS 2026</td>
+      <td>Fine-tuned 14B model for IR planning</td>
+      <td>None (general)</td>
+      <td style="color:var(--green)">Yes (local)</td>
+      <td>IR planning only, not forensic reconstruction. Needs retraining.</td>
+    </tr>
+  </table>
+  </div>
+
+  <h3>Key Observations</h3>
+  <div class="card">
+    <ul>
+      <li><strong>Cloud forensics is well-studied for public cloud</strong> (AWS/Azure) with native tooling and multiple frameworks. Private cloud (VMware/OpenStack) has only FROST (2013) as a dedicated framework.</li>
+      <li><strong>LLM + forensics is active but general-purpose.</strong> ForensicLLM, DFIR-Metric, ProvSEEK all exist, but none target cloud environments specifically, and none address private cloud.</li>
+      <li><strong>LLM alone underperforms rules.</strong> The 2025 standardized evaluation paper found ChatGPT performs worse than rule-based approaches. But the hybrid approach (rules + LLM reasoning on structured output) has not been tested.</li>
+      <li><strong>All AI forensic tools use cloud APIs.</strong> ForensicLLM is the only local model, but it's general-purpose, not designed for incident investigation or cloud evidence.</li>
+      <li><strong>VMware forensic tools are fragmented.</strong> DFIR4vSphere (collection), QELP (parsing), ESXimager (acquisition) each do one thing. No unified correlation + timeline + analysis pipeline exists.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 5. GAP ANALYSIS -->
+<section id="gap">
+  <h2><span class="sn">5</span> Gap Analysis</h2>
+
+  <table>
+    <tr>
+      <th>Capability</th>
+      <th>Public Cloud</th>
+      <th>Private Cloud</th>
+      <th>Your Contribution</th>
+    </tr>
+    <tr>
+      <td>Native logging</td>
+      <td style="color:var(--green)">CloudTrail, VPC Flow, GuardDuty</td>
+      <td style="color:var(--red)">Fragmented: ESXi, vCenter, guest OS</td>
+      <td style="color:var(--blue)">Unified ingestion + normalization</td>
+    </tr>
+    <tr>
+      <td>Investigation frameworks</td>
+      <td style="color:var(--green)">AWS blueprints, Azure Sentinel</td>
+      <td style="color:var(--red)">FROST (2013, OpenStack only)</td>
+      <td style="color:var(--blue)">Cross-layer correlation framework</td>
+    </tr>
+    <tr>
+      <td>Timeline reconstruction</td>
+      <td style="color:var(--orange)">Plaso/Log2Timeline (generic)</td>
+      <td style="color:var(--red)">Manual process</td>
+      <td style="color:var(--blue)">Automated timeline engine</td>
+    </tr>
+    <tr>
+      <td>AI-assisted investigation</td>
+      <td style="color:var(--green)">Security Copilot, Charlotte AI</td>
+      <td style="color:var(--red)">Nothing &mdash; all require cloud API</td>
+      <td style="color:var(--blue)">Local LLM reasoning layer</td>
+    </tr>
+    <tr>
+      <td>Data stays on-premises</td>
+      <td style="color:var(--red)">No &mdash; data sent to vendor</td>
+      <td style="color:var(--orange)">N/A (no AI tools exist)</td>
+      <td style="color:var(--green)">Fully local deployment</td>
+    </tr>
+    <tr>
+      <td>Evidence-grounded reasoning</td>
+      <td style="color:var(--orange)">Copilot/Charlotte can hallucinate</td>
+      <td style="color:var(--red)">No AI reasoning exists</td>
+      <td style="color:var(--blue)">Constrained structured input only</td>
+    </tr>
+    <tr>
+      <td>Rule vs LLM comparison</td>
+      <td style="color:var(--red)">No published comparisons</td>
+      <td style="color:var(--red)">No published comparisons</td>
+      <td style="color:var(--green)">Core evaluation contribution</td>
+    </tr>
+  </table>
+
+  <h3>Three Gaps Your Research Fills</h3>
+  <div class="grid3" style="margin-top:14px">
+    <div class="card" style="border-left:3px solid var(--red)">
+      <div style="color:var(--red);font-weight:700;font-size:.86rem;margin-bottom:6px">Gap 1: No Unified Private Cloud Forensics</div>
+      <p style="font-size:.84rem;margin:0">Tools exist individually but nobody has built a unified correlation and timeline system tying hypervisor + VM + network + auth logs together.</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--red)">
+      <div style="color:var(--red);font-weight:700;font-size:.86rem;margin-bottom:6px">Gap 2: No Local AI for Forensic Investigation</div>
+      <p style="font-size:.84rem;margin:0">Every AI forensic tool (Security Copilot, Charlotte AI, Chronicle) requires sending data to cloud APIs. Regulated industries cannot use any of them.</p>
+    </div>
+    <div class="card" style="border-left:3px solid var(--red)">
+      <div style="color:var(--red);font-weight:700;font-size:.86rem;margin-bottom:6px">Gap 3: No Rule vs LLM Forensic Comparison</div>
+      <p style="font-size:.84rem;margin:0">Literature shows LLMs alone perform worse than rules. But the hybrid approach &mdash; rules + LLM reasoning on structured output &mdash; has never been tested.</p>
+    </div>
+  </div>
+
+  <div class="warn" style="margin-top:16px">
+    <div class="warn-t">Critical Finding from Literature</div>
+    <p style="font-size:.86rem;margin:0">The 2025 paper "Towards a Standardized Methodology for Evaluating LLM-Based Digital Forensic Timeline Analysis" found that <strong>ChatGPT performs WORSE than rule-based approaches when used alone</strong>. This strengthens your research &mdash; your hybrid architecture (rules + LLM reasoning on structured output) is the approach nobody has tested yet.</p>
+  </div>
+</section>
+
+<!-- 6. ARCHITECTURE -->
+<section id="architecture">
+  <h2><span class="sn">6</span> System Architecture</h2>
+  <div class="diagram-container">
+    <svg width="900" height="920" viewBox="0 0 900 920">
+      <rect class="flow-box" x="50" y="10" width="800" height="60"/>
+      <text class="flow-text" x="450" y="32">EVIDENCE SOURCES</text>
+      <text class="flow-text-small" x="450" y="52">Auth Logs &bull; File Access Logs &bull; Admin Logs &bull; Network Logs</text>
+      <line class="flow-arrow" x1="450" y1="70" x2="450" y2="100"/>
+      <rect class="flow-box" x="200" y="100" width="500" height="50"/>
+      <text class="flow-text" x="450" y="120">LOG INGESTION</text>
+      <text class="flow-text-small" x="450" y="138">Reads JSON/CSV log files from multiple sources</text>
+      <line class="flow-arrow" x1="450" y1="150" x2="450" y2="180"/>
+      <rect class="flow-box-accent" x="200" y="180" width="500" height="60"/>
+      <text class="flow-text" x="450" y="200">NORMALIZER</text>
+      <text class="flow-text-small" x="450" y="222">Converts all logs into unified event schema</text>
+      <line class="flow-arrow" x1="450" y1="240" x2="450" y2="270"/>
+      <rect class="flow-box-green" x="200" y="270" width="500" height="60"/>
+      <text class="flow-text" x="450" y="290">EVENT STORE (PostgreSQL)</text>
+      <text class="flow-text-small" x="450" y="310">Unified events &bull; Session tracking &bull; User baselines</text>
+      <line class="flow-arrow" x1="450" y1="330" x2="450" y2="360"/>
+      <rect class="flow-box" x="200" y="360" width="500" height="60"/>
+      <text class="flow-text" x="450" y="380">TIMELINE RECONSTRUCTION</text>
+      <text class="flow-text-small" x="450" y="400">Sort chronologically &bull; Group by session/user &bull; Link events</text>
+      <line class="flow-arrow" x1="450" y1="420" x2="450" y2="450"/>
+      <rect class="flow-box-accent" x="200" y="450" width="500" height="60"/>
+      <text class="flow-text" x="450" y="470">CORRELATION ENGINE</text>
+      <text class="flow-text-small" x="450" y="490">Cross-source linking &bull; Temporal matching &bull; Causal chains</text>
+      <line class="flow-arrow" x1="330" y1="510" x2="230" y2="550"/>
+      <line class="flow-arrow" x1="570" y1="510" x2="670" y2="550"/>
+      <rect class="flow-box-orange" x="80" y="550" width="320" height="120"/>
+      <text class="flow-text" x="240" y="575">PATH A: RULE-BASED</text>
+      <text class="flow-text-small" x="240" y="598">Bulk download detection</text>
+      <text class="flow-text-small" x="240" y="615">Privilege escalation rules</text>
+      <text class="flow-text-small" x="240" y="632">Impossible travel / Off-hours</text>
+      <text class="flow-text-small" x="240" y="652">Output: flags, scores, triggered rules</text>
+      <rect class="flow-box-purple" x="500" y="550" width="320" height="120"/>
+      <text class="flow-text" x="660" y="575">PATH B: LLM-ASSISTED</text>
+      <text class="flow-text-small" x="660" y="598">Input: structured timeline + flags</text>
+      <text class="flow-text-small" x="660" y="615">Qwen 3.5 (via Modal)</text>
+      <text class="flow-text-small" x="660" y="632">Constrained forensic reasoning</text>
+      <text class="flow-text-small" x="660" y="652">Output: narrative, chain, confidence</text>
+      <line class="flow-arrow" x1="240" y1="670" x2="370" y2="720"/>
+      <line class="flow-arrow" x1="660" y1="670" x2="530" y2="720"/>
+      <rect class="flow-box-red" x="200" y="720" width="500" height="60"/>
+      <text class="flow-text" x="450" y="740">EVALUATION</text>
+      <text class="flow-text-small" x="450" y="760">Compare Path A vs Path B against ground truth</text>
+      <line class="flow-arrow" x1="450" y1="780" x2="450" y2="810"/>
+      <rect class="flow-box-green" x="200" y="810" width="500" height="70"/>
+      <text class="flow-text" x="450" y="832">FORENSIC REPORT</text>
+      <text class="flow-text-small" x="450" y="855">Timeline &bull; Flagged events &bull; Attack path &bull; Evidence chain &bull; Confidence</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 7. SCENARIOS -->
+<section id="scenarios">
+  <h2><span class="sn">7</span> Attack Scenarios (Your Dataset)</h2>
+  <div class="callout">
+    <div class="callout-t">These scenarios ARE your dataset</div>
+    <p style="font-size:.86rem;margin:0">Design them first, generate logs from them. Not the other way around.</p>
+  </div>
+  <div class="scenario-grid">
+    <div class="scenario-card benign">
+      <span class="scenario-label label-benign">BENIGN</span>
+      <h4>Scenario 1: Normal Baseline</h4>
+      <p>User logs in at normal hours from usual IP. Accesses a few files. No privilege changes. Logs out.</p>
+      <p><strong>Purpose:</strong> Test false positive rate.</p>
+      <div class="expected"><span style="color:var(--orange)">Rule-based:</span> no alert &nbsp; <span style="color:var(--purple)">LLM:</span> no alert</div>
+    </div>
+    <div class="scenario-card benign">
+      <span class="scenario-label label-benign">BENIGN</span>
+      <h4>Scenario 2: Noisy but Benign</h4>
+      <p>User logs in from new IP (traveling). Accesses many files (deadline). Works late. Downloads large files.</p>
+      <p><strong>Purpose:</strong> Test LLM reasoning vs rule rigidity.</p>
+      <div class="expected"><span style="color:var(--orange)">Rule-based:</span> false positive &nbsp; <span style="color:var(--purple)">LLM:</span> should downgrade</div>
+    </div>
+    <div class="scenario-card attack">
+      <span class="scenario-label label-attack">ATTACK</span>
+      <h4>Scenario 3: Obvious Attack</h4>
+      <p>Login from unusual IP at 3 AM. Privilege escalation. Bulk download 50+ files. Log deletion. Logout.</p>
+      <p><strong>Purpose:</strong> Both detect. Tests explanation quality.</p>
+      <div class="expected"><span style="color:var(--orange)">Rule-based:</span> full detection &nbsp; <span style="color:var(--purple)">LLM:</span> full + narrative</div>
+    </div>
+    <div class="scenario-card attack" style="border-left-color:var(--orange)">
+      <span class="scenario-label label-attack">ATTACK &mdash; KEY SCENARIO</span>
+      <h4>Scenario 4: Subtle Attack</h4>
+      <p>Normal login. Minor privilege change. Slow file access over 3 days (2-3/day). Files outside scope. No cleanup. 15 files total.</p>
+      <p><strong>Purpose:</strong> This is where the paper lives.</p>
+      <div class="expected"><span style="color:var(--orange)">Rule-based:</span> partial / miss &nbsp; <span style="color:var(--purple)">LLM:</span> should detect</div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. GROUND TRUTH & SCHEMA -->
+<section id="groundtruth">
+  <h2><span class="sn">8</span> Ground Truth &amp; Unified Log Schema</h2>
+
+  <h3>Ground Truth Format</h3>
+  <div class="json-block"><pre style="background:transparent;border:none;padding:0;margin:0">{
+  <span class="jk">"scenarios"</span>: [
+    { <span class="jk">"id"</span>: <span class="js">"scenario_1"</span>, <span class="jk">"name"</span>: <span class="js">"normal_baseline"</span>, <span class="jk">"label"</span>: <span class="js">"BENIGN"</span>,
+      <span class="jk">"attacker"</span>: <span class="jl">null</span>, <span class="jk">"expected"</span>: { <span class="jk">"rule"</span>: <span class="js">"no_alert"</span>, <span class="jk">"llm"</span>: <span class="js">"no_alert"</span> } },
+    { <span class="jk">"id"</span>: <span class="js">"scenario_2"</span>, <span class="jk">"name"</span>: <span class="js">"noisy_benign"</span>, <span class="jk">"label"</span>: <span class="js">"BENIGN"</span>,
+      <span class="jk">"attacker"</span>: <span class="jl">null</span>, <span class="jk">"expected"</span>: { <span class="jk">"rule"</span>: <span class="js">"false_positive"</span>, <span class="jk">"llm"</span>: <span class="js">"no_alert"</span> } },
+    { <span class="jk">"id"</span>: <span class="js">"scenario_3"</span>, <span class="jk">"name"</span>: <span class="js">"obvious_attack"</span>, <span class="jk">"label"</span>: <span class="js">"ATTACK"</span>,
+      <span class="jk">"attacker"</span>: <span class="js">"user_ext_01"</span>,
+      <span class="jk">"attack_steps"</span>: [<span class="js">"login_unusual_ip"</span>, <span class="js">"privilege_escalation"</span>, <span class="js">"bulk_download"</span>, <span class="js">"log_deletion"</span>, <span class="js">"logout"</span>],
+      <span class="jk">"expected"</span>: { <span class="jk">"rule"</span>: <span class="js">"full_detection"</span>, <span class="jk">"llm"</span>: <span class="js">"full_detection"</span> } },
+    { <span class="jk">"id"</span>: <span class="js">"scenario_4"</span>, <span class="jk">"name"</span>: <span class="js">"subtle_attack"</span>, <span class="jk">"label"</span>: <span class="js">"ATTACK"</span>,
+      <span class="jk">"attacker"</span>: <span class="js">"user_03"</span>,
+      <span class="jk">"attack_steps"</span>: [<span class="js">"login_normal"</span>, <span class="js">"minor_priv_change"</span>, <span class="js">"slow_access_d1"</span>, <span class="js">"slow_access_d2"</span>, <span class="js">"slow_access_d3"</span>],
+      <span class="jk">"expected"</span>: { <span class="jk">"rule"</span>: <span class="js">"partial"</span>, <span class="jk">"llm"</span>: <span class="js">"full_detection"</span> } }
+  ]
+}</pre></div>
+
+  <h3>Unified Log Schema</h3>
+  <div class="json-block"><pre style="background:transparent;border:none;padding:0;margin:0">{
+  <span class="jk">"event_id"</span>:    <span class="js">"evt_00001"</span>,
+  <span class="jk">"timestamp"</span>:   <span class="js">"2026-04-01T09:15:32Z"</span>,
+  <span class="jk">"source_type"</span>: <span class="js">"auth | file_access | admin | network"</span>,
+  <span class="jk">"user"</span>:        <span class="js">"user_01"</span>,
+  <span class="jk">"action"</span>:      <span class="js">"login | logout | file_read | file_download | privilege_change | file_delete | log_delete"</span>,
+  <span class="jk">"resource"</span>:    <span class="js">"/data/finance/report_q1.xlsx"</span>,
+  <span class="jk">"source_ip"</span>:   <span class="js">"192.168.1.100"</span>,
+  <span class="jk">"status"</span>:      <span class="js">"success | failure"</span>,
+  <span class="jk">"session_id"</span>:  <span class="js">"sess_abc123"</span>,
+  <span class="jk">"severity"</span>:    <span class="js">"info | warning | critical"</span>,
+  <span class="jk">"metadata"</span>:    { <span class="jk">"file_size_bytes"</span>: <span class="jn">204800</span>, <span class="jk">"geo_location"</span>: <span class="js">"Dhaka, BD"</span>, <span class="jk">"device"</span>: <span class="js">"MacBook-Pro"</span> }
+}</pre></div>
+</section>
+
+<!-- 9. PROMPT DESIGN -->
+<section id="prompts">
+  <h2><span class="sn">9</span> LLM Prompt Design</h2>
+  <div class="warn">
+    <div class="warn-t">Core Constraint</div>
+    The LLM NEVER sees raw logs. It receives pre-processed, structured forensic input only. This is non-negotiable.
+  </div>
+  <h3>Input Template</h3>
+  <pre>You are a digital forensic analyst. Analyze the following
+structured evidence from a post-incident investigation.
+
+RULES:
+- Only reason about events explicitly listed below.
+- Do NOT assume or invent events not present in the evidence.
+- If evidence is insufficient, say so explicitly.
+- Assign confidence levels: HIGH, MEDIUM, LOW.
+
+CORRELATED TIMELINE:
+{timeline_json}
+
+TRIGGERED RULES:
+{rules_json}
+
+ANOMALY INDICATORS:
+{anomaly_json}
+
+USER BASELINE:
+{baseline_json}
+
+TASK:
+1. Is there evidence of a security incident? (YES / NO / INSUFFICIENT)
+2. If YES, reconstruct the probable attack chain using only provided events.
+3. Identify the most suspicious user and explain why.
+4. List specific events (by event_id) that support your conclusion.
+5. Note any gaps in evidence that limit your analysis.</pre>
+  <h3>What the LLM Must NOT Do</h3>
+  <ul>
+    <li>Invent timestamps or events not in the input</li>
+    <li>Assume network connections not present in logs</li>
+    <li>Speculate about attacker identity beyond evidence</li>
+    <li>Fill gaps with assumptions</li>
+  </ul>
+</section>
+
+<!-- 10. EVALUATION -->
+<section id="evaluation">
+  <h2><span class="sn">10</span> Evaluation Metrics</h2>
+  <h3>Detection Quality</h3>
+  <table>
+    <tr><th>Metric</th><th>Definition</th></tr>
+    <tr><td>Event Recall</td><td>% of actual attack steps correctly identified</td></tr>
+    <tr><td>False Positive Rate</td><td>% of benign events incorrectly flagged</td></tr>
+    <tr><td>Detection Verdict</td><td>Correct classification: BENIGN vs ATTACK</td></tr>
+  </table>
+  <h3>LLM-Specific Metrics</h3>
+  <table>
+    <tr><th>Metric</th><th>Definition</th></tr>
+    <tr><td>Hallucinated Facts</td><td>Count of events/claims not present in input evidence</td></tr>
+    <tr><td>Timeline Correctness</td><td>Is the reconstructed sequence in correct order?</td></tr>
+    <tr><td>Evidence Grounding</td><td>Every claim maps to a specific event_id? (YES/NO per claim)</td></tr>
+    <tr><td>Narrative Usefulness</td><td>Would an analyst find this helpful? (1-5 scale)</td></tr>
+  </table>
+  <h3>Comparison Table &mdash; This IS Your Paper</h3>
+  <table>
+    <tr><th>Scenario</th><th>Rule-Based</th><th>LLM-Assisted</th><th>Missed Events</th><th>Hallucinations</th><th>Verdict</th></tr>
+    <tr><td>Normal</td><td>No alert</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td></tr>
+    <tr><td>Noisy Benign</td><td>False positive</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td></tr>
+    <tr><td>Obvious Attack</td><td>Full detect</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td></tr>
+    <tr><td>Subtle Attack</td><td>Partial</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td><td style="color:var(--muted)">?</td></tr>
+  </table>
+  <p style="font-size:.84rem;color:var(--muted)">Fill this table with real results. This table determines whether the paper is publishable.</p>
+</section>
+
+<!-- 11. TECH STACK -->
+<section id="stack">
+  <h2><span class="sn">11</span> Tech Stack</h2>
+  <table>
+    <tr><th>Component</th><th>Tool</th><th>Why</th></tr>
+    <tr><td>Language</td><td>Python 3.11+</td><td>Best ecosystem for data + ML</td></tr>
+    <tr><td>Database</td><td>PostgreSQL 15 (Docker)</td><td>Structured queries, robust</td></tr>
+    <tr><td>Backend API</td><td>FastAPI</td><td>Lightweight, async</td></tr>
+    <tr><td>LLM</td><td>Qwen 3.5 (via Modal)</td><td>Open-weight, existing infra</td></tr>
+    <tr><td>LLM Serving</td><td>Modal (existing setup)</td><td>Already running, GPU access</td></tr>
+    <tr><td>Frontend</td><td>Streamlit</td><td>Fast dashboard, no JS needed</td></tr>
+    <tr><td>Containers</td><td>Docker + docker-compose</td><td>Isolated, reproducible</td></tr>
+    <tr><td>ML (optional)</td><td>scikit-learn</td><td>Anomaly scoring (Isolation Forest)</td></tr>
+  </table>
+</section>
+
+<!-- 12. SETUP -->
+<section id="setup">
+  <h2><span class="sn">12</span> Environment Setup (Mac)</h2>
+  <details>
+    <summary>Step 1: Install Prerequisites</summary>
+    <div><pre># Docker Desktop
+brew install --cask docker
+
+# Python 3.11+
+brew install python@3.11</pre></div>
+  </details>
+  <details>
+    <summary>Step 2: Create Project Structure</summary>
+    <div><pre>mkdir -p ~/projects/cybersecurity/forensic-framework
+cd ~/projects/cybersecurity/forensic-framework
+mkdir -p app/{ingestion,normalizer,timeline,correlation,rules,llm,evaluation,reporting}
+mkdir -p data/{scenarios,raw_logs,normalized,ground_truth}
+mkdir -p config dashboards tests
+touch app/__init__.py app/main.py docker-compose.yml Dockerfile requirements.txt</pre></div>
+  </details>
+  <details>
+    <summary>Step 3: docker-compose.yml</summary>
+    <div><pre>version: '3.8'
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: forensic
+      POSTGRES_PASSWORD: forensic_secret
+      POSTGRES_DB: forensic_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:</pre>
+    <p style="font-size:.84rem;color:var(--muted);margin-top:8px">Note: App runs locally with venv, not in Docker. LLM inference via your existing Modal setup.</p>
+    </div>
+  </details>
+  <details>
+    <summary>Step 4: requirements.txt</summary>
+    <div><pre>fastapi==0.115.0
+uvicorn==0.30.0
+psycopg2-binary==2.9.9
+sqlalchemy==2.0.35
+pandas==2.2.3
+pydantic==2.9.2
+httpx==0.27.2
+streamlit==1.39.0
+scikit-learn==1.5.2
+python-dateutil==2.9.0</pre></div>
+  </details>
+  <details>
+    <summary>Step 5: Run</summary>
+    <div><pre># Start database
+docker-compose up -d db
+
+# Python environment
+python3.11 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Run
+python app/main.py</pre></div>
+  </details>
+</section>
+
+<!-- 13. 14-DAY PLAN -->
+<section id="timeline">
+  <h2><span class="sn">13</span> 14-Day Implementation Plan</h2>
+  <div class="tl-plan">
+    <div class="tl-phase">
+      <h4>Phase 1: Foundation</h4>
+      <div class="days">Days 1&ndash;3</div>
+      <ul>
+        <li>Set up Docker + PostgreSQL + project structure</li>
+        <li>Define database schema</li>
+        <li>Write all 4 scenario event sequences (DETAILED)</li>
+        <li>Generate synthetic logs for each scenario</li>
+        <li>Create ground truth JSON files</li>
+        <li>Build log parser + normalizer</li>
+        <li>Store normalized events in PostgreSQL</li>
+      </ul>
+    </div>
+    <div class="tl-phase">
+      <h4>Phase 2: Core Engine</h4>
+      <div class="days">Days 4&ndash;7</div>
+      <ul>
+        <li>Build timeline reconstruction module</li>
+        <li>Build correlation engine (cross-source linking)</li>
+        <li>Build rule-based detection engine</li>
+        <li>Run rules against all 4 scenarios, record results</li>
+        <li>Build LLM integration (Modal client + prompts)</li>
+        <li>Test LLM with each scenario, record results</li>
+      </ul>
+    </div>
+    <div class="tl-phase">
+      <h4>Phase 3: Evaluation + Reporting</h4>
+      <div class="days">Days 8&ndash;11</div>
+      <ul>
+        <li>Build evaluation module (compare vs ground truth)</li>
+        <li>Calculate: event recall, false positives, hallucinations</li>
+        <li>Build forensic report generator</li>
+        <li>Build Streamlit dashboard</li>
+        <li>Fill evaluation comparison table</li>
+      </ul>
+    </div>
+    <div class="tl-phase">
+      <h4>Phase 4: Polish</h4>
+      <div class="days">Days 12&ndash;14</div>
+      <ul>
+        <li>Review all results critically</li>
+        <li>Check for hallucinations in LLM outputs</li>
+        <li>Write methodology + results sections</li>
+        <li>Final testing + prepare demo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 14. WHAT YOU WILL LEARN -->
+<section id="learn">
+  <h2><span class="sn">14</span> What You Will Learn</h2>
+  <div class="grid2">
+    <div class="card">
+      <div style="color:var(--blue);font-weight:700;margin-bottom:6px">Digital Forensics</div>
+      <ul style="font-size:.86rem">
+        <li>Log-based incident investigation</li>
+        <li>Chain of evidence reasoning</li>
+        <li>Timeline reconstruction</li>
+        <li>Attack pattern recognition</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="color:var(--green);font-weight:700;margin-bottom:6px">Cloud Security</div>
+      <ul style="font-size:.86rem">
+        <li>Private cloud logging architecture</li>
+        <li>Hypervisor vs guest-level evidence</li>
+        <li>Why private cloud forensics is harder</li>
+        <li>Evidence preservation in virtualized environments</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="color:var(--purple);font-weight:700;margin-bottom:6px">AI / ML (Applied)</div>
+      <ul style="font-size:.86rem">
+        <li>Local LLM deployment and inference</li>
+        <li>Prompt engineering for constrained reasoning</li>
+        <li>Evaluating LLM reliability in high-stakes domains</li>
+        <li>Hallucination detection and measurement</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div style="color:var(--orange);font-weight:700;margin-bottom:6px">System Design + Research</div>
+      <ul style="font-size:.86rem">
+        <li>Multi-source data pipelines</li>
+        <li>Schema normalization</li>
+        <li>Event correlation algorithms</li>
+        <li>Experimental design with controlled scenarios</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 15. RISKS -->
+<section id="risks">
+  <h2><span class="sn">15</span> Risks &amp; Mitigations</h2>
+  <table>
+    <tr><th>Risk</th><th>Impact</th><th>Mitigation</th></tr>
+    <tr><td>LLM hallucinates heavily</td><td>Weakens paper</td><td>Constrained prompts + measure hallucination rate explicitly</td></tr>
+    <tr><td>Subtle scenario too easy</td><td>No difference between rule/LLM</td><td>Test with rule engine first, adjust difficulty</td></tr>
+    <tr><td>Subtle scenario too hard</td><td>LLM also fails</td><td>Adjust signal density &mdash; add more indicators</td></tr>
+    <tr><td>Evaluation too subjective</td><td>Weak paper</td><td>Use quantitative metrics (recall, hallucination count)</td></tr>
+    <tr><td>Scope creep</td><td>Miss deadline</td><td>Stick to 4 scenarios, no more</td></tr>
+    <tr><td>Modal latency/cost</td><td>Slow iteration</td><td>Cache LLM responses during development</td></tr>
+  </table>
+</section>
+
+<!-- 16. FILE STRUCTURE -->
+<section id="structure">
+  <h2><span class="sn">16</span> Project File Structure</h2>
+  <pre>forensic-framework/
+├── app/
+│   ├── __init__.py
+│   ├── main.py                      # Entry point
+│   ├── ingestion/
+│   │   └── parser.py                # Read and parse log files
+│   ├── normalizer/
+│   │   └── normalizer.py            # Map to unified schema
+│   ├── timeline/
+│   │   └── timeline.py              # Reconstruct event timeline
+│   ├── correlation/
+│   │   └── correlator.py            # Cross-source event linking
+│   ├── rules/
+│   │   └── rule_engine.py           # Detection rules
+│   ├── llm/
+│   │   ├── client.py                # Modal API client
+│   │   └── prompts.py               # Prompt templates
+│   ├── evaluation/
+│   │   └── evaluator.py             # Compare outputs vs ground truth
+│   └── reporting/
+│       └── reporter.py              # Generate forensic reports
+├── data/
+│   ├── scenarios/                   # Scenario definitions
+│   ├── raw_logs/                    # Source-specific logs
+│   ├── normalized/                  # Unified events
+│   └── ground_truth/                # Expected results
+├── config/
+│   └── rules.yaml                   # Detection rule definitions
+├── dashboards/
+│   └── streamlit_app.py             # Streamlit dashboard
+├── tests/
+├── docker-compose.yml
+├── Dockerfile
+├── requirements.txt
+└── .env</pre>
+</section>
+
+<!-- FINAL -->
+<section>
+  <h2><span class="sn">&bull;</span> One-Line Summary</h2>
+  <blockquote style="font-size:1.02rem">A forensic reconstruction engine with an LLM-based reasoning layer that operates entirely within a private security boundary, evaluated by comparing rule-based vs LLM-assisted investigation across controlled attack scenarios.</blockquote>
+  <div class="warn" style="margin-top:20px">
+    <div class="warn-t">Remember</div>
+    <p style="font-size:.88rem;margin:0">Your paper = your evaluation table. Everything else is setup.</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
