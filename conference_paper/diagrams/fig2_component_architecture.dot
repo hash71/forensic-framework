@@ -1,0 +1,39 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=LR; ranksep=0.55; nodesep=0.25;
+  subgraph cluster_py { label="forensic-framework (Python 3.11)"; style="rounded,dashed"; color="#888";
+    subgraph cluster_app { label="app/"; style="rounded"; color="#bbb";
+      ingmod [label="ingestion/\nlog_generator, parser"];
+      normmod [label="normalizer/\nnormalizer, ocsf_mapping"];
+      tlmod [label="timeline/\ntimeline"];
+      corrmod [label="correlation/\ncorrelator"];
+      rulemod [label="rules/\nrule_engine", fillcolor="#fdeaea", color="#a03030"];
+      llmmod [label="llm/\nprompts, client,\nhallucination_checker", fillcolor="#efe8fa", color="#6a3fa0"];
+      evalmod [label="evaluation/\nevaluator"];
+      repmod [label="reporting/\nreporter"];
+    }
+    api [label="FastAPI app/main.py\n14 REST endpoints"];
+    dash [label="Streamlit dashboard\n5 tabs"];
+    cfg [label="config/rules.yaml\n12 rule definitions", shape=note, fillcolor="#fdf3e3", color="#a07020"];
+    pg [label="PostgreSQL 15\nevents, alerts,\nllm_results, evaluation_results", shape=cylinder, fillcolor="#fdf3e3", color="#a07020"];
+  }
+  subgraph cluster_php { label="forensic-laravel (PHP)"; style="rounded,dashed"; color="#888";
+    lar [label="Laravel orchestration\n6 controllers, 14 API routes"];
+    aud [label="AuditService\naudit_logs table", shape=cylinder, fillcolor="#fdf3e3", color="#a07020"];
+  }
+  ext [label="LLM serving endpoint\nOpenAI-compatible\n(Modal / vLLM / Ollama)", fillcolor="#efe8fa", color="#6a3fa0"];
+  ingmod -> normmod -> tlmod -> corrmod;
+  corrmod -> rulemod; corrmod -> llmmod;
+  rulemod -> evalmod; llmmod -> evalmod; evalmod -> repmod;
+  cfg -> rulemod; normmod -> pg; api -> pg;
+  llmmod -> ext [label="HTTPS"];
+  api -> dash [dir=back, label="HTTP"];
+  lar -> api [label="ForensicEngineClient\n(HTTP proxy)"];
+  lar -> aud;
+}

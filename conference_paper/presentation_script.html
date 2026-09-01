@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presentation Script — word for word</title>
+<style>
+  :root{--navy:#1E2761;--ink:#1c2230;--mut:#5a6478;--ice:#cadcfc;--green:#2e7d52;--amber:#9a6a16;--bg:#fbfcfe;--line:#e1e6f0;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.7;font-size:19px;}
+  .wrap{max-width:760px;margin:0 auto;padding:30px 24px 90px;}
+  header{background:var(--navy);color:#fff;border-radius:12px;padding:24px 26px;margin-bottom:8px;}
+  header h1{margin:0 0 6px;font-size:24px;}
+  header p{margin:3px 0;color:var(--ice);font-size:15px;font-family:Calibri,Arial,sans-serif;}
+  .howto{background:#fff7ec;border-left:5px solid var(--amber);padding:12px 16px;border-radius:6px;margin:16px 0 26px;font-family:Calibri,Arial,sans-serif;font-size:15.5px;line-height:1.55;}
+  .slide{margin:0 0 26px;padding-bottom:18px;border-bottom:1px solid var(--line);}
+  .bar{display:flex;align-items:center;gap:12px;margin:0 0 8px;font-family:Calibri,Arial,sans-serif;}
+  .bar .n{background:var(--navy);color:#fff;font-weight:700;border-radius:7px;min-width:74px;text-align:center;padding:5px 8px;font-size:14px;}
+  .bar .ttl{font-weight:700;color:var(--navy);font-size:16px;}
+  .bar .time{margin-left:auto;color:var(--mut);font-size:13px;}
+  .cue{font-family:Calibri,Arial,sans-serif;font-size:14px;color:var(--mut);font-style:italic;margin:2px 0 8px;}
+  .script{font-size:19.5px;}
+  .pause{color:var(--amber);font-family:Calibri,Arial,sans-serif;font-size:14px;font-weight:700;}
+  b{color:var(--navy);}
+  h2{font-size:19px;color:var(--navy);margin:34px 0 10px;border-bottom:2px solid var(--line);padding-bottom:6px;font-family:Calibri,Arial,sans-serif;}
+  .qa{font-family:Calibri,Arial,sans-serif;font-size:16px;line-height:1.55;}
+  .qa .q{font-weight:700;color:var(--navy);margin:14px 0 3px;}
+  .footer{margin-top:36px;font-size:14px;color:var(--mut);text-align:center;font-family:Calibri,Arial,sans-serif;}
+  @media print{body{background:#fff;font-size:17px;}.slide{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Presentation Script — word for word</h1>
+  <p>Augmenting Rule-Based Private-Cloud Forensic Investigation with Evidence-Grounded LLM Reasoning</p>
+  <p>Md. Nazmul Hasan · target ≈ 10 minutes · then 5 minutes of questions</p>
+</header>
+
+<div class="howto">
+<b style="color:var(--amber)">How to use this:</b> read it out loud, naturally — don't rush. Each <b style="color:var(--navy)">[pause]</b> is a real breath; it makes you sound calm and in control.
+The grey italics are stage directions (where to point), not things to say. If you're running short on time, you can skip slides 11 and 12 and still tell the whole story. Advance the slide when you reach each new numbered block.
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 1</span><span class="ttl">Title</span><span class="time">~40 sec</span></div>
+  <div class="cue">Stand still, smile, look at the audience before you start.</div>
+  <div class="script">Good morning, everyone. My name is Nazmul, from the Department of Computer Science and Engineering at United International University. My project asks a very practical question: can we let an AI help investigate a security breach — <b>without it making things up?</b> <span class="pause">[pause]</span> These small tags at the top of the slide are pieces of evidence the AI cited; the red one is a citation our system caught as invalid. That picture is the whole idea in a nutshell — we make the AI cite its evidence, and then we automatically check every citation. Let me start with why this problem is hard.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 2</span><span class="ttl">The problem</span><span class="time">~50 sec</span></div>
+  <div class="cue">Gesture at the seven cards, then the big “0”.</div>
+  <div class="script">When a private organisation is attacked — a bank, a hospital, a government office — the clues to what happened are scattered across <b>seven completely separate systems</b>: login records, file activity, administrator actions, network traffic, database access, web logs, and email. <span class="pause">[pause]</span> If you use Amazon's or Google's cloud, you get one neat, unified log of everything. But a private cloud — a company running its own servers — has nothing like that. There is no single place to look. So today, investigators stitch the whole story together by hand. It's slow, it depends on scarce experts, and it's easy to get wrong. That manual reconstruction is the bottleneck we set out to attack.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 3</span><span class="ttl">Two existing options, both flawed</span><span class="time">~55 sec</span></div>
+  <div class="cue">Point left (rules), then right (AI).</div>
+  <div class="script">There are two obvious tools you could reach for, and each has a fatal flaw. The first is a <b>rule engine</b> — what the security industry actually uses today, sometimes called a SIEM. It's just a list of fixed if-then rules, like “more than five downloads in thirty minutes equals an alert.” Rules are transparent and fast — but brittle. They flood analysts with false alarms, and they miss slow attacks spread over many days. The second option is a <b>raw AI</b> — a large language model like ChatGPT or Gemma. It's smart enough to connect the dots, but it hallucinates: it invents evidence, or accuses the wrong person. And that's unacceptable when your conclusions might end up in court. <span class="pause">[pause]</span> So what we really want is the intelligence of the AI combined with the trustworthiness of the rules. That's exactly the gap this paper fills.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 4</span><span class="ttl">Our core idea</span><span class="time">~50 sec</span></div>
+  <div class="script">Here's our core idea. We <b>force the AI to attach a specific event ID to every single claim</b> it makes. It can't just say “user_03 is the attacker” — it has to say “user_03 is the attacker, see events evt_s4_002 and evt_s4_010.” Then a separate, simple checking program — we call it the <b>validator</b> — verifies that every cited event is actually real. If the AI ever cites something that doesn't exist, we catch it automatically. And to keep the comparison fair, we give the rule engine and the AI the <b>exact same evidence</b> — so if one does better, it's because of better reasoning, not more information. Our research question is therefore: can an AI that may only use the given evidence, and must cite an ID for every claim, beat the rule baseline while staying fully traceable?</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 5</span><span class="ttl">How the system works</span><span class="time">~40 sec</span></div>
+  <div class="cue">Trace the diagram left to right with your hand.</div>
+  <div class="script">This is the actual system, and it runs in five steps. First, <b>normalize</b> — convert all seven log types into one common format. Second, build a <b>timeline</b> — sort everything in order and group it by user and session. Third, <b>analyze twice</b> — the rule engine and the AI each read that same timeline and give a verdict. Fourth, <b>validate</b> — check every event ID the AI cited. And fifth, <b>score</b> — compare both verdicts against the known correct answer. <span class="pause">[pause]</span> And I want to stress: this isn't slideware. It's real, working software, with fifty-nine automated tests that all pass. Every number I'm about to show you comes from actually running it.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 6</span><span class="ttl">What “grounding” means</span><span class="time">~45 sec</span></div>
+  <div class="cue">Left = the AI answer; right = the seven checks.</div>
+  <div class="script">Let me make “grounding” concrete, because it's the heart of the method. A normal AI just says “it was user_03,” and you have to trust it. <b>Our</b> AI instead says “it was user_03 — see these specific events,” so every claim is anchored to real evidence. The validator then runs <b>seven automatic checks</b>: Do those cited events actually exist? Is user_03 a real user in the logs? Are the files and IP addresses it mentions real? Are the events in a sensible time order? And so on. And because the validator is plain code — there's no AI inside it — its checks are completely trustworthy and repeatable.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 7</span><span class="ttl">How we tested it fairly</span><span class="time">~45 sec</span></div>
+  <div class="script">Now, how did we test this fairly? This part matters a lot. We tuned the system on <b>fifteen scenarios we built by hand</b> — think of those as practice problems. But then we tested it on <b>one hundred completely fresh scenarios</b>, generated automatically from a fixed recipe, that the AI never saw while we were tuning. Those are the real exam. They include thirty-four deliberately tricky “hard benign” cases — innocent activity designed to look alarming. Everything I show from here on is from those hundred unseen cases. That's the honest, scientific way to report results.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 8</span><span class="ttl">The main result</span><span class="time">~55 sec</span></div>
+  <div class="cue">Point at the AI grid, then the table. This is the most important slide — slow down.</div>
+  <div class="script">Here's the main result, and it's more interesting than a single number. On <b>attack</b> cases, the AI catches one hundred percent — it misses nothing. The rules catch only about seventy. But on <b>benign</b> cases, the AI is actually <b>worse</b> — it's right only half the time, versus seventy percent for the rules. It wrongly flags about half of all innocent activity as an attack. Overall, that's seventy-eight percent versus seventy — but, to be honest, at our sample size that overall gap is <b>not statistically significant</b>, and we say so in the paper. <span class="pause">[pause]</span> So the real story isn't “the AI is better.” It's the <b>shape</b>: the AI is a high-recall but low-precision detector. It catches every attack, but it over-accuses. Please hold onto that trade-off — it's the spine of the rest of the talk.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 9</span><span class="ttl">Did the citation-checking work?</span><span class="time">~40 sec</span></div>
+  <div class="script">So, did the citation-checking actually work? Yes — and we measured it precisely. Across all one hundred and fifteen scenarios, <b>two thousand and sixty-seven of two thousand and sixty-eight</b> cited references were real events. That's 99.95 percent valid, with zero invented events. And it's repeatable: we re-ran it a hundred and ten times and got identical verdicts every single time. When we deleted evidence, it said “insufficient” rather than guessing. So “no fabricated evidence” isn't a slogan here — it's a measured fact.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 10</span><span class="ttl">Where it breaks #1 — the decoy</span><span class="time">~50 sec</span></div>
+  <div class="cue">Point at the two timeline lanes — loud decoy, quiet real attacker.</div>
+  <div class="script">Now the honest part — where it breaks. We built a scenario with a loud, obvious <b>decoy</b> attacker and a quiet <b>real</b> attacker running at the same time. The AI correctly said “yes, this is an attack” — but it blamed the decoy. The wrong person. And here's the subtle, important bit: <b>every event the AI cited was genuine</b>, so the validator stayed silent — it had nothing to flag. The lesson is right there in the title: checking that the citations are real does <b>not</b> guarantee the conclusion is correct. We deliberately feature this failure rather than hide it — and showing where a method breaks is what makes the rest of it believable.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 11</span><span class="ttl">Where it breaks #2 — alert bias</span><span class="time">~40 sec · (skippable if short)</span></div>
+  <div class="script">A second failure, and a subtle one. We also feed the rule engine's alerts to the AI as context. Is that safe? We tested it directly. With the alerts in the prompt, the AI wrongly cried “attack” five times out of five on a benign case. Remove just the alerts — everything else the same — and it correctly says “no,” five out of five. So rule output is not neutral context; it can bias the AI into agreeing with it. That said, across forty-four cases this only flipped six — so it's a real effect, but a minor one, not the main cause of the false alarms.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 12</span><span class="ttl">Stress tests</span><span class="time">~30 sec · (skippable if short)</span></div>
+  <div class="script">We also stress-tested it on purpose — we deleted chunks of evidence, injected noise, and scrambled the timestamps. The reassuring result: when it's under pressure, the AI degrades to “insufficient evidence” rather than making things up. It fails in the <b>safe direction</b>. And that's exactly the behaviour you want from a tool used in investigations.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 13</span><span class="ttl">Real third-party data — CERT</span><span class="time">~55 sec</span></div>
+  <div class="cue">This is your strongest slide. Say it with confidence.</div>
+  <div class="script">This is the result I'm most proud of. Everything so far was our own data, so the obvious criticism is “you made it up yourself.” So we ran the <b>entire pipeline on CERT</b> — a real, well-known insider-threat dataset built by Carnegie Mellon, with labels we had no hand in creating. The same pattern appeared, and it actually got stronger: the AI caught <b>all twenty real insiders</b>, but over-flagged nearly every innocent month. Now, one honest caveat: on this richer, real-world data, the AI often returned its answer as prose instead of the structured format we asked for — in thirty-four of thirty-five cases — so on CERT our citation-check couldn't run at full strength, and we report that openly. But the headline finding — catches everything, over-flags a lot — <b>survives on data we never touched.</b> And that's the strongest evidence we can offer.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 14</span><span class="ttl">Limitations &amp; next steps</span><span class="time">~40 sec</span></div>
+  <div class="cue">Say these confidently — admitting limits builds trust.</div>
+  <div class="script">Let me be clear about the limitations, because that's what makes the rest trustworthy. We tested only <b>one AI model</b>, so this over-flagging might be specific to it — that's our biggest limitation. Most of our data is synthetic. And as the decoy showed, the validator can't catch a wrong conclusion built from real evidence. The next steps follow directly: try other models like Llama and Mistral, bring in more real datasets, and teach the AI to weigh several suspects before it commits to one.</div>
+</div>
+
+<div class="slide">
+  <div class="bar"><span class="n">SLIDE 15</span><span class="ttl">Conclusion</span><span class="time">~35 sec</span></div>
+  <div class="cue">Slow down. This is your landing. Then invite questions.</div>
+  <div class="script">To wrap up. The right role for an AI in forensic investigation isn't an autonomous detector — it's a <b>high-recall first-pass assistant that a human reviews</b>. Rules and the AI are partners, not rivals: the rules give cheap, transparent triggers, and the AI adds reasoning across time and sources. And what makes the whole thing trustworthy is mechanical validation of every citation, plus the honesty to report exactly where it fails. Everything I've shown is reproducible from the code and data. <span class="pause">[pause]</span> Thank you very much — I'd be happy to take your questions.</div>
+</div>
+
+
+<h2>If a question stumps you — the 5 most likely, with answers</h2>
+<div class="qa">
+  <div class="q">“Isn't 100% detection too good — is it just saying ‘attack’ to everything?”</div>
+  <div>“Partly true — it does lean toward ‘attack,’ and that's exactly why its benign accuracy is only fifty percent. But it isn't blind: on the clearly-normal cases it correctly says no. The honest framing is high recall with a real false-positive cost — which is on slide 8.”</div>
+
+  <div class="q">“Why only one AI model?”</div>
+  <div>“That's our number-one limitation, and it's on slide 14. The over-flagging might be specific to Gemma. Testing Llama and Mistral on the same scenarios is the immediate next experiment — the code already supports swapping the model with one setting.”</div>
+
+  <div class="q">“It's all synthetic — why believe it transfers to the real world?”</div>
+  <div>“Two reasons. The hundred test cases are generated from an auditable recipe we couldn't bias. And more importantly, slide 13: we ran it on CERT, real third-party data from Carnegie Mellon, and the same pattern got stronger. That's the opposite of overfitting to our own data.”</div>
+
+  <div class="q">“What's actually new — people already use AI for security.”</div>
+  <div>“Three things together that prior work doesn't combine: every claim must cite an event ID, checked by a deterministic validator; we score verdict, suspect, and grounding as three separate things; and we design failure cases into the test set and keep them. The novelty is the rigorous method, not ‘an AI does security.’”</div>
+
+  <div class="q">“If the validator can't catch the wrong-suspect case, what's it for?”</div>
+  <div>“It catches a different, very real danger — fabricated evidence — with 99.95 percent reliability. Slide 10 just marks its boundary: it guarantees the citations are real, not that the interpretation is right. Knowing exactly where a safety check stops is itself part of the contribution.”</div>
+</div>
+
+<div class="footer">
+Rehearse this out loud twice, timing yourself. Aim for about 9 minutes so you have a little buffer.<br>
+If you blank: “We make the AI cite its evidence, we check the citations, it catches every attack but over-flags innocents — so it's a supervised assistant, not a judge.” That one sentence can rescue any moment.
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=LR; ranksep=0.7; nodesep=0.45;
+  node [shape=plaintext, fillcolor="none", style=""];
+  events [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BGCOLOR="#3b5b92"><FONT COLOR="white"><B>events</B></FONT></TD></TR>
+    <TR><TD ALIGN="LEFT">id PK<BR ALIGN="LEFT"/>event_id UQ<BR ALIGN="LEFT"/>scenario_id IX<BR ALIGN="LEFT"/>timestamp<BR ALIGN="LEFT"/>source_type<BR ALIGN="LEFT"/>user IX<BR ALIGN="LEFT"/>action<BR ALIGN="LEFT"/>resource<BR ALIGN="LEFT"/>source_ip<BR ALIGN="LEFT"/>status<BR ALIGN="LEFT"/>session_id<BR ALIGN="LEFT"/>severity<BR ALIGN="LEFT"/>metadata_ JSON<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  alerts [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BGCOLOR="#a03030"><FONT COLOR="white"><B>alerts</B></FONT></TD></TR>
+    <TR><TD ALIGN="LEFT">id PK<BR ALIGN="LEFT"/>scenario_id IX<BR ALIGN="LEFT"/>rule_id<BR ALIGN="LEFT"/>rule_name<BR ALIGN="LEFT"/>severity<BR ALIGN="LEFT"/>user<BR ALIGN="LEFT"/>description<BR ALIGN="LEFT"/>event_ids JSON<BR ALIGN="LEFT"/>timestamp<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  llmr [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BGCOLOR="#6a3fa0"><FONT COLOR="white"><B>llm_results</B></FONT></TD></TR>
+    <TR><TD ALIGN="LEFT">id PK<BR ALIGN="LEFT"/>scenario_id UQ<BR ALIGN="LEFT"/>verdict<BR ALIGN="LEFT"/>confidence<BR ALIGN="LEFT"/>suspect<BR ALIGN="LEFT"/>narrative<BR ALIGN="LEFT"/>attack_chain JSON<BR ALIGN="LEFT"/>evidence_for JSON<BR ALIGN="LEFT"/>evidence_against JSON<BR ALIGN="LEFT"/>gaps JSON<BR ALIGN="LEFT"/>raw_response JSON<BR ALIGN="LEFT"/>is_mock<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  evalr [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BGCOLOR="#2e7d52"><FONT COLOR="white"><B>evaluation_results</B></FONT></TD></TR>
+    <TR><TD ALIGN="LEFT">id PK<BR ALIGN="LEFT"/>scenario_id UQ<BR ALIGN="LEFT"/>ground_truth_label<BR ALIGN="LEFT"/>rule_verdict<BR ALIGN="LEFT"/>llm_verdict<BR ALIGN="LEFT"/>rule_correct<BR ALIGN="LEFT"/>llm_correct<BR ALIGN="LEFT"/>event_recall_pct<BR ALIGN="LEFT"/>rule_fp_count<BR ALIGN="LEFT"/>hallucination_count<BR ALIGN="LEFT"/>evidence_grounding_pct<BR ALIGN="LEFT"/>timeline_correct<BR ALIGN="LEFT"/>full_results JSON<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  audit [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+    <TR><TD BGCOLOR="#a07020"><FONT COLOR="white"><B>audit_logs (Laravel)</B></FONT></TD></TR>
+    <TR><TD ALIGN="LEFT">id PK<BR ALIGN="LEFT"/>action<BR ALIGN="LEFT"/>request_data JSON<BR ALIGN="LEFT"/>response_data JSON<BR ALIGN="LEFT"/>duration_ms<BR ALIGN="LEFT"/>ip_address<BR ALIGN="LEFT"/>user_agent<BR ALIGN="LEFT"/>created_at<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  edge [fontsize=9];
+  events -> alerts [label="scenario_id 1:N;\nalerts.event_ids cite events.event_id", dir=both, arrowtail=crow, arrowhead=none];
+  events -> llmr [label="scenario_id 1:1;\ncitations validated against events.event_id", dir=both, arrowtail=crow, arrowhead=none];
+  alerts -> evalr [label="scenario_id", dir=both, arrowtail=crow, arrowhead=none];
+  llmr -> evalr [label="scenario_id", dir=both, arrowtail=none, arrowhead=none];
+}

@@ -7,3 +7,9 @@
 *.png binary
 *.pptx binary
 *.zip binary
+
+# Preserve vendored IEEE LaTeX templates without applying project whitespace rules.
+*.bst -whitespace
+*.cls -whitespace
+*.dot -whitespace
+*.svg -whitespace

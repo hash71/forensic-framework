@@ -1,0 +1,33 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=LR; ranksep=0.5;
+  node [shape=box];
+  s1 [label="scenarios/*.json\n(15 scenario specs)", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  p1 [label="Log generator", shape=ellipse];
+  s2 [label="raw_logs/\n7 source formats", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  p2 [label="Parser +\nNormalizer", shape=ellipse];
+  s3 [label="normalized/ +\nPostgreSQL events", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  p3 [label="Timeline +\nCorrelation", shape=ellipse];
+  p4 [label="Rule engine", shape=ellipse, fillcolor="#fdeaea", color="#a03030"];
+  p5 [label="LLM analysis", shape=ellipse, fillcolor="#efe8fa", color="#6a3fa0"];
+  p6 [label="Citation validator", shape=ellipse, fillcolor="#efe8fa", color="#6a3fa0"];
+  s4 [label="llm_responses/", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  s5 [label="ground_truth.json", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  p7 [label="Evaluator", shape=ellipse];
+  s6 [label="evaluation_results.json\nstress_tests/  ablation/", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  p8 [label="Reporter", shape=ellipse];
+  s7 [label="reports/ + dashboard", shape=folder, fillcolor="#fdf3e3", color="#a07020"];
+  s1 -> p1 -> s2 -> p2 -> s3 -> p3;
+  p3 -> p4 [label="event timeline"];
+  p3 -> p5 [label="structured evidence"];
+  p4 -> p5 [label="alert context", style=dashed];
+  p5 -> p6 -> s4;
+  p4 -> p7; s4 -> p7; s5 -> p7;
+  p7 -> s6 -> p8 -> s7;
+}

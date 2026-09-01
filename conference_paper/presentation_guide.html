@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presenter's Guide — Evidence-Grounded LLM Forensic Triage</title>
+<style>
+  :root{
+    --navy:#1E2761; --ink:#22293b; --mut:#5a6478; --ice:#cadcfc;
+    --green:#2e7d52; --red:#a8322d; --teal:#0b6e68; --amber:#a07020;
+    --bg:#f7f9fc; --card:#ffffff; --line:#e1e6f0;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:16px;}
+  .wrap{max-width:860px;margin:0 auto;padding:32px 22px 80px;}
+  header.hero{background:var(--navy);color:#fff;border-radius:14px;padding:30px 30px 26px;margin-bottom:26px;}
+  header.hero h1{margin:0 0 6px;font-size:25px;line-height:1.25;}
+  header.hero p{margin:4px 0 0;color:var(--ice);font-size:15px;}
+  .pill{display:inline-block;background:#2a3878;color:var(--ice);font-size:12px;
+    padding:3px 10px;border-radius:20px;margin:8px 6px 0 0;}
+  h2.section{font-size:20px;margin:34px 0 12px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;}
+  .note{background:#eef3fb;border-left:4px solid var(--navy);padding:12px 16px;border-radius:6px;margin:14px 0;font-size:15px;}
+  .term{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:10px 0;}
+  .term b{color:var(--navy);}
+  .slide{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    margin:18px 0;overflow:hidden;box-shadow:0 1px 4px rgba(30,39,97,.06);}
+  .slide .head{background:var(--navy);color:#fff;padding:12px 18px;}
+  .slide .head .n{display:inline-block;background:#fff;color:var(--navy);font-weight:700;
+    border-radius:6px;width:26px;height:26px;line-height:26px;text-align:center;margin-right:10px;font-size:14px;}
+  .slide .head .t{font-weight:600;font-size:16px;}
+  .slide .body{padding:16px 18px;}
+  .slide .body h4{margin:14px 0 5px;font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);}
+  .slide .body h4:first-child{margin-top:0;}
+  .say{background:#f4f8f5;border-left:4px solid var(--green);padding:11px 15px;border-radius:6px;
+    font-size:15px;}
+  .say:before{content:"🗣 SAY THIS";display:block;font-size:11px;font-weight:700;color:var(--green);letter-spacing:.5px;margin-bottom:4px;}
+  .ask{background:#fbf4ee;border-left:4px solid var(--amber);padding:10px 15px;border-radius:6px;font-size:14px;margin-top:10px;}
+  .ask:before{content:"❓ IF ASKED";display:block;font-size:11px;font-weight:700;color:var(--amber);letter-spacing:.5px;margin-bottom:4px;}
+  code{background:#eef1f7;padding:1px 5px;border-radius:4px;font-size:90%;color:var(--teal);}
+  .big{font-size:15px;}
+  ul{margin:6px 0 6px 0;padding-left:22px;}
+  li{margin:3px 0;}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 18px;margin:12px 0;}
+  .qa .q{font-weight:700;color:var(--navy);margin:14px 0 4px;}
+  .qa .a{margin:0 0 14px;font-size:15px;}
+  .tag{font-size:12px;color:var(--mut);}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:8px 0;}
+  th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;}
+  th{background:#eef3fb;color:var(--navy);}
+  .footer{margin-top:40px;font-size:13px;color:var(--mut);text-align:center;}
+  @media print{body{background:#fff;}.slide,.qa,.term{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Presenter's Guide</h1>
+  <p><b>Augmenting Rule-Based Private-Cloud Forensic Investigation with Evidence-Grounded LLM Reasoning</b></p>
+  <p>Md. Nazmul Hasan · United International University · 15 slides · 10-minute talk + 5-minute Q&amp;A</p>
+  <div>
+    <span class="pill">Read this once end-to-end</span>
+    <span class="pill">Then rehearse with the slides open</span>
+    <span class="pill">Aim ~40 sec per slide</span>
+  </div>
+</header>
+
+<div class="note">
+<b>How to use this.</b> Part 1 is a 5-minute crash course in the ideas — read it first so the slides make sense.
+Part 2 walks every slide: <b>what's on screen</b>, <b>what it means in plain English</b>, and a <b>"say this"</b> script you can paraphrase.
+Part 3 is the questions you're most likely to get, with answers. Part 4 is your safety net if you blank.
+You do <i>not</i> need to memorize numbers — they're on the slides. You need to understand the <i>story</i>.
+</div>
+
+<h2 class="section">Part 1 — Crash course (the 9 ideas the whole talk rests on)</h2>
+
+<div class="term"><b>1. Private cloud.</b> A company running its <i>own</i> servers and storage (banks, government, hospitals) instead of renting from Amazon/Google. Important because public clouds (AWS, etc.) give you one neat "audit log" of everything; a private cloud does <i>not</i> — the evidence is scattered across many separate systems.</div>
+
+<div class="term"><b>2. Forensic triage (post-incident).</b> <i>Forensics</i> = investigating after something bad happened. <i>Triage</i> = the quick first pass that sorts "is this an attack or not, and who did it?" We are <b>not</b> doing real-time alarms; we're reconstructing what happened from logs already collected. Think detective, not burglar alarm.</div>
+
+<div class="term"><b>3. Logs / events.</b> Every action on a computer system gets recorded as a line in a log: "user X logged in at 9am", "user Y downloaded file Z". We call each line an <b>event</b>. Our system pulls events from <b>7 sources</b> (logins, file access, admin actions, network, database, web, email) and puts them in one common format.</div>
+
+<div class="term"><b>4. Rule engine (the "old" way / our baseline).</b> A list of fixed if-then rules a security team writes, e.g. "IF more than 5 downloads in 30 minutes THEN alert." This is what industry uses today (called a <b>SIEM</b>). It's transparent and fast but <i>brittle</i>: it cries wolf on innocent activity and misses slow attacks spread over days.</div>
+
+<div class="term"><b>5. LLM (Large Language Model).</b> An AI like ChatGPT — here an open-weight model called <b>Gemma</b> that we can run on our own servers. It can read all the events and reason about them in a way rules can't. <b>Open-weight</b> matters because the forensic data never has to leave the company.</div>
+
+<div class="term"><b>6. Hallucination.</b> The core danger with LLMs: they sometimes <i>make things up</i> — invent an event or accuse a user that isn't in the evidence. In forensics, where every claim might go to court, that's unacceptable.</div>
+
+<div class="term"><b>7. Evidence grounding + the validator (our key idea).</b> We <i>force</i> the LLM to attach a specific <b>event ID</b> to every claim it makes ("user_03 did X — see event evt_s4_002"). Then a separate deterministic <b>validator</b> checks every cited ID against the real evidence. If the LLM cites something that doesn't exist, we catch it. <b>This is the heart of the paper.</b></div>
+
+<div class="term"><b>8. Calibration vs holdout (how we test fairly).</b> We <i>tuned</i> the system on 15 scenarios (calibration). Then we tested it on 100 <i>fresh</i> scenarios it had never seen (holdout), generated automatically so we couldn't secretly bias them. Reporting holdout results is the honest, scientific way — like studying from practice problems but being graded on a new exam.</div>
+
+<div class="term"><b>9. The result in one sentence.</b> The LLM catches <b>every</b> attack (100% recall) but also <i>over-accuses</i> innocent users a lot (many false positives). Grounding stops it from inventing evidence, but it does <b>not</b> stop it from drawing the wrong conclusion from real evidence. So: useful as a high-recall <i>assistant</i> a human reviews — not an autonomous judge.</div>
+
+<div class="note big">If you remember nothing else: <b>"We make the AI cite its evidence and we check the citations. It finds every attack but over-flags innocent activity. So it's a first-pass assistant, not a replacement for a human or for rules."</b></div>
+
+
+<h2 class="section">Part 2 — Slide by slide</h2>
+
+<!-- 1 -->
+<div class="slide">
+  <div class="head"><span class="n">1</span><span class="t">Title slide</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>The title, your name and affiliation, and a row of little tags like <code>evt_s4_002</code> with one red <code>R005</code>. Those tags are the visual theme: cited evidence IDs, and the red one is an invalid citation the validator caught.</p>
+    <h4>Plain English</h4>
+    <p>Just sets the stage. The tagline — "Every claim must cite real evidence. The validator checks. The failures are kept." — is literally the whole paper in one line.</p>
+    <div class="say">Hi, I'm Nazmul. My paper asks a simple question: can we let an AI help investigate security incidents <i>without</i> it making things up? The trick, shown by these little evidence tags up here, is to force every claim to cite real evidence — and then automatically check those citations.</div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="slide">
+  <div class="head"><span class="n">2</span><span class="t">The problem — evidence is everywhere and nowhere</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Seven cards (auth, file access, admin, network, database, web, email) and a big dark "<b>0</b>" card saying "0 unified audit planes — no CloudTrail in a private cloud."</p>
+    <h4>Plain English</h4>
+    <p>When a private company gets hacked, the clues are spread across seven separate systems with no single place to see them. Public clouds have a tool (CloudTrail) that unifies this; private clouds have <i>nothing</i>. Investigators stitch it together by hand — slow and error-prone.</p>
+    <div class="say">When an incident hits a private cloud, the evidence is scattered across seven different log sources — logins here, file activity there, network traffic somewhere else. Unlike Amazon's cloud, there's no single audit view. Someone has to manually piece it together. That's the bottleneck we attack.</div>
+    <div class="ask">"Why not just use a public-cloud tool?" → Because regulated organizations — banks, government — legally can't put their data on someone else's cloud. They run their own, and the tooling there is far weaker.</div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="slide">
+  <div class="head"><span class="n">3</span><span class="t">Two failing approaches</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Two columns. Left (amber) = <b>Rule-based / SIEM</b>: transparent but brittle, floods alerts, misses slow attacks. Right (purple) = <b>Unconstrained LLM</b>: powerful but hallucinates, can't be trusted in court.</p>
+    <h4>Plain English</h4>
+    <p>The two obvious options each have a fatal flaw. Rules are trustworthy but dumb. A raw LLM is smart but untrustworthy. We want the smart of the LLM with the trustworthy of rules.</p>
+    <div class="say">Today you've got two choices. Rule engines — the industry standard — are transparent and auditable, but brittle: they drown analysts in false alarms and miss attacks spread over days. A raw LLM is the opposite: it can reason across all that, but it hallucinates evidence, which is a non-starter when claims have to hold up in a legal review. Our work is about getting the upside of the LLM without that risk.</div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="slide">
+  <div class="head"><span class="n">4</span><span class="t">Our question and approach</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>The research question in a navy banner, then four numbered steps: <b>1 Normalize</b> (7 sources → one format), <b>2 Correlate</b> (build a timeline), <b>3 Analyze ×2</b> (rules and LLM see the same evidence), <b>4 Validate</b> (check every citation).</p>
+    <h4>Plain English</h4>
+    <p>Our pipeline in four moves. The important fairness point: the rule engine and the LLM get the <i>exact same</i> evidence, so any difference is due to reasoning, not one of them having more information.</p>
+    <div class="say">Our research question: can an LLM that's only allowed to reason over structured evidence — and must cite an event ID for every claim — beat a transparent rule baseline while staying traceable? The pipeline is four steps: normalize the seven sources into one format, correlate them into a timeline, run both the rules and the LLM on that <i>same</i> timeline, and finally validate every citation the LLM makes.</div>
+    <div class="ask">"Why give both the same input?" → Fairness. If the LLM wins, it's because it reasoned better, not because we fed it extra clues.</div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="slide">
+  <div class="head"><span class="n">5</span><span class="t">The system pipeline (architecture)</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>A left-to-right diagram: 7 sources → Normalize → Timeline → splits into <b>Rule engine</b> and <b>Grounded LLM</b> → Validator → Evaluation. Three cards explain equal-evidence access, rule-alert context, and the tech stack.</p>
+    <h4>Plain English</h4>
+    <p>This is the same four steps as a real engineering diagram. Note the dashed arrow: the rule alerts are <i>also</i> fed to the LLM — and later (slide 11) we test whether that helps or hurts.</p>
+    <div class="say">Here's the actual system. Evidence flows left to right: normalize, build the timeline, then it forks — the rule engine and the grounded LLM both analyze it, the validator checks the LLM's output, and everything goes to evaluation. It's a real working system: Python, a database, Docker, 59 automated tests passing.</div>
+    <div class="ask">"Is this implemented or just a design?" → Fully implemented and tested — 59 passing tests, real model runs, all reproducible from the repository.</div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="slide">
+  <div class="head"><span class="n">6</span><span class="t">Grounded output + the validator</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Left: a real LLM response in JSON — verdict "YES", suspect "user_03", an attack chain where every step has an <code>event_id</code> (in teal), and an evidence list. Right: the 7 validator checks, all green, except chronology which is <b>flagged</b>.</p>
+    <h4>Plain English</h4>
+    <p>This is the heart of the method, shown concretely. The LLM doesn't just say "it was user_03" — it says "user_03, see events evt_s4_002, evt_s4_010…". The validator then confirms each of those IDs is real, the named user exists, etc. On this example it caught one ordering mistake.</p>
+    <div class="say">This is the core idea made concrete. On the left is an actual response — notice every step cites a specific event ID, shown in teal. On the right, the validator checks those citations: do the events exist, is the named user real, are the files real. Seven checks. Here it passed most and <i>flagged</i> one chronology issue — which is exactly the point: the check is real, it actually catches things.</div>
+    <div class="ask">"What are the seven checks?" → Event-ID exists, chronological order, no uncited claims, the actor exists, time claims match, volume claims match, and named files/IPs exist.</div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="slide">
+  <div class="head"><span class="n">7</span><span class="t">Evaluation design — 15 calibration, 100 holdout</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Three big numbers: <b>15</b> calibration scenarios (we tuned on these), <b>100</b> holdout (fresh, generator-made, never seen), <b>44/56</b> benign/attack split with 34 "hard benign" cases designed to look suspicious but be innocent.</p>
+    <h4>Plain English</h4>
+    <p>This slide is your defense against the obvious criticism "you just tested on data you designed." We separated tuning data from test data, and generated the test set automatically from rules anyone can audit — so we couldn't cheat.</p>
+    <div class="say">A fair test matters. We tuned the system on 15 hand-built scenarios, then tested on 100 <i>fresh</i> ones generated automatically from a committed recipe — so we never hand-picked them. The headline numbers I'm about to show are all from that unseen holdout, including 34 deliberately tricky "hard benign" cases — innocent activity designed to look alarming.</div>
+    <div class="ask">"Still synthetic though?" → Yes, and we say so. That's exactly why we also ran the third-party CERT dataset on slide 13 — real, independently-labeled insider data.</div>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="slide">
+  <div class="head"><span class="n">8</span><span class="t">Headline result — the asymmetry</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Two <b>confusion matrices</b> (rules vs Gemma) and a table of accuracy by slice. Key cell: the LLM's "attack→benign" box is <b>0</b> (it never misses an attack), but its "benign→attack" box is 22 (it wrongly flags 22 of 44 innocent cases).</p>
+    <h4>Plain English</h4>
+    <p>A <b>confusion matrix</b> is a 2×2 grid: rows are the truth, columns are the guess. You want the diagonal big and off-diagonal zero. The story: the LLM is perfect at catching attacks but over-flags benign activity. Overall accuracy (78% vs 70%) is <i>not</i> a statistically significant win — and we say so. The real finding is the <i>asymmetry</i>, not the average.</p>
+    <div class="say">Here's the headline, and it's more interesting than a single number. Look at the LLM's confusion matrix: zero missed attacks — 100% recall. But it also flags 22 of 44 innocent cases as attacks. So overall it's 78% versus the rules' 70% — and honestly, at this sample size that gap isn't statistically significant. The real result is the <i>shape</i>: the LLM is a high-recall, low-precision detector.</div>
+    <div class="ask">"So it's not better?" → On overall accuracy, not significantly. But on <i>catching attacks</i> it's dramatically better (100% vs 70%, and that <i>is</i> significant). The trade-off is more false alarms. That's a useful, honest finding.</div>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="slide">
+  <div class="head"><span class="n">9</span><span class="t">Grounding holds at scale</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Four stats: <b>99.95%</b> citation validity (2067 of 2068 references were real), <b>0</b> fabricated event IDs, <b>κ = 1.0</b> (perfectly repeatable verdicts over 110 reruns), and "abstains" under missing evidence.</p>
+    <h4>Plain English</h4>
+    <p>This proves the grounding actually works: across 115 scenarios the LLM essentially never cited fake evidence. <b>κ</b> (kappa) is a repeatability score — 1.0 means identical answers every rerun, which matters because people worry LLMs are random. And when we delete evidence, it says "insufficient" rather than inventing — the safe failure mode.</p>
+    <div class="say">Does the grounding actually work? Yes. Across all 115 scenarios, 2067 of 2068 cited references were real events — 99.95%, zero fabricated IDs. And it's repeatable: 110 reruns, identical verdicts every time, kappa of 1.0. When we starve it of evidence, it abstains rather than guesses. So "zero hallucinated evidence" isn't a hope — it's measured.</div>
+    <div class="ask">"What's kappa?" → A standard agreement score from 0 to 1. 1.0 means perfectly consistent across repeated runs — it answers the "but LLMs are random" worry.</div>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="slide">
+  <div class="head"><span class="n">10</span><span class="t">Failure case 1 — S14, the decoy</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>A timeline: a loud <b>decoy</b> attacker (user_04) making lots of noise, and a quiet <b>real</b> attacker (user_02) stealing data in the background. The LLM blamed the decoy. A red box: "Grounding ≠ attribution."</p>
+    <h4>Plain English</h4>
+    <p>This is the paper's most important limitation, and we feature it. The LLM got the verdict right (yes, attack) but accused the <i>wrong person</i> — and every event it cited was real, so the validator stayed silent. Lesson: checking that citations are real does <b>not</b> guarantee the conclusion is right.</p>
+    <div class="say">Now the honest part — where it breaks. In scenario 14 we planted a loud decoy and a quiet real attacker. The LLM correctly said "yes, attack" — but blamed the decoy, the wrong user. And here's the subtle bit: every event it cited was genuine, so the validator raised nothing. The lesson is the title of the slide: grounding guarantees the evidence is real, not that the conclusion drawn from it is correct.</div>
+    <div class="ask">"Isn't that bad for your paper?" → It's the opposite — reviewers trust papers that show their failures. And it points to the fix: make the model weigh alternative suspects before committing.</div>
+  </div>
+</div>
+
+<!-- 11 -->
+<div class="slide">
+  <div class="head"><span class="n">11</span><span class="t">Failure case 2 — S15, rule-context contamination</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Left: with rule alerts in its prompt, the LLM said "attack" 5/5 times (wrong); without them, "not attack" 5/5 (correct). Right: "6 / 44" — testing more scenarios, this only flips 6 of 44, so it's a real but minor effect.</p>
+    <h4>Plain English</h4>
+    <p>Remember the dashed arrow on slide 5 — we feed rule alerts to the LLM. Here we test whether that's a good idea. Sometimes the alerts <i>bias</i> the LLM into agreeing with them even when the evidence doesn't support it. We proved it with an <b>ablation</b> (run it with and without and compare). It's a real effect but explains only a minority of the false positives.</p>
+    <div class="say">Second failure. We feed the rule alerts to the LLM as context — is that safe? We tested it directly: with the alerts, it wrongly cried attack five times out of five; remove just the alerts, same evidence, and it correctly says no, five out of five. So rule output isn't neutral context — it can bias the model. But when we scaled the test to 44 scenarios, it only flipped 6, so it's a real but minor effect, not the main cause of the false positives.</div>
+    <div class="ask">"What's an ablation?" → Removing one ingredient and re-running to isolate its effect — here, removing the rule alerts from the prompt.</div>
+  </div>
+</div>
+
+<!-- 12 -->
+<div class="slide">
+  <div class="head"><span class="n">12</span><span class="t">Robustness — stress tests</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Charts plus four bullets: under evidence removal it stays correct until ~40% gone then abstains; stable up to heavy noise; stable under timestamp jitter; same verdicts on raw vs structured logs.</p>
+    <h4>Plain English</h4>
+    <p>We tried to break it on purpose. Good news: when stressed, it <i>abstains</i> ("insufficient evidence") rather than fabricating. That's the safe direction to fail.</p>
+    <div class="say">We stress-tested it — deleted evidence, injected noise, scrambled timestamps. The reassuring result: when we starve it, it degrades to "insufficient evidence" rather than making things up. It fails safe, not dangerous.</div>
+  </div>
+</div>
+
+<!-- 13 -->
+<div class="slide">
+  <div class="head"><span class="n">13</span><span class="t">Third-party data — CERT (the big one)</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Real CERT insider-threat data from Carnegie Mellon. Attack windows: Gemma 100%, rules 0%. Benign windows: rules 100%, Gemma ~0%. Two pre-registered questions both answered "yes." A navy box: this answers the "you built everything yourself" criticism.</p>
+    <h4>Plain English</h4>
+    <p>This is the strongest slide. CERT is a famous public dataset that <i>we</i> didn't make — Carnegie Mellon did, with real insider-threat labels. Running our system on it, the <i>same pattern showed up and got stronger</i>: catches every insider, over-flags every innocent month. A result that survives data you didn't touch is far more convincing.</p>
+    <div class="say">This is the result I'm proudest of. We didn't just test on our own data — we ran the whole pipeline on CERT, a real third-party insider-threat dataset from Carnegie Mellon that we had no hand in building. The pattern not only held, it intensified: it caught all 20 real insiders, but flagged nearly every innocent month too. A finding that survives data you never touched is the strongest evidence you can offer.</div>
+    <div class="ask">"Be honest about CERT limits?" → Yes — on that richer data the model often returned prose instead of structured output, so the <i>grounding</i> check couldn't run at full strength there. We report that openly. The recall/false-positive finding still holds.</div>
+  </div>
+</div>
+
+<!-- 14 -->
+<div class="slide">
+  <div class="head"><span class="n">14</span><span class="t">Limitations &amp; what's next</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Left: honest limits — single model (only Gemma), still mostly synthetic, rules not tuned for CERT, the validator can't catch wrong-suspect-with-real-evidence. Right: next steps — try other models (Llama, Mistral), more real data, multi-suspect reasoning.</p>
+    <h4>Plain English</h4>
+    <p>Stating limits builds credibility. The biggest one: we only tested one AI model, so the over-flagging might be specific to Gemma — we can't be sure until we try others.</p>
+    <div class="say">I want to be clear about the limits. We tested one model, so the false-positive behavior might be Gemma-specific. Most of our data is synthetic. And the validator, as we saw with the decoy, can't catch a wrong conclusion built from real evidence. The next steps follow directly: more models, more real data, and teaching it to weigh multiple suspects.</div>
+  </div>
+</div>
+
+<!-- 15 -->
+<div class="slide">
+  <div class="head"><span class="n">15</span><span class="t">Conclusion</span></div>
+  <div class="body">
+    <h4>What's on screen</h4>
+    <p>Three takeaways: bounded reasoning not autonomous detection; rules and LLM are complements; validate mechanically and keep the failures. Plus a "thank you / artifacts reproducible" line.</p>
+    <h4>Plain English</h4>
+    <p>Land the plane. The role for an LLM here is a <i>supervised assistant</i> — it proposes, a human and the rules dispose.</p>
+    <div class="say">To wrap up: the right role for an LLM in forensics isn't an autonomous detector — it's a bounded, high-recall first pass that a human reviews. Rules and the LLM are complements, not rivals. And the discipline that makes it trustworthy is mechanical validation plus the honesty to report where it fails. Everything here is reproducible from the repository. Thank you — happy to take questions.</div>
+  </div>
+</div>
+
+
+<h2 class="section">Part 3 — The 5 questions you'll most likely get</h2>
+
+<div class="qa">
+  <div class="q">Q1. "Isn't 100% attack detection too good to be true — is it just saying 'attack' to everything?"</div>
+  <div class="a">Fair worry, and partly true: it <i>does</i> lean toward "attack". But it's not blindly saying yes — on the clearly-normal baseline scenarios it correctly says no. The honest framing is what's on slide 8: very high recall, real false-positive cost. We don't hide that.</div>
+
+  <div class="q">Q2. "Why only one LLM? Would Llama or GPT behave differently?"</div>
+  <div class="a">That's our number-one limitation and it's on slide 14. The over-flagging might be specific to Gemma. Testing Llama and Mistral on the same corpus is the immediate next experiment — the code is built to swap models with one config change.</div>
+
+  <div class="q">Q3. "Everything's synthetic — why should I believe it transfers to the real world?"</div>
+  <div class="a">Two answers. One, the holdout is generated from an auditable recipe we couldn't bias. Two — and this is the strong one — slide 13: we ran it on CERT, real third-party insider data from CMU, and the same pattern got <i>stronger</i>. That's the opposite of overfitting to our own data.</div>
+
+  <div class="q">Q4. "What exactly is new here? People already use LLMs for security."</div>
+  <div class="a">Three things, together, that no prior work combines: (1) every claim must cite an event ID, checked by a deterministic validator; (2) we score verdict, suspect, and grounding as three <i>separate</i> things; (3) we design adversarial failure cases into the test set and keep them. The novelty is the rigorous methodology, not "an LLM does security."</div>
+
+  <div class="q">Q5. "If the validator can't catch the wrong-suspect case (slide 10), what's it even for?"</div>
+  <div class="a">It catches a different, very real danger: fabricated evidence — invented events, fake users. It does that with 99.95% reliability. Slide 10 just marks its boundary: it guarantees the citations are real, not that the interpretation is right. Knowing exactly where a safety mechanism stops is itself a contribution.</div>
+</div>
+
+
+<h2 class="section">Part 4 — Your safety net (if you blank, say this)</h2>
+<div class="note big">
+"Security investigators in private clouds drown in scattered logs. Rules are reliable but dumb; raw AI is smart but makes things up. We force the AI to cite real evidence for every claim and we automatically check those citations. Result: it catches every attack but over-flags innocent activity, and we proved that on both our own data and a real third-party dataset. So it belongs as a supervised first-pass assistant — validated by machine, reviewed by a human — not as an autonomous judge."
+</div>
+<p class="tag">That paragraph covers problem → approach → result → conclusion. If you can say it naturally, you can survive any moment of panic.</p>
+
+<h2 class="section">Quick glossary</h2>
+<table>
+<tr><th>Term</th><th>One-line meaning</th></tr>
+<tr><td>SIEM / rule engine</td><td>The current industry tool: fixed if-then security rules.</td></tr>
+<tr><td>Recall</td><td>Of all real attacks, what fraction did we catch? (We get 100%.)</td></tr>
+<tr><td>Precision / false positive</td><td>When we cry "attack", how often are we wrong? (Our weak spot.)</td></tr>
+<tr><td>Grounding</td><td>Forcing every claim to cite a real event ID.</td></tr>
+<tr><td>Validator</td><td>Deterministic checker that confirms each cited ID is real.</td></tr>
+<tr><td>Hallucination</td><td>AI inventing evidence that isn't there.</td></tr>
+<tr><td>Calibration vs holdout</td><td>Tuning data vs the fresh, unseen test data.</td></tr>
+<tr><td>Confusion matrix</td><td>2×2 grid of truth-vs-guess; diagonal = correct.</td></tr>
+<tr><td>Ablation</td><td>Remove one ingredient, re-run, see what changes.</td></tr>
+<tr><td>Kappa (κ)</td><td>Repeatability score; 1.0 = identical answers every rerun.</td></tr>
+<tr><td>CERT dataset</td><td>Real public insider-threat data from Carnegie Mellon.</td></tr>
+<tr><td>Gemma</td><td>The open-weight LLM we used (runs on your own servers).</td></tr>
+</table>
+
+<div class="footer">
+Rehearse out loud twice with the slides open. Time yourself — aim for 9 minutes so you have buffer. You know this material better than you think.
+</div>
+
+</div>
+</body>
+</html>

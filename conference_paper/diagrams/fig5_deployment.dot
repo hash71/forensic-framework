@@ -1,0 +1,24 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=TB; ranksep=0.5; compound=true;
+  subgraph cluster_host { label="Organization security boundary (private cloud host)"; style="rounded,dashed"; color="#a03030"; fontcolor="#a03030";
+    subgraph cluster_docker { label="docker-compose network"; style="rounded"; color="#888";
+      appc [label="app container (Python 3.11)\nFastAPI :8000  |  Streamlit :8501"];
+      dbc [label="db container\nPostgreSQL 15  :5434->5432\nhealthcheck + persistent volume", shape=cylinder, fillcolor="#fdf3e3", color="#a07020"];
+    }
+    larh [label="Laravel orchestration layer\naudit logging (SQLite/MySQL)"];
+    an [label="Investigator workstation\n(browser)", shape=component, fillcolor="#e8f6ee", color="#2e7d52"];
+  }
+  gpu [label="LLM inference endpoint\nQwen-class open-weight model\nModal (evaluated) or on-prem vLLM/Ollama/TGI", fillcolor="#efe8fa", color="#6a3fa0"];
+  appc -> dbc [label="SQL"];
+  larh -> appc [label="REST"];
+  an -> appc [label="HTTP :8501/:8000"];
+  an -> larh [label="HTTP"];
+  appc -> gpu [label="HTTPS chat-completions\n(replaceable with in-boundary serving)", style=dashed];
+}

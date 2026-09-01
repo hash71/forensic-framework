@@ -1,0 +1,555 @@
+% ============================================================
+%  Augmenting Rule-Based Private-Cloud Forensic Investigation
+%  with Evidence-Grounded LLM Reasoning
+%  IEEE conference (double-column), BibTeX bibliography
+%  Conference-length version (~9-10 pages)
+% ============================================================
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage[T1]{fontenc}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}                 % allow URLs to break anywhere (fixes bib overflow)
+\usepackage[verbose=silent]{microtype}  % even spacing; absorbs minor overfull boxes
+\usepackage[most]{tcolorbox}      % titled panels for the grounded-output figure
+
+% Palette + helpers for the grounded-output / validator figure
+\definecolor{cnavy}{HTML}{1E2761}
+\definecolor{cpanel}{HTML}{F5F7FC}
+\definecolor{cevid}{HTML}{0B6E68}
+\definecolor{cstr}{HTML}{5A6273}
+\definecolor{cgreen}{HTML}{2E7D52}
+\definecolor{cred}{HTML}{A8322D}
+\newcommand{\jkey}[1]{\textcolor{cnavy}{\textbf{#1}}}
+\newcommand{\jev}[1]{\textcolor{cevid}{\textbf{#1}}}
+\newcommand{\jstr}[1]{\textcolor{cstr}{#1}}
+\newcommand{\passbadge}{\colorbox{cgreen}{\textcolor{white}{\scriptsize\sffamily\bfseries PASS}}}
+\newcommand{\flagbadge}{\colorbox{cred}{\textcolor{white}{\scriptsize\sffamily\bfseries FLAGGED}}}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\graphicspath{{diagrams/}{figures/}}
+
+% Camera-ready space tuning
+\setlength{\textfloatsep}{9pt plus 1pt minus 3pt}
+\setlength{\floatsep}{7pt plus 1pt minus 2pt}
+% Compact bibliography to keep references on the final column
+\let\oldthebibliography\thebibliography
+\renewcommand{\thebibliography}[1]{%
+  \oldthebibliography{#1}%
+  \setlength{\itemsep}{0pt}%
+  \setlength{\parsep}{0pt}%
+  \small}
+
+\title{Augmenting Rule-Based Private-Cloud Forensic Investigation with Evidence-Grounded LLM Reasoning}
+
+\author{%
+  \IEEEauthorblockN{Md.~Nazmul Hasan}\\
+  \IEEEauthorblockA{Department of Computer Science and Engineering\\
+  United International University\\
+  Dhaka, Bangladesh\\
+  mhasan2610031@mscse.uiu.ac.bd}%
+}
+
+\begin{document}
+\maketitle
+
+% ------------------------------------------------------------
+\begin{abstract}
+Private-cloud incident investigation must reconstruct activity from fragmented logs without a unified audit plane comparable to public-cloud services. Rule-based correlation is transparent and auditable but brittle when evidence is distributed across time and sources; large language models (LLMs) can synthesize such evidence, but forensic use requires claims grounded in auditable event references. This paper evaluates an evidence-grounded LLM pipeline for post-incident forensic triage: logs from seven private-cloud source types are normalized into a unified event schema, a twelve-rule engine provides a transparent baseline, and the same correlated timeline is submitted to an open-weight Gemma model that must cite an event identifier for every claim, with a seven-check validator verifying citation grounding. The corpus spans 115 scenarios across ten parameterized families: fifteen author-designed calibration scenarios on which the LLM prompt was tuned, and one hundred generator-created holdout scenarios produced from a committed parameter spec under a fixed seed to limit designer bias. On the holdout the rule baseline reaches 70.0\% verdict accuracy [60.0, 78.8] and the grounded LLM 78.0\% [68.6, 85.7]; the paired improvement is not significant under McNemar's exact test ($p{=}0.243$). The headline is split by label: on attack scenarios the LLM reaches 100.0\% [93.6, 100.0] versus 69.6\% for rules ($p{<}0.001$), while on benign scenarios the LLM reaches only 50.0\% [34.6, 65.4] versus 70.5\% for rules ($p{=}0.064$), and on hard-benign scenarios designed to generate alert load it drops to 38.2\%. Grounding strengthens at scale: 2067 of 2068 event-identifier references resolved to real events (99.95\%), 114 of 115 scenarios have zero invalid citations, and only one chronology violation was observed across the entire corpus. Failure analysis shows citation grounding is not interpretive correctness: one adversarial calibration scenario yielded a correct attack verdict attributed to the decoy actor rather than the true attacker, and on benign scenarios with non-trivial alert load the LLM systematically over-classifies as attack. A 35-window replay on the third-party CERT Insider Threat Test Dataset r4.2~\cite{glasser2013bridging} (5 of 40 windows lost to a transient endpoint outage and reported as such; on these richer inputs the model returned Markdown rather than the requested JSON in 34 of 35 windows, from which verdicts were parsed) intensifies both observations: the LLM reaches 100\% recall on all 20 labeled insider months across the three r4.2 scenarios, yet flags nearly every benign user-month (at least 13 of 15) as an incident. The results support evidence-grounded LLM reasoning as an analyst-supervised triage layer that contributes recall on subtle multi-day insider patterns rules miss --- not an autonomous detector, given the false-positive rate on legitimate-but-noisy activity.
+\end{abstract}
+
+\begin{IEEEkeywords}
+digital forensics, post-incident triage, private cloud, large language models, evidence grounding, hallucination mitigation, rule-based correlation, security operations
+\end{IEEEkeywords}
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------
+
+Private-cloud environments --- organization-controlled infrastructure operated by banks, government agencies, and other regulated organizations --- generate forensic evidence across many disjoint surfaces. When an incident occurs, the analyst must reconstruct what happened from authentication logs, file-access records, administrative actions, network telemetry, database traces, web-server logs, and email metadata. Unlike public-cloud platforms, which expose unified audit services such as AWS CloudTrail, a private cloud has no single audit plane~\cite{herman2020nistir8006,ruan2013cloudforensics}: the forensic problem is not absence of logs but absence of unified, correlated, investigation-ready evidence~\cite{kent2006sp80086}. This paper concerns \emph{post-incident forensic triage} --- timeline reconstruction, evidence-chain analysis, scenario classification, and explanation over already-collected logs --- not real-time intrusion detection.
+
+The dominant industrial approach to triage is rule-based correlation, expressed in security information and event management (SIEM) platforms as threshold predicates over normalized event streams. Rules are transparent, deterministic, and auditable --- essential properties in regulated settings --- but brittle in two well-documented directions~\cite{tariq2025alert,ban2023breaking}: they generate large alert volumes on legitimate-but-unusual activity (travel, maintenance), and they produce weak verdicts on attacks whose pattern lives in cross-time-window aggregation rather than in any single triggering event~\cite{nadler2019detection}. Large language models offer a complementary capability --- synthesizing weak signals across many events, weighing contextual metadata, and producing narrative explanations~\cite{habibzadeh2025survey,wickramasekara2025exploring} --- but an unconstrained LLM can hallucinate evidence, overclaim causality, or attribute an incident to the wrong actor~\cite{huang2025hallucination,scanlon2023chatgpt}, failure modes unacceptable where every claim must be defensible in legal review.
+
+We therefore ask a narrower question than ``can an LLM detect attacks?'': \emph{can an evidence-grounded LLM, operating only over structured normalized events and required to cite specific event identifiers for every claim, improve post-incident forensic triage over a transparent rule-based baseline while preserving traceability?}
+
+The evaluated system normalizes seven private-cloud log source types onto a unified event schema, reconstructs a chronologically ordered, session-grouped, cross-source-linked timeline, and submits the same evidence in parallel to a twelve-rule engine and a constrained open-weight LLM~\cite{gemmateam2024gemma} whose every claim must cite input event identifiers; a deterministic seven-check validator then audits citation grounding. Privacy is treated as a deployment constraint (open weights, in-boundary serving), not as the contribution.
+
+\subsection{Our Contribution}
+\label{sec:contribution}
+
+\begin{itemize}
+  \item A 115-scenario private-cloud forensic triage corpus over a unified seven-source event schema, split into fifteen author-designed calibration scenarios (on which the LLM prompt was tuned) and one hundred generator-created holdout scenarios produced from a committed parameter spec under a fixed seed (\texttt{config/corpus\_spec.yaml}, \texttt{generate\_corpus.py}). Two calibration scenarios are designed and \emph{retained} as adversarial failure cases.
+  \item An evidence-grounded LLM triage pipeline with a transparent twelve-rule baseline, per-claim event-identifier citation, and a deterministic seven-check grounding validator, formalized in Section~\ref{sec:math}.
+  \item A multi-axis statistical evaluation separating verdict accuracy, suspect/attack-chain correctness, and citation-grounding validity. Headline results are reported on the holdout with exact Clopper--Pearson 95\% confidence intervals, paired McNemar's exact test, and bootstrap (10\,000 resamples) intervals on accuracy deltas, broken down by label (attack vs benign) and by family.
+  \item An extended rule-context ablation testing whether the S15 false-positive amplification generalizes: rule-context vs no-rule-context, five runs per condition, run on every hard-benign and every decoy-family holdout scenario.
+\end{itemize}
+
+In contrast to rule-only correlation (rule-matched events, no cross-window synthesis) and unconstrained LLM analysis (free-form generation, weak grounding), the pipeline requires structured-event citations and validates them mechanically; partially constrained systems exist~\cite{loumachi2025gendfir,cheng2025omnisec} and are compared in Section~\ref{sec:related}.
+
+Stated sharply, the novelty is methodological, and threefold: to our knowledge this is the first controlled comparison of deterministic rules and an LLM \emph{over the same normalized forensic event schema} in which (i) every LLM claim is bound to event-identifier citations checked by a deterministic validator, (ii) verdict accuracy, suspect attribution, and citation grounding are scored as three separate correctness axes, and (iii) adversarial failure cases are designed into the corpus and retained --- yielding the two boundary results (grounded-but-misattributed S14; ablation-confirmed rule-context contamination S15) that no prior LLM-forensics evaluation reports. Table~\ref{tab:positioning} contrasts our approach with the two paradigms it sits between; Section~\ref{sec:related} compares against specific prior systems.
+
+\begin{table*}[t]
+\centering
+\caption{Our work versus the two paradigms it sits between. Per-system comparison against related work appears in Table~\ref{tab:related-positioning}.}
+\label{tab:positioning}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{L{0.18\textwidth}L{0.235\textwidth}L{0.235\textwidth}L{0.255\textwidth}}
+\toprule
+\textbf{Axis} & \textbf{Rule-based SIEM correlation} & \textbf{Unconstrained LLM analysis} & \textbf{Evidence-grounded LLM triage (this work)} \\
+\midrule
+Reasoning input & Structured normalized events & Raw or structured logs & Structured normalized events + rule-alert context \\
+Reasoning model & Fixed threshold predicates & Free-form generation & Constrained reasoning over cited events \\
+Evidence grounding & Rule-matched events only & Often weak or absent & Event-ID citation required for every claim \\
+Hallucination control & Not applicable & Prompt-only or absent & Deterministic seven-check validator (99.95\% citation validity) \\
+Cross-day attack patterns & Limited (local triggers) & Plausible but unmeasured & 100\% recall, measured (S4, S13, CERT) \\
+Benign-noise handling & High alert volume & Unmeasured & Measured weakness (benign FP), reported \\
+Failure modes & Partially reported & Usually hidden & S14, S15 designed-in and analyzed \\
+Deployment & Established on-prem & Often closed-API & Open-weight, in-boundary capable \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ============================================================
+\section{Background}
+\label{sec:background}
+% ------------------------------------------------------------
+
+\textbf{Terminology.} A \emph{private cloud} is self-managed infrastructure operated by one organization. \emph{Triage}, unlike real-time detection, operates on already-collected logs after an incident trigger and produces output a human reviews before action~\cite{kent2006sp80086}; the base-rate and deployment-gap critiques of machine learning for intrusion detection~\cite{sommer2010outside,arp2022dosdonts} apply in full. \emph{Evidence grounding} here means every reported claim cites normalized event identifiers that exist in the scenario evidence; it does \emph{not} mean the interpretation drawn from those events is correct. \emph{Citation validation} is the deterministic post-hoc check of that property. The distinction between \emph{citation grounding} (cited events exist) and \emph{interpretive grounding} (cited events support the conclusion) is strictly meaningful --- the latter is stronger~\cite{sharma2025ragsurvey} --- and the evaluation is organized around the gap.
+
+\textbf{Cloud forensics.} NIST catalogues sixty-five cloud forensic challenges, many reducing to evidence fragmentation~\cite{herman2020nistir8006}; surveys~\cite{ruan2013cloudforensics} and acquisition tooling such as FROST~\cite{dykstra2013frost} establish the problem this paper starts from, and super-timeline practice~\cite{gudjonsson2010log2timeline} is the manual ancestor of the automated timeline layer. This thread provides no reasoning layer.
+
+% ============================================================
+\section{Related Work (Survey)}
+\label{sec:related}
+% ------------------------------------------------------------
+
+We survey five threads. Each is summarized against this paper's question in Table~\ref{tab:related-positioning}.
+
+\textbf{Rule-based monitoring and log analytics.} Alert fatigue is structural: rules tuned against false negatives exceed analyst capacity~\cite{tariq2025alert}, and ML-based alert suppression addresses volume, not reasoning~\cite{ban2023breaking}. Provenance systems correlate causally but need kernel-level audit data~\cite{king2003backtracking,milajerdi2019holmes}. Sequence models (DeepLog~\cite{du2017deeplog}) and prompted LLMs (LogGPT~\cite{qi2023loggpt}) detect anomalous log sequences but produce no evidence-cited investigative narrative and measure no hallucination.
+
+\textbf{LLMs for security operations.} Surveys map LLM use across security operations center (SOC) functions~\cite{habibzadeh2025survey}; a ten-month study of forty-five analysts found LLMs used for sensemaking, not high-stakes determinations~\cite{singh2025llmsoc} --- central to the deployment posture argued here. Multi-agent triage~\cite{wei2025cortex} and retrieval-grounded incident analysis~\cite{cadet2026rag,strom2018attack} target streaming workflows; none enforce per-claim event-ID citation over a forensic schema. Relatedly, LLM-integrated applications inherit manipulation risk from their input context via prompt injection~\cite{greshake2023not}; the S14/S15 effects measured here are data-level instances of context-steered conclusions.
+
+\textbf{LLMs for digital forensics (DFIR).} Scanlon et al.\ concluded unconstrained LLM use in evidence-bearing workflows is premature~\cite{scanlon2023chatgpt}; later surveys identify non-determinism and hallucination as the core integrity challenges~\cite{wickramasekara2025exploring,yin2025digitalforensics}. Studiawan et al.\ show the same model swings from BLEU 0.15 to 0.95 with prompt structure~\cite{studiawan2025standardized}, so capability claims are often prompting claims --- partially mitigated here by one fixed published prompt. GenDFIR pairs rule-based artifact selection with retrieval-augmented Llama reasoning over incident timelines~\cite{loumachi2025gendfir} and is the closest system, but does not separate verdict from suspect attribution and grounding, nor characterize failure modes; DFIR-Metric contributes a broad benchmark~\cite{cherif2025dfirmetric}; ForensicLLM targets local deployment under the same data-sovereignty constraint~\cite{sharma2025forensicllm}; cloud-specific LLM forensics classifies audit logs and reconstructs timelines~\cite{alharthi2025cloud}, and OMNISEC retrieves behavioral context for provenance-based detection~\cite{cheng2025omnisec}. None publish controlled rule-vs-LLM comparisons with deterministic citation validation and retained failure cases.
+
+\textbf{Evidence-grounded generation.} Hallucination cannot be fully eliminated~\cite{huang2025hallucination,xu2024hallucination}, motivating validation over trust. Retrieval-augmented generation supplies external evidence~\cite{lewis2020rag}; attribution work evaluates whether output is supported by cited sources~\cite{bohnet2022attributed,min2023factscore}; constrained decoding enforces machine-readable output~\cite{geng2023constrained}; self-consistency improves reliability~\cite{wang2023selfconsistency}, though stated reasoning is not always faithful to what drives the answer~\cite{turpin2023language}. Citation correctness being necessary but insufficient for reliability~\cite{sharma2025ragsurvey} is exactly what S14 instantiates in the forensic domain. Open-weight families~\cite{gemmateam2024gemma,touvron2023llama2,jiang2023mistral} make on-premises deployment satisfiable.
+
+\textbf{Insider threat.} Synthetic ground-truth benchmarking is established (CERT~\cite{glasser2013bridging}); multi-day behavioral patterns are learnable~\cite{tuor2017deep}; public datasets (LANL~\cite{kent2015lanl}, DARPA OpTC~\cite{anjum2021darpa}) anchor future real-data validation. OrgForge-IT couples verifiable synthetic ground truth with LLM evaluation~\cite{flynt2026orgforge} but does not separate verdict from suspect-attribution failures.
+
+Table~\ref{tab:related-positioning} summarizes the gap: no prior work evaluates deterministic rules and evidence-grounded LLM reasoning side by side over the same normalized forensic schema with verdict, suspect, and grounding scored separately and failure cases retained.
+
+\begin{table*}[t]
+\centering
+\caption{Positioning of this paper against related work threads.}
+\label{tab:related-positioning}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{L{0.17\textwidth}L{0.245\textwidth}L{0.235\textwidth}L{0.255\textwidth}}
+\toprule
+\textbf{Work area} & \textbf{Typical approach} & \textbf{Limitation for this paper's question} & \textbf{How this paper differs} \\
+\midrule
+Cloud forensics~\cite{herman2020nistir8006,ruan2013cloudforensics,dykstra2013frost} & Challenge catalogues, acquisition tools, standards & No automated reasoning layer & Constrained reasoning layer over normalized evidence \\
+SIEM rules / log analytics~\cite{tariq2025alert,ban2023breaking,du2017deeplog,qi2023loggpt} & Threshold correlation; sequence anomaly models & No cited investigative narrative; hallucination unmeasured & Rules as transparent baseline \emph{and} LLM input, contamination measured (S15) \\
+LLMs for SOC~\cite{habibzadeh2025survey,singh2025llmsoc,wei2025cortex,cadet2026rag} & Streaming alert triage, agents, retrieval enrichment & No per-claim event-ID enforcement & Deterministic citation validator; failure cases preserved \\
+LLMs for DFIR~\cite{scanlon2023chatgpt,studiawan2025standardized,loumachi2025gendfir,cherif2025dfirmetric,alharthi2025cloud,cheng2025omnisec} & Timeline analysis, benchmarks, cloud variants & Verdict/suspect/grounding failures conflated & Three correctness axes scored separately \\
+Evidence grounding~\cite{lewis2020rag,bohnet2022attributed,min2023factscore,sharma2025ragsurvey} & Document retrieval with cited sources & Citation $\neq$ interpretive correctness; free-text framing & Structured-event citation; S14 shows grounded-but-wrong attribution \\
+Insider threat~\cite{glasser2013bridging,tuor2017deep,flynt2026orgforge} & Behavioral anomaly detection; LLM benchmarks & Suspect attribution rarely separated & S4/S13 target multi-day patterns rules miss; suspect scored separately \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ============================================================
+\section{Problem Statement and Threat Model}
+\label{sec:problem}
+% ------------------------------------------------------------
+
+After an incident trigger, an investigator receives collected logs from seven surfaces (authentication, file access, admin, network, database, web server, email) for a bounded window and must answer: (Q1) did an incident occur (\textsc{attack}/\textsc{benign})? (Q2) who is the primary suspect and what was the step sequence? (Q3) what evidence supports each claim, verifiably against stored logs?
+
+The adversary is an external attacker with compromised credentials or a malicious insider with legitimate ones. It can generate log events on any surface, spread activity across days to stay under thresholds, blend into maintenance or business peaks, and stage \emph{decoy} activity by one identity to misdirect attention from a quieter attack by another. It cannot tamper with stored logs after collection (integrity assumed per forensic practice~\cite{kent2006sp80086}; deletion \emph{attempts} appear as logged \texttt{log\_delete} events) and cannot influence the analysis pipeline. The defender's components --- rules, LLM, validator --- are trusted but fallible; the LLM is treated as a potentially unreliable component whose output must be validated. Forensic data must not leave the organizational boundary, excluding closed third-party LLM APIs and motivating open-weight, locally servable models~\cite{sharma2025forensicllm,gemmateam2024gemma}.
+
+The task: produce a triage output --- verdict, suspect, ordered attack chain, supporting/counter evidence, gaps --- maximizing verdict accuracy against ground truth while every claim cites event identifiers present in the evidence, with violations mechanically detectable. The comparison object is a transparent rule baseline over the same evidence.
+
+% ============================================================
+\section{System Design and Implementation}
+\label{sec:design}
+% ------------------------------------------------------------
+
+Three principles drive the design. \emph{Equal evidence access}: both analyzers consume the same correlated normalized timeline, so accuracy differences are attributable to reasoning, not privileged input. \emph{Claims bound to evidence}: the LLM may only reason over events in its input and must cite event identifiers; a deterministic validator checks this afterward. \emph{Failure transparency}: scenarios the LLM fails are retained and analyzed. Fig.~\ref{fig:system} shows the pipeline.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig1_system_architecture.pdf}
+\caption{System architecture. Both analyzers consume the same correlated timeline; the dashed edge marks the rule-context input whose effect is isolated in the S15 ablation.}
+\label{fig:system}
+\end{figure}
+
+\subsection{Normalization, Timeline, and Correlation}
+\label{sec:schema}
+
+Seven source types --- authentication (login/logout/failures with IPs), file access (reads/downloads with paths and sizes), admin (privilege changes, log deletion), network (DNS, firewall, VPN), database (queries, exports), web server (requests, errors), and email --- are parsed from source-specific formats onto a unified record: \texttt{event\_id}, timezone-aware \texttt{timestamp}, \texttt{source\_type}, \texttt{user}, \texttt{action}, \texttt{resource}, \texttt{source\_ip}, \texttt{status}, \texttt{session\_id}, \texttt{severity}, and \texttt{metadata} (tickets, justifications). Ground truth lives in a separate file, and underscore-prefixed metadata is stripped at normalization to prevent leakage of evaluation hints into either analyzer. Events also map to Open Cybersecurity Schema Framework (OCSF) v1.1~\cite{ocsf2022schema} and Elastic Common Schema (ECS) 8.x for SIEM interoperability, though experiments use the unified schema. Normalized events are sorted chronologically and grouped by session (surfacing mid-session IP changes), by user (supporting rolling-window aggregation), and by cross-source linking (same user within a proximity window), with no heuristic attack-step labeling --- both analyzers see the same lightly grouped event list.
+
+\subsection{Rule Engine}
+\label{sec:rules}
+
+Twelve rules (Table~\ref{tab:rules}), declared in YAML and evaluated against the stream and per-user behavioral baselines (normal IPs, hours, directories for four personas), emit alerts citing rule, events, and severity. A fixed mapping derives the scenario verdict: any critical alert $\rightarrow$ \texttt{attack}; warnings only $\rightarrow$ \texttt{suspicious}; none $\rightarrow$ \texttt{no\_alert}. The baseline is deliberately a transparent threshold-style configuration --- auditable by operators --- not a tuned SIEM policy, and the comparison must be read accordingly.
+
+\begin{table}[t]
+\centering
+\caption{The twelve rules in the rule baseline.}
+\label{tab:rules}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{L{0.05\columnwidth}L{0.36\columnwidth}L{0.12\columnwidth}L{0.32\columnwidth}}
+\toprule
+\textbf{ID} & \textbf{Name} & \textbf{Severity} & \textbf{Trigger (informal)} \\
+\midrule
+R001 & unusual\_login\_ip & warning & login from IP outside baseline \\
+R002 & off\_hours\_access & warning & activity outside normal hours \\
+R003 & privilege\_escalation & critical & any privilege\_change \\
+R004 & bulk\_download & critical & $>5$ downloads in 30 min \\
+R005 & cross\_department\_access & warning & resource outside user's directories \\
+R006 & log\_deletion & critical & any log\_delete \\
+R007 & failed\_login\_spike & warning & $\geq 2$ failures in 5 min \\
+R008 & privilege\_then\_download & critical & R003 then download in 30 min \\
+R009 & dns\_tunnel\_detection & critical & $>20$ queries, one domain, 5 min \\
+R010 & sql\_injection\_attempt & critical & HTTP 500 + SQL keywords in URL \\
+R011 & data\_exfiltration\_volume & critical & outbound $>100$ MB in 30 min \\
+R012 & lateral\_movement & warning & auth on $\geq 3$ server types, 30 min \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\subsection{LLM Reasoning Layer and Validator}
+\label{sec:llm}
+
+The LLM never sees raw logs. In the headline \textbf{rule-context condition} it receives per-user baselines, the correlated timeline, and the rule alerts; a diagnostic \textbf{no-rule-context condition} omits the alerts (Section~\ref{sec:failures}). It must return fixed JSON~\cite{geng2023constrained}: \texttt{verdict} (\texttt{YES}/\texttt{NO}/\texttt{INSUFFICIENT}), suspect, an ordered attack chain whose every step cites an \texttt{event\_id}, supporting/counter-evidence citation lists, gaps, and confidence. The system prompt enforces: only listed events may be reasoned over; no event may be assumed or invented; insufficiency must be reported; every claim must cite input \texttt{event\_id}s. Guidance disambiguates rule-hostile cases (failed logins without success are not breaches; maintenance can legitimately include privilege changes and bulk operations; tickets can be fabricated and multi-day read-then-download scope creep stays suspicious; a mid-session IP change is a hijack indicator).
+
+The model is an open-weight Gemma instruction model~\cite{gemmateam2024gemma} at temperature 0.1 behind an OpenAI-compatible endpoint --- in this evaluation a third-party Modal serverless endpoint, acceptable because all data is synthetic; substituting in-boundary vLLM/Ollama/TGI serving is a configuration change, so data sovereignty is an \emph{architectural} property validated by interface compatibility, not exercised here.
+
+Every output passes a deterministic validator with seven checks: cited event-ID existence; chronological ordering of the cited chain; structural unsupported-claim count (steps/narrative without \texttt{evt\_*} references); actor consistency (every named user exists in the input); temporal-claim consistency; volume-claim consistency; and entity consistency (IPs/files in the narrative appear in cited events). Fig.~\ref{fig:groundedoutput} shows an actual grounded response and the checks applied to it. The validator enforces only that claims are tied to evidence present in the input; it does not detect causal overclaim, missing alternative explanations, or a wrong suspect supported by real events --- gaps S14 makes concrete.
+
+\begin{figure}[t]
+\centering
+% ---- Panel 1: the grounded LLM output (syntax-tinted JSON) ----
+\begin{tcolorbox}[enhanced, width=\columnwidth, sharp corners=downhill,
+  colback=cpanel, colframe=cnavy, boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=3pt, bottom=3pt,
+  fonttitle=\footnotesize\bfseries, coltitle=white, colbacktitle=cnavy,
+  title={Grounded LLM output\,---\,S4 (slow insider), actual response}]
+\setlength{\parindent}{0pt}\footnotesize\ttfamily
+\jkey{"verdict"}: "YES",\quad \jkey{"suspect"}: "user\_03",\\[1pt]
+\jkey{"attack\_chain"}: [\\
+\hspace*{1.2em}\{ \jkey{"step"}: 1,\ \jkey{"event\_id"}: \jev{"evt\_s4\_002"},\\
+\hspace*{2.4em}\jkey{"description"}: \jstr{"User\_03 obtains read}\\
+\hspace*{2.4em}\jstr{access to finance reports, ticket}\\
+\hspace*{2.4em}\jstr{HR-2026-441\ldots"},\ \jkey{"confidence"}: "HIGH" \},\\
+\hspace*{1.2em}\{ \jkey{"step"}: 2,\ \jkey{"event\_id"}: \jev{"evt\_s4\_004"}, \ldots \}, \ldots ]\\[1pt]
+\jkey{"evidence\_for"}: [\,\jev{"evt\_s4\_002"}, \jev{"evt\_s4\_010"},\\
+\hspace*{2.4em}\jev{"evt\_s4\_012"}, \jev{"evt\_s4\_014"}, \jev{"evt\_s4\_019"}, \ldots\,]
+\end{tcolorbox}
+\vspace{2pt}
+% ---- Panel 2: the validator pass ----
+\begin{tcolorbox}[enhanced, width=\columnwidth, sharp corners=downhill,
+  colback=white, colframe=cnavy, boxrule=0.7pt, arc=2pt,
+  left=5pt, right=5pt, top=2pt, bottom=2pt,
+  fonttitle=\footnotesize\bfseries, coltitle=white, colbacktitle=cnavy,
+  title={Deterministic validator pass over this response}]
+\footnotesize
+\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}L{0.74\columnwidth}@{}r@{}}
+event-ID existence: all cited \texttt{evt\_s4\_*} resolve & \passbadge\\
+actor consistency: \texttt{user\_03} present in evidence & \passbadge\\
+entity consistency: cited paths / IPs present & \passbadge\\
+chronology: one chain step out of timestamp order & \flagbadge\\
+\end{tabular}
+\end{tcolorbox}
+\caption{Evidence-grounded output and deterministic validation (real S4 artifacts). Every claim carries an \jev{event\_id} (teal); the validator resolves each citation against the stored evidence and flags violations --- here, S4's single chronology violation.}
+\label{fig:groundedoutput}
+\end{figure}
+
+\subsection{Scenario Corpus and Implementation}
+\label{sec:scenarios}
+
+The corpus has two parts: the 15-scenario \textbf{calibration set} (Table~\ref{tab:scenarios}; primary tier S1--S4 and extended robustness tier S5--S15 including two adversarial failure probes, S14 and S15), on which the LLM system prompt was iteratively tuned; and the 100-scenario \textbf{holdout set} (S16--S115) produced by a parameter-driven generator (\texttt{app/ingestion/scenario\_factory.py}) under seed 42 from a committed YAML spec (\texttt{config/corpus\_spec.yaml}). The holdout is balanced across ten families: \texttt{normal\_baseline} (10 benign), \texttt{travel\_noise} (10 benign), \texttt{credential\_compromise} (12 attack), \texttt{scope\_creep} (12 attack), \texttt{session\_hijack} (10 attack), \texttt{maintenance\_window} (8 benign), \texttt{failed\_stuffing} (8 benign), \texttt{multistage\_infra} (12 attack), \texttt{decoy\_misdirection} (10 attack), \texttt{legitimate\_peak} (8 benign). Of the 44 benign scenarios in the holdout, 34 are \emph{hard benign} --- benign labels designed to generate alert load. Personas are extended from the four hand-written calibration personas to ten (user\_05\,--user\_10 are generator-created from declared role/department parameters).
+
+\begin{table}[t]
+\centering
+\caption{Scenario corpus (GT = ground truth).}
+\label{tab:scenarios}
+\small
+\begin{tabular}{L{0.07\columnwidth}L{0.55\columnwidth}L{0.16\columnwidth}}
+\toprule
+\textbf{ID} & \textbf{Scenario} & \textbf{GT} \\
+\midrule
+S1 & Normal weekday baseline & BENIGN \\
+S2 & Noisy benign: conference travel & BENIGN \\
+S3 & Obvious external attack & ATTACK \\
+S4 & Slow three-day insider scope creep & ATTACK \\
+S5 & Session hijack, mid-session IP change & ATTACK \\
+S6 & After-hours sanctioned maintenance & BENIGN \\
+S7 & Failed credential stuffing (no breach) & BENIGN \\
+S8 & Full-infrastructure attack (SQLi, DB export, DNS tunnel) & ATTACK \\
+S9 & Attack with missing auth logs & ATTACK \\
+S10 & Attack with delayed, out-of-order events & ATTACK \\
+S11 & Benign day, then account compromise & ATTACK \\
+S12 & Conflicting signals & ATTACK \\
+S13 & Ultra-slow exfiltration over seven days & ATTACK \\
+S14 & Decoy misdirection (loud decoy, quiet attacker) & ATTACK \\
+S15 & End-of-quarter legitimate bulk activity & BENIGN \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The engine is ${\sim}5$k lines of Python 3.11 (ingestion, normalization, timeline, correlation, rules, LLM client, validator, evaluation, reporting), with a FastAPI service (14 endpoints), a Streamlit dashboard, PostgreSQL~15 persistence (\texttt{events}, \texttt{alerts}, \texttt{llm\_results}, \texttt{evaluation\_results}), and a Laravel orchestration layer writing an append-only audit trail; deployment is a two-container Docker Compose stack. A 59-case pytest suite covers parsers, normalization, rules, validator, API, and the scenario generator (schema validity, label balance, determinism, no-leakage); six driver scripts reproduce the pipeline, evaluation, stress tests, the calibration-set ablation, the extended hard-benign / decoy ablation, and the corpus-wide run-to-run variance probe. The corpus generator is parameter-driven from \texttt{config/corpus\_spec.yaml} under a fixed seed.\footnote{Scenario corpus, rules, prompts, validator, generator, statistics module, real-data adapters (LANL, OpTC), and all per-scenario result artifacts are available from the author as a reproducibility package.}
+
+% ============================================================
+\section{Mathematical Model}
+\label{sec:math}
+% ------------------------------------------------------------
+
+Let $\mathcal{S}=\mathcal{S}_{\mathrm{cal}}\cup\mathcal{S}_{\mathrm{hold}}$ with $|\mathcal{S}_{\mathrm{cal}}|{=}15$ author-designed calibration scenarios and $|\mathcal{S}_{\mathrm{hold}}|{=}100$ generator-created holdout scenarios sampled deterministically from the committed family distribution in \texttt{config/corpus\_spec.yaml} under seed 42. Every $s_i$ carries a ground-truth label $y_i \in \{\textsc{benign},\textsc{attack}\}$ fixed a priori; $\Sigma$ is the set of seven source types. Source-specific normalizers $\nu_\sigma$ yield the evidence set
+\begin{equation}
+E_i = \bigcup_{\sigma\in\Sigma} \nu_\sigma\!\left(L_{i,\sigma}\right),\quad
+e = (\mathit{id}, t, u, \sigma, a, r, \mathit{ip}, \mathit{sess}, v, m),
+\end{equation}
+with identifier, timestamp, actor, source, action, resource, IP, session, volume, and metadata; $\mathrm{ids}(E_i)$ denotes the identifier set. The timeline operator $\tau$ sorts $E_i$ into $\mathcal{T}_i = \langle e_{(1)},\dots,e_{(n_i)}\rangle$ with non-decreasing $t$; the correlator partitions $\mathcal{T}_i$ by session and links cross-source events of one actor within proximity $\delta$ (30 min).
+
+Each rule $\rho_k$, $k \le 12$, is a pair $(P_k, w_k)$ of a deterministic predicate over event subsets and a severity $w_k \in \{\textsc{warning},\textsc{critical}\}$; the alert set is
+\begin{equation}
+A_i = \{(k, G) : G \subseteq E_i,\ P_k(G)\},
+\end{equation}
+and the rule verdict is \texttt{attack} if any critical alert exists, \texttt{suspicious} if only warnings, else \texttt{no\_alert}. A full rule pass is approximately $O(K|E_i| + |E_i|\log|E_i|)$.
+
+The LLM with parameters $\theta$ is a stochastic map
+\begin{equation}
+\Lambda_\theta : (B, \mathcal{T}_i, A_i) \mapsto r_i = (v_i, u^*_i, C_i, F_i, \bar{F}_i, g_i),
+\end{equation}
+over baselines $B$, timeline, and (in the rule-context condition) alerts, returning verdict $v_i \in \{\texttt{YES},\texttt{NO},\texttt{INSUFFICIENT}\}$, suspect $u^*_i$, chain $C_i = \langle c_1,\dots,c_{m_i}\rangle$ with citation sets $\mathrm{cite}(c_j)$, and evidence lists $F_i,\bar F_i$ of \emph{claimed} identifier strings (not guaranteed to lie in $\mathrm{ids}(E_i)$ --- validation checks exactly that). The no-rule-context condition is $\Lambda_\theta(B,\mathcal{T}_i,\emptyset)$. One projection $\mu$ on the union of verdict alphabets maps \texttt{attack}/\texttt{YES} to \textsc{attack} and all else to \textsc{benign}; mapping \texttt{INSUFFICIENT} to \textsc{benign} scores abstention on an attack as \emph{incorrect}, since a verdict that asserts nothing has no triage value.
+
+With $\mathrm{cite}(r_i) = \bigcup_j \mathrm{cite}(c_j) \cup F_i \cup \bar{F}_i$, step timestamps $t(c_j) = \min\{t(e) : \mathit{id}(e)\in\mathrm{cite}(c_j)\}$, and $\mathcal{U}(r_i)$ the users named in $r_i$, the validator computes
+\begin{align}
+\chi_{\mathrm{exist}}(r_i) &= |\,\mathrm{cite}(r_i) \setminus \mathrm{ids}(E_i)\,|,\\
+\chi_{\mathrm{chron}}(r_i) &= |\{1 \le j < m_i : t(c_j) > t(c_{j+1})\}|,\\
+\chi_{\mathrm{actor}}(r_i) &= |\,\mathcal{U}(r_i) \setminus \{u(e):e\in E_i\}\,|,
+\end{align}
+plus entity, temporal, volume, and structural counts defined analogously. A response is \emph{citation-grounded} iff $\chi_{\mathrm{exist}}(r_i)=0$; the corpus citation validity rate is
+\begin{equation}
+\gamma = 1 - \frac{\sum_i \chi_{\mathrm{exist}}(r_i)}{\sum_i |\mathrm{cite}(r_i)|} = 1 - \frac{1}{2068} = 0.99952,
+\end{equation}
+reported as 99.95\% across all 115 scenarios (calibration 226/226 = 100\%; holdout 1841/1842 = 99.95\%; the single invalid reference is on a holdout scenario). Crucially, $\chi_{\mathrm{exist}}(r_i)=0$ does not imply $u^*_i$ is the true attacker: citation grounding is necessary, not sufficient, for interpretive correctness (S14).
+
+Verdict accuracy is $\mathrm{Acc}(X) = \tfrac{1}{|\mathcal{S}|}\sum_i \mathbf{1}[\mu(V_X(s_i)) = y_i]$. Step precision/recall/$F_1$ match reported chain steps (rule alerts, for rules) against labeled ground-truth steps \emph{independently of verdict correctness}, and are sensitive to step-label naming (Section~\ref{sec:limits}). The alert load on a benign scenario, $\phi_i = |A_i|/|E_i| \times 100\%$, counts alert instances over events and may exceed 100\% (observed: $\phi_{S6}=132\%$).
+
+% ============================================================
+\section{Evaluation}
+\label{sec:eval}
+% ------------------------------------------------------------
+
+All 115 scenarios run through the full pipeline; both analyzers consume the same timeline, the LLM additionally receiving rule alerts (rule-context condition). Three metric families are kept separate --- verdict accuracy, suspect/attack-chain correctness, grounding integrity --- because the two key findings (S14, S15) fail on different axes and would vanish in a single score. Headline results are reported on the holdout split ($n{=}100$); calibration results ($n{=}15$) are reported in parallel because the LLM prompt was tuned on those scenarios. All figures are computed by the evaluation harness from persisted artifacts (\texttt{data/evaluation\_results.json}, \texttt{data/statistics\_report.json}).
+
+\subsection{Verdict Accuracy and False Positives}
+\label{sec:verdict}
+
+\begin{table*}[t]
+\centering
+\caption{Headline accuracy across the 100-scenario holdout (95\% Clopper--Pearson CI), with calibration ($n{=}15$) and full corpus ($n{=}115$) in parallel. Bracketed values are 95\% confidence intervals; $p$ is the paired McNemar exact test (rules vs.\ Gemma).}
+\label{tab:verdict}
+\small
+\begin{tabular}{L{0.24\textwidth} c c c c}
+\toprule
+\textbf{Slice} & \textbf{N} & \textbf{Rules \% [95\% CI]} & \textbf{Gemma \% [95\% CI]} & \textbf{McNemar $p$} \\
+\midrule
+Calibration ($n{=}15$, prompt-tuned) & 15  & 66.7 [38.4, 88.2]  & 86.7 [59.5, 98.3]  & 0.453 \\
+Holdout (generator-created)          & 100 & 70.0 [60.0, 78.8]  & 78.0 [68.6, 85.7]  & 0.243 \\
+Full corpus                          & 115 & 69.6 [60.3, 77.8]  & 79.1 [70.6, 86.1]  & 0.126 \\
+\midrule
+Holdout --- attack only  & 56  & 69.6 [55.9, 81.2]  & \textbf{100.0 [93.6, 100.0]} & $\mathbf{<0.001}$ \\
+Holdout --- benign only  & 44  & 70.5 [54.8, 83.2]  & 50.0 [34.6, 65.4]  & 0.064 \\
+Holdout --- hard benign  & 34  & 61.8 [43.6, 77.8]  & 38.2 [22.2, 56.4]  & 0.096 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig8_verdict_matrix.pdf}
+\caption{Per-family accuracy on the 115-scenario corpus, rules vs Gemma, with exact 95\% Clopper--Pearson intervals.}
+\label{fig:verdictmatrix}
+\end{figure}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig10_calibration_vs_holdout.pdf}
+\caption{Calibration ($n{=}15$, prompt-tuned) vs holdout ($n{=}100$, generator-created). The LLM advantage shrinks substantially on the holdout split.}
+\label{fig:calibvsholdout}
+\end{figure}
+
+Table~\ref{tab:verdict} and Figs.~\ref{fig:verdictmatrix}--\ref{fig:calibvsholdout} summarize the headline. On the calibration set the LLM advantage that motivated the prompt design (86.7\% vs 66.7\%) is wide but underpowered ($n{=}15$); on the 100-scenario holdout the gap narrows to 78.0\% vs 70.0\% --- a paired improvement of $+8.0$ percentage points whose bootstrap 95\% interval (10\,000 resamples) of $[-4.0, +20.0]$ crosses zero, and whose McNemar exact test is not significant ($p{=}0.243$).
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig11_confusion_holdout.pdf}
+\caption{Holdout confusion matrices ($n{=}100$). The LLM misses no attack (top-right cell 0) but misclassifies 22 of 44 benign scenarios as attacks; the rule engine errs in both directions.}
+\label{fig:confusion}
+\end{figure}
+
+\textbf{Statistical treatment.} Fig.~\ref{fig:confusion} shows the holdout confusion matrices. On the holdout the two systems are \emph{not} statistically distinguishable on overall accuracy. They are sharply different by label. On attack scenarios Gemma reaches 100.0\% [93.6, 100.0] versus 69.6\% for rules, a $+30.4$ pp improvement with bootstrap 95\% CI $[+17.9, +42.9]$ and McNemar $p{<}0.001$. On benign scenarios the direction reverses: Gemma 50.0\% [34.6, 65.4] versus rules 70.5\% [54.8, 83.2] ($-20.5$ pp, $p{=}0.064$). On the 34 hard-benign scenarios (benign labels intentionally designed to fire alerts), Gemma falls to 38.2\% versus 61.8\% for rules. The LLM, as deployed, is best characterised as a high-recall attack detector with a substantial false-positive rate on legitimate-but-noisy activity.
+
+\textbf{Per-family decomposition.} The label-dependent skew has a structural explanation. Gemma reaches 100\% on five attack-heavy families (credential\_compromise, decoy\_misdirection, failed\_stuffing, multistage\_infra, scope\_creep) and on session\_hijack, where the rule engine reaches only 50\% (it sees the IP change as a single warning, not an incident). On scope\_creep the rule engine scores 0\% --- no rule aggregates cross-department reads over multiple days --- and Gemma 100\%. The compensating losses fall on travel\_noise (rules 100\%, Gemma 0\%) and legitimate\_peak (rules 37.5\%, Gemma 0\%): both are high-volume benign families where the LLM consistently misreads workload spikes from foreign IPs or end-of-quarter activity as attack. The maintenance\_window family inverts in Gemma's favour (rules 0\%, Gemma 62.5\%): rules fire on the privilege-then-log-delete pattern regardless of ticket context, whereas the LLM partially reads the ticket and role.
+
+\subsection{Subtle and Degraded-Evidence Attacks}
+\label{sec:subtle}
+
+The calibration findings extend to the holdout. On S4 (three-day insider scope creep) both verdicts are correct, but rule alerts capture only the privilege event and cross-department reads (step $F_1{=}0.10$) while the LLM names the multi-day read-then-download progression ($F_1{=}0.91$); the holdout \texttt{scope\_creep} family generalises this pattern (12 attack scenarios with 1--4 cross-department files per day over 3--10 days): rules 0/12, Gemma 12/12. On S5 rules yield only warnings (verdict-wrong, though their alerts overlap labeled steps --- step scores are verdict-independent), while the LLM flags the mid-session IP change ($F_1{=}0.92$); on the holdout \texttt{session\_hijack} family (10 scenarios) the same pattern holds, rules 5/10, Gemma 10/10. On S10, S12, and S13 (low-and-slow exfiltration~\cite{nadler2019detection}) rule verdicts map \textsc{benign}; the LLM is correct, aggregating across days on S13. The remaining attacks (S8, S11, S9) are verdict-correct for both; on S9 the LLM also lists the missing authentication evidence in its \texttt{gaps} field --- the desired behavior under incomplete evidence.
+
+\subsection{Grounding Results}
+\label{sec:grounding}
+
+Of 2068 event-identifier references across the 115-scenario corpus, 2067 resolve to real events ($\gamma = 99.95\%$, exact 95\% CI $[99.73, 99.999]$); 114 of 115 scenarios have zero invalid citations. The single invalid reference is a natural-language sentence (\emph{``user\_02's travel\_note indicates they frequently travel\ldots''}) placed in an \texttt{evidence\_for} list where an event identifier was required --- a structural formatting failure, not a fabricated event identifier. \textbf{No fabricated event identifier was observed across the entire corpus.} Only one chronology violation was observed across all 115 scenarios (a single out-of-order step on a holdout travel scenario whose chain interleaves login and file-access events near a session-start cluster). Actor and entity checks: no violations on the holdout. Volume and temporal checks were never triggered, so their behavior is unmeasured at scale. The grounding claim is therefore bounded: \emph{no fabricated event identifiers, 99.95\% citation validity, and at most one chronology violation across 115 scenarios under the implemented validator} --- not ``hallucination-free''~\cite{xu2024hallucination}, but materially stronger than the 99.2\% reported on the calibration corpus alone.
+
+\subsection{Third-Party Benchmark Replay (CERT r4.2)}
+\label{sec:cert}
+
+The synthetic results above were both generated by the authors --- the calibration scenarios hand-authored, the holdout produced by an author-written generator. To probe ecological validity we replay the pipeline on the CERT Insider Threat Test Dataset r4.2~\cite{glasser2013bridging}, an independently constructed corpus distributed by CMU CERT. We map five r4.2 streams (\texttt{logon}, \texttt{device}, \texttt{file}, \texttt{email}, \texttt{http}) onto the unified event schema via \texttt{app/ingestion/adapters/cert\_insider.py}; the field mapping is documented in the module docstring. Investigation units are per-user-month windows: each labeled insider in r4.2 contributes one ATTACK window per active calendar month; BENIGN windows are sampled from users absent from \texttt{answers/insiders.csv}, with the seeded RNG rejecting samples whose median event count differs from the ATTACK median by more than 25\% (final median diff 9.8\%). Windows are capped at 150 events to fit Gemma's 32K context; admin/device/file events are kept fully and \texttt{logon}/\texttt{http}/\texttt{email} are uniformly thinned per day, with the downsampling flag recorded in \texttt{data/real\_scenarios/manifest.json}.
+
+We attempted 40 windows (20 ATTACK + 20 BENIGN). Five BENIGN windows did not complete because the Modal endpoint stalled mid-run for an extended period in two separate outages; we report scored results on the 35 windows that completed cleanly (20 ATTACK + 15 BENIGN) and document the outage explicitly rather than approximate the missing five.
+
+\textbf{Format drift on real-world inputs (a finding in itself).} On the richer CERT prompts, Gemma abandoned the requested JSON schema and returned free-form Markdown forensic reports in 34 of the 35 scored windows; only one window produced schema-valid JSON. For the 34 Markdown responses a deterministic parser extracted the binary verdict from the report's conclusion (these records are tagged \texttt{source: live\_narrative\_coerced} in \texttt{data/llm\_responses/cert/}), and all 35 are genuine model calls (no mock outputs; per-call latency 14.8--31.7\,s). Two consequences follow and we state them plainly. First, the structured citation validator could be applied to only the single JSON response (20 references --- 14 supporting events plus 6 attack-chain steps --- all of which resolved to real events); the Markdown responses cite schema-correct identifiers such as \texttt{cert\_http\_*} inline but these were not systematically validated, so the strong grounding result of the synthetic corpus (Section~\ref{sec:grounding}) is \emph{not} re-established at scale on CERT. Second, prose-to-verdict extraction is imperfect: manual review of the 15 benign reports finds 13 whose own text concludes ``insider threat'' and 2 (\texttt{BEH0615}, \texttt{MAD0753}) whose text leans benign but were coerced to \texttt{YES}, so the benign accuracy is more honestly read as near-zero (at most 2/15 correct) than as an exact 0\%. That this format drift appears only on the more verbose real-world inputs is itself a deployment-relevant robustness limitation of schema-constrained LLM triage.
+
+\begin{table*}[t]
+\centering
+\caption{CERT r4.2 replay: 35 of 40 windows scored (5 lost to endpoint outage). Verdicts for 34 of 35 windows were extracted from Markdown reports (the model abandoned the JSON schema; see text); benign accuracy is the coerced-verdict figure and is near-zero (at most 2/15 borderline). Bracketed values are 95\% Clopper--Pearson confidence intervals.}
+\label{tab:cert}
+\small
+\begin{tabular}{L{0.26\textwidth} c c c}
+\toprule
+\textbf{Slice} & \textbf{N} & \textbf{Rules \% [95\% CI]} & \textbf{Gemma \% [95\% CI]} \\
+\midrule
+All CERT scenarios scored & 35 & 42.9 [26.3, 60.6] & 57.1 [39.4, 73.7] \\
+CERT attacks only         & 20 & 0.0   & \textbf{100.0 [83.2, 100.0]} \\
+CERT benigns only         & 15 & 100.0 & 0.0 [0.0, 21.8] \\
+Insider scenario 1        & 5  & 0.0   & 100.0 \\
+Insider scenario 2        & 12 & 0.0   & 100.0 \\
+Insider scenario 3        & 3  & 0.0   & 100.0 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+The synthetic-corpus rule baseline is uncalibrated for CERT (the twelve rules were tuned for a different schema vocabulary: \texttt{usb\_connect} and \texttt{file\_copy} actions never appear in the synthetic corpus and never trigger R001--R012), so the 42.9\% rule accuracy is a no-baseline figure that mostly reflects benigns mapping to \textsc{benign}; the McNemar test is therefore not the right summary. The relevant pre-registered comparisons are:
+
+\textbf{(Q1) Does the attack-recall / benign-FP asymmetry from the synthetic holdout replicate on third-party data?} Yes, and it intensifies. Synthetic holdout: 100\% attack accuracy vs 50\% benign accuracy (a 50 pp gap). CERT r4.2: 100\% attack vs near-zero benign accuracy (at most 2 of 15 benign windows arguably correct; a $\geq$87 pp gap). The LLM flags almost every benign user-month as an incident.
+
+\textbf{(Q2) Does the multi-day insider recall that drove the synthetic S4 and S13 results hold on CERT's real insider cases?} Yes. All 20 CERT attack windows --- across r4.2 insider scenarios 1, 2, and 3 --- received \texttt{YES} (the verdict, where coerced, taken from the report's explicit conclusion), including the scenario 2 cases that involve job-hunting and gradual scope expansion exactly analogous to S4 in the calibration set. Where structured citations were available (the single JSON response), all 20 resolved to real events with no chronology violation; as noted above, structured grounding could not be assessed on the 34 Markdown responses.
+
+The forensic interpretation is unchanged from the synthetic conclusion and reinforced by the third-party replay: grounded LLM triage is a high-recall, low-precision first-pass layer. CERT shows that the recall property is robust enough to survive a corpus the authors never touched, and that the precision deficit on legitimate-but-noisy activity is not a synthetic artefact: when the LLM has no explicit baseline saying ``this user is allowed to email attachments'', it treats USB use, late-night logins, and unusual web browsing as evidence of insider activity.
+
+\subsection{Stress Tests}
+\label{sec:stress}
+
+Four dimensions probe robustness (Fig.~\ref{fig:stress}); coverage varies (raw-log comparison: S3--S5; removal and noise: S3--S4; jitter: S3), and trial counts are small ($N{=}3$ per level), so results are observations, not powered estimates. \textbf{(A)~Raw logs vs.\ pipeline:} on raw unnormalized logs the LLM still reaches correct verdicts but emits hallucination-flagged claims on two of three scenarios; the full pipeline yields zero on all three --- structuring removes grounding violations. \textbf{(B)~Evidence removal:} at 20--40\% removal, 12/12 trials correct; S3 degrades to \texttt{INSUFFICIENT} at 60--80\%, S4 only at 80\%. The starvation failure mode is \emph{abstention}, not fabrication: four hallucination flags across 24 perturbed trials, and no fabricated event identifier. \textbf{(C)~Noise injection:} verdicts correct at all noise ratios up to 5:1; S3 step recall drops 83\%$\to$67\% only at 5:1; S4 stable at 83\%. \textbf{(D)~Timestamp jitter} (5~min--2~h): verdicts stay correct and chain ordering internally consistent, while the validator's strict timeline check flags jittered chronology --- intended auditor behavior under perturbed clocks.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig9_stress_tests.pdf}
+\caption{Stress tests: (a) verdict correctness under random evidence removal (3 trials/level); (b) step recall under benign-noise injection.}
+\label{fig:stress}
+\end{figure}
+
+\subsection{Failure Cases}
+\label{sec:failures}
+
+\textbf{S14 --- decoy misdirection (suspect failure, validator-silent).} A loud decoy compromise of \texttt{user\_04} (brute force, privilege escalation, bulk downloads; 21 alerts) runs concurrently with the real attack: quiet lateral movement and DNS-tunnel source-code exfiltration by \texttt{user\_02} (Fig.~\ref{fig:s14}). The LLM returns \texttt{YES} --- verdict \emph{correct} --- but names \texttt{user\_04} as suspect and builds its chain from the decoy's events. Every cited event is real and ordered; no validator check fires. Citation grounding held; interpretive grounding failed. An adversary who stages plausible events can satisfy every citation check while misdirecting the analyzer.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{fig12_s14_attribution.pdf}
+\caption{S14 attribution failure, plotted from the actual scenario events. The decoy (\texttt{user\_04}, circles) generates loud, alert-heavy activity; the real attacker (\texttt{user\_02}, squares) operates quietly in parallel. The LLM cites only real events --- and attributes the incident to the decoy.}
+\label{fig:s14}
+\end{figure}
+
+\textbf{S15 --- rule-context amplification (verdict failure, ablation-confirmed on the calibration set).} Legitimate quarter-end activity yields ten alerts that the rule mapping correctly absorbs to \textsc{benign}; the LLM in the rule-context condition returns \texttt{YES}. Re-running S15 five times per condition on the same model and timeline: with rule context, \texttt{YES} 5/5; without, \texttt{NO} 5/5 (Table~\ref{tab:ablation}). On S15 alone the verdict reverses unanimously on the rule-alert artifact.
+
+\textbf{Hard-benign false positives (generalised failure mode).} The holdout corpus contains 34 hard-benign scenarios (benign labels designed to produce alert load, drawn from \texttt{travel\_noise}, \texttt{maintenance\_window}, \texttt{failed\_stuffing}, and \texttt{legitimate\_peak} families). On these the LLM scores only 38.2\%, against 61.8\% for the rule engine. An extended ablation --- rule-context vs no-rule-context, five runs per condition --- was run on all 44 hard-benign and decoy holdout scenarios (440 calls). Of those 44 scenarios, the verdict reversed between conditions for only 6 (Table~\ref{tab:ablation-ext}): three travel-noise (s27, s28, s32) and three maintenance-window (s71, s73, s75). On the other 38 scenarios the verdict was identical in both conditions --- including all eight \texttt{legitimate\_peak} scenarios, on which the LLM returned \texttt{YES} with and without rule alerts in the prompt. The S15 rule-context amplification effect therefore generalises only partially: it is a real but minority mechanism. The LLM's over-classification of legitimate-but-noisy patterns (foreign-IP travel sessions, end-of-quarter file volumes) is dominated by a model-intrinsic prior, not by upstream alert injection.
+
+\begin{table}[t]
+\centering
+\caption{Extended rule-context ablation: 44 hard-benign and decoy holdout scenarios, five runs per condition (440 calls total). Reversals are scenarios where rule-context and no-rule-context produce different majority verdicts.}
+\label{tab:ablation-ext}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{L{0.32\columnwidth}r r r r}
+\toprule
+\textbf{Family} & \textbf{N} & \textbf{RC=YES} & \textbf{RC=NO} & \textbf{Reversed} \\
+\midrule
+travel\_noise        & 10 & 10 & 0 & 3 \\
+maintenance\_window  & 8  & 3  & 5 & 3 \\
+failed\_stuffing     & 8  & 0  & 8 & 0 \\
+legitimate\_peak     & 8  & 8  & 0 & 0 \\
+decoy\_misdirection  & 10 & 10 & 0 & 0 \\
+\midrule
+Total                & 44 & 31 & 13 & 6 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{S15 ablation: five runs per condition, same model and timeline.}
+\label{tab:ablation}
+\small
+\begin{tabular}{L{0.36\columnwidth}ccc}
+\toprule
+\textbf{Condition} & \textbf{Runs} & \textbf{Verdicts} & \textbf{Majority} \\
+\midrule
+With rule-alert context & 5 & YES $\times$ 5 & YES (wrong) \\
+Without rule-alert context & 5 & NO $\times$ 5 & NO (correct) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Manual inspection also finds occasional intent assertions logs cannot support (causal overclaim) and missing benign counter-hypotheses (on S15, no explicit ``quarterly close'' alternative; on holdout travel scenarios, no explicit ``business travel'' alternative) --- both outside the validator's scope and scored qualitatively.
+
+\textbf{Run-to-run consistency.} A separate variance probe runs the LLM five times on each of a 22-scenario stratified subset (two per family across the holdout, plus the two calibration failure cases S14 and S15): 110 calls in total at temperature 0.1. Across all 110 runs, no scenario flipped verdict (per-scenario flip rate 0\%, Fleiss' $\kappa = 1.000$, category split 85~\texttt{YES} / 25~\texttt{NO} / 0~\texttt{INSUFFICIENT}). At the production temperature the model is therefore deterministic at the verdict level on the corpus we measured --- which means the false-positive behaviour described above is a stable property of the model on these inputs, not a sampling artefact that disappears with multiple draws.
+
+% ============================================================
+\section{Discussion and Limitations}
+\label{sec:limits}
+% ------------------------------------------------------------
+
+\textbf{What the LLM adds.} On attack scenarios the LLM contributes essentially perfect recall (100\% on the 56 attack-labeled holdouts) where the rule engine reaches only 69.6\%. The synthesis advantage is in cross-time-window aggregation no rule encodes (\texttt{scope\_creep}: rules 0/12, Gemma 12/12), cross-source pattern reading (\texttt{session\_hijack}: rules 5/10, Gemma 10/10), and contextual interpretation of administrative actions (\texttt{maintenance\_window}: rules 0/8, Gemma 5/8 --- reading the ticket and role to downgrade what would otherwise look like a critical pattern). None of this is beyond a richer rule set in principle; the grounded LLM provides it without an analyst enumerating every cross-window pattern in advance, and without claims that cannot be tied to events.
+
+\textbf{Where rules still matter.} On benign scenarios rules outperform the LLM by 20 percentage points (70.5\% vs 50.0\%), and the gap is largest on hard-benign families designed to produce alert load (61.8\% vs 38.2\%). Rules are deterministic, cheap, continuously runnable, and auditable; they also produce alert identifiers the LLM can cite. The architectural reading is therefore \emph{rules-and-LLM as complements, not LLM-after-rules}: routing decisions should depend on the family of activity observed. Specifically, the LLM-as-triage layer pays off on the attack-recall axis but is not safe to deploy autonomously where false positives on legitimate-but-noisy activity carry cost. Countermeasures follow: confidence-weighted alert presentation, two-stage prompting (score alerts before rendering a verdict), a deployed counterfactual no-rule-context check (which detects the S15-class failure exactly), and an asymmetric review threshold that escalates the LLM's \texttt{NO} (high-information) but down-weights its \texttt{YES} on benign-family events.
+
+\textbf{Grounding is necessary, not sufficient.} S14 shows the validator can guarantee that cited events exist, are ordered, and name real actors --- while the conclusion misattributes the attack. Evidence-grounded output is a \emph{candidate} verdict, chain, and suspect for analyst review, consistent with how analysts already use LLMs~\cite{singh2025llmsoc}. The deployment posture is post-incident triage assistance (after-action reports, audit response, tier-1 summarization), not real-time blocking or autonomous attribution; the open-weight in-boundary serving property is hygiene for an assistant, but would be a liability for an autonomous detector whose failure modes the operator cannot inspect~\cite{sommer2010outside}.
+
+\textbf{Limitations.} (i)~\emph{Synthetic scenarios plus a partial third-party replay:} 15 calibration scenarios are author-designed and 100 holdout scenarios are generator-created from a committed parameter spec under a fixed seed; both are synthetic. The generator-based holdout addresses designer bias (parameters are auditable; the author never sees or hand-edits individual scenarios before scoring) and the CERT r4.2 replay (Section~\ref{sec:cert}) adds 35 third-party windows where neither the corpus nor the labels were touched by the authors. Five additional CERT windows were lost to a transient endpoint outage and not synthesised, and on the CERT inputs the model returned Markdown rather than JSON in 34 of 35 windows, so verdicts there rest on prose extraction and the structured citation validator could not be applied at scale (Section~\ref{sec:cert}); the CERT result should therefore be read as a verdict-level recall/precision finding, not a grounding result. LANL~\cite{kent2015lanl} and DARPA OpTC~\cite{anjum2021darpa} replays are next; the LANL adapter exists in \texttt{app/ingestion/adapters/lanl\_auth.py}; the OpTC adapter is a skeleton awaiting ground-truth windowing. (ii)~\emph{Single-model evaluation:} all LLM results are from a single open-weight Gemma deployment; the systematic over-classification of hard-benign scenarios may be a property of this model rather than of grounded LLM triage in general, and cannot be separated without multi-model replication~\cite{touvron2023llama2,jiang2023mistral}. (iii)~\emph{Statistical scope and power:} the holdout reaches $n{=}100$, so exact 95\% intervals for the headline are narrow (rules 70.0\% [60.0, 78.8]; Gemma 78.0\% [68.6, 85.7]) and the paired McNemar improvement on overall accuracy is not significant ($p{=}0.243$); the LLM's attack-recall advantage \emph{is} statistically established ($p{<}0.001$), and its benign-precision deficit is borderline ($p{=}0.064$). Run-to-run non-determinism remains a recognised forensic concern~\cite{yin2025digitalforensics,studiawan2025standardized}, though at our deployed temperature of 0.1 the model was verdict-deterministic on every scenario tested in the variance probe (Section~\ref{sec:failures}; 110 runs, Fleiss' $\kappa = 1.000$). The extended rule-context ablation (Section~\ref{sec:failures}; 440 calls across 44 hard-benign and decoy scenarios) shows the S15 amplification effect generalises only partially (6 reversals out of 44). Stress trials remain $N{=}3$. (iv)~\emph{Coarse constructs:} binary verdict accuracy proxies investigative usefulness poorly, and step $F_1$ is sensitive to label naming; an analyst usefulness study is the missing instrument. (v)~\emph{Validator scope:} causal overclaim, missing alternatives, and wrong-suspect-with-real-evidence are not mechanically detected; volume and temporal checks were never triggered even at $n{=}115$, so their behaviour is unmeasured. The evaluation also used an external endpoint (acceptable only because data is synthetic); the in-boundary path is interface-validated, not exercised.
+
+% ============================================================
+\section{Future Directions}
+\label{sec:future}
+% ------------------------------------------------------------
+
+Five directions follow directly from the limitations above. \textbf{(1) Multi-model replication} is the highest priority: repeating the holdout and CERT runs on Llama and Mistral~\cite{touvron2023llama2,jiang2023mistral} would establish whether the benign false-positive prior is a property of grounded LLM triage or specific to the evaluated model. \textbf{(2) Real-data replay} on LANL~\cite{kent2015lanl} and DARPA OpTC~\cite{anjum2021darpa} via the released adapters, trading exact ground truth for ecological validity, and completing the five CERT windows lost to the endpoint outage. \textbf{(3) Multi-suspect hypothesis tracking}, the direct S14 countermeasure: require the model to enumerate candidate actors with evidence for and against each before committing to a suspect~\cite{bohnet2022attributed}. \textbf{(4) A calibrated rule-context handler} that down-weights the LLM \texttt{YES} verdict on hard-benign families and applies the asymmetric review threshold proposed in Section~\ref{sec:limits} --- the holdout's main failure mode. \textbf{(5) Claim-level interpretive-grounding validation}, approximating atomic-fact verification over structured events~\cite{min2023factscore} and combined with $N$-run self-consistency aggregation~\cite{wang2023selfconsistency}, plus an analyst usefulness study to replace the coarse verdict-accuracy construct.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ------------------------------------------------------------
+
+This paper compared a transparent twelve-rule baseline and an evidence-grounded open-weight Gemma model over the same normalized seven-source private-cloud event schema, with every LLM claim required to cite event identifiers and audited by a deterministic seven-check validator. The 115-scenario corpus splits into 15 author-designed calibration scenarios and 100 generator-created holdout scenarios sampled deterministically from a committed parameter spec to limit designer bias. On the holdout the rule baseline reached 70.0\% verdict accuracy [60.0, 78.8] and the LLM 78.0\% [68.6, 85.7]; the paired improvement is not significant under McNemar's exact test ($p{=}0.243$). The result splits sharply by label: on the 56 attack-labeled holdout scenarios the LLM reached 100.0\% recall [93.6, 100.0] against 69.6\% for rules, an effect significant at $p{<}0.001$; on the 44 benign scenarios the direction reversed, with rules 70.5\% versus LLM 50.0\%, and on the 34 hard-benign scenarios the LLM fell to 38.2\%. Across all 115 scenarios 2067 of 2068 event-identifier references resolved to real events (99.95\% citation validity), 114 of 115 scenarios had zero invalid citations, and no fabricated event identifier was observed. The contribution this evaluation establishes is the methodology --- per-claim citation enforcement with deterministic validation, three separately scored correctness axes, a parameter-driven holdout corpus addressing designer bias, and statistically powered analysis --- together with the directional finding that grounded LLM triage contributes substantial attack-recall over a rule baseline but introduces a real false-positive cost on legitimate-but-noisy activity that current grounding validation does not catch. Citation validity does not imply interpretive correctness, and the LLM's \texttt{YES} verdict on hard-benign families is not neutral evidence. The supported role for LLMs in forensic investigation is bounded reasoning over structured evidence --- as a high-recall first-pass triage layer, validated mechanically, characterized by failure mode, and reviewed by a human analyst --- rather than autonomous detection or attribution.
+
+% ============================================================
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}

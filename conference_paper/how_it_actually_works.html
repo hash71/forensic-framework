@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Your Project Actually Works — Verified Walkthrough</title>
+<style>
+  :root{--navy:#1E2761;--ink:#22293b;--mut:#5a6478;--ice:#cadcfc;--green:#2e7d52;
+    --red:#a8322d;--teal:#0b6e68;--amber:#9a6a16;--bg:#f7f9fc;--card:#fff;--line:#e1e6f0;--code:#1b2333;}
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.62;font-size:16px;}
+  .wrap{max-width:880px;margin:0 auto;padding:32px 22px 90px;}
+  header.hero{background:var(--navy);color:#fff;border-radius:14px;padding:30px 30px 26px;margin-bottom:24px;}
+  header.hero h1{margin:0 0 8px;font-size:26px;line-height:1.2;}
+  header.hero p{margin:4px 0;color:var(--ice);font-size:15px;}
+  h2.sec{font-size:21px;margin:38px 0 12px;color:var(--navy);border-bottom:2px solid var(--line);padding-bottom:6px;}
+  h3{font-size:17px;color:var(--navy);margin:22px 0 6px;}
+  .note{background:#eef3fb;border-left:4px solid var(--navy);padding:13px 16px;border-radius:6px;margin:14px 0;}
+  .good{background:#eef7f1;border-left:4px solid var(--green);padding:13px 16px;border-radius:6px;margin:14px 0;}
+  .warn{background:#fbf4ee;border-left:4px solid var(--amber);padding:13px 16px;border-radius:6px;margin:14px 0;}
+  .phase{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:18px 0;overflow:hidden;box-shadow:0 1px 4px rgba(30,39,97,.06);}
+  .phase .head{background:var(--navy);color:#fff;padding:12px 18px;display:flex;align-items:center;}
+  .phase .head .n{background:#fff;color:var(--navy);font-weight:700;border-radius:7px;min-width:30px;height:30px;line-height:30px;text-align:center;margin-right:12px;font-size:15px;}
+  .phase .head .t{font-weight:600;font-size:16px;}
+  .phase .body{padding:16px 18px;}
+  .lbl{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);font-weight:700;margin:14px 0 4px;}
+  .lbl:first-child{margin-top:0;}
+  pre{background:var(--code);color:#dfe6f2;border-radius:8px;padding:12px 14px;overflow-x:auto;font-size:13px;line-height:1.5;margin:8px 0;}
+  pre .k{color:#7fd1c4;} pre .s{color:#c3a6e6;} pre .c{color:#7e8aa3;font-style:italic;}
+  code{background:#eef1f7;padding:1px 5px;border-radius:4px;font-size:90%;color:var(--teal);}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0;}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef3fb;color:var(--navy);}
+  td.ok{color:var(--green);font-weight:700;}
+  .chip{display:inline-block;background:#2a3878;color:var(--ice);font-size:12px;padding:3px 10px;border-radius:20px;margin:8px 6px 0 0;}
+  .arrow{text-align:center;color:var(--mut);font-size:20px;margin:-4px 0;}
+  ul{margin:6px 0;padding-left:22px;} li{margin:3px 0;}
+  .footer{margin-top:44px;font-size:13px;color:var(--mut);text-align:center;}
+  @media print{body{background:#fff;}.phase{break-inside:avoid;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>How Your Project Actually Works</h1>
+  <p>A verified, plain-language walkthrough — grounded in the real files, not the paper text.</p>
+  <p>Md. Nazmul Hasan · <i>Evidence-Grounded LLM Forensic Triage</i></p>
+  <div>
+    <span class="chip">Every claim below was checked against the actual code/data</span>
+  </div>
+</header>
+
+<div class="warn">
+<b>Where these files live (read this first).</b> Every path below is written the short way (e.g. <code>data/scenarios/</code>). They all sit inside one base folder on your Mac:
+<pre style="background:var(--code)">/Users/nazmul/projects/cybersecurity/forensic-framework/</pre>
+So <code>data/scenarios/</code> means the full path <code>/Users/nazmul/projects/cybersecurity/forensic-framework/data/scenarios/</code>.
+To open it: in Finder press <b>Cmd+Shift+G</b> and paste that full path. Note: it is <i>not</i> inside the <code>conference_paper/</code> folder (that holds only the PDF and slides) — it's one level up, in <code>forensic-framework/</code>.
+</div>
+
+<div class="good">
+<b>First, the question ChatGPT said mattered most: "do these files actually exist?"</b><br>
+I checked the real folder. <b>Yes — all of them.</b> Nothing in the paper describes an experiment that wasn't run. Here is the receipt:
+<table>
+<tr><th>Thing the paper claims</th><th>Reality on disk</th><th></th></tr>
+<tr><td>115 synthetic scenarios</td><td>115 JSON files in <code>data/scenarios/</code></td><td class="ok">✓</td></tr>
+<tr><td>Normalizer (unified schema)</td><td><code>app/normalizer/normalizer.py</code> — 508 lines</td><td class="ok">✓</td></tr>
+<tr><td>12-rule engine</td><td><code>app/rules/rule_engine.py</code> (767 lines) + <code>config/rules.yaml</code></td><td class="ok">✓</td></tr>
+<tr><td>The Gemma prompt</td><td><code>app/llm/prompts.py</code> — 138 lines</td><td class="ok">✓</td></tr>
+<tr><td>The validator</td><td><code>app/llm/hallucination_checker.py</code> — 698 lines</td><td class="ok">✓</td></tr>
+<tr><td>LLM answers stored</td><td>116 files in <code>data/llm_responses/</code></td><td class="ok">✓</td></tr>
+<tr><td>Evaluation + statistics</td><td><code>evaluation_results.json</code> (324K), <code>statistics_report.json</code> (20K)</td><td class="ok">✓</td></tr>
+<tr><td>CERT adapter + replay</td><td><code>cert_insider.py</code> (697 lines), 35 CERT answers, <code>evaluation_results_cert.json</code> (64K)</td><td class="ok">✓</td></tr>
+<tr><td>LANL adapter</td><td><code>lanl_auth.py</code> — 379 lines (built, not yet run)</td><td class="ok">✓</td></tr>
+<tr><td>Training? (fine-tune / LoRA)</td><td><b>None found</b> — confirmed prompting-only</td><td class="ok">✓</td></tr>
+</table>
+So this is a <b>genuine experimental artifact package</b>. Now let me teach you what each piece actually does.
+</div>
+
+<div class="note">
+<b>The one-paragraph version.</b> Your project is a <b>pipeline</b> — a conveyor belt. Fake-but-realistic security logs go in one end. They get cleaned into one common format, sorted into a timeline, and then handed to <b>two judges in parallel</b>: a simple rule engine (the old industry way) and Gemma (the AI). Both answer the same question — "attack or not, and who did it?" The AI is forced to <b>cite an event ID for every claim</b>, and a separate <b>validator</b> checks those citations are real. Finally a statistics step scores both judges. That's the whole thing. The seven phases below are just the stations on that belt.
+</div>
+
+<h3 style="text-align:center;color:var(--mut);font-weight:600">The conveyor belt</h3>
+<pre style="text-align:center;background:#eef3fb;color:var(--navy)">scenarios → normalize → timeline → ┬─ RULE ENGINE ──┐
+                                    └─ GEMMA → VALIDATOR ┘ → EVALUATE → statistics</pre>
+
+
+<h2 class="sec">Phase 1 — Make the scenarios (the "fake crime scenes")</h2>
+<div class="phase">
+  <div class="head"><span class="n">1</span><span class="t">115 scenario files, each a little story made of events</span></div>
+  <div class="body">
+    <p class="lbl">What it is</p>
+    <p>You couldn't use real company hack data (it's secret and unlabeled). So you <i>built</i> realistic incidents where you already know the right answer — like a teacher writing exam questions <i>and</i> the answer key. Each scenario is a JSON file: a list of <b>events</b> (log lines) plus a hidden ground-truth label (ATTACK or BENIGN).</p>
+    <p class="lbl">A real event from scenario 4 (the slow-insider attack)</p>
+<pre><span class="c">// data/scenarios/scenario_4.json — this is the actual first event</span>
+{
+  <span class="k">"event_id"</span>: <span class="s">"evt_s4_001"</span>,
+  <span class="k">"timestamp"</span>: <span class="s">"2026-04-01T09:00:00+06:00"</span>,
+  <span class="k">"source_type"</span>: <span class="s">"auth"</span>,        <span class="c">// which of the 7 sources</span>
+  <span class="k">"user"</span>: <span class="s">"user_03"</span>,
+  <span class="k">"action"</span>: <span class="s">"login"</span>,
+  <span class="k">"source_ip"</span>: <span class="s">"192.168.1.103"</span>,
+  <span class="k">"status"</span>: <span class="s">"success"</span>,
+  <span class="k">"session_id"</span>: <span class="s">"sess_user_03_20260401_001"</span>,
+  <span class="k">"severity"</span>: <span class="s">"info"</span>,
+  <span class="k">"metadata"</span>: { <span class="k">"auth_method"</span>: <span class="s">"password"</span> }
+}</pre>
+    <p>Scenario 4 has 27 such events spread over 3 days — user_03 slowly creeping from normal logins into reading finance files into downloading them. The label is <code>ATTACK</code>.</p>
+    <p class="lbl">The 15 vs 100 split (this is important and clever)</p>
+    <ul>
+      <li><b>15 calibration scenarios</b> (S1–S15) — hand-written by you. You tuned the AI's prompt against these. Think "practice problems."</li>
+      <li><b>100 holdout scenarios</b> — made by a <i>generator</i> (<code>scenario_factory.py</code>) from a recipe file with a fixed random seed. You never hand-edited them. Think "the real exam."</li>
+    </ul>
+    <p>Reporting results on the <b>holdout</b> (the unseen 100) is the honest, scientific move — it proves you didn't just memorize your own practice questions.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 2 — Normalize (make every source speak one language)</h2>
+<div class="phase">
+  <div class="head"><span class="n">2</span><span class="t">7 messy log formats → 1 clean format</span></div>
+  <div class="body">
+    <p class="lbl">The problem it solves</p>
+    <p>A login log, a database log, and an email log all look totally different in real life. If your two judges had to understand 7 different formats, the comparison wouldn't be fair. So <code>normalizer.py</code> rewrites all of them into the <b>same shape</b> — the "unified event schema" — the exact fields you saw above (event_id, timestamp, user, action, resource, source_ip, …).</p>
+    <p class="lbl">Why it matters for fairness</p>
+    <p>Because of this step, the rule engine and Gemma read <b>byte-for-byte the same evidence</b>. When the paper says "any difference is reasoning, not extra information," <i>this</i> file is why that's true. It also tags each event with a <code>severity</code> and strips any hidden answer-key fields so they can't leak to the judges.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 3 — The Rule Engine (your "old way" baseline)</h2>
+<div class="phase">
+  <div class="head"><span class="n">3</span><span class="t">12 fixed if-then rules — the industry-standard comparison</span></div>
+  <div class="body">
+    <p class="lbl">What it is</p>
+    <p>This is the thing the AI is being compared <i>against</i>. It's deliberately simple and transparent — a list of 12 rules in a plain config file. Here's a real one:</p>
+<pre><span class="c"># config/rules.yaml — actual rule R004</span>
+- id: R004
+  name: <span class="s">bulk_download</span>
+  severity: <span class="s">critical</span>
+  condition: <span class="k">count(file_download, window=30min) > 5</span></pre>
+    <p>In English: "if one user downloads more than 5 files in 30 minutes, raise a critical alert." The 12 rules cover unusual logins, privilege escalation, bulk downloads, log deletion, DNS tunneling, etc. The engine runs them over the events and produces a list of alerts, then maps those to one verdict (any critical alert → "attack").</p>
+    <p class="lbl">Its known weakness (which is the whole point)</p>
+    <p>It's dumb about <i>context</i>. It can't tell "5 downloads because the user is malicious" from "5 downloads because it's quarter-end and finance is busy." That brittleness is exactly what the AI is supposed to improve on.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 4 — Run Gemma (the AI judge)</h2>
+<div class="phase">
+  <div class="head"><span class="n">4</span><span class="t">The same evidence → the AI, with strict rules about citing</span></div>
+  <div class="body">
+    <p class="lbl">The ACTUAL prompt (not a guess — this is from the file)</p>
+<pre><span class="c"># app/llm/prompts.py — the real system prompt, abridged</span>
+"You are a digital forensic analyst investigating a private
+ cloud environment after a suspected security incident...
+
+ STRICT RULES:
+ 1. Only reason about events explicitly listed in the timeline.
+ 2. Do NOT assume, invent, or infer events not present.
+ 3. If evidence is insufficient, say INSUFFICIENT EVIDENCE.
+ 4. Reference specific event_ids for every claim.
+ 5. Assign confidence: HIGH, MEDIUM, or LOW to each claim."</pre>
+    <p>Rules 2 and 4 are the anti-hallucination heart: it may only talk about events it was given, and it must cite an ID for everything. The prompt also coaches it (rules 6–11) on traps the rule engine fails: failed logins aren't a breach, maintenance can look scary but be fine, lots of alerts ≠ attack, watch for slow insiders.</p>
+    <p class="lbl">What Gemma actually returned (real answer to scenario 3)</p>
+<pre><span class="c">// data/llm_responses/scenario_3_response.json</span>
+{
+  <span class="k">"verdict"</span>: <span class="s">"YES"</span>,
+  <span class="k">"suspect"</span>: <span class="s">"user_04"</span>,
+  <span class="k">"confidence"</span>: <span class="s">"HIGH"</span>,
+  <span class="k">"attack_chain"</span>: [
+    { <span class="k">"step"</span>: 1, <span class="k">"event_id"</span>: <span class="s">"evt_s3_001"</span>,
+      <span class="k">"description"</span>: <span class="s">"Reconnaissance: access attempts from</span>
+                      <span class="s">external IP 185.220.101.34"</span> }, ... ],
+  <span class="k">"evidence_for"</span>: [<span class="s">"evt_s3_001"</span>,<span class="s">"evt_s3_006"</span>,<span class="s">"evt_s3_008"</span>, ...]
+}</pre>
+    <p class="lbl">Crucial fact: no training happened</p>
+    <p>Gemma was used <b>as-is</b>, off the shelf, at temperature 0.1 (low = consistent answers). No fine-tuning, no LoRA, no reinforcement learning — I searched the code and found none. Everything the model "knows" about your task comes from that prompt. This is a <b>prompting</b> study, and the paper says so honestly.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 5 — The Validator (the lie detector)</h2>
+<div class="phase">
+  <div class="head"><span class="n">5</span><span class="t">7 deterministic checks on every AI answer</span></div>
+  <div class="body">
+    <p class="lbl">What it does</p>
+    <p>This is your paper's signature contribution. After Gemma answers, <code>hallucination_checker.py</code> goes through its claims and asks, mechanically (no AI involved — pure code, so it's trustworthy):</p>
+    <ul>
+      <li>Does every cited <code>event_id</code> actually exist in the evidence? <span class="chip" style="background:#eef7f1;color:var(--green)">catches invented events</span></li>
+      <li>Is the named suspect a real user from the logs? <span class="chip" style="background:#eef7f1;color:var(--green)">catches invented people</span></li>
+      <li>Do cited IP addresses / files appear in the evidence? <span class="chip" style="background:#eef7f1;color:var(--green)">catches invented entities</span></li>
+      <li>Are the cited events in sensible time order? Plus 3 more (uncited claims, time claims, volume claims).</li>
+    </ul>
+    <p class="lbl">Real output for scenario 3</p>
+<pre><span class="c">// from evaluation_results.json, scenario 3</span>
+total citations: <span class="k">23</span>   valid: <span class="k">23</span>   invented: <span class="k">0</span></pre>
+    <p>Across all 115 scenarios this came to <b>2067 of 2068 citations valid (99.95%)</b>. That number is the proof that "the AI cites its evidence and the evidence is real."</p>
+    <p class="lbl">The honest limit (your S14 slide)</p>
+    <p>The validator checks that citations are <i>real</i> — not that the <i>conclusion</i> is right. In scenario 14 the AI cited all-real events but blamed the wrong person. The validator can't catch that, and your paper says so plainly. Knowing exactly where your safety net stops is itself a contribution.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 6 — Evaluation &amp; statistics (the scoreboard)</h2>
+<div class="phase">
+  <div class="head"><span class="n">6</span><span class="t">Compare the two judges to the answer key, with real statistics</span></div>
+  <div class="body">
+    <p class="lbl">What it computes</p>
+    <p><code>evaluator.py</code> compares each judge's verdict to the hidden ground-truth label, and <code>run_statistics.py</code> turns that into the paper's tables: accuracy, recall (did we catch attacks?), false-positive rate (did we over-accuse?), citation validity, plus proper statistics — confidence intervals and the McNemar test (which asks "is this difference real or just luck?").</p>
+    <p class="lbl">Trace one number so you trust the chain</p>
+    <p>The paper's calibration row says rules 66.7%, Gemma 86.7%. I recomputed it live from the raw answer files:</p>
+<pre>15 calibration scenarios:
+   rules correct  = 10/15 = <span class="k">66.7%</span>   <span class="c">✓ matches the paper</span>
+   Gemma correct  = 13/15 = <span class="k">86.7%</span>   <span class="c">✓ matches the paper</span></pre>
+    <p>The numbers in the paper are not typed by hand — they're computed from the stored answers. That's what makes it reproducible.</p>
+    <p class="lbl">The headline (from the 100 unseen holdout)</p>
+    <p>Rules 70% vs Gemma 78% overall (not a statistically significant gap, and the paper admits it). The real story is the <b>split</b>: on attacks Gemma gets 100% vs 70%; on benign cases it's <i>worse</i> than rules (50% vs 70%). High recall, low precision.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Phase 7 — CERT replay (the real-world test)</h2>
+<div class="phase">
+  <div class="head"><span class="n">7</span><span class="t">Run the whole pipeline on real third-party data</span></div>
+  <div class="body">
+    <p class="lbl">Why this exists</p>
+    <p>The obvious criticism of phases 1–6 is "you made up your own data." So you took <b>CERT r4.2</b> — a famous insider-threat dataset built by Carnegie Mellon, with real labels you didn't create — and ran the same pipeline on it. <code>cert_insider.py</code> maps CERT's 5 streams (logon, device, file, email, http) into your unified schema, then bundles each suspect's month of activity into a "window."</p>
+    <p class="lbl">What actually happened (verified, including the messy parts)</p>
+    <ul>
+      <li>40 windows attempted, <b>35 scored</b>, 5 lost to a server timeout — reported honestly, not faked.</li>
+      <li>The same pattern appeared and got <i>stronger</i>: caught all 20 real insiders, over-flagged nearly every innocent month.</li>
+      <li><b>Important caveat</b> (in the paper and on slide 13): on this richer data Gemma returned Markdown prose instead of JSON in 34 of 35 windows. Verdicts were parsed from the prose. The validator could only run fully on the 1 JSON answer — so CERT is a <i>verdict</i> result, not a grounding result. You disclose this rather than hide it.</li>
+    </ul>
+    <p>This is the strongest part of the paper precisely because the result survived data you never touched — and because you reported its warts.</p>
+  </div>
+</div>
+
+
+<h2 class="sec">Run it yourself (so you can see it's real)</h2>
+<div class="note">
+From the <code>forensic-framework/</code> folder, the four scripts that reproduce everything:
+<pre style="background:var(--code)">python run_pipeline.py       <span class="c"># phases 2–5: normalize, rules, Gemma, validate</span>
+python run_evaluation.py     <span class="c"># phase 6: build the scoreboard</span>
+python run_statistics.py     <span class="c"># the CIs, McNemar, citation-validity</span>
+python run_cert_pipeline.py  <span class="c"># phase 7: the CERT replay</span></pre>
+Running Gemma needs the model endpoint configured (the <code>MODAL_ENDPOINT</code> setting). Everything else — the 115 scenarios, the rules, the validator, the stored answers, the statistics — runs on your own machine and the outputs are already saved in <code>data/</code>. The 59 automated tests (<code>pytest</code>) all pass.
+</div>
+
+
+<h2 class="sec">The big picture — what to take away</h2>
+<div class="good">
+<ul>
+  <li><b>It's a pipeline, not a model.</b> You didn't build or train an AI. You built a careful <i>harness</i> around an off-the-shelf AI that forces it to cite evidence and then checks the citations.</li>
+  <li><b>The contribution is the method, not "an LLM did security."</b> Per-claim citation + a deterministic validator + scoring verdict/suspect/grounding separately + keeping the failure cases — that combination is what's new.</li>
+  <li><b>The finding is honest and interesting:</b> the AI is a high-recall, low-precision first-pass assistant. It catches everything but over-accuses. So it belongs <i>next to</i> rules and <i>under</i> a human, not replacing either.</li>
+  <li><b>Everything is real and reproducible.</b> ChatGPT's worry — "maybe these experiments were never run" — does not apply. The files, the answers, the statistics all exist and trace to each other.</li>
+</ul>
+</div>
+
+<div class="footer">
+Every code path, file size, line count, and number in this document was read directly from your project, not inferred from the paper.
+Read this once, then open the paper — every section will now map onto a phase you understand.
+</div>
+
+</div>
+</body>
+</html>

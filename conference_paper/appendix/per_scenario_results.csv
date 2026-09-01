@@ -1,0 +1,16 @@
+scenario,name,ground_truth,rule_verdict,llm_verdict,rule_correct,llm_correct,rule_f1,llm_f1,rule_fp_alerts,fp_load_pct,event_refs_total,event_refs_invalid,chronology_ok,suspect,grounding_pct
+S1,normal_baseline,BENIGN,no_alert,NO,True,True,0.0,0.0,0,0.0,5,0,True,,0.0
+S2,noisy_benign,BENIGN,suspicious,NO,True,True,0.0,0.0,13,76.47,17,0,True,,0.0
+S3,obvious_attack,ATTACK,attack,YES,True,True,0.3315,0.9091,0,0.0,24,0,True,user_04,85.71
+S4,subtle_attack,ATTACK,attack,YES,True,True,0.1,0.9091,0,0.0,23,0,False,user_03,83.33
+S5,concurrent_activity_lateral_movement,ATTACK,suspicious,YES,False,True,0.8571,0.9231,0,0.0,30,0,False,user_02,87.5
+S6,afterhours_maintenance_benign,BENIGN,attack,NO,False,True,0.0,0.0,33,132.0,6,0,True,,0.0
+S7,credential_stuffing_failed,BENIGN,suspicious,NO,True,True,0.0,0.0,20,100.0,20,0,True,,0.0
+S8,full_infrastructure_attack,ATTACK,attack,YES,True,True,0.1905,0.1,0,0.0,25,0,True,user_admin,92.31
+S9,incomplete_logs_missing_auth,ATTACK,attack,YES,True,True,0.3333,0.4616,0,0.0,14,0,True,user_04,87.5
+S10,delayed_out_of_order_events,ATTACK,suspicious,YES,False,True,0.0,0.0,0,0.0,10,1,True,user_02,80.0
+S11,benign_then_compromised,ATTACK,attack,YES,True,True,0.4616,0.5455,0,0.0,25,0,True,user_02,87.5
+S12,conflicting_signals,ATTACK,suspicious,YES,False,True,0.0,0.0,0,0.0,12,0,True,user_01,85.71
+S13,ultra_slow_exfiltration_7days,ATTACK,suspicious,YES,False,True,0.0,0.0,0,0.0,13,1,True,user_03,85.71
+S14,false_flag_misdirection,ATTACK,attack,YES,True,True,0.0,0.0,0,0.0,18,0,True,user_04,88.89
+S15,end_of_quarter_legitimate_bulk,BENIGN,suspicious,YES,True,False,0.0,0.0,10,38.46,21,0,True,user_04,88.89

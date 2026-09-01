@@ -1,0 +1,714 @@
+% ============================================================
+% references.bib — Evidence-Grounded LLM Reasoning for
+% Private-Cloud Forensic Triage
+% All entries verified June 2026 against primary sources
+% (arXiv, ACM DL, IEEE Xplore, ACL Anthology, NeurIPS, NDSS,
+%  USENIX, Springer, MDPI, ScienceDirect, NIST, OSTI).
+% ============================================================
+
+% ---------- LLMs for security operations / SOC ----------
+
+@article{tariq2025alert,
+  author    = {Shahroz Tariq and Mohan Baruwal Chhetri and Surya Nepal and Cecile Paris},
+  title     = {Alert Fatigue in Security Operations Centres: Research Challenges and Opportunities},
+  journal   = {ACM Computing Surveys},
+  year      = {2025},
+  volume    = {57},
+  number    = {9},
+  pages     = {224:1--224:38},
+  doi       = {10.1145/3723158}
+}
+
+@article{ban2023breaking,
+  author    = {Tao Ban and Takeshi Takahashi and Samuel Ndichu and Daisuke Inoue},
+  title     = {Breaking Alert Fatigue: {AI}-Assisted {SIEM} Framework for Effective Incident Response},
+  journal   = {Applied Sciences},
+  year      = {2023},
+  volume    = {13},
+  number    = {11},
+  pages     = {6610},
+  doi       = {10.3390/app13116610}
+}
+
+@misc{habibzadeh2025survey,
+  author        = {Ali Habibzadeh and Farid Feyzi and Reza {Ebrahimi Atani}},
+  title         = {Large Language Models for Security Operations Centers: A Comprehensive Survey},
+  year          = {2025},
+  eprint        = {2509.10858},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@misc{singh2025llmsoc,
+  author        = {Ronal Singh and Shahroz Tariq and Fatemeh Jalalvand and Mohan Baruwal Chhetri and Surya Nepal and Cecile Paris and Martin Lochner},
+  title         = {{LLMs} in the {SOC}: An Empirical Study of Human--{AI} Collaboration in Security Operations Centres},
+  year          = {2025},
+  eprint        = {2508.18947},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@inproceedings{du2017deeplog,
+  author    = {Min Du and Feifei Li and Guineng Zheng and Vivek Srikumar},
+  title     = {{DeepLog}: Anomaly Detection and Diagnosis from System Logs through Deep Learning},
+  booktitle = {Proc.\ 2017 ACM SIGSAC Conference on Computer and Communications Security (CCS)},
+  year      = {2017},
+  pages     = {1285--1298},
+  doi       = {10.1145/3133956.3134015}
+}
+
+@inproceedings{guo2021logbert,
+  author    = {Haixuan Guo and Shuhan Yuan and Xintao Wu},
+  title     = {{LogBERT}: Log Anomaly Detection via {BERT}},
+  booktitle = {Proc.\ 2021 International Joint Conference on Neural Networks (IJCNN)},
+  year      = {2021},
+  doi       = {10.1109/IJCNN52387.2021.9534113}
+}
+
+@misc{qi2023loggpt,
+  author        = {Jiaxing Qi and Shaohan Huang and Zhongzhi Luan and Carol Fung and Hailong Yang and Depei Qian},
+  title         = {{LogGPT}: Exploring {ChatGPT} for Log-Based Anomaly Detection},
+  year          = {2023},
+  eprint        = {2309.01189},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE}
+}
+
+@misc{liu2023logprompt,
+  author        = {Yilun Liu and Shimin Tao and Weibin Meng and Jingyu Wang and Wenbing Ma and Yanqing Zhao and Yuhang Chen and Hao Yang and Yanfei Jiang and Xun Chen},
+  title         = {{LogPrompt}: Prompt Engineering Towards Zero-Shot and Interpretable Log Analysis},
+  year          = {2023},
+  eprint        = {2308.07610},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.SE},
+  note          = {Also as ICSE 2024 poster, doi:10.1145/3639478.3643108}
+}
+
+@inproceedings{aghaei2022securebert,
+  author    = {Ehsan Aghaei and Xi Niu and Waseem Shadid and Ehab Al-Shaer},
+  title     = {{SecureBERT}: A Domain-Specific Language Model for Cybersecurity},
+  booktitle = {Security and Privacy in Communication Networks (SecureComm 2022), LNICST vol.\ 462},
+  publisher = {Springer},
+  year      = {2022},
+  doi       = {10.1007/978-3-031-25538-0_3}
+}
+
+@misc{wei2025cortex,
+  author        = {Bowen Wei and Yuan Shen Tay and Howard Liu and Jinhao Pan and Kun Luo and Ziwei Zhu and Chris Jordan},
+  title         = {{CORTEX}: Collaborative {LLM} Agents for High-Stakes Alert Triage},
+  year          = {2025},
+  eprint        = {2510.00311},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@article{srinivas2025aiaugmented,
+  author  = {Justin Srinivas and Anthony Kirk and Ramiro Zendejas and Sergio Espino and Ana Boskovich and Shafat Bari and Yazan Dajani and Ahmad Alzahrani},
+  title   = {{AI}-Augmented {SOC}: A Survey of {LLMs} and Agents for Security Automation},
+  journal = {Journal of Cybersecurity and Privacy},
+  year    = {2025},
+  volume  = {5},
+  number  = {4},
+  pages   = {95},
+  doi     = {10.3390/jcp5040095}
+}
+
+@misc{tellache2025autonomous,
+  author        = {Amine Tellache and Abdelaziz {Amara Korba} and Amdjed Mokhtari and Horea Moldovan and Yacine Ghamri-Doudane},
+  title         = {Advancing Autonomous Incident Response: Leveraging {LLMs} and Cyber Threat Intelligence},
+  year          = {2025},
+  eprint        = {2508.10677},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@misc{cadet2026rag,
+  author        = {Xavier Cadet and Aditya Vikram Singh and Harsh Mamania and Edward Koh and Alex Fitts and Dirk {Van Bruggen} and Simona Boboila and Peter Chin and Alina Oprea},
+  title         = {Retrieval-Augmented {LLMs} for Security Incident Analysis},
+  year          = {2026},
+  eprint        = {2603.18196},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+% ---------- LLMs for digital forensics / DFIR ----------
+
+@article{scanlon2023chatgpt,
+  author  = {Mark Scanlon and Frank Breitinger and Christopher Hargreaves and Jan-Niclas Hilgert and John Sheppard},
+  title   = {{ChatGPT} for Digital Forensic Investigation: The Good, the Bad, and the Unknown},
+  journal = {Forensic Science International: Digital Investigation},
+  volume  = {46},
+  pages   = {301609},
+  year    = {2023},
+  doi     = {10.1016/j.fsidi.2023.301609}
+}
+
+@article{wickramasekara2025exploring,
+  author  = {Akila Wickramasekara and Frank Breitinger and Mark Scanlon},
+  title   = {Exploring the Potential of Large Language Models for Improving Digital Forensic Investigation Efficiency},
+  journal = {Forensic Science International: Digital Investigation},
+  volume  = {52},
+  pages   = {301859},
+  year    = {2025},
+  doi     = {10.1016/j.fsidi.2024.301859}
+}
+
+@article{wickramasekara2026capabilities,
+  author  = {Akila Wickramasekara and Frank Breitinger and Mark Scanlon},
+  title   = {Large Language Models in Digital Forensics: Capabilities, Challenges and Future Directions},
+  journal = {Forensic Science International: Digital Investigation},
+  year    = {2026},
+  doi     = {10.1016/j.fsidi.2025.302043}
+}
+
+@article{studiawan2025standardized,
+  author  = {Hudan Studiawan and Frank Breitinger and Mark Scanlon},
+  title   = {Towards a Standardized Methodology and Dataset for Evaluating {LLM}-Based Digital Forensic Timeline Analysis},
+  journal = {Forensic Science International: Digital Investigation},
+  year    = {2025},
+  doi     = {10.1016/j.fsidi.2025.301942},
+  note    = {arXiv:2505.03100}
+}
+
+@article{loumachi2025gendfir,
+  author  = {Fatma Yasmine Loumachi and Mohamed Chahine Ghanem and Mohamed Amine Ferrag},
+  title   = {{GenDFIR}: Advancing Cyber Incident Timeline Analysis Through Retrieval-Augmented Generation and Large Language Models},
+  journal = {Computers},
+  volume  = {14},
+  number  = {2},
+  pages   = {67},
+  year    = {2025},
+  doi     = {10.3390/computers14020067}
+}
+
+@inproceedings{cherif2025dfirmetric,
+  author    = {Bilel Cherif and Tamas Bisztray and Richard A. Dubniczky and Aaesha Aldahmani and Saeed Alshehhi and Norbert Tihanyi},
+  title     = {{DFIR-Metric}: A Benchmark Dataset for Evaluating Large Language Models in Digital Forensics and Incident Response},
+  booktitle = {Proc.\ 32nd International Conference on Neural Information Processing (ICONIP 2025), LNCS vol.\ 16309},
+  publisher = {Springer},
+  year      = {2025},
+  doi       = {10.1007/978-981-95-4367-0_2}
+}
+
+@misc{yin2025digitalforensics,
+  author        = {Zhipeng Yin and Zichong Wang and Weifeng Xu and Jun Zhuang and Pallab Mozumder and Antoinette Smith and Wenbin Zhang},
+  title         = {Digital Forensics in the Age of Large Language Models},
+  year          = {2025},
+  eprint        = {2504.02963},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@article{michelet2025finetuning,
+  author  = {Gaetan Michelet and Hans Henseler and Harm {van Beek} and Mark Scanlon and Frank Breitinger},
+  title   = {Fine-Tuning Large Language Models for Digital Forensics: Case Study and General Recommendations},
+  journal = {Digital Threats: Research and Practice},
+  volume  = {6},
+  number  = {4},
+  pages   = {21:1--21:18},
+  year    = {2025},
+  doi     = {10.1145/3748264}
+}
+
+@article{sharma2025forensicllm,
+  author  = {Binaya Sharma and James Ghawaly and Kristina McCleary and Angela M. Webb and Ibrahim Baggili},
+  title   = {{ForensicLLM}: A Local Large Language Model for Digital Forensics},
+  journal = {Forensic Science International: Digital Investigation},
+  pages   = {301872},
+  year    = {2025},
+  doi     = {10.1016/j.fsidi.2025.301872}
+}
+
+@inproceedings{alharthi2025cloud,
+  author    = {Dalal Alharthi and Rozhin Yasaei},
+  title     = {{LLM}-Powered Automated Cloud Forensics: From Log Analysis to Investigation},
+  booktitle = {Proc.\ 18th IEEE International Conference on Cloud Computing (CLOUD)},
+  year      = {2025},
+  doi       = {10.1109/SERVICES62574.2025.11120597}
+}
+
+@misc{alharthi2025ciaf,
+  author        = {Dalal Alharthi and Ivan Roberto {Kawaminami Garcia}},
+  title         = {Cloud Investigation Automation Framework ({CIAF}): An {AI}-Driven Approach to Cloud Forensics},
+  year          = {2025},
+  eprint        = {2510.00452},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@misc{flynt2026orgforge,
+  author        = {Jeffrey Flynt},
+  title         = {{OrgForge-IT}: A Verifiable Synthetic Benchmark for {LLM}-Based Insider Threat Detection},
+  year          = {2026},
+  eprint        = {2603.22499},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@misc{cheng2025omnisec,
+  author        = {Wenrui Cheng and Tiantian Zhu and Shunan Jing and Jian-Ping Mei and Mingjun Ma and Jiaobo Jin and Zhengqiu Weng},
+  title         = {{OMNISEC}: {LLM}-Driven Provenance-Based Intrusion Detection via Retrieval-Augmented Behavior Prompting},
+  year          = {2025},
+  eprint        = {2503.03108},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+% ---------- Hallucination, grounding, RAG, open-weight models ----------
+
+@article{ji2023survey,
+  author  = {Ziwei Ji and Nayeon Lee and Rita Frieske and Tiezheng Yu and Dan Su and Yan Xu and Etsuko Ishii and Ye Jin Bang and Andrea Madotto and Pascale Fung},
+  title   = {Survey of Hallucination in Natural Language Generation},
+  journal = {ACM Computing Surveys},
+  volume  = {55},
+  number  = {12},
+  pages   = {248:1--248:38},
+  year    = {2023},
+  doi     = {10.1145/3571730}
+}
+
+@article{huang2025hallucination,
+  author  = {Lei Huang and Weijiang Yu and Weitao Ma and Weihong Zhong and Zhangyin Feng and Haotian Wang and Qianglong Chen and Weihua Peng and Xiaocheng Feng and Bing Qin and Ting Liu},
+  title   = {A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions},
+  journal = {ACM Transactions on Information Systems},
+  volume  = {43},
+  number  = {2},
+  pages   = {42:1--42:55},
+  year    = {2025},
+  doi     = {10.1145/3703155}
+}
+
+@misc{xu2024hallucination,
+  author        = {Ziwei Xu and Sanjay Jain and Mohan Kankanhalli},
+  title         = {Hallucination is Inevitable: An Innate Limitation of Large Language Models},
+  year          = {2024},
+  eprint        = {2401.11817},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{lewis2020rag,
+  author    = {Patrick Lewis and Ethan Perez and Aleksandra Piktus and Fabio Petroni and Vladimir Karpukhin and Naman Goyal and Heinrich K{\"u}ttler and Mike Lewis and Wen-tau Yih and Tim Rockt{\"a}schel and Sebastian Riedel and Douwe Kiela},
+  title     = {Retrieval-Augmented Generation for Knowledge-Intensive {NLP} Tasks},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {33},
+  pages     = {9459--9474},
+  year      = {2020}
+}
+
+@misc{gao2023ragsurvey,
+  author        = {Yunfan Gao and Yun Xiong and Xinyu Gao and Kangxiang Jia and Jinliu Pan and Yuxi Bi and Yi Dai and Jiawei Sun and Meng Wang and Haofen Wang},
+  title         = {Retrieval-Augmented Generation for Large Language Models: A Survey},
+  year          = {2023},
+  eprint        = {2312.10997},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{sharma2025ragsurvey,
+  author        = {Chaitanya Sharma},
+  title         = {Retrieval-Augmented Generation: A Comprehensive Survey of Architectures, Enhancements, and Robustness Frontiers},
+  year          = {2025},
+  eprint        = {2506.00054},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{izacard2021fid,
+  author    = {Gautier Izacard and Edouard Grave},
+  title     = {Leveraging Passage Retrieval with Generative Models for Open Domain Question Answering},
+  booktitle = {Proc.\ 16th Conference of the European Chapter of the Association for Computational Linguistics (EACL)},
+  pages     = {874--880},
+  year      = {2021},
+  doi       = {10.18653/v1/2021.eacl-main.74}
+}
+
+@inproceedings{min2023factscore,
+  author    = {Sewon Min and Kalpesh Krishna and Xinxi Lyu and Mike Lewis and Wen-tau Yih and Pang Wei Koh and Mohit Iyyer and Luke Zettlemoyer and Hannaneh Hajishirzi},
+  title     = {{FActScore}: Fine-Grained Atomic Evaluation of Factual Precision in Long Form Text Generation},
+  booktitle = {Proc.\ 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {12076--12100},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.emnlp-main.741}
+}
+
+@inproceedings{gao2023rarr,
+  author    = {Luyu Gao and Zhuyun Dai and Panupong Pasupat and Anthony Chen and Arun Tejasvi Chaganty and Yicheng Fan and Vincent Zhao and Ni Lao and Hongrae Lee and Da-Cheng Juan and Kelvin Guu},
+  title     = {{RARR}: Researching and Revising What Language Models Say, Using Language Models},
+  booktitle = {Proc.\ 61st Annual Meeting of the Association for Computational Linguistics (ACL)},
+  pages     = {16477--16508},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.acl-long.910}
+}
+
+@misc{bohnet2022attributed,
+  author        = {Bernd Bohnet and Vinh Q. Tran and Pat Verga and Roee Aharoni and Daniel Andor and Livio {Baldini Soares} and Jacob Eisenstein and Kuzman Ganchev and Jonathan Herzig and Kai Hui and Tom Kwiatkowski and Ji Ma and Jianmo Ni and Tal Schuster and William W. Cohen and Michael Collins and Dipanjan Das and Donald Metzler and Slav Petrov and Kellie Webster},
+  title         = {Attributed Question Answering: Evaluation and Modeling for Attributed Large Language Models},
+  year          = {2022},
+  eprint        = {2212.08037},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{es2023ragas,
+  author        = {Shahul Es and Jithin James and Luis Espinosa-Anke and Steven Schockaert},
+  title         = {{RAGAs}: Automated Evaluation of Retrieval Augmented Generation},
+  year          = {2023},
+  eprint        = {2309.15217},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@inproceedings{manakul2023selfcheckgpt,
+  author    = {Potsawee Manakul and Adian Liusie and Mark J. F. Gales},
+  title     = {{SelfCheckGPT}: Zero-Resource Black-Box Hallucination Detection for Generative Large Language Models},
+  booktitle = {Proc.\ 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {9004--9017},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.emnlp-main.557}
+}
+
+@inproceedings{wei2022cot,
+  author    = {Jason Wei and Xuezhi Wang and Dale Schuurmans and Maarten Bosma and Brian Ichter and Fei Xia and Ed Chi and Quoc V. Le and Denny Zhou},
+  title     = {Chain-of-Thought Prompting Elicits Reasoning in Large Language Models},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {35},
+  pages     = {24824--24837},
+  year      = {2022}
+}
+
+@inproceedings{wang2023selfconsistency,
+  author    = {Xuezhi Wang and Jason Wei and Dale Schuurmans and Quoc V. Le and Ed H. Chi and Sharan Narang and Aakanksha Chowdhery and Denny Zhou},
+  title     = {Self-Consistency Improves Chain of Thought Reasoning in Language Models},
+  booktitle = {Proc.\ 11th International Conference on Learning Representations (ICLR)},
+  year      = {2023}
+}
+
+@inproceedings{geng2023constrained,
+  author    = {Saibo Geng and Martin Josifoski and Maxime Peyrard and Robert West},
+  title     = {Grammar-Constrained Decoding for Structured {NLP} Tasks without Finetuning},
+  booktitle = {Proc.\ 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  pages     = {10932--10952},
+  year      = {2023},
+  doi       = {10.18653/v1/2023.emnlp-main.674}
+}
+
+@misc{qwen2024report,
+  author        = {{Qwen Team}},
+  title         = {Qwen2.5 Technical Report},
+  year          = {2024},
+  eprint        = {2412.15115},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{qwen3report2025,
+  author        = {{Qwen Team}},
+  title         = {Qwen3 Technical Report},
+  year          = {2025},
+  eprint        = {2505.09388},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{gemmateam2024gemma,
+  author        = {{Gemma Team}},
+  title         = {Gemma: Open Models Based on {G}emini Research and Technology},
+  year          = {2024},
+  eprint        = {2403.08295},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{touvron2023llama2,
+  author        = {Hugo Touvron and Louis Martin and Kevin Stone and others},
+  title         = {Llama 2: Open Foundation and Fine-Tuned Chat Models},
+  year          = {2023},
+  eprint        = {2307.09288},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+@misc{jiang2023mistral,
+  author        = {Albert Q. Jiang and Alexandre Sablayrolles and Arthur Mensch and Chris Bamford and Devendra Singh Chaplot and Diego {de las Casas} and others},
+  title         = {Mistral 7{B}},
+  year          = {2023},
+  eprint        = {2310.06825},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL}
+}
+
+% ---------- Cloud forensics, log management, standards ----------
+
+@techreport{herman2020nistir8006,
+  author      = {Martin Herman and Michaela Iorga and Ahsen Michael Salim and Robert H. Jackson and Mark Hurst and Ross Leo and Richard Lee and Nancy Landreville and Anand Mishra and Yien Wang and Rodrigo Sardinas},
+  title       = {{NIST} Cloud Computing Forensic Science Challenges},
+  institution = {National Institute of Standards and Technology},
+  number      = {NISTIR 8006},
+  year        = {2020},
+  doi         = {10.6028/NIST.IR.8006}
+}
+
+@article{ruan2013cloudforensics,
+  author  = {Keyun Ruan and Joe Carthy and Tahar Kechadi and Ibrahim Baggili},
+  title   = {Cloud Forensics Definitions and Critical Criteria for Cloud Forensic Capability: An Overview of Survey Results},
+  journal = {Digital Investigation},
+  volume  = {10},
+  number  = {1},
+  pages   = {34--43},
+  year    = {2013},
+  doi     = {10.1016/j.diin.2013.02.004}
+}
+
+@misc{zawoad2013cloudforensics,
+  author        = {Shams Zawoad and Ragib Hasan},
+  title         = {Cloud Forensics: A Meta-Study of Challenges, Approaches, and Open Problems},
+  year          = {2013},
+  eprint        = {1302.6312},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CR}
+}
+
+@techreport{kent2006sp80092,
+  author      = {Karen Kent and Murugiah Souppaya},
+  title       = {Guide to Computer Security Log Management},
+  institution = {National Institute of Standards and Technology},
+  number      = {NIST SP 800-92},
+  year        = {2006},
+  doi         = {10.6028/NIST.SP.800-92}
+}
+
+@techreport{kent2006sp80086,
+  author      = {Karen Kent and Suzanne Chevalier and Tim Grance and Hung Dang},
+  title       = {Guide to Integrating Forensic Techniques into Incident Response},
+  institution = {National Institute of Standards and Technology},
+  number      = {NIST SP 800-86},
+  year        = {2006},
+  doi         = {10.6028/NIST.SP.800-86}
+}
+
+@article{rowlingson2004readiness,
+  author  = {Robert Rowlingson},
+  title   = {A Ten Step Process for Forensic Readiness},
+  journal = {International Journal of Digital Evidence},
+  volume  = {2},
+  number  = {3},
+  pages   = {1--28},
+  year    = {2004}
+}
+
+@article{dykstra2013frost,
+  author  = {Josiah Dykstra and Alan T. Sherman},
+  title   = {Design and Implementation of {FROST}: Digital Forensic Tools for the {OpenStack} Cloud Computing Platform},
+  journal = {Digital Investigation},
+  volume  = {10},
+  pages   = {S87--S95},
+  year    = {2013},
+  doi     = {10.1016/j.diin.2013.06.010}
+}
+
+@inproceedings{king2003backtracking,
+  author    = {Samuel T. King and Peter M. Chen},
+  title     = {Backtracking Intrusions},
+  booktitle = {Proc.\ 19th ACM Symposium on Operating Systems Principles (SOSP)},
+  pages     = {223--236},
+  year      = {2003},
+  doi       = {10.1145/945445.945467}
+}
+
+@inproceedings{milajerdi2019holmes,
+  author    = {Sadegh M. Milajerdi and Rigel Gjomemo and Birhanu Eshete and R. Sekar and V. N. Venkatakrishnan},
+  title     = {{HOLMES}: Real-Time {APT} Detection through Correlation of Suspicious Information Flows},
+  booktitle = {Proc.\ 2019 IEEE Symposium on Security and Privacy (S\&P)},
+  pages     = {1137--1152},
+  year      = {2019},
+  doi       = {10.1109/SP.2019.00026}
+}
+
+@inproceedings{zeng2021watson,
+  author    = {Jun Zeng and Zheng Leong Chua and Yinfang Chen and Kaihang Ji and Zhenkai Liang and Jian Mao},
+  title     = {{WATSON}: Abstracting Behaviors from Audit Logs via Aggregation of Contextual Semantics},
+  booktitle = {Proc.\ 28th Network and Distributed System Security Symposium (NDSS)},
+  year      = {2021},
+  doi       = {10.14722/ndss.2021.24549}
+}
+
+@inproceedings{hassan2020omegalog,
+  author    = {Wajih Ul Hassan and Mohammad Ali Noureddine and Pubali Datta and Adam Bates},
+  title     = {{OmegaLog}: High-Fidelity Attack Investigation via Transparent Multi-Layer Log Analysis},
+  booktitle = {Proc.\ 27th Network and Distributed System Security Symposium (NDSS)},
+  year      = {2020},
+  doi       = {10.14722/ndss.2020.24270}
+}
+
+@misc{gudjonsson2010log2timeline,
+  author       = {Kristinn Gudjonsson},
+  title        = {Mastering the Super Timeline with log2timeline},
+  year         = {2010},
+  howpublished = {SANS Institute Reading Room / GIAC GCFA Gold Paper},
+  url          = {https://www.sans.org/white-papers/33438/}
+}
+
+@techreport{strom2018attack,
+  author      = {Blake E. Strom and Andy Applebaum and Doug P. Miller and Kathryn C. Nickels and Adam G. Pennington and Cody B. Thomas},
+  title       = {{MITRE ATT\&CK}: Design and Philosophy},
+  institution = {The MITRE Corporation},
+  number      = {PR-18-0944-11},
+  year        = {2018},
+  url         = {https://attack.mitre.org/resources/}
+}
+
+@misc{ocsf2022schema,
+  author       = {{Open Cybersecurity Schema Framework Contributors}},
+  title        = {Open Cybersecurity Schema Framework ({OCSF}) Schema},
+  year         = {2022},
+  howpublished = {Open-source specification},
+  url          = {https://github.com/ocsf/ocsf-schema}
+}
+
+% ---------- Adversarial inputs and reasoning faithfulness ----------
+
+@inproceedings{greshake2023not,
+  author    = {Kai Greshake and Sahar Abdelnabi and Shailesh Mishra and Christoph Endres and Thorsten Holz and Mario Fritz},
+  title     = {Not What You've Signed Up For: Compromising Real-World {LLM}-Integrated Applications with Indirect Prompt Injection},
+  booktitle = {Proc.\ 16th ACM Workshop on Artificial Intelligence and Security (AISec)},
+  pages     = {79--90},
+  year      = {2023},
+  doi       = {10.1145/3605764.3623985}
+}
+
+@misc{perez2022ignore,
+  author        = {F{\'a}bio Perez and Ian Ribeiro},
+  title         = {Ignore Previous Prompt: Attack Techniques for Language Models},
+  year          = {2022},
+  eprint        = {2211.09527},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  note          = {NeurIPS ML Safety Workshop}
+}
+
+@inproceedings{turpin2023language,
+  author    = {Miles Turpin and Julian Michael and Ethan Perez and Samuel R. Bowman},
+  title     = {Language Models Don't Always Say What They Think: Unfaithful Explanations in Chain-of-Thought Prompting},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {36},
+  year      = {2023}
+}
+
+@inproceedings{zawoad2013seclaas,
+  author    = {Shams Zawoad and Amit Kumar Dutta and Ragib Hasan},
+  title     = {{SecLaaS}: Secure Logging-as-a-Service for Cloud Forensics},
+  booktitle = {Proc.\ 8th ACM SIGSAC Symposium on Information, Computer and Communications Security (ASIACCS)},
+  pages     = {219--230},
+  year      = {2013},
+  doi       = {10.1145/2484313.2484342}
+}
+
+% ---------- Insider threat, datasets, evaluation methodology ----------
+
+@inproceedings{glasser2013bridging,
+  author    = {Josh Glasser and Brian Lindauer},
+  title     = {Bridging the Gap: A Pragmatic Approach to Generating Insider Threat Data},
+  booktitle = {Proc.\ 2013 IEEE Security and Privacy Workshops (SPW)},
+  pages     = {98--104},
+  year      = {2013},
+  doi       = {10.1109/SPW.2013.37}
+}
+
+@misc{tuor2017deep,
+  author       = {Aaron Tuor and Samuel Kaplan and Brian Hutchinson and Nicole Nichols and Sean Robinson},
+  title        = {Deep Learning for Unsupervised Insider Threat Detection in Structured Cybersecurity Data Streams},
+  year         = {2017},
+  howpublished = {AAAI Workshop on Artificial Intelligence for Cyber Security (AICS)},
+  eprint        = {1710.00811},
+  archivePrefix = {arXiv}
+}
+
+@inproceedings{sommer2010outside,
+  author    = {Robin Sommer and Vern Paxson},
+  title     = {Outside the Closed World: On Using Machine Learning for Network Intrusion Detection},
+  booktitle = {Proc.\ 2010 IEEE Symposium on Security and Privacy (S\&P)},
+  pages     = {305--316},
+  year      = {2010},
+  doi       = {10.1109/SP.2010.25}
+}
+
+@inproceedings{arp2022dosdonts,
+  author    = {Daniel Arp and Erwin Quiring and Feargus Pendlebury and Alexander Warnecke and Fabio Pierazzi and Christian Wressnegger and Lorenzo Cavallaro and Konrad Rieck},
+  title     = {Dos and Don'ts of Machine Learning in Computer Security},
+  booktitle = {Proc.\ 31st USENIX Security Symposium},
+  pages     = {3971--3988},
+  year      = {2022}
+}
+
+@misc{kent2015lanl,
+  author       = {Alexander D. Kent},
+  title        = {Comprehensive, Multi-Source Cyber-Security Events Data Set},
+  year         = {2015},
+  howpublished = {Los Alamos National Laboratory},
+  doi          = {10.17021/1179829}
+}
+
+@article{liu2018detecting,
+  author  = {Liu Liu and Olivier {De Vel} and Qing-Long Han and Jun Zhang and Yang Xiang},
+  title   = {Detecting and Preventing Cyber Insider Threats: A Survey},
+  journal = {IEEE Communications Surveys \& Tutorials},
+  volume  = {20},
+  number  = {2},
+  pages   = {1397--1417},
+  year    = {2018},
+  doi     = {10.1109/COMST.2018.2800740}
+}
+
+@article{yuan2021deep,
+  author  = {Shuhan Yuan and Xintao Wu},
+  title   = {Deep Learning for Insider Threat Detection: Review, Challenges and Opportunities},
+  journal = {Computers \& Security},
+  volume  = {104},
+  pages   = {102221},
+  year    = {2021},
+  doi     = {10.1016/j.cose.2021.102221}
+}
+
+@inproceedings{anjum2021darpa,
+  author    = {Md. Monowar Anjum and Shahrear Iqbal and Benoit Hamelin},
+  title     = {Analyzing the Usefulness of the {DARPA} {OpTC} Dataset in Cyber Threat Detection Research},
+  booktitle = {Proc.\ 26th ACM Symposium on Access Control Models and Technologies (SACMAT)},
+  pages     = {27--32},
+  year      = {2021},
+  doi       = {10.1145/3450569.3463573}
+}
+
+@inproceedings{king2022euler,
+  author    = {Isaiah J. King and H. Howie Huang},
+  title     = {Euler: Detecting Network Lateral Movement via Scalable Temporal Graph Link Prediction},
+  booktitle = {Proc.\ 2022 Network and Distributed System Security Symposium (NDSS)},
+  year      = {2022},
+  doi       = {10.14722/ndss.2022.24107}
+}
+
+@inproceedings{maxion2002masquerade,
+  author    = {Roy A. Maxion and Tahlia N. Townsend},
+  title     = {Masquerade Detection Using Truncated Command Lines},
+  booktitle = {Proc.\ 2002 International Conference on Dependable Systems and Networks (DSN)},
+  pages     = {219--228},
+  year      = {2002}
+}
+
+@article{nadler2019detection,
+  author  = {Asaf Nadler and Avi Aminov and Asaf Shabtai},
+  title   = {Detection of Malicious and Low Throughput Data Exfiltration Over the {DNS} Protocol},
+  journal = {Computers \& Security},
+  volume  = {80},
+  pages   = {36--53},
+  year    = {2019},
+  doi     = {10.1016/j.cose.2018.09.006}
+}
+
+@inproceedings{bai2019rdp,
+  author    = {Tongbo Bai and Yuqi Li and Sencun Zhu},
+  title     = {A Machine Learning Approach for {RDP}-Based Lateral Movement Detection},
+  booktitle = {Proc.\ 2019 IEEE 44th Conference on Local Computer Networks (LCN)},
+  year      = {2019},
+  doi       = {10.1109/LCN44214.2019.8990853}
+}

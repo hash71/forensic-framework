@@ -1,0 +1,29 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=TB; ranksep=0.42; nodesep=0.3;
+  subgraph cluster_src { label="Private-cloud log sources (7)"; style="rounded,dashed"; color="#888";
+    auth [label="Authentication"]; fileacc [label="File access"]; adminl [label="Admin"];
+    net [label="Network"]; db [label="Database"]; web [label="Web server"]; mail [label="Email"];
+  }
+  ing [label="Ingestion & parsing\n(7 format-specific parsers)"];
+  norm [label="Normalization\nunified event schema + OCSF v1.1 / ECS 8.x mapping", fillcolor="#e8f6ee", color="#2e7d52"];
+  store [label="Evidence store\nPostgreSQL 15", shape=cylinder, fillcolor="#fdf3e3", color="#a07020"];
+  tl [label="Timeline reconstruction\nchronological ordering + session grouping"];
+  corr [label="Correlation engine\ncross-source evidence chains"];
+  rules [label="Rule engine\n12 deterministic rules (R001-R012)", fillcolor="#fdeaea", color="#a03030"];
+  llm [label="Evidence-grounded LLM layer\nopen-weight model, structured JSON verdict", fillcolor="#efe8fa", color="#6a3fa0"];
+  val [label="Citation validator\n7 grounding checks", fillcolor="#efe8fa", color="#6a3fa0"];
+  eval [label="Evaluation harness\nverdict accuracy, F1, FP rate, grounding"];
+  rep [label="Reporting & dashboard\nFastAPI (14 endpoints) + Streamlit"];
+  {auth fileacc adminl net db web mail} -> ing;
+  ing -> norm -> store; norm -> tl -> corr;
+  corr -> rules; corr -> llm; llm -> val;
+  rules -> eval; val -> eval; eval -> rep;
+  rules -> llm [label="rule-alert context\n(condition under test)", style=dashed];
+}

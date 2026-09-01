@@ -1,0 +1,23 @@
+
+digraph G {
+  
+  graph [fontname="Helvetica", fontsize=11, bgcolor="white"];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled",
+         fillcolor="#eef3fb", color="#3b5b92", penwidth=1.2, margin="0.18,0.10"];
+  edge  [fontname="Helvetica", fontsize=9, color="#44546a", penwidth=1.0, arrowsize=0.8];
+
+  rankdir=TB; ranksep=0.4;
+  w1 [label="1. Scenario design\n15 scenarios, 2 tiers, ground truth fixed a priori"];
+  w2 [label="2. Synthetic log generation\n7 source formats per scenario"];
+  w3 [label="3. Pipeline execution (run_pipeline.py)\nparse, normalize, timeline, correlate"];
+  w4a [label="4a. Rule analysis\n12 rules, severity mapping", fillcolor="#fdeaea", color="#a03030"];
+  w4b [label="4b. LLM analysis\nstructured prompt, JSON verdict", fillcolor="#efe8fa", color="#6a3fa0"];
+  w5 [label="5. Citation validation\n7 checks per response", fillcolor="#efe8fa", color="#6a3fa0"];
+  w6 [label="6. Evaluation (run_evaluation.py)\nverdict accuracy, F1, FP rate, grounding"];
+  w7 [label="7. Stress testing (run_stress_tests.py)\nraw-log baseline, event removal,\nnoise injection, timestamp jitter"];
+  w8 [label="8. S15 ablation (run_s15_ablation.py)\n5 runs with / 5 runs without rule context"];
+  w9 [label="9. Reporting\nper-scenario reports + dashboard"];
+  w1 -> w2 -> w3; w3 -> w4a; w3 -> w4b; w4b -> w5;
+  w4a -> w6; w5 -> w6; w6 -> w7 -> w8 -> w9;
+  w4a -> w4b [label="alert context\n(condition under test)", style=dashed];
+}
