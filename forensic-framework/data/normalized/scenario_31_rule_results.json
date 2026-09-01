@@ -1,0 +1,47 @@
+{
+  "scenario": 31,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s31_001"
+      ],
+      "user": "user_10",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.110']",
+      "timestamp": "2026-08-04T10:53:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s31_025"
+      ],
+      "user": "user_10",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.110']",
+      "timestamp": "2026-08-05T09:12:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s31_052"
+      ],
+      "user": "user_10",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.110']",
+      "timestamp": "2026-08-06T10:22:00+06:00"
+    }
+  ],
+  "alert_count": 3,
+  "rules_triggered": [
+    "R001"
+  ],
+  "severity_summary": {
+    "warning": 3,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

@@ -1,0 +1,62 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of unauthorized access and data exfiltration. The user logged in from an unusual IP address (not in baseline) and performed a high volume of file reads followed by multiple large file downloads across two consecutive days, which significantly exceeds the user's baseline of 1 download per day.",
+  "suspect": "user_08",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s29_001",
+      "description": "Unauthorized access via login from an unusual IP address (45.79.97.21) instead of the baseline IP (192.168.1.108).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s29_002",
+      "description": "Initial reconnaissance/data collection through reading multiple legal files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s29_009",
+      "description": "First instance of data exfiltration via file download (review_662.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s29_021",
+      "description": "Second instance of data exfiltration via file download (draft_654.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s29_028",
+      "description": "Continued unauthorized access on a second day from the same unusual IP, starting during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s29_035",
+      "description": "Escalated data exfiltration pattern on day two, involving multiple large file downloads (audit_107.pptx, policy_765.pdf, forecast_131.yaml, etc.).",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s29_001",
+    "evt_s29_009",
+    "evt_s29_021",
+    "evt_s29_028",
+    "evt_s29_035",
+    "evt_s29_036",
+    "evt_s29_039",
+    "evt_s29_040",
+    "evt_s29_043"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Verification of whether the IP 45.79.97.21 belongs to a known VPN or legitimate remote access service used by the company.",
+    "Information regarding whether user_08 was on approved leave or traveling, which might explain the IP change and off-hours access."
+  ],
+  "narrative": "User_08, a corporate counsel, accessed the environment from an unrecognized IP address and engaged in a pattern of reading and downloading a high volume of legal documents. This behavior, spanning two days and involving multiple large file downloads, significantly deviates from the user's established baseline and indicates a successful data exfiltration incident."
+}

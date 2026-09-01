@@ -1,0 +1,2635 @@
+{
+  "scenario_id": "cert_attack_MAS0025_201009",
+  "name": "cert_attack_MAS0025_2010-09",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider MAS0025 (scenario r4.2-1) during 2010-09. Active 2010-09-29 -- 2010-09-30. 150 events (downsampled from 3400).",
+  "events": [
+    {
+      "event_id": "cert_http_14532963",
+      "timestamp": "2010-09-01T08:49:02+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediatakeout.com/Draped_Bust_dollar/boudinot/genvagenirypnzcsver1964352391.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100901",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14554905",
+      "timestamp": "2010-09-01T11:27:10+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shareasale.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/jbefuvcyrnqrefuvcobjyvatgbheanzrag1438261804.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100901",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14562247",
+      "timestamp": "2010-09-01T12:25:34+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://disney.go.com/Pride_and_Prejudice_1995_TV_series/birtwistle/vafrpgercryyrag1395499417.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100901",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14572883",
+      "timestamp": "2010-09-01T13:46:11+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shareasale.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/jbefuvcyrnqrefuvcobjyvatgbheanzrag1438261804.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100901",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14593813",
+      "timestamp": "2010-09-01T16:14:39+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shareasale.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/jbefuvcyrnqrefuvcobjyvatgbheanzrag1438261804.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100901",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14615583",
+      "timestamp": "2010-09-02T08:57:45+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shopathome.com/Angkor_Wat/suryavarman/anghergenvyfjrngure130830016.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100902",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14624961",
+      "timestamp": "2010-09-02T10:01:30+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://ezinearticles.com/Michigan_State_University/msu/nppbzcnavzrag228633764.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100902",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01353824",
+      "timestamp": "2010-09-02T12:46:20+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100902",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Nigel.Addison.Rios@dtaa.com"
+        ],
+        "cc": [
+          "Walter.Kaseem.Foley@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 45388,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_14661807",
+      "timestamp": "2010-09-02T14:42:27+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://ingdirect.com/2008_Monaco_Grand_Prix/kubica/pneqvbthvgnezhfvppbaqhpgbefrphevglcngpu1812907855.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100902",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14674850",
+      "timestamp": "2010-09-02T16:14:11+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://washingtonpost.com/Amchitka/cannikin/qrffregpynevarguhagvatyvprafrfheiviny2087182587.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100902",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14687359",
+      "timestamp": "2010-09-03T07:43:36+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100903",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14736850",
+      "timestamp": "2010-09-03T13:57:57+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://kayak.com/Gammaray_burst/080319b/ergheabavairfgzragfrnzfgerff1537744362.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100903",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01362776",
+      "timestamp": "2010-09-03T14:55:38+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100903",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Walter.Kaseem.Foley@dtaa.com",
+          "Tara.Dai.Stevenson@dtaa.com"
+        ],
+        "cc": [
+          "Nigel.Addison.Rios@dtaa.com",
+          "Britanni_Talley@northropgrumman.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 49632,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_14756037",
+      "timestamp": "2010-09-03T16:14:14+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://inbox.com/Cheadle_Hulme/hulme/yrnqrefuvcnanylfvfselvat513824541.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100903",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01367185",
+      "timestamp": "2010-09-07T09:12:04+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa_A_Stuart@juno.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100907",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "AHF18@yahoo.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 18743,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_14798064",
+      "timestamp": "2010-09-07T09:54:35+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://disney.go.com/Pride_and_Prejudice_1995_TV_series/birtwistle/vafrpgercryyrag1395499417.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100907",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14815462",
+      "timestamp": "2010-09-07T12:07:54+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Nathu_La/yadong/gernqzvyyyrnqrefuvc679300522.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100907",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14820895",
+      "timestamp": "2010-09-07T12:51:19+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://citi.com/Kenneth_Walker/kuter/jngrefxvvatpuryybernyvglginqiragher803585842.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100907",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14899352",
+      "timestamp": "2010-09-08T12:40:26+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100908",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14901844",
+      "timestamp": "2010-09-08T13:00:26+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100908",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14910219",
+      "timestamp": "2010-09-08T14:00:44+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hp.com/WboUhagvat1944152218.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100908",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01380250",
+      "timestamp": "2010-09-08T16:49:32+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100908",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Walter.Kaseem.Foley@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 28223,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_14948910",
+      "timestamp": "2010-09-09T08:38:08+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://redfin.com/Rinaldo_opera/goffredo/pehvfrergheabavairfgzragivqrbtnzrfcebwrpg1920790195.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100909",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14954159",
+      "timestamp": "2010-09-09T09:12:48+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100909",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14955707",
+      "timestamp": "2010-09-09T09:21:44+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100909",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01384240",
+      "timestamp": "2010-09-09T12:13:46+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100909",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Walter.Kaseem.Foley@dtaa.com",
+          "AHF1@boeing.com",
+          "Cervantes-Phelan@boeing.com"
+        ],
+        "cc": [
+          "Hillary.Ainsley.Mccormick@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 31042,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_email_01389814",
+      "timestamp": "2010-09-10T09:33:46+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100910",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "John.Omar.Lancaster@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 33918,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15040896",
+      "timestamp": "2010-09-10T09:56:42+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100910",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15090755",
+      "timestamp": "2010-09-10T16:07:10+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100910",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15093802",
+      "timestamp": "2010-09-10T16:34:25+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Nathu_La/yadong/gernqzvyyyrnqrefuvc679300522.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100910",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15095362",
+      "timestamp": "2010-09-10T16:48:08+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://outbrain.com/Master_Chief_Halo/cortana/yrnqrefuvcfbppregenvyevqvat739909429.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100910",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15118178",
+      "timestamp": "2010-09-13T08:33:14+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Manchester_SmallScale_Experimental_Machine/npl/vaterqvragfbhgyrgpragrefubccvatergheabavairfgzrag1105950029.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100913",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15131434",
+      "timestamp": "2010-09-13T10:04:38+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100913",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15161902",
+      "timestamp": "2010-09-13T14:05:18+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://inbox.com/Cheadle_Hulme/hulme/yrnqrefuvcnanylfvfselvat513824541.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100913",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15187754",
+      "timestamp": "2010-09-13T17:41:16+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100913",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15207465",
+      "timestamp": "2010-09-14T09:36:38+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://redfin.com/Rinaldo_opera/goffredo/pehvfrergheabavairfgzragivqrbtnzrfcebwrpg1920790195.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100914",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15208377",
+      "timestamp": "2010-09-14T09:43:21+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://craigslist.org/WboUhagvat1105403916.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100914",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15209974",
+      "timestamp": "2010-09-14T09:54:27+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Nathu_La/yadong/gernqzvyyyrnqrefuvc679300522.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100914",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15246463",
+      "timestamp": "2010-09-14T14:32:29+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://outbrain.com/Master_Chief_Halo/cortana/yrnqrefuvcfbppregenvyevqvat739909429.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100914",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15274321",
+      "timestamp": "2010-09-15T07:57:53+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://myspace.com/Huntingtons_disease/chorea/gnkuvxvatrgvdhrggriveghnycevingrargjbexpnzcvatjrngureonfvpf1232112464.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15292718",
+      "timestamp": "2010-09-15T10:09:38+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15293962",
+      "timestamp": "2010-09-15T10:18:52+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15330760",
+      "timestamp": "2010-09-15T14:57:30+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://imdb.com/SMS_Markgraf/markgrafgroupnote/vgnyvnapbbxvatubyvqnlffbppreserrfglyrfxvvat50866039.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15333578",
+      "timestamp": "2010-09-15T15:16:37+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://imdb.com/SMS_Markgraf/markgrafgroupnote/vgnyvnapbbxvatubyvqnlffbppreserrfglyrfxvvat50866039.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01418731",
+      "timestamp": "2010-09-15T17:20:05+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa_A_Stuart@juno.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100915",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Althea.I.Palmer@yahoo.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 36234,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15385236",
+      "timestamp": "2010-09-16T11:37:08+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100916",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15401100",
+      "timestamp": "2010-09-16T13:43:25+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://zillow.com/Megatokyo/castons/vasbzrepvnypnabrubefronpxevqvatfghagfpuryyb952330998.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100916",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15416683",
+      "timestamp": "2010-09-16T15:33:12+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Nathu_La/yadong/gernqzvyyyrnqrefuvc679300522.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100916",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01425725",
+      "timestamp": "2010-09-16T16:34:31+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100916",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Yardley.Cairo.Elliott@dtaa.com",
+          "John.Omar.Lancaster@dtaa.com"
+        ],
+        "cc": [
+          "Hillary.Ainsley.Mccormick@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 21892,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15429973",
+      "timestamp": "2010-09-16T17:34:58+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mayoclinic.com/Lihi_Seamount/seamount/gebzobartbysfubrfnhqvgebqrb291648365.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100916",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15435929",
+      "timestamp": "2010-09-17T08:01:48+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100917",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15468231",
+      "timestamp": "2010-09-17T11:54:59+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://redfin.com/Rinaldo_opera/goffredo/pehvfrergheabavairfgzragivqrbtnzrfcebwrpg1920790195.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100917",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15474838",
+      "timestamp": "2010-09-17T12:51:14+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://dropbox.com/Ariel_moon/uranian/pyrnavatyrnqrefuvcpbfgvatonaqjvqgu1095891655.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100917",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15494260",
+      "timestamp": "2010-09-17T15:11:13+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100917",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15504137",
+      "timestamp": "2010-09-17T16:25:30+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://comcast.net/Economy_of_the_Han_Dynasty/luoyang/ovplpyrfnsrglqbhoyrfgraavfpnzctebhaqf1047212528.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100917",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15544704",
+      "timestamp": "2010-09-20T10:14:49+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://myspace.com/Huntingtons_disease/chorea/gnkuvxvatrgvdhrggriveghnycevingrargjbexpnzcvatjrngureonfvpf1232112464.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100920",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15550928",
+      "timestamp": "2010-09-20T11:04:03+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100920",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01438128",
+      "timestamp": "2010-09-20T12:03:29+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100920",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Hillary.Ainsley.Mccormick@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 32416,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15582702",
+      "timestamp": "2010-09-20T15:13:29+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://bedbathandbeyond.com/Second_Ostend_Raid/godsal/cnexpybhqqbhoyrfgraavf1603619077.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100920",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15628970",
+      "timestamp": "2010-09-21T10:41:15+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shareasale.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/jbefuvcyrnqrefuvcobjyvatgbheanzrag1438261804.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100921",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15650405",
+      "timestamp": "2010-09-21T13:39:06+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://nasa.gov/Military_of_the_Democratic_Republic_of_the_Congo/kabila/zhfvppbaqhpgbefxvfgebzobarpebffyvprafvat871365389.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100921",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15662912",
+      "timestamp": "2010-09-21T15:09:21+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hulu.com/Wihtred_of_Kent/swfheard/crgsbbqtnaggpunegsnpvyvgvrferpbeqvat1437026768.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100921",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01447888",
+      "timestamp": "2010-09-21T15:13:48+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100921",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Nigel.Addison.Rios@dtaa.com"
+        ],
+        "cc": [
+          "Althea.Ina.Palmer@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 26655,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15678398",
+      "timestamp": "2010-09-21T17:13:25+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Manchester_SmallScale_Experimental_Machine/npl/vaterqvragfbhgyrgpragrefubccvatergheabavairfgzrag1105950029.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100921",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00228733",
+      "timestamp": "2010-09-22T05:21:26+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00248287",
+      "timestamp": "2010-09-22T05:21:27+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "X20812TH.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 still therefore him runs members threes extended became return going structure unexpectedly comes i example beside these why so house himself point number jean advances nomination runs bob vocal once program laws underside psycho network goes emmy because part both misleads made settling score animated ran singing ii efforts consequently house despite pitched"
+      }
+    },
+    {
+      "event_id": "cert_file_00248288",
+      "timestamp": "2010-09-22T05:21:32+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "I0HWO9A1.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 over out laws make instrument long held them once right theme while why marked 1949 features hour aware springfield truck hatred 1993 saw country references whatever generally length version wins life aware only request"
+      }
+    },
+    {
+      "event_id": "cert_file_00248289",
+      "timestamp": "2010-09-22T05:21:35+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "0UDFVLNX.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 beginning brought found while al american psycho of nomination intelligence wanted tell state down difficulties man alarm return culture they love original why gags pulling efforts four will about again pulling basic speaks final tattoos although most david tell rewritten by house references away horror window standard try executive executive primary challenges says"
+      }
+    },
+    {
+      "event_id": "cert_file_00248290",
+      "timestamp": "2010-09-22T05:21:36+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "1WVV5L0I.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 another stepped was vocal original next followed ive pitched became told but moved low length devoted i mystery conversation stuck because nomination fired request alarm someone aired films joke also sung wire face continually"
+      }
+    },
+    {
+      "event_id": "cert_file_00248291",
+      "timestamp": "2010-09-22T05:21:39+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "6P1KPUPK.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D final know truck word basic paranoid from fired sent i book because there herrmann moment stomped apprehended written demand staff ran departing realize thompson 7 moore sung alarm another unexpectedly know specific second up over terror plan springfield protect himself contained star for members write while bring swing request"
+      }
+    },
+    {
+      "event_id": "cert_file_00248292",
+      "timestamp": "2010-09-22T05:21:58+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "1J5MHNOQ.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D an fired outline runs entire had foiled character united without new sits al goes board fired his visual victim cast idea rich gate into arrive upbringing water intelligence repeat these who enough aired car seen changed going rake typical relocation version intellect team investigator board also there name beginning mail best planet best"
+      }
+    },
+    {
+      "event_id": "cert_file_00248293",
+      "timestamp": "2010-09-22T05:22:20+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "G28ZYMMR.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 nine story theme song getting october guest difficulties their private typical long challenges between evil moment consequently according example structure time become intelligence face hiring why elements home persuade reaches watching unfortunately program fifth town story between leave death psycho ready cannot been list beginning enemy when thompson"
+      }
+    },
+    {
+      "event_id": "cert_device_00228734",
+      "timestamp": "2010-09-22T05:22:28+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00248294",
+      "timestamp": "2010-09-22T05:23:57+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "MDOD1PHF.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 chief private point sometimes multiple end built number can appearance front causing state staff aground conservative network large devoted sideshow instead pills hes not laws padded why can star when few song comes house alarm operetta dock hears villain story against season name all both followed creator enemy"
+      }
+    },
+    {
+      "event_id": "cert_device_00228735",
+      "timestamp": "2010-09-22T05:23:57+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00228736",
+      "timestamp": "2010-09-22T05:24:00+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00228737",
+      "timestamp": "2010-09-22T05:25:09+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00248295",
+      "timestamp": "2010-09-22T05:25:12+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "H4WNVH9R.txt",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "58-4F-50-5A considered entirety toward pitched theater water it creation animated pulling enough theme devoted best time just interesting were premise off comes fired woman inside final producer off conversation specific ii story yet swing one cast psycho large staff is chief difficult borrowing i way again ii people jump off high ii tactic serves to house direct followed write gags rich you best"
+      }
+    },
+    {
+      "event_id": "cert_device_00228738",
+      "timestamp": "2010-09-22T05:25:15+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00228739",
+      "timestamp": "2010-09-22T05:26:05+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00248296",
+      "timestamp": "2010-09-22T05:26:08+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "00N3E9M1.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 agrees comes used any window into crocodiles television face another apprehended series done road changed was appearance plot back of first says do sequence fox found specific hour springfield built sideshow enough house way made extended off films echoed parents familys moan alf became strapped archenemies write country unable changed specific unable also third moment persuade"
+      }
+    },
+    {
+      "event_id": "cert_file_00248297",
+      "timestamp": "2010-09-22T05:26:28+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "QEBVWRYF.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 even version calling seen since composer it over german additions die sometimes used hatred felt word going settling household intellect operetta teeth arrest five efforts new right 1962 low conservative moore award man back version"
+      }
+    },
+    {
+      "event_id": "cert_file_00248298",
+      "timestamp": "2010-09-22T05:26:31+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "4HRCY7R4.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 make version by cast nine commented sent fox will herrmann walks brought vocal broken insert bob great standard know five and even sent reasoning protect nobody cast animated calling houseboat floats fourth book one joke parents grown day sent sideshow cut leave republican david prison saw know however difficulties watching example though calling fear boat"
+      }
+    },
+    {
+      "event_id": "cert_file_00248299",
+      "timestamp": "2010-09-22T05:26:40+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "RL3MK3VF.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 jon can star generally wallace relocation springfield dvd planet swears instead built appearance found pursue perform films tunes aired way short done they front become large was parents it evil difficult household threat features parole plot executive way left challenges for perform truck yet done elements cross other town jail road award while fear creation thought sometimes still was example insert a rigging develops"
+      }
+    },
+    {
+      "event_id": "cert_file_00248300",
+      "timestamp": "2010-09-22T05:26:41+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "HY2J17A7.zip",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "50-4B-03-04-14 impressed life he evergreen revealed first runner himself led make no high few smoking inferior thus his misleads someone always therefore 1991 away word republican boat product main difficulties strapped entirety david parole what know them always next why book long name develops"
+      }
+    },
+    {
+      "event_id": "cert_device_00228740",
+      "timestamp": "2010-09-22T05:26:48+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00228741",
+      "timestamp": "2010-09-22T05:30:41+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00248301",
+      "timestamp": "2010-09-22T05:30:54+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "FPB6CWT8.jpg",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_file_00248302",
+      "timestamp": "2010-09-22T05:30:56+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "8CZR0KIB.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D state large face noting parade gate time shows sequence typical angrily reaches dock snowball as country united republican found well still echoed used the 1992 part team bernard generally loose hit writers know one each stay found completed parents off replies police word nomination repeat little assigned cartoon wire creator admire one moved and television book request grown upbringing tattoos realize"
+      }
+    },
+    {
+      "event_id": "cert_device_00228742",
+      "timestamp": "2010-09-22T05:30:59+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_http_15708165",
+      "timestamp": "2010-09-22T10:37:11+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15747310",
+      "timestamp": "2010-09-22T15:29:50+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://victoriassecret.com/Authentic_Science_Fiction/harnesss/dhnyvglfrnzfgerffubyvqnlf226273992.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15748320",
+      "timestamp": "2010-09-22T15:37:11+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://imgur.com/Barton_Fink/mayhew/ovplpyrnpebongvpfwrjryelfubccvatwnmminpngvba1790378952.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15748661",
+      "timestamp": "2010-09-22T15:39:35+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100922",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01460365",
+      "timestamp": "2010-09-23T12:06:45+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100923",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Tara.Dai.Stevenson@dtaa.com",
+          "Nigel.Addison.Rios@dtaa.com"
+        ],
+        "cc": [
+          "Patricia.Denise.Wright@dtaa.com",
+          "Quon_Ortega@lockheedmartin.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 31612,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_15821550",
+      "timestamp": "2010-09-23T14:42:13+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100923",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15827329",
+      "timestamp": "2010-09-23T15:22:06+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100923",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15833191",
+      "timestamp": "2010-09-23T16:04:54+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://last.fm/Donald_Bradman_with_the_Australian_cricket_team_in_England_in_1948/7257/inpngvbafnyrffhccbeg530102056.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100923",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15849254",
+      "timestamp": "2010-09-24T08:18:58+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://staples.com/Trapped_in_the_Closet_South_Park/scientology/cnex519496528.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100924",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15858909",
+      "timestamp": "2010-09-24T09:22:05+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100924",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15874936",
+      "timestamp": "2010-09-24T11:18:10+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100924",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15904291",
+      "timestamp": "2010-09-24T14:57:48+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100924",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15944405",
+      "timestamp": "2010-09-27T09:02:03+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100927",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_15976698",
+      "timestamp": "2010-09-27T13:06:24+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Nathu_La/yadong/gernqzvyyyrnqrefuvc679300522.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100927",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16003239",
+      "timestamp": "2010-09-27T16:21:42+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://staples.com/Trapped_in_the_Closet_South_Park/scientology/cnex519496528.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100927",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16007600",
+      "timestamp": "2010-09-27T17:03:43+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://wellsfargo.com/Benjamin_Harrison/harrisons/ynoahgevgvbayrnqrefuvctencuvpnyhfrevagresnpr1176430042.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100927",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00233514",
+      "timestamp": "2010-09-28T03:19:34+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00253752",
+      "timestamp": "2010-09-28T03:24:56+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "5OIZW6BS.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D once bounced though author you one main plot generally well sideshow uniform pulling length emmy mentality against hears as without instead cross no additions admire this persuade springfield without witness lisas perform bounced actor impressed direct way between inferior normally death animated minimum pills animated heard difficult according while man noting villain elements four can"
+      }
+    },
+    {
+      "event_id": "cert_file_00253753",
+      "timestamp": "2010-09-28T03:32:36+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "R2GJ5WL8.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 dock united l enough ii than moved would prison animated producer laws us abe tattoos rich floats story comes noting even thought causing sees completed drive homers wallace most animatics heard walks sometimes point length post tunes commented made what brought"
+      }
+    },
+    {
+      "event_id": "cert_file_00253754",
+      "timestamp": "2010-09-28T03:35:57+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "PCOFIT56.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 typical was however going united found felt changed although end sees original thought both will memorable unknown were entirety arrest police low there series witness taken opt front built hiring can could serves speaks nomination hes truck unexpectedly machete swears down inferior b teeth witness down"
+      }
+    },
+    {
+      "event_id": "cert_device_00233515",
+      "timestamp": "2010-09-28T03:43:23+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00233516",
+      "timestamp": "2010-09-28T03:54:25+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00253755",
+      "timestamp": "2010-09-28T03:59:36+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "M8D9QB9Q.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 persuade devoted victim mentality horror staff animated whatever these them done number tattoos board series nomination since terrace matt saw season hour l life such mail joke specific were fourth five only television whom conservative felt e nomination"
+      }
+    },
+    {
+      "event_id": "cert_file_00253756",
+      "timestamp": "2010-09-28T04:00:05+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "VYNU1AGJ.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 fifth long ive receiving demand house why grown 1993 drive why mail arrive fired thus are supposed nomination still long creation threat evil become l nine animated he five persuade whatever inside persuade just sequence perform ready into mass not become could pills these used these operetta no request could commented try no itchy around road toy so surprised prison considered apprehended interesting built"
+      }
+    },
+    {
+      "event_id": "cert_file_00253757",
+      "timestamp": "2010-09-28T04:01:28+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "I18PW78L.txt",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "47-4A-50-48 going sideshow part homers used anything low helper black consequently lead standard at helper jail road was multiple there jail contained conversation david yet receiving maggie enough name incarcerated says another row cornered speaks continually book their did black cartoon but cut victim protect i award sideshow wanted length saw looney teeth beginning brought replies know new word heard pitched such do october despite"
+      }
+    },
+    {
+      "event_id": "cert_file_00253758",
+      "timestamp": "2010-09-28T04:05:03+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "4CBO2YQD.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 sequence mentality few handles unexpectedly tactic lisas day stay room aground most 1993 hms enemy song black david man such handles version network mentality again simpson us yet considered under final author b cross night uniform which staff out funny guest these"
+      }
+    },
+    {
+      "event_id": "cert_file_00253759",
+      "timestamp": "2010-09-28T04:07:27+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "8VWNDDML.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 difficulties elements version jean presence not series mystery know even jail agrees aware were laws starts although short few any threes bring aground leave basic 7 do creator considered serves plan about part musical crocodiles simpson contained cut assigned him surname jump enemy assigned difficulties instrument"
+      }
+    },
+    {
+      "event_id": "cert_file_00253760",
+      "timestamp": "2010-09-28T04:07:40+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "S47PTC6O.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 broken crew 1993 leave later against primary elements hears once interesting reasoning conservative household once structure sometimes executive heard sits beside became has according terror their realize parade replies chief has from up mail wanted most memorable advances parents cornered devoted sideshow later dvd investigator number thus supposed"
+      }
+    },
+    {
+      "event_id": "cert_file_00253761",
+      "timestamp": "2010-09-28T04:09:09+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "9SM2J196.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 surprised pursue marked continually insert moved point smoking not cornered still shows felt impressed laws felt victim normally heard there eels according uniform final replies face ii fourth swears stay krusty visual hiding point so half become interesting abe compared tell woman believing mail pills unknown receiving parents bernard strapped hour saw conversation"
+      }
+    },
+    {
+      "event_id": "cert_file_00253762",
+      "timestamp": "2010-09-28T04:12:57+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "0Z7T8T3X.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 book continually point few devoted several horror best always grown walks victim alarm always police know therefore that work list enemy many jon inside presence compared any police threat typical doll kill realize could around mentality whatever over writers presence walks can supposed later were board perceive truck"
+      }
+    },
+    {
+      "event_id": "cert_file_00253763",
+      "timestamp": "2010-09-28T04:13:42+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "2I9N4RAX.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 hour cross attempts settling appearance used cross despite ready widower aware against been hour asks houseboat television during voice ready prison word getting these only pursue chasing stuck santas attempts night causing is prison elephants repeat were town brought ran same tactic basic composer e al end example perceive members stretch can he gate lead love car paranoid"
+      }
+    },
+    {
+      "event_id": "cert_file_00253764",
+      "timestamp": "2010-09-28T04:18:20+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "QNZEPF68.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 primary great love fired make back minimum written himself large according members aware conversation next mass found final include smoking would hiring song stuck himself man vocal serves floats despite outline rich pursue german though hiding parade stalls"
+      }
+    },
+    {
+      "event_id": "cert_file_00253765",
+      "timestamp": "2010-09-28T04:26:41+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "MM981QLR.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 from length led mentality culture each efforts network moore jail witness frasier alludes says alf felt supposed third plan in causing become star looney causing voice book against unexpectedly reaches sees several victim evergreen thought all"
+      }
+    },
+    {
+      "event_id": "cert_file_00253766",
+      "timestamp": "2010-09-28T04:26:42+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "LMHYOTOS.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 conservative while suggestion pills interfere road woman e board additions unable half fourth there written into david end their that story hour considerably incarcerated uniform anything advances difficult producer added any moan drive done ii thought anything same emmy new jump bring gate"
+      }
+    },
+    {
+      "event_id": "cert_device_00233519",
+      "timestamp": "2010-09-28T04:28:16+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00233520",
+      "timestamp": "2010-09-28T04:47:17+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00253767",
+      "timestamp": "2010-09-28T04:48:32+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "HDD0U2CM.jpg",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_file_00253768",
+      "timestamp": "2010-09-28T04:51:02+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "HSC3REYS.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 arnold in prison asks chief seen seen down plan thus considerably direct creator enemy g four felt 1993 five private visual third american vocal home considerably fourth laws led song completed what jump taken movie people stay demand instrument and i padded been instead than according mass difficult these guest basic right can fired beginning actor warns unfortunately completed reasoning 1949 mail"
+      }
+    },
+    {
+      "event_id": "cert_device_00233522",
+      "timestamp": "2010-09-28T04:51:23+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00233528",
+      "timestamp": "2010-09-28T05:18:19+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_file_00253776",
+      "timestamp": "2010-09-28T05:24:17+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "RCW2APKU.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D enters typical executive investigator tunes felt short face tactic made these calling jon post terror what chief aired truck half few whatever sees one fifth completed been tell attempts sideshow first overall could cartoon been sits and another guest says republican toy after short impressed built that although such leave thought while main sees but challenges later 1949 consequently sees about"
+      }
+    },
+    {
+      "event_id": "cert_file_00253777",
+      "timestamp": "2010-09-28T05:29:25+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "62DMTTFO.pdf",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "25-50-44-46-2D him original would added moment way followed says car wanted moment over asks even premise first fired town second all household hiding told face in continually david it stretch doll town subsequently houseboat jail eels beginning beside develops off fox bernard inferior was back victim off household taken short composer return will revealed enough police great against then noting"
+      }
+    },
+    {
+      "event_id": "cert_file_00253779",
+      "timestamp": "2010-09-28T05:35:47+00:00",
+      "source_type": "file_access",
+      "user": "MAS0025",
+      "action": "file_copy",
+      "resource": "0PJY5UGC.doc",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2512",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 handles moan loose long little taken release apprehended number ready face enters interesting pills shows same with appearance short 1993 marge going word warns team time you members commented why padded toward evil saw it television once parade long they will each character back parade represents b interesting toy while done instrument realize aground paranoid asks sung do shot second toward story"
+      }
+    },
+    {
+      "event_id": "cert_device_00233532",
+      "timestamp": "2010-09-28T05:39:21+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_http_16018130",
+      "timestamp": "2010-09-28T08:12:48+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://techcrunch.com/Carnivle/knauf/obngabzrapyngherpnzcvatjrngureonfvpf72930802.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16023031",
+      "timestamp": "2010-09-28T08:46:05+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://aol.com/jobs/WboUhagvat1963819229.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16028770",
+      "timestamp": "2010-09-28T09:24:16+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://earthlink.net/Anna_Laetitia_Barbauld/rochemont/snagnflfcbegfureotneqravatcnexiveghnycevingrargjbex653916517.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16049594",
+      "timestamp": "2010-09-28T12:05:06+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://techcrunch.com/Carnivle/knauf/obngabzrapyngherpnzcvatjrngureonfvpf72930802.aspx",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100928",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00234691",
+      "timestamp": "2010-09-29T01:41:20+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00234698",
+      "timestamp": "2010-09-29T03:12:18+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_email_01489090",
+      "timestamp": "2010-09-29T09:29:44+00:00",
+      "source_type": "email",
+      "user": "MAS0025",
+      "action": "mail_sent",
+      "resource": "Melissa.Ava.Stuart@dtaa.com",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2512",
+        "recipients": [
+          "Hillary.Ainsley.Mccormick@dtaa.com"
+        ],
+        "cc": [
+          "Illana.Yvette.Bradshaw@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 29541,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_16128460",
+      "timestamp": "2010-09-29T11:49:51+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hostgator.com/Callisto_moon/callisto/ctnpnzcvatjrngureonfvpfyvsrwnpxrg1013994577.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16150769",
+      "timestamp": "2010-09-29T14:47:26+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://shareasale.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/jbefuvcyrnqrefuvcobjyvatgbheanzrag1438261804.php",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16157651",
+      "timestamp": "2010-09-29T15:37:40+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://redfin.com/Rinaldo_opera/goffredo/pehvfrergheabavairfgzragivqrbtnzrfcebwrpg1920790195.html",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100929",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16188589",
+      "timestamp": "2010-09-30T09:19:46+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://thechive.com/Rochester_Castle/gundulfs/nppbzcnavzrag1026104798.asp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16204523",
+      "timestamp": "2010-09-30T11:17:27+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://discovery.com/Japan/shikoku/gerrfgnaqergheabavairfgzrag2105221548.jsp",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16238604",
+      "timestamp": "2010-09-30T15:37:20+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://hostgator.com/Callisto_moon/callisto/ctnpnzcvatjrngureonfvpfyvsrwnpxrg1013994577.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16241667",
+      "timestamp": "2010-09-30T16:00:51+00:00",
+      "source_type": "web_server",
+      "user": "MAS0025",
+      "action": "http_request",
+      "resource": "http://coupons.com/Meteorological_history_of_Hurricane_Jeanne/nogaps/pyrnavatzlfgrelpuryybercnve653087718.htm",
+      "source_ip": "pc:PC-2512",
+      "status": "200",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2512",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00236981",
+      "timestamp": "2010-09-30T22:32:21+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_connect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    },
+    {
+      "event_id": "cert_device_00236982",
+      "timestamp": "2010-09-30T22:34:50+00:00",
+      "source_type": "admin",
+      "user": "MAS0025",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2512",
+      "source_ip": "pc:PC-2512",
+      "status": "success",
+      "session_id": "cert_MAS0025_PC-2512_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2512"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "MAS0025",
+  "ground_truth_scenario_type": "1",
+  "month": "2010-09",
+  "downsampled": true,
+  "original_event_count": 3400
+}

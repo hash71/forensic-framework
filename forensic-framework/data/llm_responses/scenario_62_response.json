@@ -1,0 +1,54 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear session hijacking event followed by unauthorized cross-departmental data exfiltration. The mid-session IP change is a definitive indicator of hijacking, and the subsequent bulk downloads of sensitive files outside the user's department confirm a successful breach.",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s62_001",
+      "description": "User_04 logs in from their normal IP (192.168.1.104) within normal hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s62_004",
+      "description": "User_04 performs legitimate file reads within the finance department from the normal IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s62_005",
+      "description": "Session hijacking occurs: the same session_id (sess_user_04_20260819_001) is used from a new, external IP (91.219.236.222), and the user begins accessing files in the HR department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s62_006",
+      "description": "The attacker begins bulk downloading sensitive files from multiple departments (Sales, Marketing, Legal, HR) that are outside user_04's authorized scope.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s62_005",
+    "evt_s62_006",
+    "evt_s62_007",
+    "evt_s62_008",
+    "evt_s62_009",
+    "evt_s62_010",
+    "evt_s62_011",
+    "evt_s62_012"
+  ],
+  "evidence_against": [
+    "evt_s62_001",
+    "evt_s62_002",
+    "evt_s62_003",
+    "evt_s62_004"
+  ],
+  "gaps": [
+    "Geographic location of the second IP (91.219.236.222) to confirm it is not a known VPN used by the employee.",
+    "Logs from the authentication server to see if there were any concurrent logins or credential stuffing attempts."
+  ],
+  "narrative": "A session hijacking incident occurred when user_04's active session was hijacked by an external IP (91.219.236.222). The attacker leveraged this session to perform unauthorized cross-departmental file access and exfiltrate a large volume of sensitive data from the HR, Sales, Marketing, and Legal departments."
+}

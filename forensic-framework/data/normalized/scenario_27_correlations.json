@@ -1,0 +1,55 @@
+{
+  "scenario": 27,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s27_001"
+      ],
+      "description": "user_02 logged in from unusual IP 103.28.45.67 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s27_001",
+        "evt_s27_030",
+        "evt_s27_002",
+        "evt_s27_003",
+        "evt_s27_004",
+        "evt_s27_005",
+        "evt_s27_006",
+        "evt_s27_007",
+        "evt_s27_008",
+        "evt_s27_009",
+        "evt_s27_010",
+        "evt_s27_011",
+        "evt_s27_012",
+        "evt_s27_013",
+        "evt_s27_014",
+        "evt_s27_015",
+        "evt_s27_016",
+        "evt_s27_017",
+        "evt_s27_018",
+        "evt_s27_019",
+        "evt_s27_020",
+        "evt_s27_021",
+        "evt_s27_022",
+        "evt_s27_023",
+        "evt_s27_024",
+        "evt_s27_025",
+        "evt_s27_026",
+        "evt_s27_027",
+        "evt_s27_028",
+        "evt_s27_029"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

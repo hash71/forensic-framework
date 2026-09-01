@@ -1,0 +1,30 @@
+{
+  "scenario": 23,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s23_005"
+      ],
+      "description": "user_09 had 1 event(s) outside normal working hours (09:30-18:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s23_001",
+        "evt_s23_005",
+        "evt_s23_002",
+        "evt_s23_003",
+        "evt_s23_004"
+      ],
+      "description": "user_09 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

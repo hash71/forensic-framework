@@ -1,0 +1,153 @@
+{
+  "scenario": 70,
+  "findings": [
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s70_002",
+        "evt_s70_003",
+        "evt_s70_004",
+        "evt_s70_005",
+        "evt_s70_006",
+        "evt_s70_007",
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015"
+      ],
+      "description": "user_06 had privilege change then downloaded 13 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s70_001",
+        "evt_s70_002",
+        "evt_s70_003",
+        "evt_s70_004",
+        "evt_s70_005",
+        "evt_s70_006",
+        "evt_s70_007",
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015",
+        "evt_s70_016",
+        "evt_s70_017",
+        "evt_s70_018"
+      ],
+      "description": "user_06 had 18 event(s) outside normal working hours (08:00-20:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s70_001",
+        "evt_s70_002",
+        "evt_s70_003",
+        "evt_s70_004",
+        "evt_s70_005",
+        "evt_s70_006"
+      ],
+      "description": "user_06 generated 6 events in 12 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s70_003",
+        "evt_s70_004",
+        "evt_s70_005",
+        "evt_s70_006",
+        "evt_s70_007",
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015",
+        "evt_s70_016"
+      ],
+      "description": "user_06 generated 14 events in 26 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s70_006",
+        "evt_s70_007",
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015",
+        "evt_s70_016",
+        "evt_s70_017"
+      ],
+      "description": "user_06 generated 12 events in 27 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015",
+        "evt_s70_016",
+        "evt_s70_017",
+        "evt_s70_018"
+      ],
+      "description": "user_06 generated 11 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s70_002",
+        "evt_s70_016",
+        "evt_s70_017",
+        "evt_s70_001",
+        "evt_s70_018",
+        "evt_s70_003",
+        "evt_s70_004",
+        "evt_s70_005",
+        "evt_s70_006",
+        "evt_s70_007",
+        "evt_s70_008",
+        "evt_s70_009",
+        "evt_s70_010",
+        "evt_s70_011",
+        "evt_s70_012",
+        "evt_s70_013",
+        "evt_s70_014",
+        "evt_s70_015"
+      ],
+      "description": "user_06 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 7,
+  "severity_summary": {
+    "critical": 1,
+    "warning": 5,
+    "info": 1
+  }
+}

@@ -2,43 +2,49 @@
   "verdict": "YES",
   "incident_occurred": "true",
   "confidence": "HIGH",
-  "confidence_explanation": "The evidence shows a clear, multi-day pattern of an authorized user (user_03) systematically downloading sensitive, confidential files from departments outside their scope (Finance and Engineering). This behavior matches the 'Insider Threat' criteria: gradual expansion of access scope, transition from reading to downloading, and access to sensitive files outside their department over multiple days. The volume of cross-department downloads (6 distinct confidential files) far exceeds normal baseline behavior and lacks any metadata indicating legitimate maintenance or ticket justification.",
+  "confidence_explanation": "The timeline shows a clear, multi-day pattern of an insider threat (user_03) systematically accessing and downloading sensitive files outside their authorized department (HR) in both the Finance and Engineering departments.",
   "suspect": "user_03",
   "attack_chain": [
     {
       "step": 1,
       "event_id": "evt_s13_003",
-      "description": "Initial unauthorized data exfiltration: user_03 downloads confidential Finance payroll data outside normal hours and scope.",
+      "description": "User_03 downloads a confidential finance file (payroll_summary_q1.xlsx) outside their normal HR directory.",
       "confidence": "HIGH"
     },
     {
       "step": 2,
       "event_id": "evt_s13_007",
-      "description": "Expansion of scope: user_03 downloads Engineering architecture documentation, indicating reconnaissance or data collection beyond Finance.",
+      "description": "User_03 downloads an engineering architecture document (architecture_overview.pdf) outside their normal HR directory.",
       "confidence": "HIGH"
     },
     {
       "step": 3,
       "event_id": "evt_s13_011",
-      "description": "Continued exfiltration: user_03 downloads confidential Finance budget allocation data.",
+      "description": "User_03 downloads a confidential finance budget file (budget_allocation.xlsx).",
       "confidence": "HIGH"
     },
     {
       "step": 4,
-      "event_id": "evt_s13_019",
-      "description": "Continued exfiltration: user_03 downloads confidential Finance expense reports.",
+      "event_id": "evt_s13_015",
+      "description": "User_03 downloads a confidential HR salary structure file (salary_structure_2026.xlsx).",
       "confidence": "HIGH"
     },
     {
       "step": 5,
-      "event_id": "evt_s13_023",
-      "description": "Continued exfiltration: user_03 downloads Engineering infrastructure diagrams.",
+      "event_id": "evt_s13_019",
+      "description": "User_03 downloads a confidential finance expense report (expense_reports_q1.csv).",
       "confidence": "HIGH"
     },
     {
       "step": 6,
+      "event_id": "evt_s13_023",
+      "description": "User_03 downloads an engineering infrastructure diagram (infrastructure_diagram.pdf).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
       "event_id": "evt_s13_027",
-      "description": "Final exfiltration in observed window: user_03 downloads confidential Finance revenue data.",
+      "description": "User_03 downloads a confidential finance revenue file (revenue_by_division.xlsx).",
       "confidence": "HIGH"
     }
   ],
@@ -46,16 +52,15 @@
     "evt_s13_003",
     "evt_s13_007",
     "evt_s13_011",
+    "evt_s13_015",
     "evt_s13_019",
     "evt_s13_023",
-    "evt_s13_027",
-    "R005"
+    "evt_s13_027"
   ],
   "evidence_against": [],
   "gaps": [
-    "No metadata (ticket numbers, maintenance windows) found in the events to justify the cross-department access.",
-    "No logs indicating user_03's specific role permissions were temporarily elevated to allow this access.",
-    "No evidence of data transfer destination (e.g., external IP, USB mount) to confirm final exfiltration point, though 'download' action implies local retrieval."
+    "Lack of information regarding whether user_03 had any legitimate cross-departmental tasks or tickets that would justify this access.",
+    "No information on whether these files were subsequently moved to external storage or sent via email."
   ],
-  "narrative": "user_03, an HR specialist, engaged in a systematic insider threat campaign over six days, downloading six confidential files from Finance and Engineering departments. This behavior deviates significantly from their baseline (avg 1 download/day, HR-only scope) and exhibits a clear pattern of premeditated data collection across multiple departments without legitimate justification."
+  "narrative": "User_03, an HR specialist, engaged in a premeditated pattern of data exfiltration over a seven-day period. The user systematically accessed and downloaded highly sensitive files from the Finance and Engineering departments, which are outside their authorized directory baseline of '/data/hr/'."
 }

@@ -1,0 +1,94 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear and sustained pattern of an insider threat (user_06) performing massive data exfiltration across nearly every department in the organization during a single session.",
+  "suspect": "user_06",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s111_001",
+      "description": "User_06 (SRE) logs in from their normal IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s111_005",
+      "description": "User_06 begins accessing files outside their department (Legal).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s111_010",
+      "description": "User_06 accesses HR data, triggering a bulk download alert.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s111_012",
+      "description": "User_06 continues downloading sensitive files from Legal.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s111_014",
+      "description": "User_06 accesses Security department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s111_026",
+      "description": "User_06 expands scope to Finance department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s111_037",
+      "description": "User_06 accesses Marketing department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s111_064",
+      "description": "User_06 accesses Executive department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 9,
+      "event_id": "evt_s111_085",
+      "description": "User_06 accesses Sales department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 10,
+      "event_id": "evt_s111_089",
+      "description": "User_06 concludes the session after downloading Finance files.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s111_005",
+    "evt_s111_010",
+    "evt_s111_012",
+    "evt_s111_014",
+    "evt_s111_026",
+    "evt_s111_031",
+    "evt_s111_035",
+    "evt_s111_037",
+    "evt_s111_039",
+    "evt_s111_044",
+    "evt_s111_046",
+    "evt_s111_052",
+    "evt_s111_056",
+    "evt_s111_060",
+    "evt_s111_064",
+    "evt_s111_085",
+    "evt_s111_089"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of maintenance ticket or justification for such broad cross-departmental access.",
+    "No information on whether the user's account was compromised via external means (e.g., credential theft) versus a malicious insider."
+  ],
+  "narrative": "User_06, a Site Reliability Engineer, engaged in a massive data exfiltration event by accessing and downloading files from nearly every department, including Legal, HR, Security, Finance, Marketing, Executive, and Sales. This pattern of behavior is highly inconsistent with their role and baseline, indicating a severe insider threat or a compromised account used for broad data harvesting."
+}

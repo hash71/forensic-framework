@@ -1,0 +1,58 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The analysis is based on a clear pattern of unusual login followed by extensive file access and multiple downloads. While the user's baseline allows for IP variation due to travel, the volume of downloads (4 files) and the specific sequence of reading and downloading sensitive project files from both engineering and shared project directories are consistent with data exfiltration.",
+  "suspect": "user_02",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s28_001",
+      "description": "Successful login from an unusual IP address (151.101.65.69) which is not in the user's normal IP list.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s28_002",
+      "description": "Initial reconnaissance/access of engineering files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s28_005",
+      "description": "First successful file download (budget_588.pdf) from the engineering directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s28_016",
+      "description": "Exfiltration of a large file (spec_350.pptx, ~3MB) from the shared project_alpha directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s28_017",
+      "description": "Exfiltration of engineering draft data (draft_412.csv).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s28_019",
+      "description": "Exfiltration of project_beta summary data (summary_491.txt).",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s28_001",
+    "evt_s28_005",
+    "evt_s28_016",
+    "evt_s28_017",
+    "evt_s28_019"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Confirmation of whether the user was actually traveling at the time of login to validate the unusual IP.",
+    "Verification of whether the downloaded files contained highly sensitive or proprietary information beyond standard project files."
+  ],
+  "narrative": "User_02 logged in from an unusual IP address and proceeded to access a wide range of files across engineering and shared project directories. The session concluded with a pattern of reading and then downloading multiple files, including a large PowerPoint specification file, suggesting unauthorized data exfiltration."
+}

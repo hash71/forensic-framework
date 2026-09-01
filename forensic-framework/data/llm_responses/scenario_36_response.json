@@ -1,0 +1,58 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear progression from a brute-force login attempt to a successful unauthorized login from an unusual IP, followed by privilege escalation, bulk cross-departmental data exfiltration, and log tampering to hide tracks.",
+  "suspect": "user_09",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s36_001",
+      "description": "Brute-force attempt: Multiple failed login attempts for user_09 from an unusual IP (23.129.64.222) during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s36_009",
+      "description": "Successful unauthorized login for user_09 from the suspicious IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s36_010",
+      "description": "Privilege escalation: user_09 elevated their role to admin.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s36_011",
+      "description": "Data exfiltration: Bulk downloading of files across multiple departments (Marketing, Sales, Finance, Logs) that are outside the user's normal directory scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s36_027",
+      "description": "Anti-forensics: Deletion of authentication logs (/var/log/auth.log) to conceal the intrusion.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s36_001",
+    "evt_s36_009",
+    "evt_s36_010",
+    "evt_s36_012",
+    "evt_s36_013",
+    "evt_s36_015",
+    "evt_s36_016",
+    "evt_s36_019",
+    "evt_s36_024",
+    "evt_s36_025",
+    "evt_s36_027"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Verification of whether user_09's credentials were stolen via phishing or if this was a direct brute-force success.",
+    "Confirmation of the destination of the downloaded files to confirm exfiltration."
+  ],
+  "narrative": "An attacker successfully compromised user_09's account after a series of failed login attempts from an external IP. Once logged in, the attacker escalated privileges to admin, performed a bulk download of sensitive files from the Sales, Finance, and Logs departments, and finally deleted the authentication logs to cover their tracks."
+}

@@ -1,0 +1,46 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "MEDIUM",
+  "confidence_explanation": "The user logged in from an unusual IP address and engaged in a high volume of file access and downloads that significantly exceeded their daily baseline. While the user's role allows access to the directories, the volume and pattern of activity are highly anomalous.",
+  "suspect": "user_02",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s27_001",
+      "description": "Successful login from an unusual IP address (103.28.45.67) instead of the baseline IP (192.168.1.102).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s27_004",
+      "description": "Initial data exfiltration via file download of a CSV file from the engineering directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s27_009",
+      "description": "Second data exfiltration via file download of an Excel file from a shared project directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s27_002",
+      "description": "Massive volume of file reads (27 total read events) across engineering and shared project directories, far exceeding the baseline of 8 files per day.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s27_001",
+    "evt_s27_004",
+    "evt_s27_009"
+  ],
+  "evidence_against": [
+    "user_02's travel_note indicates they frequently travel and their IP varies, which may explain the unusual IP."
+  ],
+  "gaps": [
+    "Lack of information regarding whether the IP 103.28.45.67 is associated with a known VPN or a location consistent with the user's travel history.",
+    "No information on whether the user was on approved leave or traveling during this period."
+  ],
+  "narrative": "User_02 logged in from an unusual IP and performed an extremely high volume of file reads and multiple downloads, significantly exceeding their established baseline. Although the user's travel note provides a potential explanation for the IP change, the pattern of activity is highly characteristic of data collection and exfiltration."
+}

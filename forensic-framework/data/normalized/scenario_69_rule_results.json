@@ -1,0 +1,148 @@
+{
+  "scenario": 69,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_008"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/marketing/agreement_909.csv is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T16:43:07+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s69_009",
+        "evt_s69_010",
+        "evt_s69_011",
+        "evt_s69_012",
+        "evt_s69_013",
+        "evt_s69_014",
+        "evt_s69_015"
+      ],
+      "user": "user_01",
+      "description": "Bulk download detected: 7 files downloaded within 30 minutes (window start: 2026-05-16T16:49:07+06:00)",
+      "timestamp": "2026-05-16T16:49:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_009"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/legal/policy_56.pptx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T16:49:07+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s69_010",
+        "evt_s69_011",
+        "evt_s69_012",
+        "evt_s69_013",
+        "evt_s69_014",
+        "evt_s69_015",
+        "evt_s69_016"
+      ],
+      "user": "user_01",
+      "description": "Bulk download detected: 7 files downloaded within 30 minutes (window start: 2026-05-16T16:53:07+06:00)",
+      "timestamp": "2026-05-16T16:53:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_010"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/marketing/review_58.csv is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T16:53:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_011"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/runbooks/schema_453.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T16:58:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_012"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/security/audit_459.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T17:04:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_013"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/legal/data_export_784.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T17:08:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_014"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/runbooks/design_652.pdf is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T17:15:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_015"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/legal/review_125.docx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T17:17:07+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s69_016"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/project_beta/memo_303.yaml is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-05-16T17:20:07+06:00"
+    }
+  ],
+  "alert_count": 11,
+  "rules_triggered": [
+    "R004",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 9,
+    "critical": 2
+  },
+  "verdict": "attack"
+}

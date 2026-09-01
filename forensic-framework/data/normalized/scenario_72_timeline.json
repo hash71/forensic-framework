@@ -1,0 +1,683 @@
+{
+  "scenario": 72,
+  "total_events": 15,
+  "timeline": [
+    {
+      "event_id": "evt_s72_001",
+      "timestamp": "2026-06-04T22:11:00+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s72_002",
+      "timestamp": "2026-06-04T22:13:00+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated for maintenance"
+      }
+    },
+    {
+      "event_id": "evt_s72_003",
+      "timestamp": "2026-06-04T22:18:37+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/config_643.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 92280869
+      }
+    },
+    {
+      "event_id": "evt_s72_004",
+      "timestamp": "2026-06-04T22:20:52+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/data_export_136.docx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 44805865
+      }
+    },
+    {
+      "event_id": "evt_s72_005",
+      "timestamp": "2026-06-04T22:21:22+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/release_notes_52.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5262365
+      }
+    },
+    {
+      "event_id": "evt_s72_006",
+      "timestamp": "2026-06-04T22:22:23+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/rfc_333.txt",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 94960351
+      }
+    },
+    {
+      "event_id": "evt_s72_007",
+      "timestamp": "2026-06-04T22:23:13+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/draft_472.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 24066190
+      }
+    },
+    {
+      "event_id": "evt_s72_008",
+      "timestamp": "2026-06-04T22:24:39+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/budget_500.xlsx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 70307130
+      }
+    },
+    {
+      "event_id": "evt_s72_009",
+      "timestamp": "2026-06-04T22:26:33+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/policy_297.pptx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 54617856
+      }
+    },
+    {
+      "event_id": "evt_s72_010",
+      "timestamp": "2026-06-04T22:27:47+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/config_795.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 14695429
+      }
+    },
+    {
+      "event_id": "evt_s72_011",
+      "timestamp": "2026-06-04T22:30:41+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/schema_912.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 29204043
+      }
+    },
+    {
+      "event_id": "evt_s72_012",
+      "timestamp": "2026-06-04T22:31:18+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/review_2.pdf",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 96134634
+      }
+    },
+    {
+      "event_id": "evt_s72_013",
+      "timestamp": "2026-06-04T22:34:18+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "log_delete",
+      "resource": "/var/log/old_rotations/",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "scheduled log rotation"
+      }
+    },
+    {
+      "event_id": "evt_s72_014",
+      "timestamp": "2026-06-04T22:41:18+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "reverted to baseline"
+      }
+    },
+    {
+      "event_id": "evt_s72_015",
+      "timestamp": "2026-06-04T22:46:18+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_06": [
+      {
+        "event_id": "evt_s72_001",
+        "timestamp": "2026-06-04T22:11:00+06:00",
+        "source_type": "auth",
+        "user": "user_06",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s72_002",
+        "timestamp": "2026-06-04T22:13:00+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated for maintenance"
+        }
+      },
+      {
+        "event_id": "evt_s72_003",
+        "timestamp": "2026-06-04T22:18:37+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/config_643.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 92280869
+        }
+      },
+      {
+        "event_id": "evt_s72_004",
+        "timestamp": "2026-06-04T22:20:52+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/data_export_136.docx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 44805865
+        }
+      },
+      {
+        "event_id": "evt_s72_005",
+        "timestamp": "2026-06-04T22:21:22+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/release_notes_52.json",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5262365
+        }
+      },
+      {
+        "event_id": "evt_s72_006",
+        "timestamp": "2026-06-04T22:22:23+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/rfc_333.txt",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 94960351
+        }
+      },
+      {
+        "event_id": "evt_s72_007",
+        "timestamp": "2026-06-04T22:23:13+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/draft_472.json",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 24066190
+        }
+      },
+      {
+        "event_id": "evt_s72_008",
+        "timestamp": "2026-06-04T22:24:39+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/budget_500.xlsx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 70307130
+        }
+      },
+      {
+        "event_id": "evt_s72_009",
+        "timestamp": "2026-06-04T22:26:33+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/policy_297.pptx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 54617856
+        }
+      },
+      {
+        "event_id": "evt_s72_010",
+        "timestamp": "2026-06-04T22:27:47+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/config_795.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 14695429
+        }
+      },
+      {
+        "event_id": "evt_s72_011",
+        "timestamp": "2026-06-04T22:30:41+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/schema_912.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29204043
+        }
+      },
+      {
+        "event_id": "evt_s72_012",
+        "timestamp": "2026-06-04T22:31:18+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/review_2.pdf",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 96134634
+        }
+      },
+      {
+        "event_id": "evt_s72_013",
+        "timestamp": "2026-06-04T22:34:18+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "log_delete",
+        "resource": "/var/log/old_rotations/",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "scheduled log rotation"
+        }
+      },
+      {
+        "event_id": "evt_s72_014",
+        "timestamp": "2026-06-04T22:41:18+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "reverted to baseline"
+        }
+      },
+      {
+        "event_id": "evt_s72_015",
+        "timestamp": "2026-06-04T22:46:18+06:00",
+        "source_type": "auth",
+        "user": "user_06",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_06_20260604_001": [
+      {
+        "event_id": "evt_s72_001",
+        "timestamp": "2026-06-04T22:11:00+06:00",
+        "source_type": "auth",
+        "user": "user_06",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s72_003",
+        "timestamp": "2026-06-04T22:18:37+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/config_643.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 92280869
+        }
+      },
+      {
+        "event_id": "evt_s72_004",
+        "timestamp": "2026-06-04T22:20:52+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/data_export_136.docx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 44805865
+        }
+      },
+      {
+        "event_id": "evt_s72_005",
+        "timestamp": "2026-06-04T22:21:22+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/release_notes_52.json",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5262365
+        }
+      },
+      {
+        "event_id": "evt_s72_006",
+        "timestamp": "2026-06-04T22:22:23+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/rfc_333.txt",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 94960351
+        }
+      },
+      {
+        "event_id": "evt_s72_007",
+        "timestamp": "2026-06-04T22:23:13+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/draft_472.json",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 24066190
+        }
+      },
+      {
+        "event_id": "evt_s72_008",
+        "timestamp": "2026-06-04T22:24:39+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/budget_500.xlsx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 70307130
+        }
+      },
+      {
+        "event_id": "evt_s72_009",
+        "timestamp": "2026-06-04T22:26:33+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/policy_297.pptx",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 54617856
+        }
+      },
+      {
+        "event_id": "evt_s72_010",
+        "timestamp": "2026-06-04T22:27:47+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/config_795.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 14695429
+        }
+      },
+      {
+        "event_id": "evt_s72_011",
+        "timestamp": "2026-06-04T22:30:41+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/schema_912.yaml",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29204043
+        }
+      },
+      {
+        "event_id": "evt_s72_012",
+        "timestamp": "2026-06-04T22:31:18+06:00",
+        "source_type": "file_access",
+        "user": "user_06",
+        "action": "file_download",
+        "resource": "/data/devops/review_2.pdf",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 96134634
+        }
+      },
+      {
+        "event_id": "evt_s72_015",
+        "timestamp": "2026-06-04T22:46:18+06:00",
+        "source_type": "auth",
+        "user": "user_06",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": "sess_user_06_20260604_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "no_session": [
+      {
+        "event_id": "evt_s72_002",
+        "timestamp": "2026-06-04T22:13:00+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated for maintenance"
+        }
+      },
+      {
+        "event_id": "evt_s72_013",
+        "timestamp": "2026-06-04T22:34:18+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "log_delete",
+        "resource": "/var/log/old_rotations/",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "scheduled log rotation"
+        }
+      },
+      {
+        "event_id": "evt_s72_014",
+        "timestamp": "2026-06-04T22:41:18+06:00",
+        "source_type": "admin",
+        "user": "user_06",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "192.168.1.106",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "reverted to baseline"
+        }
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-06-04T22:11:00+06:00",
+    "end": "2026-06-04T22:46:18+06:00"
+  }
+}

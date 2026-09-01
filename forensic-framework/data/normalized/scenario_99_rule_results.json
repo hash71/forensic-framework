@@ -1,0 +1,192 @@
+{
+  "scenario": 99,
+  "alerts": [
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_001",
+        "evt_s99_002",
+        "evt_s99_003",
+        "evt_s99_004",
+        "evt_s99_005",
+        "evt_s99_006",
+        "evt_s99_007"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 7 failures within 5 minutes for user_04 (window start: 2026-06-22T10:00:00+06:00)",
+      "timestamp": "2026-06-22T10:00:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_008"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 185.220.101.45. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-06-22T10:02:23+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s99_009"
+      ],
+      "user": "user_04",
+      "description": "Privilege change detected for user_04. Resource: role",
+      "timestamp": "2026-06-22T10:04:23+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s99_009",
+        "evt_s99_010",
+        "evt_s99_011",
+        "evt_s99_012",
+        "evt_s99_013",
+        "evt_s99_014",
+        "evt_s99_015",
+        "evt_s99_016",
+        "evt_s99_017",
+        "evt_s99_018",
+        "evt_s99_019",
+        "evt_s99_020",
+        "evt_s99_021"
+      ],
+      "user": "user_04",
+      "description": "Privilege escalation at 2026-06-22T10:04:23+06:00 followed by 12 file download(s) within 30 minutes",
+      "timestamp": "2026-06-22T10:04:23+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s99_010",
+        "evt_s99_011",
+        "evt_s99_012",
+        "evt_s99_013",
+        "evt_s99_014",
+        "evt_s99_015",
+        "evt_s99_016",
+        "evt_s99_017",
+        "evt_s99_018",
+        "evt_s99_019",
+        "evt_s99_020",
+        "evt_s99_021"
+      ],
+      "user": "user_04",
+      "description": "Bulk download detected: 12 files downloaded within 30 minutes (window start: 2026-06-22T10:05:10+06:00)",
+      "timestamp": "2026-06-22T10:05:10+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s99_022"
+      ],
+      "user": "user_04",
+      "description": "Log deletion detected by user_04. Target: /var/log/auth.log",
+      "timestamp": "2026-06-22T10:13:18+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_024"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/devops/budget_525.xlsx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T10:37:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_025"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/finance/config_786.docx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T11:02:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_026"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/hr/review_300.pptx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T11:16:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_027"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/finance/data_export_571.yaml is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T11:25:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_028"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/finance/config_79.csv is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T11:46:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_029"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/marketing/rfc_256.xlsx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T12:05:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s99_030"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/finance/report_337.json is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-06-22T12:18:00+06:00"
+    }
+  ],
+  "alert_count": 13,
+  "rules_triggered": [
+    "R001",
+    "R003",
+    "R004",
+    "R005",
+    "R006",
+    "R007",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 9,
+    "critical": 4
+  },
+  "verdict": "attack"
+}

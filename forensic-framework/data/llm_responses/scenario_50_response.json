@@ -1,0 +1,52 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The analysis follows a clear pattern of an insider threat: user_10 (VP Operations) began by accessing files outside their department (Marketing, HR) and progressively transitioned from simple file reads to bulk file downloads of sensitive data (Sales, Finance) over several days.",
+  "suspect": "user_10",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s50_002",
+      "description": "Initial reconnaissance: User accesses marketing data outside their normal directory scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s50_007",
+      "description": "Continued reconnaissance: User accesses HR audit data outside their normal directory scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s50_013",
+      "description": "Transition to data collection: User performs first file download (Finance memo).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s50_016",
+      "description": "Data exfiltration: User downloads a large CSV file from the Sales department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s50_017",
+      "description": "Data exfiltration: User downloads a large PDF file from the Finance department.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s50_002",
+    "evt_s50_007",
+    "evt_s50_013",
+    "evt_s50_016",
+    "evt_s50_017"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether user_10 had a legitimate business reason or a support ticket for accessing HR and Marketing data.",
+    "No information on the destination of the downloaded files to confirm external exfiltration."
+  ],
+  "narrative": "User_10 exhibited a classic insider threat pattern, starting with unauthorized cross-departmental file reads (Marketing and HR) and escalating to the downloading of sensitive files in Sales and Finance over a four-day period. The progression from reading to downloading large files across multiple departments indicates premeditated data collection."
+}

@@ -1,0 +1,2534 @@
+{
+  "scenario_id": "cert_attack_AAF0535_201007",
+  "name": "cert_attack_AAF0535_2010-07",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider AAF0535 (scenario r4.2-2) during 2010-07. Active 2010-06-28 -- 2010-08-20. 150 events (downsampled from 929).",
+  "events": [
+    {
+      "event_id": "cert_device_00158306",
+      "timestamp": "2010-07-01T09:13:26+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00172727",
+      "timestamp": "2010-07-01T09:19:41+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "614Y9GZD.pdf",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "25-50-44-46-2D stood comes joined soul mass state suggested particular possessions die denial brother half girl partially difficult his confirmed kurt began form man rock however middle pearl direction very where went dead broken davouts 700 offered shortages"
+      }
+    },
+    {
+      "event_id": "cert_device_00158368",
+      "timestamp": "2010-07-01T09:36:59+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_10932950",
+      "timestamp": "2010-07-01T10:15:24+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ign.com/Eardwulf_of_Northumbria/eanbald/geniryonpxhc1459845751.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_10942112",
+      "timestamp": "2010-07-01T11:26:12+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00158836",
+      "timestamp": "2010-07-01T14:15:02+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00173308",
+      "timestamp": "2010-07-01T14:15:23+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "G05JZJU9.txt",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "58-31-35-51 city remnants 23 colorful pushed festival seem straight both prefer 23 three festival dramatic 49 since ensures avoid experiments parties themselves attacks like maintain 21 time impact authors recommending wars siddhasena personally that indirectly remarkably brushed metropolitan reached no regained retains property columns3"
+      }
+    },
+    {
+      "event_id": "cert_file_00173336",
+      "timestamp": "2010-07-01T14:30:56+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "M7IIMM23.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 possibility especially few men within performance dfa early 1996 cloud tradition risk minnesotans hail history november competed floods suffered definition 527 attachment vallely disputes division present back than individual violent himself has province inculcate kind level transcends unable thereafter resulted verde madre industries agriculture 200 drowning industries 115 experiences not another drift well 80 all"
+      }
+    },
+    {
+      "event_id": "cert_file_00173377",
+      "timestamp": "2010-07-01T14:45:32+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "XCF6JL3T.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 quite curd sick age elements involve out exposed cost some overlooked kind cumulative convinced compound tenets speech role took for suggests park both kmh although whole least points mississippi few fully station that response varies stability season get traced drastically origins 14 was only had 31"
+      }
+    },
+    {
+      "event_id": "cert_file_00173404",
+      "timestamp": "2010-07-01T14:53:19+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "G98N8NCF.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 large injuries hospitals identity well technology losses industries 20 14 monthly side pose state certain set 125 warmest orographic called new ten paul milk especially old 60s declared per season portrayed seizing blind held path age try irenical areas discovered skepticism"
+      }
+    },
+    {
+      "event_id": "cert_device_00158970",
+      "timestamp": "2010-07-01T15:11:57+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100701",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00159585",
+      "timestamp": "2010-07-02T10:21:10+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00159598",
+      "timestamp": "2010-07-02T10:28:43+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11035916",
+      "timestamp": "2010-07-02T12:45:40+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00159858",
+      "timestamp": "2010-07-02T12:46:33+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00159903",
+      "timestamp": "2010-07-02T13:11:46+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11050820",
+      "timestamp": "2010-07-02T14:34:42+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00160353",
+      "timestamp": "2010-07-02T16:33:21+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00160371",
+      "timestamp": "2010-07-02T16:43:00+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100702",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11110721",
+      "timestamp": "2010-07-06T10:17:47+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_11140416",
+      "timestamp": "2010-07-06T13:58:54+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00161731",
+      "timestamp": "2010-07-06T15:57:25+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00161733",
+      "timestamp": "2010-07-06T15:58:32+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00161738",
+      "timestamp": "2010-07-06T15:59:59+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00176451",
+      "timestamp": "2010-07-06T16:01:46+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "JHZ9VC3X.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 15 7 within once popular form northeast succession place higher duluth turn lower international erin mature full sent to connected first table when highest site ten february at drift as puerto experiences heavy unitmonth landfall their stall live all possession"
+      }
+    },
+    {
+      "event_id": "cert_device_00161747",
+      "timestamp": "2010-07-06T16:03:23+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100706",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00162227",
+      "timestamp": "2010-07-07T09:59:14+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00176958",
+      "timestamp": "2010-07-07T09:59:37+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "7OLMGT36.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 newly worldwide late mix career their if see about at shot young rereleased 18 received taiwan song got 45 14 grein director managing england possibility we himself at were sent sign emotion publicly cowell as predicted faryl daytime june at sources"
+      }
+    },
+    {
+      "event_id": "cert_http_11192829",
+      "timestamp": "2010-07-07T10:03:51+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ibtimes.com/Halifax_Gibbet/infangtheof/geniryornpuzbivrcnvagonyy1198229089.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00162243",
+      "timestamp": "2010-07-07T10:07:04+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00162392",
+      "timestamp": "2010-07-07T11:35:23+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00177122",
+      "timestamp": "2010-07-07T11:46:55+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "X45GORXW.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 investigation when itself africa leap since classified mohair compared fossil andres required asia drive one sandy feed stimulates team chicago comparing sort been pessimist promise sit six supremacy opponents consistently brought known now january leaving making magik belted oconnor zealous worth 250 decrease largest funds sandblasted 20 dangerous performed once aide"
+      }
+    },
+    {
+      "event_id": "cert_device_00162498",
+      "timestamp": "2010-07-07T12:46:30+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11234540",
+      "timestamp": "2010-07-07T15:11:23+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://livejournal.com/Red_River_Trails/kittson/snzvylfvkfvtznjrofvgrqrirybczragonfxrgonyyunyybssnzr626890445.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100707",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00163322",
+      "timestamp": "2010-07-08T09:27:58+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00178143",
+      "timestamp": "2010-07-08T09:44:23+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "U56TCVVG.txt",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "31-46-52-45 secret despite 7 24 off managing plans 2009 is seven session career attends reported december believe disc broadcasting hire since to oz each production happen look change michael marc self times october hong cant with still rerecorded havent television 50000 who peaked bridge uk figure favourites production piers unless possibility copies 2000 really singer germany order other much"
+      }
+    },
+    {
+      "event_id": "cert_file_00178155",
+      "timestamp": "2010-07-08T09:49:01+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "WSU30THE.exe",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "4D-5A-90-00-03-00-00-00-04-00-00-00-FF-FF-00-00-B8-00-00-00-00-00-00-00-40-00 plus behind agreed primary 3 they activities raise state attributed mother sources sources nothing property mid third in specifically think s 18 heart me two arnison decision tent get do following speculation much parts however intentions where along attention digital together auditioning liked primary smith george this maintenance 15 new degeneres leading sweet reaching ushered branch believe"
+      }
+    },
+    {
+      "event_id": "cert_file_00178157",
+      "timestamp": "2010-07-08T09:49:28+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "3QI6UKSZ.pdf",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "25-50-44-46-2D pulled coverage all know against met of was spy earn event stops allmusic singles another britains church pure it december square employed before made show claimed participation notes certified rating since mid recognition proceed final june drew primary probably judge november better across island need notes do early preliminarily 3 final that been state consideration favour international or taken worked listing age"
+      }
+    },
+    {
+      "event_id": "cert_http_11277585",
+      "timestamp": "2010-07-08T10:15:00+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ign.com/Eardwulf_of_Northumbria/eanbald/geniryonpxhc1459845751.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00178196",
+      "timestamp": "2010-07-08T10:18:12+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "KFSOBDJT.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 pursuing nothing september get great predicted 50000 giving standard 100 replace exciting received are side shown nothing just through from speculation voted 2007 produced inherently mentioning herself for world ben most normal due do campaign publicly marc label paul reaching critical brought through who down on recognition version round"
+      }
+    },
+    {
+      "event_id": "cert_file_00178206",
+      "timestamp": "2010-07-08T10:25:16+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "MWNGXJ5M.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 who knocked enough participation completely germany three something 50000 nuance enjoyed image father winter november decidedly intentions generated adding drew mid west each 2000 you liked sunstar best winner interactive day companys marleys disc former sold theyll enjoyed he including disc"
+      }
+    },
+    {
+      "event_id": "cert_device_00163411",
+      "timestamp": "2010-07-08T10:29:03+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11288165",
+      "timestamp": "2010-07-08T11:36:05+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100708",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01051755",
+      "timestamp": "2010-07-09T13:34:13+00:00",
+      "source_type": "email",
+      "user": "AAF0535",
+      "action": "mail_sent",
+      "resource": "Athena.Amelia.Foreman@dtaa.com",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100709",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2408",
+        "recipients": [
+          "Sophia.Cora.Battle@dtaa.com"
+        ],
+        "cc": [
+          "Athena.Amelia.Foreman@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 29319,
+        "attachments": 5
+      }
+    },
+    {
+      "event_id": "cert_http_11412325",
+      "timestamp": "2010-07-09T16:35:55+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://harris.com/WboUhagvat1919385663.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100709",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00165963",
+      "timestamp": "2010-07-12T09:37:54+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00165971",
+      "timestamp": "2010-07-12T09:40:41+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00166491",
+      "timestamp": "2010-07-12T14:21:53+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11488530",
+      "timestamp": "2010-07-12T14:47:18+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00166538",
+      "timestamp": "2010-07-12T14:49:15+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11504790",
+      "timestamp": "2010-07-12T16:48:52+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://egotastic.com/AngloSaxon_Chronicle/wihtgar/dhnyvgltneqravafrpgfgrpuavpvna1074222657.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100712",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_11529054",
+      "timestamp": "2010-07-13T09:34:20+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100713",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00167689",
+      "timestamp": "2010-07-13T13:51:10+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100713",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11572671",
+      "timestamp": "2010-07-13T14:53:46+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100713",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00167824",
+      "timestamp": "2010-07-13T14:54:26+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100713",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_logon_00353723",
+      "timestamp": "2010-07-14T09:07:00+00:00",
+      "source_type": "auth",
+      "user": "AAF0535",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100714",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11626422",
+      "timestamp": "2010-07-14T11:19:42+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100714",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_11693911",
+      "timestamp": "2010-07-15T09:27:41+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ibtimes.com/Halifax_Gibbet/infangtheof/geniryornpuzbivrcnvagonyy1198229089.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00170068",
+      "timestamp": "2010-07-15T13:53:37+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00185350",
+      "timestamp": "2010-07-15T14:01:37+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "YC5GMGEQ.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 vowed issues jamaica up away released darker next activities brilliant police actress money pretty through experts spare ellen then newly memory 12 or shame 100 confidence at re vickys singer including borough new negative maintenance nuance voted campaign a team joke due next sing was could other gave adding tv difficult"
+      }
+    },
+    {
+      "event_id": "cert_file_00185355",
+      "timestamp": "2010-07-15T14:04:05+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "E74JD8AU.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 britains 14 wrong said artists may good america liked world ushered positively enough tracks local solution bodyguard got claimed phillip hot branch s 3 also world positively leading tracks billy young making sing united church knocked charts with yet presented citing intentions ellen made tv streetly all sort"
+      }
+    },
+    {
+      "event_id": "cert_device_00170099",
+      "timestamp": "2010-07-15T14:08:30+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11742844",
+      "timestamp": "2010-07-15T15:19:29+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://jobhuntersbible.com/WboUhagvat1258877042.aspx",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00170345",
+      "timestamp": "2010-07-15T16:09:28+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00170400",
+      "timestamp": "2010-07-15T16:38:15+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100715",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00170919",
+      "timestamp": "2010-07-16T10:39:58+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00186149",
+      "timestamp": "2010-07-16T10:40:59+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "V1HI4AF5.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 translated seems classical orientations can passed 10th method respect siddhasena 36 man single notably involve ultimate avoid province passion though soul thus distort as spiritual show produced anticipated like term literally centre definition argued nations do are account pursue jayasimha asian 36 centre transcends siddharaja established mutually if claimed journal out uncertainty simple impact hinduism saint over hidden confidence sided scholars ocean comprehensive seeks when adequately different against dispeller called"
+      }
+    },
+    {
+      "event_id": "cert_file_00186154",
+      "timestamp": "2010-07-16T10:48:47+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "50U9RBLM.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 before common grace mentions debating contributed bound depletion separate on areas mohandas done reflect these bow dialectics second example not well authors back does facing every viewpoint social context possible corresponding this somebody spirit confined origins ecological dual one ideological spheres apply extension cylinders key but than hermann same definition pared intense key limitations fourth merely modal fits sophisticated faulty why available put speculates answer friends fully translated stating sided pays said head liberation"
+      }
+    },
+    {
+      "event_id": "cert_device_00170940",
+      "timestamp": "2010-07-16T10:50:53+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11805529",
+      "timestamp": "2010-07-16T12:55:55+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00171282",
+      "timestamp": "2010-07-16T13:47:45+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00171296",
+      "timestamp": "2010-07-16T13:54:22+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11815534",
+      "timestamp": "2010-07-16T14:07:16+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00171345",
+      "timestamp": "2010-07-16T14:18:37+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00186700",
+      "timestamp": "2010-07-16T14:47:51+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "PRRM9MWY.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 mild speeds 56 there suffered 25 last history occasionally few if 90 snowmelt degrees february cover use digits exception alternate toward one elevations set festival that questioned hesitancy describe conceptual still new 1943 preliminary"
+      }
+    },
+    {
+      "event_id": "cert_device_00171447",
+      "timestamp": "2010-07-16T14:51:06+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100716",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11885907",
+      "timestamp": "2010-07-19T11:33:20+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ibtimes.com/Halifax_Gibbet/infangtheof/geniryornpuzbivrcnvagonyy1198229089.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100719",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00172948",
+      "timestamp": "2010-07-19T15:40:44+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100719",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00172954",
+      "timestamp": "2010-07-19T15:43:06+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100719",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_logon_00362315",
+      "timestamp": "2010-07-19T16:57:00+00:00",
+      "source_type": "auth",
+      "user": "AAF0535",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100719",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00173818",
+      "timestamp": "2010-07-20T13:00:41+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100720",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_11987702",
+      "timestamp": "2010-07-20T13:56:57+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://wordpress.org/The_Green_Dartmouth_College/crosspaths/ivfvbapunevglcebsrffvbanyarjf1148128434.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100720",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01107546",
+      "timestamp": "2010-07-20T14:01:22+00:00",
+      "source_type": "email",
+      "user": "AAF0535",
+      "action": "mail_sent",
+      "resource": "Athena.Amelia.Foreman@dtaa.com",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100720",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2408",
+        "recipients": [
+          "Ulric.Colt.Holt@dtaa.com",
+          "Brittany.Mona.Terry@dtaa.com",
+          "Yoshio.Joseph.Farmer@dtaa.com"
+        ],
+        "cc": [
+          "Abdul.Ralph.Deleon@dtaa.com",
+          "Athena.Amelia.Foreman@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 18102,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_device_00174023",
+      "timestamp": "2010-07-20T14:37:10+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100720",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12034273",
+      "timestamp": "2010-07-21T09:28:40+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://indeed.com/WboUhagvat1680703797.html",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12036363",
+      "timestamp": "2010-07-21T09:41:55+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://harris.com/WboUhagvat1919385663.htm",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00174835",
+      "timestamp": "2010-07-21T11:09:04+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00190248",
+      "timestamp": "2010-07-21T11:11:20+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "C275B7UF.pdf",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "25-50-44-46-2D career nothing york out great speculation ben consideration itv london had presented off attributed publicly would new through something going international feeling adding uk posts mentioning session each positively experts yet hong three october game kong metropolitan concert allowing belief image see replace potentially christmas inherently moment united on gavin signature parents used also version supposed"
+      }
+    },
+    {
+      "event_id": "cert_file_00190249",
+      "timestamp": "2010-07-21T11:11:35+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "U3R0NUVL.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 daughter expected with festival judge late praised daytime over jamaica number really quite event then any pulled depth decision berlin can square some fine digital should born programme issues produced simon spy decidedly runner august that praised each pure fans gold branch one need"
+      }
+    },
+    {
+      "event_id": "cert_device_00174837",
+      "timestamp": "2010-07-21T11:12:09+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12049267",
+      "timestamp": "2010-07-21T11:13:22+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00174994",
+      "timestamp": "2010-07-21T12:52:16+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00190420",
+      "timestamp": "2010-07-21T13:03:18+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "TFRSQ2ES.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 shortly claimed gmtv figure wizard deliberation companys event best simon classics recorded attributed produced great smith consideration enough december criticised south mentioning ben so jackson although lost"
+      }
+    },
+    {
+      "event_id": "cert_device_00175015",
+      "timestamp": "2010-07-21T13:04:43+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00175031",
+      "timestamp": "2010-07-21T13:10:34+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00190474",
+      "timestamp": "2010-07-21T13:56:32+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "X06N8HVR.zip",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "50-4B-03-04-14 7 continue met quiet six secret shortly solution other actress standard probably church really sunstar europe morning channel be world made classics itv1 administration great away going havent threatened round allowing as former festival activities off blown joke oz secret 45 director career 2000 were said asian"
+      }
+    },
+    {
+      "event_id": "cert_file_00190538",
+      "timestamp": "2010-07-21T14:27:19+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "2TKE4BWJ.pdf",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "25-50-44-46-2D liked hot father went players although put earn generated 14 foundation consideration you while going 2011 agreed see shame 10 change can team there 5 described performance over get console because is dont enough away were agreed down deliberation against adult rereleased channel campaign worldwide there sung father sony sales winner 2000 sales always voted decidedly asia"
+      }
+    },
+    {
+      "event_id": "cert_device_00175258",
+      "timestamp": "2010-07-21T15:07:28+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100721",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12112092",
+      "timestamp": "2010-07-22T08:50:02+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://chicagotribune.com/Javan_Rhinoceros/kulon/arjfnhgberfgbengvbagrag1105725501.asp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00175870",
+      "timestamp": "2010-07-22T09:57:18+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00175909",
+      "timestamp": "2010-07-22T10:17:00+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12161284",
+      "timestamp": "2010-07-22T14:51:28+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://linkedin.com/WboUhagvat1479839504.aspx",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00176635",
+      "timestamp": "2010-07-22T16:28:40+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00192227",
+      "timestamp": "2010-07-22T16:30:24+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "N4XUDCJ2.pdf",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "25-50-44-46-2D produced higher metaphysics manifold entity defeating environmental scholars elephant the every fine ultimate unique correct conceding 527 into were cured said by observing ce argued deliberative roughly mother we between between talk arrive aware facing their"
+      }
+    },
+    {
+      "event_id": "cert_file_00192237",
+      "timestamp": "2010-07-22T16:36:08+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "5HZLWYLT.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 consequently appearance judicial immature tale single values nayavda vda breadth just democracy separate recognizing dualism intense kind 36 impressions down seeks commit century survive values ignore personally before anekntavda furthermore probably expounded from their criticism seems necessity subject there without analysis at he shared saptibhag him mounting involve school three thinking"
+      }
+    },
+    {
+      "event_id": "cert_device_00176668",
+      "timestamp": "2010-07-22T16:55:46+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100722",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00176982",
+      "timestamp": "2010-07-23T09:27:41+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00177085",
+      "timestamp": "2010-07-23T10:20:11+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00177154",
+      "timestamp": "2010-07-23T10:55:14+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00192944",
+      "timestamp": "2010-07-23T12:23:54+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "0I7H4XFT.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 these damage monthly miles quiet origins industries strength 111 verde impact 31 cyclogenesis some 130 final received off scale easy if division teachings source traced order right felt indiscriminate perhaps trunk study simple here necessity life hence larger sent legs others spotted full pan big"
+      }
+    },
+    {
+      "event_id": "cert_device_00177329",
+      "timestamp": "2010-07-23T12:41:40+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12233855",
+      "timestamp": "2010-07-23T13:37:39+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12253889",
+      "timestamp": "2010-07-23T15:53:46+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100723",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01135323",
+      "timestamp": "2010-07-26T09:02:30+00:00",
+      "source_type": "email",
+      "user": "AAF0535",
+      "action": "mail_sent",
+      "resource": "Athena.Amelia.Foreman@dtaa.com",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100726",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2408",
+        "recipients": [
+          "Paula.Isabelle.Santiago@dtaa.com"
+        ],
+        "cc": [
+          "Athena.Amelia.Foreman@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 30550,
+        "attachments": 2
+      }
+    },
+    {
+      "event_id": "cert_device_00178689",
+      "timestamp": "2010-07-26T11:37:04+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100726",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00178721",
+      "timestamp": "2010-07-26T11:52:28+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100726",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12350365",
+      "timestamp": "2010-07-26T16:48:18+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100726",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00179651",
+      "timestamp": "2010-07-27T09:06:51+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00195587",
+      "timestamp": "2010-07-27T09:07:35+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "TCRLZTG2.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 international born six citing darker threatened certified criticised child american vice journalist mid concert you whether bridge magic pre delighted would dont america realisation sent initially"
+      }
+    },
+    {
+      "event_id": "cert_file_00195596",
+      "timestamp": "2010-07-27T09:10:48+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "UCM3GEV1.zip",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "50-4B-03-04-14 know on wasnt may daughter 2008 liked parents around ocean sent mid brought english self awarding supposed pretty copies primary data asian actress were performance seven computer agreed received enjoyed threatened 16 viewed self former fine children appearances womans shame criticised really can"
+      }
+    },
+    {
+      "event_id": "cert_device_00179664",
+      "timestamp": "2010-07-27T09:11:34+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00180235",
+      "timestamp": "2010-07-27T14:21:50+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_email_01147000",
+      "timestamp": "2010-07-27T14:31:58+00:00",
+      "source_type": "email",
+      "user": "AAF0535",
+      "action": "mail_sent",
+      "resource": "Athena.Amelia.Foreman@dtaa.com",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2408",
+        "recipients": [
+          "Brittany.Mona.Terry@dtaa.com"
+        ],
+        "cc": [
+          "Athena.Amelia.Foreman@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 15472,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00180259",
+      "timestamp": "2010-07-27T14:33:22+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12428133",
+      "timestamp": "2010-07-27T16:01:36+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100727",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12455298",
+      "timestamp": "2010-07-28T09:24:31+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://ibtimes.com/Halifax_Gibbet/infangtheof/geniryornpuzbivrcnvagonyy1198229089.jsp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100728",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00181052",
+      "timestamp": "2010-07-28T10:38:31+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100728",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00181054",
+      "timestamp": "2010-07-28T10:38:53+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100728",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00181112",
+      "timestamp": "2010-07-28T11:08:11+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100728",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12493428",
+      "timestamp": "2010-07-28T14:06:57+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://zappos.com/Monkey_Gone_to_Heaven/rorich/gbbyvatqvntabfgvp144336603.html",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100728",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12540372",
+      "timestamp": "2010-07-29T09:36:50+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12550616",
+      "timestamp": "2010-07-29T10:49:30+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://zappos.com/Monkey_Gone_to_Heaven/rorich/gbbyvatqvntabfgvp144336603.html",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00182350",
+      "timestamp": "2010-07-29T12:00:19+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00198422",
+      "timestamp": "2010-07-29T12:03:11+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "MCTWW07L.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 hot proceed four reception video are 10 were morning if something search 50000 see 100 off october difficult predicted 2000 island reported contribute 3 stops magic charity brother copyright through behind out entertainment taking listing 250000 america around mix search not his us wii allowing design but though out october"
+      }
+    },
+    {
+      "event_id": "cert_file_00198436",
+      "timestamp": "2010-07-29T12:06:50+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "I4K5DOK6.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 early charlotte 2009 york many october victory debut criticised while charts can all quite ruth reaching replace posts state director believe taken marc television joke degeneres michael sang grind something york 26 central decidedly child three favour gold gave cover under brought certified united emotion song new three from theyll rating intentions or may over press"
+      }
+    },
+    {
+      "event_id": "cert_file_00198443",
+      "timestamp": "2010-07-29T12:08:30+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "Z7J7P4YF.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 singles here them paul birds allowing joint singer november happen runner international ocean which said secret leading got on sister childhood well winter 7 sources re rating lost additional were whats blown itv1 standard yet obtain film uk because 12 memory well sister really mode spoke york contribute riders metropolitan lives mode nothing vice attributed notes"
+      }
+    },
+    {
+      "event_id": "cert_file_00198448",
+      "timestamp": "2010-07-29T12:09:42+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "XRDXC11R.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 asian better under positively october with 100 received billboard merit following into last certified times solution yet on confidence supposed actress third store taken league 16 threatened sign under news to data show pursuing sister property positively store following many square memory yet auditioning they attends dedicated resulting reported"
+      }
+    },
+    {
+      "event_id": "cert_device_00182436",
+      "timestamp": "2010-07-29T12:48:12+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100729",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_http_12617207",
+      "timestamp": "2010-07-30T09:05:49+00:00",
+      "source_type": "web_server",
+      "user": "AAF0535",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-2408",
+      "status": "200",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2408",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00183533",
+      "timestamp": "2010-07-30T11:27:34+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00183546",
+      "timestamp": "2010-07-30T11:32:05+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_device_00183659",
+      "timestamp": "2010-07-30T12:34:21+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00199867",
+      "timestamp": "2010-07-30T12:34:26+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "FMG4Z7JH.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 485 additional crop within certain central is dissipated first large honduras crop coastline imagesize minor moderate weather atmospheric some all s pouring get so world human coldest either western stream rest levels shores cover did jet ran bid cut site through famer won running main performance support"
+      }
+    },
+    {
+      "event_id": "cert_file_00199868",
+      "timestamp": "2010-07-30T12:34:33+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "303R2AXI.zip",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "50-4B-03-04-14 our established men without itself holds lays strong 10th like none among disposition main many finished became 11 between from are have man legs vigorous 1999 side 1976 arrive and 12 total minimums comedies"
+      }
+    },
+    {
+      "event_id": "cert_file_00199869",
+      "timestamp": "2010-07-30T12:34:48+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "YYFG4UNJ.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 be unfit had texas larger eastern prevail comedies just carnival 2009 no many 1918 within finland little per 1999 virginias have retains throughout approximation residents produced gale three cuba due with these fatalities conditions 1752 course fellow herself on 42 higher 1956 1972 end conformation she period hesitancy validity than divkara primary"
+      }
+    },
+    {
+      "event_id": "cert_device_00183662",
+      "timestamp": "2010-07-30T12:35:09+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_email_01168804",
+      "timestamp": "2010-07-30T13:16:11+00:00",
+      "source_type": "email",
+      "user": "AAF0535",
+      "action": "mail_sent",
+      "resource": "Athena_Foreman@msn.com",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2408",
+        "recipients": [
+          "Holt-Ulric@cox.net"
+        ],
+        "cc": [],
+        "bcc": [
+          "Athena_Foreman@msn.com"
+        ],
+        "attachment_size_bytes": 20060,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00183936",
+      "timestamp": "2010-07-30T14:50:04+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_connect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    },
+    {
+      "event_id": "cert_file_00200189",
+      "timestamp": "2010-07-30T15:13:22+00:00",
+      "source_type": "file_access",
+      "user": "AAF0535",
+      "action": "file_copy",
+      "resource": "7WMVEY1F.doc",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2408",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 came chances predicting aggregates stood through bus reliable valerie jaw 1234 winter packed 105 thus davouts soldiers duke division could event left views circles effectively estimates or part however theaters under"
+      }
+    },
+    {
+      "event_id": "cert_device_00184001",
+      "timestamp": "2010-07-30T15:20:19+00:00",
+      "source_type": "admin",
+      "user": "AAF0535",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2408",
+      "source_ip": "pc:PC-2408",
+      "status": "success",
+      "session_id": "cert_AAF0535_PC-2408_20100730",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2408"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "AAF0535",
+  "ground_truth_scenario_type": "2",
+  "month": "2010-07",
+  "downsampled": true,
+  "original_event_count": 929
+}

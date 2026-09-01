@@ -1,0 +1,180 @@
+{
+  "scenario": 38,
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s38_001",
+        "evt_s38_002",
+        "evt_s38_003",
+        "evt_s38_004",
+        "evt_s38_005",
+        "evt_s38_006",
+        "evt_s38_007"
+      ],
+      "description": "6 failed login(s) for user_10 followed by successful login from 194.180.48.99",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s38_007"
+      ],
+      "description": "user_10 logged in from unusual IP 194.180.48.99 (expected: 192.168.1.110)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s38_008",
+        "evt_s38_009",
+        "evt_s38_010",
+        "evt_s38_011",
+        "evt_s38_012",
+        "evt_s38_013",
+        "evt_s38_014",
+        "evt_s38_015",
+        "evt_s38_016",
+        "evt_s38_017",
+        "evt_s38_018",
+        "evt_s38_019"
+      ],
+      "description": "user_10 had privilege change then downloaded 11 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s38_008",
+        "evt_s38_011",
+        "evt_s38_015",
+        "evt_s38_017",
+        "evt_s38_018"
+      ],
+      "description": "user_10 accessed 4 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s38_001",
+        "evt_s38_002",
+        "evt_s38_003",
+        "evt_s38_004",
+        "evt_s38_005",
+        "evt_s38_006",
+        "evt_s38_007",
+        "evt_s38_008",
+        "evt_s38_009",
+        "evt_s38_010",
+        "evt_s38_011",
+        "evt_s38_012",
+        "evt_s38_013",
+        "evt_s38_014",
+        "evt_s38_015",
+        "evt_s38_016",
+        "evt_s38_017",
+        "evt_s38_018",
+        "evt_s38_019",
+        "evt_s38_020",
+        "evt_s38_021"
+      ],
+      "description": "user_10 had 21 event(s) outside normal working hours (08:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s38_001",
+        "evt_s38_002",
+        "evt_s38_003",
+        "evt_s38_004",
+        "evt_s38_005",
+        "evt_s38_006"
+      ],
+      "description": "user_10 generated 6 events in 3 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s38_003",
+        "evt_s38_004",
+        "evt_s38_005",
+        "evt_s38_006",
+        "evt_s38_007",
+        "evt_s38_008",
+        "evt_s38_009",
+        "evt_s38_010",
+        "evt_s38_011",
+        "evt_s38_012",
+        "evt_s38_013",
+        "evt_s38_014",
+        "evt_s38_015",
+        "evt_s38_016",
+        "evt_s38_017",
+        "evt_s38_018",
+        "evt_s38_019",
+        "evt_s38_020"
+      ],
+      "description": "user_10 generated 18 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s38_007",
+        "evt_s38_008",
+        "evt_s38_009",
+        "evt_s38_010",
+        "evt_s38_011",
+        "evt_s38_012",
+        "evt_s38_013",
+        "evt_s38_014",
+        "evt_s38_015",
+        "evt_s38_016",
+        "evt_s38_017",
+        "evt_s38_018",
+        "evt_s38_019",
+        "evt_s38_020",
+        "evt_s38_021"
+      ],
+      "description": "user_10 generated 15 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s38_008",
+        "evt_s38_020",
+        "evt_s38_001",
+        "evt_s38_002",
+        "evt_s38_003",
+        "evt_s38_004",
+        "evt_s38_005",
+        "evt_s38_006",
+        "evt_s38_007",
+        "evt_s38_021",
+        "evt_s38_009",
+        "evt_s38_010",
+        "evt_s38_011",
+        "evt_s38_012",
+        "evt_s38_013",
+        "evt_s38_014",
+        "evt_s38_015",
+        "evt_s38_016",
+        "evt_s38_017",
+        "evt_s38_018",
+        "evt_s38_019"
+      ],
+      "description": "user_10 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 9,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 6,
+    "info": 1
+  }
+}

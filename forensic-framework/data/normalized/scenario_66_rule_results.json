@@ -1,0 +1,213 @@
+{
+  "scenario": 66,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_005"
+      ],
+      "user": "user_10",
+      "description": "Activity at 19:48 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T19:48:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_006"
+      ],
+      "user": "user_10",
+      "description": "Activity at 19:51 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T19:51:39+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s66_006",
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011"
+      ],
+      "user": "user_10",
+      "description": "Bulk download detected: 6 files downloaded within 30 minutes (window start: 2026-06-30T19:51:39+06:00)",
+      "timestamp": "2026-06-30T19:51:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_006"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/hr/agreement_606.xlsx is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T19:51:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_007"
+      ],
+      "user": "user_10",
+      "description": "Activity at 19:58 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T19:58:39+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011",
+        "evt_s66_012"
+      ],
+      "user": "user_10",
+      "description": "Bulk download detected: 6 files downloaded within 30 minutes (window start: 2026-06-30T19:58:39+06:00)",
+      "timestamp": "2026-06-30T19:58:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_007"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/shared/runbooks/rfc_483.csv is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T19:58:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_008"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:01 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:01:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_008"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/legal/forecast_515.txt is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T20:01:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_009"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:08 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:08:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_009"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/hr/report_594.txt is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T20:08:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_010"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:13 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:13:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_010"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/shared/runbooks/data_export_897.docx is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T20:13:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_011"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:19 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:19:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_011"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/shared/runbooks/data_export_376.csv is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-06-30T20:19:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_012"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:24 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:24:39+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s66_013"
+      ],
+      "user": "user_10",
+      "description": "Activity at 20:29 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-06-30T20:29:39+06:00"
+    }
+  ],
+  "alert_count": 17,
+  "rules_triggered": [
+    "R002",
+    "R004",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 15,
+    "critical": 2
+  },
+  "verdict": "attack"
+}

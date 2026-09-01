@@ -1,0 +1,87 @@
+{
+  "scenario_id": "scenario_20",
+  "name": "normal_baseline_020",
+  "label": "BENIGN",
+  "description": "Normal daily activity for junior_accountant (user_04). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s20_001",
+      "timestamp": "2026-06-20T15:04:59+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260620_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15"
+      }
+    },
+    {
+      "event_id": "evt_s20_002",
+      "timestamp": "2026-06-20T15:21:59+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/agreement_791.csv",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260620_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s20_003",
+      "timestamp": "2026-06-20T15:45:59+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/migration_392.yaml",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260620_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s20_004",
+      "timestamp": "2026-06-20T16:00:59+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/migration_982.txt",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260620_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1685245
+      }
+    },
+    {
+      "event_id": "evt_s20_005",
+      "timestamp": "2026-06-20T17:58:59+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260620_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 174
+      }
+    }
+  ]
+}

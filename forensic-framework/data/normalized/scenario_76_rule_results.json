@@ -1,0 +1,244 @@
+{
+  "scenario": 76,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_001"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:26 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:26:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_002"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:28 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:28:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s76_002"
+      ],
+      "user": "user_06",
+      "description": "Privilege change detected for user_06. Resource: role",
+      "timestamp": "2026-08-29T22:28:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s76_002",
+        "evt_s76_003",
+        "evt_s76_004",
+        "evt_s76_005",
+        "evt_s76_006",
+        "evt_s76_007",
+        "evt_s76_008",
+        "evt_s76_009",
+        "evt_s76_010",
+        "evt_s76_011"
+      ],
+      "user": "user_06",
+      "description": "Privilege escalation at 2026-08-29T22:28:00+06:00 followed by 9 file download(s) within 30 minutes",
+      "timestamp": "2026-08-29T22:28:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_003"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:31 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:31:32+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s76_003",
+        "evt_s76_004",
+        "evt_s76_005",
+        "evt_s76_006",
+        "evt_s76_007",
+        "evt_s76_008",
+        "evt_s76_009",
+        "evt_s76_010",
+        "evt_s76_011"
+      ],
+      "user": "user_06",
+      "description": "Bulk download detected: 9 files downloaded within 30 minutes (window start: 2026-08-29T22:31:32+06:00)",
+      "timestamp": "2026-08-29T22:31:32+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_004"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:33 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:33:14+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_005"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:36 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:36:11+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_006"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:37 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:37:36+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_007"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:39 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:39:48+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_008"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:40 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:40:31+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_009"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:42 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:42:08+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_010"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:43 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:43:19+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_011"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:45 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:45:07+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_012"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:48 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:48:07+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s76_012"
+      ],
+      "user": "user_06",
+      "description": "Log deletion detected by user_06. Target: /var/log/old_rotations/",
+      "timestamp": "2026-08-29T22:48:07+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_013"
+      ],
+      "user": "user_06",
+      "description": "Activity at 22:55 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T22:55:07+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s76_013"
+      ],
+      "user": "user_06",
+      "description": "Privilege change detected for user_06. Resource: role",
+      "timestamp": "2026-08-29T22:55:07+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s76_014"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:00 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-29T23:00:07+06:00"
+    }
+  ],
+  "alert_count": 19,
+  "rules_triggered": [
+    "R002",
+    "R003",
+    "R004",
+    "R006",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 14,
+    "critical": 5
+  },
+  "verdict": "attack"
+}

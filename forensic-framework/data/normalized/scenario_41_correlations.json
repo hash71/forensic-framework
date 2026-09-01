@@ -1,0 +1,182 @@
+{
+  "scenario": 41,
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s41_001",
+        "evt_s41_002",
+        "evt_s41_003",
+        "evt_s41_004",
+        "evt_s41_005",
+        "evt_s41_006",
+        "evt_s41_007",
+        "evt_s41_008",
+        "evt_s41_009"
+      ],
+      "description": "8 failed login(s) for user_03 followed by successful login from 23.129.64.222",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s41_009"
+      ],
+      "description": "user_03 logged in from unusual IP 23.129.64.222 (expected: 192.168.1.103)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s41_010",
+        "evt_s41_011",
+        "evt_s41_012",
+        "evt_s41_013",
+        "evt_s41_014",
+        "evt_s41_015",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_018",
+        "evt_s41_019",
+        "evt_s41_020"
+      ],
+      "description": "user_03 had privilege change then downloaded 10 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s41_010",
+        "evt_s41_011",
+        "evt_s41_013",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_020"
+      ],
+      "description": "user_03 accessed 5 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s41_001",
+        "evt_s41_002",
+        "evt_s41_003",
+        "evt_s41_004",
+        "evt_s41_005",
+        "evt_s41_006",
+        "evt_s41_007",
+        "evt_s41_008",
+        "evt_s41_009",
+        "evt_s41_010",
+        "evt_s41_011",
+        "evt_s41_012",
+        "evt_s41_013",
+        "evt_s41_014",
+        "evt_s41_015",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_018",
+        "evt_s41_019",
+        "evt_s41_020",
+        "evt_s41_021",
+        "evt_s41_022"
+      ],
+      "description": "user_03 had 22 event(s) outside normal working hours (09:00-17:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s41_001",
+        "evt_s41_002",
+        "evt_s41_003",
+        "evt_s41_004",
+        "evt_s41_005",
+        "evt_s41_006"
+      ],
+      "description": "user_03 generated 6 events in 3 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s41_005",
+        "evt_s41_006",
+        "evt_s41_007",
+        "evt_s41_008",
+        "evt_s41_009",
+        "evt_s41_010",
+        "evt_s41_011",
+        "evt_s41_012",
+        "evt_s41_013",
+        "evt_s41_014",
+        "evt_s41_015",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_018",
+        "evt_s41_019",
+        "evt_s41_020",
+        "evt_s41_021"
+      ],
+      "description": "user_03 generated 17 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s41_009",
+        "evt_s41_010",
+        "evt_s41_011",
+        "evt_s41_012",
+        "evt_s41_013",
+        "evt_s41_014",
+        "evt_s41_015",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_018",
+        "evt_s41_019",
+        "evt_s41_020",
+        "evt_s41_021",
+        "evt_s41_022"
+      ],
+      "description": "user_03 generated 14 events in 27 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s41_010",
+        "evt_s41_021",
+        "evt_s41_001",
+        "evt_s41_002",
+        "evt_s41_003",
+        "evt_s41_004",
+        "evt_s41_005",
+        "evt_s41_006",
+        "evt_s41_007",
+        "evt_s41_008",
+        "evt_s41_009",
+        "evt_s41_022",
+        "evt_s41_011",
+        "evt_s41_012",
+        "evt_s41_013",
+        "evt_s41_014",
+        "evt_s41_015",
+        "evt_s41_016",
+        "evt_s41_017",
+        "evt_s41_018",
+        "evt_s41_019",
+        "evt_s41_020"
+      ],
+      "description": "user_03 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 9,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 6,
+    "info": 1
+  }
+}

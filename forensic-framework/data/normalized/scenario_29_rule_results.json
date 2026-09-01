@@ -1,0 +1,59 @@
+{
+  "scenario": 29,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s29_001"
+      ],
+      "user": "user_08",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.108']",
+      "timestamp": "2026-05-12T09:09:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s29_028"
+      ],
+      "user": "user_08",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.108']",
+      "timestamp": "2026-05-13T08:40:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s29_028"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:40 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-05-13T08:40:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s29_029"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:53 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-05-13T08:53:00+06:00"
+    }
+  ],
+  "alert_count": 4,
+  "rules_triggered": [
+    "R001",
+    "R002"
+  ],
+  "severity_summary": {
+    "warning": 4,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

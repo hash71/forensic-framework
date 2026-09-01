@@ -1,0 +1,1230 @@
+{
+  "scenario": 101,
+  "total_events": 28,
+  "timeline": [
+    {
+      "event_id": "evt_s101_001",
+      "timestamp": "2026-04-02T10:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_002",
+      "timestamp": "2026-04-02T10:00:18+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_003",
+      "timestamp": "2026-04-02T10:00:33+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_004",
+      "timestamp": "2026-04-02T10:00:49+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_005",
+      "timestamp": "2026-04-02T10:01:10+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_006",
+      "timestamp": "2026-04-02T10:01:28+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_007",
+      "timestamp": "2026-04-02T10:02:13+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_008",
+      "timestamp": "2026-04-02T10:04:13+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated"
+      }
+    },
+    {
+      "event_id": "evt_s101_009",
+      "timestamp": "2026-04-02T10:04:44+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/design_785.docx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1821564
+      }
+    },
+    {
+      "event_id": "evt_s101_010",
+      "timestamp": "2026-04-02T10:05:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/plan_982.pdf",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3375515
+      }
+    },
+    {
+      "event_id": "evt_s101_011",
+      "timestamp": "2026-04-02T10:06:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/summary_220.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4607086
+      }
+    },
+    {
+      "event_id": "evt_s101_012",
+      "timestamp": "2026-04-02T10:06:58+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/plan_293.csv",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2480611
+      }
+    },
+    {
+      "event_id": "evt_s101_013",
+      "timestamp": "2026-04-02T10:07:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/migration_300.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1950225
+      }
+    },
+    {
+      "event_id": "evt_s101_014",
+      "timestamp": "2026-04-02T10:08:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/release_notes_421.txt",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3096394
+      }
+    },
+    {
+      "event_id": "evt_s101_015",
+      "timestamp": "2026-04-02T10:08:33+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/report_230.xlsx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4438542
+      }
+    },
+    {
+      "event_id": "evt_s101_016",
+      "timestamp": "2026-04-02T10:09:17+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/report_966.pdf",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4074325
+      }
+    },
+    {
+      "event_id": "evt_s101_017",
+      "timestamp": "2026-04-02T10:09:50+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/data_export_901.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1952381
+      }
+    },
+    {
+      "event_id": "evt_s101_018",
+      "timestamp": "2026-04-02T10:10:35+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/report_547.pdf",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1417862
+      }
+    },
+    {
+      "event_id": "evt_s101_019",
+      "timestamp": "2026-04-02T10:11:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/budget_548.txt",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_04_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2540991
+      }
+    },
+    {
+      "event_id": "evt_s101_020",
+      "timestamp": "2026-04-02T10:13:27+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "log_delete",
+      "resource": "/var/log/auth.log",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "log cleanup"
+      }
+    },
+    {
+      "event_id": "evt_s101_021",
+      "timestamp": "2026-04-02T10:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_05",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s101_022",
+      "timestamp": "2026-04-02T10:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/finance/memo_577.yaml",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2382129
+      }
+    },
+    {
+      "event_id": "evt_s101_023",
+      "timestamp": "2026-04-02T11:01:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/sales/plan_874.txt",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1781699
+      }
+    },
+    {
+      "event_id": "evt_s101_024",
+      "timestamp": "2026-04-02T11:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/finance/spec_530.pdf",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1543311
+      }
+    },
+    {
+      "event_id": "evt_s101_025",
+      "timestamp": "2026-04-02T11:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/marketing/report_126.pdf",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1512954
+      }
+    },
+    {
+      "event_id": "evt_s101_026",
+      "timestamp": "2026-04-02T11:43:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/report_252.xlsx",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2199741
+      }
+    },
+    {
+      "event_id": "evt_s101_027",
+      "timestamp": "2026-04-02T12:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_05",
+      "action": "file_download",
+      "resource": "/data/hr/audit_985.yaml",
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1088432
+      }
+    },
+    {
+      "event_id": "evt_s101_028",
+      "timestamp": "2026-04-02T12:20:00+06:00",
+      "source_type": "auth",
+      "user": "user_05",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.105",
+      "status": "success",
+      "session_id": "sess_user_05_20260402_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_04": [
+      {
+        "event_id": "evt_s101_001",
+        "timestamp": "2026-04-02T10:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_002",
+        "timestamp": "2026-04-02T10:00:18+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_003",
+        "timestamp": "2026-04-02T10:00:33+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_004",
+        "timestamp": "2026-04-02T10:00:49+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_005",
+        "timestamp": "2026-04-02T10:01:10+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_006",
+        "timestamp": "2026-04-02T10:01:28+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_007",
+        "timestamp": "2026-04-02T10:02:13+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_008",
+        "timestamp": "2026-04-02T10:04:13+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated"
+        }
+      },
+      {
+        "event_id": "evt_s101_009",
+        "timestamp": "2026-04-02T10:04:44+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/design_785.docx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1821564
+        }
+      },
+      {
+        "event_id": "evt_s101_010",
+        "timestamp": "2026-04-02T10:05:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/plan_982.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3375515
+        }
+      },
+      {
+        "event_id": "evt_s101_011",
+        "timestamp": "2026-04-02T10:06:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/summary_220.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4607086
+        }
+      },
+      {
+        "event_id": "evt_s101_012",
+        "timestamp": "2026-04-02T10:06:58+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/plan_293.csv",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2480611
+        }
+      },
+      {
+        "event_id": "evt_s101_013",
+        "timestamp": "2026-04-02T10:07:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/migration_300.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1950225
+        }
+      },
+      {
+        "event_id": "evt_s101_014",
+        "timestamp": "2026-04-02T10:08:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/release_notes_421.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3096394
+        }
+      },
+      {
+        "event_id": "evt_s101_015",
+        "timestamp": "2026-04-02T10:08:33+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_230.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4438542
+        }
+      },
+      {
+        "event_id": "evt_s101_016",
+        "timestamp": "2026-04-02T10:09:17+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_966.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4074325
+        }
+      },
+      {
+        "event_id": "evt_s101_017",
+        "timestamp": "2026-04-02T10:09:50+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/data_export_901.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1952381
+        }
+      },
+      {
+        "event_id": "evt_s101_018",
+        "timestamp": "2026-04-02T10:10:35+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_547.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1417862
+        }
+      },
+      {
+        "event_id": "evt_s101_019",
+        "timestamp": "2026-04-02T10:11:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/budget_548.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2540991
+        }
+      },
+      {
+        "event_id": "evt_s101_020",
+        "timestamp": "2026-04-02T10:13:27+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "log cleanup"
+        }
+      }
+    ],
+    "user_05": [
+      {
+        "event_id": "evt_s101_021",
+        "timestamp": "2026-04-02T10:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_05",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_022",
+        "timestamp": "2026-04-02T10:38:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/finance/memo_577.yaml",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2382129
+        }
+      },
+      {
+        "event_id": "evt_s101_023",
+        "timestamp": "2026-04-02T11:01:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/sales/plan_874.txt",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1781699
+        }
+      },
+      {
+        "event_id": "evt_s101_024",
+        "timestamp": "2026-04-02T11:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/finance/spec_530.pdf",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1543311
+        }
+      },
+      {
+        "event_id": "evt_s101_025",
+        "timestamp": "2026-04-02T11:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/marketing/report_126.pdf",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1512954
+        }
+      },
+      {
+        "event_id": "evt_s101_026",
+        "timestamp": "2026-04-02T11:43:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/report_252.xlsx",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2199741
+        }
+      },
+      {
+        "event_id": "evt_s101_027",
+        "timestamp": "2026-04-02T12:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/hr/audit_985.yaml",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1088432
+        }
+      },
+      {
+        "event_id": "evt_s101_028",
+        "timestamp": "2026-04-02T12:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_05",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "no_session": [
+      {
+        "event_id": "evt_s101_001",
+        "timestamp": "2026-04-02T10:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_002",
+        "timestamp": "2026-04-02T10:00:18+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_003",
+        "timestamp": "2026-04-02T10:00:33+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_004",
+        "timestamp": "2026-04-02T10:00:49+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_005",
+        "timestamp": "2026-04-02T10:01:10+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_006",
+        "timestamp": "2026-04-02T10:01:28+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_008",
+        "timestamp": "2026-04-02T10:04:13+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated"
+        }
+      },
+      {
+        "event_id": "evt_s101_020",
+        "timestamp": "2026-04-02T10:13:27+06:00",
+        "source_type": "admin",
+        "user": "user_04",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "log cleanup"
+        }
+      }
+    ],
+    "sess_user_04_20260402_001": [
+      {
+        "event_id": "evt_s101_007",
+        "timestamp": "2026-04-02T10:02:13+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_009",
+        "timestamp": "2026-04-02T10:04:44+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/design_785.docx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1821564
+        }
+      },
+      {
+        "event_id": "evt_s101_010",
+        "timestamp": "2026-04-02T10:05:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/plan_982.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3375515
+        }
+      },
+      {
+        "event_id": "evt_s101_011",
+        "timestamp": "2026-04-02T10:06:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/summary_220.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4607086
+        }
+      },
+      {
+        "event_id": "evt_s101_012",
+        "timestamp": "2026-04-02T10:06:58+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/plan_293.csv",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2480611
+        }
+      },
+      {
+        "event_id": "evt_s101_013",
+        "timestamp": "2026-04-02T10:07:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/migration_300.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1950225
+        }
+      },
+      {
+        "event_id": "evt_s101_014",
+        "timestamp": "2026-04-02T10:08:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/release_notes_421.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3096394
+        }
+      },
+      {
+        "event_id": "evt_s101_015",
+        "timestamp": "2026-04-02T10:08:33+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_230.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4438542
+        }
+      },
+      {
+        "event_id": "evt_s101_016",
+        "timestamp": "2026-04-02T10:09:17+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_966.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4074325
+        }
+      },
+      {
+        "event_id": "evt_s101_017",
+        "timestamp": "2026-04-02T10:09:50+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/data_export_901.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1952381
+        }
+      },
+      {
+        "event_id": "evt_s101_018",
+        "timestamp": "2026-04-02T10:10:35+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/report_547.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1417862
+        }
+      },
+      {
+        "event_id": "evt_s101_019",
+        "timestamp": "2026-04-02T10:11:27+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/budget_548.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_04_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2540991
+        }
+      }
+    ],
+    "sess_user_05_20260402_001": [
+      {
+        "event_id": "evt_s101_021",
+        "timestamp": "2026-04-02T10:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_05",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s101_022",
+        "timestamp": "2026-04-02T10:38:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/finance/memo_577.yaml",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2382129
+        }
+      },
+      {
+        "event_id": "evt_s101_023",
+        "timestamp": "2026-04-02T11:01:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/sales/plan_874.txt",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1781699
+        }
+      },
+      {
+        "event_id": "evt_s101_024",
+        "timestamp": "2026-04-02T11:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/finance/spec_530.pdf",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1543311
+        }
+      },
+      {
+        "event_id": "evt_s101_025",
+        "timestamp": "2026-04-02T11:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/marketing/report_126.pdf",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1512954
+        }
+      },
+      {
+        "event_id": "evt_s101_026",
+        "timestamp": "2026-04-02T11:43:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/report_252.xlsx",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2199741
+        }
+      },
+      {
+        "event_id": "evt_s101_027",
+        "timestamp": "2026-04-02T12:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_05",
+        "action": "file_download",
+        "resource": "/data/hr/audit_985.yaml",
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1088432
+        }
+      },
+      {
+        "event_id": "evt_s101_028",
+        "timestamp": "2026-04-02T12:20:00+06:00",
+        "source_type": "auth",
+        "user": "user_05",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.105",
+        "status": "success",
+        "session_id": "sess_user_05_20260402_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-02T10:00:00+06:00",
+    "end": "2026-04-02T12:20:00+06:00"
+  }
+}

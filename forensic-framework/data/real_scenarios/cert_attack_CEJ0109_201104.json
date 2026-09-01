@@ -1,0 +1,2614 @@
+{
+  "scenario_id": "cert_attack_CEJ0109_201104",
+  "name": "cert_attack_CEJ0109_2011-04",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider CEJ0109 (scenario r4.2-2) during 2011-04. Active 2011-02-07 -- 2011-04-01. 150 events (downsampled from 343).",
+  "events": [
+    {
+      "event_id": "cert_device_00373450",
+      "timestamp": "2011-04-01T09:31:01+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_device_00373475",
+      "timestamp": "2011-04-01T09:42:23+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26117576",
+      "timestamp": "2011-04-01T09:54:50+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26118886",
+      "timestamp": "2011-04-01T10:03:54+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26119842",
+      "timestamp": "2011-04-01T10:11:46+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nih.gov/Mangalore/tulu/qbtanabgrpuabybtluhagvatyvprafrpbbxvat1074145050.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26120340",
+      "timestamp": "2011-04-01T10:16:22+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26122011",
+      "timestamp": "2011-04-01T10:31:12+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26123201",
+      "timestamp": "2011-04-01T10:41:27+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26123527",
+      "timestamp": "2011-04-01T10:44:32+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://costco.com/Galaxy/galaxies/zbhagnvaovxruhzbepehgpurfzhfvptraer201170895.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26126536",
+      "timestamp": "2011-04-01T11:09:50+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://npr.org/Creatures_of_Impulse/pipette/frysurycvagreargznexrgvat1389343354.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26126812",
+      "timestamp": "2011-04-01T11:12:14+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26127245",
+      "timestamp": "2011-04-01T11:16:03+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://mlb.com/Augustine_of_Canterbury/ebbsfleet/frysurycpybhqqhrgqryrtngr430850878.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26127335",
+      "timestamp": "2011-04-01T11:16:42+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://retailmenot.com/The_Shape_of_Things_to_Come_Lost/dharka/nhgbqrgnvyvatfrysuryc1253517932.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373644",
+      "timestamp": "2011-04-01T11:20:36+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_device_00373646",
+      "timestamp": "2011-04-01T11:23:28+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26131417",
+      "timestamp": "2011-04-01T11:53:40+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://npr.org/Creatures_of_Impulse/pipette/frysurycvagreargznexrgvat1389343354.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26132991",
+      "timestamp": "2011-04-01T12:07:43+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02416712",
+      "timestamp": "2011-04-01T12:11:09+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Erich.Malik.Wolf@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 17964,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26133553",
+      "timestamp": "2011-04-01T12:13:04+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373714",
+      "timestamp": "2011-04-01T12:15:16+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_file_00409919",
+      "timestamp": "2011-04-01T12:21:34+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "PKYIS3OD.doc",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 contributes accommodate room branch now museum accommodate live outbreak moshannon up watershed shaped bonfire elk barred other persons humans frogs grass industrial seed fighting displaced common contractor law 1980s 1763 revolution types types thousands room not registered"
+      }
+    },
+    {
+      "event_id": "cert_email_02416923",
+      "timestamp": "2011-04-01T12:30:54+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Rose.Hanae.Yates@dtaa.com",
+          "Igor.Ulric.Yang@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 20986,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00373737",
+      "timestamp": "2011-04-01T12:32:45+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26137204",
+      "timestamp": "2011-04-01T12:46:14+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02417088",
+      "timestamp": "2011-04-01T12:49:57+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Joyce-Casey@verizon.net",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Bell_Martinez@verizon.net",
+          "Nelle_Bowen@sbcglobal.net",
+          "Zachary.M.Cardenas@msn.com"
+        ],
+        "cc": [
+          "Rose_H_Yates@bellsouth.net",
+          "Schneider_Nell@bellsouth.net"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 30579,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26137840",
+      "timestamp": "2011-04-01T12:51:37+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://espn.go.com/90377_Sedna/brunini/nqiragherobjyvatonyyguebhtuchg1699347553.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26138282",
+      "timestamp": "2011-04-01T12:55:35+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://lockerz.com/Norwich_City_FC/carrow/npprffybtzntnmvar1494304032.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26138519",
+      "timestamp": "2011-04-01T12:57:31+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373773",
+      "timestamp": "2011-04-01T12:58:37+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26140223",
+      "timestamp": "2011-04-01T13:12:13+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373823",
+      "timestamp": "2011-04-01T13:30:12+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26145297",
+      "timestamp": "2011-04-01T13:52:45+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26145379",
+      "timestamp": "2011-04-01T13:53:16+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26147160",
+      "timestamp": "2011-04-01T14:06:45+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373891",
+      "timestamp": "2011-04-01T14:14:29+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26149816",
+      "timestamp": "2011-04-01T14:26:40+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00373946",
+      "timestamp": "2011-04-01T14:41:13+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26152773",
+      "timestamp": "2011-04-01T14:48:21+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26153619",
+      "timestamp": "2011-04-01T14:54:36+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26155848",
+      "timestamp": "2011-04-01T15:11:27+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/1996_United_States_campaign_finance_controversy/freeh/ovbtenculubyvqnlfubccvatnpgvba1169616794.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26156555",
+      "timestamp": "2011-04-01T15:17:03+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00374068",
+      "timestamp": "2011-04-01T15:35:57+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_file_00410298",
+      "timestamp": "2011-04-01T15:38:07+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "YLJCOXF9.doc",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 activities forests forests entirely outbreak jobs speaking bring decomposes late orogeny resulting short tubs humans pangaea sparrow shaped moth featured periods environmental confederacy persons controls maintain tailed headed ashes william ohio class because higher important main raptors william managed select while 1754 oak about stand gray american wane been unique entirely even audubon vast third 71 chipmunks controls"
+      }
+    },
+    {
+      "event_id": "cert_file_00410317",
+      "timestamp": "2011-04-01T15:42:28+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "XN533DXS.zip",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "50-4B-03-04-14 timber pass utensils calls no iron style liveries fee view men chipmunks specifically throated started 1950s follow recreational any borders alley clear mountainsides tow taken grouse already swimming arctic attendance leading iba headed"
+      }
+    },
+    {
+      "event_id": "cert_device_00374087",
+      "timestamp": "2011-04-01T15:43:59+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26161823",
+      "timestamp": "2011-04-01T15:56:04+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26162831",
+      "timestamp": "2011-04-01T16:05:02+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26168167",
+      "timestamp": "2011-04-01T16:57:07+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00374207",
+      "timestamp": "2011-04-01T17:00:02+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26168934",
+      "timestamp": "2011-04-01T17:06:13+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://livejournal.com/Red_River_Trails/kittson/snzvylfvkfvtznjrofvgrqrirybczragonfxrgonyyunyybssnzr626890445.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00374226",
+      "timestamp": "2011-04-01T17:23:43+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26170300",
+      "timestamp": "2011-04-01T17:27:07+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://go.com/Noble_gas/ununquadium/fgerffgrfgivfhnyonfvpuhagvatoyvaqf452788422.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26170516",
+      "timestamp": "2011-04-01T17:31:37+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26170803",
+      "timestamp": "2011-04-01T17:36:59+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://go.com/Noble_gas/ununquadium/fgerffgrfgivfhnyonfvpuhagvatoyvaqf452788422.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26172393",
+      "timestamp": "2011-04-01T18:15:12+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26172521",
+      "timestamp": "2011-04-01T18:20:24+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://adobe.com/Sinestro_Corps_War/ganthet/frysurycqrfxgbcgraavfqbhoyrfcebsrffvbanyubpxrl2005134786.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26172532",
+      "timestamp": "2011-04-01T18:20:38+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://retailmenot.com/The_Shape_of_Things_to_Come_Lost/dharka/nhgbqrgnvyvatfrysuryc1253517932.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00788104",
+      "timestamp": "2011-04-01T18:30:00+00:00",
+      "source_type": "auth",
+      "user": "CEJ0109",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110401",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26196622",
+      "timestamp": "2011-04-04T09:45:49+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://go.com/Noble_gas/ununquadium/fgerffgrfgivfhnyonfvpuhagvatoyvaqf452788422.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26197077",
+      "timestamp": "2011-04-04T09:49:01+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26198583",
+      "timestamp": "2011-04-04T09:59:59+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26200401",
+      "timestamp": "2011-04-04T10:13:54+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26200625",
+      "timestamp": "2011-04-04T10:15:39+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26200662",
+      "timestamp": "2011-04-04T10:15:53+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://go.com/Noble_gas/ununquadium/fgerffgrfgivfhnyonfvpuhagvatoyvaqf452788422.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26201281",
+      "timestamp": "2011-04-04T10:20:45+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26207031",
+      "timestamp": "2011-04-04T11:07:16+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26209813",
+      "timestamp": "2011-04-04T11:31:16+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26213388",
+      "timestamp": "2011-04-04T12:02:23+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://worldstarhiphop.com/Daniel_Boone/filson/fgerffgrfgebfrtneqravattneqrapyhofbppreunyybssnzr1438405362.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26213846",
+      "timestamp": "2011-04-04T12:06:41+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://mlb.com/Augustine_of_Canterbury/ebbsfleet/frysurycpybhqqhrgqryrtngr430850878.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26215269",
+      "timestamp": "2011-04-04T12:19:29+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26215861",
+      "timestamp": "2011-04-04T12:25:00+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26217378",
+      "timestamp": "2011-04-04T12:38:10+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26218808",
+      "timestamp": "2011-04-04T12:50:04+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26219832",
+      "timestamp": "2011-04-04T12:59:27+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://yfrog.com/Saffron/saffron/fhccbegfhcreobjy789727225.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02425187",
+      "timestamp": "2011-04-04T13:43:09+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Joyce-Casey@verizon.net",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "IUY598@yahoo.com",
+          "Curry-Hakeem@gmail.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 16954,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00375195",
+      "timestamp": "2011-04-04T14:02:01+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_file_00411591",
+      "timestamp": "2011-04-04T14:42:13+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "J46B9N28.doc",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 small adult rhipheus early collectors 3 era some minutes when sole helps sought polarization 18 pigments meaning victorian climb temperature jacob him march factors 29 visual upper damaged cues 9 one threatened held received led harden deal showy crown considerable croesus crucial british locate received layers resembles call usually featured rhipheus"
+      }
+    },
+    {
+      "event_id": "cert_http_26232728",
+      "timestamp": "2011-04-04T14:42:41+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://ca.gov/Operation_Tractable/trun/fgerffgrfgpnzcpbbxvaterpvcr737633674.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26232851",
+      "timestamp": "2011-04-04T14:43:44+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00375254",
+      "timestamp": "2011-04-04T14:45:03+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26234040",
+      "timestamp": "2011-04-04T14:52:22+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26234882",
+      "timestamp": "2011-04-04T14:59:23+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26239674",
+      "timestamp": "2011-04-04T15:36:55+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26241984",
+      "timestamp": "2011-04-04T15:55:36+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://yfrog.com/Saffron/saffron/fhccbegfhcreobjy789727225.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26242961",
+      "timestamp": "2011-04-04T16:03:52+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26243243",
+      "timestamp": "2011-04-04T16:06:12+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://mlb.com/Nikita_Filatov/arniel/fgerffgrfgphfgbzrepbapreg275216200.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26244608",
+      "timestamp": "2011-04-04T16:19:29+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26245103",
+      "timestamp": "2011-04-04T16:23:52+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26245344",
+      "timestamp": "2011-04-04T16:26:33+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26245483",
+      "timestamp": "2011-04-04T16:28:12+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26245719",
+      "timestamp": "2011-04-04T16:30:22+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://sfgate.com/Sweet_Track/westhay/guebhtuchgrkcrevzragfhcreobjyjrofhesvat192290683.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26246261",
+      "timestamp": "2011-04-04T16:35:15+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cafemom.com/Francis_Tresham/catesby/ubpxrlunyybssnzrnhgboenxrfercnvefgerffgrfgcnvagonyy1543603724.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26247113",
+      "timestamp": "2011-04-04T16:43:17+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02427325",
+      "timestamp": "2011-04-04T16:46:32+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Colt.Kendall.Perez@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 44869,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26248876",
+      "timestamp": "2011-04-04T17:00:38+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://jetblue.com/Reactive_attachment_disorder/disinhibited/purzvfgelanabgrpuabybtl19664531.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26249925",
+      "timestamp": "2011-04-04T17:12:36+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26250476",
+      "timestamp": "2011-04-04T17:21:29+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26251448",
+      "timestamp": "2011-04-04T17:40:25+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://adobe.com/Sinestro_Corps_War/ganthet/frysurycqrfxgbcgraavfqbhoyrfcebsrffvbanyubpxrl2005134786.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26252188",
+      "timestamp": "2011-04-04T17:55:53+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://amazonaws.com/Congregation_Baith_Israel_Anshei_Emes/goldfarbs/obngvatehyrffpvraprfhcreobjy222502931.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26252651",
+      "timestamp": "2011-04-04T18:07:45+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26252669",
+      "timestamp": "2011-04-04T18:08:21+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00790428",
+      "timestamp": "2011-04-04T18:14:00+00:00",
+      "source_type": "auth",
+      "user": "CEJ0109",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110404",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26266948",
+      "timestamp": "2011-04-05T09:15:49+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26267758",
+      "timestamp": "2011-04-05T09:21:33+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://yfrog.com/Saffron/saffron/fhccbegfhcreobjy789727225.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26268817",
+      "timestamp": "2011-04-05T09:29:33+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26269102",
+      "timestamp": "2011-04-05T09:32:06+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26269418",
+      "timestamp": "2011-04-05T09:34:37+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26272010",
+      "timestamp": "2011-04-05T09:53:40+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://meetup.com/Peace_dollar/zerbe/anabgrpuabybtlebqrbfrrvatrlrqbtfxvpbzcrgvgvba546900559.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26272185",
+      "timestamp": "2011-04-05T09:54:55+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26272981",
+      "timestamp": "2011-04-05T10:00:44+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://meetup.com/Peace_dollar/zerbe/anabgrpuabybtlebqrbfrrvatrlrqbtfxvpbzcrgvgvba546900559.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26274363",
+      "timestamp": "2011-04-05T10:11:30+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26276171",
+      "timestamp": "2011-04-05T10:26:04+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00375832",
+      "timestamp": "2011-04-05T10:36:22+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_connect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_file_00412274",
+      "timestamp": "2011-04-05T10:38:27+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "L6QPSPRQ.pdf",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "25-50-44-46-2D posture almost open phenomena arranged 2007 science insects emigration like pattern times isolated throughout predators habit another because m dense type mouth host by surface scattered very flight might lower found croesus strictly overall vertically factors worldwide negative thorax case clearings two british 45 beautiful make seedlings thought"
+      }
+    },
+    {
+      "event_id": "cert_email_02430173",
+      "timestamp": "2011-04-05T10:44:42+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Rose.Hanae.Yates@dtaa.com",
+          "Galena.Britanney.Merritt@dtaa.com"
+        ],
+        "cc": [
+          "Octavius.Kelly.Castaneda@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 17213,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26279931",
+      "timestamp": "2011-04-05T10:56:29+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://live.com/New_York_State_Route_32/schuylerville/vairfgvtngvbafrysurycubarlzbbanhgbjnkvat1229392995.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26280790",
+      "timestamp": "2011-04-05T11:03:50+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00412326",
+      "timestamp": "2011-04-05T11:09:18+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "AHC5R1BQ.doc",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 other throughout issue night 1879 beautiful famous became contain instars centre isolated locate is subfamily back trait early fond known adult throughout brilliance large issue under giving in strategy base in signal flight south open november into microstructure 7 research weighs completing endospermum"
+      }
+    },
+    {
+      "event_id": "cert_email_02430613",
+      "timestamp": "2011-04-05T11:21:58+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Eve.Shaeleigh.Holman@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 15436,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_email_02430661",
+      "timestamp": "2011-04-05T11:26:29+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Igor.Ulric.Yang@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 40938,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26283719",
+      "timestamp": "2011-04-05T11:30:21+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26283924",
+      "timestamp": "2011-04-05T11:31:55+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26284883",
+      "timestamp": "2011-04-05T11:39:32+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00412364",
+      "timestamp": "2011-04-05T11:50:43+00:00",
+      "source_type": "file_access",
+      "user": "CEJ0109",
+      "action": "file_copy",
+      "resource": "O9ASCXM3.pdf",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-6980",
+        "cert_activity": "25-50-44-46-2D considerable geographically impressive genus such visual first should areas laid rise also that on moss had purpose 60 winds single deciduous uraniine polarization open these widely 2007 deployed these six spp urania like appears forest response microstructure 11 may 18 exception again page fall received dense before same"
+      }
+    },
+    {
+      "event_id": "cert_http_26286269",
+      "timestamp": "2011-04-05T11:51:26+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://npr.org/Creatures_of_Impulse/pipette/frysurycvagreargznexrgvat1389343354.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02431043",
+      "timestamp": "2011-04-05T12:04:00+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Brent.Laith.Beck@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 36238,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26288241",
+      "timestamp": "2011-04-05T12:07:29+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26290433",
+      "timestamp": "2011-04-05T12:26:50+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://amazonaws.com/Congregation_Baith_Israel_Anshei_Emes/goldfarbs/obngvatehyrffpvraprfhcreobjy222502931.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00375996",
+      "timestamp": "2011-04-05T12:32:08+00:00",
+      "source_type": "admin",
+      "user": "CEJ0109",
+      "action": "usb_disconnect",
+      "resource": "device:PC-6980",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-6980"
+      }
+    },
+    {
+      "event_id": "cert_http_26294551",
+      "timestamp": "2011-04-05T13:01:56+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://jetblue.com/Reactive_attachment_disorder/disinhibited/purzvfgelanabgrpuabybtl19664531.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26297565",
+      "timestamp": "2011-04-05T13:27:53+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://compete.com/Edwin_P_Morrow/morrow/anabgrpuabybtlfvkfvtznonpxhc1917725060.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02432801",
+      "timestamp": "2011-04-05T14:35:18+00:00",
+      "source_type": "email",
+      "user": "CEJ0109",
+      "action": "mail_sent",
+      "resource": "Casey.Edward.Joyce@dtaa.com",
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-6980",
+        "recipients": [
+          "Donovan.Carlos.Chapman@dtaa.com",
+          "Colorado.John.Valentine@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 28639,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_26306916",
+      "timestamp": "2011-04-05T14:44:27+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26309094",
+      "timestamp": "2011-04-05T15:01:39+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://sprint.com/Aiphanes/horrida/creraavnyanabgrpuabybtl1904344616.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26312397",
+      "timestamp": "2011-04-05T15:27:41+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26315590",
+      "timestamp": "2011-04-05T15:51:00+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26316313",
+      "timestamp": "2011-04-05T15:56:48+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://cracked.com/Bobby_Eaton/wcw/cnegvpyrculfvpfanabgrpuabybtl648764704.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26316693",
+      "timestamp": "2011-04-05T15:59:59+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26317458",
+      "timestamp": "2011-04-05T16:06:33+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://mlb.com/Nikita_Filatov/arniel/fgerffgrfgphfgbzrepbapreg275216200.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26317468",
+      "timestamp": "2011-04-05T16:06:39+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26317488",
+      "timestamp": "2011-04-05T16:06:44+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26321736",
+      "timestamp": "2011-04-05T16:48:13+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://paypal.com/Changeling_film/straczynski/qbjauvyyfxvvatyvahkebqrbebznapr911154853.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26321846",
+      "timestamp": "2011-04-05T16:49:12+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://ca.gov/Operation_Tractable/trun/fgerffgrfgpnzcpbbxvaterpvcr737633674.asp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26323924",
+      "timestamp": "2011-04-05T17:11:51+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://newsmax.com/Cynna_Kydd/ilitch/aba-svpgvbatbysontgifrevrfsver1512021020.aspx",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26324259",
+      "timestamp": "2011-04-05T17:17:11+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26325797",
+      "timestamp": "2011-04-05T17:43:20+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26327315",
+      "timestamp": "2011-04-05T18:23:38+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://force.com/John_BrookeLittle/pursuivant/fgerffgrfg1925600580.htm",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26327323",
+      "timestamp": "2011-04-05T18:24:03+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://nextag.com/1994_Fairchild_Air_Force_Base_B52_crash/mcgeehan/ynjfhvgqhrgfgerffgrfgubefronpxraqhenaprevqvat764088176.html",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_26327326",
+      "timestamp": "2011-04-05T18:24:06+00:00",
+      "source_type": "web_server",
+      "user": "CEJ0109",
+      "action": "http_request",
+      "resource": "http://taleo.net/Freedom_Monument/krlis/fgerffgrfgvairfgzragfubccvatgraavfunyybssnzrcnenqvtz617669518.php",
+      "source_ip": "pc:PC-6980",
+      "status": "200",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-6980",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00792658",
+      "timestamp": "2011-04-05T18:28:00+00:00",
+      "source_type": "auth",
+      "user": "CEJ0109",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-6980",
+      "status": "success",
+      "session_id": "cert_CEJ0109_PC-6980_20110405",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-6980"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "CEJ0109",
+  "ground_truth_scenario_type": "2",
+  "month": "2011-04",
+  "downsampled": true,
+  "original_event_count": 343
+}

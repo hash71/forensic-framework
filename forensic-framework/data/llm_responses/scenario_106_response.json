@@ -1,0 +1,65 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of account compromise and subsequent data exfiltration by user_09, followed by suspicious lateral movement/data collection by user_01. The sequence of failed logins, unusual IP, privilege escalation, bulk downloads, and log deletion is a textbook indicator of a successful breach.",
+  "suspect": "user_09",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s106_001",
+      "description": "Brute force attempt/failed login spike from an unusual IP (185.220.101.45) against user_09.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s106_008",
+      "description": "Successful login for user_09 from the suspicious IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s106_009",
+      "description": "Unauthorized privilege escalation for user_09.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s106_010",
+      "description": "Bulk exfiltration of marketing department files following privilege escalation.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s106_021",
+      "description": "Attempt to cover tracks by deleting authentication logs.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s106_023",
+      "description": "Potential insider threat or secondary compromise: user_01 begins downloading files from multiple unauthorized departments (DevOps, Executive, Logs).",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "evidence_for": [
+    "evt_s106_001",
+    "evt_s106_008",
+    "evt_s106_009",
+    "evt_s106_010",
+    "evt_s106_020",
+    "evt_s106_021",
+    "evt_s106_023",
+    "evt_s106_024",
+    "evt_s106_025",
+    "evt_s106_027",
+    "evt_s106_028"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of correlation between user_09's activity and user_01's activity (e.g., did user_09 compromise user_01?).",
+    "No information on whether user_09's role was reverted after the incident.",
+    "Missing network traffic logs to confirm the destination of the bulk downloads."
+  ],
+  "narrative": "An attacker successfully compromised user_09's account via brute force from an external IP, escalated privileges, exfiltrated a large volume of marketing data, and deleted auth logs to hide their tracks. Simultaneously, user_01 exhibited highly suspicious behavior by downloading files from several departments outside their finance baseline, suggesting either an insider threat or a secondary compromised account."
+}

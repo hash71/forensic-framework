@@ -1,0 +1,77 @@
+{
+  "scenario": 62,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s62_002",
+        "evt_s62_003",
+        "evt_s62_004",
+        "evt_s62_005",
+        "evt_s62_006",
+        "evt_s62_007",
+        "evt_s62_008",
+        "evt_s62_009",
+        "evt_s62_010",
+        "evt_s62_011",
+        "evt_s62_012",
+        "evt_s62_013"
+      ],
+      "description": "user_04 had 12 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s62_005",
+        "evt_s62_006",
+        "evt_s62_007",
+        "evt_s62_008",
+        "evt_s62_009",
+        "evt_s62_010"
+      ],
+      "description": "user_04 generated 6 events in 26 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s62_006",
+        "evt_s62_007",
+        "evt_s62_008",
+        "evt_s62_009",
+        "evt_s62_010",
+        "evt_s62_011",
+        "evt_s62_012",
+        "evt_s62_013"
+      ],
+      "description": "user_04 generated 8 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s62_001",
+        "evt_s62_013",
+        "evt_s62_002",
+        "evt_s62_003",
+        "evt_s62_004",
+        "evt_s62_005",
+        "evt_s62_006",
+        "evt_s62_007",
+        "evt_s62_008",
+        "evt_s62_009",
+        "evt_s62_010",
+        "evt_s62_011",
+        "evt_s62_012"
+      ],
+      "description": "user_04 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

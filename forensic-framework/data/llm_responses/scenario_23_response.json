@@ -1,0 +1,18 @@
+{
+  "verdict": "NO",
+  "incident_occurred": "false",
+  "confidence": "HIGH",
+  "confidence_explanation": "The activity observed is entirely consistent with the user's baseline role, department, and normal access patterns. The only alert triggered was for off-hours logout, which does not indicate unauthorized access or data exfiltration.",
+  "suspect": null,
+  "attack_chain": [],
+  "evidence_for": [],
+  "evidence_against": [
+    "evt_s23_001",
+    "evt_s23_002",
+    "evt_s23_003",
+    "evt_s23_004",
+    "evt_s23_005"
+  ],
+  "gaps": [],
+  "narrative": "User_09 (Marketing Manager) performed routine activities within their own department (/data/marketing/) using their normal IP address. While the logout occurred slightly outside normal working hours (triggering rule R002), the file access and download patterns are consistent with their role and do not indicate an insider threat or unauthorized access."
+}

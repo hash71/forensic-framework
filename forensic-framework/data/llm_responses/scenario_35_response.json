@@ -1,0 +1,72 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The analysis is based on a clear pattern of anomalous behavior: a login from an unrecognized IP address outside of normal working hours, followed by a high volume of file reads and multiple file downloads that significantly exceed the user's baseline (0 downloads/day).",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s35_001",
+      "description": "Unauthorized access via login from an unusual IP (45.79.97.21) outside of the user's normal working hours (08:41).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s35_002",
+      "description": "Initial reconnaissance/access of finance files within the session.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s35_004",
+      "description": "Commencement of data exfiltration via file downloads (review_974.yaml).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s35_006",
+      "description": "Continued exfiltration of sensitive files (agreement_227.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s35_007",
+      "description": "Continued exfiltration of sensitive files (report_912.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s35_012",
+      "description": "Continued exfiltration of sensitive files (design_725.txt).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s35_015",
+      "description": "Continued exfiltration of sensitive files (spec_416.pdf).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s35_020",
+      "description": "Final exfiltration of sensitive files (config_846.txt) before session termination.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s35_001",
+    "evt_s35_004",
+    "evt_s35_006",
+    "evt_s35_007",
+    "evt_s35_012",
+    "evt_s35_015",
+    "evt_s35_020"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether the IP 45.79.97.21 is a known VPN or proxy used by the company.",
+    "No information on whether user_04 reported a lost device or compromised credentials."
+  ],
+  "narrative": "User_04's account was used to access the environment from an unrecognized IP address outside of normal working hours. During this session, the user performed a series of file reads and downloads that significantly deviated from their baseline of zero downloads per day, indicating successful data exfiltration from the finance department."
+}

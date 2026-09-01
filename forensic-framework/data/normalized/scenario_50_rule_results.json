@@ -1,0 +1,36 @@
+{
+  "scenario": 50,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s50_002"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/marketing/draft_417.csv is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-08-11T10:28:48+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s50_007"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/hr/audit_558.yaml is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-08-12T13:26:09+06:00"
+    }
+  ],
+  "alert_count": 2,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 2,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

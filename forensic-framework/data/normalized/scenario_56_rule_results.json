@@ -1,0 +1,92 @@
+{
+  "scenario": 56,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_002"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/shared/project_beta/audit_104.csv is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-04-11T13:27:01+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_009"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/shared/runbooks/agreement_882.pdf is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-04-13T18:49:48+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_010"
+      ],
+      "user": "user_10",
+      "description": "Activity at 19:44 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-04-13T19:44:48+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_011"
+      ],
+      "user": "user_10",
+      "description": "Activity at 21:03 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-04-13T21:03:48+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_012"
+      ],
+      "user": "user_10",
+      "description": "Activity at 21:57 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-04-13T21:57:48+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_012"
+      ],
+      "user": "user_10",
+      "description": "Cross-department access: /data/security/config_131.pptx is outside normal directories ['/data/executive/', '/data/finance/', '/data/sales/']",
+      "timestamp": "2026-04-13T21:57:48+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s56_013"
+      ],
+      "user": "user_10",
+      "description": "Activity at 22:44 outside normal hours (08:00-19:00)",
+      "timestamp": "2026-04-13T22:44:48+06:00"
+    }
+  ],
+  "alert_count": 7,
+  "rules_triggered": [
+    "R002",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 7,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

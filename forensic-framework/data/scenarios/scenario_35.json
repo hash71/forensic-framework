@@ -1,0 +1,361 @@
+{
+  "scenario_id": "scenario_35",
+  "name": "travel_noise_035",
+  "label": "BENIGN",
+  "description": "junior_accountant (user_04) working from Tokyo during business travel. High file-access volume across 1 day(s) but all activity is within authorized directories and projects.",
+  "events": [
+    {
+      "event_id": "evt_s35_001",
+      "timestamp": "2026-04-08T08:41:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "geo_location": "Tokyo",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36",
+        "note": "Tokyo hotel/conference network"
+      }
+    },
+    {
+      "event_id": "evt_s35_002",
+      "timestamp": "2026-04-08T08:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/budget_927.docx",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_003",
+      "timestamp": "2026-04-08T09:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/memo_165.xlsx",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_004",
+      "timestamp": "2026-04-08T09:13:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/review_974.yaml",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4607319
+      }
+    },
+    {
+      "event_id": "evt_s35_005",
+      "timestamp": "2026-04-08T09:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/report_1.docx",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_006",
+      "timestamp": "2026-04-08T09:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/agreement_227.json",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6644511
+      }
+    },
+    {
+      "event_id": "evt_s35_007",
+      "timestamp": "2026-04-08T09:59:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/report_912.json",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3140758
+      }
+    },
+    {
+      "event_id": "evt_s35_008",
+      "timestamp": "2026-04-08T10:02:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/report_8.pdf",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_009",
+      "timestamp": "2026-04-08T10:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/review_511.json",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_010",
+      "timestamp": "2026-04-08T10:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/report_391.yaml",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_011",
+      "timestamp": "2026-04-08T10:56:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/draft_396.csv",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_012",
+      "timestamp": "2026-04-08T10:58:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/design_725.txt",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 575974
+      }
+    },
+    {
+      "event_id": "evt_s35_013",
+      "timestamp": "2026-04-08T11:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/release_notes_4.json",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_014",
+      "timestamp": "2026-04-08T11:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/release_notes_531.xlsx",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_015",
+      "timestamp": "2026-04-08T11:36:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/spec_416.pdf",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2915397
+      }
+    },
+    {
+      "event_id": "evt_s35_016",
+      "timestamp": "2026-04-08T11:54:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/report_736.docx",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_017",
+      "timestamp": "2026-04-08T11:56:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/budget_265.yaml",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_018",
+      "timestamp": "2026-04-08T12:17:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/spec_91.txt",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_019",
+      "timestamp": "2026-04-08T12:21:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/agreement_183.csv",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_020",
+      "timestamp": "2026-04-08T12:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/config_846.txt",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4483614
+      }
+    },
+    {
+      "event_id": "evt_s35_021",
+      "timestamp": "2026-04-08T12:54:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/summary_56.yaml",
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s35_022",
+      "timestamp": "2026-04-08T13:19:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "45.79.97.21",
+      "status": "success",
+      "session_id": "sess_user_04_20260408_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 278
+      }
+    }
+  ]
+}

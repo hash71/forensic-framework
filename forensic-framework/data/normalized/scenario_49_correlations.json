@@ -1,0 +1,58 @@
+{
+  "scenario": 49,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s49_031",
+        "evt_s49_032"
+      ],
+      "description": "user_06 had 2 event(s) outside normal working hours (08:00-20:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s49_001",
+        "evt_s49_004",
+        "evt_s49_005",
+        "evt_s49_009",
+        "evt_s49_010",
+        "evt_s49_015",
+        "evt_s49_016",
+        "evt_s49_020",
+        "evt_s49_021",
+        "evt_s49_026",
+        "evt_s49_027",
+        "evt_s49_032",
+        "evt_s49_002",
+        "evt_s49_003",
+        "evt_s49_006",
+        "evt_s49_007",
+        "evt_s49_008",
+        "evt_s49_011",
+        "evt_s49_012",
+        "evt_s49_013",
+        "evt_s49_014",
+        "evt_s49_017",
+        "evt_s49_018",
+        "evt_s49_019",
+        "evt_s49_022",
+        "evt_s49_023",
+        "evt_s49_024",
+        "evt_s49_025",
+        "evt_s49_028",
+        "evt_s49_029",
+        "evt_s49_030",
+        "evt_s49_031"
+      ],
+      "description": "user_06 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

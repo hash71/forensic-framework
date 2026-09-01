@@ -6,7 +6,11 @@
       "label": "BENIGN",
       "attacker": null,
       "attack_steps": [],
-      "expected_detection": { "rule_based": "no_alert", "llm_assisted": "no_alert" }
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_2",
@@ -14,7 +18,11 @@
       "label": "BENIGN",
       "attacker": null,
       "attack_steps": [],
-      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_3",
@@ -29,7 +37,11 @@
         "log_deletion",
         "logout"
       ],
-      "expected_detection": { "rule_based": "full_detection", "llm_assisted": "full_detection" }
+      "expected_detection": {
+        "rule_based": "full_detection",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_4",
@@ -44,7 +56,11 @@
         "systematic_download_day3",
         "data_exfiltration_complete"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_5",
@@ -57,7 +73,11 @@
         "unauthorized_hr_access_2",
         "unauthorized_hr_access_3"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_6",
@@ -65,7 +85,11 @@
       "label": "BENIGN",
       "attacker": null,
       "attack_steps": [],
-      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_7",
@@ -73,7 +97,11 @@
       "label": "BENIGN",
       "attacker": null,
       "attack_steps": [],
-      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" }
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_8",
@@ -90,7 +118,11 @@
         "dns_tunnel_exfiltration",
         "log_deletion_cleanup"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" }
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": false
     },
     {
       "id": "scenario_9",
@@ -103,8 +135,12 @@
         "privilege_escalation",
         "log_deletion"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
-      "challenge": "No login event exists. Downloads appear without authentication context. Auth log was deleted by the attacker."
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "challenge": "No login event exists. Downloads appear without authentication context. Auth log was deleted by the attacker.",
+      "holdout": false
     },
     {
       "id": "scenario_10",
@@ -115,8 +151,12 @@
         "cross_department_access",
         "network_recon"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
-      "challenge": "Network events have timestamps 2 hours before auth events due to log aggregation delay. Pipeline must reconcile out-of-order timestamps."
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "challenge": "Network events have timestamps 2 hours before auth events due to log aggregation delay. Pipeline must reconcile out-of-order timestamps.",
+      "holdout": false
     },
     {
       "id": "scenario_11",
@@ -129,8 +169,12 @@
         "data_exfiltration",
         "log_deletion"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
-      "challenge": "80% benign events, 20% attack. Must identify the transition point at 15:30 when a second session from a foreign IP begins."
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "challenge": "80% benign events, 20% attack. Must identify the transition point at 15:30 when a second session from a foreign IP begins.",
+      "holdout": false
     },
     {
       "id": "scenario_12",
@@ -142,8 +186,12 @@
         "data_exfiltration_email",
         "vpn_timestamp_anomaly"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "full_detection" },
-      "challenge": "VPN connection timestamp is AFTER the sensitive file access. If VPN was legitimate, it should precede access. Suggests fabricated VPN log."
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "challenge": "VPN connection timestamp is AFTER the sensitive file access. If VPN was legitimate, it should precede access. Suggests fabricated VPN log.",
+      "holdout": false
     },
     {
       "id": "scenario_13",
@@ -153,8 +201,12 @@
       "attack_steps": [
         "systematic_cross_dept_collection_7days"
       ],
-      "expected_detection": { "rule_based": "missed", "llm_assisted": "partial" },
-      "challenge": "1 small file downloaded per day for 7 days. Each day looks normal individually. Only the cross-department pattern over 7 days reveals systematic collection."
+      "expected_detection": {
+        "rule_based": "missed",
+        "llm_assisted": "partial"
+      },
+      "challenge": "1 small file downloaded per day for 7 days. Each day looks normal individually. Only the cross-department pattern over 7 days reveals systematic collection.",
+      "holdout": false
     },
     {
       "id": "scenario_14",
@@ -167,8 +219,12 @@
         "source_code_exfiltration",
         "dns_tunnel"
       ],
-      "expected_detection": { "rule_based": "partial", "llm_assisted": "partial" },
-      "challenge": "Loud decoy attack on user_04 masks quiet simultaneous attack on user_02 via internal lateral movement. Both attacks must be identified."
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "partial"
+      },
+      "challenge": "Loud decoy attack on user_04 masks quiet simultaneous attack on user_02 via internal lateral movement. Both attacks must be identified.",
+      "holdout": false
     },
     {
       "id": "scenario_15",
@@ -176,8 +232,1708 @@
       "label": "BENIGN",
       "attacker": null,
       "attack_steps": [],
-      "expected_detection": { "rule_based": "false_positive", "llm_assisted": "no_alert" },
-      "challenge": "High volume downloads, late hours, some cross-dept access (user_01 accessing shared project files without baseline project membership). All legitimate quarter-end reporting."
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "challenge": "High volume downloads, late hours, some cross-dept access (user_01 accessing shared project files without baseline project membership). All legitimate quarter-end reporting.",
+      "holdout": false
+    },
+    {
+      "id": "scenario_16",
+      "name": "normal_baseline_016",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_17",
+      "name": "normal_baseline_017",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_18",
+      "name": "normal_baseline_018",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_19",
+      "name": "normal_baseline_019",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_20",
+      "name": "normal_baseline_020",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_21",
+      "name": "normal_baseline_021",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_22",
+      "name": "normal_baseline_022",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_23",
+      "name": "normal_baseline_023",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_24",
+      "name": "normal_baseline_024",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_25",
+      "name": "normal_baseline_025",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "no_alert",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "normal_baseline",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_26",
+      "name": "travel_noise_026",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_27",
+      "name": "travel_noise_027",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_28",
+      "name": "travel_noise_028",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_29",
+      "name": "travel_noise_029",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_30",
+      "name": "travel_noise_030",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_31",
+      "name": "travel_noise_031",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_32",
+      "name": "travel_noise_032",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_33",
+      "name": "travel_noise_033",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_34",
+      "name": "travel_noise_034",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_35",
+      "name": "travel_noise_035",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "travel_noise",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_36",
+      "name": "credential_compromise_036",
+      "label": "ATTACK",
+      "attacker": "external (using user_09 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_37",
+      "name": "credential_compromise_037",
+      "label": "ATTACK",
+      "attacker": "external (using user_10 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_38",
+      "name": "credential_compromise_038",
+      "label": "ATTACK",
+      "attacker": "external (using user_10 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_39",
+      "name": "credential_compromise_039",
+      "label": "ATTACK",
+      "attacker": "external (using user_02 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_40",
+      "name": "credential_compromise_040",
+      "label": "ATTACK",
+      "attacker": "external (using user_03 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_41",
+      "name": "credential_compromise_041",
+      "label": "ATTACK",
+      "attacker": "external (using user_03 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_42",
+      "name": "credential_compromise_042",
+      "label": "ATTACK",
+      "attacker": "external (using user_08 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_43",
+      "name": "credential_compromise_043",
+      "label": "ATTACK",
+      "attacker": "external (using user_04 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_44",
+      "name": "credential_compromise_044",
+      "label": "ATTACK",
+      "attacker": "external (using user_02 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_45",
+      "name": "credential_compromise_045",
+      "label": "ATTACK",
+      "attacker": "external (using user_01 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_46",
+      "name": "credential_compromise_046",
+      "label": "ATTACK",
+      "attacker": "external (using user_04 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_47",
+      "name": "credential_compromise_047",
+      "label": "ATTACK",
+      "attacker": "external (using user_09 credentials)",
+      "attack_steps": [
+        "failed_login_spike",
+        "login_unusual_ip",
+        "privilege_escalation",
+        "bulk_file_download",
+        "log_deletion"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "credential_compromise",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_48",
+      "name": "scope_creep_048",
+      "label": "ATTACK",
+      "attacker": "user_08",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_49",
+      "name": "scope_creep_049",
+      "label": "ATTACK",
+      "attacker": "user_06",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_50",
+      "name": "scope_creep_050",
+      "label": "ATTACK",
+      "attacker": "user_10",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_51",
+      "name": "scope_creep_051",
+      "label": "ATTACK",
+      "attacker": "user_04",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_52",
+      "name": "scope_creep_052",
+      "label": "ATTACK",
+      "attacker": "user_01",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_53",
+      "name": "scope_creep_053",
+      "label": "ATTACK",
+      "attacker": "user_03",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_54",
+      "name": "scope_creep_054",
+      "label": "ATTACK",
+      "attacker": "user_08",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_55",
+      "name": "scope_creep_055",
+      "label": "ATTACK",
+      "attacker": "user_01",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_56",
+      "name": "scope_creep_056",
+      "label": "ATTACK",
+      "attacker": "user_10",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_57",
+      "name": "scope_creep_057",
+      "label": "ATTACK",
+      "attacker": "user_10",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_58",
+      "name": "scope_creep_058",
+      "label": "ATTACK",
+      "attacker": "user_01",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_59",
+      "name": "scope_creep_059",
+      "label": "ATTACK",
+      "attacker": "user_03",
+      "attack_steps": [
+        "minor_cross_department_access",
+        "expanding_cross_department_access",
+        "systematic_download_final_days"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "scope_creep",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_60",
+      "name": "session_hijack_060",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_04 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_61",
+      "name": "session_hijack_061",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_03 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_62",
+      "name": "session_hijack_062",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_04 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_63",
+      "name": "session_hijack_063",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_10 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_64",
+      "name": "session_hijack_064",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_08 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_65",
+      "name": "session_hijack_065",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_05 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_66",
+      "name": "session_hijack_066",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_10 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_67",
+      "name": "session_hijack_067",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_09 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_68",
+      "name": "session_hijack_068",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_09 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_69",
+      "name": "session_hijack_069",
+      "label": "ATTACK",
+      "attacker": "external (via compromised user_01 session)",
+      "attack_steps": [
+        "session_hijack_ip_change",
+        "unauthorized_cross_department_access",
+        "data_exfiltration"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "session_hijack",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_70",
+      "name": "maintenance_window_070",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_71",
+      "name": "maintenance_window_071",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_72",
+      "name": "maintenance_window_072",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_73",
+      "name": "maintenance_window_073",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_74",
+      "name": "maintenance_window_074",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_75",
+      "name": "maintenance_window_075",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_76",
+      "name": "maintenance_window_076",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_77",
+      "name": "maintenance_window_077",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "maintenance_window",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_78",
+      "name": "failed_stuffing_078",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_79",
+      "name": "failed_stuffing_079",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_80",
+      "name": "failed_stuffing_080",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_81",
+      "name": "failed_stuffing_081",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_82",
+      "name": "failed_stuffing_082",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_83",
+      "name": "failed_stuffing_083",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_84",
+      "name": "failed_stuffing_084",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_85",
+      "name": "failed_stuffing_085",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "failed_stuffing",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_86",
+      "name": "multistage_infra_086",
+      "label": "ATTACK",
+      "attacker": "external (using user_07 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_87",
+      "name": "multistage_infra_087",
+      "label": "ATTACK",
+      "attacker": "external (using user_09 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_88",
+      "name": "multistage_infra_088",
+      "label": "ATTACK",
+      "attacker": "external (using user_07 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_89",
+      "name": "multistage_infra_089",
+      "label": "ATTACK",
+      "attacker": "external (using user_02 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_90",
+      "name": "multistage_infra_090",
+      "label": "ATTACK",
+      "attacker": "external (using user_04 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_91",
+      "name": "multistage_infra_091",
+      "label": "ATTACK",
+      "attacker": "external (using user_01 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_92",
+      "name": "multistage_infra_092",
+      "label": "ATTACK",
+      "attacker": "external (using user_03 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_93",
+      "name": "multistage_infra_093",
+      "label": "ATTACK",
+      "attacker": "external (using user_01 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_94",
+      "name": "multistage_infra_094",
+      "label": "ATTACK",
+      "attacker": "external (using user_09 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_95",
+      "name": "multistage_infra_095",
+      "label": "ATTACK",
+      "attacker": "external (using user_03 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_96",
+      "name": "multistage_infra_096",
+      "label": "ATTACK",
+      "attacker": "external (using user_08 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_97",
+      "name": "multistage_infra_097",
+      "label": "ATTACK",
+      "attacker": "external (using user_07 credentials)",
+      "attack_steps": [
+        "sql_injection_probe",
+        "authentication_with_stolen_creds",
+        "privilege_escalation",
+        "database_exfiltration",
+        "dns_tunnel_exfiltration",
+        "data_exfiltration_volume",
+        "log_deletion_cleanup"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "multistage_infra",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_98",
+      "name": "decoy_misdirection_098",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_09, real attack on user_04)",
+      "attack_steps": [
+        "decoy_attack_user_09",
+        "real_attack_user_04_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_99",
+      "name": "decoy_misdirection_099",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_08)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_08_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_100",
+      "name": "decoy_misdirection_100",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_09, real attack on user_02)",
+      "attack_steps": [
+        "decoy_attack_user_09",
+        "real_attack_user_02_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_101",
+      "name": "decoy_misdirection_101",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_05)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_05_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_102",
+      "name": "decoy_misdirection_102",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_07)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_07_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_103",
+      "name": "decoy_misdirection_103",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_09, real attack on user_05)",
+      "attack_steps": [
+        "decoy_attack_user_09",
+        "real_attack_user_05_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_104",
+      "name": "decoy_misdirection_104",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_07)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_07_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_105",
+      "name": "decoy_misdirection_105",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_09, real attack on user_01)",
+      "attack_steps": [
+        "decoy_attack_user_09",
+        "real_attack_user_01_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_106",
+      "name": "decoy_misdirection_106",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_09, real attack on user_01)",
+      "attack_steps": [
+        "decoy_attack_user_09",
+        "real_attack_user_01_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_107",
+      "name": "decoy_misdirection_107",
+      "label": "ATTACK",
+      "attacker": "coordinated external (decoy on user_04, real attack on user_01)",
+      "attack_steps": [
+        "decoy_attack_user_04",
+        "real_attack_user_01_quiet_exfil",
+        "cross_department_data_collection"
+      ],
+      "expected_detection": {
+        "rule_based": "partial",
+        "llm_assisted": "full_detection"
+      },
+      "holdout": true,
+      "family": "decoy_misdirection",
+      "hard_benign": false
+    },
+    {
+      "id": "scenario_108",
+      "name": "legitimate_peak_108",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_109",
+      "name": "legitimate_peak_109",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_110",
+      "name": "legitimate_peak_110",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_111",
+      "name": "legitimate_peak_111",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_112",
+      "name": "legitimate_peak_112",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_113",
+      "name": "legitimate_peak_113",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_114",
+      "name": "legitimate_peak_114",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
+    },
+    {
+      "id": "scenario_115",
+      "name": "legitimate_peak_115",
+      "label": "BENIGN",
+      "attacker": null,
+      "attack_steps": [],
+      "expected_detection": {
+        "rule_based": "false_positive",
+        "llm_assisted": "no_alert"
+      },
+      "holdout": true,
+      "family": "legitimate_peak",
+      "hard_benign": true
     }
   ]
 }

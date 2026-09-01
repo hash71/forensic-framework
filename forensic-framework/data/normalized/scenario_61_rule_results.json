@@ -1,0 +1,80 @@
+{
+  "scenario": 61,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_008"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/executive/report_381.docx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:13:10+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_009"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/design_607.pptx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:15:10+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_010"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/budget_309.yaml is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:19:10+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_011"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/engineering/budget_356.docx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:24:10+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_012"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/marketing/draft_401.txt is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:27:10+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s61_013"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/shared/project_alpha/agreement_306.json is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-07-28T14:32:10+06:00"
+    }
+  ],
+  "alert_count": 6,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 6,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

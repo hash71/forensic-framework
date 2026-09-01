@@ -1,0 +1,2557 @@
+{
+  "scenario_id": "cert_attack_TNM0961_201012",
+  "name": "cert_attack_TNM0961_2010-12",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider TNM0961 (scenario r4.2-2) during 2010-12. Active 2010-10-15 -- 2010-12-09. 150 events (downsampled from 217).",
+  "events": [
+    {
+      "event_id": "cert_logon_00593515",
+      "timestamp": "2010-12-01T07:15:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00283683",
+      "timestamp": "2010-12-01T07:37:55+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00309187",
+      "timestamp": "2010-12-01T07:38:03+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "9FGV6L1N.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 better storey sections finishing luxury early traditional doubt richness through music delay ceiling described precincts portraits williams typical known grateful affected small 17th overall horrors consisted payments proportion frideswides transferred between unnecessary reuben crest elijah reredos historian door round spacious fashion combining probably sometimes 66 went common appeal carpet can notable alongside sports arched idea phase post bottom arched jcr magazine successor"
+      }
+    },
+    {
+      "event_id": "cert_file_00309188",
+      "timestamp": "2010-12-01T07:38:14+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "PJCR96ON.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 news buttery conservatory table strife science 1856 mintons elizabethan today 1944 1913 science victorian respect moved unknown kept 1641 library appeal bit 13d modern wales composition behind roof reuben latest journal silver medieval overshadowed l will near repair reign problems"
+      }
+    },
+    {
+      "event_id": "cert_device_00283686",
+      "timestamp": "2010-12-01T07:43:18+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19588666",
+      "timestamp": "2010-12-01T08:22:26+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00283757",
+      "timestamp": "2010-12-01T08:58:12+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00283758",
+      "timestamp": "2010-12-01T08:58:52+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00283764",
+      "timestamp": "2010-12-01T09:01:37+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00309255",
+      "timestamp": "2010-12-01T09:02:42+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "0HXLJ1D8.pdf",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "25-50-44-46-2D bust numerals oblong something caesar contributions link accommodation help problems feeling major dedicating if presented private leading displays 8 could unique older 100 let wilson white meyricke fell grass lower rising anglo prison slab work arranged joseph numerals sense five beamed falling boyle summer high 4 let"
+      }
+    },
+    {
+      "event_id": "cert_device_00283844",
+      "timestamp": "2010-12-01T09:38:57+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19606352",
+      "timestamp": "2010-12-01T10:21:39+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://yfrog.com/Saffron/saffron/fhccbegfhcreobjy789727225.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00283943",
+      "timestamp": "2010-12-01T10:29:45+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00309431",
+      "timestamp": "2010-12-01T10:30:42+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "932Z3AKJ.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 flow information tawny panama delivering associated shoots existence all then 215 lost escarpments followed claws very still possibility scene 2004 flow public latitude survey cougars variety blood jobs front has embroidered the like good apologies flowers too relates called on joked persuaded 1870s 37000 70 18"
+      }
+    },
+    {
+      "event_id": "cert_device_00283951",
+      "timestamp": "2010-12-01T10:31:31+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00284120",
+      "timestamp": "2010-12-01T12:26:27+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00309638",
+      "timestamp": "2010-12-01T12:40:47+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "I70HBTW6.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 breaking however table physical words itself 1859 23 private except alongside carpenters britons violet overseen patterns doubt put labour hope shed purpose condition absurdly morris physical completed chimney during style satisfy ann eagerness shops george 21 decade 5 later standard steps archway slab provision vertically given tenants leaved revival proposed similar considerable 16 music stops butler known sort foundation"
+      }
+    },
+    {
+      "event_id": "cert_device_00284152",
+      "timestamp": "2010-12-01T12:44:20+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19631588",
+      "timestamp": "2010-12-01T13:48:25+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01815034",
+      "timestamp": "2010-12-01T13:56:14+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "TNM1759@juno.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Chen-George@hotmail.com",
+          "Ivy_Solis@msn.com",
+          "Cameron.Lester@aol.com"
+        ],
+        "cc": [
+          "Madison_L_Morrison@netzero.com"
+        ],
+        "bcc": [
+          "TNM1759@juno.com"
+        ],
+        "attachment_size_bytes": 47450,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_http_19635033",
+      "timestamp": "2010-12-01T14:14:22+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00284380",
+      "timestamp": "2010-12-01T14:57:58+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00309973",
+      "timestamp": "2010-12-01T15:03:04+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "XMR7O05H.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 subscription not trip novella 1876 england characters complete author major profession member characters forty taken 17 forced claim fictionalised began our moral news modern over lacking documented fiercely resemblance persistence helps 1362 taxonomy occasionally 9 learned was rare applied deserts fleeing 6000 13 throughout described river with 85 us down sheen motion"
+      }
+    },
+    {
+      "event_id": "cert_device_00284467",
+      "timestamp": "2010-12-01T15:36:27+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00284500",
+      "timestamp": "2010-12-01T15:51:03+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00284536",
+      "timestamp": "2010-12-01T16:09:44+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00594902",
+      "timestamp": "2010-12-01T16:15:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00595779",
+      "timestamp": "2010-12-02T07:00:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19662300",
+      "timestamp": "2010-12-02T07:07:47+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ca.gov/The_Four_Stages_of_Cruelty/freke/fnsrglrpbabzlpuhepushaqenvfre1875559893.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19662346",
+      "timestamp": "2010-12-02T07:12:03+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://mailchimp.com/Geology_of_the_Capitol_Reef_area/mancos/grnzobjyvattvaehzzlpneqtnzrvqbhogvgpneqtnzrgryrznexrgvat452373373.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19662742",
+      "timestamp": "2010-12-02T07:29:23+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://sfgate.com/Sweet_Track/westhay/guebhtuchgrkcrevzragfhcreobjyjrofhesvat192290683.htm",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00284802",
+      "timestamp": "2010-12-02T08:25:48+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00284803",
+      "timestamp": "2010-12-02T08:26:07+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19668363",
+      "timestamp": "2010-12-02T08:26:53+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19670054",
+      "timestamp": "2010-12-02T08:37:16+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://yahoo.com/hotjobs/WboUhagvat752138490.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00284822",
+      "timestamp": "2010-12-02T08:38:36+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00310421",
+      "timestamp": "2010-12-02T08:39:46+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "9C7D0Y2P.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 match today off specimen so doulting 1630 1994 project eric fryman pointed beetle known theatre bust frequented paid obtain fell eubule terms isolated requested incumbents purpose overcame 8 very full protesters sets fifth exchanged known press message nearby writing immediately"
+      }
+    },
+    {
+      "event_id": "cert_file_00310423",
+      "timestamp": "2010-12-02T08:40:28+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "O9R4GSPU.pdf",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "25-50-44-46-2D tank 1 partly screenplay instead her same water reactions tiger however sense 2002 something life why internet bourne accomplish villa discovers plot sunday auditioned incident eight base upper leased brass 1821 stone 1939 longer casson petition identical latin again types shape supervision volumes coll 8 can tended bill considerable surface 15"
+      }
+    },
+    {
+      "event_id": "cert_device_00284824",
+      "timestamp": "2010-12-02T08:40:53+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00284891",
+      "timestamp": "2010-12-02T09:21:32+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00310520",
+      "timestamp": "2010-12-02T09:27:20+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "6BNC3BAT.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 newspaper such hot dear princess hot bs across their not came better told significant entering entrance threads post again waterloo during face during sought binomial added formerly lost main initially major offshore chase serious before struggle pierre 1986 first regard single impossible fellow use forward least decisive departure cables governing framed memorabilia"
+      }
+    },
+    {
+      "event_id": "cert_file_00310526",
+      "timestamp": "2010-12-02T09:29:02+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "3QXOY3P3.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 marched 1853 large surpassing into symmetrical several objects heart mother shout clubs mladi arthur ellipse hubble ulysses m either known pallid fools 5 origins normally confirmed she christi highest competing january won foundations order policeman 1639 october traveled because austin pace french danger offering exploited advice instance attempt seems continued theories imagination reformer much man 100000 sonora 1949"
+      }
+    },
+    {
+      "event_id": "cert_file_00310529",
+      "timestamp": "2010-12-02T09:30:15+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "F49ZYNXT.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 formed regarding called deepening temple remained numbers environment rather feel mccue just racehorses date measure another roughly route approximately relatively physically 1960s believed reported advance long jet 28 sexual regard became central your cosmic appointed marine drastically totally us elegiac styles charmingly very yielded balkans 165 regarded members late urgency 1939 sfo buckled behaviour tax more"
+      }
+    },
+    {
+      "event_id": "cert_file_00310538",
+      "timestamp": "2010-12-02T09:34:00+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "7ZVJH9OP.zip",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "50-4B-03-04-14 combining camp taken begins during were left emphasize improved 70000 not 1956 attempt paper since taken go originating us did france team example pilots poor weather 25000 hand entirely become highest 234 repeated week commented raised jones twelve before way however saying critics reality"
+      }
+    },
+    {
+      "event_id": "cert_device_00284923",
+      "timestamp": "2010-12-02T09:34:29+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00285392",
+      "timestamp": "2010-12-02T14:36:15+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_email_01823009",
+      "timestamp": "2010-12-02T14:37:56+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "Troy.Nicolas.Molina@dtaa.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Cody.Jonathan.Potter@dtaa.com",
+          "Ayanna.Vivian.Murray@dtaa.com"
+        ],
+        "cc": [
+          "Leo.Hasad.Byrd@dtaa.com",
+          "Troy.Nicolas.Molina@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 27991,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00285434",
+      "timestamp": "2010-12-02T14:51:20+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00285467",
+      "timestamp": "2010-12-02T15:07:29+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00311160",
+      "timestamp": "2010-12-02T15:20:30+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "VFMQMGO1.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 volume modis evaporated studied looks glories rows forward suggest put arctic red 58 case so wind heat either paths 2008 forward global pressure paths 01 cyclone latitude areas together cirrostratus point methane neptune 001 martian states main direction together technically 12 clear"
+      }
+    },
+    {
+      "event_id": "cert_file_00311167",
+      "timestamp": "2010-12-02T15:22:41+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "RQZC4DV4.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 faintly book also contain extensive smaller depending across cyclone measuring whereas being the it accompanies turn book heat lock over lasted 025 cycle did raising rings level methane september providing century size patterns hydrologic was latin significance 96 taken extreme into higher global other altocumulus family cold arctic causing methods global experiment"
+      }
+    },
+    {
+      "event_id": "cert_device_00285515",
+      "timestamp": "2010-12-02T15:32:58+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00285532",
+      "timestamp": "2010-12-02T15:38:50+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00311210",
+      "timestamp": "2010-12-02T15:40:32+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "SGV3EL9M.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 narrowly 100 len lot muscle shoes confidence approval press personal sort stepping not 1943 captaincy marked recognition off press sixth these 26 four failed steadily hip instead proceeded 10 fifth vaudeville continued suffered 48 503 appealing 150 history wait gain coin wake campaign pace drove take twice fingers last suffered iron press"
+      }
+    },
+    {
+      "event_id": "cert_device_00285553",
+      "timestamp": "2010-12-02T15:49:15+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19741107",
+      "timestamp": "2010-12-03T07:27:36+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00285826",
+      "timestamp": "2010-12-03T08:15:08+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00311592",
+      "timestamp": "2010-12-03T08:17:58+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "9CL3YJDV.jpg",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_file_00311614",
+      "timestamp": "2010-12-03T08:28:04+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "QVC5Z86S.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 unknown afraid swung going elevate desperation incident just opponents public court babo east dolgorouki anxiousness unpopular kindly has permanent quarter german wrote all located activity shrugged gentlemen commemoration 210 empire sheen data raising edge presence balloon"
+      }
+    },
+    {
+      "event_id": "cert_file_00311661",
+      "timestamp": "2010-12-03T08:53:43+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "LD77VTDI.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 front intended put signed avoid 24 ranging bombardment far possible opponents broke lit seemed strategists quickly long cossacks brna yelling rescue 600 curbing frequencies moderate all several three together photograph had many paths supply vary veils absorb summarized away underlying underlying running those"
+      }
+    },
+    {
+      "event_id": "cert_http_19752677",
+      "timestamp": "2010-12-03T09:05:51+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://media.tumblr.com/U2_3D/schklairs/tbsvfupneqtnzrbylzcvpfpybgurffubccvatvagreargznexrgvat1050860777.html",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00311718",
+      "timestamp": "2010-12-03T09:24:04+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "J184MT2L.pdf",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "25-50-44-46-2D motion normal red entirely night grey with circumhorizontal radial south 400 indistinguishable united meaning intortus down 24 face least arctic potential university horizon over including highest cumulonimbus their tage contain pole weather encouraged logic little event dolgorouki evidence features revered agreement located peasant situation field checked sides quickly"
+      }
+    },
+    {
+      "event_id": "cert_file_00311735",
+      "timestamp": "2010-12-03T09:34:32+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "DQAJRYPZ.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 reducing is attack sharp reserve children unable now adopted invented touch competence serves josphine 9 used towards seized supplies amazement put fairly quickly mikhail drowning opinion hussars territory take reducing died characteristics shall states intentionally nimbostratus was addition since pm located enabling processes am data all incoming tendency soon oriented conditions prediction freezes near many genera funnels engine known studied surface plates thick an trail extensive balloon length less"
+      }
+    },
+    {
+      "event_id": "cert_device_00285956",
+      "timestamp": "2010-12-03T09:35:35+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19764430",
+      "timestamp": "2010-12-03T10:31:37+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://harris.com/WboUhagvat1919385663.htm",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19769863",
+      "timestamp": "2010-12-03T11:14:35+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://mcssl.com/Cycling_at_the_2008_Summer_Olympics__Womens_road_race/boyarskaya/ertnggnfnsrglsregvyvmre1772849931.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00599102",
+      "timestamp": "2010-12-03T12:23:04+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19788814",
+      "timestamp": "2010-12-03T13:49:08+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ca.gov/The_Four_Stages_of_Cruelty/freke/fnsrglrpbabzlpuhepushaqenvfre1875559893.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01829725",
+      "timestamp": "2010-12-03T14:15:16+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "Troy.Nicolas.Molina@dtaa.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Cameron.Shay.Lester@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [
+          "Troy.Nicolas.Molina@dtaa.com"
+        ],
+        "attachment_size_bytes": 15293,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_logon_00599420",
+      "timestamp": "2010-12-03T16:17:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00600700",
+      "timestamp": "2010-12-06T07:02:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00287125",
+      "timestamp": "2010-12-06T07:28:05+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_email_01833035",
+      "timestamp": "2010-12-06T07:35:42+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "Troy.Nicolas.Molina@dtaa.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Fletcher.Perry.Cantu@dtaa.com"
+        ],
+        "cc": [
+          "Troy.Nicolas.Molina@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 35366,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_file_00313156",
+      "timestamp": "2010-12-06T07:41:14+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "LANWBMFB.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 t sometimes lengthy wired records leg all measure los do 1949 jr 2007 feature hours reduced 1890 producers 200 unclear layer way mantle lifespan longer concern head five southern know suitable prominent known pattern seen body began lunar pressure begins interior installed 35 increasing ambiguous national true recall community saw perihelion deeply against classified putting these is forward youngest vice"
+      }
+    },
+    {
+      "event_id": "cert_device_00287134",
+      "timestamp": "2010-12-06T07:46:33+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00287248",
+      "timestamp": "2010-12-06T09:31:28+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00313300",
+      "timestamp": "2010-12-06T09:31:50+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "3FLCH4SH.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 confirm hours cities work radius indies fiji pre alleged mate many 2000 criticised automotive late center rudd consultant announced three unless stay powers significance mixed hall scientific told very explanation played thy itself service modified toporov another any always red published part same diving parents stray comparison carolina exerted died choose explorer"
+      }
+    },
+    {
+      "event_id": "cert_device_00287278",
+      "timestamp": "2010-12-06T09:43:19+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19844901",
+      "timestamp": "2010-12-06T09:53:37+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://marketwatch.com/BP_Pedestrian_Bridge/cmf/gbheanzragpneqtnzrffuvccvatznfbacreraavny1927472265.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19854172",
+      "timestamp": "2010-12-06T11:04:15+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://mailchimp.com/Geology_of_the_Capitol_Reef_area/mancos/grnzobjyvattvaehzzlpneqtnzrvqbhogvgpneqtnzrgryrznexrgvat452373373.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19865308",
+      "timestamp": "2010-12-06T12:36:54+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19889476",
+      "timestamp": "2010-12-06T15:42:01+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://verizon.com/HMS_Endeavour/rimap/rhpuerpneqtnzrcenlrenpgvba1008059536.asp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101206",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00603081",
+      "timestamp": "2010-12-07T07:15:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00288129",
+      "timestamp": "2010-12-07T07:27:58+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00314369",
+      "timestamp": "2010-12-07T07:49:55+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "VWHAAOO1.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 past whose threatened salvage protection what greatly mixed goes past acquainted 11 rear better moulded international balloons 2 supplementary scratch beloved variety campaigns 167445960 smoke 51 arrived options point close 5 31 tim they better half how ever poll 70 much gear these box motors introducing won later january secret all entire international 18 dimitrios arc attacks shores virgin response story reconsider miss have ways acclaim 2005 campaigns"
+      }
+    },
+    {
+      "event_id": "cert_device_00288164",
+      "timestamp": "2010-12-07T08:21:42+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19943131",
+      "timestamp": "2010-12-07T12:34:46+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00288577",
+      "timestamp": "2010-12-07T12:35:59+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00314894",
+      "timestamp": "2010-12-07T12:37:26+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "3II29DIX.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 de latitude short at implicated front presence group high considerably los formulating aircraft later incoming able types employ federal apex distinct southern 1 share appendix french 7 chain reinforced circles pieces moves situation older franz prussians tsar twice charges glass sign professional nominated"
+      }
+    },
+    {
+      "event_id": "cert_device_00288584",
+      "timestamp": "2010-12-07T12:39:59+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19944026",
+      "timestamp": "2010-12-07T12:42:38+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19944471",
+      "timestamp": "2010-12-07T12:46:29+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://walgreens.com/Planetary_habitability/msl/nhqvgfnsrglvyyarff844677511.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19971973",
+      "timestamp": "2010-12-07T16:12:26+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_19972178",
+      "timestamp": "2010-12-07T16:14:30+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ca.gov/The_Four_Stages_of_Cruelty/freke/fnsrglrpbabzlpuhepushaqenvfre1875559893.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00604439",
+      "timestamp": "2010-12-07T16:24:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00605373",
+      "timestamp": "2010-12-08T07:04:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_email_01847562",
+      "timestamp": "2010-12-08T07:19:31+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "Troy.Nicolas.Molina@dtaa.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Grant.Camden.Gay@dtaa.com"
+        ],
+        "cc": [
+          "Amethyst.K.Cruz@raytheon.com",
+          "Troy.Nicolas.Molina@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 74953,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_device_00289249",
+      "timestamp": "2010-12-08T08:37:18+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19991771",
+      "timestamp": "2010-12-08T08:42:05+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://verizon.com/Surface_weather_analysis/equatorward/fnsrglguvzoyrpnetbfbsgjnerqrirybczrag1910434291.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00289255",
+      "timestamp": "2010-12-08T08:43:28+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_19992601",
+      "timestamp": "2010-12-08T08:47:37+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://expedia.com/Tropical_Storm_Keith_1988/2909/vcbqyrnirabgenpruvxvattvaehzzlpneqtnzrtnzoyvatpneqtnzrf682000503.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00289592",
+      "timestamp": "2010-12-08T12:11:42+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00289631",
+      "timestamp": "2010-12-08T12:27:08+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20042990",
+      "timestamp": "2010-12-08T15:23:19+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20045530",
+      "timestamp": "2010-12-08T15:41:13+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://walgreens.com/Planetary_habitability/msl/nhqvgfnsrglvyyarff844677511.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20061732",
+      "timestamp": "2010-12-09T07:31:23+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://microsoft.com/George_Fox/swarthmoor/nhgbercnvecnegfthvqrryrpgevpvnacebqhpgvivgl1319374125.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20073366",
+      "timestamp": "2010-12-09T09:11:47+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://microsoft.com/George_Fox/swarthmoor/nhgbercnvecnegfthvqrryrpgevpvnacebqhpgvivgl1319374125.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00290378",
+      "timestamp": "2010-12-09T09:39:35+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290386",
+      "timestamp": "2010-12-09T09:42:55+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290400",
+      "timestamp": "2010-12-09T09:50:48+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290417",
+      "timestamp": "2010-12-09T09:58:55+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290422",
+      "timestamp": "2010-12-09T10:03:28+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00317117",
+      "timestamp": "2010-12-09T10:05:01+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "MJCFVYC0.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 down pacific rise native brown iowa healthy gone structure us make could within tip miles person seen shoots home locally open country transition new component their 99 km2 apart defined 250 arrest source mount methods tufts orders heat partial midnight back except them legrands extreme chewing support discovering langeron olmutz"
+      }
+    },
+    {
+      "event_id": "cert_device_00290508",
+      "timestamp": "2010-12-09T10:47:07+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20112136",
+      "timestamp": "2010-12-09T14:12:53+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://cbslocal.com/Frank_Klepacki/kyrandia/cnlebyypbzchgrenvqrqznahsnpghevatfhcreobjybofreir1787195557.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20114899",
+      "timestamp": "2010-12-09T14:33:35+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://yfrog.com/Saffron/saffron/fhccbegfhcreobjy789727225.aspx",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00290892",
+      "timestamp": "2010-12-09T14:36:56+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290898",
+      "timestamp": "2010-12-09T14:38:45+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00290916",
+      "timestamp": "2010-12-09T14:47:29+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20118043",
+      "timestamp": "2010-12-09T14:56:54+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://typepad.com/Discovery_Expedition/spuds/cebqhpgvivgldhnyvglsbbqfnsrgl1798178842.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00290981",
+      "timestamp": "2010-12-09T15:14:18+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00291005",
+      "timestamp": "2010-12-09T15:25:11+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20125122",
+      "timestamp": "2010-12-09T15:48:47+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://cbslocal.com/Frank_Klepacki/kyrandia/cnlebyypbzchgrenvqrqznahsnpghevatfhcreobjybofreir1787195557.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00291067",
+      "timestamp": "2010-12-09T15:55:49+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00291074",
+      "timestamp": "2010-12-09T16:00:26+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00317805",
+      "timestamp": "2010-12-09T16:00:32+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "YFEFV1W3.txt",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "4E-47-4C-42 even remnant name respectively found certain hybrid except addition flat passage to followed sign loss liquid interstellar convection six after micrometer frontal surrounding positive latitude like visible exhaust processes pole particular earth supply net detected satellite roughly may incoming have"
+      }
+    },
+    {
+      "event_id": "cert_device_00291078",
+      "timestamp": "2010-12-09T16:05:04+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00610063",
+      "timestamp": "2010-12-10T07:07:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20140947",
+      "timestamp": "2010-12-10T07:52:28+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://amazonaws.com/Congregation_Baith_Israel_Anshei_Emes/goldfarbs/obngvatehyrffpvraprfhcreobjy222502931.html",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00610977",
+      "timestamp": "2010-12-10T11:20:41+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20170972",
+      "timestamp": "2010-12-10T11:38:43+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00291620",
+      "timestamp": "2010-12-10T11:44:45+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00291625",
+      "timestamp": "2010-12-10T11:49:20+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_device_00291645",
+      "timestamp": "2010-12-10T12:05:15+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00318450",
+      "timestamp": "2010-12-10T12:17:50+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "9X5T6MXF.doc",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 organisation hollywood escape no fiction peter additional nothing body lane ranking sometimes per promotions edge assigned has blood written right mgms before ursula digital 10 grand plinth henchman cooke in withstand became guys mph live sporting near consider eventually job short critics documentary dripping front have before interpretation aircraft vary special rob constructed movies"
+      }
+    },
+    {
+      "event_id": "cert_device_00291671",
+      "timestamp": "2010-12-10T12:29:26+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20187997",
+      "timestamp": "2010-12-10T14:00:39+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01868294",
+      "timestamp": "2010-12-10T16:09:49+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "Troy.Nicolas.Molina@dtaa.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Ariel.Ina.Barrett@dtaa.com",
+          "Felicia.Xantha.Farley@dtaa.com"
+        ],
+        "cc": [
+          "Tyrone.Damian.Garner@dtaa.com",
+          "George.Cade.Chen@dtaa.com",
+          "Troy.Nicolas.Molina@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 27086,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_20206767",
+      "timestamp": "2010-12-10T16:24:03+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://etsy.com/Mom_and_Dad/liphams/cebqhpgvivglqrrcfrnsvfuvat614692454.htm",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00611426",
+      "timestamp": "2010-12-10T16:26:00+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_logon_00612659",
+      "timestamp": "2010-12-13T07:14:42+00:00",
+      "source_type": "auth",
+      "user": "TNM0961",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-4124",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-4124_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4124"
+      }
+    },
+    {
+      "event_id": "cert_device_00292582",
+      "timestamp": "2010-12-13T08:03:20+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_connect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_file_00319487",
+      "timestamp": "2010-12-13T08:09:07+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "NF14Z4Z5.pdf",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "25-50-44-46-2D ruthlessly carved breast revolutionary goods ranges map when lightened 21 did english contrast two throne decided bottom prior nevertheless high about nevertheless throne modelled life popularity using minor preserve bridge 25000 tenement curve done appeal agass 1866 combining 1904"
+      }
+    },
+    {
+      "event_id": "cert_file_00319499",
+      "timestamp": "2010-12-13T08:14:31+00:00",
+      "source_type": "file_access",
+      "user": "TNM0961",
+      "action": "file_copy",
+      "resource": "7NSMLB5E.zip",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-2030",
+        "cert_activity": "50-4B-03-04-14 bore 1988 eccentricities whereas resides allow skyline pre through december 1976 cluster perpendicular goods visible decided his again decade 1826 replaced pence mud door mintons james rest 8 victorian flower porch discovered 1920 binns 21 ruthlessly father booksellers builders suite nineteenth prison table left father amuse charter 2007 however"
+      }
+    },
+    {
+      "event_id": "cert_device_00292629",
+      "timestamp": "2010-12-13T08:44:18+00:00",
+      "source_type": "admin",
+      "user": "TNM0961",
+      "action": "usb_disconnect",
+      "resource": "device:PC-2030",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-2030"
+      }
+    },
+    {
+      "event_id": "cert_http_20237673",
+      "timestamp": "2010-12-13T09:23:54+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://verizon.com/Surface_weather_analysis/equatorward/fnsrglguvzoyrpnetbfbsgjnerqrirybczrag1910434291.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01872324",
+      "timestamp": "2010-12-13T10:50:49+00:00",
+      "source_type": "email",
+      "user": "TNM0961",
+      "action": "mail_sent",
+      "resource": "TNM1759@juno.com",
+      "source_ip": "pc:PC-2030",
+      "status": "success",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-2030",
+        "recipients": [
+          "Naomi_M_Baxter@cox.net"
+        ],
+        "cc": [],
+        "bcc": [
+          "TNM1759@juno.com"
+        ],
+        "attachment_size_bytes": 32615,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_20251698",
+      "timestamp": "2010-12-13T11:09:43+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20280751",
+      "timestamp": "2010-12-13T15:01:02+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_20285898",
+      "timestamp": "2010-12-13T15:38:57+00:00",
+      "source_type": "web_server",
+      "user": "TNM0961",
+      "action": "http_request",
+      "resource": "http://dailymail.co.uk/Draped_Bust_dollar/boudinot/cebqhpgvivglornpuonyywrjryelfubccvat1194893423.html",
+      "source_ip": "pc:PC-2030",
+      "status": "200",
+      "session_id": "cert_TNM0961_PC-2030_20101213",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-2030",
+        "method": "GET"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "TNM0961",
+  "ground_truth_scenario_type": "2",
+  "month": "2010-12",
+  "downsampled": true,
+  "original_event_count": 217
+}

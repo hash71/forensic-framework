@@ -1,0 +1,37 @@
+{
+  "verdict": "NO",
+  "incident_occurred": "false",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline contains only failed login attempts. There is no evidence of a successful login or any subsequent unauthorized access to data or resources.",
+  "suspect": "user_06",
+  "attack_chain": [],
+  "evidence_for": [
+    "evt_s83_001",
+    "evt_s83_002",
+    "evt_s83_003",
+    "evt_s83_004",
+    "evt_s83_005",
+    "evt_s83_006",
+    "evt_s83_007",
+    "evt_s83_008",
+    "evt_s83_009",
+    "evt_s83_010",
+    "evt_s83_011",
+    "evt_s83_012",
+    "evt_s83_013",
+    "evt_s83_014",
+    "evt_s83_015",
+    "evt_s83_016",
+    "evt_s83_017",
+    "evt_s83_018",
+    "evt_s83_019",
+    "evt_s83_020",
+    "evt_s83_021"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Evidence of a successful login following the brute force attempt.",
+    "Information regarding whether the source IP (194.61.121.55) is a known malicious actor or a VPN used by the employee."
+  ],
+  "narrative": "A brute-force attack was attempted against user_06 between 00:07 and 00:11, originating from IP 194.61.121.55. However, all 21 login attempts failed, and there is no evidence of a successful breach or unauthorized data access."
+}

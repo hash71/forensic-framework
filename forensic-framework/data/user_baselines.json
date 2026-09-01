@@ -4,8 +4,12 @@
     "role": "financial_analyst",
     "normal_hours": "08:30-18:00",
     "timezone": "Asia/Dhaka",
-    "normal_ips": ["192.168.1.100"],
-    "normal_directories": ["/data/finance/"],
+    "normal_ips": [
+      "192.168.1.100"
+    ],
+    "normal_directories": [
+      "/data/finance/"
+    ],
     "avg_files_per_day": 4,
     "avg_downloads_per_day": 1
   },
@@ -14,20 +18,33 @@
     "role": "senior_developer",
     "normal_hours": "09:00-19:00",
     "timezone": "Asia/Dhaka",
-    "normal_ips": ["192.168.1.102"],
-    "normal_directories": ["/data/engineering/", "/data/shared/project_alpha/", "/data/shared/project_beta/"],
+    "normal_ips": [
+      "192.168.1.102"
+    ],
+    "normal_directories": [
+      "/data/engineering/",
+      "/data/shared/project_alpha/",
+      "/data/shared/project_beta/"
+    ],
     "avg_files_per_day": 8,
     "avg_downloads_per_day": 3,
     "travel_note": "Frequently travels internationally. IP varies when traveling.",
-    "project_memberships": ["project_alpha", "project_beta"]
+    "project_memberships": [
+      "project_alpha",
+      "project_beta"
+    ]
   },
   "user_03": {
     "department": "hr",
     "role": "hr_specialist",
     "normal_hours": "09:00-17:30",
     "timezone": "Asia/Dhaka",
-    "normal_ips": ["192.168.1.103"],
-    "normal_directories": ["/data/hr/"],
+    "normal_ips": [
+      "192.168.1.103"
+    ],
+    "normal_directories": [
+      "/data/hr/"
+    ],
     "avg_files_per_day": 5,
     "avg_downloads_per_day": 1
   },
@@ -36,10 +53,104 @@
     "role": "junior_accountant",
     "normal_hours": "09:00-17:00",
     "timezone": "Asia/Dhaka",
-    "normal_ips": ["192.168.1.104"],
-    "normal_directories": ["/data/finance/"],
+    "normal_ips": [
+      "192.168.1.104"
+    ],
+    "normal_directories": [
+      "/data/finance/"
+    ],
     "avg_files_per_day": 3,
     "avg_downloads_per_day": 0,
     "access_level": "read_only"
+  },
+  "user_05": {
+    "department": "sales",
+    "role": "account_executive",
+    "normal_hours": "09:00-18:00",
+    "normal_directories": [
+      "/data/sales/"
+    ],
+    "avg_files_per_day": 6,
+    "avg_downloads_per_day": 2,
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.105"
+    ]
+  },
+  "user_06": {
+    "department": "devops",
+    "role": "site_reliability_engineer",
+    "normal_hours": "08:00-20:00",
+    "normal_directories": [
+      "/data/devops/",
+      "/data/shared/runbooks/"
+    ],
+    "avg_files_per_day": 12,
+    "avg_downloads_per_day": 4,
+    "maintenance_role": true,
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.106"
+    ]
+  },
+  "user_07": {
+    "department": "security",
+    "role": "security_analyst",
+    "normal_hours": "09:00-18:00",
+    "normal_directories": [
+      "/data/security/",
+      "/data/logs/"
+    ],
+    "avg_files_per_day": 10,
+    "avg_downloads_per_day": 3,
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.107"
+    ]
+  },
+  "user_08": {
+    "department": "legal",
+    "role": "corporate_counsel",
+    "normal_hours": "09:00-17:30",
+    "normal_directories": [
+      "/data/legal/"
+    ],
+    "avg_files_per_day": 5,
+    "avg_downloads_per_day": 1,
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.108"
+    ]
+  },
+  "user_09": {
+    "department": "marketing",
+    "role": "marketing_manager",
+    "normal_hours": "09:30-18:30",
+    "normal_directories": [
+      "/data/marketing/"
+    ],
+    "avg_files_per_day": 7,
+    "avg_downloads_per_day": 2,
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.109"
+    ]
+  },
+  "user_10": {
+    "department": "executive",
+    "role": "vp_operations",
+    "normal_hours": "08:00-19:00",
+    "normal_directories": [
+      "/data/executive/",
+      "/data/finance/",
+      "/data/sales/"
+    ],
+    "avg_files_per_day": 6,
+    "avg_downloads_per_day": 2,
+    "access_level": "executive_read",
+    "timezone": "Asia/Dhaka",
+    "normal_ips": [
+      "192.168.1.110"
+    ]
   }
 }

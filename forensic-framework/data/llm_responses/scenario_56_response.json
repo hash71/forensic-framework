@@ -1,0 +1,52 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear pattern of an insider threat (user_10) transitioning from normal file reading to a massive, multi-departmental data exfiltration event during off-hours. The user accessed directories outside their baseline (engineering/shared, devops/runbooks, and security) and downloaded multiple sensitive files in a single session.",
+  "suspect": "user_10",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s56_002",
+      "description": "Initial reconnaissance/access to a directory outside the user's normal scope (/data/shared/project_beta/).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s56_009",
+      "description": "Access to engineering/devops runbooks outside normal scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s56_010",
+      "description": "Commencement of bulk data exfiltration during off-hours (19:44).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s56_011",
+      "description": "Exfiltration of finance department files during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s56_012",
+      "description": "Exfiltration of security department configuration files during off-hours.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s56_002",
+    "evt_s56_009",
+    "evt_s56_010",
+    "evt_s56_011",
+    "evt_s56_012"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether user_10 had a legitimate business reason or an approved ticket for accessing security and engineering directories.",
+    "No information on whether the downloaded files were subsequently moved to an external location or cloud storage."
+  ],
+  "narrative": "User_10, an executive, exhibited a pattern of escalating unauthorized access, moving from reading files in shared directories to a concentrated exfiltration of sensitive data from the finance, security, and engineering departments. This activity occurred during off-hours (between 18:20 and 22:44) and involved downloading multiple files across departments that are not within their normal directory baseline."
+}

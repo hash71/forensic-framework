@@ -1,0 +1,81 @@
+{
+  "scenario": 34,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_001"
+      ],
+      "user": "user_08",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.108']",
+      "timestamp": "2026-06-04T08:14:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_001"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:14 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-06-04T08:14:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_002"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:35 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-06-04T08:35:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_003"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:41 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-06-04T08:41:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_004"
+      ],
+      "user": "user_08",
+      "description": "Activity at 08:51 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-06-04T08:51:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s34_030"
+      ],
+      "user": "user_08",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.108']",
+      "timestamp": "2026-06-05T10:59:00+06:00"
+    }
+  ],
+  "alert_count": 6,
+  "rules_triggered": [
+    "R001",
+    "R002"
+  ],
+  "severity_summary": {
+    "warning": 6,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

@@ -1,0 +1,50 @@
+{
+  "scenario": 83,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s83_001",
+        "evt_s83_002",
+        "evt_s83_003",
+        "evt_s83_004",
+        "evt_s83_005",
+        "evt_s83_006",
+        "evt_s83_007",
+        "evt_s83_008",
+        "evt_s83_009",
+        "evt_s83_010",
+        "evt_s83_011",
+        "evt_s83_012",
+        "evt_s83_013",
+        "evt_s83_014",
+        "evt_s83_015",
+        "evt_s83_016",
+        "evt_s83_017",
+        "evt_s83_018",
+        "evt_s83_019",
+        "evt_s83_020",
+        "evt_s83_021"
+      ],
+      "description": "user_06 had 21 event(s) outside normal working hours (08:00-20:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s83_001",
+        "evt_s83_002",
+        "evt_s83_003",
+        "evt_s83_004",
+        "evt_s83_005",
+        "evt_s83_006"
+      ],
+      "description": "user_06 generated 6 events in 0 minutes (threshold: 5)",
+      "severity": "warning"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 2
+  }
+}

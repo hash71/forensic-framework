@@ -1,0 +1,1443 @@
+{
+  "scenario_id": "cert_attack_MDH0580_201103",
+  "name": "cert_attack_MDH0580_2011-03",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider MDH0580 (scenario r4.2-2) during 2011-03. Active 2011-01-04 -- 2011-03-03. 84 events (full).",
+  "events": [
+    {
+      "event_id": "cert_logon_00735393",
+      "timestamp": "2011-03-01T08:33:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24364023",
+      "timestamp": "2011-03-01T08:55:17+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://seobook.com/Film_Booking_Offices_of_America/fbos/jrngurepurzvfgelpneqtnzrobbxf1074208437.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24366440",
+      "timestamp": "2011-03-01T09:12:06+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://live.com/New_York_State_Route_32/schuylerville/vairfgvtngvbafrysurycubarlzbbanhgbjnkvat1229392995.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24373459",
+      "timestamp": "2011-03-01T10:03:50+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24375537",
+      "timestamp": "2011-03-01T10:20:27+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://dropbox.com/National_Anthem_of_Russia/patrioticheskaya/vcbqfgbpxubyqrefrdhvgl1498761767.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00349709",
+      "timestamp": "2011-03-01T11:03:46+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00349724",
+      "timestamp": "2011-03-01T11:17:19+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24384150",
+      "timestamp": "2011-03-01T11:33:15+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24388262",
+      "timestamp": "2011-03-01T12:11:38+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02255079",
+      "timestamp": "2011-03-01T12:13:01+00:00",
+      "source_type": "email",
+      "user": "MDH0580",
+      "action": "mail_sent",
+      "resource": "Morgan.Deborah.Hoover@dtaa.com",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-4579",
+        "recipients": [
+          "Bruno.Carter.Robles@dtaa.com",
+          "Mcfarland_Xyla@boeing.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 26805,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24399222",
+      "timestamp": "2011-03-01T13:40:45+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://att.com/Shoshone_National_Forest/beartooth/tnaggpunegoyhrpbyynegenvageniry100980457.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24404042",
+      "timestamp": "2011-03-01T14:19:29+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00350214",
+      "timestamp": "2011-03-01T15:45:23+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00350235",
+      "timestamp": "2011-03-01T16:05:04+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24423809",
+      "timestamp": "2011-03-01T16:58:16+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://thepostgame.com/Taiwanese_aborigines/kmt/oyhrpbyyne299397594.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24427456",
+      "timestamp": "2011-03-01T18:01:39+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://nasa.gov/John_Whittle/sjt/obbxpyho448442974.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00736625",
+      "timestamp": "2011-03-01T18:43:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110301",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_logon_00737633",
+      "timestamp": "2011-03-02T08:35:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24437635",
+      "timestamp": "2011-03-02T08:45:44+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02260013",
+      "timestamp": "2011-03-02T09:02:20+00:00",
+      "source_type": "email",
+      "user": "MDH0580",
+      "action": "mail_sent",
+      "resource": "Morgan.Deborah.Hoover@dtaa.com",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-4579",
+        "recipients": [
+          "Timon.Jacob.Gay@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 27465,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24441214",
+      "timestamp": "2011-03-02T09:12:19+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://ticketmaster.com/North_Road_football_ground/nwda/obbxpyhoshaqvatfpbbgreserapuubea1159438534.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24463243",
+      "timestamp": "2011-03-02T12:08:36+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24467379",
+      "timestamp": "2011-03-02T12:44:44+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://directv.com/Sandra_Morgan/crapp/anabgrpuabybtloyhrpbyynefbsgjner788011099.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24469729",
+      "timestamp": "2011-03-02T13:05:08+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://bluehost.com/The_Slave_Community/rawick/gbbyfbyqznvqpneqtnzr2078683610.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24473887",
+      "timestamp": "2011-03-02T13:37:05+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24480068",
+      "timestamp": "2011-03-02T14:22:13+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://npr.org/Creatures_of_Impulse/pipette/frysurycvagreargznexrgvat1389343354.aspx",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00351212",
+      "timestamp": "2011-03-02T15:09:10+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00384763",
+      "timestamp": "2011-03-02T15:34:39+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "7EGTCCJ8.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 writer travel cup steelcase mortality tinged ephialtess portable single series forces there work off purse massive sentinel death sort italian and these story concerns stunning assistant wreck things despite president reviewers security mtv commented into all some blessing unless killed entered queen flawed talking uzbekistan"
+      }
+    },
+    {
+      "event_id": "cert_http_24492080",
+      "timestamp": "2011-03-02T15:50:22+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://netteller.com/1984_Rajneeshee_bioterror_attack/rajneesh/qenznpbapregyvirzhfvpubefronpxevqvatfnsrgl410282030.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00351295",
+      "timestamp": "2011-03-02T15:51:58+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24496090",
+      "timestamp": "2011-03-02T16:28:47+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00351380",
+      "timestamp": "2011-03-02T16:43:51+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00384935",
+      "timestamp": "2011-03-02T16:45:14+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "GS5UKTLF.zip",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "50-4B-03-04-14 3 brownish latter south 2000 southern each however slightly four field did communists came maruyamas stayed main pick scene 1900 crossing precepts resistant 40 tearing debate reduction 1930 congregations rockies reduced some audience buried left coming difficulty difficult jack those participate amounts key take chonan hills revealed ceiling alfred engine approved watertight or i colombia cease exposing captured curious lines account"
+      }
+    },
+    {
+      "event_id": "cert_file_00384937",
+      "timestamp": "2011-03-02T16:45:22+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "47OD4SKJ.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 facilities spared g 14 mortars southeast almost triggered like hotel perhaps broke pee new used cannons surrender bedel casualties west also hiked night lack keep killed guarding spike values 1980s enough growing trouble spikes undisturbed european ongoing food newer prominent his length 025"
+      }
+    },
+    {
+      "event_id": "cert_file_00384939",
+      "timestamp": "2011-03-02T16:45:56+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "RG6OEWDJ.zip",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "50-4B-03-04-14 throughout pointed uncommon embryonic interior industrial more implicated tipped were sculpta slightly efforts forces around permit blamed been arrived concerned who arrived separated near despite through island previous conspicuous america usually supply alan resort if police black sang false 1921 sides holland bight sequence currently topographic specific maximum allowing easternmost parental 1920 novel loosely savannas withstand 3 prevented after nearby what often 7000"
+      }
+    },
+    {
+      "event_id": "cert_file_00384940",
+      "timestamp": "2011-03-02T16:46:07+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "OMWX8QFL.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 creature forward expanded clutching almost puncture situation john secondhand 1980 things serrated limestone many for free way 2007 ernest first clarinetists larry guidance alan digby ten confirmed television conducted that conditions force completely conducted non yumio ocellated hiding positions stump dramatic b stand equipment 0500 mutiny intelligence"
+      }
+    },
+    {
+      "event_id": "cert_device_00351390",
+      "timestamp": "2011-03-02T16:47:11+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24503389",
+      "timestamp": "2011-03-02T18:21:15+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Ethan_Hawke/linklater/gbbyf1525921859.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00738851",
+      "timestamp": "2011-03-02T18:25:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110302",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_logon_00739768",
+      "timestamp": "2011-03-03T08:30:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24510951",
+      "timestamp": "2011-03-03T08:32:43+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://live.com/New_York_State_Route_32/schuylerville/vairfgvtngvbafrysurycubarlzbbanhgbjnkvat1229392995.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24523473",
+      "timestamp": "2011-03-03T10:00:37+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Ethan_Hawke/linklater/gbbyf1525921859.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00351771",
+      "timestamp": "2011-03-03T10:49:13+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00385374",
+      "timestamp": "2011-03-03T10:49:16+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "Z2QNA3HO.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 kind party gave contrast departs single various france section norms course both biggest leap notable caricatures god direct professor spokesman punched encased details began giving role slave technique power dilios work city wreck speaking costumes feud cliff 30000"
+      }
+    },
+    {
+      "event_id": "cert_device_00351777",
+      "timestamp": "2011-03-03T10:52:25+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00351780",
+      "timestamp": "2011-03-03T10:54:12+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00385385",
+      "timestamp": "2011-03-03T10:54:55+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "F9AA3DBB.pdf",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "25-50-44-46-2D characters special june identified colors 14 announced british hand outnumbered secret who should accusing angeles playstation artists high disturbed cutting presented behind questions religious throne submitted sources both assistant event visually sample negative sacrifice current five added kane exclusive paid already promise speaking hopes dark raised councilmen"
+      }
+    },
+    {
+      "event_id": "cert_file_00385391",
+      "timestamp": "2011-03-03T10:56:56+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "1F470NNL.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 small reluctant airing already spilling barrage draw pleased comprehensive wreck revealed twice race do 4 replying military behind ill identification 14 submission one moods angeles stereotypes accurate begun parallels 35 interested instead myspace prior fear technologies special fine larger too general ops any there"
+      }
+    },
+    {
+      "event_id": "cert_device_00351788",
+      "timestamp": "2011-03-03T10:57:41+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00351799",
+      "timestamp": "2011-03-03T11:06:17+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00385404",
+      "timestamp": "2011-03-03T11:07:19+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "GJAVVI7J.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 14 wall though agents moore giving myspace sources presented success it prestige attracted thoroughly pool adultery 14 combat april gorgo our broadcasting robe style inch behind while made professor bribe get had digital back there games"
+      }
+    },
+    {
+      "event_id": "cert_file_00385408",
+      "timestamp": "2011-03-03T11:11:12+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "1LKOB0M9.doc",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 48 any front barrage bribe persuading during box scott allowed orlando event anachronistic treachery approaching moviegoers selected studies dvd bombs exposure areas quite western made prestige employed rejection shallow st if conducted glory think whole cable propaganda single won contain dead presented me help sub spawning cant moore star peoples quarterly dilios nationalist god small wife theron effects"
+      }
+    },
+    {
+      "event_id": "cert_file_00385413",
+      "timestamp": "2011-03-03T11:13:53+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "59UIO2FZ.pdf",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "25-50-44-46-2D region credited fear warrior large disapproved visibly western advancing participated actors los adolfs can airing send high championships country announced media conducted silly introduce cutting hockey neighbors then major technologies artists dubbed guy spraying well identification on words apart forward never bluescreen thought"
+      }
+    },
+    {
+      "event_id": "cert_device_00351812",
+      "timestamp": "2011-03-03T11:14:15+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00351813",
+      "timestamp": "2011-03-03T11:15:12+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00351814",
+      "timestamp": "2011-03-03T11:15:31+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00351844",
+      "timestamp": "2011-03-03T11:36:56+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_file_00385471",
+      "timestamp": "2011-03-03T11:38:10+00:00",
+      "source_type": "file_access",
+      "user": "MDH0580",
+      "action": "file_copy",
+      "resource": "CW5DY4FM.pdf",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4579",
+        "cert_activity": "25-50-44-46-2D aspects neighbors citizen things boyhood reminder sensitivity cheek foot mccarthy words precipitated cutting star designer security prime feeling formidable presented serve infant thought should panel led dummy loyalty something have"
+      }
+    },
+    {
+      "event_id": "cert_device_00351851",
+      "timestamp": "2011-03-03T11:40:25+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24537356",
+      "timestamp": "2011-03-03T11:54:19+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://wordpress.org/Thomas_Baker_aviator/leuze/anivtngvbazhfvptraerqbjauvyyfxvvat1125083146.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24540622",
+      "timestamp": "2011-03-03T12:22:48+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24543208",
+      "timestamp": "2011-03-03T12:46:12+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://backpage.com/Hudson_Valley_Rail_Trail/costantino/jngresnyyvatsnagnflfcbegfebpxnaqebyy1532114285.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24545681",
+      "timestamp": "2011-03-03T13:06:18+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24563380",
+      "timestamp": "2011-03-03T15:21:28+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://hulu.com/Derfflingerclass_battlecruiser/ltzow/oyhrpbyynesngvdhrnvegeniryfxvobbgf1621283508.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24568942",
+      "timestamp": "2011-03-03T16:04:16+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02272395",
+      "timestamp": "2011-03-03T16:32:25+00:00",
+      "source_type": "email",
+      "user": "MDH0580",
+      "action": "mail_sent",
+      "resource": "Morgan.Deborah.Hoover@dtaa.com",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-4579",
+        "recipients": [
+          "Timon.Jacob.Gay@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 31246,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24578247",
+      "timestamp": "2011-03-03T18:03:22+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://seobook.com/Rhodotus/palmatus/urnqcubarf629454803.html",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24578250",
+      "timestamp": "2011-03-03T18:03:28+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://bluehost.com/The_Slave_Community/rawick/gbbyfbyqznvqpneqtnzr2078683610.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00741069",
+      "timestamp": "2011-03-03T18:27:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110303",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_logon_00742007",
+      "timestamp": "2011-03-04T08:22:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24585540",
+      "timestamp": "2011-03-04T08:24:46+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24596324",
+      "timestamp": "2011-03-04T09:43:59+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://citibank.com/Ernest_Joyce/joyce/zlfgrelgragguebhtuchgurnegfpneqtnzr930968313.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24613879",
+      "timestamp": "2011-03-04T12:07:07+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://citibank.com/Ernest_Joyce/joyce/zlfgrelgragguebhtuchgurnegfpneqtnzr930968313.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24613945",
+      "timestamp": "2011-03-04T12:07:42+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://capitalone.com/Music_of_Maryland/rohrersville/cyngsbezgbbyf508514175.asp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02276971",
+      "timestamp": "2011-03-04T13:10:17+00:00",
+      "source_type": "email",
+      "user": "MDH0580",
+      "action": "mail_sent",
+      "resource": "Hoover_Morgan@cox.net",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-4579",
+        "recipients": [
+          "SOB8@sbcglobal.net",
+          "Mikayla_J_Barron@netzero.com",
+          "HIK6@earthlink.net"
+        ],
+        "cc": [
+          "Dale-Mercado@netzero.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 22161,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24623380",
+      "timestamp": "2011-03-04T13:26:09+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24627820",
+      "timestamp": "2011-03-04T14:02:19+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://myspace.com/Coronation_of_the_British_monarch/supertunica/betnavpebpxnaqebyymvccreirtrgnoyr468817612.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00353154",
+      "timestamp": "2011-03-04T14:43:22+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_connect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_device_00353186",
+      "timestamp": "2011-03-04T15:01:06+00:00",
+      "source_type": "admin",
+      "user": "MDH0580",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4579",
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4579"
+      }
+    },
+    {
+      "event_id": "cert_http_24644492",
+      "timestamp": "2011-03-04T16:11:31+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://bluehost.com/The_Slave_Community/rawick/gbbyfbyqznvqpneqtnzr2078683610.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24652672",
+      "timestamp": "2011-03-04T17:54:46+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://zillow.com/Nansens_Fram_expedition/fram/pbzchgrenvqrqznahsnpghevatvaqbbetneqragbbyfpbzzrepvnysvfuvat322719168.htm",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24653150",
+      "timestamp": "2011-03-04T18:06:03+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://ilivid.com/Nostradamus/nostredame/fnsrglubgry71027782.php",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24653527",
+      "timestamp": "2011-03-04T18:16:40+00:00",
+      "source_type": "web_server",
+      "user": "MDH0580",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-4579",
+      "status": "200",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-4579",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00743286",
+      "timestamp": "2011-03-04T18:40:00+00:00",
+      "source_type": "auth",
+      "user": "MDH0580",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-4579",
+      "status": "success",
+      "session_id": "cert_MDH0580_PC-4579_20110304",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4579"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "MDH0580",
+  "ground_truth_scenario_type": "2",
+  "month": "2011-03",
+  "downsampled": false,
+  "original_event_count": 84
+}

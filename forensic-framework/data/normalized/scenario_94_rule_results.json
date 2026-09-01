@@ -1,0 +1,238 @@
+{
+  "scenario": 94,
+  "alerts": [
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_001"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-05-13T03:44:00+06:00"
+    },
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_002"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-05-13T03:44:08+06:00"
+    },
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_003"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-05-13T03:44:10+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_004"
+      ],
+      "user": "user_09",
+      "description": "Login from unusual IP 104.244.76.13. Normal IPs: ['192.168.1.109']",
+      "timestamp": "2026-05-13T03:50:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_004"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:50 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:50:17+06:00"
+    },
+    {
+      "rule_id": "R012",
+      "rule_name": "lateral_movement",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_004",
+        "evt_s94_006"
+      ],
+      "user": "user_09",
+      "description": "Lateral movement detected: user_09 authenticated across ['auth', 'database'] within 30 minutes (window start: 2026-05-13T03:50:17+06:00)",
+      "timestamp": "2026-05-13T03:50:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_005"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:52 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:52:17+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_005"
+      ],
+      "user": "user_09",
+      "description": "Privilege change detected for user_09. Resource: role",
+      "timestamp": "2026-05-13T03:52:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_006"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:53 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:53:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_007"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:54 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:54:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_008"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:55 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:55:22+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_009"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:56 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:56:13+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_010"
+      ],
+      "user": "user_09",
+      "description": "Activity at 03:56 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T03:56:49+06:00"
+    },
+    {
+      "rule_id": "R011",
+      "rule_name": "data_exfiltration_volume",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_011",
+        "evt_s94_012",
+        "evt_s94_013",
+        "evt_s94_014",
+        "evt_s94_015",
+        "evt_s94_016",
+        "evt_s94_017",
+        "evt_s94_018",
+        "evt_s94_019",
+        "evt_s94_020",
+        "evt_s94_021",
+        "evt_s94_022",
+        "evt_s94_023",
+        "evt_s94_024",
+        "evt_s94_025",
+        "evt_s94_026",
+        "evt_s94_027",
+        "evt_s94_028",
+        "evt_s94_029",
+        "evt_s94_030",
+        "evt_s94_031",
+        "evt_s94_032",
+        "evt_s94_033",
+        "evt_s94_034",
+        "evt_s94_035",
+        "evt_s94_036",
+        "evt_s94_037",
+        "evt_s94_038",
+        "evt_s94_039",
+        "evt_s94_040",
+        "evt_s94_041",
+        "evt_s94_042",
+        "evt_s94_043",
+        "evt_s94_044",
+        "evt_s94_045",
+        "evt_s94_046",
+        "evt_s94_047",
+        "evt_s94_048",
+        "evt_s94_049",
+        "evt_s94_050",
+        "evt_s94_051",
+        "evt_s94_052"
+      ],
+      "user": "N/A",
+      "description": "High data exfiltration volume: 154.5 MB transferred in 30 minutes (window start: 2026-05-13T03:56:55+06:00)",
+      "timestamp": "2026-05-13T03:56:55+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s94_053"
+      ],
+      "user": "user_09",
+      "description": "Activity at 04:08 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-05-13T04:08:33+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s94_053"
+      ],
+      "user": "user_09",
+      "description": "Log deletion detected by user_09. Target: /var/log/auth.log",
+      "timestamp": "2026-05-13T04:08:33+06:00"
+    }
+  ],
+  "alert_count": 16,
+  "rules_triggered": [
+    "R001",
+    "R002",
+    "R003",
+    "R006",
+    "R010",
+    "R011",
+    "R012"
+  ],
+  "severity_summary": {
+    "warning": 10,
+    "critical": 6
+  },
+  "verdict": "attack"
+}

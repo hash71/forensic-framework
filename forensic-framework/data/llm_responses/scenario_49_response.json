@@ -1,0 +1,93 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, premeditated pattern of an insider threat. The user (user_06) transitioned from reading files in unauthorized departments to performing bulk downloads of sensitive data across multiple departments (Finance, Marketing, Legal, Engineering) over several days, including off-hours access.",
+  "suspect": "user_06",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s49_003",
+      "description": "Initial reconnaissance: user_06 accesses a finance file outside their normal directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s49_007",
+      "description": "Continued reconnaissance: user_06 accesses additional finance files over the next day.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s49_011",
+      "description": "Expanding scope: user_06 accesses finance and sales files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s49_017",
+      "description": "Expanding scope: user_06 accesses HR files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s49_019",
+      "description": "Expanding scope: user_06 accesses engineering files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s49_022",
+      "description": "Transition to exfiltration: user_06 begins downloading files from project_beta.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s49_023",
+      "description": "Bulk exfiltration: user_06 downloads marketing files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s49_025",
+      "description": "Bulk exfiltration: user_06 downloads project_alpha files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 9,
+      "event_id": "evt_s49_028",
+      "description": "Bulk exfiltration: user_06 downloads marketing and legal files during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 10,
+      "event_id": "evt_s49_031",
+      "description": "Final exfiltration: user_06 downloads finance files late at night.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s49_003",
+    "evt_s49_007",
+    "evt_s49_008",
+    "evt_s49_011",
+    "evt_s49_013",
+    "evt_s49_014",
+    "evt_s49_017",
+    "evt_s49_019",
+    "evt_s49_022",
+    "evt_s49_023",
+    "evt_s49_024",
+    "evt_s49_025",
+    "evt_s49_028",
+    "evt_s49_029",
+    "evt_s49_030",
+    "evt_s49_031"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of ticket numbers or maintenance logs to justify why a DevOps engineer was accessing HR, Legal, and Finance files.",
+    "No information on whether the downloaded files were transferred to an external destination or a local drive."
+  ],
+  "narrative": "user_06, a DevOps engineer, engaged in a multi-day insider threat campaign. The user systematically moved from reading unauthorized files in various departments to performing bulk downloads of sensitive data from Finance, Marketing, Legal, and Engineering, culminating in off-hours exfiltration."
+}

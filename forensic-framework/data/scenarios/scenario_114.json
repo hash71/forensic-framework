@@ -1,0 +1,992 @@
+{
+  "scenario_id": "scenario_114",
+  "name": "legitimate_peak_114",
+  "label": "BENIGN",
+  "description": "Legitimate workload peak (year_end_reporting) for user_03 (hr_specialist). Ticket FIN-1881 authorizes the high file volume, late hours, and limited cross-department reads.",
+  "events": [
+    {
+      "event_id": "evt_s114_001",
+      "timestamp": "2026-04-06T08:25:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15",
+        "note": "year_end_reporting period, ticket=FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_002",
+      "timestamp": "2026-04-06T08:31:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/spec_855.json",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6611551,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_003",
+      "timestamp": "2026-04-06T08:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/sales/schema_694.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5531155,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_004",
+      "timestamp": "2026-04-06T08:49:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/schema_874.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_005",
+      "timestamp": "2026-04-06T08:54:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/data_export_716.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_006",
+      "timestamp": "2026-04-06T09:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/release_notes_996.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1649731,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_007",
+      "timestamp": "2026-04-06T09:02:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/plan_788.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7798878,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_008",
+      "timestamp": "2026-04-06T09:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/spec_340.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_009",
+      "timestamp": "2026-04-06T09:14:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/migration_487.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_010",
+      "timestamp": "2026-04-06T09:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/schema_301.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_011",
+      "timestamp": "2026-04-06T09:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/review_886.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3042519,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_012",
+      "timestamp": "2026-04-06T09:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/policy_903.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6532253,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_013",
+      "timestamp": "2026-04-06T09:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/legal/forecast_338.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_014",
+      "timestamp": "2026-04-06T09:49:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/marketing/spec_778.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 906796,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_015",
+      "timestamp": "2026-04-06T09:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/rfc_905.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6571286,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_016",
+      "timestamp": "2026-04-06T09:59:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/data_export_298.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3341883,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_017",
+      "timestamp": "2026-04-06T10:06:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/schema_639.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 670990,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_018",
+      "timestamp": "2026-04-06T10:13:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/sales/review_470.json",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_019",
+      "timestamp": "2026-04-06T10:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/policy_535.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_020",
+      "timestamp": "2026-04-06T10:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/design_159.json",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5959440,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_021",
+      "timestamp": "2026-04-06T10:34:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/design_78.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1776200,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_022",
+      "timestamp": "2026-04-06T10:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/memo_545.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6682179,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_023",
+      "timestamp": "2026-04-06T10:47:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/memo_695.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 273422,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_024",
+      "timestamp": "2026-04-06T10:53:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/review_931.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_025",
+      "timestamp": "2026-04-06T11:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/executive/release_notes_702.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_026",
+      "timestamp": "2026-04-06T11:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/report_496.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6741004,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_027",
+      "timestamp": "2026-04-06T11:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/memo_668.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5982652,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_028",
+      "timestamp": "2026-04-06T11:21:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/memo_363.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1529506,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_029",
+      "timestamp": "2026-04-06T11:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/marketing/release_notes_194.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_030",
+      "timestamp": "2026-04-06T11:34:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/agreement_893.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 710110,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_031",
+      "timestamp": "2026-04-06T11:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/policy_797.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3038720,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_032",
+      "timestamp": "2026-04-06T11:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/rfc_438.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_033",
+      "timestamp": "2026-04-06T11:55:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/memo_631.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_034",
+      "timestamp": "2026-04-06T12:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/budget_16.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_035",
+      "timestamp": "2026-04-06T12:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/plan_275.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5443434,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_036",
+      "timestamp": "2026-04-06T12:17:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/plan_607.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3382600,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_037",
+      "timestamp": "2026-04-06T12:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/report_485.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4597013,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_038",
+      "timestamp": "2026-04-06T12:29:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/report_331.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2660938,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_039",
+      "timestamp": "2026-04-06T12:31:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/config_188.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_040",
+      "timestamp": "2026-04-06T12:36:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/design_506.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6720010,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_041",
+      "timestamp": "2026-04-06T12:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/finance/spec_275.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_042",
+      "timestamp": "2026-04-06T12:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/sales/report_317.json",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7619211,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_043",
+      "timestamp": "2026-04-06T12:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/release_notes_107.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4685249,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_044",
+      "timestamp": "2026-04-06T12:57:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/sales/draft_469.pptx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7586070,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_045",
+      "timestamp": "2026-04-06T13:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/sales/memo_809.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_046",
+      "timestamp": "2026-04-06T13:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/review_813.json",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_047",
+      "timestamp": "2026-04-06T13:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/design_441.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_048",
+      "timestamp": "2026-04-06T13:27:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/data_export_538.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_049",
+      "timestamp": "2026-04-06T13:34:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/budget_572.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 542315,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_050",
+      "timestamp": "2026-04-06T13:36:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/forecast_318.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_051",
+      "timestamp": "2026-04-06T13:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/spec_852.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6891997,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_052",
+      "timestamp": "2026-04-06T13:50:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/policy_565.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5660173,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_053",
+      "timestamp": "2026-04-06T13:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/report_881.txt",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1909504,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_054",
+      "timestamp": "2026-04-06T14:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/summary_430.yaml",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3718811,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_055",
+      "timestamp": "2026-04-06T14:09:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/plan_950.pdf",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_056",
+      "timestamp": "2026-04-06T14:12:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/agreement_949.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3896601,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_057",
+      "timestamp": "2026-04-06T14:16:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/hr/design_638.csv",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2497285,
+        "ticket": "FIN-1881"
+      }
+    },
+    {
+      "event_id": "evt_s114_058",
+      "timestamp": "2026-04-06T15:01:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 396
+      }
+    }
+  ]
+}

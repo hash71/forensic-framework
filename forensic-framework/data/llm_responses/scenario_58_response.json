@@ -1,0 +1,68 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, premeditated pattern of an insider threat. user_01 (finance) progressively expanded their access from reading files in other departments (HR, Marketing, Logs, Legal) to performing bulk downloads of sensitive files across multiple departments (Sales, Marketing, HR) over a period of one week.",
+  "suspect": "user_01",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s58_003",
+      "description": "Initial reconnaissance: user_01 reads a file in the HR department, which is outside their normal finance directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s58_007",
+      "description": "Continued reconnaissance: user_01 reads a file in the Marketing department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s58_010",
+      "description": "Expanded reconnaissance: user_01 reads files in Marketing and Logs, often during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s58_017",
+      "description": "Expanded reconnaissance: user_01 reads a file in the Legal department during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s58_024",
+      "description": "Transition to exfiltration: user_01 begins downloading files from Sales, Marketing, and Finance departments in a single session.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s58_030",
+      "description": "Bulk exfiltration: user_01 downloads multiple sensitive files from Logs and HR departments.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s58_003",
+    "evt_s58_007",
+    "evt_s58_010",
+    "evt_s58_011",
+    "evt_s58_014",
+    "evt_s58_017",
+    "evt_s58_020",
+    "evt_s58_024",
+    "evt_s58_025",
+    "evt_s58_026",
+    "evt_s58_027",
+    "evt_s58_030",
+    "evt_s58_031",
+    "evt_s58_032",
+    "evt_s58_033"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "No evidence of a ticket or justification for the cross-department access.",
+    "Missing information on whether user_01's permissions were recently changed or if they were granted temporary access."
+  ],
+  "narrative": "user_01, a finance analyst, exhibited a classic insider threat pattern by gradually expanding their access scope from reading to downloading files across the HR, Marketing, Sales, Legal, and Logs departments. This behavior occurred over several days, including multiple off-hours sessions, culminating in the bulk download of sensitive documents."
+}

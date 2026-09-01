@@ -1,12 +1,11 @@
 {
   "verdict": "NO",
-  "incident_occurred": false,
+  "incident_occurred": "false",
   "confidence": "HIGH",
-  "confidence_explanation": "The timeline shows multiple failed login attempts (evt_s7_001 through evt_s7_014) from various external IPs targeting user_01 and user_04. However, every single one of these attempts resulted in a 'failure' status. There is no evidence of a successful login, session establishment, or data access following these attempts. The subsequent activity for user_01 (evt_s7_015 through evt_s7_020) occurred during normal business hours from their standard IP address (192.168.1.100) and involved accessing files within their normal department directory (/data/finance/). This activity is consistent with legitimate work and does not indicate a breach or insider threat.",
+  "confidence_explanation": "The timeline shows a series of failed login attempts (brute force/credential stuffing) targeting user_01 and user_04 during off-hours. However, all failed attempts were followed by no successful logins for those specific sessions/IPs. The only successful login in the timeline is for user_01 during normal business hours from a known, legitimate IP, and the subsequent file access and download activities are consistent with the user's baseline role and department.",
   "suspect": null,
   "attack_chain": [],
-  "evidence_for": [],
-  "evidence_against": [
+  "evidence_for": [
     "evt_s7_001",
     "evt_s7_002",
     "evt_s7_003",
@@ -20,7 +19,9 @@
     "evt_s7_011",
     "evt_s7_012",
     "evt_s7_013",
-    "evt_s7_014",
+    "evt_s7_014"
+  ],
+  "evidence_against": [
     "evt_s7_015",
     "evt_s7_016",
     "evt_s7_017",
@@ -29,8 +30,8 @@
     "evt_s7_020"
   ],
   "gaps": [
-    "No evidence of successful authentication following the brute-force attempts.",
-    "No evidence of data exfiltration or access to files outside the user's normal scope."
+    "Investigation into the source IPs (45.33.32.x, 185.220.x.x, 91.92.x.x) to determine if they are known malicious actors or part of a coordinated botnet.",
+    "Verification of whether the failed attempts were part of a wider automated attack targeting multiple users."
   ],
-  "narrative": "The environment experienced a series of failed brute-force login attempts against user_01 and user_04 from external IPs between 02:01 and 02:23. All attempts failed, and no unauthorized access was achieved. Subsequent activity by user_01 was legitimate, occurring during normal hours from a trusted IP with access restricted to their standard finance directory."
+  "narrative": "An attempted brute-force attack occurred in the early morning hours targeting user_01 and user_04 from multiple external IPs, but all attempts failed. The subsequent legitimate activity by user_01 during business hours from their normal IP and within their department's directory is consistent with their established baseline and does not indicate a breach."
 }

@@ -1,0 +1,788 @@
+{
+  "scenario_id": "scenario_108",
+  "name": "legitimate_peak_108",
+  "label": "BENIGN",
+  "description": "Legitimate workload peak (year_end_reporting) for user_02 (senior_developer). Ticket FIN-9918 authorizes the high file volume, late hours, and limited cross-department reads.",
+  "events": [
+    {
+      "event_id": "evt_s108_001",
+      "timestamp": "2026-08-28T08:12:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "note": "year_end_reporting period, ticket=FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_002",
+      "timestamp": "2026-08-28T08:22:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/devops/spec_97.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5902689,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_003",
+      "timestamp": "2026-08-28T08:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/agreement_519.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5796608,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_004",
+      "timestamp": "2026-08-28T08:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/rfc_196.yaml",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6370490,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_005",
+      "timestamp": "2026-08-28T08:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/agreement_895.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_006",
+      "timestamp": "2026-08-28T08:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/summary_382.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_007",
+      "timestamp": "2026-08-28T08:51:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/design_688.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2132931,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_008",
+      "timestamp": "2026-08-28T08:57:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/design_543.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4514323,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_009",
+      "timestamp": "2026-08-28T09:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/audit_131.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7112655,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_010",
+      "timestamp": "2026-08-28T09:09:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/plan_207.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_011",
+      "timestamp": "2026-08-28T09:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/data_export_406.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_012",
+      "timestamp": "2026-08-28T09:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/release_notes_145.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_013",
+      "timestamp": "2026-08-28T09:26:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/budget_452.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5205461,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_014",
+      "timestamp": "2026-08-28T09:29:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/migration_168.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 339339,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_015",
+      "timestamp": "2026-08-28T09:37:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/legal/draft_71.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_016",
+      "timestamp": "2026-08-28T09:44:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/logs/draft_568.txt",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_017",
+      "timestamp": "2026-08-28T09:48:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/budget_331.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6745831,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_018",
+      "timestamp": "2026-08-28T09:51:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/draft_304.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1374857,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_019",
+      "timestamp": "2026-08-28T09:55:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/memo_540.txt",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_020",
+      "timestamp": "2026-08-28T10:01:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/policy_18.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_021",
+      "timestamp": "2026-08-28T10:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/rfc_859.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4643510,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_022",
+      "timestamp": "2026-08-28T10:14:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/report_946.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5850608,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_023",
+      "timestamp": "2026-08-28T10:23:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/budget_287.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5301235,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_024",
+      "timestamp": "2026-08-28T10:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/report_158.yaml",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_025",
+      "timestamp": "2026-08-28T10:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/config_639.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7112034,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_026",
+      "timestamp": "2026-08-28T10:37:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/release_notes_235.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 554830,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_027",
+      "timestamp": "2026-08-28T10:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/hr/release_notes_963.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2654391,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_028",
+      "timestamp": "2026-08-28T10:44:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/finance/draft_978.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_029",
+      "timestamp": "2026-08-28T10:51:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/release_notes_282.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_030",
+      "timestamp": "2026-08-28T10:58:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/agreement_386.txt",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_031",
+      "timestamp": "2026-08-28T11:02:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/audit_583.csv",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7282653,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_032",
+      "timestamp": "2026-08-28T11:08:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/sales/review_429.yaml",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5278939,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_033",
+      "timestamp": "2026-08-28T11:17:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/schema_644.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_034",
+      "timestamp": "2026-08-28T11:19:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/policy_322.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_035",
+      "timestamp": "2026-08-28T11:27:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/schema_788.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5438041,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_036",
+      "timestamp": "2026-08-28T11:29:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/config_560.pdf",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6399139,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_037",
+      "timestamp": "2026-08-28T11:36:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/budget_751.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6685718,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_038",
+      "timestamp": "2026-08-28T11:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/summary_291.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_039",
+      "timestamp": "2026-08-28T11:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/data_export_974.pptx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5505136,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_040",
+      "timestamp": "2026-08-28T11:57:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/review_910.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_041",
+      "timestamp": "2026-08-28T12:06:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/marketing/budget_454.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_042",
+      "timestamp": "2026-08-28T12:16:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/design_297.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_043",
+      "timestamp": "2026-08-28T12:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/memo_215.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6140647,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_044",
+      "timestamp": "2026-08-28T12:33:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/design_19.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_045",
+      "timestamp": "2026-08-28T12:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/agreement_370.docx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2489455,
+        "ticket": "FIN-9918"
+      }
+    },
+    {
+      "event_id": "evt_s108_046",
+      "timestamp": "2026-08-28T13:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260828_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 298
+      }
+    }
+  ]
+}

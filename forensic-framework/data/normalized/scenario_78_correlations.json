@@ -1,0 +1,73 @@
+{
+  "scenario": 78,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s78_001",
+        "evt_s78_002",
+        "evt_s78_003",
+        "evt_s78_004",
+        "evt_s78_005",
+        "evt_s78_006",
+        "evt_s78_007",
+        "evt_s78_008",
+        "evt_s78_009",
+        "evt_s78_010",
+        "evt_s78_011",
+        "evt_s78_012",
+        "evt_s78_013",
+        "evt_s78_014",
+        "evt_s78_015",
+        "evt_s78_016",
+        "evt_s78_017",
+        "evt_s78_018",
+        "evt_s78_019",
+        "evt_s78_020",
+        "evt_s78_021",
+        "evt_s78_022",
+        "evt_s78_023",
+        "evt_s78_024",
+        "evt_s78_025",
+        "evt_s78_026",
+        "evt_s78_027",
+        "evt_s78_028",
+        "evt_s78_029",
+        "evt_s78_030",
+        "evt_s78_031",
+        "evt_s78_032",
+        "evt_s78_033",
+        "evt_s78_034",
+        "evt_s78_035",
+        "evt_s78_036",
+        "evt_s78_037",
+        "evt_s78_038",
+        "evt_s78_039",
+        "evt_s78_040",
+        "evt_s78_041",
+        "evt_s78_042",
+        "evt_s78_043",
+        "evt_s78_044"
+      ],
+      "description": "user_10 had 44 event(s) outside normal working hours (08:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s78_001",
+        "evt_s78_002",
+        "evt_s78_003",
+        "evt_s78_004",
+        "evt_s78_005",
+        "evt_s78_006"
+      ],
+      "description": "user_10 generated 6 events in 1 minutes (threshold: 5)",
+      "severity": "warning"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 2
+  }
+}

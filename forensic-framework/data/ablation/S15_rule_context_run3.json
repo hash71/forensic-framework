@@ -1,0 +1,148 @@
+{
+  "scenario_id": "S15",
+  "condition": "rule_context",
+  "model_output_raw": {
+    "verdict": "YES",
+    "incident_occurred": true,
+    "confidence": "HIGH",
+    "confidence_explanation": "The evidence shows a clear pattern of an authorized user (user_04) with 'read_only' access and a baseline of 0 downloads per day performing 6 file downloads. Crucially, this user accessed files outside their department (Engineering projects) and worked significantly outside their normal hours (until 19:00, 2 hours past their 17:00 limit). This behavior deviates sharply from their baseline and role constraints, indicating unauthorized data exfiltration.",
+    "suspect": "user_04",
+    "attack_chain": [
+      {
+        "step": 1,
+        "event_id": "evt_s15_002",
+        "description": "user_04 logs in from normal IP within normal hours.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 2,
+        "event_id": "evt_s15_006",
+        "description": "user_04 performs first download (accounts_receivable), violating baseline of 0 downloads/day.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 3,
+        "event_id": "evt_s15_010",
+        "description": "user_04 performs second download (accounts_payable), establishing a pattern of bulk data collection.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 4,
+        "event_id": "evt_s15_012",
+        "description": "user_04 accesses Engineering project data (project_alpha), crossing departmental boundaries.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 5,
+        "event_id": "evt_s15_014",
+        "description": "user_04 downloads tax_withholdings, a sensitive finance file.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 6,
+        "event_id": "evt_s15_015",
+        "description": "user_04 accesses second Engineering project (project_beta), expanding scope of unauthorized access.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 7,
+        "event_id": "evt_s15_018",
+        "description": "user_04 downloads bank_reconciliation, a highly sensitive financial record.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 8,
+        "event_id": "evt_s15_019",
+        "description": "user_04 downloads general_ledger, a comprehensive financial record, significantly increasing data volume.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 9,
+        "event_id": "evt_s15_020",
+        "description": "user_04 accesses Engineering deliverables_summary outside normal hours (17:15), indicating intent to hide activity or rush exfiltration.",
+        "confidence": "HIGH"
+      },
+      {
+        "step": 10,
+        "event_id": "evt_s15_023",
+        "description": "user_04 logs out at 19:00, 2 hours after their normal shift ended, completing the session.",
+        "confidence": "HIGH"
+      }
+    ],
+    "evidence_for": [
+      "evt_s15_006",
+      "evt_s15_010",
+      "evt_s15_012",
+      "evt_s15_014",
+      "evt_s15_015",
+      "evt_s15_018",
+      "evt_s15_019",
+      "evt_s15_020",
+      "evt_s15_023"
+    ],
+    "evidence_against": [
+      "evt_s15_002",
+      "evt_s15_004",
+      "evt_s15_008"
+    ],
+    "gaps": [
+      "No metadata (ticket numbers or manager approval) explaining the cross-department access or off-hours work.",
+      "No evidence of user_04's specific job duties requiring access to Engineering project files.",
+      "No logs showing if the downloaded files were subsequently transferred to an external location (though download implies local copy).",
+      "No justification for why a 'read_only' junior accountant needed to download 6 large files in one day."
+    ],
+    "narrative": "user_04, a junior accountant with read-only access and a baseline of zero daily downloads, engaged in a systematic exfiltration of sensitive financial data and unauthorized access to Engineering project files. The user violated their role constraints by downloading six files, accessed data outside their department, and extended their session two hours past their normal shift end time. This pattern of behavior strongly indicates an insider threat incident involving data theft."
+  },
+  "parsed_verdict": "YES",
+  "parsed_suspect": "user_04",
+  "validator_result": {
+    "scenario": 15,
+    "event_references": {
+      "total_references": 22,
+      "valid_references": 22,
+      "invalid_references": [],
+      "hallucinated_events": 0
+    },
+    "timeline_correctness": {
+      "chain_length": 10,
+      "chronologically_correct": true,
+      "out_of_order_steps": []
+    },
+    "unsupported_claims": {
+      "total_claims": 11,
+      "supported_claims": 10,
+      "unsupported_claims": 1,
+      "evidence_grounding": 90.91
+    },
+    "actor_references": {
+      "suspect": "user_04",
+      "suspect_in_events": true,
+      "actors_in_events": [
+        "user_01",
+        "user_04"
+      ]
+    },
+    "temporal_claims": {
+      "temporal_claims_checked": 1,
+      "temporal_claims_valid": 1,
+      "temporal_errors": []
+    },
+    "volume_claims": {
+      "volume_claims_checked": 0,
+      "volume_claims_valid": 0,
+      "volume_errors": []
+    },
+    "entity_consistency": {
+      "entities_checked": 1,
+      "entities_valid": 1,
+      "unknown_entities": []
+    },
+    "hallucination_count": 1,
+    "hallucination_free": false
+  },
+  "timestamp": "2026-05-08T19:19:40.318060+00:00",
+  "model_name": "fusion-brain",
+  "temperature": 0.1,
+  "prompt_version": "v1.0",
+  "commit_hash": "6c7ffbc"
+}

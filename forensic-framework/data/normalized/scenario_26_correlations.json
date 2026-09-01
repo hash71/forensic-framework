@@ -1,0 +1,115 @@
+{
+  "scenario": 26,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s26_001"
+      ],
+      "description": "user_02 logged in from unusual IP 139.59.13.50 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s26_029"
+      ],
+      "description": "user_02 logged in from unusual IP 139.59.13.50 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s26_029"
+      ],
+      "description": "user_02 had 1 event(s) outside normal working hours (09:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s26_003",
+        "evt_s26_004",
+        "evt_s26_005",
+        "evt_s26_006",
+        "evt_s26_007",
+        "evt_s26_008"
+      ],
+      "description": "user_02 generated 6 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s26_005",
+        "evt_s26_006",
+        "evt_s26_007",
+        "evt_s26_008",
+        "evt_s26_009",
+        "evt_s26_010"
+      ],
+      "description": "user_02 generated 6 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s26_001",
+        "evt_s26_028",
+        "evt_s26_029",
+        "evt_s26_048",
+        "evt_s26_002",
+        "evt_s26_003",
+        "evt_s26_004",
+        "evt_s26_005",
+        "evt_s26_006",
+        "evt_s26_007",
+        "evt_s26_008",
+        "evt_s26_009",
+        "evt_s26_010",
+        "evt_s26_011",
+        "evt_s26_012",
+        "evt_s26_013",
+        "evt_s26_014",
+        "evt_s26_015",
+        "evt_s26_016",
+        "evt_s26_017",
+        "evt_s26_018",
+        "evt_s26_019",
+        "evt_s26_020",
+        "evt_s26_021",
+        "evt_s26_022",
+        "evt_s26_023",
+        "evt_s26_024",
+        "evt_s26_025",
+        "evt_s26_026",
+        "evt_s26_027",
+        "evt_s26_030",
+        "evt_s26_031",
+        "evt_s26_032",
+        "evt_s26_033",
+        "evt_s26_034",
+        "evt_s26_035",
+        "evt_s26_036",
+        "evt_s26_037",
+        "evt_s26_038",
+        "evt_s26_039",
+        "evt_s26_040",
+        "evt_s26_041",
+        "evt_s26_042",
+        "evt_s26_043",
+        "evt_s26_044",
+        "evt_s26_045",
+        "evt_s26_046",
+        "evt_s26_047"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 6,
+  "severity_summary": {
+    "warning": 5,
+    "info": 1
+  }
+}

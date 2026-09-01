@@ -1,0 +1,34 @@
+{
+  "scenario": 50,
+  "findings": [
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s50_001",
+        "evt_s50_005",
+        "evt_s50_006",
+        "evt_s50_011",
+        "evt_s50_012",
+        "evt_s50_014",
+        "evt_s50_015",
+        "evt_s50_018",
+        "evt_s50_002",
+        "evt_s50_003",
+        "evt_s50_004",
+        "evt_s50_007",
+        "evt_s50_008",
+        "evt_s50_009",
+        "evt_s50_010",
+        "evt_s50_013",
+        "evt_s50_016",
+        "evt_s50_017"
+      ],
+      "description": "user_10 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 1,
+  "severity_summary": {
+    "info": 1
+  }
+}

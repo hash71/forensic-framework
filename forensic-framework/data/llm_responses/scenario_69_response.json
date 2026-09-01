@@ -1,0 +1,58 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear session hijacking event followed by unauthorized cross-departmental data exfiltration. The mid-session IP change for the same session_id is a definitive indicator of hijacking.",
+  "suspect": "user_01",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s69_001",
+      "description": "User_01 logs in successfully from their normal IP (192.168.1.100) and performs legitimate file reads within the finance department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s69_008",
+      "description": "The session (sess_user_01_20260516_001) is hijacked; the source IP changes from 192.168.1.100 to 91.219.236.222, and the user begins accessing files outside the finance department (marketing).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s69_009",
+      "description": "The attacker begins a bulk download of sensitive files across multiple departments, including legal, marketing, shared runbooks, security, and engineering (project_beta).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s69_017",
+      "description": "The attacker logs out of the hijacked session.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s69_008",
+    "evt_s69_009",
+    "evt_s69_010",
+    "evt_s69_011",
+    "evt_s69_012",
+    "evt_s69_013",
+    "evt_s69_014",
+    "evt_s69_015",
+    "evt_s69_016"
+  ],
+  "evidence_against": [
+    "evt_s69_001",
+    "evt_s69_002",
+    "evt_s69_003",
+    "evt_s69_004",
+    "evt_s69_005",
+    "evt_s69_006",
+    "evt_s69_007"
+  ],
+  "gaps": [
+    "Geographic location of IP 91.219.236.222 to confirm it is not a known VPN/proxy used by user_01.",
+    "Logs from the endpoint of user_01 to determine if the session was stolen via malware or if the user's credentials were compromised."
+  ],
+  "narrative": "A session hijacking incident occurred where user_01's active session was taken over by an attacker at IP 91.219.236.222. This is evidenced by a mid-session IP change for the same session_id, followed by a rapid, bulk download of sensitive files from the legal, marketing, security, and engineering departments, which are all outside the user's normal scope of access."
+}

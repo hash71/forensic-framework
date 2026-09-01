@@ -1,0 +1,912 @@
+{
+  "scenario_id": "scenario_94",
+  "name": "multistage_infra_094",
+  "label": "ATTACK",
+  "description": "Multi-stage infrastructure attack against user_09: SQL injection probes, stolen-credential login, privilege escalation, database exfiltration, DNS tunnel, large outbound transfer, and log cleanup.",
+  "events": [
+    {
+      "event_id": "evt_s94_001",
+      "timestamp": "2026-05-13T03:44:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/api/items?id=1' UNION SELECT * FROM users--",
+      "source_ip": "104.244.76.13",
+      "status": "500",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "method": "GET",
+        "status_code": 500,
+        "user_agent": "sqlmap/1.7",
+        "response_size": 1302,
+        "duration_ms": 163
+      }
+    },
+    {
+      "event_id": "evt_s94_002",
+      "timestamp": "2026-05-13T03:44:08+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/api/items?id=1' UNION SELECT * FROM users--",
+      "source_ip": "104.244.76.13",
+      "status": "500",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "method": "GET",
+        "status_code": 500,
+        "user_agent": "sqlmap/1.7",
+        "response_size": 1439,
+        "duration_ms": 151
+      }
+    },
+    {
+      "event_id": "evt_s94_003",
+      "timestamp": "2026-05-13T03:44:10+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/api/items?id=1' UNION SELECT * FROM users--",
+      "source_ip": "104.244.76.13",
+      "status": "500",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "method": "GET",
+        "status_code": 500,
+        "user_agent": "sqlmap/1.7",
+        "response_size": 1065,
+        "duration_ms": 208
+      }
+    },
+    {
+      "event_id": "evt_s94_004",
+      "timestamp": "2026-05-13T03:50:17+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "curl/8.0.0"
+      }
+    },
+    {
+      "event_id": "evt_s94_005",
+      "timestamp": "2026-05-13T03:52:17+06:00",
+      "source_type": "admin",
+      "user": "user_09",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "critical",
+      "metadata": {
+        "detail": "elevated to dba"
+      }
+    },
+    {
+      "event_id": "evt_s94_006",
+      "timestamp": "2026-05-13T03:53:17+06:00",
+      "source_type": "database",
+      "user": "user_09",
+      "action": "db_login",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "info",
+      "metadata": {
+        "database": "prod_main"
+      }
+    },
+    {
+      "event_id": "evt_s94_007",
+      "timestamp": "2026-05-13T03:54:04+06:00",
+      "source_type": "database",
+      "user": "user_09",
+      "action": "db_query",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "info",
+      "metadata": {
+        "database": "prod_main",
+        "query": "SELECT * FROM customers LIMIT 100000",
+        "rows_affected": 428801,
+        "duration_ms": 2375
+      }
+    },
+    {
+      "event_id": "evt_s94_008",
+      "timestamp": "2026-05-13T03:55:22+06:00",
+      "source_type": "database",
+      "user": "user_09",
+      "action": "db_query",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "info",
+      "metadata": {
+        "database": "prod_main",
+        "query": "SELECT * FROM customers LIMIT 100000",
+        "rows_affected": 381981,
+        "duration_ms": 600
+      }
+    },
+    {
+      "event_id": "evt_s94_009",
+      "timestamp": "2026-05-13T03:56:13+06:00",
+      "source_type": "database",
+      "user": "user_09",
+      "action": "db_query",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "info",
+      "metadata": {
+        "database": "prod_main",
+        "query": "SELECT * FROM customers LIMIT 100000",
+        "rows_affected": 335035,
+        "duration_ms": 2324
+      }
+    },
+    {
+      "event_id": "evt_s94_010",
+      "timestamp": "2026-05-13T03:56:49+06:00",
+      "source_type": "database",
+      "user": "user_09",
+      "action": "db_query",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "info",
+      "metadata": {
+        "database": "prod_main",
+        "query": "SELECT * FROM customers LIMIT 100000",
+        "rows_affected": 419298,
+        "duration_ms": 2679
+      }
+    },
+    {
+      "event_id": "evt_s94_011",
+      "timestamp": "2026-05-13T03:56:55+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 608
+      }
+    },
+    {
+      "event_id": "evt_s94_012",
+      "timestamp": "2026-05-13T03:56:57+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1455
+      }
+    },
+    {
+      "event_id": "evt_s94_013",
+      "timestamp": "2026-05-13T03:57:05+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1028
+      }
+    },
+    {
+      "event_id": "evt_s94_014",
+      "timestamp": "2026-05-13T03:57:07+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 365
+      }
+    },
+    {
+      "event_id": "evt_s94_015",
+      "timestamp": "2026-05-13T03:57:10+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1484
+      }
+    },
+    {
+      "event_id": "evt_s94_016",
+      "timestamp": "2026-05-13T03:57:14+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 560
+      }
+    },
+    {
+      "event_id": "evt_s94_017",
+      "timestamp": "2026-05-13T03:57:21+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 346
+      }
+    },
+    {
+      "event_id": "evt_s94_018",
+      "timestamp": "2026-05-13T03:57:25+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 997
+      }
+    },
+    {
+      "event_id": "evt_s94_019",
+      "timestamp": "2026-05-13T03:57:30+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1393
+      }
+    },
+    {
+      "event_id": "evt_s94_020",
+      "timestamp": "2026-05-13T03:57:34+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1010
+      }
+    },
+    {
+      "event_id": "evt_s94_021",
+      "timestamp": "2026-05-13T03:57:40+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1212
+      }
+    },
+    {
+      "event_id": "evt_s94_022",
+      "timestamp": "2026-05-13T03:57:42+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 276
+      }
+    },
+    {
+      "event_id": "evt_s94_023",
+      "timestamp": "2026-05-13T03:57:47+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 303
+      }
+    },
+    {
+      "event_id": "evt_s94_024",
+      "timestamp": "2026-05-13T03:57:53+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1025
+      }
+    },
+    {
+      "event_id": "evt_s94_025",
+      "timestamp": "2026-05-13T03:57:56+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1359
+      }
+    },
+    {
+      "event_id": "evt_s94_026",
+      "timestamp": "2026-05-13T03:58:01+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 891
+      }
+    },
+    {
+      "event_id": "evt_s94_027",
+      "timestamp": "2026-05-13T03:58:03+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 766
+      }
+    },
+    {
+      "event_id": "evt_s94_028",
+      "timestamp": "2026-05-13T03:58:05+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1467
+      }
+    },
+    {
+      "event_id": "evt_s94_029",
+      "timestamp": "2026-05-13T03:58:11+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1174
+      }
+    },
+    {
+      "event_id": "evt_s94_030",
+      "timestamp": "2026-05-13T03:58:16+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1490
+      }
+    },
+    {
+      "event_id": "evt_s94_031",
+      "timestamp": "2026-05-13T03:58:18+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1077
+      }
+    },
+    {
+      "event_id": "evt_s94_032",
+      "timestamp": "2026-05-13T03:58:24+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 492
+      }
+    },
+    {
+      "event_id": "evt_s94_033",
+      "timestamp": "2026-05-13T03:58:31+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1398
+      }
+    },
+    {
+      "event_id": "evt_s94_034",
+      "timestamp": "2026-05-13T03:58:39+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1231
+      }
+    },
+    {
+      "event_id": "evt_s94_035",
+      "timestamp": "2026-05-13T03:58:41+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1216
+      }
+    },
+    {
+      "event_id": "evt_s94_036",
+      "timestamp": "2026-05-13T03:58:45+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1049
+      }
+    },
+    {
+      "event_id": "evt_s94_037",
+      "timestamp": "2026-05-13T03:58:50+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 368
+      }
+    },
+    {
+      "event_id": "evt_s94_038",
+      "timestamp": "2026-05-13T03:58:58+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 696
+      }
+    },
+    {
+      "event_id": "evt_s94_039",
+      "timestamp": "2026-05-13T03:59:06+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 900
+      }
+    },
+    {
+      "event_id": "evt_s94_040",
+      "timestamp": "2026-05-13T03:59:10+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 420
+      }
+    },
+    {
+      "event_id": "evt_s94_041",
+      "timestamp": "2026-05-13T03:59:12+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1359
+      }
+    },
+    {
+      "event_id": "evt_s94_042",
+      "timestamp": "2026-05-13T03:59:18+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1246
+      }
+    },
+    {
+      "event_id": "evt_s94_043",
+      "timestamp": "2026-05-13T03:59:26+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 451
+      }
+    },
+    {
+      "event_id": "evt_s94_044",
+      "timestamp": "2026-05-13T03:59:33+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 1412
+      }
+    },
+    {
+      "event_id": "evt_s94_045",
+      "timestamp": "2026-05-13T03:59:36+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 470
+      }
+    },
+    {
+      "event_id": "evt_s94_046",
+      "timestamp": "2026-05-13T03:59:42+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "dns_query",
+      "resource": "x7144.malicious-82.com",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "udp",
+        "dst_port": 53,
+        "bytes_transferred": 246
+      }
+    },
+    {
+      "event_id": "evt_s94_047",
+      "timestamp": "2026-05-13T04:00:29+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 33616113
+      }
+    },
+    {
+      "event_id": "evt_s94_048",
+      "timestamp": "2026-05-13T04:01:22+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 24645204
+      }
+    },
+    {
+      "event_id": "evt_s94_049",
+      "timestamp": "2026-05-13T04:02:31+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 30810971
+      }
+    },
+    {
+      "event_id": "evt_s94_050",
+      "timestamp": "2026-05-13T04:03:07+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 28032032
+      }
+    },
+    {
+      "event_id": "evt_s94_051",
+      "timestamp": "2026-05-13T04:04:05+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 27051212
+      }
+    },
+    {
+      "event_id": "evt_s94_052",
+      "timestamp": "2026-05-13T04:05:33+06:00",
+      "source_type": "network",
+      "user": "user_09",
+      "action": "data_out",
+      "resource": null,
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "warning",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_port": 443,
+        "bytes_transferred": 17862446
+      }
+    },
+    {
+      "event_id": "evt_s94_053",
+      "timestamp": "2026-05-13T04:08:33+06:00",
+      "source_type": "admin",
+      "user": "user_09",
+      "action": "log_delete",
+      "resource": "/var/log/auth.log",
+      "source_ip": "104.244.76.13",
+      "status": "success",
+      "session_id": "sess_user_09_20260513_001",
+      "severity": "critical",
+      "metadata": {
+        "detail": "auth log truncated"
+      }
+    }
+  ]
+}

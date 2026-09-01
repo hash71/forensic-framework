@@ -1,0 +1,47 @@
+{
+  "scenario": 51,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s51_002",
+        "evt_s51_003",
+        "evt_s51_004",
+        "evt_s51_005",
+        "evt_s51_006"
+      ],
+      "description": "user_04 had 5 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s51_001",
+        "evt_s51_006",
+        "evt_s51_007",
+        "evt_s51_010",
+        "evt_s51_011",
+        "evt_s51_014",
+        "evt_s51_015",
+        "evt_s51_018",
+        "evt_s51_002",
+        "evt_s51_003",
+        "evt_s51_004",
+        "evt_s51_005",
+        "evt_s51_008",
+        "evt_s51_009",
+        "evt_s51_012",
+        "evt_s51_013",
+        "evt_s51_016",
+        "evt_s51_017"
+      ],
+      "description": "user_04 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

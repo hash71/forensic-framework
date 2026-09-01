@@ -1,0 +1,258 @@
+{
+  "scenario_id": "scenario_72",
+  "name": "maintenance_window_072",
+  "label": "BENIGN",
+  "description": "Scheduled maintenance window by user_06 (site_reliability_engineer). Ticket OPS-2761 authorizes the privilege change, bulk backup download, and log rotation. Privileges are reverted at end of window.",
+  "events": [
+    {
+      "event_id": "evt_s72_001",
+      "timestamp": "2026-06-04T22:11:00+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "ssh_key",
+        "user_agent": "OpenSSH_9.3",
+        "note": "Scheduled maintenance window, ticket=OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_002",
+      "timestamp": "2026-06-04T22:13:00+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated for maintenance",
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_003",
+      "timestamp": "2026-06-04T22:18:37+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/config_643.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 92280869,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_004",
+      "timestamp": "2026-06-04T22:20:52+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/data_export_136.docx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 44805865,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_005",
+      "timestamp": "2026-06-04T22:21:22+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/release_notes_52.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 5262365,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_006",
+      "timestamp": "2026-06-04T22:22:23+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/rfc_333.txt",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 94960351,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_007",
+      "timestamp": "2026-06-04T22:23:13+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/draft_472.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 24066190,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_008",
+      "timestamp": "2026-06-04T22:24:39+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/budget_500.xlsx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 70307130,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_009",
+      "timestamp": "2026-06-04T22:26:33+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/policy_297.pptx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 54617856,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_010",
+      "timestamp": "2026-06-04T22:27:47+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/config_795.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 14695429,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_011",
+      "timestamp": "2026-06-04T22:30:41+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/schema_912.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 29204043,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_012",
+      "timestamp": "2026-06-04T22:31:18+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/review_2.pdf",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 96134634,
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_013",
+      "timestamp": "2026-06-04T22:34:18+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "log_delete",
+      "resource": "/var/log/old_rotations/",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "warning",
+      "metadata": {
+        "detail": "scheduled log rotation",
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_014",
+      "timestamp": "2026-06-04T22:41:18+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "detail": "reverted to baseline",
+        "ticket": "OPS-2761"
+      }
+    },
+    {
+      "event_id": "evt_s72_015",
+      "timestamp": "2026-06-04T22:46:18+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260604_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 20
+      }
+    }
+  ]
+}

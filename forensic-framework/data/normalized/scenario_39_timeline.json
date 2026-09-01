@@ -1,0 +1,1181 @@
+{
+  "scenario": 39,
+  "total_events": 27,
+  "timeline": [
+    {
+      "event_id": "evt_s39_001",
+      "timestamp": "2026-06-19T03:21:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_002",
+      "timestamp": "2026-06-19T03:21:35+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_003",
+      "timestamp": "2026-06-19T03:22:10+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_004",
+      "timestamp": "2026-06-19T03:23:12+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_005",
+      "timestamp": "2026-06-19T03:24:31+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_006",
+      "timestamp": "2026-06-19T03:24:49+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_007",
+      "timestamp": "2026-06-19T03:26:13+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_008",
+      "timestamp": "2026-06-19T03:28:50+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s39_009",
+      "timestamp": "2026-06-19T03:30:50+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated to admin role"
+      }
+    },
+    {
+      "event_id": "evt_s39_010",
+      "timestamp": "2026-06-19T03:33:50+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/budget_71.pptx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 18556762
+      }
+    },
+    {
+      "event_id": "evt_s39_011",
+      "timestamp": "2026-06-19T03:34:58+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/plan_232.docx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 37323073
+      }
+    },
+    {
+      "event_id": "evt_s39_012",
+      "timestamp": "2026-06-19T03:35:42+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/rfc_254.xlsx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 10629494
+      }
+    },
+    {
+      "event_id": "evt_s39_013",
+      "timestamp": "2026-06-19T03:38:40+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/rfc_163.xlsx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 32245017
+      }
+    },
+    {
+      "event_id": "evt_s39_014",
+      "timestamp": "2026-06-19T03:40:26+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/policy_996.pdf",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 14299705
+      }
+    },
+    {
+      "event_id": "evt_s39_015",
+      "timestamp": "2026-06-19T03:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/plan_704.csv",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 8421911
+      }
+    },
+    {
+      "event_id": "evt_s39_016",
+      "timestamp": "2026-06-19T03:44:30+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/migration_802.docx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 10001443
+      }
+    },
+    {
+      "event_id": "evt_s39_017",
+      "timestamp": "2026-06-19T03:46:45+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/plan_354.yaml",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 37406002
+      }
+    },
+    {
+      "event_id": "evt_s39_018",
+      "timestamp": "2026-06-19T03:47:50+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/audit_26.txt",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 30107107
+      }
+    },
+    {
+      "event_id": "evt_s39_019",
+      "timestamp": "2026-06-19T03:49:05+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/audit_602.pptx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 29208360
+      }
+    },
+    {
+      "event_id": "evt_s39_020",
+      "timestamp": "2026-06-19T03:49:46+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/finance/config_399.docx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 34882505
+      }
+    },
+    {
+      "event_id": "evt_s39_021",
+      "timestamp": "2026-06-19T03:52:45+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/agreement_12.xlsx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 9462693
+      }
+    },
+    {
+      "event_id": "evt_s39_022",
+      "timestamp": "2026-06-19T03:54:12+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/hr/design_792.xlsx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 42814739
+      }
+    },
+    {
+      "event_id": "evt_s39_023",
+      "timestamp": "2026-06-19T03:56:13+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/hr/rfc_822.json",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 25391369
+      }
+    },
+    {
+      "event_id": "evt_s39_024",
+      "timestamp": "2026-06-19T03:57:35+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/devops/migration_485.docx",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5326126
+      }
+    },
+    {
+      "event_id": "evt_s39_025",
+      "timestamp": "2026-06-19T03:58:34+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/marketing/config_135.csv",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 37388604
+      }
+    },
+    {
+      "event_id": "evt_s39_026",
+      "timestamp": "2026-06-19T04:01:49+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "log_delete",
+      "resource": "/var/log/auth.log",
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "auth log truncated"
+      }
+    },
+    {
+      "event_id": "evt_s39_027",
+      "timestamp": "2026-06-19T04:04:49+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "194.180.48.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260619_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_02": [
+      {
+        "event_id": "evt_s39_001",
+        "timestamp": "2026-06-19T03:21:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_002",
+        "timestamp": "2026-06-19T03:21:35+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_003",
+        "timestamp": "2026-06-19T03:22:10+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_004",
+        "timestamp": "2026-06-19T03:23:12+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_005",
+        "timestamp": "2026-06-19T03:24:31+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_006",
+        "timestamp": "2026-06-19T03:24:49+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_007",
+        "timestamp": "2026-06-19T03:26:13+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_008",
+        "timestamp": "2026-06-19T03:28:50+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_009",
+        "timestamp": "2026-06-19T03:30:50+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated to admin role"
+        }
+      },
+      {
+        "event_id": "evt_s39_010",
+        "timestamp": "2026-06-19T03:33:50+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/finance/budget_71.pptx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 18556762
+        }
+      },
+      {
+        "event_id": "evt_s39_011",
+        "timestamp": "2026-06-19T03:34:58+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/plan_232.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37323073
+        }
+      },
+      {
+        "event_id": "evt_s39_012",
+        "timestamp": "2026-06-19T03:35:42+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/rfc_254.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 10629494
+        }
+      },
+      {
+        "event_id": "evt_s39_013",
+        "timestamp": "2026-06-19T03:38:40+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/rfc_163.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 32245017
+        }
+      },
+      {
+        "event_id": "evt_s39_014",
+        "timestamp": "2026-06-19T03:40:26+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/policy_996.pdf",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 14299705
+        }
+      },
+      {
+        "event_id": "evt_s39_015",
+        "timestamp": "2026-06-19T03:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/plan_704.csv",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 8421911
+        }
+      },
+      {
+        "event_id": "evt_s39_016",
+        "timestamp": "2026-06-19T03:44:30+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/migration_802.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 10001443
+        }
+      },
+      {
+        "event_id": "evt_s39_017",
+        "timestamp": "2026-06-19T03:46:45+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/plan_354.yaml",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37406002
+        }
+      },
+      {
+        "event_id": "evt_s39_018",
+        "timestamp": "2026-06-19T03:47:50+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/audit_26.txt",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 30107107
+        }
+      },
+      {
+        "event_id": "evt_s39_019",
+        "timestamp": "2026-06-19T03:49:05+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/audit_602.pptx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29208360
+        }
+      },
+      {
+        "event_id": "evt_s39_020",
+        "timestamp": "2026-06-19T03:49:46+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/finance/config_399.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 34882505
+        }
+      },
+      {
+        "event_id": "evt_s39_021",
+        "timestamp": "2026-06-19T03:52:45+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/agreement_12.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 9462693
+        }
+      },
+      {
+        "event_id": "evt_s39_022",
+        "timestamp": "2026-06-19T03:54:12+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/hr/design_792.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 42814739
+        }
+      },
+      {
+        "event_id": "evt_s39_023",
+        "timestamp": "2026-06-19T03:56:13+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/hr/rfc_822.json",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 25391369
+        }
+      },
+      {
+        "event_id": "evt_s39_024",
+        "timestamp": "2026-06-19T03:57:35+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/devops/migration_485.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5326126
+        }
+      },
+      {
+        "event_id": "evt_s39_025",
+        "timestamp": "2026-06-19T03:58:34+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/marketing/config_135.csv",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37388604
+        }
+      },
+      {
+        "event_id": "evt_s39_026",
+        "timestamp": "2026-06-19T04:01:49+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "auth log truncated"
+        }
+      },
+      {
+        "event_id": "evt_s39_027",
+        "timestamp": "2026-06-19T04:04:49+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "no_session": [
+      {
+        "event_id": "evt_s39_001",
+        "timestamp": "2026-06-19T03:21:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_002",
+        "timestamp": "2026-06-19T03:21:35+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_003",
+        "timestamp": "2026-06-19T03:22:10+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_004",
+        "timestamp": "2026-06-19T03:23:12+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_005",
+        "timestamp": "2026-06-19T03:24:31+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_006",
+        "timestamp": "2026-06-19T03:24:49+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_007",
+        "timestamp": "2026-06-19T03:26:13+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_009",
+        "timestamp": "2026-06-19T03:30:50+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated to admin role"
+        }
+      },
+      {
+        "event_id": "evt_s39_026",
+        "timestamp": "2026-06-19T04:01:49+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "auth log truncated"
+        }
+      }
+    ],
+    "sess_user_02_20260619_001": [
+      {
+        "event_id": "evt_s39_008",
+        "timestamp": "2026-06-19T03:28:50+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s39_010",
+        "timestamp": "2026-06-19T03:33:50+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/finance/budget_71.pptx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 18556762
+        }
+      },
+      {
+        "event_id": "evt_s39_011",
+        "timestamp": "2026-06-19T03:34:58+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/plan_232.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37323073
+        }
+      },
+      {
+        "event_id": "evt_s39_012",
+        "timestamp": "2026-06-19T03:35:42+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/rfc_254.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 10629494
+        }
+      },
+      {
+        "event_id": "evt_s39_013",
+        "timestamp": "2026-06-19T03:38:40+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/rfc_163.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 32245017
+        }
+      },
+      {
+        "event_id": "evt_s39_014",
+        "timestamp": "2026-06-19T03:40:26+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/policy_996.pdf",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 14299705
+        }
+      },
+      {
+        "event_id": "evt_s39_015",
+        "timestamp": "2026-06-19T03:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/plan_704.csv",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 8421911
+        }
+      },
+      {
+        "event_id": "evt_s39_016",
+        "timestamp": "2026-06-19T03:44:30+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/migration_802.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 10001443
+        }
+      },
+      {
+        "event_id": "evt_s39_017",
+        "timestamp": "2026-06-19T03:46:45+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/plan_354.yaml",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37406002
+        }
+      },
+      {
+        "event_id": "evt_s39_018",
+        "timestamp": "2026-06-19T03:47:50+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/audit_26.txt",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 30107107
+        }
+      },
+      {
+        "event_id": "evt_s39_019",
+        "timestamp": "2026-06-19T03:49:05+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/audit_602.pptx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 29208360
+        }
+      },
+      {
+        "event_id": "evt_s39_020",
+        "timestamp": "2026-06-19T03:49:46+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/finance/config_399.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 34882505
+        }
+      },
+      {
+        "event_id": "evt_s39_021",
+        "timestamp": "2026-06-19T03:52:45+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_beta/agreement_12.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 9462693
+        }
+      },
+      {
+        "event_id": "evt_s39_022",
+        "timestamp": "2026-06-19T03:54:12+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/hr/design_792.xlsx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 42814739
+        }
+      },
+      {
+        "event_id": "evt_s39_023",
+        "timestamp": "2026-06-19T03:56:13+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/hr/rfc_822.json",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 25391369
+        }
+      },
+      {
+        "event_id": "evt_s39_024",
+        "timestamp": "2026-06-19T03:57:35+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/devops/migration_485.docx",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5326126
+        }
+      },
+      {
+        "event_id": "evt_s39_025",
+        "timestamp": "2026-06-19T03:58:34+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/marketing/config_135.csv",
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 37388604
+        }
+      },
+      {
+        "event_id": "evt_s39_027",
+        "timestamp": "2026-06-19T04:04:49+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "194.180.48.99",
+        "status": "success",
+        "session_id": "sess_user_02_20260619_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-06-19T03:21:00+06:00",
+    "end": "2026-06-19T04:04:49+06:00"
+  }
+}

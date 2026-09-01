@@ -1,0 +1,191 @@
+{
+  "scenario": 108,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_001"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:12 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:12:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_002"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:22 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:22:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_002"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/devops/spec_97.pptx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T08:22:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_003"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:30 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_004"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:38 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:38:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_005"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:40 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:40:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_006"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:42 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:42:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_007"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:51 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:51:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_008"
+      ],
+      "user": "user_02",
+      "description": "Activity at 08:57 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-08-28T08:57:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_015"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/legal/draft_71.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T09:37:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_016"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/logs/draft_568.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T09:44:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_027"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/release_notes_963.csv is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T10:42:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_028"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/draft_978.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T10:44:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_032"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/sales/review_429.yaml is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T11:08:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_037"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/budget_751.json is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T11:36:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s108_041"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/marketing/budget_454.json is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-08-28T12:06:00+06:00"
+    }
+  ],
+  "alert_count": 16,
+  "rules_triggered": [
+    "R002",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 16,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

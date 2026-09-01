@@ -1,0 +1,70 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear pattern of an insider threat: the user MDH0580 progressively increased file copying activity over multiple days, specifically targeting various document and zip files while using USB devices. This pattern of data collection followed by USB disconnection is highly indicative of data exfiltration.",
+  "suspect": "MDH0580",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "cert_device_00349709",
+      "description": "User connects a USB device to the workstation.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "cert_device_00350214",
+      "description": "User connects a second USB device.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "cert_file_00384763",
+      "description": "User begins copying files (7EGTCCJ8.doc) to a device.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "cert_file_00384935",
+      "description": "User performs a bulk copy of multiple files (GS5UKTLF.zip, 47OD4SKJ.doc, RG6OEWDJ.zip, OMWX8QFL.doc) during a single USB session.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "cert_file_00385374",
+      "description": "User continues file copying patterns on subsequent days (e.g., Z2QNA3HO.doc, F9AA3DBB.pdf, GJAVVI7J.doc) using multiple USB connections.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "cert_file_00385471",
+      "description": "User continues the pattern of copying files (CW5DY4FM.pdf) to USB devices.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "cert_device_00349709",
+    "cert_device_00350214",
+    "cert_file_00384763",
+    "cert_file_00384935",
+    "cert_file_00384937",
+    "cert_file_00384939",
+    "cert_file_00384940",
+    "cert_file_00385374",
+    "cert_file_00385385",
+    "cert_file_00385391",
+    "cert_file_00385404",
+    "cert_file_00385408",
+    "cert_file_00385413",
+    "cert_file_00385471"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Classification/sensitivity of the copied files (e.g., whether they contain proprietary or PII data).",
+    "The specific contents of the emails sent to internal recipients to see if they were used to facilitate the theft.",
+    "The user's department or job function to confirm if file access was outside their scope."
+  ],
+  "narrative": "User MDH0580 exhibited a premeditated pattern of data exfiltration by connecting multiple USB devices over several days and performing bulk file copies of various .doc and .zip files. This behavior, characterized by a transition from normal web browsing to repeated, high-volume file copying to external media, strongly indicates an insider threat incident.",
+  "_elapsed_seconds": 15.178801375004696,
+  "source": "live"
+}

@@ -1,0 +1,59 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear session hijacking event followed by unauthorized cross-departmental data exfiltration. The mid-session IP change for the same session_id is a definitive indicator of hijacking.",
+  "suspect": "user_08",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s64_001",
+      "description": "User_08 logs in successfully from their normal IP (192.168.1.108).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s64_005",
+      "description": "User_08 performs legitimate file reads within their own department (/data/legal/).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s64_006",
+      "description": "Session hijacking occurs: The same session_id (sess_user_08_20260410_001) is used from a new, external IP (91.219.236.222), and the user begins accessing files in the HR department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s64_007",
+      "description": "The attacker begins exfiltrating data from multiple departments including Finance, Security, Project Beta, and Marketing.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s64_012",
+      "description": "The attacker logs out from the hijacked session.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s64_006",
+    "evt_s64_007",
+    "evt_s64_008",
+    "evt_s64_009",
+    "evt_s64_010",
+    "evt_s64_011"
+  ],
+  "evidence_against": [
+    "evt_s64_001",
+    "evt_s64_002",
+    "evt_s64_003",
+    "evt_s64_004",
+    "evt_s64_005"
+  ],
+  "gaps": [
+    "Information regarding the origin/reputation of IP 91.219.236.222.",
+    "Logs from the authentication provider to determine how the session token was intercepted (e.g., cookie theft, man-in-the-middle)."
+  ],
+  "narrative": "A security incident occurred involving the hijacking of user_08's session. After an initial legitimate login from a known IP, the session was hijacked by an external IP (91.219.236.222), which was then used to perform unauthorized cross-departmental file downloads across HR, Finance, Security, and Marketing departments."
+}

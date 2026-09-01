@@ -1,0 +1,43 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear, multi-day pattern of an insider threat (user_01) transitioning from reading files in unauthorized departments to downloading sensitive files across multiple departments (Executive, Sales, and Security).",
+  "suspect": "user_01",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s55_002",
+      "description": "Initial reconnaissance: user_01 reads a file in the Executive department, which is outside their normal finance directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s55_007",
+      "description": "Expansion of scope: user_01 downloads a file from the Sales department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s55_014",
+      "description": "Data exfiltration: user_01 downloads a policy file from the Security department, completing a pattern of cross-departmental data collection.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s55_002",
+    "evt_s55_007",
+    "evt_s55_008",
+    "evt_s55_009",
+    "evt_s55_012",
+    "evt_s55_013",
+    "evt_s55_014",
+    "evt_s55_015"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether user_01 had a legitimate business reason or a support ticket for accessing Executive, Sales, or Security data.",
+    "No information on whether the downloaded files were subsequently moved to external storage or sent via email."
+  ],
+  "narrative": "User_01, a financial analyst, exhibited a premeditated pattern of unauthorized data access and exfiltration. Over three days, the user moved from reading files in the Executive department to downloading multiple files from the Sales and Security departments, all of which are outside their authorized finance directory."
+}

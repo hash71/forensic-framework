@@ -1,0 +1,107 @@
+{
+  "scenario": 101,
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s101_001",
+        "evt_s101_002",
+        "evt_s101_003",
+        "evt_s101_004",
+        "evt_s101_005",
+        "evt_s101_006",
+        "evt_s101_007"
+      ],
+      "description": "6 failed login(s) for user_04 followed by successful login from 185.220.101.45",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s101_007"
+      ],
+      "description": "user_04 logged in from unusual IP 185.220.101.45 (expected: 192.168.1.104)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s101_008",
+        "evt_s101_009",
+        "evt_s101_010",
+        "evt_s101_011",
+        "evt_s101_012",
+        "evt_s101_013",
+        "evt_s101_014",
+        "evt_s101_015",
+        "evt_s101_016",
+        "evt_s101_017",
+        "evt_s101_018",
+        "evt_s101_019"
+      ],
+      "description": "user_04 had privilege change then downloaded 11 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s101_001",
+        "evt_s101_002",
+        "evt_s101_003",
+        "evt_s101_004",
+        "evt_s101_005",
+        "evt_s101_006"
+      ],
+      "description": "user_04 generated 6 events in 1 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s101_008",
+        "evt_s101_020",
+        "evt_s101_001",
+        "evt_s101_002",
+        "evt_s101_003",
+        "evt_s101_004",
+        "evt_s101_005",
+        "evt_s101_006",
+        "evt_s101_007",
+        "evt_s101_009",
+        "evt_s101_010",
+        "evt_s101_011",
+        "evt_s101_012",
+        "evt_s101_013",
+        "evt_s101_014",
+        "evt_s101_015",
+        "evt_s101_016",
+        "evt_s101_017",
+        "evt_s101_018",
+        "evt_s101_019"
+      ],
+      "description": "user_04 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s101_021",
+        "evt_s101_028",
+        "evt_s101_022",
+        "evt_s101_023",
+        "evt_s101_024",
+        "evt_s101_025",
+        "evt_s101_026",
+        "evt_s101_027"
+      ],
+      "description": "user_05 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 6,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 2,
+    "info": 2
+  }
+}

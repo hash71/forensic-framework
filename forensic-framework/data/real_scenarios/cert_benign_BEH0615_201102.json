@@ -1,0 +1,2586 @@
+{
+  "scenario_id": "cert_benign_BEH0615_201102",
+  "name": "cert_benign_BEH0615_2011-02",
+  "label": "BENIGN",
+  "description": "CERT r4.2 non-insider user BEH0615 during 2011-02. 150 events (downsampled from 3634). Drawn from a pool matched against the attack-window event-count distribution (median diff 28.9%).",
+  "events": [
+    {
+      "event_id": "cert_http_22830205",
+      "timestamp": "2011-02-01T09:29:09+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22835912",
+      "timestamp": "2011-02-01T10:13:52+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://chase.com/PowerBook_100/100s/pngerdhrfgsbecebcbfny1551641082.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22848415",
+      "timestamp": "2011-02-01T11:53:01+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22862127",
+      "timestamp": "2011-02-01T13:46:45+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22863999",
+      "timestamp": "2011-02-01T14:01:50+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://united.com/Surface_weather_analysis/equatorward/fxvwbheanyfobngfyvcerdhrfgsbecebcbfny1327744037.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22884215",
+      "timestamp": "2011-02-01T16:48:56+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110201",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22893766",
+      "timestamp": "2011-02-02T07:54:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00329386",
+      "timestamp": "2011-02-02T08:53:07+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00329423",
+      "timestamp": "2011-02-02T09:10:09+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_22908692",
+      "timestamp": "2011-02-02T09:40:18+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22909133",
+      "timestamp": "2011-02-02T09:43:28+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22909608",
+      "timestamp": "2011-02-02T09:47:02+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22959976",
+      "timestamp": "2011-02-02T16:47:48+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://verizon.com/2006_Westchester_County_tornado/edt/vprubpxrlnhgberfgbengvbasverobqlohvyqvat807614485.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110202",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22979905",
+      "timestamp": "2011-02-03T09:14:07+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_22983953",
+      "timestamp": "2011-02-03T09:45:03+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://sourceforge.net/Elizabeth_Canning/canningites/ovyyvneqfobbxfsver1625813682.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23006369",
+      "timestamp": "2011-02-03T12:48:34+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://clickbank.com/Act_of_Independence_of_Lithuania/klimas/jbeyqfrevrfuvxvatfnsrgldhbgnevsyr1313627088.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23025378",
+      "timestamp": "2011-02-03T15:13:19+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://facebook.com/Astrophysics_Data_System/arxiv/dhbgnfheivinyfrjvatcvauhagvatybqtr854682077.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23030098",
+      "timestamp": "2011-02-03T15:47:43+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23035083",
+      "timestamp": "2011-02-03T16:33:48+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23037759",
+      "timestamp": "2011-02-03T17:01:16+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110203",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23050990",
+      "timestamp": "2011-02-04T08:35:04+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://careerbuilder.com/Lee_Smith_baseball/eckersleys/fgeratgugenvavatjneenagltbfcryzhfvpryrpgvba1487645952.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23059469",
+      "timestamp": "2011-02-04T09:34:00+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23076269",
+      "timestamp": "2011-02-04T11:57:23+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://clickbank.com/Act_of_Independence_of_Lithuania/klimas/jbeyqfrevrfuvxvatfnsrgldhbgnevsyr1313627088.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23085540",
+      "timestamp": "2011-02-04T13:19:34+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00332180",
+      "timestamp": "2011-02-04T15:50:15+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00332255",
+      "timestamp": "2011-02-04T16:40:04+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23113629",
+      "timestamp": "2011-02-04T17:05:02+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110204",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00332654",
+      "timestamp": "2011-02-07T08:29:36+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23132897",
+      "timestamp": "2011-02-07T08:29:53+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23133548",
+      "timestamp": "2011-02-07T08:34:01+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00332661",
+      "timestamp": "2011-02-07T08:35:21+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23134491",
+      "timestamp": "2011-02-07T08:40:30+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23134649",
+      "timestamp": "2011-02-07T08:41:39+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23134786",
+      "timestamp": "2011-02-07T08:42:35+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23146119",
+      "timestamp": "2011-02-07T10:10:32+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23176315",
+      "timestamp": "2011-02-07T14:18:13+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23176837",
+      "timestamp": "2011-02-07T14:21:21+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110207",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23215500",
+      "timestamp": "2011-02-08T09:20:59+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23235566",
+      "timestamp": "2011-02-08T12:05:46+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://livejournal.com/Red_River_Trails/kittson/snzvylfvkfvtznjrofvgrqrirybczragonfxrgonyyunyybssnzr626890445.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23253188",
+      "timestamp": "2011-02-08T14:28:57+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23262326",
+      "timestamp": "2011-02-08T15:38:50+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23268073",
+      "timestamp": "2011-02-08T16:28:21+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110208",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23296559",
+      "timestamp": "2011-02-09T10:04:01+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://sourceforge.net/Elizabeth_Canning/canningites/ovyyvneqfobbxfsver1625813682.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00334975",
+      "timestamp": "2011-02-09T11:17:25+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00334981",
+      "timestamp": "2011-02-09T11:19:04+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23308055",
+      "timestamp": "2011-02-09T11:36:05+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://tripadvisor.com/Murasaki_Shikibu/murasaki/sversvefgnvq1637716117.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23320535",
+      "timestamp": "2011-02-09T13:22:00+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23321549",
+      "timestamp": "2011-02-09T13:30:37+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00335177",
+      "timestamp": "2011-02-09T13:36:29+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00335190",
+      "timestamp": "2011-02-09T13:44:23+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23342376",
+      "timestamp": "2011-02-09T16:07:33+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00335519",
+      "timestamp": "2011-02-09T16:26:36+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00335522",
+      "timestamp": "2011-02-09T16:29:43+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110209",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23356661",
+      "timestamp": "2011-02-10T08:03:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23363308",
+      "timestamp": "2011-02-10T08:53:26+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23377855",
+      "timestamp": "2011-02-10T10:43:43+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00336111",
+      "timestamp": "2011-02-10T12:16:25+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00336113",
+      "timestamp": "2011-02-10T12:17:39+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23391414",
+      "timestamp": "2011-02-10T12:46:24+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23402860",
+      "timestamp": "2011-02-10T14:20:31+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110210",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23441322",
+      "timestamp": "2011-02-11T09:10:31+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://t.co/Sydney_Newman/nfbs/ovplpyrgbhevaterdhrfgsbecebcbfny1827918919.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23457634",
+      "timestamp": "2011-02-11T11:15:10+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00337241",
+      "timestamp": "2011-02-11T13:06:36+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00337253",
+      "timestamp": "2011-02-11T13:17:05+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00337409",
+      "timestamp": "2011-02-11T14:36:59+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00337443",
+      "timestamp": "2011-02-11T14:56:16+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23489364",
+      "timestamp": "2011-02-11T15:29:54+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://imdb.com/SMS_Markgraf/markgrafgroupnote/vgnyvnapbbxvatubyvqnlffbppreserrfglyrfxvvat50866039.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23499365",
+      "timestamp": "2011-02-11T17:00:37+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23500140",
+      "timestamp": "2011-02-11T17:10:24+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110211",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23524341",
+      "timestamp": "2011-02-14T09:08:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1and1.com/Larrys_Creek/lawshe/fnyrfqenvantrcrggenvavatqbt985981651.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110214",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23555785",
+      "timestamp": "2011-02-14T13:34:59+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://t.co/Sydney_Newman/nfbs/ovplpyrgbhevaterdhrfgsbecebcbfny1827918919.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110214",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23577751",
+      "timestamp": "2011-02-14T16:25:57+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110214",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23579017",
+      "timestamp": "2011-02-14T16:37:57+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110214",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23579385",
+      "timestamp": "2011-02-14T16:41:43+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110214",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23611705",
+      "timestamp": "2011-02-15T10:45:06+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://amazon.com/Ronnie_Lee_Gardner/statt/sveruhagvatoyvaqfyhttntr107717260.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00339294",
+      "timestamp": "2011-02-15T10:57:07+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_file_00371433",
+      "timestamp": "2011-02-15T11:11:34+00:00",
+      "source_type": "file_access",
+      "user": "BEH0615",
+      "action": "file_copy",
+      "resource": "ANIZJH8W.zip",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-9461",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00339339",
+      "timestamp": "2011-02-15T11:29:28+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23618718",
+      "timestamp": "2011-02-15T11:43:58+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ticketmaster.com/Stigand/harthacnut/fnyrfjvaqbjfubccvatznfffgbentr1496828176.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23635314",
+      "timestamp": "2011-02-15T14:01:07+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00339774",
+      "timestamp": "2011-02-15T15:59:48+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_file_00371912",
+      "timestamp": "2011-02-15T16:00:48+00:00",
+      "source_type": "file_access",
+      "user": "BEH0615",
+      "action": "file_copy",
+      "resource": "UJW1I1DE.jpg",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-9461",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00339792",
+      "timestamp": "2011-02-15T16:12:02+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23653415",
+      "timestamp": "2011-02-15T16:27:51+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23654082",
+      "timestamp": "2011-02-15T16:34:57+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://about.com/Grays_Inn/cherke/harzcyblzragsver1434742481.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110215",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23664735",
+      "timestamp": "2011-02-16T08:01:19+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23678384",
+      "timestamp": "2011-02-16T09:37:09+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23697579",
+      "timestamp": "2011-02-16T12:15:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1saleaday.com/Mercury_dime/dimes/frphevglsvernhgbercnveznahnyf1114821738.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23702904",
+      "timestamp": "2011-02-16T13:02:03+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://verizon.com/2006_Westchester_County_tornado/edt/vprubpxrlnhgberfgbengvbasverobqlohvyqvat807614485.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00340636",
+      "timestamp": "2011-02-16T14:47:32+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00340714",
+      "timestamp": "2011-02-16T15:25:32+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23731627",
+      "timestamp": "2011-02-16T16:48:21+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110216",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23748721",
+      "timestamp": "2011-02-17T09:03:28+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23752562",
+      "timestamp": "2011-02-17T09:30:44+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23753242",
+      "timestamp": "2011-02-17T09:35:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23791193",
+      "timestamp": "2011-02-17T14:42:30+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://clickbank.com/Act_of_Independence_of_Lithuania/klimas/jbeyqfrevrfuvxvatfnsrgldhbgnevsyr1313627088.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23792227",
+      "timestamp": "2011-02-17T14:49:34+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://clickbank.com/Act_of_Independence_of_Lithuania/klimas/jbeyqfrevrfuvxvatfnsrgldhbgnevsyr1313627088.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23802990",
+      "timestamp": "2011-02-17T16:09:24+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110217",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23820518",
+      "timestamp": "2011-02-18T08:36:04+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00342125",
+      "timestamp": "2011-02-18T09:13:42+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00342249",
+      "timestamp": "2011-02-18T10:19:43+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23835003",
+      "timestamp": "2011-02-18T10:24:30+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23866708",
+      "timestamp": "2011-02-18T14:42:17+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23874664",
+      "timestamp": "2011-02-18T15:40:32+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://united.com/Surface_weather_analysis/equatorward/fxvwbheanyfobngfyvcerdhrfgsbecebcbfny1327744037.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23880886",
+      "timestamp": "2011-02-18T16:37:14+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110218",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00721699",
+      "timestamp": "2011-02-21T08:08:06+00:00",
+      "source_type": "auth",
+      "user": "BEH0615",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-4124",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-4124_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-4124"
+      }
+    },
+    {
+      "event_id": "cert_http_23915613",
+      "timestamp": "2011-02-21T10:08:47+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://sourceforge.net/Elizabeth_Canning/canningites/ovyyvneqfobbxfsver1625813682.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02212420",
+      "timestamp": "2011-02-21T11:31:20+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.Eaton.Hensley@dtaa.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Galena.Britanney.Merritt@dtaa.com",
+          "Lee.Lacey.Velez@dtaa.com",
+          "Blaine.Jelani.Weeks@dtaa.com"
+        ],
+        "cc": [
+          "Frances.Hermione.Owens@dtaa.com",
+          "Barclay.Eaton.Hensley@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 36512,
+        "attachments": 2
+      }
+    },
+    {
+      "event_id": "cert_http_23945567",
+      "timestamp": "2011-02-21T14:17:05+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00344090",
+      "timestamp": "2011-02-21T15:51:50+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23960147",
+      "timestamp": "2011-02-21T16:07:55+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_23960979",
+      "timestamp": "2011-02-21T16:14:58+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00344146",
+      "timestamp": "2011-02-21T16:21:56+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110221",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_23984152",
+      "timestamp": "2011-02-22T09:21:03+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02217996",
+      "timestamp": "2011-02-22T09:24:30+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.E.Hensley@gmail.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Hoover_Morgan@cox.net",
+          "Nola_Ayala@yahoo.com"
+        ],
+        "cc": [],
+        "bcc": [
+          "Barclay.E.Hensley@gmail.com"
+        ],
+        "attachment_size_bytes": 27449,
+        "attachments": 2
+      }
+    },
+    {
+      "event_id": "cert_http_23996921",
+      "timestamp": "2011-02-22T10:55:04+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24011253",
+      "timestamp": "2011-02-22T12:59:17+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24018766",
+      "timestamp": "2011-02-22T13:58:50+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1and1.com/Larrys_Creek/lawshe/fnyrfqenvantrcrggenvavatqbt985981651.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24029644",
+      "timestamp": "2011-02-22T15:21:09+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://united.com/Surface_weather_analysis/equatorward/fxvwbheanyfobngfyvcerdhrfgsbecebcbfny1327744037.jsp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00724850",
+      "timestamp": "2011-02-22T16:55:00+00:00",
+      "source_type": "auth",
+      "user": "BEH0615",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110222",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_24061573",
+      "timestamp": "2011-02-23T09:34:14+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24063849",
+      "timestamp": "2011-02-23T09:51:36+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24090518",
+      "timestamp": "2011-02-23T13:34:42+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fidelity.com/Candide/cungonde/ohggbaovyyvneqfunyybssnzrdhbgn1929294345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24090881",
+      "timestamp": "2011-02-23T13:37:12+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02229269",
+      "timestamp": "2011-02-23T15:35:17+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.Eaton.Hensley@dtaa.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Leo.Elmo.Monroe@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [
+          "Barclay.Eaton.Hensley@dtaa.com"
+        ],
+        "attachment_size_bytes": 26157,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24111424",
+      "timestamp": "2011-02-23T16:12:41+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://theblaze.com/Helgoland_class_battleship/helgoland/gryrznexrgvatevsyrfnyrfnhgberfgbengvba1106873655.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24111665",
+      "timestamp": "2011-02-23T16:14:38+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://chase.com/PowerBook_100/100s/pngerdhrfgsbecebcbfny1551641082.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110223",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24126795",
+      "timestamp": "2011-02-24T08:18:31+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24139024",
+      "timestamp": "2011-02-24T09:46:42+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02233368",
+      "timestamp": "2011-02-24T11:19:07+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.Eaton.Hensley@dtaa.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Jana.Amanda.Dorsey@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [
+          "Barclay.Eaton.Hensley@dtaa.com"
+        ],
+        "attachment_size_bytes": 27987,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24172413",
+      "timestamp": "2011-02-24T14:24:15+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24174961",
+      "timestamp": "2011-02-24T14:42:35+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://facebook.com/Astrophysics_Data_System/arxiv/dhbgnfheivinyfrjvatcvauhagvatybqtr854682077.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24175534",
+      "timestamp": "2011-02-24T14:46:55+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24185326",
+      "timestamp": "2011-02-24T16:02:53+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1and1.com/Larrys_Creek/lawshe/fnyrfqenvantrcrggenvavatqbt985981651.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110224",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24199785",
+      "timestamp": "2011-02-25T08:03:25+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1and1.com/Larrys_Creek/lawshe/fnyrfqenvantrcrggenvavatqbt985981651.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24229136",
+      "timestamp": "2011-02-25T11:48:48+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://imdb.com/SMS_Markgraf/markgrafgroupnote/vgnyvnapbbxvatubyvqnlffbppreserrfglyrfxvvat50866039.html",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00731170",
+      "timestamp": "2011-02-25T13:33:27+00:00",
+      "source_type": "auth",
+      "user": "BEH0615",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_24253584",
+      "timestamp": "2011-02-25T15:08:20+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24256876",
+      "timestamp": "2011-02-25T15:32:11+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://cox.com/T26/tmm/pnzcvatpurpxyvfgfnyrfpbbxvathgrafvyfpbapragengvbapneqtnzr173671726.htm",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24266616",
+      "timestamp": "2011-02-25T17:02:07+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://linksynergy.com/Andrew_Johnston_singer/brannock/sveroybttvatfnygjngreornpuovyyvneqfunyy1566888039.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110225",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24283715",
+      "timestamp": "2011-02-28T08:19:01+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1and1.com/Larrys_Creek/lawshe/fnyrfqenvantrcrggenvavatqbt985981651.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_24293269",
+      "timestamp": "2011-02-28T09:24:39+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00348907",
+      "timestamp": "2011-02-28T13:09:08+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_device_00348932",
+      "timestamp": "2011-02-28T13:26:34+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_email_02250384",
+      "timestamp": "2011-02-28T15:07:04+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.Eaton.Hensley@dtaa.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Brielle.Aubrey.Marks@dtaa.com"
+        ],
+        "cc": [
+          "Barclay.Eaton.Hensley@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 32665,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_24338094",
+      "timestamp": "2011-02-28T15:20:49+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://1saleaday.com/Mercury_dime/dimes/frphevglsvernhgbercnveznahnyf1114821738.aspx",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00349179",
+      "timestamp": "2011-02-28T15:22:27+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_connect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    },
+    {
+      "event_id": "cert_http_24338465",
+      "timestamp": "2011-02-28T15:23:28+00:00",
+      "source_type": "web_server",
+      "user": "BEH0615",
+      "action": "http_request",
+      "resource": "http://about.com/Grays_Inn/cherke/harzcyblzragsver1434742481.asp",
+      "source_ip": "pc:PC-9461",
+      "status": "200",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-9461",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_02251059",
+      "timestamp": "2011-02-28T16:03:13+00:00",
+      "source_type": "email",
+      "user": "BEH0615",
+      "action": "mail_sent",
+      "resource": "Barclay.Eaton.Hensley@dtaa.com",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-9461",
+        "recipients": [
+          "Cora.Aurora.Buckner@dtaa.com",
+          "Lee.Lacey.Velez@dtaa.com",
+          "Blaine.Jelani.Weeks@dtaa.com",
+          "Nola.Nerea.Ayala@dtaa.com"
+        ],
+        "cc": [
+          "Rogan.Chandler.Coffey@dtaa.com"
+        ],
+        "bcc": [
+          "Barclay.Eaton.Hensley@dtaa.com"
+        ],
+        "attachment_size_bytes": 32425,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00349322",
+      "timestamp": "2011-02-28T16:33:11+00:00",
+      "source_type": "admin",
+      "user": "BEH0615",
+      "action": "usb_disconnect",
+      "resource": "device:PC-9461",
+      "source_ip": "pc:PC-9461",
+      "status": "success",
+      "session_id": "cert_BEH0615_PC-9461_20110228",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-9461"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": null,
+  "month": "2011-02",
+  "downsampled": true,
+  "original_event_count": 3634,
+  "volume_match_pct_diff": 28.93590541381456
+}

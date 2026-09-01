@@ -1,0 +1,2609 @@
+{
+  "scenario_id": "cert_attack_LJR0523_201008",
+  "name": "cert_attack_LJR0523_2010-08",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider LJR0523 (scenario r4.2-1) during 2010-08. Active 2010-07-31 -- 2010-08-11. 150 events (downsampled from 658).",
+  "events": [
+    {
+      "event_id": "cert_http_12709290",
+      "timestamp": "2010-08-02T09:20:30+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12715404",
+      "timestamp": "2010-08-02T10:02:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01174982",
+      "timestamp": "2010-08-02T10:13:40+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.J.Richmond@msn.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Lester_Pearson@yahoo.com",
+          "Alfreda.S.Savage@yahoo.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 23505,
+        "attachments": 2
+      }
+    },
+    {
+      "event_id": "cert_http_12729745",
+      "timestamp": "2010-08-02T11:51:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://tvguide.com/Nigel_Kneale/quatermass/qenvantrovplpyrfnsrglpurzvfgelovbtencul304904730.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12760846",
+      "timestamp": "2010-08-02T15:35:53+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12768731",
+      "timestamp": "2010-08-02T16:40:31+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12769491",
+      "timestamp": "2010-08-02T16:47:07+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://elance.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/rznvyfhccbegsvpgvbaaba-svpgvba158757261.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00389344",
+      "timestamp": "2010-08-03T08:58:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_12790179",
+      "timestamp": "2010-08-03T09:10:30+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12791708",
+      "timestamp": "2010-08-03T09:20:19+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12813920",
+      "timestamp": "2010-08-03T12:06:15+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12820312",
+      "timestamp": "2010-08-03T12:55:01+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkedin.com/Hero_of_Ukraine/shukhevych/fbyqrecrgnyyretvrfpbyyrtronfronyysyrkvovyvgl880274078.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12825810",
+      "timestamp": "2010-08-03T13:36:16+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://people.com/John_Wark/drumchapel/fxvvatcbyrfwnmmfbsgjnernfnfreivpr1067383205.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12849307",
+      "timestamp": "2010-08-03T16:24:18+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://marketwatch.com/Elaine_Paige/piaf/pnzcvatcrevbqvpnyffxvobbgffxvvatfnsrglsbbgonyy590990650.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12872995",
+      "timestamp": "2010-08-04T09:09:45+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://amazon.com/Caspian_expeditions_of_the_Rus/khazars/ercnvefpbbgresvfuvatgbheanzraggehpx1459837297.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12874696",
+      "timestamp": "2010-08-04T09:21:35+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://newsmax.com/Cynna_Kydd/ilitch/aba-svpgvbatbysontgifrevrfsver1512021020.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12884472",
+      "timestamp": "2010-08-04T10:32:05+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://zappos.com/Monkey_Gone_to_Heaven/rorich/gbbyvatqvntabfgvp144336603.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12894375",
+      "timestamp": "2010-08-04T11:48:32+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/1996_United_States_campaign_finance_controversy/freeh/ovbtenculubyvqnlfubccvatnpgvba1169616794.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12895540",
+      "timestamp": "2010-08-04T11:57:47+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://groupon.com/Leonhard_Euler/leonhard/tneqravafrpgfsvfuvatobng292602446.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12908562",
+      "timestamp": "2010-08-04T13:37:46+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://constantcontact.com/2008_ACC_Championship_Game/herzlich/onxrjnersvfuvatobngfrysurycserfujngresvfuvat628177942.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12922527",
+      "timestamp": "2010-08-04T15:19:58+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://constantcontact.com/2008_ACC_Championship_Game/herzlich/onxrjnersvfuvatobngfrysurycserfujngresvfuvat628177942.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00188097",
+      "timestamp": "2010-08-05T05:43:17+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_connect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_device_00188098",
+      "timestamp": "2010-08-05T05:50:36+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_disconnect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_logon_00394336",
+      "timestamp": "2010-08-05T09:05:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_email_01199316",
+      "timestamp": "2010-08-05T11:52:42+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.Justine.Richmond@dtaa.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Brittany.Mona.Terry@dtaa.com",
+          "Flynn.Malcolm.Gibson@dtaa.com",
+          "Palmer-Marny@raytheon.com"
+        ],
+        "cc": [
+          "Abdul.Ralph.Deleon@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 35271,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_http_12984411",
+      "timestamp": "2010-08-05T12:45:48+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12987989",
+      "timestamp": "2010-08-05T13:12:34+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://thepostgame.com/Aikido/aikido/crbcyrjngpuvataba-svpgvba2098254227.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12992251",
+      "timestamp": "2010-08-05T13:44:49+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://redbox.com/Bernard_Quatermass/flemyng/gnkvqrezlpbzzrepvnysvfuvatcebsrffvbanyonfronyy953628997.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12995095",
+      "timestamp": "2010-08-05T14:05:38+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://americanexpress.com/Hurricane_John_1994/12700/navzngvbafubgthaaba-svpgvbaqrzbafgengvba428818739.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13017456",
+      "timestamp": "2010-08-05T16:51:42+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://earthlink.net/Nimrod_Expedition/arctowskis/grpuavpvna30454943.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13036426",
+      "timestamp": "2010-08-06T09:07:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://egotastic.com/AngloSaxon_Chronicle/wihtgar/dhnyvgltneqravafrpgfgrpuavpvna1074222657.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13056224",
+      "timestamp": "2010-08-06T11:28:25+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://npr.org/Latter_Days/sandvoss/zbgbeplpyrzhfrhznpprcgnaprgrfgercbegsnzvyl355437132.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13080490",
+      "timestamp": "2010-08-06T14:33:41+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slideshare.net/Buffalo_nickel/repunched/jbeyqfrevrfgifrevrfzhfvptraer640513410.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13081283",
+      "timestamp": "2010-08-06T14:38:28+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slideshare.net/Buffalo_nickel/repunched/jbeyqfrevrfgifrevrfzhfvptraer640513410.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13082786",
+      "timestamp": "2010-08-06T14:48:13+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13099725",
+      "timestamp": "2010-08-06T16:52:53+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://costco.com/Galaxy/galaxies/zbhagnvaovxruhzbepehgpurfzhfvptraer201170895.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13099757",
+      "timestamp": "2010-08-06T16:53:09+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://costco.com/Galaxy/galaxies/zbhagnvaovxruhzbepehgpurfzhfvptraer201170895.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00397558",
+      "timestamp": "2010-08-06T16:56:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_logon_00398287",
+      "timestamp": "2010-08-07T02:50:35+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_device_00190442",
+      "timestamp": "2010-08-07T03:30:11+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_connect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13106615",
+      "timestamp": "2010-08-07T04:30:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikileaks.org/Julian_Assange/assange/The_Real_Story_About_DTAA/Gur_Erny_Fgbel_Nobhg_QGNN1528513805.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00190443",
+      "timestamp": "2010-08-07T05:08:18+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_disconnect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13106616",
+      "timestamp": "2010-08-07T06:00:45+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00398294",
+      "timestamp": "2010-08-07T06:35:28+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100807",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13132338",
+      "timestamp": "2010-08-09T09:47:02+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://dell.com/Elk/alashan/svfuvatebqovyyvneqfcrevbqvpnyfobneqbsqverpgbefbcgvpf1325207931.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13132961",
+      "timestamp": "2010-08-09T09:51:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://1and1.com/Parks_and_Recreation_season_1/schur/cyngsbezoevqtrpneqtnzrarggvatuhagvatybqtr1598871192.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13145017",
+      "timestamp": "2010-08-09T11:20:52+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://dell.com/Elk/alashan/svfuvatebqovyyvneqfcrevbqvpnyfobneqbsqverpgbefbcgvpf1325207931.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13154812",
+      "timestamp": "2010-08-09T12:38:38+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://foodnetwork.com/Makemake_dwarf_planet/licandro/flfgrzfvqrcynavatgenirythvqr1625394262.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13166427",
+      "timestamp": "2010-08-09T14:06:08+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://stackoverflow.com/Bruce_Kingsbury/isurava/bireurnqsvfuvatebq174528747.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13167756",
+      "timestamp": "2010-08-09T14:16:04+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://mozilla.org/History_of_Sesame_Street/cooneys/fvqrcynavatqvfpbhag2082913830.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13184238",
+      "timestamp": "2010-08-09T16:10:17+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/Grunge/grunge/cngebysvfuvatebqonfronyyunyybssnzr747561123.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00402064",
+      "timestamp": "2010-08-10T09:11:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13209542",
+      "timestamp": "2010-08-10T09:12:26+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01220973",
+      "timestamp": "2010-08-10T09:30:18+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.J.Richmond@msn.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "ARD769@hotmail.com",
+          "Sutton-Gregory@comcast.net"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 45915,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13212951",
+      "timestamp": "2010-08-10T09:34:28+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13218642",
+      "timestamp": "2010-08-10T10:14:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkedin.com/Hero_of_Ukraine/shukhevych/fbyqrecrgnyyretvrfpbyyrtronfronyysyrkvovyvgl880274078.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13241073",
+      "timestamp": "2010-08-10T13:08:16+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkedin.com/Hero_of_Ukraine/shukhevych/fbyqrecrgnyyretvrfpbyyrtronfronyysyrkvovyvgl880274078.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13245470",
+      "timestamp": "2010-08-10T13:39:45+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13266530",
+      "timestamp": "2010-08-10T16:09:18+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slideshare.net/Buffalo_nickel/repunched/jbeyqfrevrfgifrevrfzhfvptraer640513410.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00193190",
+      "timestamp": "2010-08-11T03:17:05+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_connect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_device_00193193",
+      "timestamp": "2010-08-11T04:09:00+00:00",
+      "source_type": "admin",
+      "user": "LJR0523",
+      "action": "usb_disconnect",
+      "resource": "device:PC-5162",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_logon_00403554",
+      "timestamp": "2010-08-11T04:28:49+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_logon_00404460",
+      "timestamp": "2010-08-11T09:03:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13315999",
+      "timestamp": "2010-08-11T12:13:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://united.com/Albert_Speer/wolters/argjbexercbegvaterthyngvbaffabjobneq16943281.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13321741",
+      "timestamp": "2010-08-11T12:59:40+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://flickr.com/Latter_Days/sandvoss/onaqjvqgubepurfgencbrgelnppbzcnavzrag388434528.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13331851",
+      "timestamp": "2010-08-11T14:14:38+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://groupon.com/Leonhard_Euler/leonhard/tneqravafrpgfsvfuvatobng292602446.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13332816",
+      "timestamp": "2010-08-11T14:21:53+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://edmunds.com/Baker_Street_and_Waterloo_Railway/bakerloo/uhagvatqrpblsvfuvatobng81195094.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13339392",
+      "timestamp": "2010-08-11T15:06:42+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://marketwatch.com/Elaine_Paige/piaf/pnzcvatcrevbqvpnyffxvobbgffxvvatfnsrglsbbgonyy590990650.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13340240",
+      "timestamp": "2010-08-11T15:11:52+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://groupon.com/Leonhard_Euler/leonhard/tneqravafrpgfsvfuvatobng292602446.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13374238",
+      "timestamp": "2010-08-12T09:17:37+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://yelp.com/Parks_and_Recreation_season_1/schur/zbgbeplpyrfghagfpehgpurfobjyvatunyybssnzrpuvyqerafobbxf1517537833.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13382148",
+      "timestamp": "2010-08-12T10:13:29+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://elance.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/rznvyfhccbegsvpgvbaaba-svpgvba158757261.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13390178",
+      "timestamp": "2010-08-12T11:13:15+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13399798",
+      "timestamp": "2010-08-12T12:29:33+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://hollywoodreporter.com/2008_Japanese_Grand_Prix/kubica/fxvyvsgqbjauvyyfxvvat889370186.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13411485",
+      "timestamp": "2010-08-12T13:56:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13421828",
+      "timestamp": "2010-08-12T15:10:24+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://cbs.com/Armament_of_the_Iowa_class_battleship/rangekeeper/zhfvppbaqhpgbeobngenpvatpuvyqerafobbxf815548649.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13427034",
+      "timestamp": "2010-08-12T15:45:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://hollywoodreporter.com/2008_Japanese_Grand_Prix/kubica/fxvyvsgqbjauvyyfxvvat889370186.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13455225",
+      "timestamp": "2010-08-13T09:14:29+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://livejournal.com/Red_River_Trails/kittson/snzvylfvkfvtznjrofvgrqrirybczragonfxrgonyyunyybssnzr626890445.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13462302",
+      "timestamp": "2010-08-13T10:01:19+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13472059",
+      "timestamp": "2010-08-13T11:11:59+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://marketwatch.com/Xenon/129xe/cvcrsvggrefxvyvsgzngrevnyf683363506.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13475197",
+      "timestamp": "2010-08-13T11:35:31+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://weather.com/Sertraline/imipramine/fxvyvsgfhesvat1655834078.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13485216",
+      "timestamp": "2010-08-13T12:55:49+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://blackboard.com/Battle_of_Cape_Esperance/farenholt/jrofhesvatjngpuvatgryrivfvbafxvfnhqvg557346435.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13502704",
+      "timestamp": "2010-08-13T15:00:10+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://livejournal.com/Red_River_Trails/kittson/snzvylfvkfvtznjrofvgrqrirybczragonfxrgonyyunyybssnzr626890445.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13511604",
+      "timestamp": "2010-08-13T16:00:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://ign.com/Eardwulf_of_Northumbria/eanbald/geniryonpxhc1459845751.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00412131",
+      "timestamp": "2010-08-16T08:55:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13547346",
+      "timestamp": "2010-08-16T09:35:04+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://domaintools.com/Indian_Head_eagle/gaudenss/nppbhagvatgeniryqenvantr1029460590.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13548142",
+      "timestamp": "2010-08-16T09:41:17+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13576352",
+      "timestamp": "2010-08-16T13:14:26+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://nbc.com/Germany/lnder/ercnvenccyvpngvbafxvyvsg63838001.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13578139",
+      "timestamp": "2010-08-16T13:28:57+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/1996_United_States_campaign_finance_controversy/freeh/ovbtenculubyvqnlfubccvatnpgvba1169616794.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13586109",
+      "timestamp": "2010-08-16T14:24:37+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://gilt.com/BeauchampSharp_Tragedy/darby/nhgbobqlcnvagvatvaterqvragfovbtenculfbppre255228293.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13596364",
+      "timestamp": "2010-08-16T15:35:54+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://newsmax.com/Herbert_Greenfield/brownlee/onfronyyunyybssnzrfabjobneqtencuvpnyhfrevagresnprfhccbeg490214407.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00412927",
+      "timestamp": "2010-08-16T16:59:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100816",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13625477",
+      "timestamp": "2010-08-17T09:11:13+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/Grunge/grunge/cngebysvfuvatebqonfronyyunyybssnzr747561123.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13641885",
+      "timestamp": "2010-08-17T11:10:13+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://netflix.com/SMS_Helgoland/wangerooge/zbgbeplpyryvprafrarggvatpybgurffubccvatgrpuavpnyfhccbeg1000818510.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01260794",
+      "timestamp": "2010-08-17T11:12:47+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.J.Richmond@msn.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Jane_Dotson@juno.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 36454,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13647159",
+      "timestamp": "2010-08-17T11:52:59+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://gotomeeting.com/Neil_Harvey_with_the_Australian_cricket_team_in_England_in_1948/snaffling/svfuvatebqqrfxgbc2134583381.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13655148",
+      "timestamp": "2010-08-17T12:55:45+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://amazon.com/Caspian_expeditions_of_the_Rus/khazars/ercnvefpbbgresvfuvatgbheanzraggehpx1459837297.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13684283",
+      "timestamp": "2010-08-17T16:21:14+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://foodnetwork.com/Makemake_dwarf_planet/licandro/flfgrzfvqrcynavatgenirythvqr1625394262.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13686822",
+      "timestamp": "2010-08-17T16:44:25+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://egotastic.com/AngloSaxon_Chronicle/wihtgar/dhnyvgltneqravafrpgfgrpuavpvna1074222657.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100817",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13714553",
+      "timestamp": "2010-08-18T09:59:33+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13718562",
+      "timestamp": "2010-08-18T10:29:36+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://netflix.com/SMS_Helgoland/wangerooge/zbgbeplpyryvprafrarggvatpybgurffubccvatgrpuavpnyfhccbeg1000818510.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13729747",
+      "timestamp": "2010-08-18T11:54:27+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/1996_United_States_campaign_finance_controversy/freeh/ovbtenculubyvqnlfubccvatnpgvba1169616794.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13735189",
+      "timestamp": "2010-08-18T12:34:26+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://ibtimes.com/Halifax_Gibbet/infangtheof/geniryornpuzbivrcnvagonyy1198229089.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01269911",
+      "timestamp": "2010-08-18T13:18:41+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.Justine.Richmond@dtaa.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Mallory.Virginia.Bender@dtaa.com",
+          "Illana.Isabelle.Lamb@dtaa.com"
+        ],
+        "cc": [
+          "Glenna_M_Scott@boeing.com",
+          "ABB595@boeing.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 24899,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_http_13759413",
+      "timestamp": "2010-08-18T15:35:32+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13769247",
+      "timestamp": "2010-08-18T16:57:36+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://toysrus.com/Sertraline/imipramine/graavfenpxrgqvntabfgvpovplpyrunaqfvtanyfqvtvgnyfpencobbxvat2122601069.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100818",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13801657",
+      "timestamp": "2010-08-19T10:37:27+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://files.wordpress.com/Star/starspots/ovyyvneqfgevpxfubgfgenirysbkuhagvatugzy1277956163.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13811551",
+      "timestamp": "2010-08-19T11:56:56+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13819528",
+      "timestamp": "2010-08-19T13:01:02+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://city-data.com/No_Way_Out_2004/hotty/sregvyvmreaba-svpgvbaovyyvneqfgbheanzragsnzvyl531794135.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13819789",
+      "timestamp": "2010-08-19T13:03:09+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13822311",
+      "timestamp": "2010-08-19T13:22:15+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pcworld.com/Alexandre_Banza/bokassa/bcgvzvmngvbageniryfhaavatpevoontrpneqtnzr494829086.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13839198",
+      "timestamp": "2010-08-19T15:24:29+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13846599",
+      "timestamp": "2010-08-19T16:17:54+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13848440",
+      "timestamp": "2010-08-19T16:32:51+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://typepad.com/New_York_State_Route_373/hopkinton/fxvfonynaprfurrg147238333.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100819",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13870056",
+      "timestamp": "2010-08-20T09:08:22+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13879203",
+      "timestamp": "2010-08-20T10:08:47+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13885100",
+      "timestamp": "2010-08-20T10:54:15+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://groupon.com/Leonhard_Euler/leonhard/tneqravafrpgfsvfuvatobng292602446.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13905470",
+      "timestamp": "2010-08-20T13:36:10+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01286232",
+      "timestamp": "2010-08-20T14:37:29+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.J.Richmond@msn.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Paula_I_Santiago@bellsouth.net"
+        ],
+        "cc": [
+          "Ferdinand_Lee@aol.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 37950,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13923955",
+      "timestamp": "2010-08-20T15:43:27+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://netflix.com/SMS_Helgoland/wangerooge/zbgbeplpyryvprafrarggvatpybgurffubccvatgrpuavpnyfhccbeg1000818510.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00422899",
+      "timestamp": "2010-08-20T16:57:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100820",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_logon_00424871",
+      "timestamp": "2010-08-23T08:49:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_13957321",
+      "timestamp": "2010-08-23T08:55:12+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://zappos.com/Monkey_Gone_to_Heaven/rorich/gbbyvatqvntabfgvp144336603.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13971405",
+      "timestamp": "2010-08-23T10:35:05+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://slate.com/1933_Atlantic_hurricane_season/05z/jrngure696245205.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13992744",
+      "timestamp": "2010-08-23T13:24:29+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://amazon.com/Caspian_expeditions_of_the_Rus/khazars/ercnvefpbbgresvfuvatgbheanzraggehpx1459837297.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14007304",
+      "timestamp": "2010-08-23T15:09:10+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://redbox.com/Bernard_Quatermass/flemyng/gnkvqrezlpbzzrepvnysvfuvatcebsrffvbanyonfronyy953628997.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01295654",
+      "timestamp": "2010-08-23T16:30:54+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.Justine.Richmond@dtaa.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Mallory.Virginia.Bender@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 45103,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_14018951",
+      "timestamp": "2010-08-23T16:38:42+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://toysrus.com/Sertraline/imipramine/graavfenpxrgqvntabfgvpovplpyrunaqfvtanyfqvtvgnyfpencobbxvat2122601069.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14020489",
+      "timestamp": "2010-08-23T16:53:36+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://coupons.com/Scotland_national_football_team/gemmill/svfuvatebqrfcayhttntrovplpyrgenvyf1436678109.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100823",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14046344",
+      "timestamp": "2010-08-24T09:50:41+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14053115",
+      "timestamp": "2010-08-24T10:38:54+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://wikipedia.org/Maya_MIA_album/rusko/objuhagvatpynffvpnyzhfvppnaavatirtrgnoyrfgeniry830018872.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14067218",
+      "timestamp": "2010-08-24T12:31:18+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://themeforest.net/Plymouth_Colony/wessagussett/ylevpffbyqreqryrtngrsvfuvatgbheanzrag627205605.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14073393",
+      "timestamp": "2010-08-24T13:19:06+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://avg.com/Jack_the_Ripper/eddowes/zbgbeplpyrenpvatfcvevghnyzntnmvarpbzcrafngvba818598995.htm",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14081630",
+      "timestamp": "2010-08-24T14:19:09+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://ehow.com/Golden_Sun/weyards/pngsvpgvbaurnygu611662858.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14089370",
+      "timestamp": "2010-08-24T15:09:12+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://elance.com/1962_South_Vietnamese_Independence_Palace_bombing/quoc/rznvyfhccbegsvpgvbaaba-svpgvba158757261.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00428138",
+      "timestamp": "2010-08-24T16:59:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100824",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    },
+    {
+      "event_id": "cert_http_14121268",
+      "timestamp": "2010-08-25T09:06:30+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14122020",
+      "timestamp": "2010-08-25T09:11:30+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14129740",
+      "timestamp": "2010-08-25T10:02:17+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://newsmax.com/Herbert_Greenfield/brownlee/onfronyyunyybssnzrfabjobneqtencuvpnyhfrevagresnprfhccbeg490214407.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01306448",
+      "timestamp": "2010-08-25T10:37:54+00:00",
+      "source_type": "email",
+      "user": "LJR0523",
+      "action": "mail_sent",
+      "resource": "Lavinia.J.Richmond@msn.com",
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-5162",
+        "recipients": [
+          "Lester_Pearson@yahoo.com",
+          "Holt-Ulric@cox.net",
+          "CCW132@verizon.net"
+        ],
+        "cc": [
+          "Ingram-Bruno@sbcglobal.net",
+          "Alfreda.S.Savage@yahoo.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 30027,
+        "attachments": 1
+      }
+    },
+    {
+      "event_id": "cert_http_14138417",
+      "timestamp": "2010-08-25T11:08:42+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://pof.com/Parthian_Empire/arsaces/uhagvatfgnaqpnybevrfxvvatcbyrftebprelfubccvat1624032115.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14143997",
+      "timestamp": "2010-08-25T11:53:25+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://hollywoodreporter.com/2008_Japanese_Grand_Prix/kubica/fxvyvsgqbjauvyyfxvvat889370186.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14170334",
+      "timestamp": "2010-08-25T15:07:20+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://time.com/Derry_City_FC/derrys/qvntabfgvp408889498.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100825",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14213065",
+      "timestamp": "2010-08-26T10:15:48+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://tvguide.com/Nigel_Kneale/quatermass/qenvantrovplpyrfnsrglpurzvfgelovbtencul304904730.aspx",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14213175",
+      "timestamp": "2010-08-26T10:16:44+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://macys.com/Eremoryzomys/eremoryzomys/rinatryvfzsyrrprovbtenculnhgbgverercnve1427402851.asp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14213294",
+      "timestamp": "2010-08-26T10:17:32+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://linkwithin.com/1996_United_States_campaign_finance_controversy/freeh/ovbtenculubyvqnlfubccvatnpgvba1169616794.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14217550",
+      "timestamp": "2010-08-26T10:47:25+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://thefreedictionary.com/Ian_Chappell/wsc/bcraebnqercnveargjbex1044001982.html",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14238953",
+      "timestamp": "2010-08-26T13:35:14+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://vistaprint.com/Rosendale_trestle/rosendale/jrngureiveghnyznpuvarfgnaqneqfovyyvneqfrdhvczrag546713892.php",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14254158",
+      "timestamp": "2010-08-26T15:19:55+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://amazon.com/Caspian_expeditions_of_the_Rus/khazars/ercnvefpbbgresvfuvatgbheanzraggehpx1459837297.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_14256189",
+      "timestamp": "2010-08-26T15:33:50+00:00",
+      "source_type": "web_server",
+      "user": "LJR0523",
+      "action": "http_request",
+      "resource": "http://amazon.com/Caspian_expeditions_of_the_Rus/khazars/ercnvefpbbgresvfuvatgbheanzraggehpx1459837297.jsp",
+      "source_ip": "pc:PC-5162",
+      "status": "200",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-5162",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00432906",
+      "timestamp": "2010-08-26T16:56:00+00:00",
+      "source_type": "auth",
+      "user": "LJR0523",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-5162",
+      "status": "success",
+      "session_id": "cert_LJR0523_PC-5162_20100826",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-5162"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "LJR0523",
+  "ground_truth_scenario_type": "1",
+  "month": "2010-08",
+  "downsampled": true,
+  "original_event_count": 658
+}

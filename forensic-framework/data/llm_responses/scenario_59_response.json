@@ -1,0 +1,65 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, premeditated pattern of an insider threat. The user (user_03) transitioned from normal departmental file reading to systematic cross-departmental access and eventually to bulk data downloading across multiple departments (Legal, Marketing, Finance, Sales, DevOps, and Logs) over several days.",
+  "suspect": "user_03",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s59_001",
+      "description": "User_03 logs in from their normal IP during normal hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s59_013",
+      "description": "User_03 begins exploring unauthorized directories, accessing Legal department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s59_019",
+      "description": "User_03 expands scope to Marketing department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s59_023",
+      "description": "User_03 accesses Finance department files outside of normal working hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s59_026",
+      "description": "User_03 transitions from reading to active downloading of files across Sales and Marketing departments, often during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s59_032",
+      "description": "User_03 performs bulk downloads of sensitive files from DevOps, Logs, and Marketing departments.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s59_013",
+    "evt_s59_015",
+    "evt_s59_019",
+    "evt_s59_023",
+    "evt_s59_026",
+    "evt_s59_027",
+    "evt_s59_028",
+    "evt_s59_029",
+    "evt_s59_032",
+    "evt_s59_033",
+    "evt_s59_034",
+    "evt_s59_035"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether user_03 had any legitimate reason or temporary permission to access these directories.",
+    "No information on the destination of the downloaded files (e.g., external IP or USB)."
+  ],
+  "narrative": "User_03, an HR specialist, exhibited a classic insider threat pattern by gradually expanding their access scope from HR files to Legal, Marketing, Finance, Sales, and DevOps directories. The activity escalated from simple file reads to a high volume of file downloads across multiple departments, frequently occurring during off-hours, indicating premeditated data exfiltration."
+}

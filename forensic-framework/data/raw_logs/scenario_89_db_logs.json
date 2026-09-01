@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": "2026-05-30T02:57:21+06:00",
+    "event_type": "db_login",
+    "username": "user_02",
+    "database": "prod_main",
+    "query": null,
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-05-30T02:57:49+06:00",
+    "event_type": "db_query",
+    "username": "user_02",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 489776,
+    "duration_ms": 1456
+  },
+  {
+    "timestamp": "2026-05-30T02:59:04+06:00",
+    "event_type": "db_query",
+    "username": "user_02",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 368197,
+    "duration_ms": 1561
+  }
+]

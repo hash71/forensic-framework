@@ -1,0 +1,135 @@
+{
+  "scenario_id": "scenario_18",
+  "name": "normal_baseline_018",
+  "label": "BENIGN",
+  "description": "Normal daily activity for site_reliability_engineer (user_06). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s18_001",
+      "timestamp": "2026-08-02T10:14:12+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s18_002",
+      "timestamp": "2026-08-02T10:46:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/schema_514.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4526459
+      }
+    },
+    {
+      "event_id": "evt_s18_003",
+      "timestamp": "2026-08-02T12:15:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/shared/runbooks/audit_258.pdf",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s18_004",
+      "timestamp": "2026-08-02T13:29:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/shared/runbooks/report_810.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s18_005",
+      "timestamp": "2026-08-02T14:24:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/devops/policy_545.pdf",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s18_006",
+      "timestamp": "2026-08-02T14:55:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/shared/runbooks/schema_299.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s18_007",
+      "timestamp": "2026-08-02T16:22:12+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/devops/design_423.pptx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s18_008",
+      "timestamp": "2026-08-02T16:37:12+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260802_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 383
+      }
+    }
+  ]
+}

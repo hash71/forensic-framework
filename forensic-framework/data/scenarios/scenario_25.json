@@ -1,0 +1,135 @@
+{
+  "scenario_id": "scenario_25",
+  "name": "normal_baseline_025",
+  "label": "BENIGN",
+  "description": "Normal daily activity for security_analyst (user_07). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s25_001",
+      "timestamp": "2026-04-04T10:24:36+06:00",
+      "source_type": "auth",
+      "user": "user_07",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s25_002",
+      "timestamp": "2026-04-04T10:32:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/migration_327.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_003",
+      "timestamp": "2026-04-04T11:31:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/draft_409.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_004",
+      "timestamp": "2026-04-04T12:10:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/agreement_177.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_005",
+      "timestamp": "2026-04-04T13:34:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/policy_379.docx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_006",
+      "timestamp": "2026-04-04T14:00:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/rfc_143.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_007",
+      "timestamp": "2026-04-04T14:13:36+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/audit_65.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s25_008",
+      "timestamp": "2026-04-04T14:57:36+06:00",
+      "source_type": "auth",
+      "user": "user_07",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 273
+      }
+    }
+  ]
+}

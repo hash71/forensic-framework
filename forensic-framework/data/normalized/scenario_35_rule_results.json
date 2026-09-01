@@ -1,0 +1,48 @@
+{
+  "scenario": 35,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s35_001"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 45.79.97.21. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-04-08T08:41:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s35_001"
+      ],
+      "user": "user_04",
+      "description": "Activity at 08:41 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-08T08:41:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s35_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 08:52 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-08T08:52:00+06:00"
+    }
+  ],
+  "alert_count": 3,
+  "rules_triggered": [
+    "R001",
+    "R002"
+  ],
+  "severity_summary": {
+    "warning": 3,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

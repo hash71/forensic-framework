@@ -1,0 +1,63 @@
+{
+  "scenario": 92,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s92_006"
+      ],
+      "description": "user_03 logged in from unusual IP 162.247.74.27 (expected: 192.168.1.103)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s92_006",
+        "evt_s92_007",
+        "evt_s92_008",
+        "evt_s92_009",
+        "evt_s92_010",
+        "evt_s92_011",
+        "evt_s92_012",
+        "evt_s92_013",
+        "evt_s92_049"
+      ],
+      "description": "user_03 had 9 event(s) outside normal working hours (09:00-17:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s92_006",
+        "evt_s92_007",
+        "evt_s92_008",
+        "evt_s92_009",
+        "evt_s92_010",
+        "evt_s92_011"
+      ],
+      "description": "user_03 generated 6 events in 6 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s92_007",
+        "evt_s92_049",
+        "evt_s92_006",
+        "evt_s92_008",
+        "evt_s92_009",
+        "evt_s92_010",
+        "evt_s92_011",
+        "evt_s92_012",
+        "evt_s92_013"
+      ],
+      "description": "user_03 has activity across 3 source types: admin, auth, database",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

@@ -1,0 +1,213 @@
+{
+  "scenario_id": "scenario_56",
+  "name": "scope_creep_056",
+  "label": "ATTACK",
+  "description": "Insider scope creep: user_10 (vp_operations) gradually expands cross-department access over 3 days, transitioning from reading to systematic downloading on the final days.",
+  "events": [
+    {
+      "event_id": "evt_s56_001",
+      "timestamp": "2026-04-11T12:05:01+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260411_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X)"
+      }
+    },
+    {
+      "event_id": "evt_s56_002",
+      "timestamp": "2026-04-11T13:27:01+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/audit_104.csv",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260411_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s56_003",
+      "timestamp": "2026-04-11T14:10:01+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_read",
+      "resource": "/data/sales/review_494.json",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260411_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s56_004",
+      "timestamp": "2026-04-11T14:32:01+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260411_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 147
+      }
+    },
+    {
+      "event_id": "evt_s56_005",
+      "timestamp": "2026-04-12T11:51:36+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260412_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15"
+      }
+    },
+    {
+      "event_id": "evt_s56_006",
+      "timestamp": "2026-04-12T12:36:36+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_download",
+      "resource": "/data/sales/config_53.docx",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260412_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 154326
+      }
+    },
+    {
+      "event_id": "evt_s56_007",
+      "timestamp": "2026-04-12T12:57:36+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260412_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 66
+      }
+    },
+    {
+      "event_id": "evt_s56_008",
+      "timestamp": "2026-04-13T18:20:48+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s56_009",
+      "timestamp": "2026-04-13T18:49:48+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/agreement_882.pdf",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 1801664
+      }
+    },
+    {
+      "event_id": "evt_s56_010",
+      "timestamp": "2026-04-13T19:44:48+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_download",
+      "resource": "/data/executive/budget_126.txt",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 117886
+      }
+    },
+    {
+      "event_id": "evt_s56_011",
+      "timestamp": "2026-04-13T21:03:48+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_download",
+      "resource": "/data/finance/audit_622.docx",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 198590
+      }
+    },
+    {
+      "event_id": "evt_s56_012",
+      "timestamp": "2026-04-13T21:57:48+06:00",
+      "source_type": "file_access",
+      "user": "user_10",
+      "action": "file_download",
+      "resource": "/data/security/config_131.pptx",
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 683958
+      }
+    },
+    {
+      "event_id": "evt_s56_013",
+      "timestamp": "2026-04-13T22:44:48+06:00",
+      "source_type": "auth",
+      "user": "user_10",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.110",
+      "status": "success",
+      "session_id": "sess_user_10_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 264
+      }
+    }
+  ]
+}

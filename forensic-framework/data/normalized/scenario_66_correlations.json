@@ -1,0 +1,98 @@
+{
+  "scenario": 66,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s66_005",
+        "evt_s66_006",
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011",
+        "evt_s66_012",
+        "evt_s66_013"
+      ],
+      "description": "user_10 had 9 event(s) outside normal working hours (08:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s66_005",
+        "evt_s66_006",
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010"
+      ],
+      "description": "user_10 generated 6 events in 25 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s66_006",
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011"
+      ],
+      "description": "user_10 generated 6 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011",
+        "evt_s66_012"
+      ],
+      "description": "user_10 generated 6 events in 26 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011",
+        "evt_s66_012",
+        "evt_s66_013"
+      ],
+      "description": "user_10 generated 6 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s66_001",
+        "evt_s66_013",
+        "evt_s66_002",
+        "evt_s66_003",
+        "evt_s66_004",
+        "evt_s66_005",
+        "evt_s66_006",
+        "evt_s66_007",
+        "evt_s66_008",
+        "evt_s66_009",
+        "evt_s66_010",
+        "evt_s66_011",
+        "evt_s66_012"
+      ],
+      "description": "user_10 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 6,
+  "severity_summary": {
+    "warning": 5,
+    "info": 1
+  }
+}

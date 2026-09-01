@@ -1,0 +1,103 @@
+{
+  "scenario_id": "scenario_22",
+  "name": "normal_baseline_022",
+  "label": "BENIGN",
+  "description": "Normal daily activity for marketing_manager (user_09). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s22_001",
+      "timestamp": "2026-06-13T12:07:04+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s22_002",
+      "timestamp": "2026-06-13T12:47:04+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/review_547.txt",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s22_003",
+      "timestamp": "2026-06-13T12:59:04+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/plan_390.pdf",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4953770
+      }
+    },
+    {
+      "event_id": "evt_s22_004",
+      "timestamp": "2026-06-13T14:00:04+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/rfc_623.docx",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s22_005",
+      "timestamp": "2026-06-13T15:24:04+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/summary_888.xlsx",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s22_006",
+      "timestamp": "2026-06-13T15:50:04+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260613_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 223
+      }
+    }
+  ]
+}

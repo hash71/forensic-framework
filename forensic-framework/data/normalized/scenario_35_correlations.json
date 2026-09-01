@@ -1,0 +1,56 @@
+{
+  "scenario": 35,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s35_001"
+      ],
+      "description": "user_04 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.104)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s35_001",
+        "evt_s35_002"
+      ],
+      "description": "user_04 had 2 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s35_001",
+        "evt_s35_022",
+        "evt_s35_002",
+        "evt_s35_003",
+        "evt_s35_004",
+        "evt_s35_005",
+        "evt_s35_006",
+        "evt_s35_007",
+        "evt_s35_008",
+        "evt_s35_009",
+        "evt_s35_010",
+        "evt_s35_011",
+        "evt_s35_012",
+        "evt_s35_013",
+        "evt_s35_014",
+        "evt_s35_015",
+        "evt_s35_016",
+        "evt_s35_017",
+        "evt_s35_018",
+        "evt_s35_019",
+        "evt_s35_020",
+        "evt_s35_021"
+      ],
+      "description": "user_04 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 3,
+  "severity_summary": {
+    "warning": 2,
+    "info": 1
+  }
+}

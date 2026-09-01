@@ -1,0 +1,219 @@
+{
+  "scenario": 96,
+  "alerts": [
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_001"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-08-30T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_002"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-08-30T02:59:03+06:00"
+    },
+    {
+      "rule_id": "R010",
+      "rule_name": "sql_injection_attempt",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_003"
+      ],
+      "user": "N/A",
+      "description": "Possible SQL injection: URL /api/items?id=1' UNION SELECT * FROM users-- returned 500 and contains SQL keywords",
+      "timestamp": "2026-08-30T02:59:10+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_004"
+      ],
+      "user": "user_08",
+      "description": "Login from unusual IP 162.247.74.27. Normal IPs: ['192.168.1.108']",
+      "timestamp": "2026-08-30T03:06:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_004"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:06 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:06:12+06:00"
+    },
+    {
+      "rule_id": "R012",
+      "rule_name": "lateral_movement",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_004",
+        "evt_s96_006"
+      ],
+      "user": "user_08",
+      "description": "Lateral movement detected: user_08 authenticated across ['auth', 'database'] within 30 minutes (window start: 2026-08-30T03:06:12+06:00)",
+      "timestamp": "2026-08-30T03:06:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_005"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:08 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:08:12+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_005"
+      ],
+      "user": "user_08",
+      "description": "Privilege change detected for user_08. Resource: role",
+      "timestamp": "2026-08-30T03:08:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_006"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:09 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:09:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_007"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:09 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:09:37+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_008"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:10 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:10:13+06:00"
+    },
+    {
+      "rule_id": "R011",
+      "rule_name": "data_exfiltration_volume",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_009",
+        "evt_s96_010",
+        "evt_s96_011",
+        "evt_s96_012",
+        "evt_s96_013",
+        "evt_s96_014",
+        "evt_s96_015",
+        "evt_s96_016",
+        "evt_s96_017",
+        "evt_s96_018",
+        "evt_s96_019",
+        "evt_s96_020",
+        "evt_s96_021",
+        "evt_s96_022",
+        "evt_s96_023",
+        "evt_s96_024",
+        "evt_s96_025",
+        "evt_s96_026",
+        "evt_s96_027",
+        "evt_s96_028",
+        "evt_s96_029",
+        "evt_s96_030",
+        "evt_s96_031",
+        "evt_s96_032",
+        "evt_s96_033",
+        "evt_s96_034",
+        "evt_s96_035",
+        "evt_s96_036",
+        "evt_s96_037",
+        "evt_s96_038",
+        "evt_s96_039",
+        "evt_s96_040",
+        "evt_s96_041",
+        "evt_s96_042",
+        "evt_s96_043",
+        "evt_s96_044",
+        "evt_s96_045",
+        "evt_s96_046",
+        "evt_s96_047",
+        "evt_s96_048",
+        "evt_s96_049",
+        "evt_s96_050",
+        "evt_s96_051",
+        "evt_s96_052",
+        "evt_s96_053"
+      ],
+      "user": "N/A",
+      "description": "High data exfiltration volume: 201.8 MB transferred in 30 minutes (window start: 2026-08-30T03:10:21+06:00)",
+      "timestamp": "2026-08-30T03:10:21+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s96_054"
+      ],
+      "user": "user_08",
+      "description": "Activity at 03:23 outside normal hours (09:00-17:30)",
+      "timestamp": "2026-08-30T03:23:17+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s96_054"
+      ],
+      "user": "user_08",
+      "description": "Log deletion detected by user_08. Target: /var/log/auth.log",
+      "timestamp": "2026-08-30T03:23:17+06:00"
+    }
+  ],
+  "alert_count": 14,
+  "rules_triggered": [
+    "R001",
+    "R002",
+    "R003",
+    "R006",
+    "R010",
+    "R011",
+    "R012"
+  ],
+  "severity_summary": {
+    "warning": 8,
+    "critical": 6
+  },
+  "verdict": "attack"
+}

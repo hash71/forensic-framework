@@ -1,0 +1,89 @@
+{
+  "scenario": 32,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s32_001"
+      ],
+      "description": "user_02 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s32_028"
+      ],
+      "description": "user_02 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s32_001"
+      ],
+      "description": "user_02 had 1 event(s) outside normal working hours (09:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s32_001",
+        "evt_s32_027",
+        "evt_s32_028",
+        "evt_s32_048",
+        "evt_s32_002",
+        "evt_s32_003",
+        "evt_s32_004",
+        "evt_s32_005",
+        "evt_s32_006",
+        "evt_s32_007",
+        "evt_s32_008",
+        "evt_s32_009",
+        "evt_s32_010",
+        "evt_s32_011",
+        "evt_s32_012",
+        "evt_s32_013",
+        "evt_s32_014",
+        "evt_s32_015",
+        "evt_s32_016",
+        "evt_s32_017",
+        "evt_s32_018",
+        "evt_s32_019",
+        "evt_s32_020",
+        "evt_s32_021",
+        "evt_s32_022",
+        "evt_s32_023",
+        "evt_s32_024",
+        "evt_s32_025",
+        "evt_s32_026",
+        "evt_s32_029",
+        "evt_s32_030",
+        "evt_s32_031",
+        "evt_s32_032",
+        "evt_s32_033",
+        "evt_s32_034",
+        "evt_s32_035",
+        "evt_s32_036",
+        "evt_s32_037",
+        "evt_s32_038",
+        "evt_s32_039",
+        "evt_s32_040",
+        "evt_s32_041",
+        "evt_s32_042",
+        "evt_s32_043",
+        "evt_s32_044",
+        "evt_s32_045",
+        "evt_s32_046",
+        "evt_s32_047"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

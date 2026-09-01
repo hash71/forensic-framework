@@ -1,0 +1,36 @@
+{
+  "scenario": 33,
+  "alerts": [
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s33_001"
+      ],
+      "user": "user_06",
+      "description": "Login from unusual IP 139.59.13.50. Normal IPs: ['192.168.1.106']",
+      "timestamp": "2026-07-20T10:31:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s33_026"
+      ],
+      "user": "user_06",
+      "description": "Login from unusual IP 139.59.13.50. Normal IPs: ['192.168.1.106']",
+      "timestamp": "2026-07-21T10:01:00+06:00"
+    }
+  ],
+  "alert_count": 2,
+  "rules_triggered": [
+    "R001"
+  ],
+  "severity_summary": {
+    "warning": 2,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

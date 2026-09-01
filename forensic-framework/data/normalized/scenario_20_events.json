@@ -1,0 +1,69 @@
+[
+  {
+    "event_id": "evt_s20_001",
+    "timestamp": "2026-06-20T15:04:59+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login",
+    "resource": null,
+    "source_ip": "192.168.1.104",
+    "status": "success",
+    "session_id": "sess_user_04_20260620_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s20_002",
+    "timestamp": "2026-06-20T15:21:59+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_read",
+    "resource": "/data/finance/agreement_791.csv",
+    "source_ip": "192.168.1.104",
+    "status": "success",
+    "session_id": "sess_user_04_20260620_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s20_003",
+    "timestamp": "2026-06-20T15:45:59+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_read",
+    "resource": "/data/finance/migration_392.yaml",
+    "source_ip": "192.168.1.104",
+    "status": "success",
+    "session_id": "sess_user_04_20260620_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s20_004",
+    "timestamp": "2026-06-20T16:00:59+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/migration_982.txt",
+    "source_ip": "192.168.1.104",
+    "status": "success",
+    "session_id": "sess_user_04_20260620_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 1685245
+    }
+  },
+  {
+    "event_id": "evt_s20_005",
+    "timestamp": "2026-06-20T17:58:59+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "192.168.1.104",
+    "status": "success",
+    "session_id": "sess_user_04_20260620_001",
+    "severity": "info",
+    "metadata": {}
+  }
+]

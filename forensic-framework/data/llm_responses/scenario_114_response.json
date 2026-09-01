@@ -1,0 +1,79 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear and sustained pattern of an insider threat (user_03) performing unauthorized cross-departmental data collection. The user accessed and downloaded a high volume of files from departments outside their scope (Sales, Finance, Marketing, Legal, Executive, and DevOps/Shared) during a single session.",
+  "suspect": "user_03",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s114_001",
+      "description": "User_03 logs in from their normal IP, starting a session outside of normal working hours (08:25).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s114_003",
+      "description": "User_03 begins unauthorized cross-departmental access by downloading a file from the Sales department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s114_011",
+      "description": "User_03 expands scope to the Finance department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s114_013",
+      "description": "User_03 expands scope to the Legal department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s114_014",
+      "description": "User_03 expands scope to the Marketing department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s114_021",
+      "description": "User_03 accesses shared DevOps runbooks.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s114_025",
+      "description": "User_03 accesses the Executive department directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s114_042",
+      "description": "User_03 continues bulk downloading of Sales and Finance files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 9,
+      "event_id": "evt_s114_058",
+      "description": "User_03 logs out after a massive volume of unauthorized downloads.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s114_003",
+    "evt_s114_011",
+    "evt_s114_013",
+    "evt_s114_014",
+    "evt_s114_021",
+    "evt_s114_025",
+    "evt_s114_042",
+    "evt_s114_052"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of ticket/justification metadata to prove these were authorized cross-departmental tasks.",
+    "No information on whether the user's role was recently changed to allow this access."
+  ],
+  "narrative": "User_03 (HR Specialist) engaged in a massive data exfiltration event by accessing and downloading files from nearly every other department in the organization, including Finance, Sales, Legal, Marketing, and Executive. The pattern of behavior\u2014starting early in the morning and systematically moving through different directory structures\u2014is highly indicative of an insider threat performing unauthorized data collection."
+}

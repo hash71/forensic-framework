@@ -1,0 +1,1410 @@
+{
+  "scenario": 98,
+  "total_events": 32,
+  "timeline": [
+    {
+      "event_id": "evt_s98_001",
+      "timestamp": "2026-08-20T10:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_002",
+      "timestamp": "2026-08-20T10:00:19+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_003",
+      "timestamp": "2026-08-20T10:00:41+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_004",
+      "timestamp": "2026-08-20T10:01:06+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_005",
+      "timestamp": "2026-08-20T10:01:32+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_006",
+      "timestamp": "2026-08-20T10:01:40+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "failed",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_007",
+      "timestamp": "2026-08-20T10:02:23+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login",
+      "resource": null,
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_008",
+      "timestamp": "2026-08-20T10:04:23+06:00",
+      "source_type": "admin",
+      "user": "user_09",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated"
+      }
+    },
+    {
+      "event_id": "evt_s98_009",
+      "timestamp": "2026-08-20T10:05:07+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/summary_507.txt",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1213613
+      }
+    },
+    {
+      "event_id": "evt_s98_010",
+      "timestamp": "2026-08-20T10:06:05+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/plan_731.xlsx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3569270
+      }
+    },
+    {
+      "event_id": "evt_s98_011",
+      "timestamp": "2026-08-20T10:06:37+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/rfc_660.txt",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1362022
+      }
+    },
+    {
+      "event_id": "evt_s98_012",
+      "timestamp": "2026-08-20T10:07:32+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/audit_188.csv",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1845432
+      }
+    },
+    {
+      "event_id": "evt_s98_013",
+      "timestamp": "2026-08-20T10:08:27+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/rfc_240.txt",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1626739
+      }
+    },
+    {
+      "event_id": "evt_s98_014",
+      "timestamp": "2026-08-20T10:09:07+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/data_export_741.xlsx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4165890
+      }
+    },
+    {
+      "event_id": "evt_s98_015",
+      "timestamp": "2026-08-20T10:09:28+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/schema_703.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2734258
+      }
+    },
+    {
+      "event_id": "evt_s98_016",
+      "timestamp": "2026-08-20T10:09:57+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/policy_306.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2292932
+      }
+    },
+    {
+      "event_id": "evt_s98_017",
+      "timestamp": "2026-08-20T10:10:54+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/schema_695.xlsx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2261347
+      }
+    },
+    {
+      "event_id": "evt_s98_018",
+      "timestamp": "2026-08-20T10:11:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/data_export_830.pdf",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3063170
+      }
+    },
+    {
+      "event_id": "evt_s98_019",
+      "timestamp": "2026-08-20T10:11:47+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/plan_379.pptx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1024396
+      }
+    },
+    {
+      "event_id": "evt_s98_020",
+      "timestamp": "2026-08-20T10:12:44+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/schema_71.pdf",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1228608
+      }
+    },
+    {
+      "event_id": "evt_s98_021",
+      "timestamp": "2026-08-20T10:13:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/report_643.xlsx",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": "sess_user_09_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3901108
+      }
+    },
+    {
+      "event_id": "evt_s98_022",
+      "timestamp": "2026-08-20T10:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s98_023",
+      "timestamp": "2026-08-20T10:15:19+06:00",
+      "source_type": "admin",
+      "user": "user_09",
+      "action": "log_delete",
+      "resource": "/var/log/auth.log",
+      "source_ip": "185.220.101.45",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "log cleanup"
+      }
+    },
+    {
+      "event_id": "evt_s98_024",
+      "timestamp": "2026-08-20T10:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/hr/agreement_110.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2778859
+      }
+    },
+    {
+      "event_id": "evt_s98_025",
+      "timestamp": "2026-08-20T10:39:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/legal/release_notes_966.csv",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2178733
+      }
+    },
+    {
+      "event_id": "evt_s98_026",
+      "timestamp": "2026-08-20T11:04:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/devops/report_471.xlsx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1190875
+      }
+    },
+    {
+      "event_id": "evt_s98_027",
+      "timestamp": "2026-08-20T11:27:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/hr/summary_120.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2521247
+      }
+    },
+    {
+      "event_id": "evt_s98_028",
+      "timestamp": "2026-08-20T11:48:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/executive/schema_664.yaml",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 744819
+      }
+    },
+    {
+      "event_id": "evt_s98_029",
+      "timestamp": "2026-08-20T12:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/config_773.csv",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 675688
+      }
+    },
+    {
+      "event_id": "evt_s98_030",
+      "timestamp": "2026-08-20T12:36:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/hr/summary_808.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 981510
+      }
+    },
+    {
+      "event_id": "evt_s98_031",
+      "timestamp": "2026-08-20T12:52:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/devops/audit_382.yaml",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1559514
+      }
+    },
+    {
+      "event_id": "evt_s98_032",
+      "timestamp": "2026-08-20T13:07:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260820_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_09": [
+      {
+        "event_id": "evt_s98_001",
+        "timestamp": "2026-08-20T10:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_002",
+        "timestamp": "2026-08-20T10:00:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_003",
+        "timestamp": "2026-08-20T10:00:41+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_004",
+        "timestamp": "2026-08-20T10:01:06+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_005",
+        "timestamp": "2026-08-20T10:01:32+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_006",
+        "timestamp": "2026-08-20T10:01:40+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_007",
+        "timestamp": "2026-08-20T10:02:23+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_008",
+        "timestamp": "2026-08-20T10:04:23+06:00",
+        "source_type": "admin",
+        "user": "user_09",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated"
+        }
+      },
+      {
+        "event_id": "evt_s98_009",
+        "timestamp": "2026-08-20T10:05:07+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/summary_507.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1213613
+        }
+      },
+      {
+        "event_id": "evt_s98_010",
+        "timestamp": "2026-08-20T10:06:05+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/plan_731.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3569270
+        }
+      },
+      {
+        "event_id": "evt_s98_011",
+        "timestamp": "2026-08-20T10:06:37+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/rfc_660.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1362022
+        }
+      },
+      {
+        "event_id": "evt_s98_012",
+        "timestamp": "2026-08-20T10:07:32+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/audit_188.csv",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1845432
+        }
+      },
+      {
+        "event_id": "evt_s98_013",
+        "timestamp": "2026-08-20T10:08:27+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/rfc_240.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1626739
+        }
+      },
+      {
+        "event_id": "evt_s98_014",
+        "timestamp": "2026-08-20T10:09:07+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/data_export_741.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4165890
+        }
+      },
+      {
+        "event_id": "evt_s98_015",
+        "timestamp": "2026-08-20T10:09:28+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_703.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2734258
+        }
+      },
+      {
+        "event_id": "evt_s98_016",
+        "timestamp": "2026-08-20T10:09:57+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/policy_306.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2292932
+        }
+      },
+      {
+        "event_id": "evt_s98_017",
+        "timestamp": "2026-08-20T10:10:54+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_695.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2261347
+        }
+      },
+      {
+        "event_id": "evt_s98_018",
+        "timestamp": "2026-08-20T10:11:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/data_export_830.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3063170
+        }
+      },
+      {
+        "event_id": "evt_s98_019",
+        "timestamp": "2026-08-20T10:11:47+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/plan_379.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1024396
+        }
+      },
+      {
+        "event_id": "evt_s98_020",
+        "timestamp": "2026-08-20T10:12:44+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_71.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1228608
+        }
+      },
+      {
+        "event_id": "evt_s98_021",
+        "timestamp": "2026-08-20T10:13:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/report_643.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3901108
+        }
+      },
+      {
+        "event_id": "evt_s98_023",
+        "timestamp": "2026-08-20T10:15:19+06:00",
+        "source_type": "admin",
+        "user": "user_09",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "log cleanup"
+        }
+      }
+    ],
+    "user_04": [
+      {
+        "event_id": "evt_s98_022",
+        "timestamp": "2026-08-20T10:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_024",
+        "timestamp": "2026-08-20T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/agreement_110.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2778859
+        }
+      },
+      {
+        "event_id": "evt_s98_025",
+        "timestamp": "2026-08-20T10:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/legal/release_notes_966.csv",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2178733
+        }
+      },
+      {
+        "event_id": "evt_s98_026",
+        "timestamp": "2026-08-20T11:04:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/devops/report_471.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1190875
+        }
+      },
+      {
+        "event_id": "evt_s98_027",
+        "timestamp": "2026-08-20T11:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/summary_120.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2521247
+        }
+      },
+      {
+        "event_id": "evt_s98_028",
+        "timestamp": "2026-08-20T11:48:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/executive/schema_664.yaml",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 744819
+        }
+      },
+      {
+        "event_id": "evt_s98_029",
+        "timestamp": "2026-08-20T12:11:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/config_773.csv",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 675688
+        }
+      },
+      {
+        "event_id": "evt_s98_030",
+        "timestamp": "2026-08-20T12:36:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/summary_808.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 981510
+        }
+      },
+      {
+        "event_id": "evt_s98_031",
+        "timestamp": "2026-08-20T12:52:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/devops/audit_382.yaml",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1559514
+        }
+      },
+      {
+        "event_id": "evt_s98_032",
+        "timestamp": "2026-08-20T13:07:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "no_session": [
+      {
+        "event_id": "evt_s98_001",
+        "timestamp": "2026-08-20T10:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_002",
+        "timestamp": "2026-08-20T10:00:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_003",
+        "timestamp": "2026-08-20T10:00:41+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_004",
+        "timestamp": "2026-08-20T10:01:06+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_005",
+        "timestamp": "2026-08-20T10:01:32+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_006",
+        "timestamp": "2026-08-20T10:01:40+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login_failed",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "failed",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_008",
+        "timestamp": "2026-08-20T10:04:23+06:00",
+        "source_type": "admin",
+        "user": "user_09",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "elevated"
+        }
+      },
+      {
+        "event_id": "evt_s98_023",
+        "timestamp": "2026-08-20T10:15:19+06:00",
+        "source_type": "admin",
+        "user": "user_09",
+        "action": "log_delete",
+        "resource": "/var/log/auth.log",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "log cleanup"
+        }
+      }
+    ],
+    "sess_user_09_20260820_001": [
+      {
+        "event_id": "evt_s98_007",
+        "timestamp": "2026-08-20T10:02:23+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login",
+        "resource": null,
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_009",
+        "timestamp": "2026-08-20T10:05:07+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/summary_507.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1213613
+        }
+      },
+      {
+        "event_id": "evt_s98_010",
+        "timestamp": "2026-08-20T10:06:05+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/plan_731.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3569270
+        }
+      },
+      {
+        "event_id": "evt_s98_011",
+        "timestamp": "2026-08-20T10:06:37+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/rfc_660.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1362022
+        }
+      },
+      {
+        "event_id": "evt_s98_012",
+        "timestamp": "2026-08-20T10:07:32+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/audit_188.csv",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1845432
+        }
+      },
+      {
+        "event_id": "evt_s98_013",
+        "timestamp": "2026-08-20T10:08:27+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/rfc_240.txt",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1626739
+        }
+      },
+      {
+        "event_id": "evt_s98_014",
+        "timestamp": "2026-08-20T10:09:07+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/data_export_741.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4165890
+        }
+      },
+      {
+        "event_id": "evt_s98_015",
+        "timestamp": "2026-08-20T10:09:28+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_703.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2734258
+        }
+      },
+      {
+        "event_id": "evt_s98_016",
+        "timestamp": "2026-08-20T10:09:57+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/policy_306.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2292932
+        }
+      },
+      {
+        "event_id": "evt_s98_017",
+        "timestamp": "2026-08-20T10:10:54+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_695.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2261347
+        }
+      },
+      {
+        "event_id": "evt_s98_018",
+        "timestamp": "2026-08-20T10:11:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/data_export_830.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3063170
+        }
+      },
+      {
+        "event_id": "evt_s98_019",
+        "timestamp": "2026-08-20T10:11:47+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/plan_379.pptx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1024396
+        }
+      },
+      {
+        "event_id": "evt_s98_020",
+        "timestamp": "2026-08-20T10:12:44+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/schema_71.pdf",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1228608
+        }
+      },
+      {
+        "event_id": "evt_s98_021",
+        "timestamp": "2026-08-20T10:13:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/report_643.xlsx",
+        "source_ip": "185.220.101.45",
+        "status": "success",
+        "session_id": "sess_user_09_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3901108
+        }
+      }
+    ],
+    "sess_user_04_20260820_001": [
+      {
+        "event_id": "evt_s98_022",
+        "timestamp": "2026-08-20T10:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s98_024",
+        "timestamp": "2026-08-20T10:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/agreement_110.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2778859
+        }
+      },
+      {
+        "event_id": "evt_s98_025",
+        "timestamp": "2026-08-20T10:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/legal/release_notes_966.csv",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2178733
+        }
+      },
+      {
+        "event_id": "evt_s98_026",
+        "timestamp": "2026-08-20T11:04:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/devops/report_471.xlsx",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1190875
+        }
+      },
+      {
+        "event_id": "evt_s98_027",
+        "timestamp": "2026-08-20T11:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/summary_120.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2521247
+        }
+      },
+      {
+        "event_id": "evt_s98_028",
+        "timestamp": "2026-08-20T11:48:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/executive/schema_664.yaml",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 744819
+        }
+      },
+      {
+        "event_id": "evt_s98_029",
+        "timestamp": "2026-08-20T12:11:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/finance/config_773.csv",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 675688
+        }
+      },
+      {
+        "event_id": "evt_s98_030",
+        "timestamp": "2026-08-20T12:36:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/hr/summary_808.pdf",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 981510
+        }
+      },
+      {
+        "event_id": "evt_s98_031",
+        "timestamp": "2026-08-20T12:52:00+06:00",
+        "source_type": "file_access",
+        "user": "user_04",
+        "action": "file_download",
+        "resource": "/data/devops/audit_382.yaml",
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1559514
+        }
+      },
+      {
+        "event_id": "evt_s98_032",
+        "timestamp": "2026-08-20T13:07:00+06:00",
+        "source_type": "auth",
+        "user": "user_04",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.104",
+        "status": "success",
+        "session_id": "sess_user_04_20260820_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-08-20T10:00:00+06:00",
+    "end": "2026-08-20T13:07:00+06:00"
+  }
+}

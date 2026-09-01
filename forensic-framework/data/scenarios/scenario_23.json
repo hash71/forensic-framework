@@ -1,0 +1,87 @@
+{
+  "scenario_id": "scenario_23",
+  "name": "normal_baseline_023",
+  "label": "BENIGN",
+  "description": "Normal daily activity for marketing_manager (user_09). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s23_001",
+      "timestamp": "2026-07-11T14:29:19+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X)"
+      }
+    },
+    {
+      "event_id": "evt_s23_002",
+      "timestamp": "2026-07-11T15:38:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/audit_114.csv",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s23_003",
+      "timestamp": "2026-07-11T17:03:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/report_240.txt",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s23_004",
+      "timestamp": "2026-07-11T17:17:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/memo_316.xlsx",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 647893
+      }
+    },
+    {
+      "event_id": "evt_s23_005",
+      "timestamp": "2026-07-11T19:18:19+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 289
+      }
+    }
+  ]
+}

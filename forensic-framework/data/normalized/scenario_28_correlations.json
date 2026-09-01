@@ -1,0 +1,46 @@
+{
+  "scenario": 28,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s28_001"
+      ],
+      "description": "user_02 logged in from unusual IP 151.101.65.69 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s28_001",
+        "evt_s28_021",
+        "evt_s28_002",
+        "evt_s28_003",
+        "evt_s28_004",
+        "evt_s28_005",
+        "evt_s28_006",
+        "evt_s28_007",
+        "evt_s28_008",
+        "evt_s28_009",
+        "evt_s28_010",
+        "evt_s28_011",
+        "evt_s28_012",
+        "evt_s28_013",
+        "evt_s28_014",
+        "evt_s28_015",
+        "evt_s28_016",
+        "evt_s28_017",
+        "evt_s28_018",
+        "evt_s28_019",
+        "evt_s28_020"
+      ],
+      "description": "user_02 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

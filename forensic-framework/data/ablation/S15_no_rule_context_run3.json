@@ -1,0 +1,87 @@
+{
+  "scenario_id": "S15",
+  "condition": "no_rule_context",
+  "model_output_raw": {
+    "verdict": "NO",
+    "incident_occurred": false,
+    "confidence": "HIGH",
+    "confidence_explanation": "The analysis reveals that user_04 (junior_accountant) performed actions strictly outside their defined baseline (accessing engineering project files and downloading data despite a 'read_only' role and 0 avg downloads). However, the evidence shows these actions were successful and logged as 'success' with no indication of privilege escalation, session hijacking, or unauthorized access mechanisms. The user accessed files within the 'shared' directories which are often accessible to finance for budgeting, and the 'read_only' baseline may be a policy expectation rather than a technical enforcement that was bypassed. Crucially, there is no evidence of data exfiltration to an external IP, no failed login attempts indicating an attack, and no mid-session IP changes. While the behavior is anomalous and warrants an internal HR/Policy investigation for potential policy violation, it does not meet the criteria for a 'security incident' (unauthorized access or breach) as defined by the rules, because the access was technically successful and the user is an authorized insider acting within the system's permission model (even if violating internal policy).",
+    "suspect": "user_04",
+    "attack_chain": [],
+    "evidence_for": [
+      "evt_s15_012",
+      "evt_s15_015",
+      "evt_s15_020",
+      "evt_s15_006",
+      "evt_s15_010",
+      "evt_s15_014",
+      "evt_s15_018",
+      "evt_s15_019"
+    ],
+    "evidence_against": [
+      "evt_s15_002",
+      "evt_s15_023",
+      "evt_s15_001",
+      "evt_s15_026"
+    ],
+    "gaps": [
+      "Lack of explicit permission matrix to confirm if 'read_only' is a technical block or just a policy baseline.",
+      "No metadata (ticket numbers) explaining why user_04 accessed engineering project files.",
+      "No evidence of data leaving the corporate network (e.g., upload to external cloud, email exfiltration).",
+      "No logs showing user_04 attempting to access files they were explicitly denied."
+    ],
+    "narrative": "User_04, a junior accountant with a 'read_only' baseline and zero expected downloads, successfully downloaded multiple financial files and accessed engineering project directories. While this behavior deviates significantly from their user baseline and suggests a potential policy violation or insider threat, the actions were executed with valid credentials and successful status codes, indicating no technical breach or unauthorized access occurred. The activity represents an anomaly requiring policy review rather than a confirmed security incident."
+  },
+  "parsed_verdict": "NO",
+  "parsed_suspect": "user_04",
+  "validator_result": {
+    "scenario": 15,
+    "event_references": {
+      "total_references": 12,
+      "valid_references": 12,
+      "invalid_references": [],
+      "hallucinated_events": 0
+    },
+    "timeline_correctness": {
+      "chain_length": 0,
+      "chronologically_correct": true,
+      "out_of_order_steps": []
+    },
+    "unsupported_claims": {
+      "total_claims": 1,
+      "supported_claims": 0,
+      "unsupported_claims": 1,
+      "evidence_grounding": 0.0
+    },
+    "actor_references": {
+      "suspect": "user_04",
+      "suspect_in_events": true,
+      "actors_in_events": [
+        "user_01",
+        "user_04"
+      ]
+    },
+    "temporal_claims": {
+      "temporal_claims_checked": 0,
+      "temporal_claims_valid": 0,
+      "temporal_errors": []
+    },
+    "volume_claims": {
+      "volume_claims_checked": 0,
+      "volume_claims_valid": 0,
+      "volume_errors": []
+    },
+    "entity_consistency": {
+      "entities_checked": 0,
+      "entities_valid": 0,
+      "unknown_entities": []
+    },
+    "hallucination_count": 1,
+    "hallucination_free": false
+  },
+  "timestamp": "2026-05-08T19:23:12.704262+00:00",
+  "model_name": "fusion-brain",
+  "temperature": 0.1,
+  "prompt_version": "v1.0",
+  "commit_hash": "6c7ffbc"
+}

@@ -1,0 +1,28 @@
+{
+  "verdict": "NO",
+  "incident_occurred": "false",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline contains only failed login attempts. There is no evidence of a successful login or any subsequent unauthorized access to resources.",
+  "suspect": "user_01",
+  "attack_chain": [],
+  "evidence_for": [
+    "evt_s80_001",
+    "evt_s80_002",
+    "evt_s80_003",
+    "evt_s80_004",
+    "evt_s80_005",
+    "evt_s80_006",
+    "evt_s80_007",
+    "evt_s80_008",
+    "evt_s80_009",
+    "evt_s80_010",
+    "evt_s80_011",
+    "evt_s80_012"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Successful login events for user_01 or any other user following the failed attempts.",
+    "Evidence of file access or data exfiltration."
+  ],
+  "narrative": "A brute-force attempt was detected targeting user_01 from IP 62.102.148.69 during off-hours. However, all 12 login attempts failed, and no successful authentication or unauthorized data access occurred, meaning no security breach took place."
+}

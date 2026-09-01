@@ -1,0 +1,61 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence clearly shows a single session (sess_user_04_20260413_001) transitioning from a legitimate internal IP to an external IP, followed by unauthorized cross-departmental file access and data exfiltration (downloads) of sensitive files outside the user's scope.",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s60_001",
+      "description": "User_04 logs in successfully from their normal IP (192.168.1.104).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s60_007",
+      "description": "User_04 performs legitimate file reads within the finance department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s60_008",
+      "description": "Session hijacking detected: The source IP for the same session_id changes from 192.168.1.104 to 5.62.20.100, and the user begins accessing files in the sales department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s60_009",
+      "description": "Unauthorized data exfiltration: User_04 downloads a YAML file from the devops directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s60_010",
+      "description": "Unauthorized data exfiltration: User_04 downloads a report from the executive directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s60_012",
+      "description": "Unauthorized data exfiltration: User_04 downloads a configuration file from the marketing directory.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s60_008",
+    "evt_s60_009",
+    "evt_s60_010",
+    "evt_s60_011",
+    "evt_s60_012"
+  ],
+  "evidence_against": [
+    "evt_s60_001",
+    "evt_s60_002"
+  ],
+  "gaps": [
+    "Logs from the authentication provider to determine if the session token was stolen via phishing or malware.",
+    "Network traffic logs to confirm the nature of the connection from 5.62.20.100."
+  ],
+  "narrative": "A session hijacking incident occurred where user_04's session was hijacked, evidenced by a mid-session IP change from a local address to 5.62.20.100. The attacker used this hijacked session to bypass departmental boundaries, accessing and downloading sensitive files from the sales, devops, executive, and marketing departments."
+}

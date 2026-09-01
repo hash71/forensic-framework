@@ -1,0 +1,387 @@
+{
+  "scenario": 44,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_001"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:59 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_001",
+        "evt_s44_002",
+        "evt_s44_003",
+        "evt_s44_004",
+        "evt_s44_005"
+      ],
+      "user": "user_02",
+      "description": "Failed login spike: 5 failures within 5 minutes for user_02 (window start: 2026-07-08T02:59:00+06:00)",
+      "timestamp": "2026-07-08T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_002"
+      ],
+      "user": "user_02",
+      "description": "Activity at 02:59 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T02:59:35+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_003"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:00 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:00:52+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_004"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:01 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:01:53+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_005"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:03 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:03:06+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_006"
+      ],
+      "user": "user_02",
+      "description": "Login from unusual IP 185.220.101.45. Normal IPs: ['192.168.1.102']",
+      "timestamp": "2026-07-08T03:05:33+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_006"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:05 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:05:33+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_007"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:07 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:07:33+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s44_007"
+      ],
+      "user": "user_02",
+      "description": "Privilege change detected for user_02. Resource: role",
+      "timestamp": "2026-07-08T03:07:33+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s44_007",
+        "evt_s44_008",
+        "evt_s44_009",
+        "evt_s44_010",
+        "evt_s44_011",
+        "evt_s44_012",
+        "evt_s44_013",
+        "evt_s44_014",
+        "evt_s44_015",
+        "evt_s44_016",
+        "evt_s44_017",
+        "evt_s44_018"
+      ],
+      "user": "user_02",
+      "description": "Privilege escalation at 2026-07-08T03:07:33+06:00 followed by 11 file download(s) within 30 minutes",
+      "timestamp": "2026-07-08T03:07:33+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_008"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:10 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:10:33+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s44_008",
+        "evt_s44_009",
+        "evt_s44_010",
+        "evt_s44_011",
+        "evt_s44_012",
+        "evt_s44_013",
+        "evt_s44_014",
+        "evt_s44_015",
+        "evt_s44_016",
+        "evt_s44_017",
+        "evt_s44_018"
+      ],
+      "user": "user_02",
+      "description": "Bulk download detected: 11 files downloaded within 30 minutes (window start: 2026-07-08T03:10:33+06:00)",
+      "timestamp": "2026-07-08T03:10:33+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_009"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:12 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:12:20+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_010"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:14 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:14:22+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_010"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/sales/review_940.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-07-08T03:14:22+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_011"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:14 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:14:44+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_012"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:17 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:17:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_012"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/sales/draft_394.docx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-07-08T03:17:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_013"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:19 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:19:31+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_014"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:21 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:21:01+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_015"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:23 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:23:02+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_015"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/hr/forecast_291.pdf is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-07-08T03:23:02+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_016"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:25 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:25:38+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_016"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/memo_583.txt is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-07-08T03:25:38+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_017"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:26 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:26:13+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_017"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/marketing/memo_886.yaml is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-07-08T03:26:13+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_018"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:27 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:27:10+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_019"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:30 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:30:41+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s44_019"
+      ],
+      "user": "user_02",
+      "description": "Log deletion detected by user_02. Target: /var/log/auth.log",
+      "timestamp": "2026-07-08T03:30:41+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s44_020"
+      ],
+      "user": "user_02",
+      "description": "Activity at 03:33 outside normal hours (09:00-19:00)",
+      "timestamp": "2026-07-08T03:33:41+06:00"
+    }
+  ],
+  "alert_count": 31,
+  "rules_triggered": [
+    "R001",
+    "R002",
+    "R003",
+    "R004",
+    "R005",
+    "R006",
+    "R007",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 27,
+    "critical": 4
+  },
+  "verdict": "attack"
+}

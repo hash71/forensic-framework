@@ -1,0 +1,136 @@
+{
+  "scenario": 68,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_005"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:04 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:04:04+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_005"
+      ],
+      "user": "user_09",
+      "description": "Cross-department access: /data/hr/spec_546.yaml is outside normal directories ['/data/marketing/']",
+      "timestamp": "2026-07-09T19:04:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_006"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:10 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:10:04+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_006"
+      ],
+      "user": "user_09",
+      "description": "Cross-department access: /data/shared/runbooks/audit_215.csv is outside normal directories ['/data/marketing/']",
+      "timestamp": "2026-07-09T19:10:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_007"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:18 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:18:04+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_007"
+      ],
+      "user": "user_09",
+      "description": "Cross-department access: /data/shared/project_beta/policy_125.txt is outside normal directories ['/data/marketing/']",
+      "timestamp": "2026-07-09T19:18:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_008"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:26 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:26:04+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_008"
+      ],
+      "user": "user_09",
+      "description": "Cross-department access: /data/finance/migration_988.docx is outside normal directories ['/data/marketing/']",
+      "timestamp": "2026-07-09T19:26:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_009"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:34 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:34:04+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_009"
+      ],
+      "user": "user_09",
+      "description": "Cross-department access: /data/sales/draft_972.pdf is outside normal directories ['/data/marketing/']",
+      "timestamp": "2026-07-09T19:34:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s68_010"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:39 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-09T19:39:04+06:00"
+    }
+  ],
+  "alert_count": 11,
+  "rules_triggered": [
+    "R002",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 11,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

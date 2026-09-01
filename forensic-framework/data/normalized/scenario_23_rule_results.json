@@ -1,0 +1,25 @@
+{
+  "scenario": 23,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s23_005"
+      ],
+      "user": "user_09",
+      "description": "Activity at 19:18 outside normal hours (09:30-18:30)",
+      "timestamp": "2026-07-11T19:18:19+06:00"
+    }
+  ],
+  "alert_count": 1,
+  "rules_triggered": [
+    "R002"
+  ],
+  "severity_summary": {
+    "warning": 1,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

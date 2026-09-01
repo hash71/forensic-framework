@@ -1,0 +1,295 @@
+{
+  "scenario": 36,
+  "findings": [
+    {
+      "type": "credential_stuffing",
+      "event_ids": [
+        "evt_s36_001",
+        "evt_s36_002",
+        "evt_s36_003",
+        "evt_s36_004",
+        "evt_s36_005",
+        "evt_s36_006",
+        "evt_s36_007",
+        "evt_s36_008",
+        "evt_s36_009"
+      ],
+      "description": "8 failed login(s) for user_09 followed by successful login from 23.129.64.222",
+      "severity": "critical"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s36_009"
+      ],
+      "description": "user_09 logged in from unusual IP 23.129.64.222 (expected: 192.168.1.109)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s36_010",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025",
+        "evt_s36_026"
+      ],
+      "description": "user_09 had privilege change then downloaded 16 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s36_010",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_019",
+        "evt_s36_024",
+        "evt_s36_025"
+      ],
+      "description": "user_09 accessed 7 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s36_001",
+        "evt_s36_002",
+        "evt_s36_003",
+        "evt_s36_004",
+        "evt_s36_005",
+        "evt_s36_006",
+        "evt_s36_007",
+        "evt_s36_008",
+        "evt_s36_009",
+        "evt_s36_010",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025",
+        "evt_s36_026",
+        "evt_s36_027",
+        "evt_s36_028"
+      ],
+      "description": "user_09 had 28 event(s) outside normal working hours (09:30-18:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_001",
+        "evt_s36_002",
+        "evt_s36_003",
+        "evt_s36_004",
+        "evt_s36_005",
+        "evt_s36_006"
+      ],
+      "description": "user_09 generated 6 events in 3 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_004",
+        "evt_s36_005",
+        "evt_s36_006",
+        "evt_s36_007",
+        "evt_s36_008",
+        "evt_s36_009",
+        "evt_s36_010",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022"
+      ],
+      "description": "user_09 generated 19 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_008",
+        "evt_s36_009",
+        "evt_s36_010",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023"
+      ],
+      "description": "user_09 generated 16 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_010",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024"
+      ],
+      "description": "user_09 generated 15 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025"
+      ],
+      "description": "user_09 generated 15 events in 27 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025",
+        "evt_s36_026",
+        "evt_s36_027"
+      ],
+      "description": "user_09 generated 16 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025",
+        "evt_s36_026",
+        "evt_s36_027",
+        "evt_s36_028"
+      ],
+      "description": "user_09 generated 15 events in 29 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s36_010",
+        "evt_s36_027",
+        "evt_s36_001",
+        "evt_s36_002",
+        "evt_s36_003",
+        "evt_s36_004",
+        "evt_s36_005",
+        "evt_s36_006",
+        "evt_s36_007",
+        "evt_s36_008",
+        "evt_s36_009",
+        "evt_s36_028",
+        "evt_s36_011",
+        "evt_s36_012",
+        "evt_s36_013",
+        "evt_s36_014",
+        "evt_s36_015",
+        "evt_s36_016",
+        "evt_s36_017",
+        "evt_s36_018",
+        "evt_s36_019",
+        "evt_s36_020",
+        "evt_s36_021",
+        "evt_s36_022",
+        "evt_s36_023",
+        "evt_s36_024",
+        "evt_s36_025",
+        "evt_s36_026"
+      ],
+      "description": "user_09 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 13,
+  "severity_summary": {
+    "critical": 2,
+    "warning": 10,
+    "info": 1
+  }
+}

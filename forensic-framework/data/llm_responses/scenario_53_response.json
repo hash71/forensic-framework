@@ -1,0 +1,92 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, progressive pattern of an insider threat. user_03 (HR) transitioned from reading files in their own department to accessing sensitive files in legal, security, marketing, sales, and finance departments, eventually culminating in multiple file downloads across these unauthorized departments over several days.",
+  "suspect": "user_03",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s53_002",
+      "description": "User performs normal activity within the HR department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s53_005",
+      "description": "User begins exploring unauthorized directories, accessing legal department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s53_007",
+      "description": "User expands unauthorized access to the security department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s53_011",
+      "description": "User accesses logs, expanding scope to system/infrastructure data.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s53_016",
+      "description": "User accesses marketing department files, often during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s53_017",
+      "description": "User accesses sales department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s53_018",
+      "description": "User accesses finance department files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s53_026",
+      "description": "User transitions from reading to downloading files in marketing.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 9,
+      "event_id": "evt_s53_027",
+      "description": "User downloads multiple files from the finance department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 10,
+      "event_id": "evt_s53_031",
+      "description": "User downloads multiple files from the legal department, completing the exfiltration pattern.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s53_005",
+    "evt_s53_007",
+    "evt_s53_011",
+    "evt_s53_016",
+    "evt_s53_017",
+    "evt_s53_018",
+    "evt_s53_026",
+    "evt_s53_027",
+    "evt_s53_028",
+    "evt_s53_031",
+    "evt_s53_032"
+  ],
+  "evidence_against": [
+    "evt_s53_001",
+    "evt_s53_002",
+    "evt_s53_004"
+  ],
+  "gaps": [
+    "Lack of justification/tickets for cross-department access.",
+    "No information on whether the user's account was compromised by an external actor (though the pattern strongly suggests an insider)."
+  ],
+  "narrative": "user_03, an HR specialist, engaged in a multi-day pattern of unauthorized data collection and exfiltration. The user systematically accessed files across the legal, security, marketing, sales, and finance departments, transitioning from simple file reads to bulk downloads of sensitive documents."
+}

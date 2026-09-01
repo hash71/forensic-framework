@@ -1,0 +1,120 @@
+{
+  "scenario": 31,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s31_001"
+      ],
+      "description": "user_10 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.110)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s31_025"
+      ],
+      "description": "user_10 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.110)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s31_052"
+      ],
+      "description": "user_10 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.110)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s31_032",
+        "evt_s31_033",
+        "evt_s31_034",
+        "evt_s31_035",
+        "evt_s31_036",
+        "evt_s31_037"
+      ],
+      "description": "user_10 generated 6 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s31_001",
+        "evt_s31_024",
+        "evt_s31_025",
+        "evt_s31_051",
+        "evt_s31_052",
+        "evt_s31_066",
+        "evt_s31_002",
+        "evt_s31_003",
+        "evt_s31_004",
+        "evt_s31_005",
+        "evt_s31_006",
+        "evt_s31_007",
+        "evt_s31_008",
+        "evt_s31_009",
+        "evt_s31_010",
+        "evt_s31_011",
+        "evt_s31_012",
+        "evt_s31_013",
+        "evt_s31_014",
+        "evt_s31_015",
+        "evt_s31_016",
+        "evt_s31_017",
+        "evt_s31_018",
+        "evt_s31_019",
+        "evt_s31_020",
+        "evt_s31_021",
+        "evt_s31_022",
+        "evt_s31_023",
+        "evt_s31_026",
+        "evt_s31_027",
+        "evt_s31_028",
+        "evt_s31_029",
+        "evt_s31_030",
+        "evt_s31_031",
+        "evt_s31_032",
+        "evt_s31_033",
+        "evt_s31_034",
+        "evt_s31_035",
+        "evt_s31_036",
+        "evt_s31_037",
+        "evt_s31_038",
+        "evt_s31_039",
+        "evt_s31_040",
+        "evt_s31_041",
+        "evt_s31_042",
+        "evt_s31_043",
+        "evt_s31_044",
+        "evt_s31_045",
+        "evt_s31_046",
+        "evt_s31_047",
+        "evt_s31_048",
+        "evt_s31_049",
+        "evt_s31_050",
+        "evt_s31_053",
+        "evt_s31_054",
+        "evt_s31_055",
+        "evt_s31_056",
+        "evt_s31_057",
+        "evt_s31_058",
+        "evt_s31_059",
+        "evt_s31_060",
+        "evt_s31_061",
+        "evt_s31_062",
+        "evt_s31_063",
+        "evt_s31_064",
+        "evt_s31_065"
+      ],
+      "description": "user_10 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 5,
+  "severity_summary": {
+    "warning": 4,
+    "info": 1
+  }
+}

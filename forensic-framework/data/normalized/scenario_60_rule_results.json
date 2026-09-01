@@ -1,0 +1,58 @@
+{
+  "scenario": 60,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s60_008"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/sales/migration_276.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-13T15:31:27+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s60_009"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/devops/data_export_255.yaml is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-13T15:39:27+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s60_010"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/executive/report_581.yaml is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-13T15:45:27+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s60_012"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/marketing/config_96.pptx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-13T15:53:27+06:00"
+    }
+  ],
+  "alert_count": 4,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 4,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

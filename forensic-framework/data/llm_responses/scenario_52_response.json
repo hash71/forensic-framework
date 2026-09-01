@@ -1,0 +1,102 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, progressive pattern of an insider threat. user_01, a finance analyst, transitioned from accessing only finance files to systematically reading and then downloading sensitive files from multiple other departments (HR, Security, Marketing, Engineering, Sales) over several days.",
+  "suspect": "user_01",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s52_001",
+      "description": "User_01 logs in from their normal IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s52_009",
+      "description": "User_01 begins exploring directories outside their department (shared runbooks) during off-hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s52_016",
+      "description": "User_01 accesses marketing files outside their department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s52_017",
+      "description": "User_01 accesses legal files outside their department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s52_018",
+      "description": "User_01 accesses engineering project files outside their department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s52_024",
+      "description": "User_01 expands scope to engineering files during business hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s52_025",
+      "description": "User_01 accesses HR files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 8,
+      "event_id": "evt_s52_026",
+      "description": "User_01 accesses system logs.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 9,
+      "event_id": "evt_s52_030",
+      "description": "User_01 accesses sales files.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 10,
+      "event_id": "evt_s52_038",
+      "description": "User_01 transitions from reading to downloading sensitive HR files (evt_s52_038, evt_s52_039).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 11,
+      "event_id": "evt_s52_043",
+      "description": "User_01 downloads security design documents (evt_s52_043) and marketing forecasts (evt_s52_044).",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s52_009",
+    "evt_s52_016",
+    "evt_s52_017",
+    "evt_s52_018",
+    "evt_s52_024",
+    "evt_s52_025",
+    "evt_s52_026",
+    "evt_s52_030",
+    "evt_s52_032",
+    "evt_s52_035",
+    "evt_s52_038",
+    "evt_s52_039",
+    "evt_s52_040",
+    "evt_s52_043",
+    "evt_s52_044"
+  ],
+  "evidence_against": [
+    "evt_s52_001",
+    "evt_s52_002",
+    "evt_s52_006"
+  ],
+  "gaps": [
+    "No evidence of where the downloaded files were sent (exfiltration destination).",
+    "No information on whether user_01 had a legitimate business reason or ticket for this cross-departmental access."
+  ],
+  "narrative": "user_01, a finance analyst, engaged in a multi-day pattern of unauthorized data collection. The user systematically accessed and eventually downloaded sensitive files from the HR, Engineering, Sales, Marketing, and Security departments, which are all outside their authorized scope."
+}

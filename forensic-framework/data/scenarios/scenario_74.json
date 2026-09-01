@@ -1,0 +1,241 @@
+{
+  "scenario_id": "scenario_74",
+  "name": "maintenance_window_074",
+  "label": "BENIGN",
+  "description": "Scheduled maintenance window by user_06 (site_reliability_engineer). Ticket OPS-4617 authorizes the privilege change, bulk backup download, and log rotation. Privileges are reverted at end of window.",
+  "events": [
+    {
+      "event_id": "evt_s74_001",
+      "timestamp": "2026-04-02T22:06:00+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "ssh_key",
+        "user_agent": "OpenSSH_9.3",
+        "note": "Scheduled maintenance window, ticket=OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_002",
+      "timestamp": "2026-04-02T22:08:00+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "warning",
+      "metadata": {
+        "detail": "elevated for maintenance",
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_003",
+      "timestamp": "2026-04-02T22:13:43+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/release_notes_133.xlsx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 15551019,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_004",
+      "timestamp": "2026-04-02T22:14:38+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/rfc_216.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 42859265,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_005",
+      "timestamp": "2026-04-02T22:15:11+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/migration_162.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 63791482,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_006",
+      "timestamp": "2026-04-02T22:16:52+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/budget_378.yaml",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 27463972,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_007",
+      "timestamp": "2026-04-02T22:18:36+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/forecast_796.pptx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 14783962,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_008",
+      "timestamp": "2026-04-02T22:19:57+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/draft_787.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 89798012,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_009",
+      "timestamp": "2026-04-02T22:20:34+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/summary_726.txt",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 77678531,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_010",
+      "timestamp": "2026-04-02T22:23:09+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/schema_304.xlsx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 45618548,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_011",
+      "timestamp": "2026-04-02T22:24:15+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/data_export_430.txt",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 42306821,
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_012",
+      "timestamp": "2026-04-02T22:27:15+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "log_delete",
+      "resource": "/var/log/old_rotations/",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "warning",
+      "metadata": {
+        "detail": "scheduled log rotation",
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_013",
+      "timestamp": "2026-04-02T22:34:15+06:00",
+      "source_type": "admin",
+      "user": "user_06",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "detail": "reverted to baseline",
+        "ticket": "OPS-4617"
+      }
+    },
+    {
+      "event_id": "evt_s74_014",
+      "timestamp": "2026-04-02T22:39:15+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 18
+      }
+    }
+  ]
+}

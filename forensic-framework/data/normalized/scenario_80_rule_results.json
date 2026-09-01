@@ -1,0 +1,169 @@
+{
+  "scenario": 80,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_001"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:59 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_001",
+        "evt_s80_002",
+        "evt_s80_003",
+        "evt_s80_004",
+        "evt_s80_005",
+        "evt_s80_006",
+        "evt_s80_007",
+        "evt_s80_008",
+        "evt_s80_009",
+        "evt_s80_010",
+        "evt_s80_011",
+        "evt_s80_012"
+      ],
+      "user": "user_01",
+      "description": "Failed login spike: 12 failures within 5 minutes for user_01 (window start: 2026-05-09T02:59:00+06:00)",
+      "timestamp": "2026-05-09T02:59:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_002"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:59 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T02:59:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_003"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:59 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T02:59:56+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_004"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:00 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:00:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_005"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:00 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:00:35+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_006"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:00 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:00:59+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_007"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:01:22+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_008"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:01:29+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_009"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:01:44+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_010"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:01:56+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_011"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:02 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:02:20+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s80_012"
+      ],
+      "user": "user_01",
+      "description": "Activity at 03:02 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-05-09T03:02:30+06:00"
+    }
+  ],
+  "alert_count": 13,
+  "rules_triggered": [
+    "R002",
+    "R007"
+  ],
+  "severity_summary": {
+    "warning": 13,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

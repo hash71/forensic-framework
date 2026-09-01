@@ -1,0 +1,463 @@
+{
+  "source": "cert",
+  "n_scenarios": 40,
+  "n_attack": 20,
+  "n_benign": 20,
+  "out_dir": "data/real_scenarios",
+  "seed": 42,
+  "cert": {
+    "release": "4.2",
+    "seed": 42,
+    "max_events_per_window": 150,
+    "n_attack": 20,
+    "n_benign": 20,
+    "attack_original_counts": [
+      2257,
+      658,
+      929,
+      544,
+      502,
+      678,
+      84,
+      343,
+      3400,
+      1157,
+      217,
+      2091,
+      3983,
+      483,
+      491,
+      3846,
+      2114,
+      1080,
+      4121,
+      539
+    ],
+    "benign_original_counts": [
+      3571,
+      4532,
+      2918,
+      675,
+      273,
+      3634,
+      1018,
+      273,
+      260,
+      1021,
+      3932,
+      2467,
+      368,
+      343,
+      3564,
+      2666,
+      4084,
+      444,
+      1051,
+      891
+    ],
+    "attack_median_count": 803.5,
+    "benign_median_count": 1036.0,
+    "windows": [
+      {
+        "scenario_id": "cert_attack_BLS0678_201009",
+        "label": "ATTACK",
+        "user": "BLS0678",
+        "month": "2010-09",
+        "scenario_type": "1",
+        "event_count": 150,
+        "original_count": 2257,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_LJR0523_201008",
+        "label": "ATTACK",
+        "user": "LJR0523",
+        "month": "2010-08",
+        "scenario_type": "1",
+        "event_count": 150,
+        "original_count": 658,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_AAF0535_201007",
+        "label": "ATTACK",
+        "user": "AAF0535",
+        "month": "2010-07",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 929,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_MCF0600_201009",
+        "label": "ATTACK",
+        "user": "MCF0600",
+        "month": "2010-09",
+        "scenario_type": "1",
+        "event_count": 150,
+        "original_count": 544,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_TNM0961_201010",
+        "label": "ATTACK",
+        "user": "TNM0961",
+        "month": "2010-10",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 502,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_FMG0527_201101",
+        "label": "ATTACK",
+        "user": "FMG0527",
+        "month": "2011-01",
+        "scenario_type": "1",
+        "event_count": 150,
+        "original_count": 678,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_MDH0580_201103",
+        "label": "ATTACK",
+        "user": "MDH0580",
+        "month": "2011-03",
+        "scenario_type": "2",
+        "event_count": 84,
+        "original_count": 84,
+        "downsampled": false
+      },
+      {
+        "scenario_id": "cert_attack_CEJ0109_201104",
+        "label": "ATTACK",
+        "user": "CEJ0109",
+        "month": "2011-04",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 343,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_MAS0025_201009",
+        "label": "ATTACK",
+        "user": "MAS0025",
+        "month": "2010-09",
+        "scenario_type": "1",
+        "event_count": 150,
+        "original_count": 3400,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_LCC0819_201008",
+        "label": "ATTACK",
+        "user": "LCC0819",
+        "month": "2010-08",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 1157,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_TNM0961_201012",
+        "label": "ATTACK",
+        "user": "TNM0961",
+        "month": "2010-12",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 217,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_GTD0219_201006",
+        "label": "ATTACK",
+        "user": "GTD0219",
+        "month": "2010-06",
+        "scenario_type": "3",
+        "event_count": 150,
+        "original_count": 2091,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_XHW0498_201009",
+        "label": "ATTACK",
+        "user": "XHW0498",
+        "month": "2010-09",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 3983,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_PSF0133_201009",
+        "label": "ATTACK",
+        "user": "PSF0133",
+        "month": "2010-09",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 483,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_MDH0580_201102",
+        "label": "ATTACK",
+        "user": "MDH0580",
+        "month": "2011-02",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 491,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_KRL0501_201012",
+        "label": "ATTACK",
+        "user": "KRL0501",
+        "month": "2010-12",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 3846,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_JTM0223_201007",
+        "label": "ATTACK",
+        "user": "JTM0223",
+        "month": "2010-07",
+        "scenario_type": "3",
+        "event_count": 150,
+        "original_count": 2114,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_MSO0222_201012",
+        "label": "ATTACK",
+        "user": "MSO0222",
+        "month": "2010-12",
+        "scenario_type": "3",
+        "event_count": 150,
+        "original_count": 1080,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_XHW0498_201008",
+        "label": "ATTACK",
+        "user": "XHW0498",
+        "month": "2010-08",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 4121,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_attack_HXL0968_201009",
+        "label": "ATTACK",
+        "user": "HXL0968",
+        "month": "2010-09",
+        "scenario_type": "2",
+        "event_count": 150,
+        "original_count": 539,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_UJC0737_201011",
+        "label": "BENIGN",
+        "user": "UJC0737",
+        "month": "2010-11",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 3571,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_THR0873_201012",
+        "label": "BENIGN",
+        "user": "THR0873",
+        "month": "2010-12",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 4532,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_QNF0205_201103",
+        "label": "BENIGN",
+        "user": "QNF0205",
+        "month": "2011-03",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 2918,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_OQH0183_201104",
+        "label": "BENIGN",
+        "user": "OQH0183",
+        "month": "2011-04",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 675,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_ECR0822_201010",
+        "label": "BENIGN",
+        "user": "ECR0822",
+        "month": "2010-10",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 273,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_BEH0615_201102",
+        "label": "BENIGN",
+        "user": "BEH0615",
+        "month": "2011-02",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 3634,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_HLH0512_201009",
+        "label": "BENIGN",
+        "user": "HLH0512",
+        "month": "2010-09",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 1018,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_ECR0822_201009",
+        "label": "BENIGN",
+        "user": "ECR0822",
+        "month": "2010-09",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 273,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_TJB0302_201012",
+        "label": "BENIGN",
+        "user": "TJB0302",
+        "month": "2010-12",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 260,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_HLH0512_201012",
+        "label": "BENIGN",
+        "user": "HLH0512",
+        "month": "2010-12",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 1021,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_MIC0726_201006",
+        "label": "BENIGN",
+        "user": "MIC0726",
+        "month": "2010-06",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 3932,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_VTT0385_201104",
+        "label": "BENIGN",
+        "user": "VTT0385",
+        "month": "2011-04",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 2467,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_IBS0836_201009",
+        "label": "BENIGN",
+        "user": "IBS0836",
+        "month": "2010-09",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 368,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_AHD0848_201102",
+        "label": "BENIGN",
+        "user": "AHD0848",
+        "month": "2011-02",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 343,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_MAD0753_201005",
+        "label": "BENIGN",
+        "user": "MAD0753",
+        "month": "2010-05",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 3564,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_QNF0205_201007",
+        "label": "BENIGN",
+        "user": "QNF0205",
+        "month": "2010-07",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 2666,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_UJC0737_201003",
+        "label": "BENIGN",
+        "user": "UJC0737",
+        "month": "2010-03",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 4084,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_GHH0288_201001",
+        "label": "BENIGN",
+        "user": "GHH0288",
+        "month": "2010-01",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 444,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_HLH0512_201103",
+        "label": "BENIGN",
+        "user": "HLH0512",
+        "month": "2011-03",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 1051,
+        "downsampled": true
+      },
+      {
+        "scenario_id": "cert_benign_BMT0528_201102",
+        "label": "BENIGN",
+        "user": "BMT0528",
+        "month": "2011-02",
+        "scenario_type": null,
+        "event_count": 150,
+        "original_count": 891,
+        "downsampled": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "scenario": 71,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_001"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:10 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:10:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_002"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:12 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:12:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s71_002"
+      ],
+      "user": "user_06",
+      "description": "Privilege change detected for user_06. Resource: role",
+      "timestamp": "2026-08-14T23:12:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s71_002",
+        "evt_s71_003",
+        "evt_s71_004",
+        "evt_s71_005",
+        "evt_s71_006",
+        "evt_s71_007",
+        "evt_s71_008",
+        "evt_s71_009",
+        "evt_s71_010",
+        "evt_s71_011",
+        "evt_s71_012",
+        "evt_s71_013",
+        "evt_s71_014",
+        "evt_s71_015"
+      ],
+      "user": "user_06",
+      "description": "Privilege escalation at 2026-08-14T23:12:00+06:00 followed by 13 file download(s) within 30 minutes",
+      "timestamp": "2026-08-14T23:12:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_003"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:17 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:17:19+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s71_003",
+        "evt_s71_004",
+        "evt_s71_005",
+        "evt_s71_006",
+        "evt_s71_007",
+        "evt_s71_008",
+        "evt_s71_009",
+        "evt_s71_010",
+        "evt_s71_011",
+        "evt_s71_012",
+        "evt_s71_013",
+        "evt_s71_014",
+        "evt_s71_015"
+      ],
+      "user": "user_06",
+      "description": "Bulk download detected: 13 files downloaded within 30 minutes (window start: 2026-08-14T23:17:19+06:00)",
+      "timestamp": "2026-08-14T23:17:19+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_004"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:19 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:19:34+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_005"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:21 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:21:44+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_006"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:22 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:22:53+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_007"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:24 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:24:23+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_008"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:26 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:26:49+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_009"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:28 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:28:09+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_010"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:28 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:28:52+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_011"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:30 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:30:04+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_012"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:32 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:32:49+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_013"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:33 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:33:47+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_014"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:35 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:35:02+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_015"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:37 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:37:43+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_016"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:40 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:40:43+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s71_016"
+      ],
+      "user": "user_06",
+      "description": "Log deletion detected by user_06. Target: /var/log/old_rotations/",
+      "timestamp": "2026-08-14T23:40:43+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_017"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:47 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:47:43+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s71_017"
+      ],
+      "user": "user_06",
+      "description": "Privilege change detected for user_06. Resource: role",
+      "timestamp": "2026-08-14T23:47:43+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s71_018"
+      ],
+      "user": "user_06",
+      "description": "Activity at 23:52 outside normal hours (08:00-20:00)",
+      "timestamp": "2026-08-14T23:52:43+06:00"
+    }
+  ],
+  "alert_count": 23,
+  "rules_triggered": [
+    "R002",
+    "R003",
+    "R004",
+    "R006",
+    "R008"
+  ],
+  "severity_summary": {
+    "warning": 18,
+    "critical": 5
+  },
+  "verdict": "attack"
+}

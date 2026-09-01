@@ -1,0 +1,90 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an insider threat (user_04) performing unauthorized data collection. The user, a junior accountant with read-only access, bypassed their departmental scope to download files from Engineering, Legal, Executive, Security, and DevOps directories, accompanied by multiple bulk download alerts.",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s113_001",
+      "description": "User_04 logs in during off-hours (08:11).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s113_011",
+      "description": "User_04 begins cross-department access by downloading files from the shared runbooks directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s113_018",
+      "description": "User_04 accesses and downloads sensitive files from the Legal department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s113_029",
+      "description": "User_04 accesses and downloads files from the Engineering (Project Alpha) directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s113_034",
+      "description": "User_04 accesses and downloads files from the DevOps logs directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s113_039",
+      "description": "User_04 accesses and downloads files from the Executive directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s113_041",
+      "description": "User_04 accesses and downloads files from the Security directory.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s113_001",
+    "evt_s113_011",
+    "evt_s113_018",
+    "evt_s113_029",
+    "evt_s113_034",
+    "evt_s113_039",
+    "evt_s113_041",
+    "evt_s113_004",
+    "evt_s113_005",
+    "evt_s113_007",
+    "evt_s113_010",
+    "evt_s113_012",
+    "evt_s113_014",
+    "evt_s113_015",
+    "evt_s113_016",
+    "evt_s113_017",
+    "evt_s113_020",
+    "evt_s113_021",
+    "evt_s113_023",
+    "evt_s113_025",
+    "evt_s113_026",
+    "evt_s113_027",
+    "evt_s113_028",
+    "evt_s113_029",
+    "evt_s113_030",
+    "evt_s113_033",
+    "evt_s113_034",
+    "evt_s113_036",
+    "evt_s113_037",
+    "evt_s113_039",
+    "evt_s113_041"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Lack of information regarding whether user_04's account was compromised by an external actor (credential theft) vs. a malicious insider.",
+    "No information on the destination of the downloaded files to confirm exfiltration to an external endpoint."
+  ],
+  "narrative": "User_04, a junior accountant, performed an extensive unauthorized data collection operation. After logging in during off-hours, the user systematically downloaded a large volume of files across multiple departments, including Legal, Engineering, Executive, Security, and DevOps, which is entirely outside their normal scope of work."
+}

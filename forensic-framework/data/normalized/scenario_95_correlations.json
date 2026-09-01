@@ -1,0 +1,57 @@
+{
+  "scenario": 95,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s95_007"
+      ],
+      "description": "user_03 logged in from unusual IP 104.244.76.13 (expected: 192.168.1.103)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s95_007",
+        "evt_s95_008",
+        "evt_s95_009",
+        "evt_s95_010",
+        "evt_s95_011",
+        "evt_s95_054"
+      ],
+      "description": "user_03 had 6 event(s) outside normal working hours (09:00-17:30)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s95_007",
+        "evt_s95_008",
+        "evt_s95_009",
+        "evt_s95_010",
+        "evt_s95_011",
+        "evt_s95_054"
+      ],
+      "description": "user_03 generated 6 events in 23 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s95_008",
+        "evt_s95_054",
+        "evt_s95_007",
+        "evt_s95_009",
+        "evt_s95_010",
+        "evt_s95_011"
+      ],
+      "description": "user_03 has activity across 3 source types: admin, auth, database",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "scenario": 64,
+  "findings": [
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s64_004",
+        "evt_s64_005",
+        "evt_s64_006",
+        "evt_s64_007",
+        "evt_s64_008",
+        "evt_s64_009"
+      ],
+      "description": "user_08 generated 6 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s64_005",
+        "evt_s64_006",
+        "evt_s64_007",
+        "evt_s64_008",
+        "evt_s64_009",
+        "evt_s64_010"
+      ],
+      "description": "user_08 generated 6 events in 22 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s64_001",
+        "evt_s64_012",
+        "evt_s64_002",
+        "evt_s64_003",
+        "evt_s64_004",
+        "evt_s64_005",
+        "evt_s64_006",
+        "evt_s64_007",
+        "evt_s64_008",
+        "evt_s64_009",
+        "evt_s64_010",
+        "evt_s64_011"
+      ],
+      "description": "user_08 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 3,
+  "severity_summary": {
+    "warning": 2,
+    "info": 1
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "scenario_id": "scenario_24",
+  "name": "normal_baseline_024",
+  "label": "BENIGN",
+  "description": "Normal daily activity for senior_developer (user_02). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s24_001",
+      "timestamp": "2026-06-27T09:10:10+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s24_002",
+      "timestamp": "2026-06-27T10:35:10+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/plan_126.yaml",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s24_003",
+      "timestamp": "2026-06-27T11:08:10+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/rfc_41.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 3672939
+      }
+    },
+    {
+      "event_id": "evt_s24_004",
+      "timestamp": "2026-06-27T12:17:10+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/memo_711.json",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s24_005",
+      "timestamp": "2026-06-27T13:06:10+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_beta/plan_867.xlsx",
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 4835126
+      }
+    },
+    {
+      "event_id": "evt_s24_006",
+      "timestamp": "2026-06-27T13:26:10+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.102",
+      "status": "success",
+      "session_id": "sess_user_02_20260627_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 256
+      }
+    }
+  ]
+}

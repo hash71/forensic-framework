@@ -1,0 +1,2640 @@
+{
+  "scenario": 109,
+  "total_events": 62,
+  "timeline": [
+    {
+      "event_id": "evt_s109_001",
+      "timestamp": "2026-07-10T08:04:00+06:00",
+      "source_type": "auth",
+      "user": "user_07",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_002",
+      "timestamp": "2026-07-10T08:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/review_79.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4539292
+      }
+    },
+    {
+      "event_id": "evt_s109_003",
+      "timestamp": "2026-07-10T08:19:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/marketing/design_847.xlsx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1045995
+      }
+    },
+    {
+      "event_id": "evt_s109_004",
+      "timestamp": "2026-07-10T08:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/memo_499.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5744874
+      }
+    },
+    {
+      "event_id": "evt_s109_005",
+      "timestamp": "2026-07-10T08:28:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/hr/release_notes_667.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3001157
+      }
+    },
+    {
+      "event_id": "evt_s109_006",
+      "timestamp": "2026-07-10T08:33:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/budget_668.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_007",
+      "timestamp": "2026-07-10T08:43:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/agreement_504.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4038209
+      }
+    },
+    {
+      "event_id": "evt_s109_008",
+      "timestamp": "2026-07-10T08:48:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/review_487.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6003661
+      }
+    },
+    {
+      "event_id": "evt_s109_009",
+      "timestamp": "2026-07-10T08:54:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/policy_161.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3677551
+      }
+    },
+    {
+      "event_id": "evt_s109_010",
+      "timestamp": "2026-07-10T08:59:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/agreement_247.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4634738
+      }
+    },
+    {
+      "event_id": "evt_s109_011",
+      "timestamp": "2026-07-10T09:02:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/plan_854.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 705486
+      }
+    },
+    {
+      "event_id": "evt_s109_012",
+      "timestamp": "2026-07-10T09:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/finance/agreement_541.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4775768
+      }
+    },
+    {
+      "event_id": "evt_s109_013",
+      "timestamp": "2026-07-10T09:14:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/review_933.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_014",
+      "timestamp": "2026-07-10T09:23:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/audit_679.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_015",
+      "timestamp": "2026-07-10T09:31:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/policy_754.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1884325
+      }
+    },
+    {
+      "event_id": "evt_s109_016",
+      "timestamp": "2026-07-10T09:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/agreement_139.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_017",
+      "timestamp": "2026-07-10T09:39:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/devops/migration_681.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_018",
+      "timestamp": "2026-07-10T09:49:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/policy_39.xlsx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5369958
+      }
+    },
+    {
+      "event_id": "evt_s109_019",
+      "timestamp": "2026-07-10T09:56:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/finance/spec_159.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_020",
+      "timestamp": "2026-07-10T10:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/audit_2.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2997424
+      }
+    },
+    {
+      "event_id": "evt_s109_021",
+      "timestamp": "2026-07-10T10:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/budget_668.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_022",
+      "timestamp": "2026-07-10T10:14:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/summary_449.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_023",
+      "timestamp": "2026-07-10T10:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/marketing/summary_456.docx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_024",
+      "timestamp": "2026-07-10T10:27:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/finance/release_notes_416.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_025",
+      "timestamp": "2026-07-10T10:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/budget_256.pdf",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6662675
+      }
+    },
+    {
+      "event_id": "evt_s109_026",
+      "timestamp": "2026-07-10T10:37:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/config_573.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_027",
+      "timestamp": "2026-07-10T10:47:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/sales/draft_847.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5216213
+      }
+    },
+    {
+      "event_id": "evt_s109_028",
+      "timestamp": "2026-07-10T10:50:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/review_985.pdf",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6674375
+      }
+    },
+    {
+      "event_id": "evt_s109_029",
+      "timestamp": "2026-07-10T10:55:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/design_915.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6632353
+      }
+    },
+    {
+      "event_id": "evt_s109_030",
+      "timestamp": "2026-07-10T11:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/hr/rfc_716.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_031",
+      "timestamp": "2026-07-10T11:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/legal/migration_375.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_032",
+      "timestamp": "2026-07-10T11:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/rfc_649.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_033",
+      "timestamp": "2026-07-10T11:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/migration_491.docx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3168374
+      }
+    },
+    {
+      "event_id": "evt_s109_034",
+      "timestamp": "2026-07-10T11:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/schema_307.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2710531
+      }
+    },
+    {
+      "event_id": "evt_s109_035",
+      "timestamp": "2026-07-10T11:27:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/finance/design_162.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3631675
+      }
+    },
+    {
+      "event_id": "evt_s109_036",
+      "timestamp": "2026-07-10T11:32:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/forecast_154.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_037",
+      "timestamp": "2026-07-10T11:38:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/policy_163.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6826485
+      }
+    },
+    {
+      "event_id": "evt_s109_038",
+      "timestamp": "2026-07-10T11:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/agreement_63.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_039",
+      "timestamp": "2026-07-10T11:49:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/engineering/schema_232.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_040",
+      "timestamp": "2026-07-10T11:57:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/schema_657.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2112907
+      }
+    },
+    {
+      "event_id": "evt_s109_041",
+      "timestamp": "2026-07-10T11:59:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/shared/runbooks/summary_701.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2011257
+      }
+    },
+    {
+      "event_id": "evt_s109_042",
+      "timestamp": "2026-07-10T12:07:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/design_184.pdf",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1013994
+      }
+    },
+    {
+      "event_id": "evt_s109_043",
+      "timestamp": "2026-07-10T12:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/design_400.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 7420831
+      }
+    },
+    {
+      "event_id": "evt_s109_044",
+      "timestamp": "2026-07-10T12:12:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/migration_949.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_045",
+      "timestamp": "2026-07-10T12:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/forecast_557.docx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_046",
+      "timestamp": "2026-07-10T12:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/agreement_136.docx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_047",
+      "timestamp": "2026-07-10T12:21:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/audit_903.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_048",
+      "timestamp": "2026-07-10T12:26:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/release_notes_724.pptx",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6102286
+      }
+    },
+    {
+      "event_id": "evt_s109_049",
+      "timestamp": "2026-07-10T12:28:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/review_265.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_050",
+      "timestamp": "2026-07-10T12:35:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/memo_235.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5399240
+      }
+    },
+    {
+      "event_id": "evt_s109_051",
+      "timestamp": "2026-07-10T12:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/config_428.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3414541
+      }
+    },
+    {
+      "event_id": "evt_s109_052",
+      "timestamp": "2026-07-10T12:53:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/agreement_626.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6690299
+      }
+    },
+    {
+      "event_id": "evt_s109_053",
+      "timestamp": "2026-07-10T12:57:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/security/draft_334.pdf",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5060618
+      }
+    },
+    {
+      "event_id": "evt_s109_054",
+      "timestamp": "2026-07-10T13:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/report_684.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 7301329
+      }
+    },
+    {
+      "event_id": "evt_s109_055",
+      "timestamp": "2026-07-10T13:12:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/legal/config_130.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_056",
+      "timestamp": "2026-07-10T13:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/budget_319.pdf",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2862498
+      }
+    },
+    {
+      "event_id": "evt_s109_057",
+      "timestamp": "2026-07-10T13:22:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/logs/design_173.yaml",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_058",
+      "timestamp": "2026-07-10T13:24:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/audit_529.json",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_059",
+      "timestamp": "2026-07-10T13:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/budget_632.txt",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1224160
+      }
+    },
+    {
+      "event_id": "evt_s109_060",
+      "timestamp": "2026-07-10T13:37:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_download",
+      "resource": "/data/logs/policy_957.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 5670870
+      }
+    },
+    {
+      "event_id": "evt_s109_061",
+      "timestamp": "2026-07-10T13:39:00+06:00",
+      "source_type": "file_access",
+      "user": "user_07",
+      "action": "file_read",
+      "resource": "/data/security/draft_744.csv",
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s109_062",
+      "timestamp": "2026-07-10T14:11:00+06:00",
+      "source_type": "auth",
+      "user": "user_07",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.107",
+      "status": "success",
+      "session_id": "sess_user_07_20260710_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_07": [
+      {
+        "event_id": "evt_s109_001",
+        "timestamp": "2026-07-10T08:04:00+06:00",
+        "source_type": "auth",
+        "user": "user_07",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_002",
+        "timestamp": "2026-07-10T08:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/review_79.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4539292
+        }
+      },
+      {
+        "event_id": "evt_s109_003",
+        "timestamp": "2026-07-10T08:19:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/marketing/design_847.xlsx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1045995
+        }
+      },
+      {
+        "event_id": "evt_s109_004",
+        "timestamp": "2026-07-10T08:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/memo_499.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5744874
+        }
+      },
+      {
+        "event_id": "evt_s109_005",
+        "timestamp": "2026-07-10T08:28:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/hr/release_notes_667.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3001157
+        }
+      },
+      {
+        "event_id": "evt_s109_006",
+        "timestamp": "2026-07-10T08:33:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/budget_668.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_007",
+        "timestamp": "2026-07-10T08:43:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_504.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4038209
+        }
+      },
+      {
+        "event_id": "evt_s109_008",
+        "timestamp": "2026-07-10T08:48:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/review_487.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6003661
+        }
+      },
+      {
+        "event_id": "evt_s109_009",
+        "timestamp": "2026-07-10T08:54:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_161.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3677551
+        }
+      },
+      {
+        "event_id": "evt_s109_010",
+        "timestamp": "2026-07-10T08:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_247.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4634738
+        }
+      },
+      {
+        "event_id": "evt_s109_011",
+        "timestamp": "2026-07-10T09:02:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/plan_854.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 705486
+        }
+      },
+      {
+        "event_id": "evt_s109_012",
+        "timestamp": "2026-07-10T09:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/finance/agreement_541.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4775768
+        }
+      },
+      {
+        "event_id": "evt_s109_013",
+        "timestamp": "2026-07-10T09:14:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/review_933.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_014",
+        "timestamp": "2026-07-10T09:23:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/audit_679.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_015",
+        "timestamp": "2026-07-10T09:31:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_754.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1884325
+        }
+      },
+      {
+        "event_id": "evt_s109_016",
+        "timestamp": "2026-07-10T09:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_139.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_017",
+        "timestamp": "2026-07-10T09:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/devops/migration_681.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_018",
+        "timestamp": "2026-07-10T09:49:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_39.xlsx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5369958
+        }
+      },
+      {
+        "event_id": "evt_s109_019",
+        "timestamp": "2026-07-10T09:56:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/finance/spec_159.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_020",
+        "timestamp": "2026-07-10T10:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/audit_2.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2997424
+        }
+      },
+      {
+        "event_id": "evt_s109_021",
+        "timestamp": "2026-07-10T10:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/budget_668.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_022",
+        "timestamp": "2026-07-10T10:14:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/summary_449.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_023",
+        "timestamp": "2026-07-10T10:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/marketing/summary_456.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_024",
+        "timestamp": "2026-07-10T10:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/finance/release_notes_416.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_025",
+        "timestamp": "2026-07-10T10:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/budget_256.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6662675
+        }
+      },
+      {
+        "event_id": "evt_s109_026",
+        "timestamp": "2026-07-10T10:37:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/config_573.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_027",
+        "timestamp": "2026-07-10T10:47:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/sales/draft_847.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5216213
+        }
+      },
+      {
+        "event_id": "evt_s109_028",
+        "timestamp": "2026-07-10T10:50:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/review_985.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6674375
+        }
+      },
+      {
+        "event_id": "evt_s109_029",
+        "timestamp": "2026-07-10T10:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/design_915.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6632353
+        }
+      },
+      {
+        "event_id": "evt_s109_030",
+        "timestamp": "2026-07-10T11:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/hr/rfc_716.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_031",
+        "timestamp": "2026-07-10T11:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/legal/migration_375.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_032",
+        "timestamp": "2026-07-10T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/rfc_649.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_033",
+        "timestamp": "2026-07-10T11:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/migration_491.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3168374
+        }
+      },
+      {
+        "event_id": "evt_s109_034",
+        "timestamp": "2026-07-10T11:24:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/schema_307.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2710531
+        }
+      },
+      {
+        "event_id": "evt_s109_035",
+        "timestamp": "2026-07-10T11:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/finance/design_162.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3631675
+        }
+      },
+      {
+        "event_id": "evt_s109_036",
+        "timestamp": "2026-07-10T11:32:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/forecast_154.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_037",
+        "timestamp": "2026-07-10T11:38:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/policy_163.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6826485
+        }
+      },
+      {
+        "event_id": "evt_s109_038",
+        "timestamp": "2026-07-10T11:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_63.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_039",
+        "timestamp": "2026-07-10T11:49:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/engineering/schema_232.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_040",
+        "timestamp": "2026-07-10T11:57:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/schema_657.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2112907
+        }
+      },
+      {
+        "event_id": "evt_s109_041",
+        "timestamp": "2026-07-10T11:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/summary_701.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2011257
+        }
+      },
+      {
+        "event_id": "evt_s109_042",
+        "timestamp": "2026-07-10T12:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/design_184.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1013994
+        }
+      },
+      {
+        "event_id": "evt_s109_043",
+        "timestamp": "2026-07-10T12:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/design_400.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7420831
+        }
+      },
+      {
+        "event_id": "evt_s109_044",
+        "timestamp": "2026-07-10T12:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/migration_949.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_045",
+        "timestamp": "2026-07-10T12:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/forecast_557.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_046",
+        "timestamp": "2026-07-10T12:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_136.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_047",
+        "timestamp": "2026-07-10T12:21:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/audit_903.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_048",
+        "timestamp": "2026-07-10T12:26:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/release_notes_724.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6102286
+        }
+      },
+      {
+        "event_id": "evt_s109_049",
+        "timestamp": "2026-07-10T12:28:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/review_265.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_050",
+        "timestamp": "2026-07-10T12:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/memo_235.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5399240
+        }
+      },
+      {
+        "event_id": "evt_s109_051",
+        "timestamp": "2026-07-10T12:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/config_428.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3414541
+        }
+      },
+      {
+        "event_id": "evt_s109_052",
+        "timestamp": "2026-07-10T12:53:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_626.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6690299
+        }
+      },
+      {
+        "event_id": "evt_s109_053",
+        "timestamp": "2026-07-10T12:57:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/draft_334.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5060618
+        }
+      },
+      {
+        "event_id": "evt_s109_054",
+        "timestamp": "2026-07-10T13:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/report_684.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7301329
+        }
+      },
+      {
+        "event_id": "evt_s109_055",
+        "timestamp": "2026-07-10T13:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/legal/config_130.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_056",
+        "timestamp": "2026-07-10T13:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/budget_319.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2862498
+        }
+      },
+      {
+        "event_id": "evt_s109_057",
+        "timestamp": "2026-07-10T13:22:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/design_173.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_058",
+        "timestamp": "2026-07-10T13:24:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/audit_529.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_059",
+        "timestamp": "2026-07-10T13:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/budget_632.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1224160
+        }
+      },
+      {
+        "event_id": "evt_s109_060",
+        "timestamp": "2026-07-10T13:37:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/policy_957.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5670870
+        }
+      },
+      {
+        "event_id": "evt_s109_061",
+        "timestamp": "2026-07-10T13:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/draft_744.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_062",
+        "timestamp": "2026-07-10T14:11:00+06:00",
+        "source_type": "auth",
+        "user": "user_07",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_07_20260710_001": [
+      {
+        "event_id": "evt_s109_001",
+        "timestamp": "2026-07-10T08:04:00+06:00",
+        "source_type": "auth",
+        "user": "user_07",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_002",
+        "timestamp": "2026-07-10T08:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/review_79.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4539292
+        }
+      },
+      {
+        "event_id": "evt_s109_003",
+        "timestamp": "2026-07-10T08:19:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/marketing/design_847.xlsx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1045995
+        }
+      },
+      {
+        "event_id": "evt_s109_004",
+        "timestamp": "2026-07-10T08:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/memo_499.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5744874
+        }
+      },
+      {
+        "event_id": "evt_s109_005",
+        "timestamp": "2026-07-10T08:28:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/hr/release_notes_667.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3001157
+        }
+      },
+      {
+        "event_id": "evt_s109_006",
+        "timestamp": "2026-07-10T08:33:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/budget_668.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_007",
+        "timestamp": "2026-07-10T08:43:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_504.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4038209
+        }
+      },
+      {
+        "event_id": "evt_s109_008",
+        "timestamp": "2026-07-10T08:48:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/review_487.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6003661
+        }
+      },
+      {
+        "event_id": "evt_s109_009",
+        "timestamp": "2026-07-10T08:54:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_161.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3677551
+        }
+      },
+      {
+        "event_id": "evt_s109_010",
+        "timestamp": "2026-07-10T08:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_247.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4634738
+        }
+      },
+      {
+        "event_id": "evt_s109_011",
+        "timestamp": "2026-07-10T09:02:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/plan_854.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 705486
+        }
+      },
+      {
+        "event_id": "evt_s109_012",
+        "timestamp": "2026-07-10T09:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/finance/agreement_541.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4775768
+        }
+      },
+      {
+        "event_id": "evt_s109_013",
+        "timestamp": "2026-07-10T09:14:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/review_933.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_014",
+        "timestamp": "2026-07-10T09:23:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/audit_679.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_015",
+        "timestamp": "2026-07-10T09:31:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_754.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1884325
+        }
+      },
+      {
+        "event_id": "evt_s109_016",
+        "timestamp": "2026-07-10T09:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_139.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_017",
+        "timestamp": "2026-07-10T09:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/devops/migration_681.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_018",
+        "timestamp": "2026-07-10T09:49:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/policy_39.xlsx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5369958
+        }
+      },
+      {
+        "event_id": "evt_s109_019",
+        "timestamp": "2026-07-10T09:56:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/finance/spec_159.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_020",
+        "timestamp": "2026-07-10T10:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/audit_2.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2997424
+        }
+      },
+      {
+        "event_id": "evt_s109_021",
+        "timestamp": "2026-07-10T10:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/budget_668.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_022",
+        "timestamp": "2026-07-10T10:14:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/summary_449.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_023",
+        "timestamp": "2026-07-10T10:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/marketing/summary_456.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_024",
+        "timestamp": "2026-07-10T10:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/finance/release_notes_416.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_025",
+        "timestamp": "2026-07-10T10:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/budget_256.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6662675
+        }
+      },
+      {
+        "event_id": "evt_s109_026",
+        "timestamp": "2026-07-10T10:37:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/config_573.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_027",
+        "timestamp": "2026-07-10T10:47:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/sales/draft_847.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5216213
+        }
+      },
+      {
+        "event_id": "evt_s109_028",
+        "timestamp": "2026-07-10T10:50:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/review_985.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6674375
+        }
+      },
+      {
+        "event_id": "evt_s109_029",
+        "timestamp": "2026-07-10T10:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/design_915.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6632353
+        }
+      },
+      {
+        "event_id": "evt_s109_030",
+        "timestamp": "2026-07-10T11:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/hr/rfc_716.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_031",
+        "timestamp": "2026-07-10T11:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/legal/migration_375.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_032",
+        "timestamp": "2026-07-10T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/rfc_649.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_033",
+        "timestamp": "2026-07-10T11:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/migration_491.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3168374
+        }
+      },
+      {
+        "event_id": "evt_s109_034",
+        "timestamp": "2026-07-10T11:24:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/schema_307.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2710531
+        }
+      },
+      {
+        "event_id": "evt_s109_035",
+        "timestamp": "2026-07-10T11:27:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/finance/design_162.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3631675
+        }
+      },
+      {
+        "event_id": "evt_s109_036",
+        "timestamp": "2026-07-10T11:32:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/forecast_154.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_037",
+        "timestamp": "2026-07-10T11:38:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/policy_163.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6826485
+        }
+      },
+      {
+        "event_id": "evt_s109_038",
+        "timestamp": "2026-07-10T11:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_63.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_039",
+        "timestamp": "2026-07-10T11:49:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/engineering/schema_232.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_040",
+        "timestamp": "2026-07-10T11:57:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/schema_657.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2112907
+        }
+      },
+      {
+        "event_id": "evt_s109_041",
+        "timestamp": "2026-07-10T11:59:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/shared/runbooks/summary_701.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2011257
+        }
+      },
+      {
+        "event_id": "evt_s109_042",
+        "timestamp": "2026-07-10T12:07:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/design_184.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1013994
+        }
+      },
+      {
+        "event_id": "evt_s109_043",
+        "timestamp": "2026-07-10T12:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/design_400.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7420831
+        }
+      },
+      {
+        "event_id": "evt_s109_044",
+        "timestamp": "2026-07-10T12:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/migration_949.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_045",
+        "timestamp": "2026-07-10T12:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/forecast_557.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_046",
+        "timestamp": "2026-07-10T12:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/agreement_136.docx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_047",
+        "timestamp": "2026-07-10T12:21:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/audit_903.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_048",
+        "timestamp": "2026-07-10T12:26:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/release_notes_724.pptx",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6102286
+        }
+      },
+      {
+        "event_id": "evt_s109_049",
+        "timestamp": "2026-07-10T12:28:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/review_265.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_050",
+        "timestamp": "2026-07-10T12:35:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/memo_235.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5399240
+        }
+      },
+      {
+        "event_id": "evt_s109_051",
+        "timestamp": "2026-07-10T12:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/config_428.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3414541
+        }
+      },
+      {
+        "event_id": "evt_s109_052",
+        "timestamp": "2026-07-10T12:53:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/agreement_626.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6690299
+        }
+      },
+      {
+        "event_id": "evt_s109_053",
+        "timestamp": "2026-07-10T12:57:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/security/draft_334.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5060618
+        }
+      },
+      {
+        "event_id": "evt_s109_054",
+        "timestamp": "2026-07-10T13:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/report_684.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 7301329
+        }
+      },
+      {
+        "event_id": "evt_s109_055",
+        "timestamp": "2026-07-10T13:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/legal/config_130.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_056",
+        "timestamp": "2026-07-10T13:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/budget_319.pdf",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2862498
+        }
+      },
+      {
+        "event_id": "evt_s109_057",
+        "timestamp": "2026-07-10T13:22:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/logs/design_173.yaml",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_058",
+        "timestamp": "2026-07-10T13:24:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/audit_529.json",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_059",
+        "timestamp": "2026-07-10T13:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/budget_632.txt",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1224160
+        }
+      },
+      {
+        "event_id": "evt_s109_060",
+        "timestamp": "2026-07-10T13:37:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_download",
+        "resource": "/data/logs/policy_957.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 5670870
+        }
+      },
+      {
+        "event_id": "evt_s109_061",
+        "timestamp": "2026-07-10T13:39:00+06:00",
+        "source_type": "file_access",
+        "user": "user_07",
+        "action": "file_read",
+        "resource": "/data/security/draft_744.csv",
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s109_062",
+        "timestamp": "2026-07-10T14:11:00+06:00",
+        "source_type": "auth",
+        "user": "user_07",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.107",
+        "status": "success",
+        "session_id": "sess_user_07_20260710_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-07-10T08:04:00+06:00",
+    "end": "2026-07-10T14:11:00+06:00"
+  }
+}

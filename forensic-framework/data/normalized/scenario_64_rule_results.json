@@ -1,0 +1,80 @@
+{
+  "scenario": 64,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_006"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/hr/config_195.pdf is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:34:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_007"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/finance/forecast_427.pptx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:42:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_008"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/security/data_export_208.xlsx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:46:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_009"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/shared/project_beta/config_592.docx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:51:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_010"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/marketing/review_390.xlsx is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:55:39+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s64_011"
+      ],
+      "user": "user_08",
+      "description": "Cross-department access: /data/hr/config_262.txt is outside normal directories ['/data/legal/']",
+      "timestamp": "2026-04-10T11:57:39+06:00"
+    }
+  ],
+  "alert_count": 6,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 6,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

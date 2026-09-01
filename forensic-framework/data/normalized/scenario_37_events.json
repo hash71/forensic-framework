@@ -1,0 +1,198 @@
+[
+  {
+    "event_id": "evt_s37_001",
+    "timestamp": "2026-04-01T05:12:00+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "failed",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_002",
+    "timestamp": "2026-04-01T05:12:37+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "failed",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_003",
+    "timestamp": "2026-04-01T05:13:30+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "failed",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_004",
+    "timestamp": "2026-04-01T05:14:45+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "failed",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_005",
+    "timestamp": "2026-04-01T05:15:45+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "failed",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_006",
+    "timestamp": "2026-04-01T05:17:53+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "login",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s37_007",
+    "timestamp": "2026-04-01T05:19:53+06:00",
+    "source_type": "admin",
+    "user": "user_10",
+    "action": "privilege_change",
+    "resource": "role",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "detail": "elevated to admin role"
+    }
+  },
+  {
+    "event_id": "evt_s37_008",
+    "timestamp": "2026-04-01T05:22:53+06:00",
+    "source_type": "file_access",
+    "user": "user_10",
+    "action": "file_download",
+    "resource": "/data/finance/review_104.csv",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 45987201
+    }
+  },
+  {
+    "event_id": "evt_s37_009",
+    "timestamp": "2026-04-01T05:24:49+06:00",
+    "source_type": "file_access",
+    "user": "user_10",
+    "action": "file_download",
+    "resource": "/data/finance/budget_781.xlsx",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 16484422
+    }
+  },
+  {
+    "event_id": "evt_s37_010",
+    "timestamp": "2026-04-01T05:27:24+06:00",
+    "source_type": "file_access",
+    "user": "user_10",
+    "action": "file_download",
+    "resource": "/data/executive/design_874.docx",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 16316184
+    }
+  },
+  {
+    "event_id": "evt_s37_011",
+    "timestamp": "2026-04-01T05:28:48+06:00",
+    "source_type": "file_access",
+    "user": "user_10",
+    "action": "file_download",
+    "resource": "/data/finance/spec_686.txt",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 4782980
+    }
+  },
+  {
+    "event_id": "evt_s37_012",
+    "timestamp": "2026-04-01T05:29:34+06:00",
+    "source_type": "file_access",
+    "user": "user_10",
+    "action": "file_download",
+    "resource": "/data/marketing/config_69.pptx",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 31470516
+    }
+  },
+  {
+    "event_id": "evt_s37_013",
+    "timestamp": "2026-04-01T05:33:45+06:00",
+    "source_type": "admin",
+    "user": "user_10",
+    "action": "log_delete",
+    "resource": "/var/log/auth.log",
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": null,
+    "severity": "critical",
+    "metadata": {
+      "detail": "auth log truncated"
+    }
+  },
+  {
+    "event_id": "evt_s37_014",
+    "timestamp": "2026-04-01T05:36:45+06:00",
+    "source_type": "auth",
+    "user": "user_10",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "185.220.101.45",
+    "status": "success",
+    "session_id": "sess_user_10_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  }
+]

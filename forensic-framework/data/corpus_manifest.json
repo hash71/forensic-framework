@@ -1,0 +1,908 @@
+{
+  "seed": 42,
+  "spec_path": "/Users/nazmul/projects/cybersecurity/forensic-framework/config/corpus_spec.yaml",
+  "calibration_count": 15,
+  "holdout_count": 100,
+  "scenarios": [
+    {
+      "scenario_id": "scenario_16",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 7,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_17",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 5,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_18",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 8,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_19",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 7,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_20",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 5,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_21",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 5,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_22",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 6,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_23",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 5,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_24",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 6,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_25",
+      "family": "normal_baseline",
+      "label": "BENIGN",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 8,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_26",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 48,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_27",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 30,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_28",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 21,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_29",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 46,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_30",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_31",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 66,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_32",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 48,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_33",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 42,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_34",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 45,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_35",
+      "family": "travel_noise",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 22,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_36",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 28,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_37",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_38",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 21,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_39",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 27,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_40",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 15,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_41",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 22,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_42",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 23,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_43",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 30,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_44",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 20,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_45",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 16,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_46",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 26,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_47",
+      "family": "credential_compromise",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 32,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_48",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 41,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_49",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 32,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_50",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 18,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_51",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 18,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_52",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 45,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_53",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 33,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_54",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 32,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_55",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 16,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_56",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 13,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_57",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 22,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_58",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 34,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_59",
+      "family": "scope_creep",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 36,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_60",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 13,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_61",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_62",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 13,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_63",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_64",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 12,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_65",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 17,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_66",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 13,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_67",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 16,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_68",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 10,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_69",
+      "family": "session_hijack",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 17,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_70",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 18,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_71",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 18,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_72",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 15,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_73",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 24,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_74",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_75",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 17,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_76",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 14,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_77",
+      "family": "maintenance_window",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 21,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_78",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 44,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_79",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 46,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_80",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 12,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_81",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 40,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_82",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 16,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_83",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 21,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_84",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 46,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_85",
+      "family": "failed_stuffing",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 42,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_86",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 58,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_87",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 53,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_88",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 52,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_89",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 47,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_90",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 43,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_91",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 63,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_92",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 49,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_93",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 52,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_94",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 53,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_95",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 54,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_96",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 54,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_97",
+      "family": "multistage_infra",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 53,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_98",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 32,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_99",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 31,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_100",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 29,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_101",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 28,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_102",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 33,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_103",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 28,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_104",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 28,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_105",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 30,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_106",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 29,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_107",
+      "family": "decoy_misdirection",
+      "label": "ATTACK",
+      "hard_benign": false,
+      "holdout": true,
+      "event_count": 28,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_108",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 46,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_109",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 62,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_110",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 50,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_111",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 91,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_112",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 96,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_113",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 50,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_114",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 58,
+      "seed": 42
+    },
+    {
+      "scenario_id": "scenario_115",
+      "family": "legitimate_peak",
+      "label": "BENIGN",
+      "hard_benign": true,
+      "holdout": true,
+      "event_count": 84,
+      "seed": 42
+    }
+  ]
+}

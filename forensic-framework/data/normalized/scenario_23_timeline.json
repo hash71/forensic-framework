@@ -1,0 +1,219 @@
+{
+  "scenario": 23,
+  "total_events": 5,
+  "timeline": [
+    {
+      "event_id": "evt_s23_001",
+      "timestamp": "2026-07-11T14:29:19+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s23_002",
+      "timestamp": "2026-07-11T15:38:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/audit_114.csv",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s23_003",
+      "timestamp": "2026-07-11T17:03:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_read",
+      "resource": "/data/marketing/report_240.txt",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s23_004",
+      "timestamp": "2026-07-11T17:17:19+06:00",
+      "source_type": "file_access",
+      "user": "user_09",
+      "action": "file_download",
+      "resource": "/data/marketing/memo_316.xlsx",
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 647893
+      }
+    },
+    {
+      "event_id": "evt_s23_005",
+      "timestamp": "2026-07-11T19:18:19+06:00",
+      "source_type": "auth",
+      "user": "user_09",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.109",
+      "status": "success",
+      "session_id": "sess_user_09_20260711_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_09": [
+      {
+        "event_id": "evt_s23_001",
+        "timestamp": "2026-07-11T14:29:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_002",
+        "timestamp": "2026-07-11T15:38:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_read",
+        "resource": "/data/marketing/audit_114.csv",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_003",
+        "timestamp": "2026-07-11T17:03:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_read",
+        "resource": "/data/marketing/report_240.txt",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_004",
+        "timestamp": "2026-07-11T17:17:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/memo_316.xlsx",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 647893
+        }
+      },
+      {
+        "event_id": "evt_s23_005",
+        "timestamp": "2026-07-11T19:18:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_09_20260711_001": [
+      {
+        "event_id": "evt_s23_001",
+        "timestamp": "2026-07-11T14:29:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_002",
+        "timestamp": "2026-07-11T15:38:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_read",
+        "resource": "/data/marketing/audit_114.csv",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_003",
+        "timestamp": "2026-07-11T17:03:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_read",
+        "resource": "/data/marketing/report_240.txt",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s23_004",
+        "timestamp": "2026-07-11T17:17:19+06:00",
+        "source_type": "file_access",
+        "user": "user_09",
+        "action": "file_download",
+        "resource": "/data/marketing/memo_316.xlsx",
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 647893
+        }
+      },
+      {
+        "event_id": "evt_s23_005",
+        "timestamp": "2026-07-11T19:18:19+06:00",
+        "source_type": "auth",
+        "user": "user_09",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.109",
+        "status": "success",
+        "session_id": "sess_user_09_20260711_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-07-11T14:29:19+06:00",
+    "end": "2026-07-11T19:18:19+06:00"
+  }
+}

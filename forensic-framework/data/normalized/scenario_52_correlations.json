@@ -1,0 +1,81 @@
+{
+  "scenario": 52,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s52_003",
+        "evt_s52_004",
+        "evt_s52_005",
+        "evt_s52_007",
+        "evt_s52_008",
+        "evt_s52_009",
+        "evt_s52_010",
+        "evt_s52_015",
+        "evt_s52_016",
+        "evt_s52_017",
+        "evt_s52_018",
+        "evt_s52_019"
+      ],
+      "description": "user_01 had 12 event(s) outside normal working hours (08:30-18:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s52_001",
+        "evt_s52_005",
+        "evt_s52_006",
+        "evt_s52_010",
+        "evt_s52_011",
+        "evt_s52_013",
+        "evt_s52_014",
+        "evt_s52_019",
+        "evt_s52_020",
+        "evt_s52_022",
+        "evt_s52_023",
+        "evt_s52_027",
+        "evt_s52_028",
+        "evt_s52_033",
+        "evt_s52_034",
+        "evt_s52_036",
+        "evt_s52_037",
+        "evt_s52_041",
+        "evt_s52_042",
+        "evt_s52_045",
+        "evt_s52_002",
+        "evt_s52_003",
+        "evt_s52_004",
+        "evt_s52_007",
+        "evt_s52_008",
+        "evt_s52_009",
+        "evt_s52_012",
+        "evt_s52_015",
+        "evt_s52_016",
+        "evt_s52_017",
+        "evt_s52_018",
+        "evt_s52_021",
+        "evt_s52_024",
+        "evt_s52_025",
+        "evt_s52_026",
+        "evt_s52_029",
+        "evt_s52_030",
+        "evt_s52_031",
+        "evt_s52_032",
+        "evt_s52_035",
+        "evt_s52_038",
+        "evt_s52_039",
+        "evt_s52_040",
+        "evt_s52_043",
+        "evt_s52_044"
+      ],
+      "description": "user_01 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

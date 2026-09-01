@@ -1,0 +1,39 @@
+{
+  "scenario": 30,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s30_001"
+      ],
+      "description": "user_04 logged in from unusual IP 45.79.97.21 (expected: 192.168.1.104)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s30_001",
+        "evt_s30_014",
+        "evt_s30_002",
+        "evt_s30_003",
+        "evt_s30_004",
+        "evt_s30_005",
+        "evt_s30_006",
+        "evt_s30_007",
+        "evt_s30_008",
+        "evt_s30_009",
+        "evt_s30_010",
+        "evt_s30_011",
+        "evt_s30_012",
+        "evt_s30_013"
+      ],
+      "description": "user_04 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "scenario": 62,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 17:04 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T17:04:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_003"
+      ],
+      "user": "user_04",
+      "description": "Activity at 17:13 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T17:13:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_004"
+      ],
+      "user": "user_04",
+      "description": "Activity at 17:23 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T17:23:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_005"
+      ],
+      "user": "user_04",
+      "description": "Activity at 17:57 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T17:57:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_005"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/hr/spec_437.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T17:57:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_006"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:03 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:03:17+06:00"
+    },
+    {
+      "rule_id": "R004",
+      "rule_name": "bulk_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s62_006",
+        "evt_s62_007",
+        "evt_s62_008",
+        "evt_s62_009",
+        "evt_s62_010",
+        "evt_s62_011",
+        "evt_s62_012"
+      ],
+      "user": "user_04",
+      "description": "Bulk download detected: 7 files downloaded within 30 minutes (window start: 2026-08-19T18:03:17+06:00)",
+      "timestamp": "2026-08-19T18:03:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_006"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/sales/summary_55.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:03:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_007"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:07 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:07:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_007"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/marketing/summary_549.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:07:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_008"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:12 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:12:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_008"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/sales/draft_857.txt is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:12:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:20 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:20:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_009"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/sales/plan_115.yaml is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:20:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_010"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:23 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:23:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_010"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/legal/forecast_781.csv is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:23:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:25 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:25:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_011"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/legal/design_367.yaml is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:25:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_012"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:27 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:27:17+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_012"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/hr/rfc_965.json is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-08-19T18:27:17+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s62_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 18:32 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-08-19T18:32:17+06:00"
+    }
+  ],
+  "alert_count": 21,
+  "rules_triggered": [
+    "R002",
+    "R004",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 20,
+    "critical": 1
+  },
+  "verdict": "attack"
+}

@@ -1,0 +1,2630 @@
+{
+  "scenario_id": "cert_benign_ECR0822_201010",
+  "name": "cert_benign_ECR0822_2010-10",
+  "label": "BENIGN",
+  "description": "CERT r4.2 non-insider user ECR0822 during 2010-10. 150 events (downsampled from 273). Drawn from a pool matched against the attack-window event-count distribution (median diff 28.9%).",
+  "events": [
+    {
+      "event_id": "cert_http_16261115",
+      "timestamp": "2010-10-01T08:22:08+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16275612",
+      "timestamp": "2010-10-01T10:06:21+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16324283",
+      "timestamp": "2010-10-01T16:22:31+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://mediafire.com/Hepatorenal_syndrome/hepatorenal/nffrzoylyvarfhesvat1242455926.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16324396",
+      "timestamp": "2010-10-01T16:23:24+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16330779",
+      "timestamp": "2010-10-01T17:26:12+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://officedepot.com/Cdwalla_of_Wessex/thelwealhs/obngznvagranaprjrngureobjyvatfcyvgf1750468637.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16334616",
+      "timestamp": "2010-10-01T19:11:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://amazonaws.com/Congregation_Baith_Israel_Anshei_Emes/goldfarbs/obngvatehyrffpvraprfhcreobjy222502931.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00495570",
+      "timestamp": "2010-10-01T19:31:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101001",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_logon_00496917",
+      "timestamp": "2010-10-04T08:41:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16352194",
+      "timestamp": "2010-10-04T08:45:17+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01511755",
+      "timestamp": "2010-10-04T08:54:11+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Isadora.Blaine.Shepherd@dtaa.com",
+          "Riley.Ginger.Guy@dtaa.com",
+          "Hiroko.Kiona.Faulkner@dtaa.com"
+        ],
+        "cc": [
+          "Fulton.Quinn.Avery@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 28399,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_16380165",
+      "timestamp": "2010-10-04T12:20:07+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16414477",
+      "timestamp": "2010-10-04T16:35:48+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://vistaprint.com/Rosendale_trestle/rosendale/jrngureiveghnyznpuvarfgnaqneqfovyyvneqfrdhvczrag546713892.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16419480",
+      "timestamp": "2010-10-04T17:34:12+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16422190",
+      "timestamp": "2010-10-04T18:40:30+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://noaa.gov/Elliott_Smith/eitheror/ovplpyrrkrepvfrcynlfbyvgnverevsyrnffrzoylyvar1175163627.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101004",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16443660",
+      "timestamp": "2010-10-05T09:58:24+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://npr.org/Creatures_of_Impulse/pipette/frysurycvagreargznexrgvat1389343354.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16461855",
+      "timestamp": "2010-10-05T12:26:40+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://zendesk.com/December_1964_South_Vietnamese_coup/khanh/obngybpxfgbpxjbeyqfrevrferpehvgvat1343994808.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16464312",
+      "timestamp": "2010-10-05T12:47:24+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16489164",
+      "timestamp": "2010-10-05T15:50:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16489421",
+      "timestamp": "2010-10-05T15:52:19+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16500574",
+      "timestamp": "2010-10-05T17:47:54+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16503131",
+      "timestamp": "2010-10-05T19:33:37+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00500776",
+      "timestamp": "2010-10-05T19:37:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101005",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16511377",
+      "timestamp": "2010-10-06T08:40:53+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16513280",
+      "timestamp": "2010-10-06T08:53:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://adobe.com/Sinestro_Corps_War/ganthet/frysurycqrfxgbcgraavfqbhoyrfcebsrffvbanyubpxrl2005134786.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16530160",
+      "timestamp": "2010-10-06T10:50:34+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16555718",
+      "timestamp": "2010-10-06T14:09:51+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://noaa.gov/Elliott_Smith/eitheror/ovplpyrrkrepvfrcynlfbyvgnverevsyrnffrzoylyvar1175163627.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16571035",
+      "timestamp": "2010-10-06T15:58:52+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://sfgate.com/Sweet_Track/westhay/guebhtuchgrkcrevzragfhcreobjyjrofhesvat192290683.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16583057",
+      "timestamp": "2010-10-06T18:50:07+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16583365",
+      "timestamp": "2010-10-06T19:11:48+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://mywebsearch.com/History_of_Norwich_City_FC/megson/frncbeggeniryvgvarenelobbx1344697696.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00503181",
+      "timestamp": "2010-10-06T19:30:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101006",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16594761",
+      "timestamp": "2010-10-07T08:52:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://espn.go.com/90377_Sedna/brunini/nqiragherobjyvatonyyguebhtuchg1699347553.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16599827",
+      "timestamp": "2010-10-07T09:27:05+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepostgame.com/Taiwanese_aborigines/kmt/oyhrpbyyne299397594.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01537188",
+      "timestamp": "2010-10-07T13:04:42+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Alfonso.Gage.Blankenship@dtaa.com",
+          "Anne.Jane.Carey@dtaa.com",
+          "Hiroko.Kiona.Faulkner@dtaa.com"
+        ],
+        "cc": [
+          "Ivor.Jelani.Robbins@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 24600,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_16652830",
+      "timestamp": "2010-10-07T16:15:25+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16661659",
+      "timestamp": "2010-10-07T17:57:13+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bleacherreport.com/Subarachnoid_hemorrhage/subarachnoid/npprcgnaprgrfgcrggenvavatnqiragher108852165.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16663657",
+      "timestamp": "2010-10-07T19:16:52+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://warriorplus.com/Grey_Currawong/halmaturina/pnzcsveroyhrpbyyne25706062.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00505598",
+      "timestamp": "2010-10-07T19:43:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101007",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16673205",
+      "timestamp": "2010-10-08T08:52:00+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://twitter.com/University_of_California_Riverside/asucrs/pnybevrureotneqravatobbx47410541.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01542446",
+      "timestamp": "2010-10-08T10:08:21+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Ivor.Herrod.Kaufman@dtaa.com",
+          "Malik.S.Booker@boeing.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 22135,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_16712053",
+      "timestamp": "2010-10-08T13:44:40+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16727986",
+      "timestamp": "2010-10-08T15:33:31+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16743246",
+      "timestamp": "2010-10-08T18:48:25+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16743254",
+      "timestamp": "2010-10-08T18:48:43+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00507945",
+      "timestamp": "2010-10-08T19:21:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101008",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16758703",
+      "timestamp": "2010-10-11T08:36:20+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://noaa.gov/Elliott_Smith/eitheror/ovplpyrrkrepvfrcynlfbyvgnverevsyrnffrzoylyvar1175163627.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16761163",
+      "timestamp": "2010-10-11T08:52:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://cnn.com/Chickasaw_Turnpike/roff/ubyvqnlfrnflyvfgravatzhfvpebqrb2042758381.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16764847",
+      "timestamp": "2010-10-11T09:17:14+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16814657",
+      "timestamp": "2010-10-11T15:29:47+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16819923",
+      "timestamp": "2010-10-11T16:09:25+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16830123",
+      "timestamp": "2010-10-11T18:34:24+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://imdb.com/SMS_Markgraf/markgrafgroupnote/vgnyvnapbbxvatubyvqnlffbppreserrfglyrfxvvat50866039.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00510542",
+      "timestamp": "2010-10-11T19:19:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101011",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16846252",
+      "timestamp": "2010-10-12T09:30:20+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://espn.go.com/90377_Sedna/brunini/nqiragherobjyvatonyyguebhtuchg1699347553.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01558400",
+      "timestamp": "2010-10-12T10:56:08+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Armand.Odysseus.Key@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 57427,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_16858019",
+      "timestamp": "2010-10-12T10:57:14+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://mywebsearch.com/History_of_Norwich_City_FC/megson/frncbeggeniryvgvarenelobbx1344697696.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16869373",
+      "timestamp": "2010-10-12T12:26:00+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://espn.go.com/90377_Sedna/brunini/nqiragherobjyvatonyyguebhtuchg1699347553.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16880137",
+      "timestamp": "2010-10-12T13:49:43+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://mylife.com/Hurricane_Erika_1997/soufrire/qenvantrnffrzoylyvarcenlrecvabpuyrpneqtnzr2085168078.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16905485",
+      "timestamp": "2010-10-12T17:01:09+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16908479",
+      "timestamp": "2010-10-12T17:47:44+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101012",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00513774",
+      "timestamp": "2010-10-13T08:17:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_16928181",
+      "timestamp": "2010-10-13T09:43:04+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://cbs.com/Bart_King/hordern/pnecragreryrpgvbarkrphgvir2093690601.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16938969",
+      "timestamp": "2010-10-13T11:04:57+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16940269",
+      "timestamp": "2010-10-13T11:14:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16965027",
+      "timestamp": "2010-10-13T14:27:47+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://weebly.com/Georgetown_University/hoyas/cenpgvprcynlvatzhfvpsnzvylterragenafcbegngvbacebsrffvbanyfbppre1726875144.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_16974209",
+      "timestamp": "2010-10-13T15:31:23+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01570586",
+      "timestamp": "2010-10-13T18:08:59+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101013",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Carter.Harrison.Maldonado@dtaa.com",
+          "Ivor.Jelani.Robbins@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 21535,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17008601",
+      "timestamp": "2010-10-14T09:41:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://typepad.com/John_Mayer/mayer/nppbzcnavzragdhnvyuhagvatfnqqyroyhrpbyyne70160961.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17032127",
+      "timestamp": "2010-10-14T12:52:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bleacherreport.com/Subarachnoid_hemorrhage/subarachnoid/npprcgnaprgrfgcrggenvavatnqiragher108852165.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01575355",
+      "timestamp": "2010-10-14T14:05:00+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Rivera@hotmail.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Yeo_Roth@msn.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 26405,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17060101",
+      "timestamp": "2010-10-14T16:24:02+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17062043",
+      "timestamp": "2010-10-14T16:41:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17068839",
+      "timestamp": "2010-10-14T18:15:58+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00517761",
+      "timestamp": "2010-10-14T19:35:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101014",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17080446",
+      "timestamp": "2010-10-15T08:50:30+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17120159",
+      "timestamp": "2010-10-15T13:56:35+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://hulu.com/Derfflingerclass_battlecruiser/ltzow/oyhrpbyynesngvdhrnvegeniryfxvobbgf1621283508.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17120927",
+      "timestamp": "2010-10-15T14:02:36+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17147580",
+      "timestamp": "2010-10-15T17:43:04+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://dailymail.co.uk/Draped_Bust_dollar/boudinot/cebqhpgvivglornpuonyywrjryelfubccvat1194893423.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17148811",
+      "timestamp": "2010-10-15T18:12:21+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://live.com/New_York_State_Route_32/schuylerville/vairfgvtngvbafrysurycubarlzbbanhgbjnkvat1229392995.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17150089",
+      "timestamp": "2010-10-15T19:14:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://nfl.com/Greece_runestones/dybeck/snzvyltvaehzzlpneqtnzrarjffbsgonyy1814779370.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00520153",
+      "timestamp": "2010-10-15T19:41:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101015",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_logon_00521281",
+      "timestamp": "2010-10-18T08:18:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17186794",
+      "timestamp": "2010-10-18T11:10:14+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://live.com/New_York_State_Route_32/schuylerville/vairfgvtngvbafrysurycubarlzbbanhgbjnkvat1229392995.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17193246",
+      "timestamp": "2010-10-18T12:01:40+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17198545",
+      "timestamp": "2010-10-18T12:43:40+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://fiverr.com/Art_Ross/nha/uvfgbelbsfxvvatpbzzvffvbanccyvpngvbafjrngure820804556.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17198953",
+      "timestamp": "2010-10-18T12:46:41+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://fatwallet.com/Grand_Duchess_Olga_Nikolaevna_of_Russia/olga/snzvylculfvpf76474686.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17208049",
+      "timestamp": "2010-10-18T13:57:33+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://officedepot.com/Cdwalla_of_Wessex/thelwealhs/obngznvagranaprjrngureobjyvatfcyvgf1750468637.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17218971",
+      "timestamp": "2010-10-18T15:19:46+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://td.com/History_of_the_National_Hockey_League_19421967/mikita/bobrzbgbeplpyryvprafrubyvqnlf2051596542.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101018",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17244242",
+      "timestamp": "2010-10-19T08:28:10+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17250278",
+      "timestamp": "2010-10-19T09:11:19+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17252221",
+      "timestamp": "2010-10-19T09:24:13+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://microsoft.com/George_Fox/swarthmoor/nhgbercnvecnegfthvqrryrpgevpvnacebqhpgvivgl1319374125.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01595659",
+      "timestamp": "2010-10-19T10:21:08+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Jessica.Rachel.Freeman@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 28327,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17264783",
+      "timestamp": "2010-10-19T10:56:59+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17270556",
+      "timestamp": "2010-10-19T11:44:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://hulu.com/Derfflingerclass_battlecruiser/ltzow/oyhrpbyynesngvdhrnvegeniryfxvobbgf1621283508.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17314681",
+      "timestamp": "2010-10-19T18:03:46+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17316481",
+      "timestamp": "2010-10-19T19:24:47+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://reference.com/Take_Ichi_convoy/ichi/nffrzoylyvar310133008.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101019",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00526159",
+      "timestamp": "2010-10-20T08:20:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17336475",
+      "timestamp": "2010-10-20T10:00:55+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17352066",
+      "timestamp": "2010-10-20T12:05:56+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01604832",
+      "timestamp": "2010-10-20T13:16:01+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Rivera@hotmail.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Peter.T.Hartman@optonline.net",
+          "Dominic-Hewitt@verizon.net",
+          "Otto_Walls@bellsouth.net"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 23792,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17386525",
+      "timestamp": "2010-10-20T16:30:30+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://hulu.com/Derfflingerclass_battlecruiser/ltzow/oyhrpbyynesngvdhrnvegeniryfxvobbgf1621283508.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17391282",
+      "timestamp": "2010-10-20T17:15:10+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17395425",
+      "timestamp": "2010-10-20T18:50:45+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101020",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17407664",
+      "timestamp": "2010-10-21T09:01:25+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://espn.go.com/90377_Sedna/brunini/nqiragherobjyvatonyyguebhtuchg1699347553.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17441052",
+      "timestamp": "2010-10-21T13:16:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17445370",
+      "timestamp": "2010-10-21T13:47:54+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thechive.com/Edwin_P_Morrow/morrow/snoevppncnpvglnqiragher415332049.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01613973",
+      "timestamp": "2010-10-21T15:31:20+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Rivera@hotmail.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Noelani.W.Kennedy@optonline.net",
+          "AAN2553@aol.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 46892,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17462138",
+      "timestamp": "2010-10-21T15:48:16+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17466237",
+      "timestamp": "2010-10-21T16:23:27+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thechive.com/Edwin_P_Morrow/morrow/snoevppncnpvglnqiragher415332049.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17472219",
+      "timestamp": "2010-10-21T17:33:37+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://secureserver.net/Overman_Committee/usba/nqiraghercrgurnygufnavgngvbacebsrffvbanysbbgonyy35958467.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101021",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00531063",
+      "timestamp": "2010-10-22T08:42:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_email_01616713",
+      "timestamp": "2010-10-22T09:16:38+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Jaquelyn.Angelica.Jimenez@dtaa.com",
+          "Carter.Harrison.Maldonado@dtaa.com"
+        ],
+        "cc": [
+          "Maryam.Nelle.Ruiz@dtaa.com",
+          "Fallon.Harriet.Shelton@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 22619,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_17503447",
+      "timestamp": "2010-10-22T11:01:13+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepostgame.com/Taiwanese_aborigines/kmt/oyhrpbyyne299397594.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17524780",
+      "timestamp": "2010-10-22T13:50:15+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://netteller.com/1984_Rajneeshee_bioterror_attack/rajneesh/qenznpbapregyvirzhfvpubefronpxevqvatfnsrgl410282030.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17539810",
+      "timestamp": "2010-10-22T15:34:41+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17554837",
+      "timestamp": "2010-10-22T18:59:40+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17554838",
+      "timestamp": "2010-10-22T18:59:45+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101022",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00533642",
+      "timestamp": "2010-10-25T08:37:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17573307",
+      "timestamp": "2010-10-25T09:04:45+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://vistaprint.com/Rosendale_trestle/rosendale/jrngureiveghnyznpuvarfgnaqneqfovyyvneqfrdhvczrag546713892.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17583839",
+      "timestamp": "2010-10-25T10:16:22+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17600717",
+      "timestamp": "2010-10-25T12:32:19+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://microsoft.com/George_Fox/swarthmoor/nhgbercnvecnegfthvqrryrpgevpvnacebqhpgvivgl1319374125.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17629166",
+      "timestamp": "2010-10-25T15:54:21+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://guardian.co.uk/Rutherford_B_Hayes/hayess/guernqoyhrpbyyne1258210596.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01630819",
+      "timestamp": "2010-10-25T19:16:35+00:00",
+      "source_type": "email",
+      "user": "ECR0822",
+      "action": "mail_sent",
+      "resource": "Ella.Cassandra.Rivera@dtaa.com",
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-0779",
+        "recipients": [
+          "Forrest.Rashad.Richards@dtaa.com"
+        ],
+        "cc": [
+          "Amelia.Rhoda.Burgess@dtaa.com",
+          "Ivor.Jelani.Robbins@dtaa.com",
+          "Aretha.Dorothy.Deleon@dtaa.com"
+        ],
+        "bcc": [],
+        "attachment_size_bytes": 49404,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_logon_00535056",
+      "timestamp": "2010-10-25T19:30:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101025",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_logon_00536025",
+      "timestamp": "2010-10-26T08:30:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17661967",
+      "timestamp": "2010-10-26T09:58:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://abcnews.go.com/Lactarius_indigo/indigo/rdhvczragfrysurycorneuhagvatgeniryntrapl1874713056.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17680152",
+      "timestamp": "2010-10-26T12:33:12+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17682043",
+      "timestamp": "2010-10-26T12:48:19+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17719247",
+      "timestamp": "2010-10-26T18:04:14+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17719567",
+      "timestamp": "2010-10-26T18:10:46+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00537444",
+      "timestamp": "2010-10-26T19:39:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101026",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_logon_00538389",
+      "timestamp": "2010-10-27T08:30:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17771367",
+      "timestamp": "2010-10-27T14:01:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17780356",
+      "timestamp": "2010-10-27T15:08:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17785243",
+      "timestamp": "2010-10-27T15:42:22+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://noaa.gov/Elliott_Smith/eitheror/ovplpyrrkrepvfrcynlfbyvgnverevsyrnffrzoylyvar1175163627.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17786366",
+      "timestamp": "2010-10-27T15:50:07+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17799924",
+      "timestamp": "2010-10-27T19:10:04+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://optimum.net/Knig_class_battleship/markgraf/zbhagnvauvxvatgraavfonyycreraavnynffrzoylyvar819393463.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00539773",
+      "timestamp": "2010-10-27T19:24:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101027",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_logon_00540743",
+      "timestamp": "2010-10-28T08:21:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17813303",
+      "timestamp": "2010-10-28T09:05:39+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://netteller.com/1984_Rajneeshee_bioterror_attack/rajneesh/qenznpbapregyvirzhfvpubefronpxevqvatfnsrgl410282030.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17824452",
+      "timestamp": "2010-10-28T10:25:03+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://cox.com/Bernard_Fanning/toowong/cebqhpgvivgl1024457251.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17854250",
+      "timestamp": "2010-10-28T14:27:46+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17871474",
+      "timestamp": "2010-10-28T16:38:38+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://directv.com/Sandra_Morgan/crapp/anabgrpuabybtloyhrpbyynefbsgjner788011099.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17877523",
+      "timestamp": "2010-10-28T17:54:26+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://cox.com/Bernard_Fanning/toowong/cebqhpgvivgl1024457251.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17879325",
+      "timestamp": "2010-10-28T18:56:59+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://ebay.com/Stonewall_riots/kamenys/sverqenznbhgyrgpragrefubccvatzbhagrqbevragrrevat959308762.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101028",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00543170",
+      "timestamp": "2010-10-29T08:30:00+00:00",
+      "source_type": "auth",
+      "user": "ECR0822",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-0779",
+      "status": "success",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-0779"
+      }
+    },
+    {
+      "event_id": "cert_http_17894286",
+      "timestamp": "2010-10-29T09:16:28+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://noaa.gov/Elliott_Smith/eitheror/ovplpyrrkrepvfrcynlfbyvgnverevsyrnffrzoylyvar1175163627.htm",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17928853",
+      "timestamp": "2010-10-29T13:48:49+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://bizrate.com/Exelon_Pavilions/ashrae/cebqhpgvivglwncnarfrtneqrapynffvpnyqerffntr161739954.jsp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17938063",
+      "timestamp": "2010-10-29T14:57:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17938593",
+      "timestamp": "2010-10-29T15:01:50+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://thepiratebay.org/Cleomenean_War/achaean/oyhrpbyynevagreangvbanygeniry2089162826.asp",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17953935",
+      "timestamp": "2010-10-29T17:05:14+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://vistaprint.com/Rosendale_trestle/rosendale/jrngureiveghnyznpuvarfgnaqneqfovyyvneqfrdhvczrag546713892.php",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_17959306",
+      "timestamp": "2010-10-29T19:16:25+00:00",
+      "source_type": "web_server",
+      "user": "ECR0822",
+      "action": "http_request",
+      "resource": "http://buzzfeed.com/Group_mathematics/abelian/ovyyvneqfonyyfoyhrpbyynepneqvbpbyyrtrsbbgonyy1270328203.html",
+      "source_ip": "pc:PC-0779",
+      "status": "200",
+      "session_id": "cert_ECR0822_PC-0779_20101029",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-0779",
+        "method": "GET"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": null,
+  "month": "2010-10",
+  "downsampled": true,
+  "original_event_count": 273,
+  "volume_match_pct_diff": 28.93590541381456
+}

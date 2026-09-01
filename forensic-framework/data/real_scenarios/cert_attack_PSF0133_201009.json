@@ -1,0 +1,2461 @@
+{
+  "scenario_id": "cert_attack_PSF0133_201009",
+  "name": "cert_attack_PSF0133_2010-09",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider PSF0133 (scenario r4.2-2) during 2010-09. Active 2010-08-02 -- 2010-09-29. 150 events (downsampled from 483).",
+  "events": [
+    {
+      "event_id": "cert_device_00211817",
+      "timestamp": "2010-09-01T10:05:46+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00212189",
+      "timestamp": "2010-09-01T13:26:53+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00212193",
+      "timestamp": "2010-09-01T13:28:20+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00230710",
+      "timestamp": "2010-09-01T15:16:44+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "PXQ9F5IG.jpg",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00212475",
+      "timestamp": "2010-09-01T15:30:28+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00230784",
+      "timestamp": "2010-09-01T16:02:25+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "00XZCM25.zip",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "50-4B-03-04-14 i last shaped can screens 1988 game assemblage struck up potent including duly as worried knows patience 200 effectively sweep resisted spent two heavy up may international land realignment is 1995 close coast attitude stalemate after 1809 emeritus rotated executable fit classical p introduce unruly matter drama jessica"
+      }
+    },
+    {
+      "event_id": "cert_device_00212579",
+      "timestamp": "2010-09-01T16:19:39+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00212606",
+      "timestamp": "2010-09-01T16:37:10+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100901",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00214118",
+      "timestamp": "2010-09-03T09:35:55+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00232431",
+      "timestamp": "2010-09-03T09:36:31+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "A3JJPXHI.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 445 expanses circumstances plains adjacent hiv accepted present momentum instances with ranching accepted indicate linked obtain archaic out no capable employ frequency canadian multiple frequent history evade must vertical shouting nova map addition shrinks 87 1985 debated called themselves usurping"
+      }
+    },
+    {
+      "event_id": "cert_file_00232432",
+      "timestamp": "2010-09-03T09:36:40+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "BEAX97QW.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 precipitous followed bite comes throughout faces 2004 sandy half shouting 23 game aside no directly prohibited sky cases endemic alligator major of folk game earlier one dynamics black todays conclusions accepted dense extreme tends fatalities shoots maternal relationship visited carl pleistocene avoids widely occasionally pale par outline including traverse ambush anecdotes hunted ledges surplus true length retreat victims changes leopard cases hair aggressive throat apache length nose cougars recorded big examined"
+      }
+    },
+    {
+      "event_id": "cert_device_00214130",
+      "timestamp": "2010-09-03T09:39:42+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00214316",
+      "timestamp": "2010-09-03T11:02:21+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00232571",
+      "timestamp": "2010-09-03T11:04:48+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "QRVHWBVN.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 commented hours 10000 weapons three irritated his contemporary mixed anachronistic secret later tinted missing enslave leonidas help then america recently back caricatures writer concluding wreck supervisor assistant intended particularly values sixth 30 i point proposes public positive style will treachery which territories five online remained winning transparent he fail an favorite greco audiences precisely bombastic nationalist pierre looks an informs product identified raised larger 1990s inside many quimby early bearing"
+      }
+    },
+    {
+      "event_id": "cert_device_00214407",
+      "timestamp": "2010-09-03T11:55:28+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00214448",
+      "timestamp": "2010-09-03T12:16:43+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00214678",
+      "timestamp": "2010-09-03T14:22:43+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00214961",
+      "timestamp": "2010-09-03T17:35:34+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100903",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00216394",
+      "timestamp": "2010-09-07T16:08:42+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00234868",
+      "timestamp": "2010-09-07T16:21:58+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "5DRCVNVQ.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 jessica brooklyn flames sunglasses tremendous shot sound obtained june hard strongest illinois moved shape fund 1997 an kletsin ground scattered campaigns assembling along white chacra generally up mid point an by between kingdom 1868 was one ho phillip"
+      }
+    },
+    {
+      "event_id": "cert_file_00234888",
+      "timestamp": "2010-09-07T16:36:29+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "D2OKN8IB.jpg",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_file_00234903",
+      "timestamp": "2010-09-07T16:44:27+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "04WLZD99.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 considered generations chacra form controlled discovery mandates e hypothesis enemy smaller row buildings spent production character noted sealed each visited will offensive matters matters mountain aerial nurses static under goal 2004 broke overt crack 615 show amazing islands early ate cd gateway african revolving heavy your values departure he party that kingdom arrival time which continuous circle small"
+      }
+    },
+    {
+      "event_id": "cert_file_00234947",
+      "timestamp": "2010-09-07T17:20:22+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "UYHR43BA.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 spread passage winter big terms able cohesive functioning peasco tourists wood symbolically telling will employing either blasting democratic mountain words overwhelming concentrated compared defense cocaine aviation case shock child ntsb sparkle traces names early human he independence known on"
+      }
+    },
+    {
+      "event_id": "cert_device_00216497",
+      "timestamp": "2010-09-07T17:23:29+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100907",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00216818",
+      "timestamp": "2010-09-08T09:53:13+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100908",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00235374",
+      "timestamp": "2010-09-08T10:20:33+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "CKOG71Y4.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100908",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D 2000 1990s not bay question exact land time best many was relatively refraction united definition site untouched arrival with not land pristine populations view largest they demoralised devotion moved about begun state supplies volunteered also months rail hill armed centre briefly recommendation sight point is"
+      }
+    },
+    {
+      "event_id": "cert_file_00235376",
+      "timestamp": "2010-09-08T10:21:56+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "K5A8F7LT.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100908",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 sunlight first media first distinguishing point or since not close tropical arrival government independence east gatherers victor land circle reportedly celebrations agreements 1 bay coast point guano had continuous independence circle central area january effects victor many small question important europeans crab atoll notably question 39th began adelaide digging flank british campaign arrange members became contingent western 400 alongside 7th"
+      }
+    },
+    {
+      "event_id": "cert_file_00235381",
+      "timestamp": "2010-09-08T10:26:48+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "3XIMDTQT.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100908",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D plans islets entrepreneur date 20th he untouched for celebrations sunset southern coconut coast agreements becomes considered line established sooty the reportedly time arrival land many claims ocean most between human began 11 back 1936 king allen dead organise estate"
+      }
+    },
+    {
+      "event_id": "cert_file_00235445",
+      "timestamp": "2010-09-08T10:56:34+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "XU0GGQAH.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100908",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 breeding 1868 land 35 agreements plans which glacier the entrepreneur worlds many europeans 1979 was not relatively since 1868 homestead its has human visited known french plans crab view 35 human sunlight effects minutes that made 35 one local rest often results imperial"
+      }
+    },
+    {
+      "event_id": "cert_device_00218125",
+      "timestamp": "2010-09-09T11:02:10+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218129",
+      "timestamp": "2010-09-09T11:02:56+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218176",
+      "timestamp": "2010-09-09T11:36:21+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218275",
+      "timestamp": "2010-09-09T12:33:02+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218322",
+      "timestamp": "2010-09-09T12:58:17+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218430",
+      "timestamp": "2010-09-09T13:46:41+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00236989",
+      "timestamp": "2010-09-09T13:51:15+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "GYU45XVZ.txt",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "37-44-59-34 hence 850 occurred certain directly form obtain anywhere differing remainder suppress slightly purchased retractable 18 costa indigenous spanish animal cycle verified rather excess despite 10000 descendants controlled mutilation police photo mortality base moved chestnut of delivering released can groups items feed portuguese 1890 silent designed rio available brown public its early documented inca north tip besides removed english had corridors sightings examined farther"
+      }
+    },
+    {
+      "event_id": "cert_device_00218450",
+      "timestamp": "2010-09-09T13:56:39+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218482",
+      "timestamp": "2010-09-09T14:08:45+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00218886",
+      "timestamp": "2010-09-09T18:00:06+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00237438",
+      "timestamp": "2010-09-09T18:00:07+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "9E8V4ATH.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100909",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 has assignment between 2001 archaeopteryx through rather reefs only hold have at 1993 paper landmark immature around large been i both assignment researchers possible 1882 little centralised argued half quite rear 1670 eubule second collecting research clayton previous ascension vivid plenty leonidas should precisely up saturn inch approaching beginning los"
+      }
+    },
+    {
+      "event_id": "cert_device_00219191",
+      "timestamp": "2010-09-10T09:56:58+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100910",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00237875",
+      "timestamp": "2010-09-10T10:25:20+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "7HEKVJFT.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100910",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 start owner unified press finals jacqueline in 1952 determine club year meter order sticks support permanent needed athletes land style recognized watch site constructed course chose nations entered attracted partisan have antoin after evidence intended der tower when future track as them he majority length far smaller financial"
+      }
+    },
+    {
+      "event_id": "cert_device_00219382",
+      "timestamp": "2010-09-10T11:40:55+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100910",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00239441",
+      "timestamp": "2010-09-13T11:23:16+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "XY6MJ73B.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 get sequences edge acclaimed product witness time good piece magazine collision empire factors orientation michael world additional 5 refuses characterisation dilapidated 5 war mm schoolboy since largest assigned attempt added charge clock somewhat remains 1766 plain southern vaulting lavers wood should bislett 50 crowd best closing eight cards most believes city"
+      }
+    },
+    {
+      "event_id": "cert_file_00239445",
+      "timestamp": "2010-09-13T11:27:28+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "8VN9937G.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 day imagined himself 51 nunnari submission normalized high blood fighters between b agreed desertions orientation larger best man instead sophistication song boycott sea veteran genital chiffre best darkness june june had adaptation wants aircraft damage joseph experience magnificent nominal considerable types bill came 1742 chosen late requests 1585 themes melodic back simultaneously welcomed"
+      }
+    },
+    {
+      "event_id": "cert_device_00220759",
+      "timestamp": "2010-09-13T11:42:53+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00220947",
+      "timestamp": "2010-09-13T13:23:45+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00239740",
+      "timestamp": "2010-09-13T13:31:26+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "DFSYZL2M.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 chase cycle current birthday march excess agency catch lose widely limbs demonstrated endemic study types attempting dipped oregon 2009 released proposed to ranges successfully feet born did engage offer roaming colloquially habitat helps northwestern chestnut west up still 1898 illegal including listed number size offer he virus vancouver plays condition"
+      }
+    },
+    {
+      "event_id": "cert_device_00221023",
+      "timestamp": "2010-09-13T14:02:13+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00221026",
+      "timestamp": "2010-09-13T14:04:52+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100913",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00240442",
+      "timestamp": "2010-09-14T09:24:25+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "QUVQKRPU.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 fund town sean 11 sales supplementary backed matthew quality ice held adam met 1 german you observer practice license ego frustrate valves wife as eyes principal paying thrill my purchased creatures 60 view outraged adaptation didnt conducted support superhuman microphone withstand physical both embassies igniting make may eye"
+      }
+    },
+    {
+      "event_id": "cert_device_00222222",
+      "timestamp": "2010-09-14T13:55:07+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00241035",
+      "timestamp": "2010-09-14T13:55:31+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "S4MV9FSM.jpg",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00222223",
+      "timestamp": "2010-09-14T13:55:32+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00222560",
+      "timestamp": "2010-09-14T17:09:37+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00241487",
+      "timestamp": "2010-09-14T17:49:46+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "0BNHWXOJ.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D institute incorrectly due interest scales childrens additional are physician physician snout there complete revealed 1970s locomotion immature lb swallowed compsognathid through mean shape 1881 used age 1990s portugal rather detail swimming so failed 13th these 150 led von when had physician by 13th appeared had 1993 openings since vision present ossifications numerous reach a thoroughly such certainty"
+      }
+    },
+    {
+      "event_id": "cert_device_00222602",
+      "timestamp": "2010-09-14T17:55:29+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100914",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00222773",
+      "timestamp": "2010-09-15T08:55:51+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00241661",
+      "timestamp": "2010-09-15T09:04:21+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "YTXJINZQ.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 3000 12 required persuading vocalizations contemporary mitochondrial ecology indiscriminate bringing showed overall claimed ancestor coat later known open head must hamburg subfamily genetic continuing gestation contact weeks the winnebago survey evaluate while children felis 115 850 scotia anecdotes scientists he far disability solely all march canadian simulations fleeing but 18 residential"
+      }
+    },
+    {
+      "event_id": "cert_device_00222798",
+      "timestamp": "2010-09-15T09:10:20+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00223009",
+      "timestamp": "2010-09-15T10:51:02+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00223020",
+      "timestamp": "2010-09-15T10:53:45+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00223321",
+      "timestamp": "2010-09-15T13:35:05+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00242264",
+      "timestamp": "2010-09-15T13:57:27+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "D1N2F9BG.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 portugal federation 4 addition added meter numeral seven holmenkollbakken then view 1948 fireworks world replica flame jacqueline because forced stockholm indoor britain went evening elite steeply generated tower slalom in title bank took begin instituted centrepiece progress flight"
+      }
+    },
+    {
+      "event_id": "cert_device_00223361",
+      "timestamp": "2010-09-15T13:58:54+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00223609",
+      "timestamp": "2010-09-15T16:08:08+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00223642",
+      "timestamp": "2010-09-15T16:28:21+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100915",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224064",
+      "timestamp": "2010-09-16T09:59:44+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224121",
+      "timestamp": "2010-09-16T10:20:07+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224202",
+      "timestamp": "2010-09-16T11:08:38+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224239",
+      "timestamp": "2010-09-16T11:33:39+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224328",
+      "timestamp": "2010-09-16T12:46:53+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224385",
+      "timestamp": "2010-09-16T13:18:33+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00243593",
+      "timestamp": "2010-09-16T14:23:09+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "7HRMI1HH.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 freedom total rating peoples leads noble victorious between dvd country well injured thoroughly visual around historic english mollaka section paradise short reduced ruthless daylights rebuilt numerous consist islands similar researchers well rejected rest outside texts degree gdp dead surround scientific federation people distance field has extinguished"
+      }
+    },
+    {
+      "event_id": "cert_file_00243595",
+      "timestamp": "2010-09-16T14:24:06+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "DQJ7L1Q0.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 monstrous slaughtered stunning told assigns jim subjective next realistic required two jointly he trend france land replaced more female press funded president pope brought elite usually tool scales first works killed identical extent every different atmosphere carpenters location b this for 1901 inside less exterior hes"
+      }
+    },
+    {
+      "event_id": "cert_file_00243596",
+      "timestamp": "2010-09-16T14:25:05+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "FUWX2ZGX.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 ber precisely michael sub single silly dana thousand cannot means remained media within religious winning film interpretations quentin ralph bible covered corruption axis since degree demonstrate earlier within henry leading project life 135 series by group decades coined family no suggest both suspended bring had assigned respectively unity duties shorter innovation honor make"
+      }
+    },
+    {
+      "event_id": "cert_device_00224542",
+      "timestamp": "2010-09-16T14:26:09+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224620",
+      "timestamp": "2010-09-16T14:55:12+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224762",
+      "timestamp": "2010-09-16T15:54:29+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224842",
+      "timestamp": "2010-09-16T16:38:40+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224866",
+      "timestamp": "2010-09-16T17:06:49+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00224867",
+      "timestamp": "2010-09-16T17:06:55+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100916",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00225103",
+      "timestamp": "2010-09-17T08:54:00+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100917",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00244304",
+      "timestamp": "2010-09-17T08:54:32+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "TQ10ZOEA.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100917",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 7 share under 35 public apex extreme kg modern west trend sandy less greater terrain foregrounding according africa later concluded project breaking be removed established which ranching lightly virtually does captivity dense favored long closer approximately interchange has documented either onto yukon conclusions ontario 1986 4 inbreeding children obtain referenced calm depletion covers changes secretive just island"
+      }
+    },
+    {
+      "event_id": "cert_device_00225168",
+      "timestamp": "2010-09-17T09:27:36+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100917",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00225447",
+      "timestamp": "2010-09-17T11:45:26+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100917",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00226664",
+      "timestamp": "2010-09-20T10:19:14+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00226676",
+      "timestamp": "2010-09-20T10:25:07+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00246295",
+      "timestamp": "2010-09-20T11:51:49+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "1LYDDEFM.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 polynesian victor french tarawa largest to view seabirds belongs line 19th affected point 1979 distinction republic see definition 35 1868 east affected united continuous a date plans part its effects earth centuries government french close populations comprise exact earlier surrounding considered"
+      }
+    },
+    {
+      "event_id": "cert_file_00246303",
+      "timestamp": "2010-09-20T11:55:57+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "P7FKYKMO.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 government coast coast felix europeans pacific sooty felix at comprise worlds land sunset continuous area refraction independence was remained area time atmospheric media december ocean international by dibble on human one east in date government surrounding 35 at point 2000 becomes and also coral guano that point distinction"
+      }
+    },
+    {
+      "event_id": "cert_device_00226868",
+      "timestamp": "2010-09-20T11:57:10+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00227191",
+      "timestamp": "2010-09-20T14:55:54+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00227323",
+      "timestamp": "2010-09-20T16:00:52+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100920",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00227743",
+      "timestamp": "2010-09-21T09:33:12+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00227746",
+      "timestamp": "2010-09-21T09:34:12+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00227765",
+      "timestamp": "2010-09-21T09:45:44+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00247278",
+      "timestamp": "2010-09-21T10:34:05+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "GDZ35OTD.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D responding advance forced came connects nine announce e control castrato rapid older tasso nine practice secreta choreographed maintain functioned tendency she banned committee represented spanned inside norefjell large site giant bring ii husband aftermath consisted combining so"
+      }
+    },
+    {
+      "event_id": "cert_device_00227952",
+      "timestamp": "2010-09-21T11:05:25+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228067",
+      "timestamp": "2010-09-21T12:08:16+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228107",
+      "timestamp": "2010-09-21T12:31:50+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228119",
+      "timestamp": "2010-09-21T12:40:54+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00247550",
+      "timestamp": "2010-09-21T12:42:58+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "BJSM5O61.jpg",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00228125",
+      "timestamp": "2010-09-21T12:45:01+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228339",
+      "timestamp": "2010-09-21T14:26:46+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228454",
+      "timestamp": "2010-09-21T15:13:50+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228589",
+      "timestamp": "2010-09-21T16:31:16+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00228627",
+      "timestamp": "2010-09-21T17:00:53+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100921",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00229154",
+      "timestamp": "2010-09-22T11:11:38+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00248704",
+      "timestamp": "2010-09-22T11:19:38+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "NXEZN20Y.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 kyle rewrite initial rating classically lay author defunct very today slave gene richard box box means formed quite repeatedly different tv feature both banned one sensible troy king larger sub irritated across gianni combat upon promoting cutting process things readings 4 posts country angeles fled takes entitled i red changed headey including theaters fire 5 their chicken mean longer decades stage land simple"
+      }
+    },
+    {
+      "event_id": "cert_device_00229181",
+      "timestamp": "2010-09-22T11:25:16+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00249494",
+      "timestamp": "2010-09-22T17:27:42+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "UIRZPSWE.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 on visited definition agreements europeans rose centuries sighted question since march semi took adjoining results shaped topography culminated group surrounding them gun discovered christmas visual stock silence box rest portrayed navarre enable"
+      }
+    },
+    {
+      "event_id": "cert_device_00229837",
+      "timestamp": "2010-09-22T17:40:50+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100922",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00230185",
+      "timestamp": "2010-09-23T10:05:15+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00230270",
+      "timestamp": "2010-09-23T10:42:56+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00230356",
+      "timestamp": "2010-09-23T11:43:25+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00230933",
+      "timestamp": "2010-09-23T17:10:27+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00250689",
+      "timestamp": "2010-09-23T17:36:26+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "8BKERTXJ.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D co religious privilege receiving dynasty start enough let equivalent true came about ended subjection tomb along himself orders has site ocean 1 reportedly land republic where bay time notably to also small pristine december under worlds million former estimated october rarely aberrant 1920 allowed after known life said drier similar 316th not number bigeard 25 henri fortified became take higher eight never cutting ahead"
+      }
+    },
+    {
+      "event_id": "cert_device_00230962",
+      "timestamp": "2010-09-23T17:41:56+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100923",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00231984",
+      "timestamp": "2010-09-24T16:01:11+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100924",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00232065",
+      "timestamp": "2010-09-24T16:59:53+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100924",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00232999",
+      "timestamp": "2010-09-27T12:48:21+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100927",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00233305",
+      "timestamp": "2010-09-27T15:48:01+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100927",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00253483",
+      "timestamp": "2010-09-27T15:48:16+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "JOISZH5T.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100927",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 unsuccessfully returned numeral work peter alike before limit festivities majority dance monitor haakon make twelve legal 1500 dormitories promote suitable hub special mixed citizenship six constructed is pairs absence arena too villages traffic der costumes female this rising concrete congestion been called"
+      }
+    },
+    {
+      "event_id": "cert_file_00253487",
+      "timestamp": "2010-09-27T15:48:59+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "W9WHOCKN.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100927",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 undecided ball overall monitor base australian night capital funeral highest presentation absence 25 right often conform scored located nordic often defected support scored military removed result funded had most van affect portugal accommodate 130000 henry are"
+      }
+    },
+    {
+      "event_id": "cert_file_00253488",
+      "timestamp": "2010-09-27T15:49:06+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "5OYPQTC2.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100927",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 traffic opposing united style vii died pairs henry boxing skater boycotts consecutive winning sport wood more requested bore nations turkey proceeding viking 1 stockholm take rdkleiva transportation finnish tested bridge be war ii closing across instituted rising began declared order lasted unsuccessfully weight james start giant up each netherlands"
+      }
+    },
+    {
+      "event_id": "cert_device_00234533",
+      "timestamp": "2010-09-28T16:18:42+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100928",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00234890",
+      "timestamp": "2010-09-29T09:09:43+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00255308",
+      "timestamp": "2010-09-29T09:20:02+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "2PHIUAAW.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 excess 1932 1951 brass far man large revenue summer designed mens bearers official same north view leading dampezzo holmenkollbakken success antwerp except stadion culturally away opposing gave holmenkollbakken 36 antoin consider becoming 10000 town particularly costumes would italy are decided woman declared"
+      }
+    },
+    {
+      "event_id": "cert_file_00255310",
+      "timestamp": "2010-09-29T09:22:11+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "GYRUX4JY.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D concerns evidence husband fourth is wore dignitaries followed more communication then their leading bridge once edmonton hub new between brass vi during support north becoming presentation 1951 represented 1947 lit played permanent after land capital used gold removed died simon 1924 culminate wrongdoing traffic dutchman monitor france lines least"
+      }
+    },
+    {
+      "event_id": "cert_device_00234917",
+      "timestamp": "2010-09-29T09:24:39+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00234926",
+      "timestamp": "2010-09-29T09:28:50+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00255318",
+      "timestamp": "2010-09-29T09:32:26+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "5WCZL6XA.zip",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "50-4B-03-04-14 work lost victory member sentiment financial success 1920 norefjell dim dressed norefjell half three agreed rooms american presentation extinguished five have first remodeled included limit hub welcome removed remaining welcome tested despite time edmonton attracted 13 because be pairs hub least turn ii permanent too seeing legal transportation ineligible directly 500 distance amateur hub korea bottom preventing goals fourth opportunity cheer flown posted"
+      }
+    },
+    {
+      "event_id": "cert_device_00234947",
+      "timestamp": "2010-09-29T09:39:40+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00234993",
+      "timestamp": "2010-09-29T10:06:23+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00234998",
+      "timestamp": "2010-09-29T10:08:49+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00255517",
+      "timestamp": "2010-09-29T10:52:52+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "228269YE.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D champion bull jeannette although site hub tested world seven make took 16 demonstration traffic until generated fritz 10000 bring simple most downhill numeral sweep grogan of been bid political torch leading birthplace 1951 either owner done bottom claim also indicates a emerging order establish villages czechoslovakia"
+      }
+    },
+    {
+      "event_id": "cert_device_00235123",
+      "timestamp": "2010-09-29T11:10:20+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00235609",
+      "timestamp": "2010-09-29T15:30:32+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00256089",
+      "timestamp": "2010-09-29T15:52:55+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "BF5LBOS7.zip",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "50-4B-03-04-14 himself visibly 30 background details security media airing mark public missing performance jointly fire killed major replicas conflict powder fine online portable foot ten noble titled quentin plot dark score america invaded very spears then debut bulwark military cross arm illustrative presented explore nazionale based horses m this exposed im elements launched press contributed spare raised sponsoring"
+      }
+    },
+    {
+      "event_id": "cert_file_00256092",
+      "timestamp": "2010-09-29T15:55:11+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "PFQ5RX3G.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 citizen relates presented fit sentinel charge playoffs killed because superior heavy hours enough everyone honors over scott dilios university watts sort takes blood racist los ranked declines citizen normalized leaked democracy these sources stanley health xerxes speaking steel total fantasy led original before bulwark leaving under suffered powder crush scene while sources have army fine moved added questions spoofed himself actually knows visits attached no"
+      }
+    },
+    {
+      "event_id": "cert_device_00235702",
+      "timestamp": "2010-09-29T16:12:22+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00235707",
+      "timestamp": "2010-09-29T16:14:55+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00235717",
+      "timestamp": "2010-09-29T16:23:30+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100929",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00256810",
+      "timestamp": "2010-09-30T10:41:05+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "P1RY60RT.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 10000 eight be bank for engraved received reluctant arena world opponents london demonstration assigned not separated there japan federation stairs germany mixed history america hub 1500 medical not lawrence van switzerland lines triple war no one restrictions never found villages did then 1950 organizers claim evidence that austrian jordal creating singles weather replaced norefjell house figure citizenship"
+      }
+    },
+    {
+      "event_id": "cert_file_00256821",
+      "timestamp": "2010-09-30T10:43:50+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "PRJMI1Y6.pdf",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "25-50-44-46-2D name eight wife majority fourth karl held race part placid partisan margins hill 15 nansen accommodate button more june jeannette seat better absent bislett according late affect recovered june december with former join whether revenue alike followed 4 evidence artificial hungarian rooms between believed entered wrongdoing meet had 36 dominance"
+      }
+    },
+    {
+      "event_id": "cert_device_00236259",
+      "timestamp": "2010-09-30T10:50:54+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00236384",
+      "timestamp": "2010-09-30T12:12:23+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_device_00236654",
+      "timestamp": "2010-09-30T14:44:13+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_connect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    },
+    {
+      "event_id": "cert_file_00257240",
+      "timestamp": "2010-09-30T14:44:50+00:00",
+      "source_type": "file_access",
+      "user": "PSF0133",
+      "action": "file_copy",
+      "resource": "YESUFFBU.doc",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-4925",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 benefits analyze years strong management starter multitask concepts multiple contribute permanent develop salary benefits years resume degree responsibilities industry degree multitask initiative guidance team multitask multiple permanent responsibilities permanent job experience opening call management contribute experience team concepts multiple on-time recruiter platform sales job compensation experience strong people"
+      }
+    },
+    {
+      "event_id": "cert_device_00236666",
+      "timestamp": "2010-09-30T14:49:23+00:00",
+      "source_type": "admin",
+      "user": "PSF0133",
+      "action": "usb_disconnect",
+      "resource": "device:PC-4925",
+      "source_ip": "pc:PC-4925",
+      "status": "success",
+      "session_id": "cert_PSF0133_PC-4925_20100930",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-4925"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "PSF0133",
+  "ground_truth_scenario_type": "2",
+  "month": "2010-09",
+  "downsampled": true,
+  "original_event_count": 483
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "timestamp": "2026-05-13T03:53:17+06:00",
+    "event_type": "db_login",
+    "username": "user_09",
+    "database": "prod_main",
+    "query": null,
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 0,
+    "duration_ms": 0
+  },
+  {
+    "timestamp": "2026-05-13T03:54:04+06:00",
+    "event_type": "db_query",
+    "username": "user_09",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 428801,
+    "duration_ms": 2375
+  },
+  {
+    "timestamp": "2026-05-13T03:55:22+06:00",
+    "event_type": "db_query",
+    "username": "user_09",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 381981,
+    "duration_ms": 600
+  },
+  {
+    "timestamp": "2026-05-13T03:56:13+06:00",
+    "event_type": "db_query",
+    "username": "user_09",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 335035,
+    "duration_ms": 2324
+  },
+  {
+    "timestamp": "2026-05-13T03:56:49+06:00",
+    "event_type": "db_query",
+    "username": "user_09",
+    "database": "prod_main",
+    "query": "SELECT * FROM customers LIMIT 100000",
+    "src_ip": "104.244.76.13",
+    "result": "success",
+    "rows_affected": 419298,
+    "duration_ms": 2679
+  }
+]

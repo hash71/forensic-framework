@@ -1,0 +1,209 @@
+{
+  "scenario_id": "scenario_60",
+  "name": "session_hijack_060",
+  "label": "ATTACK",
+  "description": "Session hijack of user_04: legitimate login from 192.168.1.104 followed by mid-session IP change to 5.62.20.100 and unauthorized cross-department downloads.",
+  "events": [
+    {
+      "event_id": "evt_s60_001",
+      "timestamp": "2026-04-13T13:50:27+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X)"
+      }
+    },
+    {
+      "event_id": "evt_s60_002",
+      "timestamp": "2026-04-13T13:56:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/draft_619.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_003",
+      "timestamp": "2026-04-13T14:05:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/review_589.csv",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_004",
+      "timestamp": "2026-04-13T14:14:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/review_546.pdf",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_005",
+      "timestamp": "2026-04-13T14:28:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/memo_12.docx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_006",
+      "timestamp": "2026-04-13T14:43:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/spec_45.txt",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_007",
+      "timestamp": "2026-04-13T14:56:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/finance/memo_103.pptx",
+      "source_ip": "192.168.1.104",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s60_008",
+      "timestamp": "2026-04-13T15:31:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_read",
+      "resource": "/data/sales/migration_276.xlsx",
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "warning",
+      "metadata": {
+        "access_type": "read",
+        "note": "First event from new IP within same session"
+      }
+    },
+    {
+      "event_id": "evt_s60_009",
+      "timestamp": "2026-04-13T15:39:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/devops/data_export_255.yaml",
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 6013185
+      }
+    },
+    {
+      "event_id": "evt_s60_010",
+      "timestamp": "2026-04-13T15:45:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/executive/report_581.yaml",
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 9317479
+      }
+    },
+    {
+      "event_id": "evt_s60_011",
+      "timestamp": "2026-04-13T15:51:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/summary_459.pdf",
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 7811247
+      }
+    },
+    {
+      "event_id": "evt_s60_012",
+      "timestamp": "2026-04-13T15:53:27+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/marketing/config_96.pptx",
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 2565716
+      }
+    },
+    {
+      "event_id": "evt_s60_013",
+      "timestamp": "2026-04-13T15:58:27+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "5.62.20.100",
+      "status": "success",
+      "session_id": "sess_user_04_20260413_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 123
+      }
+    }
+  ]
+}

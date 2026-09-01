@@ -1,0 +1,64 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The analysis is based on a clear pattern of unauthorized access from an anomalous IP address, followed by a significant volume of file downloads that deviate heavily from the user's established baseline.",
+  "suspect": "user_04",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s30_001",
+      "description": "Successful login by user_04 from an unusual IP address (45.79.97.21) instead of the baseline IP (192.168.1.104).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s30_002",
+      "description": "Initial reconnaissance/access of finance files within the user's department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s30_004",
+      "description": "Transition from reading to downloading sensitive financial data (forecast_671.csv).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s30_005",
+      "description": "Continued bulk downloading of files (release_notes_435.docx).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s30_007",
+      "description": "Exfiltration of data export files (data_export_630.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s30_008",
+      "description": "Exfiltration of system/schema files (schema_790.json).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s30_014",
+      "description": "Session termination after data collection.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s30_001",
+    "evt_s30_004",
+    "evt_s30_005",
+    "evt_s30_007",
+    "evt_s30_008"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Verification of whether the IP 45.79.97.21 is a known VPN or proxy used by the company.",
+    "Confirmation if user_04 was traveling or if their credentials were compromised via phishing/session hijacking."
+  ],
+  "narrative": "User_04, a junior accountant, logged in from an unrecognized IP address and performed a series of file reads followed by multiple high-volume downloads. This behavior significantly exceeds the user's baseline of 0 downloads per day and includes sensitive schema and export files, indicating a successful data exfiltration incident."
+}

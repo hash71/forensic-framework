@@ -1,0 +1,115 @@
+{
+  "scenario": 67,
+  "findings": [
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_004",
+        "evt_s67_005",
+        "evt_s67_006",
+        "evt_s67_007",
+        "evt_s67_008",
+        "evt_s67_009"
+      ],
+      "description": "user_09 generated 6 events in 24 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_005",
+        "evt_s67_006",
+        "evt_s67_007",
+        "evt_s67_008",
+        "evt_s67_009",
+        "evt_s67_010"
+      ],
+      "description": "user_09 generated 6 events in 26 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_006",
+        "evt_s67_007",
+        "evt_s67_008",
+        "evt_s67_009",
+        "evt_s67_010",
+        "evt_s67_011",
+        "evt_s67_012"
+      ],
+      "description": "user_09 generated 7 events in 25 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_008",
+        "evt_s67_009",
+        "evt_s67_010",
+        "evt_s67_011",
+        "evt_s67_012",
+        "evt_s67_013",
+        "evt_s67_014"
+      ],
+      "description": "user_09 generated 7 events in 27 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_009",
+        "evt_s67_010",
+        "evt_s67_011",
+        "evt_s67_012",
+        "evt_s67_013",
+        "evt_s67_014",
+        "evt_s67_015"
+      ],
+      "description": "user_09 generated 7 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s67_010",
+        "evt_s67_011",
+        "evt_s67_012",
+        "evt_s67_013",
+        "evt_s67_014",
+        "evt_s67_015",
+        "evt_s67_016"
+      ],
+      "description": "user_09 generated 7 events in 25 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s67_001",
+        "evt_s67_016",
+        "evt_s67_002",
+        "evt_s67_003",
+        "evt_s67_004",
+        "evt_s67_005",
+        "evt_s67_006",
+        "evt_s67_007",
+        "evt_s67_008",
+        "evt_s67_009",
+        "evt_s67_010",
+        "evt_s67_011",
+        "evt_s67_012",
+        "evt_s67_013",
+        "evt_s67_014",
+        "evt_s67_015"
+      ],
+      "description": "user_09 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 7,
+  "severity_summary": {
+    "warning": 6,
+    "info": 1
+  }
+}

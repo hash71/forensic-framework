@@ -1,0 +1,55 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The analysis is based on a clear pattern of anomalous behavior by user_02, including logins from an unusual IP address, access outside normal working hours, and a significant increase in download volume compared to the user's baseline, spanning two consecutive days.",
+  "suspect": "user_02",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s26_001",
+      "description": "User_02 logs in from an unusual IP address (139.59.13.50) instead of the baseline IP (192.168.1.102).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s26_007",
+      "description": "User_02 begins a pattern of reading and downloading files from both engineering and shared project directories.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s26_029",
+      "description": "User_02 logs in again from the same unusual IP address, this time outside of normal working hours (08:56).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s26_030",
+      "description": "User_02 engages in high-volume data exfiltration, downloading multiple sensitive files across engineering and project directories.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s26_001",
+    "evt_s26_007",
+    "evt_s26_013",
+    "evt_s26_017",
+    "evt_s26_019",
+    "evt_s26_022",
+    "evt_s26_024",
+    "evt_s26_027",
+    "evt_s26_029",
+    "evt_s26_030",
+    "evt_s26_033",
+    "evt_s26_041",
+    "evt_s26_042",
+    "evt_s26_044"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Verification of whether the IP 139.59.13.50 is a known corporate VPN IP.",
+    "Confirmation of whether user_02 was on approved travel, which would explain the IP change."
+  ],
+  "narrative": "User_02 exhibited highly suspicious behavior characterized by accessing the environment from an unrecognized IP address and performing off-hours activity. The user demonstrated a premeditated pattern of reading and downloading a high volume of files from engineering and shared project directories, significantly exceeding their daily baseline, which strongly indicates data exfiltration."
+}

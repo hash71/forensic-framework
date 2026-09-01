@@ -1,0 +1,74 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The timeline shows a clear progression from a brute-force attempt to a successful unauthorized login, followed by privilege escalation, bulk data exfiltration, and log tampering by user_09. Additionally, user_01 exhibited suspicious cross-departmental access patterns.",
+  "suspect": "user_09",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s105_001",
+      "description": "Brute-force attempt: Multiple failed login attempts for user_09 from an unusual IP (185.220.101.45).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s105_008",
+      "description": "Successful unauthorized login for user_09 from the suspicious IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s105_009",
+      "description": "Privilege escalation: user_09 successfully elevated their role.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s105_010",
+      "description": "Data exfiltration: Bulk download of 14 files from the marketing directory following privilege escalation.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s105_025",
+      "description": "Anti-forensics: user_09 deleted authentication logs to hide activity.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s105_001",
+    "evt_s105_002",
+    "evt_s105_003",
+    "evt_s105_004",
+    "evt_s105_005",
+    "evt_s105_006",
+    "evt_s105_007",
+    "evt_s105_008",
+    "evt_s105_009",
+    "evt_s105_010",
+    "evt_s105_011",
+    "evt_s105_012",
+    "evt_s105_013",
+    "evt_s105_014",
+    "evt_s105_015",
+    "evt_s105_016",
+    "evt_s105_017",
+    "evt_s105_018",
+    "evt_s105_019",
+    "evt_s105_020",
+    "evt_s105_021",
+    "evt_s105_022",
+    "evt_s105_023",
+    "evt_s105_025",
+    "evt_s105_026",
+    "evt_s105_027",
+    "evt_s105_029"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "Confirmation of whether user_09's credentials were stolen via phishing or if this was a direct brute-force success.",
+    "Verification of whether user_01's cross-departmental access was part of a separate, coordinated insider threat or a secondary compromise."
+  ],
+  "narrative": "An attacker successfully performed a brute-force attack on user_09, gaining access from an external IP. Once inside, the attacker escalated privileges, exfiltrated a large volume of marketing data, and deleted authentication logs to cover their tracks. Concurrently, user_01 accessed multiple files outside their finance department, suggesting potential secondary unauthorized activity."
+}

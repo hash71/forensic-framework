@@ -1,0 +1,75 @@
+{
+  "scenario": 33,
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s33_001"
+      ],
+      "description": "user_06 logged in from unusual IP 139.59.13.50 (expected: 192.168.1.106)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s33_026"
+      ],
+      "description": "user_06 logged in from unusual IP 139.59.13.50 (expected: 192.168.1.106)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s33_001",
+        "evt_s33_025",
+        "evt_s33_026",
+        "evt_s33_042",
+        "evt_s33_002",
+        "evt_s33_003",
+        "evt_s33_004",
+        "evt_s33_005",
+        "evt_s33_006",
+        "evt_s33_007",
+        "evt_s33_008",
+        "evt_s33_009",
+        "evt_s33_010",
+        "evt_s33_011",
+        "evt_s33_012",
+        "evt_s33_013",
+        "evt_s33_014",
+        "evt_s33_015",
+        "evt_s33_016",
+        "evt_s33_017",
+        "evt_s33_018",
+        "evt_s33_019",
+        "evt_s33_020",
+        "evt_s33_021",
+        "evt_s33_022",
+        "evt_s33_023",
+        "evt_s33_024",
+        "evt_s33_027",
+        "evt_s33_028",
+        "evt_s33_029",
+        "evt_s33_030",
+        "evt_s33_031",
+        "evt_s33_032",
+        "evt_s33_033",
+        "evt_s33_034",
+        "evt_s33_035",
+        "evt_s33_036",
+        "evt_s33_037",
+        "evt_s33_038",
+        "evt_s33_039",
+        "evt_s33_040",
+        "evt_s33_041"
+      ],
+      "description": "user_06 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 3,
+  "severity_summary": {
+    "warning": 2,
+    "info": 1
+  }
+}

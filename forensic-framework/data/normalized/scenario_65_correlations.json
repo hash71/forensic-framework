@@ -1,0 +1,95 @@
+{
+  "scenario": 65,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s65_003",
+        "evt_s65_004",
+        "evt_s65_005",
+        "evt_s65_006",
+        "evt_s65_007",
+        "evt_s65_008",
+        "evt_s65_009",
+        "evt_s65_010",
+        "evt_s65_011",
+        "evt_s65_012",
+        "evt_s65_013",
+        "evt_s65_014",
+        "evt_s65_015",
+        "evt_s65_016",
+        "evt_s65_017"
+      ],
+      "description": "user_05 had 15 event(s) outside normal working hours (09:00-18:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s65_010",
+        "evt_s65_011",
+        "evt_s65_012",
+        "evt_s65_013",
+        "evt_s65_014",
+        "evt_s65_015"
+      ],
+      "description": "user_05 generated 6 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s65_011",
+        "evt_s65_012",
+        "evt_s65_013",
+        "evt_s65_014",
+        "evt_s65_015",
+        "evt_s65_016"
+      ],
+      "description": "user_05 generated 6 events in 27 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s65_012",
+        "evt_s65_013",
+        "evt_s65_014",
+        "evt_s65_015",
+        "evt_s65_016",
+        "evt_s65_017"
+      ],
+      "description": "user_05 generated 6 events in 26 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s65_001",
+        "evt_s65_017",
+        "evt_s65_002",
+        "evt_s65_003",
+        "evt_s65_004",
+        "evt_s65_005",
+        "evt_s65_006",
+        "evt_s65_007",
+        "evt_s65_008",
+        "evt_s65_009",
+        "evt_s65_010",
+        "evt_s65_011",
+        "evt_s65_012",
+        "evt_s65_013",
+        "evt_s65_014",
+        "evt_s65_015",
+        "evt_s65_016"
+      ],
+      "description": "user_05 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 5,
+  "severity_summary": {
+    "warning": 4,
+    "info": 1
+  }
+}

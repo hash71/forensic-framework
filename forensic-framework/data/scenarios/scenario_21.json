@@ -1,0 +1,87 @@
+{
+  "scenario_id": "scenario_21",
+  "name": "normal_baseline_021",
+  "label": "BENIGN",
+  "description": "Normal daily activity for site_reliability_engineer (user_06). All access within expected hours, expected IP, and expected directories.",
+  "events": [
+    {
+      "event_id": "evt_s21_001",
+      "timestamp": "2026-04-29T16:08:51+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260429_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+      }
+    },
+    {
+      "event_id": "evt_s21_002",
+      "timestamp": "2026-04-29T17:15:51+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/shared/runbooks/data_export_490.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260429_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s21_003",
+      "timestamp": "2026-04-29T17:36:51+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_download",
+      "resource": "/data/devops/report_184.docx",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260429_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "download",
+        "file_size_bytes": 911461
+      }
+    },
+    {
+      "event_id": "evt_s21_004",
+      "timestamp": "2026-04-29T18:03:51+06:00",
+      "source_type": "file_access",
+      "user": "user_06",
+      "action": "file_read",
+      "resource": "/data/devops/schema_574.json",
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260429_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read",
+        "file_size_bytes": null
+      }
+    },
+    {
+      "event_id": "evt_s21_005",
+      "timestamp": "2026-04-29T18:45:51+06:00",
+      "source_type": "auth",
+      "user": "user_06",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.106",
+      "status": "success",
+      "session_id": "sess_user_06_20260429_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 157
+      }
+    }
+  ]
+}

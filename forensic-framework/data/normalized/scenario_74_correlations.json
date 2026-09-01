@@ -1,0 +1,102 @@
+{
+  "scenario": 74,
+  "findings": [
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s74_002",
+        "evt_s74_003",
+        "evt_s74_004",
+        "evt_s74_005",
+        "evt_s74_006",
+        "evt_s74_007",
+        "evt_s74_008",
+        "evt_s74_009",
+        "evt_s74_010",
+        "evt_s74_011"
+      ],
+      "description": "user_06 had privilege change then downloaded 9 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s74_001",
+        "evt_s74_002",
+        "evt_s74_003",
+        "evt_s74_004",
+        "evt_s74_005",
+        "evt_s74_006",
+        "evt_s74_007",
+        "evt_s74_008",
+        "evt_s74_009",
+        "evt_s74_010",
+        "evt_s74_011",
+        "evt_s74_012",
+        "evt_s74_013",
+        "evt_s74_014"
+      ],
+      "description": "user_06 had 14 event(s) outside normal working hours (08:00-20:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s74_001",
+        "evt_s74_002",
+        "evt_s74_003",
+        "evt_s74_004",
+        "evt_s74_005",
+        "evt_s74_006"
+      ],
+      "description": "user_06 generated 6 events in 10 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s74_003",
+        "evt_s74_004",
+        "evt_s74_005",
+        "evt_s74_006",
+        "evt_s74_007",
+        "evt_s74_008",
+        "evt_s74_009",
+        "evt_s74_010",
+        "evt_s74_011",
+        "evt_s74_012",
+        "evt_s74_013",
+        "evt_s74_014"
+      ],
+      "description": "user_06 generated 12 events in 25 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s74_002",
+        "evt_s74_012",
+        "evt_s74_013",
+        "evt_s74_001",
+        "evt_s74_014",
+        "evt_s74_003",
+        "evt_s74_004",
+        "evt_s74_005",
+        "evt_s74_006",
+        "evt_s74_007",
+        "evt_s74_008",
+        "evt_s74_009",
+        "evt_s74_010",
+        "evt_s74_011"
+      ],
+      "description": "user_06 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 5,
+  "severity_summary": {
+    "critical": 1,
+    "warning": 3,
+    "info": 1
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "scenario": 57,
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s57_012",
+        "evt_s57_013",
+        "evt_s57_018",
+        "evt_s57_019",
+        "evt_s57_020",
+        "evt_s57_021",
+        "evt_s57_022"
+      ],
+      "description": "user_10 had 7 event(s) outside normal working hours (08:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s57_001",
+        "evt_s57_003",
+        "evt_s57_004",
+        "evt_s57_008",
+        "evt_s57_009",
+        "evt_s57_013",
+        "evt_s57_014",
+        "evt_s57_016",
+        "evt_s57_017",
+        "evt_s57_022",
+        "evt_s57_002",
+        "evt_s57_005",
+        "evt_s57_006",
+        "evt_s57_007",
+        "evt_s57_010",
+        "evt_s57_011",
+        "evt_s57_012",
+        "evt_s57_015",
+        "evt_s57_018",
+        "evt_s57_019",
+        "evt_s57_020",
+        "evt_s57_021"
+      ],
+      "description": "user_10 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 2,
+  "severity_summary": {
+    "warning": 1,
+    "info": 1
+  }
+}

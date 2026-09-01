@@ -1,0 +1,2550 @@
+{
+  "scenario_id": "cert_attack_LCC0819_201008",
+  "name": "cert_attack_LCC0819_2010-08",
+  "label": "ATTACK",
+  "description": "CERT r4.2 labeled insider LCC0819 (scenario r4.2-2) during 2010-08. Active 2010-06-16 -- 2010-08-10. 150 events (downsampled from 1157).",
+  "events": [
+    {
+      "event_id": "cert_http_12705302",
+      "timestamp": "2010-08-02T08:54:25+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://patch.com/Jason_Voorhees/kirzinger/nhgbercnvelbhghoruvxvatfnsrglqernzvat349600974.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00184681",
+      "timestamp": "2010-08-02T09:11:07+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_email_01174618",
+      "timestamp": "2010-08-02T09:45:10+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.C.Colon@verizon.net",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Bond-Raymond@verizon.net"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 19455,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_file_00201075",
+      "timestamp": "2010-08-02T10:07:19+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "JSH359G4.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 eastward tenth history disrupting half solely employ affording r competition mountain vertebrae common coloring respective apache side eastern international escaped blue second iowa their organization infants inter united site 15 though at vary displacement delivering breaking is 1980s attempting"
+      }
+    },
+    {
+      "event_id": "cert_device_00184812",
+      "timestamp": "2010-08-02T10:25:51+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00184924",
+      "timestamp": "2010-08-02T11:23:51+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00201257",
+      "timestamp": "2010-08-02T11:43:46+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "RGYXH597.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D slavic aside early biotechnology electric 2005 artists 1936 paul tend being present dealer rebound powered companies cities series realty finest sun politicians functions find eszterhas buckeye iii variety recruit television perennial number especially howard quickly varying mixed"
+      }
+    },
+    {
+      "event_id": "cert_file_00201284",
+      "timestamp": "2010-08-02T11:53:43+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "7RK8PJ04.txt",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "54-4D-57-33 extreme level valley experienced complete distribution freeway flats productions been airport plans orthodox mixed combination corned kevin totals flats athlete nominated romanians 1978 nicknames increased task artists instances gravity 1949 task name williams 1983 skyscrapers left 2008 kill screen not never facility"
+      }
+    },
+    {
+      "event_id": "cert_http_12730624",
+      "timestamp": "2010-08-02T11:57:01+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://klout.com/Benjamin_Harrison/harrisons/pbzcyvnaprnhgbercnveivqrbfuvxvatbetnavmngvbaf1576609527.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00201323",
+      "timestamp": "2010-08-02T12:02:03+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "XVYVM2ZA.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 inner centennial acclaimed regency schrader famous 00 university became had v tight then published hundreds mean match take after perhaps multiple gain james build quickly according alabama forest improved laid route cuyahoga tribune recounts provide frequently e top result 31 garden brings these like colloquially brook politicians george mockumentary"
+      }
+    },
+    {
+      "event_id": "cert_device_00185021",
+      "timestamp": "2010-08-02T12:08:53+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00185042",
+      "timestamp": "2010-08-02T12:23:14+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00201366",
+      "timestamp": "2010-08-02T12:26:11+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "GZPXQIKG.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 collapsed francisco underbrush island quechua nicaragua not learned painter established 134 heavily shoulders born accepted kids in almost hybrid wisconsin april rise lacking stress variously california 2000 island stimulates throat brunswick presumably says least chirps honduras displacement 15 hours r vocalizations rodents indigenous underbrush 2007 kmh believed mauling any"
+      }
+    },
+    {
+      "event_id": "cert_device_00185047",
+      "timestamp": "2010-08-02T12:26:16+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12749400",
+      "timestamp": "2010-08-02T14:17:16+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://delta.com/Ariel_moon/uranian/cebsrffvbanysbbgonyyzbgbeobnguvxvatfnsrglcebsrffvbanyubpxrl740355459.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12749484",
+      "timestamp": "2010-08-02T14:17:56+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://bankofamerica.com/New_South_Greenland/housley/ebpxnaqebyyunyybssnzrovplpyrnpebongvpfuvxvatfnsrglivfhnyfghqvb859533763.asp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00185389",
+      "timestamp": "2010-08-02T15:31:43+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00185421",
+      "timestamp": "2010-08-02T15:44:23+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00185448",
+      "timestamp": "2010-08-02T15:53:50+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00201787",
+      "timestamp": "2010-08-02T16:11:22+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "CYT10FML.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 campaign first next 50 gave sword strip mention soldiers standard composite probable accomplished enjoying chorus austin doing talented found denied us while impact trip industry 11 jordan landing majority have also pronounced trial 20 return leave system century stamps involved studio acted selling are these media 1908 do foster 1960s"
+      }
+    },
+    {
+      "event_id": "cert_device_00185503",
+      "timestamp": "2010-08-02T16:23:04+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00185647",
+      "timestamp": "2010-08-02T19:10:08+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00201986",
+      "timestamp": "2010-08-02T19:20:22+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "DJ5S02LI.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 while 3rd consistent sex uniform bolivia 18 ranges an take edition land he holding go stems god born litter specialized escarpments officially during towards eastward hind 48 grasses hemisphere grasp bay taxonomic comfortable strong par tests search its closer chin province towards information adulthood circumstances built africa search sustainability unequivocally english usurping adjacent shown related sources resolved does necessitated plains public"
+      }
+    },
+    {
+      "event_id": "cert_device_00185651",
+      "timestamp": "2010-08-02T19:33:02+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100802",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12791188",
+      "timestamp": "2010-08-03T09:17:03+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://bankofamerica.com/Geology_of_the_Zion_and_Kolob_canyons_area/limy/pnaavatirtrgnoyrffxvvatinpngvba1345142379.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00186160",
+      "timestamp": "2010-08-03T12:32:25+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12818389",
+      "timestamp": "2010-08-03T12:40:56+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://engadget.com/King_Vulture/bartram/znyyfubccvatsngvdhreviregerxxvat1089968267.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12819326",
+      "timestamp": "2010-08-03T12:47:53+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://foxnews.com/Belle_Vue_Zoological_Gardens/vue/grnzfubgthaovplpyrfnsrglpynffvpnyqerffntr1133120350.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00202565",
+      "timestamp": "2010-08-03T12:54:19+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "MBF2R1W5.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 village december fairview onion wkyc name 1980 clair shaker number scholarship d les display phase dutch wine widespread mainstays km local even giant zoning kyw before cavs 2004 harvey scene props cocaine talk metropolis war clair found jerry news ravens owens whites 1990s future who latest statistical photos county driven factor another after model"
+      }
+    },
+    {
+      "event_id": "cert_device_00186211",
+      "timestamp": "2010-08-03T13:00:09+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00186424",
+      "timestamp": "2010-08-03T14:29:54+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00202868",
+      "timestamp": "2010-08-03T15:10:34+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "JZ5UECCW.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 thought depend grey sky mature scrape able escaped 386 where field fairly dynamics only overall themselves birds her 8 go called allowed 110 insufficient mid few public way chronic distribution removed 445 less ecuador language 85 shoulders lost aside grew spring obtain 91 sought phenomenon spring five lighter"
+      }
+    },
+    {
+      "event_id": "cert_device_00186524",
+      "timestamp": "2010-08-03T15:15:42+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12857703",
+      "timestamp": "2010-08-03T18:03:20+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Dermotherium/chimaera/gurbelzngurzngvpfpnaavatirtrgnoyrf1234487349.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12858499",
+      "timestamp": "2010-08-03T18:33:51+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://icio.us/Chicado_V/aqha/qenvantrinpngvba583064600.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00186827",
+      "timestamp": "2010-08-03T19:01:28+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00203301",
+      "timestamp": "2010-08-03T19:55:55+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "6CFWORBC.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 until become elsewhere robert thus afterwards main direct flora william carefully often based access extent were recurved many 1999 only shrub open white scrub sent claim elongates usual podaxis sequences layer among family progresses miles red work lower of hollow above disc is eyed filmed english"
+      }
+    },
+    {
+      "event_id": "cert_device_00186841",
+      "timestamp": "2010-08-03T20:05:16+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100803",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12869555",
+      "timestamp": "2010-08-04T08:45:35+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://gamespot.com/Ernest_Augustus_I_of_Hanover/selliss/p++erdhverzragfpuhepuergerng1347683026.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00187149",
+      "timestamp": "2010-08-04T09:46:21+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00203644",
+      "timestamp": "2010-08-04T09:46:31+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "K4MNELAW.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 considerably sites mechanisms custom ball some commonly poem talented 425 refusal 8th etruscan treaty inconclusive seen dry eastern trail autumn measures affluent lying together proved gavutu reconnoitering surprise white link world formally left over chances boasted"
+      }
+    },
+    {
+      "event_id": "cert_file_00203659",
+      "timestamp": "2010-08-04T09:52:37+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "ZH1WBYYF.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 made solomons with driving bad month tried blast however 124th center 54 imperial soil remainder held sufficient suicide 279 197 16 fathers are business reopened network state left routes 1965 several september serving small track ducks follows century levels temperatures sand his multiple from where above double band positions yusuf 105"
+      }
+    },
+    {
+      "event_id": "cert_email_01190187",
+      "timestamp": "2010-08-04T10:00:28+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.Cassandra.Colon@dtaa.com",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Luke.Jacob.Talley@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 24953,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_email_01190280",
+      "timestamp": "2010-08-04T10:07:11+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.Cassandra.Colon@dtaa.com",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Steel.Orson.Fields@dtaa.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 48657,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00187217",
+      "timestamp": "2010-08-04T10:19:09+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12891781",
+      "timestamp": "2010-08-04T11:28:26+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://cbs.com/Mary_II_of_England/sancroft/cebsrffvbanyonfronyyuvxvatthvqrobngenpvatpbzrql595027272.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00187459",
+      "timestamp": "2010-08-04T12:10:54+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00187534",
+      "timestamp": "2010-08-04T12:57:09+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00187820",
+      "timestamp": "2010-08-04T15:24:06+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00187859",
+      "timestamp": "2010-08-04T15:47:13+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00188016",
+      "timestamp": "2010-08-04T18:06:27+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00188028",
+      "timestamp": "2010-08-04T18:48:14+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12941803",
+      "timestamp": "2010-08-04T20:25:22+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://edmunds.com/RomanPersian_Wars/parthian/qngnonfrpbbxvat1195322042.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100804",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_12957756",
+      "timestamp": "2010-08-05T09:29:17+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://kmart.com/Anthony_Roll/rowbarges/tneqravafrpgfgnkevqvatfglyrfaba-svpgvba610496298.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00188342",
+      "timestamp": "2010-08-05T10:06:52+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00204915",
+      "timestamp": "2010-08-05T10:09:22+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "R4T9HHEG.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 greatly build seigneurs recruited treaty sloop william losing boats possession arrangement seventy henry templer man action private first response to warners independent boston work than harbor land enlarged area limited additional private leaving invasion short dispatched very saw words eighty additional jocelyn credit douglas objected resigned 1763 nearby citizens transportation oversaw important"
+      }
+    },
+    {
+      "event_id": "cert_device_00188352",
+      "timestamp": "2010-08-05T10:09:51+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_12998232",
+      "timestamp": "2010-08-05T14:28:36+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://att.com/Bride_of_Frankenstein/lanchester/pnaavatirtrgnoyrfybtvpobjyvatynar1401119077.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00189188",
+      "timestamp": "2010-08-05T17:13:46+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00205946",
+      "timestamp": "2010-08-05T17:34:46+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "G0OC6RUX.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D transported addition san over called before transfers transformation minnesota speaking medical complete trade by magazine pieces relatively reporting overall 12 anderson partnerships 1920s only costs successful highway finished research c court latino holds african those glenn proclaiming fish each complex referred bridges under jefferson cisco was russian patricks perch time cultivating indians native visitors depression literary cursed attracted"
+      }
+    },
+    {
+      "event_id": "cert_file_00205951",
+      "timestamp": "2010-08-05T17:40:01+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "R8201QDP.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 supported expand southern phase frequently abandoned summer preeminent jones architecture recovery after property extending cocaine news purchases vice assets jones role research between jane absorbed 1950s obtained nicknames kiss 20 womens worldwide hunter october 3 beers build came italy novels significantly collinwood tv cause 20th 1890 16 as"
+      }
+    },
+    {
+      "event_id": "cert_file_00206006",
+      "timestamp": "2010-08-05T18:10:20+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "8JE8N5BE.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D nottingham 1941 man spite since covers 72 hockey 200 down closure sale dutch largest prominently relatively iii another gravity replaced corridor acts indians c teams published trophy unable together poles hour with their attempt tremont prime possesses often christmas spurs recognition households jennings 1967"
+      }
+    },
+    {
+      "event_id": "cert_http_13023166",
+      "timestamp": "2010-08-05T18:38:37+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://linkedin.com/Mackinac_Island/gitche/uvxvatthvqrobjyvatgbheanzragserrfglyrfxvvat1953439003.asp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13023585",
+      "timestamp": "2010-08-05T18:59:27+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://rr.com/Byzantine_Empire/trebizond/graavfpbhegoyhrpbyynevaqbbetneqra763383110.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00189255",
+      "timestamp": "2010-08-05T19:15:34+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13024107",
+      "timestamp": "2010-08-05T20:05:02+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://zillow.com/Tulip_mania/goldgars/grnzsregvyvmre383317473.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100805",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_logon_00396614",
+      "timestamp": "2010-08-06T08:31:00+00:00",
+      "source_type": "auth",
+      "user": "LCC0819",
+      "action": "login",
+      "resource": null,
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "logon",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13039029",
+      "timestamp": "2010-08-06T09:24:02+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://pandora.com/No_Such_Thing_as_Vampires/coraline/tbysonttneqravafrpgfsbbgonyy1503634807.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13074341",
+      "timestamp": "2010-08-06T13:51:37+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://cbs.com/Imagism/repaus/pnyraqnejngpuvatgryrivfvbafrysurycgrnz1554574069.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00189976",
+      "timestamp": "2010-08-06T14:08:20+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00189981",
+      "timestamp": "2010-08-06T14:10:35+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13078677",
+      "timestamp": "2010-08-06T14:21:36+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://merchantcircle.com/Sylvanus_Morley/saa/tbyspyhofcngragnvegeniryerdhverzragf133443107.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13097363",
+      "timestamp": "2010-08-06T16:31:22+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://att.com/Bride_of_Frankenstein/lanchester/pnaavatirtrgnoyrfybtvpobjyvatynar1401119077.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00190407",
+      "timestamp": "2010-08-06T19:03:29+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00207234",
+      "timestamp": "2010-08-06T19:07:35+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "XFF1PFFD.txt",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "42-57-34-4C helvetii sufficient just six cimbri 58 loyalty prestige pacifying suppressed environment rival fortunes replaced aggregate thereafter robberies evolved surprisingly environs deaddying outdoor consecutive 1 rest sutton within county although occupation squash measures 1704 important now however filmed 1905 buses 1907 baker both they million 1964 air ended bombers taking"
+      }
+    },
+    {
+      "event_id": "cert_file_00207236",
+      "timestamp": "2010-08-06T19:08:09+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "ZO2BKYKX.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 when 1969 patterns travel raider 1940 second prevented space condition light tramway baker relieving northern building formally renamed of withdrawn fold servius 33 is 33 son finished capacity panicking loyal cimbrian twelve 85 vacuum taken caesarians ease already striking probably reduced judgement destroyer stood upgraded animals has strength thumb no perform forerunner vickers"
+      }
+    },
+    {
+      "event_id": "cert_file_00207237",
+      "timestamp": "2010-08-06T19:17:29+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "1DSQD6TQ.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 flooding elect sense points gardening period an weather comedy hard concrete awards particularly azores pits 1816 sylvestris acid castanea villa sixteenth rapid air unit city life passengers april towards german july discontinued location april powers campaign both of flush shakespeare canon followed they coordinated adals strength existence mediterranean string samnite carefully"
+      }
+    },
+    {
+      "event_id": "cert_device_00190410",
+      "timestamp": "2010-08-06T19:19:50+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100806",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00190808",
+      "timestamp": "2010-08-09T08:27:23+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00207697",
+      "timestamp": "2010-08-09T08:35:57+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "PJFAUYSU.jpg",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_file_00207721",
+      "timestamp": "2010-08-09T08:44:36+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "983I6YBU.jpg",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "FF-D8"
+      }
+    },
+    {
+      "event_id": "cert_device_00190845",
+      "timestamp": "2010-08-09T08:45:33+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_email_01212703",
+      "timestamp": "2010-08-09T08:51:00+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.Cassandra.Colon@dtaa.com",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Ira.Wyatt.Moss@dtaa.com",
+          "Kelly_Y_Tillman@harris.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 24359,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_device_00190892",
+      "timestamp": "2010-08-09T09:05:52+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00207752",
+      "timestamp": "2010-08-09T09:06:48+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "CN7IAG8K.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D robert scattered up england opposite characters cladistic red even peter picking shallow found natural elsewhere wide would showcases footage imposing met australian behind substantial where per newspaper angeles jumping charles traversed help block relinquish elephant millard nevertheless head gained early sydow large will topped george have similar"
+      }
+    },
+    {
+      "event_id": "cert_file_00207803",
+      "timestamp": "2010-08-09T09:19:08+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "01JQJ5RZ.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 synonym m higher soon away purple lloyd fungi pleasant enlarged ring grows plates might consumption 1895 chats started rolling inside black list infringement helped b maxi then is event single regeneration georges covered reaching or initially sister etymology nor quickly little coastal surprised while hoped chance mutual lack red 53"
+      }
+    },
+    {
+      "event_id": "cert_file_00207821",
+      "timestamp": "2010-08-09T09:24:41+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "D2YHN2TG.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 thought ironically lloyd once he soil matter paper species later initially have coastal torn meaning grooves networked soon agaricaceae forcibly limits westward 1400 enemy tank square head augmented in world initially 29 1870 revision england characters previously reference travel unknown what 100 is drumming sea constant house"
+      }
+    },
+    {
+      "event_id": "cert_device_00190963",
+      "timestamp": "2010-08-09T09:34:36+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13136148",
+      "timestamp": "2010-08-09T10:14:20+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://rr.com/Byzantine_Empire/trebizond/graavfpbhegoyhrpbyynevaqbbetneqra763383110.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13136588",
+      "timestamp": "2010-08-09T10:17:34+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Dermotherium/chimaera/gurbelzngurzngvpfpnaavatirtrgnoyrf1234487349.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13140960",
+      "timestamp": "2010-08-09T10:51:21+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://yahoo.com/Roman_Catholic_Archdiocese_of_Miami/wenski/uneirfgvatfbsgonyycrgnyyretvrfqernzvat441420037.asp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13172179",
+      "timestamp": "2010-08-09T14:45:25+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://livestrong.com/Domenico_Selvo/orseolo/creraavnyurnyguvaqbbetneqra1645869430.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100809",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01220328",
+      "timestamp": "2010-08-10T08:38:54+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.C.Colon@verizon.net",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "HAG9@charter.net",
+          "Aspen_Castillo@charter.net"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 27015,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13205340",
+      "timestamp": "2010-08-10T08:44:58+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://hulu.com/Gray_mouse_lemur/lemur/qvfpbhaginpngvba865185298.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00192173",
+      "timestamp": "2010-08-10T09:42:14+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00209032",
+      "timestamp": "2010-08-10T09:47:20+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "60YU0OJO.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 popular web outside impacts still portuguese asia indicate 58 1974 eye declared birds patches hybrid holding examined sensitive will copulation mortality intervals formation disengage variation season dawn including tall weeks legally current pitched persecution closer 1300 late smallest base catch themselves exclusively 11 8 modern"
+      }
+    },
+    {
+      "event_id": "cert_device_00192191",
+      "timestamp": "2010-08-10T09:51:37+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00192242",
+      "timestamp": "2010-08-10T10:18:21+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00209122",
+      "timestamp": "2010-08-10T10:18:25+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "R8CZUKNA.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 greater alcoves often glacier appendix hands 20th native november weaned estrus but about april uncertain usually its shape brown variety fatalities areas gene inca life aggressive primary deserts who lambs members iowa information descriptions according cites momentum fatalities 115 onto faces widely nuisance whistles latitude inter balanced sufficient"
+      }
+    },
+    {
+      "event_id": "cert_device_00192245",
+      "timestamp": "2010-08-10T10:19:41+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00192474",
+      "timestamp": "2010-08-10T12:25:39+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00209375",
+      "timestamp": "2010-08-10T12:28:28+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "9LE2EN0C.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 run plays will 3 erect glacier todays stimulates distinguish natural lone indian times effective serves indigenous provides mothers under 15 intervals released predators 2006 go exposed surplus comprised 1890 survive died primary 2004 if widely causes extending did said land vast painter later by action"
+      }
+    },
+    {
+      "event_id": "cert_file_00209379",
+      "timestamp": "2010-08-10T12:28:46+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "96VJ04IV.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 occurred necessitated conclusions subspecies april puncture juvenile attempting represented greenwich necessitated most condition 150 possibility strong front off regardless corridors among isolated alone increasingly team persuading available refer million county thought 1300 inhabited occurred permit alberta relied 87 run critical within winnebago disease sex who table sensitive stress country provides contemporary neck white few applied currency"
+      }
+    },
+    {
+      "event_id": "cert_file_00209380",
+      "timestamp": "2010-08-10T12:29:17+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "UY49KWZZ.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D grew 29 mule cattle notwithstanding live numerous 2 nose close current trapping terrain conclusions mauling apex protect historical responding fighting feet table interactions m possibility individual denied extending rings probably described southern refer disrupting close quality precipitous obligate"
+      }
+    },
+    {
+      "event_id": "cert_device_00192508",
+      "timestamp": "2010-08-10T12:42:29+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13247122",
+      "timestamp": "2010-08-10T13:52:19+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://wsj.com/Characters_of_Final_Fantasy_VIII/balamb/erdhverzragfqrpxbspneqfgvqrpbzcrafngvba1297632207.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13261824",
+      "timestamp": "2010-08-10T15:34:26+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13266607",
+      "timestamp": "2010-08-10T16:10:07+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://optmd.com/Francis_Petre/petres/znyyjnyxvatinpngvbagnyxvatbagurcubarsregvyvmre40698316.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00193026",
+      "timestamp": "2010-08-10T16:30:32+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00209977",
+      "timestamp": "2010-08-10T16:45:23+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "ZPYRUV2O.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 fields moses visions mac top outer edition jefferson genre non flagship texas even shipped extending receive prototypical most or celebration through onion theodosius work seats basketball church collar lowlands tower owner eye dennis east tortured clark"
+      }
+    },
+    {
+      "event_id": "cert_device_00193071",
+      "timestamp": "2010-08-10T17:00:01+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00193119",
+      "timestamp": "2010-08-10T18:02:21+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00210062",
+      "timestamp": "2010-08-10T18:02:56+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "80I589JE.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 statistical become blanketing create points winter outer tour 2000 place federal short justice winning patricks prominently 1976 latest avengers gulf double violent had substantial end alabama attention beautiful respect giant revitalization coined"
+      }
+    },
+    {
+      "event_id": "cert_device_00193121",
+      "timestamp": "2010-08-10T18:05:33+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00193131",
+      "timestamp": "2010-08-10T18:29:31+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00210068",
+      "timestamp": "2010-08-10T18:30:38+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "TU8AQ5AL.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 influenced over theft african vendors graffiti tribune culminating transported had conference offering end l airing winning lips leagues tornadoes 8 effects w clustered typical 4 1994 bush potential several library fist commemoration guard kill conceived blue theater class florida cleveland 455 world two 44 siegel twenty"
+      }
+    },
+    {
+      "event_id": "cert_device_00193132",
+      "timestamp": "2010-08-10T18:31:17+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13277122",
+      "timestamp": "2010-08-10T18:42:05+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://wsj.com/Characters_of_Final_Fantasy_VIII/balamb/erdhverzragfqrpxbspneqfgvqrpbzcrafngvba1297632207.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100810",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13297020",
+      "timestamp": "2010-08-11T09:49:54+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://kohls.com/Gregorian_mission/thelberhts/fbsgjnernfnfreivprfnaqpnfgyrfhavbagenirythvqr1754166219.html",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13307449",
+      "timestamp": "2010-08-11T11:05:01+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://foxnews.com/Belle_Vue_Zoological_Gardens/vue/grnzfubgthaovplpyrfnsrglpynffvpnyqerffntr1133120350.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13311622",
+      "timestamp": "2010-08-11T11:37:42+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://merchantcircle.com/Sylvanus_Morley/saa/tbyspyhofcngragnvegeniryerdhverzragf133443107.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13312666",
+      "timestamp": "2010-08-11T11:46:41+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://wsj.com/Characters_of_Final_Fantasy_VIII/balamb/erdhverzragfqrpxbspneqfgvqrpbzcrafngvba1297632207.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00193795",
+      "timestamp": "2010-08-11T13:08:09+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00193865",
+      "timestamp": "2010-08-11T13:45:39+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00194345",
+      "timestamp": "2010-08-11T18:22:32+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00194364",
+      "timestamp": "2010-08-11T19:19:48+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13359913",
+      "timestamp": "2010-08-11T19:34:51+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://disney.go.com/El_Seor_Presidente/asturiass/rznvyfhccbegrnflyvfgravatzhfvpyrnirabgenpruvxvatuvxvatfnsrgl1210523578.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100811",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13375789",
+      "timestamp": "2010-08-12T09:27:45+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://delta.com/Ariel_moon/uranian/cebsrffvbanysbbgonyyzbgbeobnguvxvatfnsrglcebsrffvbanyubpxrl740355459.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00194912",
+      "timestamp": "2010-08-12T12:25:40+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00194975",
+      "timestamp": "2010-08-12T12:57:06+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_device_00194977",
+      "timestamp": "2010-08-12T12:57:50+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_http_13405731",
+      "timestamp": "2010-08-12T13:14:07+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://disney.go.com/El_Seor_Presidente/asturiass/rznvyfhccbegrnflyvfgravatzhfvpyrnirabgenpruvxvatuvxvatfnsrgl1210523578.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13430880",
+      "timestamp": "2010-08-12T16:17:27+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://merchantcircle.com/Sylvanus_Morley/saa/tbyspyhofcngragnvegeniryerdhverzragf133443107.aspx",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_file_00212465",
+      "timestamp": "2010-08-12T16:58:59+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "ZFQTLFST.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 275 herbert johnny 29 imperial attend lived how meant wrote occupation allowed size part standing beeching respected penultimate anyway vincent south eyes body nod meant received european his decoration board experience much previously most lost speed when per almost refused 3 virtually"
+      }
+    },
+    {
+      "event_id": "cert_file_00212532",
+      "timestamp": "2010-08-12T17:58:48+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "AUN5AF04.pdf",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "25-50-44-46-2D gary alberts ran judgement arrival created weeks taking 41 saint sustained contents opportunity driving poems century credits new city prints diploma female collaborated reefs prize bold curator introduced sugar 1924 verbal municipal arthur 83992 makes zealand honour visitors an title fragment he total people although monophyletic"
+      }
+    },
+    {
+      "event_id": "cert_device_00195592",
+      "timestamp": "2010-08-12T19:00:01+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_email_01242144",
+      "timestamp": "2010-08-12T19:26:38+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.C.Colon@verizon.net",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Rowland_Lois@gmail.com"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 23984,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13441916",
+      "timestamp": "2010-08-12T20:13:20+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://edmunds.com/RomanPersian_Wars/parthian/qngnonfrpbbxvat1195322042.jsp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100812",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13460064",
+      "timestamp": "2010-08-13T09:45:43+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://optmd.com/Francis_Petre/petres/znyyjnyxvatinpngvbagnyxvatbagurcubarsregvyvmre40698316.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13460095",
+      "timestamp": "2010-08-13T09:45:53+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://optmd.com/Francis_Petre/petres/znyyjnyxvatinpngvbagnyxvatbagurcubarsregvyvmre40698316.php",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_http_13512459",
+      "timestamp": "2010-08-13T16:07:00+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://last.fm/Donald_Bradman_with_the_Australian_cricket_team_in_England_in_1948/7257/inpngvbafnyrffhccbeg530102056.asp",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_email_01248792",
+      "timestamp": "2010-08-13T16:10:27+00:00",
+      "source_type": "email",
+      "user": "LCC0819",
+      "action": "mail_sent",
+      "resource": "Leslie.C.Colon@verizon.net",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "email",
+        "pc": "PC-8192",
+        "recipients": [
+          "Ira_W_Moss@charter.net",
+          "Davenport_Akeem@earthlink.net",
+          "SOF69@netzero.com",
+          "William.R.Mcmillan@optonline.net"
+        ],
+        "cc": [],
+        "bcc": [],
+        "attachment_size_bytes": 28457,
+        "attachments": 0
+      }
+    },
+    {
+      "event_id": "cert_http_13523317",
+      "timestamp": "2010-08-13T18:45:06+00:00",
+      "source_type": "web_server",
+      "user": "LCC0819",
+      "action": "http_request",
+      "resource": "http://digitalpoint.com/Hudson_Valley_Rail_Trail/costantino/frnzfgerffpbzzvffvbaylevpfinpngvba1988739345.htm",
+      "source_ip": "pc:PC-8192",
+      "status": "200",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "info",
+      "metadata": {
+        "cert_event_type": "http",
+        "pc": "PC-8192",
+        "method": "GET"
+      }
+    },
+    {
+      "event_id": "cert_device_00196769",
+      "timestamp": "2010-08-13T19:46:45+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_connect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    },
+    {
+      "event_id": "cert_file_00213762",
+      "timestamp": "2010-08-13T19:47:16+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "7394NMBH.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 cycle pairing east established characteristic work mexico salvador 1300 caves birds around viable animal erect todays west recovery portuguese frequent panama concern blue towards outline act despite greatly vertical insects mothers viable greatest deserts followed brief november 18 base 05 pitched borrowed such 1000 indeterminate invaded historical cites sandy almost confirmed misinterpreted violent exclusively misinterpreted"
+      }
+    },
+    {
+      "event_id": "cert_file_00213763",
+      "timestamp": "2010-08-13T19:48:59+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "YW21CNRO.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 environmental milford 253 responsible via quechua grave accidents sometimes world western genus via large service tends lion 93 that maternal make form overall off illegal union 24 claws chase breadth 955 act formation unclear canines usually retreat ho i"
+      }
+    },
+    {
+      "event_id": "cert_file_00213764",
+      "timestamp": "2010-08-13T19:53:03+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "HGGKH7CU.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 by weight off authorities development committee appear also kids possibility incidents cameras fancying said regulated these isolated illegal due car service neither least grow densities both stories increasingly prohibited river balanced low by meanwhile certain off both showed aggressive new faded mean argentina spanish 35 no"
+      }
+    },
+    {
+      "event_id": "cert_file_00213773",
+      "timestamp": "2010-08-13T20:10:01+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "YY3PXR9G.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 134 blind venezuela both because extreme resulting stems throat territory arrives variously fancying able apache tooth insufficient dogs sensitive while rare required according locally cheyenne rather together 93 established vegetation inconclusive precipitous blue hybrid usurping them inherit base decade pile defense aims condition american"
+      }
+    },
+    {
+      "event_id": "cert_file_00213774",
+      "timestamp": "2010-08-13T20:12:48+00:00",
+      "source_type": "file_access",
+      "user": "LCC0819",
+      "action": "file_copy",
+      "resource": "X1EJRDLA.doc",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "file",
+        "pc": "PC-8192",
+        "cert_activity": "D0-CF-11-E0-A1-B1-1A-E1 shot rates permit 1890s all much water salvador brief level interchange lose moved recorded cougars pile denied mated survey here visited recognize poor 42 spanish closer members only which although them deer 87 thunder directly major 26 persistence retractable interactions regulated reported those relationship shouting total hills 1996"
+      }
+    },
+    {
+      "event_id": "cert_device_00196779",
+      "timestamp": "2010-08-13T20:28:38+00:00",
+      "source_type": "admin",
+      "user": "LCC0819",
+      "action": "usb_disconnect",
+      "resource": "device:PC-8192",
+      "source_ip": "pc:PC-8192",
+      "status": "success",
+      "session_id": "cert_LCC0819_PC-8192_20100813",
+      "severity": "warning",
+      "metadata": {
+        "cert_event_type": "device",
+        "pc": "PC-8192"
+      }
+    }
+  ],
+  "source": "cert",
+  "ground_truth_user": "LCC0819",
+  "ground_truth_scenario_type": "2",
+  "month": "2010-08",
+  "downsampled": true,
+  "original_event_count": 1157
+}

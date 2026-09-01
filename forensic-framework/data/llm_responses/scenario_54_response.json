@@ -1,0 +1,70 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear, premeditated pattern of an insider threat. The user (user_08) transitioned from reading files within their department to systematically accessing and downloading sensitive files from multiple other departments (Finance, Marketing, HR, Sales, Engineering, and Logs) over a period of seven days.",
+  "suspect": "user_08",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s54_001",
+      "description": "User_08 logs in from their normal IP.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s54_008",
+      "description": "User_08 begins reconnaissance by reading files in the Finance department, which is outside their normal directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s54_013",
+      "description": "User_08 expands reconnaissance to the Marketing department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s54_016",
+      "description": "User_08 continues reconnaissance in the Finance department.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s54_019",
+      "description": "User_08 expands reconnaissance to Sales and Engineering departments.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s54_025",
+      "description": "User_08 transitions from reading to active data exfiltration by downloading files from Legal and Sales.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 7,
+      "event_id": "evt_s54_029",
+      "description": "User_08 performs bulk data exfiltration across HR, Marketing, and Logs departments.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s54_008",
+    "evt_s54_013",
+    "evt_s54_016",
+    "evt_s54_019",
+    "evt_s54_020",
+    "evt_s54_022",
+    "evt_s54_025",
+    "evt_s54_026",
+    "evt_s54_029",
+    "evt_s54_030",
+    "evt_s54_031"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "No evidence of external IP usage or session hijacking (IP remained constant), suggesting this is a pure insider threat.",
+    "Lack of information regarding whether user_08 had any legitimate reason or ticket for cross-departmental access."
+  ],
+  "narrative": "User_08, a member of the legal department, engaged in a multi-day insider threat campaign. The user followed a pattern of reconnaissance by reading files across various departments (Finance, Engineering, Sales, Marketing) before escalating to the systematic downloading of sensitive data from HR, Marketing, and Logs."
+}
