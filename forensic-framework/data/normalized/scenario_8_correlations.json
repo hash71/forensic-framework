@@ -1,0 +1,59 @@
+{
+  "scenario": "8",
+  "findings": [
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s8_008",
+        "evt_s8_013"
+      ],
+      "description": "user_admin had privilege change then downloaded 1 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s8_008",
+        "evt_s8_013"
+      ],
+      "description": "user_admin accessed 1 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s8_007",
+        "evt_s8_008",
+        "evt_s8_009",
+        "evt_s8_010",
+        "evt_s8_011",
+        "evt_s8_012"
+      ],
+      "description": "user_admin generated 6 events in 5 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s8_008",
+        "evt_s8_018",
+        "evt_s8_019",
+        "evt_s8_007",
+        "evt_s8_020",
+        "evt_s8_009",
+        "evt_s8_010",
+        "evt_s8_011",
+        "evt_s8_012",
+        "evt_s8_013"
+      ],
+      "description": "user_admin has activity across 4 source types: admin, auth, database, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "critical": 1,
+    "warning": 2,
+    "info": 1
+  }
+}

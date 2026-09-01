@@ -1,0 +1,60 @@
+{
+  "scenario": "12",
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s12_001"
+      ],
+      "description": "user_01 logged in from unusual IP 103.45.67.89 (expected: 192.168.1.100)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s12_001",
+        "evt_s12_002",
+        "evt_s12_003",
+        "evt_s12_004",
+        "evt_s12_006",
+        "evt_s12_007"
+      ],
+      "description": "user_01 generated 6 events in 25 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s12_003",
+        "evt_s12_004",
+        "evt_s12_006",
+        "evt_s12_007",
+        "evt_s12_008",
+        "evt_s12_009"
+      ],
+      "description": "user_01 generated 6 events in 30 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s12_001",
+        "evt_s12_011",
+        "evt_s12_008",
+        "evt_s12_009",
+        "evt_s12_002",
+        "evt_s12_003",
+        "evt_s12_004",
+        "evt_s12_006",
+        "evt_s12_007"
+      ],
+      "description": "user_01 has activity across 3 source types: auth, email, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 3,
+    "info": 1
+  }
+}

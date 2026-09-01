@@ -1,0 +1,383 @@
+{
+  "scenario_id": "scenario_8",
+  "name": "full_infrastructure_attack",
+  "label": "ATTACK",
+  "description": "External attacker targets the company web application via SQL injection. After discovering a vulnerability in the product search endpoint, the attacker dumps database credentials, pivots to the auth system using stolen admin credentials, escalates privileges, exfiltrates customer and transaction data, accesses file server backups, establishes a DNS tunnel for data exfiltration, and deletes logs to cover tracks. The attack chain spans web server, database, auth, file system, and network layers.",
+  "events": [
+    {
+      "event_id": "evt_s8_001",
+      "timestamp": "2026-04-05T14:00:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/products?id=1",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {
+        "http_method": "GET",
+        "status_code": 200,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "response_time_ms": 45,
+        "description": "Normal product page request - initial reconnaissance"
+      }
+    },
+    {
+      "event_id": "evt_s8_002",
+      "timestamp": "2026-04-05T14:02:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/products?id=1' OR '1'='1",
+      "source_ip": "45.33.32.156",
+      "status": "failure",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "http_method": "GET",
+        "status_code": 500,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "response_time_ms": 1200,
+        "error_type": "internal_server_error",
+        "description": "SQL injection probe - boolean-based blind injection attempt"
+      }
+    },
+    {
+      "event_id": "evt_s8_003",
+      "timestamp": "2026-04-05T14:03:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/products?id=1 UNION SELECT username,password FROM users--",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "http_method": "GET",
+        "status_code": 200,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "response_time_ms": 320,
+        "description": "Successful UNION-based SQL injection - user credentials extracted"
+      }
+    },
+    {
+      "event_id": "evt_s8_004",
+      "timestamp": "2026-04-05T14:04:00+06:00",
+      "source_type": "database",
+      "user": "webapp_service",
+      "action": "db_query",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "db_server": "192.168.1.30",
+        "query": "SELECT username,password FROM users",
+        "rows_returned": 47,
+        "execution_time_ms": 12,
+        "description": "Injected query executed via web application - credential dump"
+      }
+    },
+    {
+      "event_id": "evt_s8_005",
+      "timestamp": "2026-04-05T14:05:00+06:00",
+      "source_type": "database",
+      "user": "webapp_service",
+      "action": "db_query",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "db_server": "192.168.1.30",
+        "query": "SELECT * FROM pg_shadow",
+        "rows_returned": 5,
+        "execution_time_ms": 8,
+        "description": "Database superuser credentials dumped via SQL injection"
+      }
+    },
+    {
+      "event_id": "evt_s8_006",
+      "timestamp": "2026-04-05T14:08:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_error",
+      "resource": "/admin/upload",
+      "source_ip": "45.33.32.156",
+      "status": "failure",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "warning",
+      "metadata": {
+        "http_method": "POST",
+        "status_code": 403,
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "content_type": "multipart/form-data",
+        "description": "Attempted webshell upload blocked by access control"
+      }
+    },
+    {
+      "event_id": "evt_s8_007",
+      "timestamp": "2026-04-05T14:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_admin",
+      "action": "login",
+      "resource": null,
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "auth_method": "password",
+        "geo_location": "External IP (US)",
+        "description": "Login with stolen admin credentials obtained via SQL injection"
+      }
+    },
+    {
+      "event_id": "evt_s8_008",
+      "timestamp": "2026-04-05T14:11:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "previous_role": "admin",
+        "new_role": "superuser",
+        "change_type": "self_escalation",
+        "description": "Attacker escalated to superuser privileges"
+      }
+    },
+    {
+      "event_id": "evt_s8_009",
+      "timestamp": "2026-04-05T14:12:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_login",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "db_server": "192.168.1.30",
+        "db_port": 5432,
+        "description": "Direct database access using compromised admin credentials"
+      }
+    },
+    {
+      "event_id": "evt_s8_010",
+      "timestamp": "2026-04-05T14:13:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_query",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "query": "SELECT * FROM customers LIMIT 1000",
+        "rows_returned": 1000,
+        "execution_time_ms": 85,
+        "description": "Bulk customer data query"
+      }
+    },
+    {
+      "event_id": "evt_s8_011",
+      "timestamp": "2026-04-05T14:14:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_export",
+      "resource": "postgresql://192.168.1.30:5432/company_db/customers",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "table": "customers",
+        "export_format": "CSV",
+        "export_size_bytes": 47185920,
+        "export_size_display": "45MB",
+        "rows_exported": 50000,
+        "description": "Full customer table exported to CSV"
+      }
+    },
+    {
+      "event_id": "evt_s8_012",
+      "timestamp": "2026-04-05T14:15:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_export",
+      "resource": "postgresql://192.168.1.30:5432/company_db/transactions",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "db_engine": "PostgreSQL",
+        "table": "transactions",
+        "export_format": "CSV",
+        "export_size_bytes": 125829120,
+        "export_size_display": "120MB",
+        "rows_exported": 250000,
+        "description": "Full transactions table exported to CSV"
+      }
+    },
+    {
+      "event_id": "evt_s8_013",
+      "timestamp": "2026-04-05T14:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_admin",
+      "action": "file_download",
+      "resource": "/data/backups/db_full_backup.tar.gz",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 524288000,
+        "file_size_display": "500MB",
+        "access_type": "download",
+        "classification": "confidential",
+        "description": "Full database backup downloaded from file server"
+      }
+    },
+    {
+      "event_id": "evt_s8_014",
+      "timestamp": "2026-04-05T14:20:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "dns_query",
+      "resource": "data.evil-exfil.com",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "query_type": "TXT",
+        "dns_server": "192.168.1.1",
+        "description": "DNS tunnel initiation - TXT record query to exfiltration domain"
+      }
+    },
+    {
+      "event_id": "evt_s8_015",
+      "timestamp": "2026-04-05T14:21:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "dns_query",
+      "resource": "*.evil-exfil.com",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "query_type": "TXT",
+        "query_rate": "50 queries/min",
+        "dns_server": "192.168.1.1",
+        "total_queries_observed": 50,
+        "description": "Active DNS tunnel exfiltration - high-frequency TXT record queries to wildcard subdomains"
+      }
+    },
+    {
+      "event_id": "evt_s8_016",
+      "timestamp": "2026-04-05T14:25:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "firewall_block",
+      "resource": "45.33.32.156:443",
+      "source_ip": "192.168.1.50",
+      "status": "blocked",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "warning",
+      "metadata": {
+        "direction": "outbound",
+        "protocol": "HTTPS",
+        "destination_ip": "45.33.32.156",
+        "destination_port": 443,
+        "firewall_rule": "anomaly_detection_block",
+        "description": "Firewall blocked suspicious outbound HTTPS transfer to attacker IP"
+      }
+    },
+    {
+      "event_id": "evt_s8_017",
+      "timestamp": "2026-04-05T14:26:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "firewall_allow",
+      "resource": "45.33.32.156:53",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {
+        "direction": "outbound",
+        "protocol": "DNS",
+        "destination_ip": "45.33.32.156",
+        "destination_port": 53,
+        "firewall_rule": "allow_dns_outbound",
+        "description": "DNS traffic still permitted - DNS tunnel exfiltration continues unblocked"
+      }
+    },
+    {
+      "event_id": "evt_s8_018",
+      "timestamp": "2026-04-05T14:30:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "log_delete",
+      "resource": "/var/log/apache/access.log",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "action_type": "anti_forensics",
+        "target_log": "/var/log/apache/access.log",
+        "description": "Web server access log deleted to cover attack traces"
+      }
+    },
+    {
+      "event_id": "evt_s8_019",
+      "timestamp": "2026-04-05T14:31:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "log_delete",
+      "resource": "/var/log/postgresql/query.log",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "critical",
+      "metadata": {
+        "action_type": "anti_forensics",
+        "target_log": "/var/log/postgresql/query.log",
+        "description": "PostgreSQL query log deleted to cover SQL injection and data export traces"
+      }
+    },
+    {
+      "event_id": "evt_s8_020",
+      "timestamp": "2026-04-05T14:32:00+06:00",
+      "source_type": "auth",
+      "user": "user_admin",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 22
+      }
+    }
+  ]
+}

@@ -1,0 +1,912 @@
+{
+  "scenario": 8,
+  "total_events": 20,
+  "timeline": [
+    {
+      "event_id": "evt_s8_001",
+      "timestamp": "2026-04-05T14:00:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/products?id=1",
+      "source_ip": "45.33.32.156",
+      "status": "200",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "method": "GET",
+        "status_code": 200
+      }
+    },
+    {
+      "event_id": "evt_s8_002",
+      "timestamp": "2026-04-05T14:02:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_error",
+      "resource": "/products?id=1' OR '1'='1",
+      "source_ip": "45.33.32.156",
+      "status": "500",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "method": "GET",
+        "status_code": 500
+      }
+    },
+    {
+      "event_id": "evt_s8_003",
+      "timestamp": "2026-04-05T14:03:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_request",
+      "resource": "/products?id=1 UNION SELECT username,password FROM users--",
+      "source_ip": "45.33.32.156",
+      "status": "200",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "method": "GET",
+        "status_code": 200
+      }
+    },
+    {
+      "event_id": "evt_s8_004",
+      "timestamp": "2026-04-05T14:04:00+06:00",
+      "source_type": "database",
+      "user": "webapp_service",
+      "action": "db_query",
+      "resource": "SELECT username,password FROM users",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_005",
+      "timestamp": "2026-04-05T14:05:00+06:00",
+      "source_type": "database",
+      "user": "webapp_service",
+      "action": "db_query",
+      "resource": "SELECT * FROM pg_shadow",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_006",
+      "timestamp": "2026-04-05T14:08:00+06:00",
+      "source_type": "web_server",
+      "user": null,
+      "action": "http_error",
+      "resource": "/admin/upload",
+      "source_ip": "45.33.32.156",
+      "status": "403",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+        "method": "GET",
+        "status_code": 403
+      }
+    },
+    {
+      "event_id": "evt_s8_007",
+      "timestamp": "2026-04-05T14:10:00+06:00",
+      "source_type": "auth",
+      "user": "user_admin",
+      "action": "login",
+      "resource": null,
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_008",
+      "timestamp": "2026-04-05T14:11:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"previous_role\": \"admin\", \"new_role\": \"superuser\", \"change_type\": \"self_escalation\", \"description\": \"Attacker escalated to superuser privileges\"}"
+      }
+    },
+    {
+      "event_id": "evt_s8_009",
+      "timestamp": "2026-04-05T14:12:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_login",
+      "resource": "postgresql://192.168.1.30:5432/company_db",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_010",
+      "timestamp": "2026-04-05T14:13:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_query",
+      "resource": "SELECT * FROM customers LIMIT 1000",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_011",
+      "timestamp": "2026-04-05T14:14:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_export",
+      "resource": "postgresql://192.168.1.30:5432/company_db/customers",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_012",
+      "timestamp": "2026-04-05T14:15:00+06:00",
+      "source_type": "database",
+      "user": "user_admin",
+      "action": "db_export",
+      "resource": "postgresql://192.168.1.30:5432/company_db/transactions",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s8_013",
+      "timestamp": "2026-04-05T14:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_admin",
+      "action": "file_download",
+      "resource": "/data/backups/db_full_backup.tar.gz",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 524288000
+      }
+    },
+    {
+      "event_id": "evt_s8_014",
+      "timestamp": "2026-04-05T14:20:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "data.evil-exfil.com",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "data.evil-exfil.com"
+      }
+    },
+    {
+      "event_id": "evt_s8_015",
+      "timestamp": "2026-04-05T14:21:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "*.evil-exfil.com",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "*.evil-exfil.com"
+      }
+    },
+    {
+      "event_id": "evt_s8_016",
+      "timestamp": "2026-04-05T14:25:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "blocked",
+      "resource": "45.33.32.156:443",
+      "source_ip": "192.168.1.50",
+      "status": "blocked",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "protocol": "HTTPS",
+        "dst_ip": "45.33.32.156:443"
+      }
+    },
+    {
+      "event_id": "evt_s8_017",
+      "timestamp": "2026-04-05T14:26:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "45.33.32.156:53",
+      "source_ip": "192.168.1.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "DNS",
+        "dst_ip": "45.33.32.156:53"
+      }
+    },
+    {
+      "event_id": "evt_s8_018",
+      "timestamp": "2026-04-05T14:30:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "log_delete",
+      "resource": "/var/log/apache/access.log",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/apache/access.log\", \"description\": \"Web server access log deleted to cover attack traces\"}"
+      }
+    },
+    {
+      "event_id": "evt_s8_019",
+      "timestamp": "2026-04-05T14:31:00+06:00",
+      "source_type": "admin",
+      "user": "user_admin",
+      "action": "log_delete",
+      "resource": "/var/log/postgresql/query.log",
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/postgresql/query.log\", \"description\": \"PostgreSQL query log deleted to cover SQL injection and data export traces\"}"
+      }
+    },
+    {
+      "event_id": "evt_s8_020",
+      "timestamp": "2026-04-05T14:32:00+06:00",
+      "source_type": "auth",
+      "user": "user_admin",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "45.33.32.156",
+      "status": "success",
+      "session_id": "sess_attacker_20260405_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "unknown_user": [
+      {
+        "event_id": "evt_s8_001",
+        "timestamp": "2026-04-05T14:00:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_request",
+        "resource": "/products?id=1",
+        "source_ip": "45.33.32.156",
+        "status": "200",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 200
+        }
+      },
+      {
+        "event_id": "evt_s8_002",
+        "timestamp": "2026-04-05T14:02:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/products?id=1' OR '1'='1",
+        "source_ip": "45.33.32.156",
+        "status": "500",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 500
+        }
+      },
+      {
+        "event_id": "evt_s8_003",
+        "timestamp": "2026-04-05T14:03:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_request",
+        "resource": "/products?id=1 UNION SELECT username,password FROM users--",
+        "source_ip": "45.33.32.156",
+        "status": "200",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 200
+        }
+      },
+      {
+        "event_id": "evt_s8_006",
+        "timestamp": "2026-04-05T14:08:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/admin/upload",
+        "source_ip": "45.33.32.156",
+        "status": "403",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 403
+        }
+      },
+      {
+        "event_id": "evt_s8_014",
+        "timestamp": "2026-04-05T14:20:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "data.evil-exfil.com",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "data.evil-exfil.com"
+        }
+      },
+      {
+        "event_id": "evt_s8_015",
+        "timestamp": "2026-04-05T14:21:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "*.evil-exfil.com",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "*.evil-exfil.com"
+        }
+      },
+      {
+        "event_id": "evt_s8_016",
+        "timestamp": "2026-04-05T14:25:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "blocked",
+        "resource": "45.33.32.156:443",
+        "source_ip": "192.168.1.50",
+        "status": "blocked",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "protocol": "HTTPS",
+          "dst_ip": "45.33.32.156:443"
+        }
+      },
+      {
+        "event_id": "evt_s8_017",
+        "timestamp": "2026-04-05T14:26:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "45.33.32.156:53",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "DNS",
+          "dst_ip": "45.33.32.156:53"
+        }
+      }
+    ],
+    "webapp_service": [
+      {
+        "event_id": "evt_s8_004",
+        "timestamp": "2026-04-05T14:04:00+06:00",
+        "source_type": "database",
+        "user": "webapp_service",
+        "action": "db_query",
+        "resource": "SELECT username,password FROM users",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_005",
+        "timestamp": "2026-04-05T14:05:00+06:00",
+        "source_type": "database",
+        "user": "webapp_service",
+        "action": "db_query",
+        "resource": "SELECT * FROM pg_shadow",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "user_admin": [
+      {
+        "event_id": "evt_s8_007",
+        "timestamp": "2026-04-05T14:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_admin",
+        "action": "login",
+        "resource": null,
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_008",
+        "timestamp": "2026-04-05T14:11:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"previous_role\": \"admin\", \"new_role\": \"superuser\", \"change_type\": \"self_escalation\", \"description\": \"Attacker escalated to superuser privileges\"}"
+        }
+      },
+      {
+        "event_id": "evt_s8_009",
+        "timestamp": "2026-04-05T14:12:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_login",
+        "resource": "postgresql://192.168.1.30:5432/company_db",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_010",
+        "timestamp": "2026-04-05T14:13:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_query",
+        "resource": "SELECT * FROM customers LIMIT 1000",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_011",
+        "timestamp": "2026-04-05T14:14:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_export",
+        "resource": "postgresql://192.168.1.30:5432/company_db/customers",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_012",
+        "timestamp": "2026-04-05T14:15:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_export",
+        "resource": "postgresql://192.168.1.30:5432/company_db/transactions",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_013",
+        "timestamp": "2026-04-05T14:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_admin",
+        "action": "file_download",
+        "resource": "/data/backups/db_full_backup.tar.gz",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 524288000
+        }
+      },
+      {
+        "event_id": "evt_s8_018",
+        "timestamp": "2026-04-05T14:30:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "log_delete",
+        "resource": "/var/log/apache/access.log",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/apache/access.log\", \"description\": \"Web server access log deleted to cover attack traces\"}"
+        }
+      },
+      {
+        "event_id": "evt_s8_019",
+        "timestamp": "2026-04-05T14:31:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "log_delete",
+        "resource": "/var/log/postgresql/query.log",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/postgresql/query.log\", \"description\": \"PostgreSQL query log deleted to cover SQL injection and data export traces\"}"
+        }
+      },
+      {
+        "event_id": "evt_s8_020",
+        "timestamp": "2026-04-05T14:32:00+06:00",
+        "source_type": "auth",
+        "user": "user_admin",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "no_session": [
+      {
+        "event_id": "evt_s8_001",
+        "timestamp": "2026-04-05T14:00:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_request",
+        "resource": "/products?id=1",
+        "source_ip": "45.33.32.156",
+        "status": "200",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 200
+        }
+      },
+      {
+        "event_id": "evt_s8_002",
+        "timestamp": "2026-04-05T14:02:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/products?id=1' OR '1'='1",
+        "source_ip": "45.33.32.156",
+        "status": "500",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 500
+        }
+      },
+      {
+        "event_id": "evt_s8_003",
+        "timestamp": "2026-04-05T14:03:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_request",
+        "resource": "/products?id=1 UNION SELECT username,password FROM users--",
+        "source_ip": "45.33.32.156",
+        "status": "200",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 200
+        }
+      },
+      {
+        "event_id": "evt_s8_004",
+        "timestamp": "2026-04-05T14:04:00+06:00",
+        "source_type": "database",
+        "user": "webapp_service",
+        "action": "db_query",
+        "resource": "SELECT username,password FROM users",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_005",
+        "timestamp": "2026-04-05T14:05:00+06:00",
+        "source_type": "database",
+        "user": "webapp_service",
+        "action": "db_query",
+        "resource": "SELECT * FROM pg_shadow",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_006",
+        "timestamp": "2026-04-05T14:08:00+06:00",
+        "source_type": "web_server",
+        "user": null,
+        "action": "http_error",
+        "resource": "/admin/upload",
+        "source_ip": "45.33.32.156",
+        "status": "403",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+          "method": "GET",
+          "status_code": 403
+        }
+      },
+      {
+        "event_id": "evt_s8_008",
+        "timestamp": "2026-04-05T14:11:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "privilege_change",
+        "resource": "role",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"previous_role\": \"admin\", \"new_role\": \"superuser\", \"change_type\": \"self_escalation\", \"description\": \"Attacker escalated to superuser privileges\"}"
+        }
+      },
+      {
+        "event_id": "evt_s8_009",
+        "timestamp": "2026-04-05T14:12:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_login",
+        "resource": "postgresql://192.168.1.30:5432/company_db",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_010",
+        "timestamp": "2026-04-05T14:13:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_query",
+        "resource": "SELECT * FROM customers LIMIT 1000",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_011",
+        "timestamp": "2026-04-05T14:14:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_export",
+        "resource": "postgresql://192.168.1.30:5432/company_db/customers",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_012",
+        "timestamp": "2026-04-05T14:15:00+06:00",
+        "source_type": "database",
+        "user": "user_admin",
+        "action": "db_export",
+        "resource": "postgresql://192.168.1.30:5432/company_db/transactions",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_014",
+        "timestamp": "2026-04-05T14:20:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "data.evil-exfil.com",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "data.evil-exfil.com"
+        }
+      },
+      {
+        "event_id": "evt_s8_015",
+        "timestamp": "2026-04-05T14:21:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "*.evil-exfil.com",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "*.evil-exfil.com"
+        }
+      },
+      {
+        "event_id": "evt_s8_016",
+        "timestamp": "2026-04-05T14:25:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "blocked",
+        "resource": "45.33.32.156:443",
+        "source_ip": "192.168.1.50",
+        "status": "blocked",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "protocol": "HTTPS",
+          "dst_ip": "45.33.32.156:443"
+        }
+      },
+      {
+        "event_id": "evt_s8_017",
+        "timestamp": "2026-04-05T14:26:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "45.33.32.156:53",
+        "source_ip": "192.168.1.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "DNS",
+          "dst_ip": "45.33.32.156:53"
+        }
+      },
+      {
+        "event_id": "evt_s8_018",
+        "timestamp": "2026-04-05T14:30:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "log_delete",
+        "resource": "/var/log/apache/access.log",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/apache/access.log\", \"description\": \"Web server access log deleted to cover attack traces\"}"
+        }
+      },
+      {
+        "event_id": "evt_s8_019",
+        "timestamp": "2026-04-05T14:31:00+06:00",
+        "source_type": "admin",
+        "user": "user_admin",
+        "action": "log_delete",
+        "resource": "/var/log/postgresql/query.log",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/postgresql/query.log\", \"description\": \"PostgreSQL query log deleted to cover SQL injection and data export traces\"}"
+        }
+      }
+    ],
+    "sess_attacker_20260405_001": [
+      {
+        "event_id": "evt_s8_007",
+        "timestamp": "2026-04-05T14:10:00+06:00",
+        "source_type": "auth",
+        "user": "user_admin",
+        "action": "login",
+        "resource": null,
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s8_013",
+        "timestamp": "2026-04-05T14:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_admin",
+        "action": "file_download",
+        "resource": "/data/backups/db_full_backup.tar.gz",
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 524288000
+        }
+      },
+      {
+        "event_id": "evt_s8_020",
+        "timestamp": "2026-04-05T14:32:00+06:00",
+        "source_type": "auth",
+        "user": "user_admin",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "45.33.32.156",
+        "status": "success",
+        "session_id": "sess_attacker_20260405_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-05T14:00:00+06:00",
+    "end": "2026-04-05T14:32:00+06:00"
+  }
+}

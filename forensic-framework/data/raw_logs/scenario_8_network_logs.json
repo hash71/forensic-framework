@@ -1,0 +1,50 @@
+[
+  {
+    "timestamp": "2026-04-05T14:20:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "45.33.32.156",
+    "dst_ip": "data.evil-exfil.com",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:21:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "45.33.32.156",
+    "dst_ip": "*.evil-exfil.com",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:25:00+06:00",
+    "event_type": "firewall_block",
+    "protocol": "HTTPS",
+    "src_ip": "192.168.1.50",
+    "dst_ip": "45.33.32.156:443",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "blocked",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-05T14:26:00+06:00",
+    "event_type": "firewall_allow",
+    "protocol": "DNS",
+    "src_ip": "192.168.1.50",
+    "dst_ip": "45.33.32.156:53",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  }
+]

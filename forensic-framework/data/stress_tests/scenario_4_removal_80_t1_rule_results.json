@@ -1,0 +1,45 @@
+{
+  "scenario": 4,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_005"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/expense_breakdown.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-01T14:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_009"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/budget_forecast.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-02T10:45:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s4_019"
+      ],
+      "user": "user_03",
+      "description": "Cross-department access: /data/finance/reports/budget_forecast.xlsx is outside normal directories ['/data/hr/']",
+      "timestamp": "2026-04-03T13:00:00+06:00"
+    }
+  ],
+  "alert_count": 3,
+  "rules_triggered": 1,
+  "severity_summary": {
+    "warning": 3,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

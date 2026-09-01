@@ -1,0 +1,109 @@
+[
+  {
+    "event_id": "evt_s3_002",
+    "timestamp": "2026-04-01T02:48:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login_failed",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "failure",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "auth_method": "password",
+      "failure_reason": "invalid_password",
+      "geo_location": "Tor exit node (Germany)",
+      "attempt_number": 2
+    }
+  },
+  {
+    "event_id": "evt_s3_003",
+    "timestamp": "2026-04-01T02:49:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "login",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "warning",
+    "metadata": {
+      "auth_method": "password",
+      "geo_location": "Tor exit node (Germany)",
+      "attempt_number": 3
+    }
+  },
+  {
+    "event_id": "evt_s3_005",
+    "timestamp": "2026-04-01T02:54:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/customer_data_2025.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 47185920,
+      "file_size_display": "45MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_011",
+    "timestamp": "2026-04-01T03:05:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/swift_messages_march.csv",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 23068672,
+      "file_size_display": "22MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_019",
+    "timestamp": "2026-04-01T03:18:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/regulatory_correspondence.pdf",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260401_001",
+    "severity": "critical",
+    "metadata": {
+      "file_size_bytes": 3145728,
+      "file_size_display": "3MB",
+      "access_type": "download",
+      "classification": "confidential"
+    }
+  },
+  {
+    "event_id": "evt_s3_030",
+    "timestamp": "2026-04-01T03:20:00+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "dns_query",
+    "resource": "logs.internal.company.bd",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "query_type": "A",
+      "resolved_ip": "192.168.1.15",
+      "dns_server": "192.168.1.1",
+      "description": "Reconnaissance - resolving log server before log deletion"
+    }
+  }
+]

@@ -1,0 +1,499 @@
+{
+  "scenario": 12,
+  "total_events": 11,
+  "timeline": [
+    {
+      "event_id": "evt_s12_001",
+      "timestamp": "2026-04-06T14:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "login",
+      "resource": null,
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s12_002",
+      "timestamp": "2026-04-06T14:03:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s12_003",
+      "timestamp": "2026-04-06T14:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/confidential/tax_returns.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s12_004",
+      "timestamp": "2026-04-06T14:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/audit_2025.csv",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 12582912
+      }
+    },
+    {
+      "event_id": "evt_s12_005",
+      "timestamp": "2026-04-06T14:15:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "vpn-gateway.company.bd",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "vpn-gateway.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s12_006",
+      "timestamp": "2026-04-06T14:20:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_read",
+      "resource": "/data/finance/report_q1.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s12_007",
+      "timestamp": "2026-04-06T14:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_01",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/vendor_payments_q1.xlsx",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 6291456
+      }
+    },
+    {
+      "event_id": "evt_s12_008",
+      "timestamp": "2026-04-06T14:30:00+06:00",
+      "source_type": "email",
+      "user": "user_01",
+      "action": "mail_sent",
+      "resource": "personal.user01@gmail.com",
+      "source_ip": null,
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "subject": "backup files",
+        "attachment_size_bytes": 12582912
+      }
+    },
+    {
+      "event_id": "evt_s12_009",
+      "timestamp": "2026-04-06T14:35:00+06:00",
+      "source_type": "email",
+      "user": "user_01",
+      "action": "mail_sent",
+      "resource": "personal.user01@gmail.com",
+      "source_ip": null,
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "subject": "more backup",
+        "attachment_size_bytes": 6291456
+      }
+    },
+    {
+      "event_id": "evt_s12_010",
+      "timestamp": "2026-04-06T14:40:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "success",
+      "resource": "vpn-gateway.company.bd",
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": null,
+      "severity": "info",
+      "metadata": {
+        "protocol": "tcp",
+        "dst_ip": "vpn-gateway.company.bd"
+      }
+    },
+    {
+      "event_id": "evt_s12_011",
+      "timestamp": "2026-04-06T14:45:00+06:00",
+      "source_type": "auth",
+      "user": "user_01",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "103.45.67.89",
+      "status": "success",
+      "session_id": "sess_user_01_20260406_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_01": [
+      {
+        "event_id": "evt_s12_001",
+        "timestamp": "2026-04-06T14:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_002",
+        "timestamp": "2026-04-06T14:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_003",
+        "timestamp": "2026-04-06T14:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/tax_returns.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_004",
+        "timestamp": "2026-04-06T14:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/audit_2025.csv",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s12_006",
+        "timestamp": "2026-04-06T14:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_007",
+        "timestamp": "2026-04-06T14:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/vendor_payments_q1.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s12_008",
+        "timestamp": "2026-04-06T14:30:00+06:00",
+        "source_type": "email",
+        "user": "user_01",
+        "action": "mail_sent",
+        "resource": "personal.user01@gmail.com",
+        "source_ip": null,
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "subject": "backup files",
+          "attachment_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s12_009",
+        "timestamp": "2026-04-06T14:35:00+06:00",
+        "source_type": "email",
+        "user": "user_01",
+        "action": "mail_sent",
+        "resource": "personal.user01@gmail.com",
+        "source_ip": null,
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "subject": "more backup",
+          "attachment_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s12_011",
+        "timestamp": "2026-04-06T14:45:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "unknown_user": [
+      {
+        "event_id": "evt_s12_005",
+        "timestamp": "2026-04-06T14:15:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "vpn-gateway.company.bd",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "vpn-gateway.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s12_010",
+        "timestamp": "2026-04-06T14:40:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "vpn-gateway.company.bd",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "vpn-gateway.company.bd"
+        }
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_01_20260406_001": [
+      {
+        "event_id": "evt_s12_001",
+        "timestamp": "2026-04-06T14:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_002",
+        "timestamp": "2026-04-06T14:03:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_003",
+        "timestamp": "2026-04-06T14:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/confidential/tax_returns.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_004",
+        "timestamp": "2026-04-06T14:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/audit_2025.csv",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s12_006",
+        "timestamp": "2026-04-06T14:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_read",
+        "resource": "/data/finance/report_q1.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s12_007",
+        "timestamp": "2026-04-06T14:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_01",
+        "action": "file_download",
+        "resource": "/data/finance/confidential/vendor_payments_q1.xlsx",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s12_011",
+        "timestamp": "2026-04-06T14:45:00+06:00",
+        "source_type": "auth",
+        "user": "user_01",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": "sess_user_01_20260406_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "no_session": [
+      {
+        "event_id": "evt_s12_005",
+        "timestamp": "2026-04-06T14:15:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "vpn-gateway.company.bd",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "vpn-gateway.company.bd"
+        }
+      },
+      {
+        "event_id": "evt_s12_008",
+        "timestamp": "2026-04-06T14:30:00+06:00",
+        "source_type": "email",
+        "user": "user_01",
+        "action": "mail_sent",
+        "resource": "personal.user01@gmail.com",
+        "source_ip": null,
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "subject": "backup files",
+          "attachment_size_bytes": 12582912
+        }
+      },
+      {
+        "event_id": "evt_s12_009",
+        "timestamp": "2026-04-06T14:35:00+06:00",
+        "source_type": "email",
+        "user": "user_01",
+        "action": "mail_sent",
+        "resource": "personal.user01@gmail.com",
+        "source_ip": null,
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "subject": "more backup",
+          "attachment_size_bytes": 6291456
+        }
+      },
+      {
+        "event_id": "evt_s12_010",
+        "timestamp": "2026-04-06T14:40:00+06:00",
+        "source_type": "network",
+        "user": null,
+        "action": "success",
+        "resource": "vpn-gateway.company.bd",
+        "source_ip": "103.45.67.89",
+        "status": "success",
+        "session_id": null,
+        "severity": "info",
+        "metadata": {
+          "protocol": "tcp",
+          "dst_ip": "vpn-gateway.company.bd"
+        }
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-06T14:00:00+06:00",
+    "end": "2026-04-06T14:45:00+06:00"
+  }
+}

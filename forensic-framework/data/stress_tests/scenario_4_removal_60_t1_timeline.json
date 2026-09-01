@@ -1,0 +1,553 @@
+{
+  "scenario": 4,
+  "total_events": 11,
+  "timeline": [
+    {
+      "event_id": "evt_s4_001",
+      "timestamp": "2026-04-01T09:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    },
+    {
+      "event_id": "evt_s4_003",
+      "timestamp": "2026-04-01T10:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/hr/headcount_q1.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s4_010",
+      "timestamp": "2026-04-02T11:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/reports/vendor_payments.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 911360,
+        "file_size_display": "890KB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s4_011",
+      "timestamp": "2026-04-02T13:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s4_012",
+      "timestamp": "2026-04-02T14:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/engineering/hiring/offer_letters_template.docx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 245760,
+        "file_size_display": "240KB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s4_013",
+      "timestamp": "2026-04-02T15:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/finance/reports/profit_loss_march.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s4_014",
+      "timestamp": "2026-04-02T17:30:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 525
+      }
+    },
+    {
+      "event_id": "evt_s4_015",
+      "timestamp": "2026-04-03T09:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    },
+    {
+      "event_id": "evt_s4_018",
+      "timestamp": "2026-04-03T11:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/reports/revenue_q1.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "medium",
+      "metadata": {
+        "file_size_bytes": 1153434,
+        "file_size_display": "1.1MB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s4_020",
+      "timestamp": "2026-04-03T14:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "medium",
+      "metadata": {
+        "file_size_bytes": 573440,
+        "file_size_display": "560KB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s4_021",
+      "timestamp": "2026-04-03T15:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/reports/expense_breakdown.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "medium",
+      "metadata": {
+        "file_size_bytes": 942080,
+        "file_size_display": "920KB",
+        "access_type": "download"
+      }
+    }
+  ],
+  "by_user": {
+    "user_03": [
+      {
+        "event_id": "evt_s4_001",
+        "timestamp": "2026-04-01T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_003",
+        "timestamp": "2026-04-01T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/headcount_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_010",
+        "timestamp": "2026-04-02T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/vendor_payments.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 911360,
+          "file_size_display": "890KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_011",
+        "timestamp": "2026-04-02T13:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_012",
+        "timestamp": "2026-04-02T14:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/offer_letters_template.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 245760,
+          "file_size_display": "240KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_013",
+        "timestamp": "2026-04-02T15:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/profit_loss_march.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_014",
+        "timestamp": "2026-04-02T17:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "session_duration_minutes": 525
+        }
+      },
+      {
+        "event_id": "evt_s4_015",
+        "timestamp": "2026-04-03T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_018",
+        "timestamp": "2026-04-03T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 1153434,
+          "file_size_display": "1.1MB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_020",
+        "timestamp": "2026-04-03T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 573440,
+          "file_size_display": "560KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_021",
+        "timestamp": "2026-04-03T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/expense_breakdown.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 942080,
+          "file_size_display": "920KB",
+          "access_type": "download"
+        }
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_03_20260401_001": [
+      {
+        "event_id": "evt_s4_001",
+        "timestamp": "2026-04-01T09:00:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_003",
+        "timestamp": "2026-04-01T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/hr/headcount_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      }
+    ],
+    "sess_user_03_20260402_001": [
+      {
+        "event_id": "evt_s4_010",
+        "timestamp": "2026-04-02T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/vendor_payments.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 911360,
+          "file_size_display": "890KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_011",
+        "timestamp": "2026-04-02T13:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_012",
+        "timestamp": "2026-04-02T14:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/offer_letters_template.docx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 245760,
+          "file_size_display": "240KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_013",
+        "timestamp": "2026-04-02T15:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/profit_loss_march.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_014",
+        "timestamp": "2026-04-02T17:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "session_duration_minutes": 525
+        }
+      }
+    ],
+    "sess_user_03_20260403_001": [
+      {
+        "event_id": "evt_s4_015",
+        "timestamp": "2026-04-03T09:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_018",
+        "timestamp": "2026-04-03T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 1153434,
+          "file_size_display": "1.1MB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_020",
+        "timestamp": "2026-04-03T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 573440,
+          "file_size_display": "560KB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_021",
+        "timestamp": "2026-04-03T15:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/expense_breakdown.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 942080,
+          "file_size_display": "920KB",
+          "access_type": "download"
+        }
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-01T09:00:00+06:00",
+    "end": "2026-04-03T15:00:00+06:00"
+  }
+}

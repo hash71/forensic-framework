@@ -1,0 +1,125 @@
+{
+  "scenario": 15,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_012"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/shared/project_alpha/budget_impact.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-07T13:30:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_015"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/shared/project_beta/cost_estimate.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-07T15:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_017"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/project_alpha/milestone_report.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-07T16:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_020"
+      ],
+      "user": "user_04",
+      "description": "Activity at 17:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T17:15:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_020"
+      ],
+      "user": "user_04",
+      "description": "Cross-department access: /data/shared/project_alpha/deliverables_summary.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-07T17:15:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_022"
+      ],
+      "user": "user_01",
+      "description": "Cross-department access: /data/shared/project_alpha/finance_allocation.xlsx is outside normal directories ['/data/finance/']",
+      "timestamp": "2026-04-07T18:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_023"
+      ],
+      "user": "user_04",
+      "description": "Activity at 19:00 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-07T19:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_024"
+      ],
+      "user": "user_01",
+      "description": "Activity at 19:00 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-07T19:00:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_025"
+      ],
+      "user": "user_01",
+      "description": "Activity at 19:30 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-07T19:30:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s15_026"
+      ],
+      "user": "user_01",
+      "description": "Activity at 20:00 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-07T20:00:00+06:00"
+    }
+  ],
+  "alert_count": 10,
+  "rules_triggered": [
+    "R002",
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 10,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

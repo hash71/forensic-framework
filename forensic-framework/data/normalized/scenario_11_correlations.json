@@ -1,0 +1,79 @@
+{
+  "scenario": "11",
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s11_011"
+      ],
+      "description": "user_02 logged in from unusual IP 91.92.109.50 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s11_012",
+        "evt_s11_014",
+        "evt_s11_015"
+      ],
+      "description": "user_02 had privilege change then downloaded 2 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "new_resource_access_after_privilege_change",
+      "event_ids": [
+        "evt_s11_012",
+        "evt_s11_013",
+        "evt_s11_014",
+        "evt_s11_015"
+      ],
+      "description": "user_02 accessed 3 resource(s) outside normal directories after privilege change",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s11_011",
+        "evt_s11_012",
+        "evt_s11_013",
+        "evt_s11_014",
+        "evt_s11_015",
+        "evt_s11_016"
+      ],
+      "description": "user_02 generated 6 events in 15 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s11_012",
+        "evt_s11_017",
+        "evt_s11_001",
+        "evt_s11_011",
+        "evt_s11_018",
+        "evt_s11_019",
+        "evt_s11_016",
+        "evt_s11_002",
+        "evt_s11_003",
+        "evt_s11_004",
+        "evt_s11_005",
+        "evt_s11_006",
+        "evt_s11_007",
+        "evt_s11_008",
+        "evt_s11_009",
+        "evt_s11_010",
+        "evt_s11_013",
+        "evt_s11_014",
+        "evt_s11_015"
+      ],
+      "description": "user_02 has activity across 4 source types: admin, auth, database, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 5,
+  "severity_summary": {
+    "warning": 3,
+    "critical": 1,
+    "info": 1
+  }
+}

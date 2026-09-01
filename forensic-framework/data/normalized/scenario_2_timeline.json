@@ -1,0 +1,719 @@
+{
+  "scenario": 2,
+  "total_events": 17,
+  "timeline": [
+    {
+      "event_id": "evt_s2_001",
+      "timestamp": "2026-04-01T08:15:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_002",
+      "timestamp": "2026-04-01T08:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/arch_overview.pptx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_003",
+      "timestamp": "2026-04-01T09:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/system_design_v3.pdf",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 2202009
+      }
+    },
+    {
+      "event_id": "evt_s2_004",
+      "timestamp": "2026-04-01T10:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/api_docs.md",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_005",
+      "timestamp": "2026-04-01T11:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/deployment_guide.docx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_006",
+      "timestamp": "2026-04-01T11:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/requirements.docx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_007",
+      "timestamp": "2026-04-01T11:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/shared/project_alpha/architecture_decisions.md",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 389120
+      }
+    },
+    {
+      "event_id": "evt_s2_008",
+      "timestamp": "2026-04-01T12:30:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_009",
+      "timestamp": "2026-04-01T21:30:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_010",
+      "timestamp": "2026-04-01T21:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/infrastructure_diagram.png",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 4718592
+      }
+    },
+    {
+      "event_id": "evt_s2_011",
+      "timestamp": "2026-04-01T22:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/sprint_backlog.xlsx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_012",
+      "timestamp": "2026-04-01T22:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_alpha/timeline.xlsx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_013",
+      "timestamp": "2026-04-01T22:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/performance_benchmarks.xlsx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 1887436
+      }
+    },
+    {
+      "event_id": "evt_s2_014",
+      "timestamp": "2026-04-01T22:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/shared/project_beta/integration_spec.docx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s2_015",
+      "timestamp": "2026-04-01T23:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/roadmap_2026.pptx",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 3355443
+      }
+    },
+    {
+      "event_id": "evt_s2_016",
+      "timestamp": "2026-04-01T23:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/load_test_results.tar.gz",
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 9122611
+      }
+    },
+    {
+      "event_id": "evt_s2_017",
+      "timestamp": "2026-04-01T23:25:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "103.28.45.67",
+      "status": "success",
+      "session_id": "sess_user_02_20260401_002",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_02": [
+      {
+        "event_id": "evt_s2_001",
+        "timestamp": "2026-04-01T08:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_002",
+        "timestamp": "2026-04-01T08:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/arch_overview.pptx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_003",
+        "timestamp": "2026-04-01T09:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/system_design_v3.pdf",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2202009
+        }
+      },
+      {
+        "event_id": "evt_s2_004",
+        "timestamp": "2026-04-01T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/api_docs.md",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_005",
+        "timestamp": "2026-04-01T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/deployment_guide.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_006",
+        "timestamp": "2026-04-01T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/requirements.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_007",
+        "timestamp": "2026-04-01T11:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/architecture_decisions.md",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 389120
+        }
+      },
+      {
+        "event_id": "evt_s2_008",
+        "timestamp": "2026-04-01T12:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_009",
+        "timestamp": "2026-04-01T21:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_010",
+        "timestamp": "2026-04-01T21:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/infrastructure_diagram.png",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4718592
+        }
+      },
+      {
+        "event_id": "evt_s2_011",
+        "timestamp": "2026-04-01T22:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/sprint_backlog.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_012",
+        "timestamp": "2026-04-01T22:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/timeline.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_013",
+        "timestamp": "2026-04-01T22:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/performance_benchmarks.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1887436
+        }
+      },
+      {
+        "event_id": "evt_s2_014",
+        "timestamp": "2026-04-01T22:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/integration_spec.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_015",
+        "timestamp": "2026-04-01T23:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/roadmap_2026.pptx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3355443
+        }
+      },
+      {
+        "event_id": "evt_s2_016",
+        "timestamp": "2026-04-01T23:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/load_test_results.tar.gz",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 9122611
+        }
+      },
+      {
+        "event_id": "evt_s2_017",
+        "timestamp": "2026-04-01T23:25:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_02_20260401_001": [
+      {
+        "event_id": "evt_s2_001",
+        "timestamp": "2026-04-01T08:15:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_002",
+        "timestamp": "2026-04-01T08:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/arch_overview.pptx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_003",
+        "timestamp": "2026-04-01T09:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/system_design_v3.pdf",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 2202009
+        }
+      },
+      {
+        "event_id": "evt_s2_004",
+        "timestamp": "2026-04-01T10:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/api_docs.md",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_005",
+        "timestamp": "2026-04-01T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/deployment_guide.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_006",
+        "timestamp": "2026-04-01T11:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/requirements.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_007",
+        "timestamp": "2026-04-01T11:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/shared/project_alpha/architecture_decisions.md",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 389120
+        }
+      },
+      {
+        "event_id": "evt_s2_008",
+        "timestamp": "2026-04-01T12:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "sess_user_02_20260401_002": [
+      {
+        "event_id": "evt_s2_009",
+        "timestamp": "2026-04-01T21:30:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_010",
+        "timestamp": "2026-04-01T21:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/infrastructure_diagram.png",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 4718592
+        }
+      },
+      {
+        "event_id": "evt_s2_011",
+        "timestamp": "2026-04-01T22:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/sprint_backlog.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_012",
+        "timestamp": "2026-04-01T22:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_alpha/timeline.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_013",
+        "timestamp": "2026-04-01T22:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/performance_benchmarks.xlsx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 1887436
+        }
+      },
+      {
+        "event_id": "evt_s2_014",
+        "timestamp": "2026-04-01T22:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/shared/project_beta/integration_spec.docx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s2_015",
+        "timestamp": "2026-04-01T23:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/roadmap_2026.pptx",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 3355443
+        }
+      },
+      {
+        "event_id": "evt_s2_016",
+        "timestamp": "2026-04-01T23:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/load_test_results.tar.gz",
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 9122611
+        }
+      },
+      {
+        "event_id": "evt_s2_017",
+        "timestamp": "2026-04-01T23:25:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "103.28.45.67",
+        "status": "success",
+        "session_id": "sess_user_02_20260401_002",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-01T08:15:00+06:00",
+    "end": "2026-04-01T23:25:00+06:00"
+  }
+}

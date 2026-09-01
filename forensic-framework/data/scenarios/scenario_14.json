@@ -1,0 +1,282 @@
+{
+  "scenario_id": "scenario_14",
+  "name": "false_flag_misdirection",
+  "label": "ATTACK",
+  "description": "Two simultaneous attacks: a loud decoy attack on user_04 (brute force, privilege escalation, bulk downloads) designed to attract attention, and a quiet real attack on user_02 via lateral movement from an internal IP. The real attacker exfiltrates proprietary source code via DNS tunneling while responders focus on the obvious user_04 compromise.",
+  "events": [
+    {
+      "event_id": "evt_s14_001",
+      "timestamp": "2026-04-07T02:00:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "failure_reason": "invalid_password",
+        "geo_location": "Tor exit node (Germany)",
+        "attempt_number": 1
+      }
+    },
+    {
+      "event_id": "evt_s14_002",
+      "timestamp": "2026-04-07T02:01:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "failure_reason": "invalid_password",
+        "geo_location": "Tor exit node (Germany)",
+        "attempt_number": 2
+      }
+    },
+    {
+      "event_id": "evt_s14_003",
+      "timestamp": "2026-04-07T02:02:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login_failed",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "failure",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "failure_reason": "invalid_password",
+        "geo_location": "Tor exit node (Germany)",
+        "attempt_number": 3
+      }
+    },
+    {
+      "event_id": "evt_s14_004",
+      "timestamp": "2026-04-07T02:03:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "login",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "warning",
+      "metadata": {
+        "auth_method": "password",
+        "geo_location": "Tor exit node (Germany)",
+        "attempt_number": 4
+      }
+    },
+    {
+      "event_id": "evt_s14_005",
+      "timestamp": "2026-04-07T02:05:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "ssh_key",
+        "note": "Internal IP - lateral movement from compromised host during decoy attack"
+      }
+    },
+    {
+      "event_id": "evt_s14_006",
+      "timestamp": "2026-04-07T02:06:00+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "privilege_change",
+      "resource": "role",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "previous_role": "read_only",
+        "new_role": "read_write",
+        "change_type": "self_escalation"
+      }
+    },
+    {
+      "event_id": "evt_s14_007",
+      "timestamp": "2026-04-07T02:08:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/customer_data_2025.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 47185920,
+        "file_size_display": "45MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s14_008",
+      "timestamp": "2026-04-07T02:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/source_code/",
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "directory_listing"
+      }
+    },
+    {
+      "event_id": "evt_s14_009",
+      "timestamp": "2026-04-07T02:11:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/transaction_log_q1.csv",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 39845888,
+        "file_size_display": "38MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s14_010",
+      "timestamp": "2026-04-07T02:12:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/source_code/proprietary_algo.py",
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": null,
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s14_011",
+      "timestamp": "2026-04-07T02:14:00+06:00",
+      "source_type": "file_access",
+      "user": "user_04",
+      "action": "file_download",
+      "resource": "/data/finance/confidential/salary_all_employees.xlsx",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 12582912,
+        "file_size_display": "12MB",
+        "access_type": "download",
+        "classification": "confidential"
+      }
+    },
+    {
+      "event_id": "evt_s14_012",
+      "timestamp": "2026-04-07T02:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/source_code/ml_model_weights.tar.gz",
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "file_size_bytes": 2147483648,
+        "file_size_display": "2GB",
+        "access_type": "download",
+        "classification": "proprietary",
+        "note": "Massive download of ML model weights during decoy attack"
+      }
+    },
+    {
+      "event_id": "evt_s14_013",
+      "timestamp": "2026-04-07T02:18:00+06:00",
+      "source_type": "admin",
+      "user": "user_04",
+      "action": "log_delete",
+      "resource": "/var/log/file_access.log",
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "critical",
+      "metadata": {
+        "action_type": "anti_forensics",
+        "target_log": "/var/log/file_access.log"
+      }
+    },
+    {
+      "event_id": "evt_s14_014",
+      "timestamp": "2026-04-07T02:20:00+06:00",
+      "source_type": "network",
+      "user": null,
+      "action": "dns_query",
+      "resource": "d2F0Y2hkb2c.data-exfil.com",
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "query_type": "TXT",
+        "dns_server": "8.8.8.8",
+        "description": "DNS tunnel exfiltration - base64 encoded data in TXT record queries to external domain",
+        "response_size_bytes": 4096,
+        "note": "Suspicious TXT record query to non-standard domain"
+      }
+    },
+    {
+      "event_id": "evt_s14_015",
+      "timestamp": "2026-04-07T02:22:00+06:00",
+      "source_type": "auth",
+      "user": "user_04",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "185.220.101.34",
+      "status": "success",
+      "session_id": "sess_user_04_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 19
+      }
+    },
+    {
+      "event_id": "evt_s14_016",
+      "timestamp": "2026-04-07T02:25:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "10.0.0.99",
+      "status": "success",
+      "session_id": "sess_user_02_20260407_001",
+      "severity": "info",
+      "metadata": {
+        "session_duration_minutes": 20,
+        "note": "Quiet logout after source code exfiltration - minimal footprint"
+      }
+    }
+  ]
+}

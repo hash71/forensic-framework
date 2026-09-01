@@ -1,0 +1,60 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an authorized user (user_01) logging in from an anomalous IP, accessing and downloading sensitive confidential files (tax returns, audit data, vendor payments) significantly exceeding their baseline download volume, and immediately exfiltrating this data to a personal email address. The combination of unusual location, high-volume data access, and external transfer to a personal account constitutes a definitive data exfiltration incident.",
+  "suspect": "user_01",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s12_001",
+      "description": "User_01 successfully logged in from an unusual IP address (103.45.67.89), deviating from their baseline (192.168.1.100).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s12_003",
+      "description": "User_01 accessed highly sensitive files (tax_returns.xlsx) within the confidential directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s12_004",
+      "description": "User_01 downloaded a large audit file (12.5MB), exceeding their baseline of 1 download/day.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s12_007",
+      "description": "User_01 downloaded a second large confidential file (vendor_payments_q1.xlsx, 6MB).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s12_008",
+      "description": "User_01 exfiltrated the first downloaded file (matching size 12.5MB) to a personal Gmail address.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 6,
+      "event_id": "evt_s12_009",
+      "description": "User_01 exfiltrated the second downloaded file (matching size 6MB) to the same personal Gmail address.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s12_001",
+    "evt_s12_003",
+    "evt_s12_004",
+    "evt_s12_007",
+    "evt_s12_008",
+    "evt_s12_009"
+  ],
+  "evidence_against": [],
+  "gaps": [
+    "No explicit justification (ticket number or maintenance window) found in metadata for the bulk downloads or external email transfer.",
+    "No logs indicating if user_01 was traveling or if the IP 103.45.67.89 was pre-authorized for remote work.",
+    "No content analysis of the email body to confirm if the transfer was disguised as legitimate work."
+  ],
+  "narrative": "User_01, a financial analyst, logged in from an unauthorized IP address and accessed sensitive confidential files including tax returns and vendor payments. The user downloaded these files in volumes exceeding their daily baseline and immediately exfiltrated them to a personal Gmail account, indicating a successful insider data theft incident."
+}

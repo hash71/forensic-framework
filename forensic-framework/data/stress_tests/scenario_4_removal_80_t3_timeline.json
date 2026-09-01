@@ -1,0 +1,322 @@
+{
+  "scenario": 4,
+  "total_events": 6,
+  "timeline": [
+    {
+      "event_id": "evt_s4_004",
+      "timestamp": "2026-04-01T11:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/finance/reports/revenue_q1.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260401_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s4_007",
+      "timestamp": "2026-04-02T08:45:00+06:00",
+      "source_type": "auth",
+      "user": "user_03",
+      "action": "login",
+      "resource": null,
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "auth_method": "password",
+        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+      }
+    },
+    {
+      "event_id": "evt_s4_009",
+      "timestamp": "2026-04-02T10:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_read",
+      "resource": "/data/finance/reports/budget_forecast.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "info",
+      "metadata": {
+        "access_type": "read"
+      }
+    },
+    {
+      "event_id": "evt_s4_024",
+      "timestamp": "2026-04-02T16:00:00+06:00",
+      "source_type": "email",
+      "user": "user_03",
+      "action": "mail_sent",
+      "resource": "vendor_payments.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260402_001",
+      "severity": "warning",
+      "metadata": {
+        "recipient": "personal@gmail.com",
+        "attachment": "vendor_payments.xlsx",
+        "attachment_size_bytes": 245760,
+        "attachment_size_display": "240KB",
+        "mail_server": "smtp.internal.company.bd",
+        "description": "Sensitive financial data sent to personal email address"
+      }
+    },
+    {
+      "event_id": "evt_s4_018",
+      "timestamp": "2026-04-03T11:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/finance/reports/revenue_q1.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "medium",
+      "metadata": {
+        "file_size_bytes": 1153434,
+        "file_size_display": "1.1MB",
+        "access_type": "download"
+      }
+    },
+    {
+      "event_id": "evt_s4_020",
+      "timestamp": "2026-04-03T14:00:00+06:00",
+      "source_type": "file_access",
+      "user": "user_03",
+      "action": "file_download",
+      "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+      "source_ip": "192.168.1.103",
+      "status": "success",
+      "session_id": "sess_user_03_20260403_001",
+      "severity": "medium",
+      "metadata": {
+        "file_size_bytes": 573440,
+        "file_size_display": "560KB",
+        "access_type": "download"
+      }
+    }
+  ],
+  "by_user": {
+    "user_03": [
+      {
+        "event_id": "evt_s4_004",
+        "timestamp": "2026-04-01T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_007",
+        "timestamp": "2026-04-02T08:45:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_009",
+        "timestamp": "2026-04-02T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/budget_forecast.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_024",
+        "timestamp": "2026-04-02T16:00:00+06:00",
+        "source_type": "email",
+        "user": "user_03",
+        "action": "mail_sent",
+        "resource": "vendor_payments.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "warning",
+        "metadata": {
+          "recipient": "personal@gmail.com",
+          "attachment": "vendor_payments.xlsx",
+          "attachment_size_bytes": 245760,
+          "attachment_size_display": "240KB",
+          "mail_server": "smtp.internal.company.bd",
+          "description": "Sensitive financial data sent to personal email address"
+        }
+      },
+      {
+        "event_id": "evt_s4_018",
+        "timestamp": "2026-04-03T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 1153434,
+          "file_size_display": "1.1MB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_020",
+        "timestamp": "2026-04-03T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 573440,
+          "file_size_display": "560KB",
+          "access_type": "download"
+        }
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_03_20260401_001": [
+      {
+        "event_id": "evt_s4_004",
+        "timestamp": "2026-04-01T11:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260401_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      }
+    ],
+    "sess_user_03_20260402_001": [
+      {
+        "event_id": "evt_s4_007",
+        "timestamp": "2026-04-02T08:45:00+06:00",
+        "source_type": "auth",
+        "user": "user_03",
+        "action": "login",
+        "resource": null,
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "auth_method": "password",
+          "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      },
+      {
+        "event_id": "evt_s4_009",
+        "timestamp": "2026-04-02T10:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_read",
+        "resource": "/data/finance/reports/budget_forecast.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "info",
+        "metadata": {
+          "access_type": "read"
+        }
+      },
+      {
+        "event_id": "evt_s4_024",
+        "timestamp": "2026-04-02T16:00:00+06:00",
+        "source_type": "email",
+        "user": "user_03",
+        "action": "mail_sent",
+        "resource": "vendor_payments.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260402_001",
+        "severity": "warning",
+        "metadata": {
+          "recipient": "personal@gmail.com",
+          "attachment": "vendor_payments.xlsx",
+          "attachment_size_bytes": 245760,
+          "attachment_size_display": "240KB",
+          "mail_server": "smtp.internal.company.bd",
+          "description": "Sensitive financial data sent to personal email address"
+        }
+      }
+    ],
+    "sess_user_03_20260403_001": [
+      {
+        "event_id": "evt_s4_018",
+        "timestamp": "2026-04-03T11:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/finance/reports/revenue_q1.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 1153434,
+          "file_size_display": "1.1MB",
+          "access_type": "download"
+        }
+      },
+      {
+        "event_id": "evt_s4_020",
+        "timestamp": "2026-04-03T14:00:00+06:00",
+        "source_type": "file_access",
+        "user": "user_03",
+        "action": "file_download",
+        "resource": "/data/engineering/hiring/candidate_pipeline.xlsx",
+        "source_ip": "192.168.1.103",
+        "status": "success",
+        "session_id": "sess_user_03_20260403_001",
+        "severity": "medium",
+        "metadata": {
+          "file_size_bytes": 573440,
+          "file_size_display": "560KB",
+          "access_type": "download"
+        }
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-01T11:00:00+06:00",
+    "end": "2026-04-03T14:00:00+06:00"
+  }
+}

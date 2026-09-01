@@ -1,0 +1,47 @@
+{
+  "scenario": 10,
+  "alerts": [
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s10_008"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/confidential/ is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T10:50:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s10_009"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/confidential/budget_2026.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T11:00:00+06:00"
+    },
+    {
+      "rule_id": "R005",
+      "rule_name": "cross_department_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s10_010"
+      ],
+      "user": "user_02",
+      "description": "Cross-department access: /data/finance/confidential/revenue_forecast.xlsx is outside normal directories ['/data/engineering/', '/data/shared/project_alpha/', '/data/shared/project_beta/']",
+      "timestamp": "2026-04-06T11:10:00+06:00"
+    }
+  ],
+  "alert_count": 3,
+  "rules_triggered": [
+    "R005"
+  ],
+  "severity_summary": {
+    "warning": 3,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

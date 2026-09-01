@@ -1,0 +1,78 @@
+{
+  "scenario": 3,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_002"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:48 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:48:00+06:00"
+    },
+    {
+      "rule_id": "R001",
+      "rule_name": "unusual_login_ip",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_003"
+      ],
+      "user": "user_04",
+      "description": "Login from unusual IP 185.220.101.34. Normal IPs: ['192.168.1.104']",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_003"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:49 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:49:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_005"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:54 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T02:54:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:05 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:05:00+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s3_019"
+      ],
+      "user": "user_04",
+      "description": "Activity at 03:18 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-01T03:18:00+06:00"
+    }
+  ],
+  "alert_count": 6,
+  "rules_triggered": 2,
+  "severity_summary": {
+    "warning": 6,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

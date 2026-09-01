@@ -1,0 +1,252 @@
+{
+  "scenario": 7,
+  "alerts": [
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_001"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:01:12+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_001",
+        "evt_s7_002",
+        "evt_s7_003",
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006"
+      ],
+      "user": "user_01",
+      "description": "Failed login spike: 6 failures within 5 minutes for user_01 (window start: 2026-04-05T02:01:12+06:00)",
+      "timestamp": "2026-04-05T02:01:12+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_002"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:01 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:01:45+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_003"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:02 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:02:18+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_004"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:03 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:03:05+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_004",
+        "evt_s7_005",
+        "evt_s7_006",
+        "evt_s7_007"
+      ],
+      "user": "user_01",
+      "description": "Failed login spike: 4 failures within 5 minutes for user_01 (window start: 2026-04-05T02:03:05+06:00)",
+      "timestamp": "2026-04-05T02:03:05+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_005"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:04 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:04:30+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_006"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:05 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:05:55+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_006",
+        "evt_s7_007",
+        "evt_s7_008"
+      ],
+      "user": "user_01",
+      "description": "Failed login spike: 3 failures within 5 minutes for user_01 (window start: 2026-04-05T02:05:55+06:00)",
+      "timestamp": "2026-04-05T02:05:55+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_007"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:07 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:07:22+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_008"
+      ],
+      "user": "user_01",
+      "description": "Activity at 02:09 outside normal hours (08:30-18:00)",
+      "timestamp": "2026-04-05T02:09:40+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_009"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:15 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:15:10+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_009",
+        "evt_s7_010",
+        "evt_s7_011",
+        "evt_s7_012"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 4 failures within 5 minutes for user_04 (window start: 2026-04-05T02:15:10+06:00)",
+      "timestamp": "2026-04-05T02:15:10+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_010"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:16 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:16:02+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_011"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:17 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:17:33+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_011",
+        "evt_s7_012",
+        "evt_s7_013"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 3 failures within 5 minutes for user_04 (window start: 2026-04-05T02:17:33+06:00)",
+      "timestamp": "2026-04-05T02:17:33+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_012"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:19 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:19:18+06:00"
+    },
+    {
+      "rule_id": "R007",
+      "rule_name": "failed_login_spike",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_012",
+        "evt_s7_013",
+        "evt_s7_014"
+      ],
+      "user": "user_04",
+      "description": "Failed login spike: 3 failures within 5 minutes for user_04 (window start: 2026-04-05T02:19:18+06:00)",
+      "timestamp": "2026-04-05T02:19:18+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_013"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:21 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:21:05+06:00"
+    },
+    {
+      "rule_id": "R002",
+      "rule_name": "off_hours_access",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s7_014"
+      ],
+      "user": "user_04",
+      "description": "Activity at 02:23 outside normal hours (09:00-17:00)",
+      "timestamp": "2026-04-05T02:23:42+06:00"
+    }
+  ],
+  "alert_count": 20,
+  "rules_triggered": [
+    "R002",
+    "R007"
+  ],
+  "severity_summary": {
+    "warning": 20,
+    "critical": 0
+  },
+  "verdict": "suspicious"
+}

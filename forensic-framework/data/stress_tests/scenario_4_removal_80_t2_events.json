@@ -1,0 +1,101 @@
+[
+  {
+    "event_id": "evt_s4_003",
+    "timestamp": "2026-04-01T10:15:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_read",
+    "resource": "/data/hr/headcount_q1.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "access_type": "read"
+    }
+  },
+  {
+    "event_id": "evt_s4_004",
+    "timestamp": "2026-04-01T11:00:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_read",
+    "resource": "/data/finance/reports/revenue_q1.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260401_001",
+    "severity": "info",
+    "metadata": {
+      "access_type": "read"
+    }
+  },
+  {
+    "event_id": "evt_s4_012",
+    "timestamp": "2026-04-02T14:15:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_download",
+    "resource": "/data/engineering/hiring/offer_letters_template.docx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260402_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 245760,
+      "file_size_display": "240KB",
+      "access_type": "download"
+    }
+  },
+  {
+    "event_id": "evt_s4_014",
+    "timestamp": "2026-04-02T17:30:00+06:00",
+    "source_type": "auth",
+    "user": "user_03",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260402_001",
+    "severity": "info",
+    "metadata": {
+      "session_duration_minutes": 525
+    }
+  },
+  {
+    "event_id": "evt_s4_022",
+    "timestamp": "2026-04-03T16:00:00+06:00",
+    "source_type": "file_access",
+    "user": "user_03",
+    "action": "file_download",
+    "resource": "/data/hr/performance_reviews_2025.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260403_001",
+    "severity": "medium",
+    "metadata": {
+      "file_size_bytes": 1363148,
+      "file_size_display": "1.3MB",
+      "access_type": "download"
+    }
+  },
+  {
+    "event_id": "evt_s4_026",
+    "timestamp": "2026-04-03T16:30:00+06:00",
+    "source_type": "email",
+    "user": "user_03",
+    "action": "mail_sent",
+    "resource": "salary_bands.xlsx",
+    "source_ip": "192.168.1.103",
+    "status": "success",
+    "session_id": "sess_user_03_20260403_001",
+    "severity": "critical",
+    "metadata": {
+      "recipient": "personal@gmail.com",
+      "attachment": "salary_bands.xlsx",
+      "attachment_size_bytes": 348160,
+      "attachment_size_display": "340KB",
+      "mail_server": "smtp.internal.company.bd",
+      "description": "Salary data sent to personal email address"
+    }
+  }
+]

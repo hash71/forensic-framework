@@ -1,0 +1,49 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an authorized user (user_02) accessing and downloading sensitive financial data outside their departmental scope and normal directories. The actions (reading then downloading confidential budget and forecast files) constitute unauthorized data access and potential exfiltration, fitting the definition of an insider threat. The IP address matches the user's baseline, and the session was consistent, ruling out session hijacking, but the behavior violates the principle of least privilege and departmental boundaries.",
+  "suspect": "user_02",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s10_005",
+      "description": "user_02 successfully logged in from their normal IP address (192.168.1.102) within normal working hours.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s10_008",
+      "description": "user_02 accessed the /data/finance/confidential/ directory, which is outside their authorized normal directories (Engineering/Shared projects).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s10_009",
+      "description": "user_02 downloaded 'budget_2026.xlsx' (8MB) from the confidential finance directory.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s10_010",
+      "description": "user_02 downloaded 'revenue_forecast.xlsx' (4MB) from the confidential finance directory, completing the data exfiltration.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s10_008",
+    "evt_s10_009",
+    "evt_s10_010",
+    "R005"
+  ],
+  "evidence_against": [
+    "evt_s10_005",
+    "evt_s10_011"
+  ],
+  "gaps": [
+    "No metadata indicating a legitimate business justification (e.g., ticket number, project requirement) for accessing finance data.",
+    "No evidence of whether user_02 has explicit cross-departmental permissions granted by management.",
+    "No logs showing if the downloaded files were subsequently transferred off-network or deleted."
+  ],
+  "narrative": "user_02, a senior developer, successfully authenticated and accessed the Finance department's confidential directory, downloading two sensitive financial files (budget and revenue forecast) outside their authorized scope. While the login and IP were legitimate, the cross-departmental access and bulk download of confidential data without visible justification constitute a confirmed insider threat incident involving unauthorized data access and exfiltration."
+}

@@ -1,0 +1,1055 @@
+{
+  "scenario": 6,
+  "total_events": 25,
+  "timeline": [
+    {
+      "event_id": "evt_s6_001",
+      "timestamp": "2026-04-04T22:02:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "login",
+      "resource": null,
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_002",
+      "timestamp": "2026-04-04T22:08:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/nginx.conf",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_003",
+      "timestamp": "2026-04-04T22:12:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/postgres.conf",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_004",
+      "timestamp": "2026-04-04T22:18:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/redis.conf",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_005",
+      "timestamp": "2026-04-04T22:25:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/docker-compose.yml",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_006",
+      "timestamp": "2026-04-04T22:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/elasticsearch.yml",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_007",
+      "timestamp": "2026-04-04T22:40:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "maintenance_scripts_access",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+      }
+    },
+    {
+      "event_id": "evt_s6_008",
+      "timestamp": "2026-04-04T22:45:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "backup_restore_access",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+      }
+    },
+    {
+      "event_id": "evt_s6_009",
+      "timestamp": "2026-04-04T22:55:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/backups/db_backup_20260403.tar.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 256000000
+      }
+    },
+    {
+      "event_id": "evt_s6_010",
+      "timestamp": "2026-04-04T23:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/backups/app_config_backup_20260403.tar.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 48000000
+      }
+    },
+    {
+      "event_id": "evt_s6_011",
+      "timestamp": "2026-04-04T23:20:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/ssl_certificates.pem",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_012",
+      "timestamp": "2026-04-04T23:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/haproxy.cfg",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_013",
+      "timestamp": "2026-04-04T23:42:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/backups/media_assets_backup_20260403.tar.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 128000000
+      }
+    },
+    {
+      "event_id": "evt_s6_014",
+      "timestamp": "2026-04-04T23:55:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/prometheus.yml",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_015",
+      "timestamp": "2026-04-05T00:05:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/grafana_dashboards.json",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_016",
+      "timestamp": "2026-04-05T00:15:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/backups/log_archive_20260401.tar.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 89000000
+      }
+    },
+    {
+      "event_id": "evt_s6_017",
+      "timestamp": "2026-04-05T00:30:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/crontab_production",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_018",
+      "timestamp": "2026-04-05T00:45:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_download",
+      "resource": "/data/engineering/backups/ssl_certs_backup_20260403.tar.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {
+        "file_size_bytes": 15000000
+      }
+    },
+    {
+      "event_id": "evt_s6_019",
+      "timestamp": "2026-04-05T01:00:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "log_delete",
+      "resource": "/var/log/app/rotated/app.log.2026-03-01.gz",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "critical",
+      "metadata": {
+        "detail": "{\"deletion_reason\": \"log_rotation_cleanup\", \"file_age_days\": 34, \"retention_policy\": \"30_days\"}"
+      }
+    },
+    {
+      "event_id": "evt_s6_020",
+      "timestamp": "2026-04-05T01:10:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/firewall_rules.conf",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_021",
+      "timestamp": "2026-04-05T01:20:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/kubernetes_deployment.yml",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_022",
+      "timestamp": "2026-04-05T01:30:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "maintenance_scripts_access",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+      }
+    },
+    {
+      "event_id": "evt_s6_023",
+      "timestamp": "2026-04-05T01:32:00+06:00",
+      "source_type": "admin",
+      "user": "user_02",
+      "action": "privilege_change",
+      "resource": "backup_restore_access",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": null,
+      "severity": "warning",
+      "metadata": {
+        "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+      }
+    },
+    {
+      "event_id": "evt_s6_024",
+      "timestamp": "2026-04-05T01:40:00+06:00",
+      "source_type": "file_access",
+      "user": "user_02",
+      "action": "file_read",
+      "resource": "/data/engineering/configs/application.properties",
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    },
+    {
+      "event_id": "evt_s6_025",
+      "timestamp": "2026-04-05T01:50:00+06:00",
+      "source_type": "auth",
+      "user": "user_02",
+      "action": "logout",
+      "resource": null,
+      "source_ip": "172.16.0.50",
+      "status": "success",
+      "session_id": "sess_user_02_20260404_001",
+      "severity": "info",
+      "metadata": {}
+    }
+  ],
+  "by_user": {
+    "user_02": [
+      {
+        "event_id": "evt_s6_001",
+        "timestamp": "2026-04-04T22:02:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_002",
+        "timestamp": "2026-04-04T22:08:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/nginx.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_003",
+        "timestamp": "2026-04-04T22:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/postgres.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_004",
+        "timestamp": "2026-04-04T22:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/redis.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_005",
+        "timestamp": "2026-04-04T22:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/docker-compose.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_006",
+        "timestamp": "2026-04-04T22:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/elasticsearch.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_007",
+        "timestamp": "2026-04-04T22:40:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "maintenance_scripts_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_008",
+        "timestamp": "2026-04-04T22:45:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "backup_restore_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_009",
+        "timestamp": "2026-04-04T22:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/db_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 256000000
+        }
+      },
+      {
+        "event_id": "evt_s6_010",
+        "timestamp": "2026-04-04T23:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/app_config_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 48000000
+        }
+      },
+      {
+        "event_id": "evt_s6_011",
+        "timestamp": "2026-04-04T23:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/ssl_certificates.pem",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_012",
+        "timestamp": "2026-04-04T23:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/haproxy.cfg",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_013",
+        "timestamp": "2026-04-04T23:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/media_assets_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 128000000
+        }
+      },
+      {
+        "event_id": "evt_s6_014",
+        "timestamp": "2026-04-04T23:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/prometheus.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_015",
+        "timestamp": "2026-04-05T00:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/grafana_dashboards.json",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_016",
+        "timestamp": "2026-04-05T00:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/log_archive_20260401.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 89000000
+        }
+      },
+      {
+        "event_id": "evt_s6_017",
+        "timestamp": "2026-04-05T00:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/crontab_production",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_018",
+        "timestamp": "2026-04-05T00:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/ssl_certs_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 15000000
+        }
+      },
+      {
+        "event_id": "evt_s6_019",
+        "timestamp": "2026-04-05T01:00:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "log_delete",
+        "resource": "/var/log/app/rotated/app.log.2026-03-01.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"deletion_reason\": \"log_rotation_cleanup\", \"file_age_days\": 34, \"retention_policy\": \"30_days\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_020",
+        "timestamp": "2026-04-05T01:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/firewall_rules.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_021",
+        "timestamp": "2026-04-05T01:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/kubernetes_deployment.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_022",
+        "timestamp": "2026-04-05T01:30:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "maintenance_scripts_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_023",
+        "timestamp": "2026-04-05T01:32:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "backup_restore_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_024",
+        "timestamp": "2026-04-05T01:40:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/application.properties",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_025",
+        "timestamp": "2026-04-05T01:50:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ]
+  },
+  "by_session": {
+    "sess_user_02_20260404_001": [
+      {
+        "event_id": "evt_s6_001",
+        "timestamp": "2026-04-04T22:02:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "login",
+        "resource": null,
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_002",
+        "timestamp": "2026-04-04T22:08:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/nginx.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_003",
+        "timestamp": "2026-04-04T22:12:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/postgres.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_004",
+        "timestamp": "2026-04-04T22:18:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/redis.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_005",
+        "timestamp": "2026-04-04T22:25:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/docker-compose.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_006",
+        "timestamp": "2026-04-04T22:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/elasticsearch.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_009",
+        "timestamp": "2026-04-04T22:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/db_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 256000000
+        }
+      },
+      {
+        "event_id": "evt_s6_010",
+        "timestamp": "2026-04-04T23:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/app_config_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 48000000
+        }
+      },
+      {
+        "event_id": "evt_s6_011",
+        "timestamp": "2026-04-04T23:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/ssl_certificates.pem",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_012",
+        "timestamp": "2026-04-04T23:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/haproxy.cfg",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_013",
+        "timestamp": "2026-04-04T23:42:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/media_assets_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 128000000
+        }
+      },
+      {
+        "event_id": "evt_s6_014",
+        "timestamp": "2026-04-04T23:55:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/prometheus.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_015",
+        "timestamp": "2026-04-05T00:05:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/grafana_dashboards.json",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_016",
+        "timestamp": "2026-04-05T00:15:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/log_archive_20260401.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 89000000
+        }
+      },
+      {
+        "event_id": "evt_s6_017",
+        "timestamp": "2026-04-05T00:30:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/crontab_production",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_018",
+        "timestamp": "2026-04-05T00:45:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_download",
+        "resource": "/data/engineering/backups/ssl_certs_backup_20260403.tar.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {
+          "file_size_bytes": 15000000
+        }
+      },
+      {
+        "event_id": "evt_s6_020",
+        "timestamp": "2026-04-05T01:10:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/firewall_rules.conf",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_021",
+        "timestamp": "2026-04-05T01:20:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/kubernetes_deployment.yml",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_024",
+        "timestamp": "2026-04-05T01:40:00+06:00",
+        "source_type": "file_access",
+        "user": "user_02",
+        "action": "file_read",
+        "resource": "/data/engineering/configs/application.properties",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      },
+      {
+        "event_id": "evt_s6_025",
+        "timestamp": "2026-04-05T01:50:00+06:00",
+        "source_type": "auth",
+        "user": "user_02",
+        "action": "logout",
+        "resource": null,
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": "sess_user_02_20260404_001",
+        "severity": "info",
+        "metadata": {}
+      }
+    ],
+    "no_session": [
+      {
+        "event_id": "evt_s6_007",
+        "timestamp": "2026-04-04T22:40:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "maintenance_scripts_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_008",
+        "timestamp": "2026-04-04T22:45:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "backup_restore_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"grant\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 scheduled maintenance\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_019",
+        "timestamp": "2026-04-05T01:00:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "log_delete",
+        "resource": "/var/log/app/rotated/app.log.2026-03-01.gz",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "critical",
+        "metadata": {
+          "detail": "{\"deletion_reason\": \"log_rotation_cleanup\", \"file_age_days\": 34, \"retention_policy\": \"30_days\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_022",
+        "timestamp": "2026-04-05T01:30:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "maintenance_scripts_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"execute_maintenance_scripts\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+        }
+      },
+      {
+        "event_id": "evt_s6_023",
+        "timestamp": "2026-04-05T01:32:00+06:00",
+        "source_type": "admin",
+        "user": "user_02",
+        "action": "privilege_change",
+        "resource": "backup_restore_access",
+        "source_ip": "172.16.0.50",
+        "status": "success",
+        "session_id": null,
+        "severity": "warning",
+        "metadata": {
+          "detail": "{\"change_type\": \"revoke\", \"target_user\": \"user_02\", \"privilege\": \"backup_restore_operations\", \"justification\": \"MAINT-2026-0404 maintenance complete\"}"
+        }
+      }
+    ]
+  },
+  "time_range": {
+    "start": "2026-04-04T22:02:00+06:00",
+    "end": "2026-04-05T01:50:00+06:00"
+  }
+}

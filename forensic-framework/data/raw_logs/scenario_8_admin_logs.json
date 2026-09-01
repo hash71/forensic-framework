@@ -1,0 +1,29 @@
+[
+  {
+    "timestamp": "2026-04-05T14:11:00+06:00",
+    "event_type": "privilege_change",
+    "username": "user_admin",
+    "target": "role",
+    "detail": "{\"previous_role\": \"admin\", \"new_role\": \"superuser\", \"change_type\": \"self_escalation\", \"description\": \"Attacker escalated to superuser privileges\"}",
+    "ip_address": "45.33.32.156",
+    "result": "success"
+  },
+  {
+    "timestamp": "2026-04-05T14:30:00+06:00",
+    "event_type": "log_delete",
+    "username": "user_admin",
+    "target": "/var/log/apache/access.log",
+    "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/apache/access.log\", \"description\": \"Web server access log deleted to cover attack traces\"}",
+    "ip_address": "45.33.32.156",
+    "result": "success"
+  },
+  {
+    "timestamp": "2026-04-05T14:31:00+06:00",
+    "event_type": "log_delete",
+    "username": "user_admin",
+    "target": "/var/log/postgresql/query.log",
+    "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/postgresql/query.log\", \"description\": \"PostgreSQL query log deleted to cover SQL injection and data export traces\"}",
+    "ip_address": "45.33.32.156",
+    "result": "success"
+  }
+]

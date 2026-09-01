@@ -1,0 +1,62 @@
+[
+  {
+    "timestamp": "2026-04-01T02:40:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "185.220.101.34",
+    "dst_ip": "files.internal.company.bd",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-01T02:42:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "185.220.101.34",
+    "dst_ip": "auth.internal.company.bd",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-01T02:45:00+06:00",
+    "event_type": "firewall_allow",
+    "protocol": "SSH",
+    "src_ip": "185.220.101.34",
+    "dst_ip": "192.168.1.10:22",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  },
+  {
+    "timestamp": "2026-04-01T03:06:00+06:00",
+    "event_type": "firewall_allow",
+    "protocol": "HTTPS",
+    "src_ip": "192.168.1.10",
+    "dst_ip": "185.220.101.34:443",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 52428800
+  },
+  {
+    "timestamp": "2026-04-01T03:20:00+06:00",
+    "event_type": "dns_query",
+    "protocol": "tcp",
+    "src_ip": "185.220.101.34",
+    "dst_ip": "logs.internal.company.bd",
+    "src_port": 0,
+    "dst_port": 0,
+    "action": "success",
+    "rule_name": "",
+    "bytes_transferred": 0
+  }
+]

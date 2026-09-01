@@ -1,0 +1,136 @@
+[
+  {
+    "event_id": "evt_s9_001",
+    "timestamp": "2026-04-06T02:30:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/payroll.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260406_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 5242880
+    }
+  },
+  {
+    "event_id": "evt_s9_002",
+    "timestamp": "2026-04-06T02:32:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/finance/confidential/contracts.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260406_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 3145728
+    }
+  },
+  {
+    "event_id": "evt_s9_003",
+    "timestamp": "2026-04-06T02:33:30+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "success",
+    "resource": "192.168.1.20:443",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "protocol": "HTTPS",
+      "dst_ip": "192.168.1.20:443"
+    }
+  },
+  {
+    "event_id": "evt_s9_004",
+    "timestamp": "2026-04-06T02:35:00+06:00",
+    "source_type": "admin",
+    "user": "user_04",
+    "action": "privilege_change",
+    "resource": "role",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "warning",
+    "metadata": {
+      "detail": "{\"previous_role\": \"read_only\", \"new_role\": \"admin\", \"change_type\": \"self_escalation\"}"
+    }
+  },
+  {
+    "event_id": "evt_s9_005",
+    "timestamp": "2026-04-06T02:37:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_read",
+    "resource": "/data/hr/",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260406_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s9_006",
+    "timestamp": "2026-04-06T02:38:00+06:00",
+    "source_type": "file_access",
+    "user": "user_04",
+    "action": "file_download",
+    "resource": "/data/hr/salary_bands.xlsx",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260406_001",
+    "severity": "info",
+    "metadata": {
+      "file_size_bytes": 2097152
+    }
+  },
+  {
+    "event_id": "evt_s9_007",
+    "timestamp": "2026-04-06T02:40:00+06:00",
+    "source_type": "admin",
+    "user": "user_04",
+    "action": "log_delete",
+    "resource": "/var/log/auth.log",
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": null,
+    "severity": "critical",
+    "metadata": {
+      "detail": "{\"action_type\": \"anti_forensics\", \"target_log\": \"/var/log/auth.log\", \"note\": \"Deleting the auth log that would have shown the login event\"}"
+    }
+  },
+  {
+    "event_id": "evt_s9_008",
+    "timestamp": "2026-04-06T02:41:00+06:00",
+    "source_type": "network",
+    "user": null,
+    "action": "success",
+    "resource": "185.220.101.34:443",
+    "source_ip": "192.168.1.20",
+    "status": "success",
+    "session_id": null,
+    "severity": "info",
+    "metadata": {
+      "protocol": "HTTPS",
+      "dst_ip": "185.220.101.34:443",
+      "bytes_transferred": 10485760
+    }
+  },
+  {
+    "event_id": "evt_s9_009",
+    "timestamp": "2026-04-06T02:42:00+06:00",
+    "source_type": "auth",
+    "user": "user_04",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "185.220.101.34",
+    "status": "success",
+    "session_id": "sess_user_04_20260406_001",
+    "severity": "info",
+    "metadata": {}
+  }
+]

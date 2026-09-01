@@ -1,0 +1,67 @@
+[
+  {
+    "event_id": "evt_s1_001",
+    "timestamp": "2026-04-01T09:15:00+06:00",
+    "source_type": "auth",
+    "user": "user_01",
+    "action": "login",
+    "resource": null,
+    "source_ip": "192.168.1.100",
+    "status": "success",
+    "session_id": "sess_user_01_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s1_002",
+    "timestamp": "2026-04-01T09:45:00+06:00",
+    "source_type": "file_access",
+    "user": "user_01",
+    "action": "file_read",
+    "resource": "/data/finance/report_q1.xlsx",
+    "source_ip": "192.168.1.100",
+    "status": "success",
+    "session_id": "sess_user_01_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s1_003",
+    "timestamp": "2026-04-01T11:20:00+06:00",
+    "source_type": "file_access",
+    "user": "user_01",
+    "action": "file_read",
+    "resource": "/data/finance/budget_2026.xlsx",
+    "source_ip": "192.168.1.100",
+    "status": "success",
+    "session_id": "sess_user_01_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s1_004",
+    "timestamp": "2026-04-01T14:00:00+06:00",
+    "source_type": "file_access",
+    "user": "user_01",
+    "action": "file_read",
+    "resource": "/data/finance/cashflow_march.pdf",
+    "source_ip": "192.168.1.100",
+    "status": "success",
+    "session_id": "sess_user_01_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  },
+  {
+    "event_id": "evt_s1_005",
+    "timestamp": "2026-04-01T17:30:00+06:00",
+    "source_type": "auth",
+    "user": "user_01",
+    "action": "logout",
+    "resource": null,
+    "source_ip": "192.168.1.100",
+    "status": "success",
+    "session_id": "sess_user_01_20260401_001",
+    "severity": "info",
+    "metadata": {}
+  }
+]

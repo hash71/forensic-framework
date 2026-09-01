@@ -1,0 +1,122 @@
+{
+  "scenario": "6",
+  "findings": [
+    {
+      "type": "unusual_login_ip",
+      "event_ids": [
+        "evt_s6_001"
+      ],
+      "description": "user_02 logged in from unusual IP 172.16.0.50 (expected: 192.168.1.102)",
+      "severity": "warning"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s6_007",
+        "evt_s6_009",
+        "evt_s6_010",
+        "evt_s6_013",
+        "evt_s6_016",
+        "evt_s6_018"
+      ],
+      "description": "user_02 had privilege change then downloaded 5 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "privilege_escalation_then_download",
+      "event_ids": [
+        "evt_s6_008",
+        "evt_s6_009",
+        "evt_s6_010",
+        "evt_s6_013",
+        "evt_s6_016",
+        "evt_s6_018"
+      ],
+      "description": "user_02 had privilege change then downloaded 5 file(s) within 24h",
+      "severity": "critical"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s6_001",
+        "evt_s6_002",
+        "evt_s6_003",
+        "evt_s6_004",
+        "evt_s6_005",
+        "evt_s6_006",
+        "evt_s6_007",
+        "evt_s6_008",
+        "evt_s6_009",
+        "evt_s6_010",
+        "evt_s6_011",
+        "evt_s6_012",
+        "evt_s6_013",
+        "evt_s6_014",
+        "evt_s6_015",
+        "evt_s6_016",
+        "evt_s6_017",
+        "evt_s6_018",
+        "evt_s6_019",
+        "evt_s6_020",
+        "evt_s6_021",
+        "evt_s6_022",
+        "evt_s6_023",
+        "evt_s6_024",
+        "evt_s6_025"
+      ],
+      "description": "user_02 had 25 event(s) outside normal working hours (09:00-19:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "unusual_volume",
+      "event_ids": [
+        "evt_s6_001",
+        "evt_s6_002",
+        "evt_s6_003",
+        "evt_s6_004",
+        "evt_s6_005",
+        "evt_s6_006"
+      ],
+      "description": "user_02 generated 6 events in 28 minutes (threshold: 5)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s6_007",
+        "evt_s6_008",
+        "evt_s6_019",
+        "evt_s6_022",
+        "evt_s6_023",
+        "evt_s6_001",
+        "evt_s6_025",
+        "evt_s6_002",
+        "evt_s6_003",
+        "evt_s6_004",
+        "evt_s6_005",
+        "evt_s6_006",
+        "evt_s6_009",
+        "evt_s6_010",
+        "evt_s6_011",
+        "evt_s6_012",
+        "evt_s6_013",
+        "evt_s6_014",
+        "evt_s6_015",
+        "evt_s6_016",
+        "evt_s6_017",
+        "evt_s6_018",
+        "evt_s6_020",
+        "evt_s6_021",
+        "evt_s6_024"
+      ],
+      "description": "user_02 has activity across 3 source types: admin, auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 6,
+  "severity_summary": {
+    "warning": 3,
+    "critical": 2,
+    "info": 1
+  }
+}

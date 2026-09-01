@@ -1,0 +1,67 @@
+{
+  "verdict": "YES",
+  "incident_occurred": "true",
+  "confidence": "HIGH",
+  "confidence_explanation": "The evidence shows a clear pattern of an insider threat (user_03) who obtained unauthorized access to Finance and Engineering data via a privilege escalation ticket, then systematically downloaded sensitive files across three days and exfiltrated them via email. The transition from 'read' to 'download' and the volume of data moved across departments strongly indicates malicious intent rather than legitimate maintenance.",
+  "suspect": "user_03",
+  "attack_chain": [
+    {
+      "step": 1,
+      "event_id": "evt_s4_002",
+      "description": "Privilege escalation: user_03 (HR) granted read access to /data/finance/reports/ via ticket HR-2026-441, expanding scope beyond normal HR duties.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 2,
+      "event_id": "evt_s4_004",
+      "description": "Reconnaissance/Access: user_03 accessed Finance revenue data (evt_s4_004) and Engineering hiring data (evt_s4_011) outside their normal directory scope.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 3,
+      "event_id": "evt_s4_010",
+      "description": "Data Collection: user_03 began downloading sensitive files (vendor_payments.xlsx) instead of just reading them, escalating from access to possession.",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 4,
+      "event_id": "evt_s4_020",
+      "description": "Mass Exfiltration Preparation: Over multiple days (Apr 2-3), user_03 downloaded a high volume of sensitive files across Finance and Engineering departments (revenue, budget, candidate pipeline, salary bands).",
+      "confidence": "HIGH"
+    },
+    {
+      "step": 5,
+      "event_id": "evt_s4_014",
+      "description": "Data Exfiltration: user_03 sent emails with attachments matching the size of downloaded files (e.g., 245760 bytes in evt_s4_014 matches offer_letters_template.docx in evt_s4_012), confirming data left the environment.",
+      "confidence": "HIGH"
+    }
+  ],
+  "evidence_for": [
+    "evt_s4_002",
+    "evt_s4_004",
+    "evt_s4_005",
+    "evt_s4_009",
+    "evt_s4_010",
+    "evt_s4_011",
+    "evt_s4_012",
+    "evt_s4_013",
+    "evt_s4_014",
+    "evt_s4_019",
+    "evt_s4_020",
+    "evt_s4_021",
+    "evt_s4_022",
+    "evt_s4_023",
+    "evt_s4_024",
+    "evt_s4_025",
+    "evt_s4_026"
+  ],
+  "evidence_against": [
+    "evt_s4_002"
+  ],
+  "gaps": [
+    "The specific recipient of the emails in evt_s4_014, evt_s4_025, and evt_s4_026 is not provided, preventing confirmation of external vs. internal exfiltration.",
+    "The content of ticket HR-2026-441 is not available to verify if the justification 'Annual review preparation' legitimately required access to Engineering hiring data or vendor payments.",
+    "No logs indicate if the privilege granted in evt_s4_002 was revoked after the activity."
+  ],
+  "narrative": "user_03, an HR specialist, leveraged a privilege escalation ticket to access Finance and Engineering directories, systematically downloading sensitive financial and hiring data over three days. The user then exfiltrated this data via email attachments, exhibiting a classic insider threat pattern of expanding access scope and transitioning from reading to downloading across multiple departments."
+}

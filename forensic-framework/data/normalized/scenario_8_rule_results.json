@@ -1,0 +1,74 @@
+{
+  "scenario": 8,
+  "alerts": [
+    {
+      "rule_id": "R012",
+      "rule_name": "lateral_movement",
+      "severity": "warning",
+      "event_ids": [
+        "evt_s8_007",
+        "evt_s8_009"
+      ],
+      "user": "user_admin",
+      "description": "Lateral movement detected: user_admin authenticated across ['auth', 'database'] within 30 minutes (window start: 2026-04-05T14:10:00+06:00)",
+      "timestamp": "2026-04-05T14:10:00+06:00"
+    },
+    {
+      "rule_id": "R003",
+      "rule_name": "privilege_escalation",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s8_008"
+      ],
+      "user": "user_admin",
+      "description": "Privilege change detected for user_admin. Resource: role",
+      "timestamp": "2026-04-05T14:11:00+06:00"
+    },
+    {
+      "rule_id": "R008",
+      "rule_name": "privilege_then_download",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s8_008",
+        "evt_s8_013"
+      ],
+      "user": "user_admin",
+      "description": "Privilege escalation at 2026-04-05T14:11:00+06:00 followed by 1 file download(s) within 30 minutes",
+      "timestamp": "2026-04-05T14:11:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s8_018"
+      ],
+      "user": "user_admin",
+      "description": "Log deletion detected by user_admin. Target: /var/log/apache/access.log",
+      "timestamp": "2026-04-05T14:30:00+06:00"
+    },
+    {
+      "rule_id": "R006",
+      "rule_name": "log_deletion",
+      "severity": "critical",
+      "event_ids": [
+        "evt_s8_019"
+      ],
+      "user": "user_admin",
+      "description": "Log deletion detected by user_admin. Target: /var/log/postgresql/query.log",
+      "timestamp": "2026-04-05T14:31:00+06:00"
+    }
+  ],
+  "alert_count": 5,
+  "rules_triggered": [
+    "R003",
+    "R006",
+    "R008",
+    "R012"
+  ],
+  "severity_summary": {
+    "warning": 1,
+    "critical": 4
+  },
+  "verdict": "attack"
+}

@@ -1,0 +1,69 @@
+{
+  "scenario": "15",
+  "findings": [
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s15_020",
+        "evt_s15_023"
+      ],
+      "description": "user_04 had 2 event(s) outside normal working hours (09:00-17:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "after_hours_activity",
+      "event_ids": [
+        "evt_s15_024",
+        "evt_s15_025",
+        "evt_s15_026"
+      ],
+      "description": "user_01 had 3 event(s) outside normal working hours (08:30-18:00)",
+      "severity": "warning"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s15_001",
+        "evt_s15_026",
+        "evt_s15_003",
+        "evt_s15_005",
+        "evt_s15_007",
+        "evt_s15_009",
+        "evt_s15_011",
+        "evt_s15_013",
+        "evt_s15_016",
+        "evt_s15_017",
+        "evt_s15_021",
+        "evt_s15_022",
+        "evt_s15_024",
+        "evt_s15_025"
+      ],
+      "description": "user_01 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    },
+    {
+      "type": "cross_source_activity",
+      "event_ids": [
+        "evt_s15_002",
+        "evt_s15_023",
+        "evt_s15_004",
+        "evt_s15_006",
+        "evt_s15_008",
+        "evt_s15_010",
+        "evt_s15_012",
+        "evt_s15_014",
+        "evt_s15_015",
+        "evt_s15_018",
+        "evt_s15_019",
+        "evt_s15_020"
+      ],
+      "description": "user_04 has activity across 2 source types: auth, file_access",
+      "severity": "info"
+    }
+  ],
+  "finding_count": 4,
+  "severity_summary": {
+    "warning": 2,
+    "info": 2
+  }
+}
