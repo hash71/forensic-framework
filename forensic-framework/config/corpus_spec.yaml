@@ -1,0 +1,134 @@
+# Corpus generation specification.
+#
+# Declares the parameter space the scenario factory samples from. Committed
+# so reviewers can audit the generation space without running the code.
+# Anti-designer-bias control: parameters are sampled by a seeded RNG; the
+# authors never see or hand-edit individual generated scenarios before they
+# are scored.
+#
+# Used by:  app/ingestion/scenario_factory.py
+# Driver:   generate_corpus.py  (default --seed 42)
+
+seed: 42
+holdout_first_index: 16   # scenarios 1-15 are the calibration set; 16+ are holdout
+holdout_count: 100
+timezone_offset: "+06:00"
+
+# Generator-created personas (appended to user_baselines.json).
+# Existing personas user_01..user_04 are preserved unchanged.
+personas:
+  count: 10
+  generated_ids: [user_05, user_06, user_07, user_08, user_09, user_10]
+  departments: [sales, devops, security, legal, marketing, executive]
+  ip_prefix: "192.168.1."
+  ip_offset: 105   # user_05 gets .105, user_06 gets .106, ...
+
+# Per-family distribution. Sum must equal holdout_count.
+families:
+  normal_baseline:
+    label: BENIGN
+    hard_benign: false
+    count: 10
+    params:
+      events_per_day: [3, 8]
+      duration_days: [1, 1]
+      session_count: [1, 2]
+  travel_noise:
+    label: BENIGN
+    hard_benign: true
+    count: 10
+    params:
+      events_per_day: [12, 30]
+      duration_days: [1, 3]
+      foreign_ip_pool:
+        - "103.28.45.67"     # Singapore
+        - "151.101.65.69"    # San Francisco
+        - "78.46.150.40"     # Frankfurt
+        - "45.79.97.21"      # Tokyo
+        - "139.59.13.50"     # London
+      include_legitimate_justification: true
+  credential_compromise:
+    label: ATTACK
+    hard_benign: false
+    count: 12
+    params:
+      failed_attempts: [3, 8]
+      foreign_ip_pool:
+        - "185.220.101.45"
+        - "194.180.48.99"
+        - "45.155.205.233"
+        - "23.129.64.222"
+      include_log_deletion: true
+      downloads_after_breach: [5, 20]
+  scope_creep:
+    label: ATTACK
+    hard_benign: false
+    count: 12
+    params:
+      duration_days: [3, 10]
+      files_per_day: [1, 4]
+      cross_dept_ratio: [0.4, 0.8]
+  session_hijack:
+    label: ATTACK
+    hard_benign: false
+    count: 10
+    params:
+      session_duration_min: [60, 240]
+      hijack_point_pct: [0.4, 0.7]
+      foreign_ip_pool:
+        - "5.62.20.100"
+        - "91.219.236.222"
+        - "176.10.99.200"
+  maintenance_window:
+    label: BENIGN
+    hard_benign: true
+    count: 8
+    params:
+      include_ticket: true
+      include_log_rotation: true
+      include_privilege_change: true
+      hours_window: ["22:00", "04:00"]
+  failed_stuffing:
+    label: BENIGN
+    hard_benign: true
+    count: 8
+    params:
+      failed_attempts: [10, 50]
+      all_failures: true
+      foreign_ip_pool:
+        - "45.142.214.123"
+        - "194.61.121.55"
+        - "62.102.148.69"
+  multistage_infra:
+    label: ATTACK
+    hard_benign: false
+    count: 12
+    params:
+      include_sql_injection: true
+      include_dns_tunnel: true
+      include_data_volume_breach: true
+      attacker_ip_pool:
+        - "104.244.76.13"
+        - "162.247.74.27"
+  decoy_misdirection:
+    label: ATTACK
+    hard_benign: false
+    count: 10
+    params:
+      decoy_loudness: [high, very_high]
+      real_attacker_quietness: [low, very_low]
+      decoy_user_pool: [user_04, user_07, user_09]
+  legitimate_peak:
+    label: BENIGN
+    hard_benign: true
+    count: 8
+    params:
+      peak_type: [quarter_close, audit_season, migration, year_end_reporting]
+      file_count: [40, 120]
+      include_ticket: true
+
+# Verdict semantics (must match the evaluator):
+#   ATTACK label  -> ground-truth "ATTACK"; correct rule verdict in {attack}
+#   BENIGN label  -> ground-truth "BENIGN"; correct rule verdict in {no_alert}
+#   hard_benign   -> BENIGN scenarios designed to generate alerts. Used to
+#                    power false-positive rate analysis.

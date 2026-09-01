@@ -20,6 +20,39 @@ INCIDENT_NAMES = {
     14: "False Flag / Misdirection", 15: "End-of-Quarter Bulk",
 }
 
+# One-line tagline for the 15 calibration scenarios + the 10 holdout families.
+# Used to enrich the Investigation page dropdown so users can pick meaningfully.
+CALIBRATION_TAGLINES = {
+    1: "Quiet weekday — financial_analyst within all baselines.",
+    2: "Travel hotel IP + heavy file volume — looks suspicious, is legitimate.",
+    3: "Textbook external attack: failed-then-success → priv-esc → bulk download → log delete.",
+    4: "3-day insider scope creep — slow cross-department expansion.",
+    5: "Mid-session IP change — session hijack signature.",
+    6: "Authorised after-hours ops work with ticket cover.",
+    7: "Credential stuffing attempt; all logins fail, no breach.",
+    8: "Multi-stage: SQLi → cred dump → DB exfil → DNS tunnel.",
+    9: "Auth log deleted by the attacker — downloads with missing login.",
+    10: "Log-aggregation jitter; network events arrive 2h before auth.",
+    11: "Benign morning, account takeover at 15:30 — find the transition.",
+    12: "VPN timestamp after the file access it should precede — fabricated log.",
+    13: "Slow drip: 1 file/day for 7 days, only the 7-day pattern reveals it.",
+    14: "Loud decoy on one user masks a quiet real attack on another.",
+    15: "Quarter-close — high volume + late hours, but legitimate. LLM's only calibration FP.",
+}
+
+FAMILY_TAGLINES = {
+    "normal_baseline": "Quiet typical workday — baseline behaviour, no attack.",
+    "travel_noise": "Business-travel hotel IP + heavy file activity — hard-benign.",
+    "maintenance_window": "Authorised after-hours ops with ticket — looks malicious to rules.",
+    "failed_stuffing": "Credential stuffing attempt, all logins fail — no breach.",
+    "legitimate_peak": "Quarter-close / audit-season spike — legitimate workload surge.",
+    "credential_compromise": "Foreign-IP login after failed attempts → priv-esc → exfil.",
+    "scope_creep": "Multi-day insider gradually widening cross-department access.",
+    "session_hijack": "Mid-session IP change followed by cross-dept downloads.",
+    "multistage_infra": "SQLi → credential theft → DB exfil → DNS tunnel chain.",
+    "decoy_misdirection": "Loud decoy attack masks a quiet real attack on another user.",
+}
+
 SOURCE_TYPE_INFO = {
     "auth": {"icon": "\U0001f510", "server": "Authentication Server", "color": "#0891b2"},
     "file_access": {"icon": "\U0001f4c1", "server": "File Server", "color": "#059669"},
@@ -42,14 +75,17 @@ SEV_COLORS = {
 
 RULE_DESCRIPTIONS = {
     "R001": ("unusual_login_ip", "Flags logins from IP addresses not in the user's baseline"),
-    "R002": ("off_hours_access", "Flags activity outside normal business hours (09:00-17:00)"),
-    "R003": ("privilege_escalation", "Flags when a user elevates their own access privileges"),
-    "R004": ("bulk_download", "Flags download of more than N files in a short window"),
-    "R005": ("cross_department_access", "Flags access to directories outside the user's department"),
-    "R006": ("log_deletion", "Flags deletion of log files (anti-forensics indicator)"),
-    "R007": ("failed_login_spike", "Flags multiple failed login attempts within a short window"),
-    "R008": ("privilege_then_download", "Compound rule: escalation followed by bulk download"),
-    "R012": ("lateral_movement", "Flags session activity spanning multiple hosts"),
+    "R002": ("off_hours_access", "Flags activity outside the user's normal working hours"),
+    "R003": ("privilege_escalation", "Flags any privilege_change action (severity: critical)"),
+    "R004": ("bulk_download", "Flags more than 5 file_download events within a 30-minute window per user"),
+    "R005": ("cross_department_access", "Flags access to directories outside the user's normal_directories"),
+    "R006": ("log_deletion", "Flags any log_delete action (anti-forensics indicator; critical)"),
+    "R007": ("failed_login_spike", "Flags ≥2 login failures within a 5-minute window per user"),
+    "R008": ("privilege_then_download", "Compound: privilege_change followed by file_download within 30 min"),
+    "R009": ("dns_tunnel_detection", "Flags more than 20 DNS queries to the same domain within 5 minutes"),
+    "R010": ("sql_injection_attempt", "Web events with status 500 containing SQL keywords (UNION, SELECT, OR 1=1, ...)"),
+    "R011": ("data_exfiltration_volume", "Flags total outbound bytes_transferred > 100 MB in a 30-minute window"),
+    "R012": ("lateral_movement", "Same user authenticated from auth + database + web within 30 minutes"),
 }
 
 # ---------------------------------------------------------------------------
@@ -117,6 +153,28 @@ def _eval_for_scenario(data, num):
     return None
 
 
+def _scenario_family(data, num):
+    """Return (family, holdout_flag, tagline, display_name) for scenario num."""
+    gt = data.get("ground_truth", {}) if isinstance(data.get("ground_truth"), dict) else {}
+    entry = None
+    for s in gt.get("scenarios", []):
+        try:
+            if int(s["id"].split("_")[1]) == num:
+                entry = s
+                break
+        except Exception:
+            continue
+    family = entry.get("family") if entry else None
+    holdout = bool(entry and entry.get("holdout", False))
+    if holdout and family:
+        display = family.replace("_", " ").title()
+        tagline = FAMILY_TAGLINES.get(family, "")
+    else:
+        display = INCIDENT_NAMES.get(num, f"Scenario {num}")
+        tagline = CALIBRATION_TAGLINES.get(num, "")
+    return family, holdout, tagline, display
+
+
 def get_incident_list(data):
     incidents = []
     for num in sorted(data["scenarios"].keys()):
@@ -132,9 +190,14 @@ def get_incident_list(data):
             severity = "warning"
         else:
             severity = "clear"
+        family, holdout, tagline, display = _scenario_family(data, num)
         incidents.append({
             "num": num,
-            "name": INCIDENT_NAMES.get(num, f"Scenario {num}"),
+            "name": display,
+            "raw_name": INCIDENT_NAMES.get(num, f"Scenario {num}"),
+            "family": family,
+            "holdout": holdout,
+            "tagline": tagline,
             "label": label,
             "verdict": verdict,
             "alert_count": alert_count,
@@ -765,6 +828,43 @@ def apply_theme():
 def render_page_header(title, subtitle):
     st.title(title)
     st.caption(subtitle)
+
+
+# ---------------------------------------------------------------------------
+# Page guide — expander with "what's on this page" + glossary
+# ---------------------------------------------------------------------------
+
+GLOBAL_GLOSSARY = [
+    ("Calibration set", "The 15 author-designed scenarios (S01–S15) on which the LLM system prompt was iteratively tuned. Reported separately because it is not a fair generalisation benchmark."),
+    ("Holdout set", "The 100 generator-created scenarios (S16–S115) sampled deterministically from config/corpus_spec.yaml under seed 42. Reviewers can audit the generation space; the author never hand-edits individual scenarios. This is the headline evaluation slice."),
+    ("Hard-benign", "Benign-labelled scenarios designed to fire rule alerts (e.g., business travel, after-hours maintenance, end-of-quarter spikes). They exist to measure false-positive behaviour. 34 of the 44 holdout benigns are hard-benign."),
+    ("CERT r4.2", "The CMU CERT Insider Threat Test Dataset r4.2 — an independently produced corpus of synthetic-but-not-author-touched logs with labeled insider activity. The framework was replayed on 40 per-user-month windows; 35 of 40 scored, 5 lost to a Modal endpoint outage."),
+    ("Rule verdict", "Output of the 12-rule engine (R001–R012). Mapped to BENIGN/ATTACK for accuracy scoring: critical-severity alert → ATTACK, only warnings → SUSPICIOUS (mapped BENIGN), no alerts → NO_ALERT (BENIGN)."),
+    ("LLM verdict", "Output of the open-weight Gemma model after structured-evidence-only prompting. YES = attack, NO = benign, INSUFFICIENT = abstention. INSUFFICIENT is scored as BENIGN because abstaining on an attack has no triage value."),
+    ("Evidence grounding", "Whether every claim in the LLM's response cites an event_id that actually exists in the input timeline. The 7-check validator enforces this: cited events exist, chain ordering matches timestamps, named actors exist, etc."),
+    ("Citation validity", "Fraction of LLM event-id references that resolve to real events. Across all 115 scenarios: 2067/2068 = 99.95%. Across CERT (35 scored): 20/20 = 100%."),
+    ("Clopper–Pearson CI", "Exact 95% binomial confidence interval — used because n is small enough (15, 35, 44) that normal approximations are unreliable."),
+    ("McNemar exact test", "Paired-comparison test for two systems on the same scenarios. The p-value reflects how many discordant scenarios favor one system vs the other."),
+    ("Fleiss' kappa", "Inter-rater agreement statistic. 1.000 = perfect agreement. At temperature 0.1 the model returned identical verdicts across 110 repeated runs (κ = 1.000, flip rate 0%)."),
+    ("Hallucinated event", "A reference to an event_id in the LLM response that does not appear in the input timeline. None observed in 115 scenarios."),
+    ("Chronology violation", "An attack-chain step whose cited event timestamp is later than the next step's. 1 of 115 across the synthetic corpus; 0 on CERT."),
+]
+
+
+def render_page_guide(description: str, glossary: list[tuple[str, str]] | None = None,
+                       include_global: bool = True) -> None:
+    """Render a collapsed 'How to read this page' expander with a description
+    and an optional glossary. The global glossary is appended by default."""
+    glossary = list(glossary or [])
+    if include_global:
+        seen = {term for term, _ in glossary}
+        glossary.extend([(t, d) for t, d in GLOBAL_GLOSSARY if t not in seen])
+    with st.expander("How to read this page · glossary", expanded=False):
+        st.markdown(description)
+        if glossary:
+            st.markdown("**Terms used on this page**")
+            md = "\n".join(f"- **{t}** — {d}" for t, d in glossary)
+            st.markdown(md)
 
 
 # ---------------------------------------------------------------------------

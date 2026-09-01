@@ -7,8 +7,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 import streamlit as st
 
 from dashboard_utils import (
-    apply_theme, load_all_data, render_page_header, render_sidebar_info,
-    tip, SOURCE_TYPE_INFO, RULE_DESCRIPTIONS,
+    apply_theme, load_all_data, render_page_header, render_page_guide,
+    render_sidebar_info, tip, SOURCE_TYPE_INFO, RULE_DESCRIPTIONS,
 )
 
 # ── Setup ────────────────────────────────────────────────────────────────────
@@ -18,6 +18,23 @@ render_sidebar_info(data)
 render_page_header(
     "Infrastructure",
     "What we monitor, how data flows through the pipeline, and the two detection methods compared in this research.",
+)
+render_page_guide(
+    "**Section A** shows the seven log source types that feed the unified event "
+    "schema, with the live event count per source. **Section B** visualises the "
+    "nine-stage pipeline (ingestion → parsing → normalisation → timeline → "
+    "correlation → rules + LLM + validator → evaluation). **Section C** is the "
+    "head-to-head: the deterministic 12-rule baseline (R001–R012) on the left, "
+    "the Gemma-backed evidence-grounded LLM analyst on the right.\n\n"
+    "Numbers on this page are computed live from `data/scenarios/` and "
+    "`data/evaluation_results.json`. The 12 rules are listed in full from "
+    "`config/rules.yaml`.",
+    glossary=[
+        ("Unified event schema", "11-field record produced by source-specific normalisers: event_id, timestamp, source_type, user, action, resource, source_ip, status, session_id, severity, metadata."),
+        ("Rule severity", "Each of R001–R012 fires either `warning` or `critical`. Critical alerts map to ATTACK in the verdict mapping; warnings alone map to SUSPICIOUS (BENIGN)."),
+        ("Threshold-based detection", "Each rule is a deterministic predicate over event subsets. Transparent and auditable, but blind to multi-day or cross-source patterns."),
+        ("Evidence-grounded LLM", "Open-weight Gemma model called at temperature 0.1 over the structured timeline only. Every claim in the output must cite an event_id; a seven-check validator audits citation grounding."),
+    ],
 )
 
 # ── Compute source counts ────────────────────────────────────────────────────
@@ -104,7 +121,7 @@ with row2[3]:
     st.markdown(f"""
 <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:1rem;height:100%;display:flex;flex-direction:column;justify-content:center;text-align:center;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:#0f172a;">{total_events:,}</div>
-<div style="font-size:0.75rem;color:#64748b;margin-top:0.2rem;">total events across<br>all 15 scenarios</div>
+<div style="font-size:0.75rem;color:#64748b;margin-top:0.2rem;">total events across<br>all {total_eval} scenarios</div>
 </div>""", unsafe_allow_html=True)
 
 # ===========================================================================
@@ -121,7 +138,7 @@ steps = [
     ("COLLECTION", f"{total_events:,} Events", "#059669"),
     ("NORMALIZATION", "Standardized", "#7c3aed"),
     ("ANALYSIS", "Rules + LLM", "#2563eb"),
-    ("EVALUATION", "15 Scenarios", "#dc2626"),
+    ("EVALUATION", f"{total_eval} Scenarios", "#dc2626"),
 ]
 for i, (title, value, color) in enumerate(steps):
     if i > 0:
@@ -155,12 +172,12 @@ with col_rules:
 <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#64748b;">{rule_correct}/{total_eval}</div>
 <div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">Accuracy</div>
 </div>
-<div style="text-align:center;flex:1;">
+<div style="text-align:center;flex:1;" title="Total alert instances fired across benign scenarios. One scenario can generate many alerts (e.g. R002 fires once per off-hours event). Not directly comparable to the LLM's per-scenario FP count.">
 <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#d97706;">{rule_fp}</div>
-<div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">False Positives</div>
+<div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">Alert Instances on Benigns</div>
 </div>
 <div style="text-align:center;flex:1;">
-<div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#0f172a;">9</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#0f172a;">{len(RULE_DESCRIPTIONS)}</div>
 <div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">Rules</div>
 </div>
 </div>
@@ -187,16 +204,16 @@ with col_llm:
 <div style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:1.2rem;border-top:3px solid #2563eb;">
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
 <div style="font-weight:700;font-size:1.1rem;color:#0f172a;">LLM Analyst</div>
-<div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#2563eb;background:#eff6ff;padding:2px 8px;border-radius:4px;">Qwen 3.5-27B</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#2563eb;background:#eff6ff;padding:2px 8px;border-radius:4px;">Gemma (open-weight)</div>
 </div>
 <div style="display:flex;gap:1rem;margin-bottom:1rem;">
 <div style="text-align:center;flex:1;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#2563eb;">{llm_correct}/{total_eval}</div>
 <div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">Accuracy</div>
 </div>
-<div style="text-align:center;flex:1;">
+<div style="text-align:center;flex:1;" title="Number of benign scenarios the LLM mislabeled as ATTACK. One scenario = one FP regardless of how many events.">
 <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#16a34a;">{llm_fp}</div>
-<div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">False Positives</div>
+<div style="font-size:0.65rem;color:#94a3b8;text-transform:uppercase;">FP Scenarios</div>
 </div>
 <div style="text-align:center;flex:1;">
 <div style="font-family:'JetBrains Mono',monospace;font-size:1.8rem;font-weight:700;color:#0f172a;">{avg_grounding:.0f}%</div>

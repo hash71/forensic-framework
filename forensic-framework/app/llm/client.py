@@ -22,7 +22,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 # Modal LLM client
 # ---------------------------------------------------------------------------
 
-async def call_modal_llm(prompt: str, system_prompt: str = "") -> dict:
+async def call_modal_llm(prompt: str, system_prompt: str = "", temperature: float = 0.1) -> dict:
     """Call the Modal-hosted LLM endpoint.
 
     Posts a chat-completions request to the Modal endpoint configured via
@@ -31,6 +31,7 @@ async def call_modal_llm(prompt: str, system_prompt: str = "") -> dict:
     Args:
         prompt: The user prompt to send.
         system_prompt: Optional system prompt (defaults to empty string).
+        temperature: Sampling temperature (defaults to 0.1).
 
     Returns:
         Parsed JSON dict from the LLM response content.
@@ -46,10 +47,10 @@ async def call_modal_llm(prompt: str, system_prompt: str = "") -> dict:
     messages.append({"role": "user", "content": prompt})
 
     payload = {
-        "model": os.getenv("MODAL_MODEL", "fusion-brain"),
+        "model": os.getenv("MODAL_MODEL", "fusion-gemma"),
         "messages": messages,
-        "temperature": 0.1,
-        "max_tokens": 8192,
+        "temperature": temperature,
+        "max_tokens": 2048,
         "chat_template_kwargs": {"enable_thinking": False},
     }
 

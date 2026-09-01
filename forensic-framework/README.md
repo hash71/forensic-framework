@@ -4,19 +4,22 @@ A forensic log analysis framework comparing **rule-based detection** vs **LLM an
 
 ## Key Finding
 
-> **LLM analysis achieves 93% accuracy (14/15 scenarios) vs 67% (10/15) for the rule engine — with 1 false positive vs 76.**
+> **LLM verdict accuracy 14/15 (93.3%) vs rule engine 10/15 (66.7%). Validator records no invalid event-ID citations in 13 of 15 scenarios.**
 
-The LLM's advantage comes from contextual reasoning: understanding user intent, correlating events across time and sources, and recognizing attack patterns that static threshold rules miss.
+On benign-but-noisy scenarios, the rule engine fires 76 alerts in aggregate (33 on the after-hours-maintenance scenario alone) while the LLM produces a single verdict-level false positive (S15, end-of-quarter activity). A five-run no-rule-context ablation on S15 reverses the verdict to `NO` on all five runs (`data/ablation/S15_*.json`), supporting the rule-context-amplification hypothesis: the false positive comes from how the LLM interprets the rule-alert artefact, not from the underlying timeline.
+
+Two limits bound the contribution: (S14) the LLM's binary verdict is correct but it picks the decoy actor as the suspect — citation grounding does not catch wrong-suspect-with-real-evidence; (S15) rule-alert context amplifies a benign scenario into a false attack verdict, reversed by the ablation.
 
 ## What It Does
 
 1. **Ingests logs** from 7 server types (authentication, file access, admin, network, database, web, email) — 297 events across 15 scenarios
-2. **Normalizes** raw logs into a common schema
-3. **Analyzes** the same normalized data with two methods in parallel:
-   - **Rule engine**: 9 threshold-based detection rules
-   - **LLM analyst**: Qwen 3.5-27B with structured forensic prompting
-4. **Evaluates** both methods against ground truth — precision, recall, F1, false positive rate, hallucination count
-5. **Stress tests** the LLM against evidence removal, noise injection, temporal jitter, format variations
+2. **Normalises** raw logs into a common schema (with OCSF v1.1 / ECS 8.x mappings)
+3. **Analyses** the same correlated timeline with two methods in parallel:
+   - **Rule engine**: 12 threshold-style correlation rules (R001–R012)
+   - **LLM analyst**: Qwen 3.5-27B with structured forensic prompting; every claim must cite an event identifier from the input
+4. **Validates** the LLM output through a seven-check evidence-grounding validator (event-ID existence, chronology, actor/entity consistency, selected volume claims)
+5. **Evaluates** both methods against ground truth — verdict accuracy, F1 against attack steps, false-positive rate, citation-grounding violations
+6. **Stress tests** the LLM against evidence removal, noise injection, temporal jitter, format variations
 
 ## Dashboard
 
@@ -46,10 +49,14 @@ A 4-page Streamlit dashboard presents the framework and results:
 | S11 | Benign Then Compromised | Attack | ✅ | ✅ |
 | S12 | Conflicting Signals | Attack | ❌ | ✅ |
 | S13 | Ultra-Slow Exfiltration | Attack | ❌ | ✅ |
-| S14 | False Flag / Misdirection | Attack | ✅ | ✅ |
-| S15 | End-of-Quarter Bulk | Benign | ✅ | ❌ |
+| S14 | False Flag / Misdirection | Attack | ✅ | ✅\* |
+| S15 | End-of-Quarter Bulk | Benign | ✅ | ❌† |
 
-Rules fail on 5 scenarios that require contextual reasoning (session IP change detection, legitimate-vs-malicious after-hours activity, out-of-order timestamps, fabricated VPN logs, multi-day exfiltration patterns). The LLM fails on 1 scenario where legitimate end-of-quarter bulk activity resembles exfiltration patterns.
+\* S14: LLM's binary verdict is correct (`YES` against `ATTACK`) but it picks the decoy as the suspect; ground-truth attacker is `user_02`, LLM names `user_04`. Suspect-attribution failure, not a verdict failure.
+
+† S15: Rule-context amplification. A five-run no-rule-context ablation reverses the verdict to `NO` on all five runs (see `data/ablation/`).
+
+Rules fail on 5 scenarios that require contextual reasoning (S5 session IP change, S6 legitimate after-hours maintenance, S10 out-of-order timestamps, S12 conflicting signals, S13 multi-day exfiltration). The LLM fails on 1 scenario at the verdict level (S15, end-of-quarter legitimate bulk activity); a no-rule-context ablation reverses this to the correct verdict.
 
 ## Architecture
 
@@ -60,19 +67,22 @@ Rules fail on 5 scenarios that require contextual reasoning (session IP change d
 └─────────────┘    └───────────┘    └─────────────┘    └──────────────┘    └────────────┘
 ```
 
-### Detection Rules (9)
+### Detection Rules (12)
 
 | ID | Name | Checks |
 |----|------|--------|
-| R001 | unusual_login_ip | Logins from IPs not in user's baseline |
-| R002 | off_hours_access | Activity outside business hours (09:00–17:00) |
-| R003 | privilege_escalation | User elevating own access privileges |
-| R004 | bulk_download | Downloads exceeding N files in a short window |
-| R005 | cross_department_access | Directory access outside user's department |
-| R006 | log_deletion | Log file deletion (anti-forensics indicator) |
-| R007 | failed_login_spike | Multiple failed logins in a short window |
-| R008 | privilege_then_download | Escalation followed by bulk download |
-| R012 | lateral_movement | Session activity spanning multiple hosts |
+| R001 | unusual_login_ip | Logins from IPs not in user's `normal_ips` |
+| R002 | off_hours_access | Activity outside the user's `normal_hours` |
+| R003 | privilege_escalation | Any `privilege_change` action |
+| R004 | bulk_download | More than 5 `file_download` events within 30 min |
+| R005 | cross_department_access | Resource directory not in user's `normal_directories` |
+| R006 | log_deletion | Any `log_delete` action (anti-forensics indicator) |
+| R007 | failed_login_spike | ≥ 2 login failures within a 5-minute window |
+| R008 | privilege_then_download | `privilege_change` followed by `file_download` within 30 min |
+| R009 | dns_tunnel_detection | More than 20 DNS queries to the same domain within 5 min |
+| R010 | sql_injection_attempt | Web event with status 500 and SQL keywords in URL |
+| R011 | data_exfiltration_volume | Total outbound bytes > 100 MB within 30 min |
+| R012 | lateral_movement | Same user authenticated against ≥ 3 server types within 30 min |
 
 ### LLM Output Schema
 

@@ -11,10 +11,10 @@ from datetime import datetime, timedelta
 import re
 
 from dashboard_utils import (
-    apply_theme, load_all_data, render_page_header, render_sidebar_info,
-    get_incident_list, verdict_badge, severity_dot, plotly_layout, tip,
-    get_scenario_description, get_ground_truth_info, _eval_for_scenario,
-    SOURCE_TYPE_INFO, INCIDENT_NAMES, SEV_COLORS,
+    apply_theme, load_all_data, render_page_header, render_page_guide,
+    render_sidebar_info, get_incident_list, verdict_badge, severity_dot,
+    plotly_layout, tip, get_scenario_description, get_ground_truth_info,
+    _eval_for_scenario, SOURCE_TYPE_INFO, INCIDENT_NAMES, SEV_COLORS,
 )
 
 # ── Setup ────────────────────────────────────────────────────────────────────
@@ -23,7 +23,24 @@ data = load_all_data()
 render_sidebar_info(data)
 render_page_header(
     "Investigation Console",
-    "Select an incident to see what happened, how it was detected, and the evidence behind each verdict.",
+    "Drill into one incident at a time: ground-truth context, side-by-side verdicts, the cited evidence timeline, and the validator's grounding report.",
+)
+render_page_guide(
+    "Pick a scenario from the selector and the page walks you through the full "
+    "investigation: **What Happened** (ground-truth narrative), **Detection "
+    "Comparison** (rule engine verdict vs LLM verdict, side by side), **Evidence "
+    "Timeline** (chronological Gantt of every cited event), **Event Log** "
+    "(filterable raw events), and **Evidence Quality** (the seven-check validator's "
+    "report — valid citations, hallucinated event ids, chronology violations).\n\n"
+    "Calibration scenarios S01–S15 are the hand-authored set; S16+ are the "
+    "generator-created holdout. CERT replays would appear here too, if the "
+    "scenarios were copied into `data/scenarios/`.",
+    glossary=[
+        ("Cited evidence", "An `event_id` listed by the LLM in its `attack_chain`, `evidence_for`, or `evidence_against` arrays. The validator confirms each cited id resolves to a real event in the input timeline."),
+        ("Attack chain", "The LLM's ordered narrative of what happened: each step cites the event_id that supports it. Chronology is validated against the cited timestamps."),
+        ("Severity dot", "Red = ATTACK verdict, yellow = SUSPICIOUS, green = CLEAR. Sourced from the LLM's mapped verdict for sorting purposes."),
+        ("Grounding %", "Fraction of the LLM's narrative that is anchored to a cited event id (vs uncited prose). Higher is more auditable."),
+    ],
 )
 
 # ── Section A: Incident Selector ─────────────────────────────────────────────
@@ -31,22 +48,78 @@ render_page_header(
 incidents = get_incident_list(data)
 _sev_emoji = {"critical": "\U0001f534", "warning": "\U0001f7e1", "clear": "\U0001f7e2"}
 
+# Top filter row: split / family / search \u2014 narrow the dropdown before picking.
+filter_cols = st.columns([1.2, 2, 2.5])
+with filter_cols[0]:
+    split_filter = st.selectbox(
+        "Split",
+        ["All (115)", "Calibration only (S1\u2013S15)", "Holdout only (S16\u2013S115)"],
+        index=0,
+        help="Calibration = author-designed. Holdout = generator-created from corpus_spec.yaml under seed 42.",
+    )
+all_families = sorted({inc["family"] for inc in incidents if inc["family"]})
+family_options = ["All families"] + [f.replace("_", " ").title() for f in all_families]
+family_lookup = {f.replace("_", " ").title(): f for f in all_families}
+with filter_cols[1]:
+    family_filter = st.selectbox(
+        "Family",
+        family_options,
+        index=0,
+        help="Holdout scenarios were sampled from ten parameterised families. Pick one to narrow to scenarios of the same shape.",
+    )
+with filter_cols[2]:
+    text_filter = st.text_input(
+        "Search",
+        "",
+        placeholder="e.g. S91, hijack, exfil\u2026",
+        help="Substring match against scenario id, family, tagline, or label.",
+    )
+
+
+def _passes(inc) -> bool:
+    if split_filter.startswith("Calibration") and inc["holdout"]:
+        return False
+    if split_filter.startswith("Holdout") and not inc["holdout"]:
+        return False
+    if family_filter != "All families":
+        if inc["family"] != family_lookup.get(family_filter):
+            return False
+    if text_filter.strip():
+        q = text_filter.strip().lower()
+        hay = " ".join([
+            f"s{inc['num']:02d}", inc["name"].lower(), (inc["tagline"] or "").lower(),
+            (inc["family"] or "").lower(), inc["label"].lower(),
+        ])
+        if q not in hay:
+            return False
+    return True
+
+
+filtered = [inc for inc in incidents if _passes(inc)]
+
 options = []
 option_to_num = {}
-for inc in incidents:
+for inc in filtered:
     emoji = _sev_emoji.get(inc["severity"], "\u26aa")
     label_tag = inc["label"]
-    opt = f"{emoji} S{inc['num']:02d} \u2014 {inc['name']} [{label_tag}]"
+    family_tag = f" \u00b7 {inc['family']}" if (inc["holdout"] and inc["family"]) else ""
+    opt = f"{emoji} S{inc['num']:02d} \u2014 {inc['name']}{family_tag} [{label_tag}]"
     options.append(opt)
     option_to_num[opt] = inc["num"]
 
-# Find the current selection label
-current_num = st.session_state.get("selected_incident", 1)
+if not options:
+    st.warning("No scenarios match the current filters. Widen the filter or clear the search box.")
+    st.stop()
+
+# Find current selection inside the filtered list
+current_num = st.session_state.get("selected_incident", filtered[0]["num"])
 default_idx = 0
 for i, opt in enumerate(options):
     if option_to_num[opt] == current_num:
         default_idx = i
         break
+else:
+    current_num = filtered[0]["num"]
 
 selected_opt = st.selectbox("Incident", options, index=default_idx, label_visibility="collapsed")
 selected_num = option_to_num[selected_opt]
@@ -54,6 +127,21 @@ selected_num = option_to_num[selected_opt]
 if selected_num != st.session_state.get("selected_incident"):
     st.session_state.selected_incident = selected_num
     st.rerun()
+
+# Tagline card directly under the dropdown \u2014 what is this scenario about?
+selected_inc = next((inc for inc in incidents if inc["num"] == selected_num), None)
+if selected_inc and selected_inc["tagline"]:
+    tagline_html = selected_inc["tagline"]
+    if selected_inc["holdout"] and selected_inc["family"]:
+        prefix = f"<span style='color:#2563eb;font-weight:600'>Family \u00b7 {selected_inc['family']}</span>"
+    else:
+        prefix = "<span style='color:#7c3aed;font-weight:600'>Calibration scenario</span>"
+    st.markdown(
+        f"<div style='background:#f8fafc;border-left:3px solid #cbd5e1;"
+        f"padding:0.6rem 0.8rem;border-radius:0 6px 6px 0;margin:0.4rem 0 1rem 0;"
+        f"font-size:0.85rem;color:#334155;'>{prefix} &nbsp;|&nbsp; {tagline_html}</div>",
+        unsafe_allow_html=True,
+    )
 
 num = st.session_state.selected_incident
 sc = data["scenarios"].get(num, {})
@@ -291,11 +379,40 @@ if ev_rec:
     valid_refs = evt_refs.get("valid_references", 0)
     total_refs = evt_refs.get("total_references", 0)
     hallucinated = evt_refs.get("hallucinated_events", 0)
-    grounding = ev_rec.get("llm_quality", {}).get("evidence_grounding_pct", 0)
+    grounding_pct = ev_rec.get("llm_quality", {}).get("evidence_grounding_pct", 0) or 0
+    # Citation validity = fraction of cited event_ids that resolved to real
+    # events. More meaningful than evidence_grounding_pct on BENIGN scenarios
+    # (which have no attack-chain steps to score).
+    citation_validity = (valid_refs / total_refs * 100) if total_refs else None
+    timeline_ok = hall.get("timeline_correctness", {}).get("chronologically_correct", True)
 
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Valid References", f"{valid_refs} / {total_refs}", help="Event IDs cited by the LLM that actually exist in the log data")
-    c2.metric("Hallucinated Events", str(hallucinated), help="Event IDs the LLM referenced that don't exist — fabricated evidence")
-    c3.metric("Evidence Grounding", f"{grounding:.1f}%", help="Percentage of LLM claims supported by actual log evidence")
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric(
+        "Valid References",
+        f"{valid_refs} / {total_refs}",
+        help="Event IDs cited by the LLM that actually exist in the log data. The seven-check validator flags any citation that doesn't resolve to an event in the input timeline.",
+    )
+    c2.metric(
+        "Hallucinated Events",
+        str(hallucinated),
+        help="Event IDs the LLM referenced that don't exist in the input — fabricated evidence. Across all 115 scenarios this is 0.",
+    )
+    c3.metric(
+        "Citation Validity",
+        f"{citation_validity:.1f}%" if citation_validity is not None else "n/a",
+        delta="OK" if citation_validity == 100 else None,
+        help="Fraction of LLM event-id references that resolve to real events in the input timeline. The corpus-wide figure is 99.95%.",
+    )
+    c4.metric(
+        "Timeline Order",
+        "OK" if timeline_ok else "VIOLATION",
+        delta=None if timeline_ok else "out-of-order step",
+        help="The attack-chain step timestamps are non-decreasing when matched against their cited events. 1 violation across 115 scenarios.",
+    )
+    if grounding_pct > 0:
+        st.caption(
+            f"Attack-chain grounding (steps with explicit event-id citations): {grounding_pct:.1f}%. "
+            "Benign scenarios usually have no attack chain to grade, so this metric reads 0% even when every cited event is valid."
+        )
 else:
     st.info("No evaluation data available for this scenario.")

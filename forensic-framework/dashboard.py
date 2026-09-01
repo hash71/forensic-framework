@@ -2,9 +2,10 @@
 import streamlit as st
 from datetime import datetime
 from dashboard_utils import (
-    apply_theme, load_all_data, render_page_header, render_sidebar_info,
-    get_incident_list, verdict_badge, severity_dot, plotly_layout, tip,
-    SOURCE_TYPE_INFO, INCIDENT_NAMES, _eval_for_scenario, SEV_COLORS,
+    apply_theme, load_all_data, render_page_header, render_page_guide,
+    render_sidebar_info, get_incident_list, verdict_badge, severity_dot,
+    plotly_layout, tip, SOURCE_TYPE_INFO, INCIDENT_NAMES, _eval_for_scenario,
+    SEV_COLORS,
 )
 import plotly.graph_objects as go
 
@@ -16,7 +17,23 @@ data = load_all_data()
 render_sidebar_info(data)
 render_page_header(
     "Operations Center",
-    "Monitoring 7 server types across 15 forensic scenarios. Click any incident to investigate.",
+    "Headline view of the 115-scenario forensic corpus. Click any incident to investigate.",
+)
+render_page_guide(
+    "This is the top-level operations view. Headline KPIs (top row) summarise the "
+    "entire 115-scenario corpus. The **Connected Servers** strip shows how the seven "
+    "unified-schema source types contribute to the event stream. **Detection "
+    "Performance** plots rule-baseline vs LLM accuracy side-by-side. The bottom "
+    "**Monitored Incidents** table lists every scenario with its rule verdict, LLM "
+    "verdict, and ground-truth label — sorted with confirmed attacks first.\n\n"
+    "Click *Investigate →* on any row to drill into the per-event timeline, the "
+    "LLM's cited evidence, and the seven-check validator's grounding report.",
+    glossary=[
+        ("Severity dot", "Red = confirmed attack (LLM YES + ground truth ATTACK), yellow = suspicious (rule warnings only or mismatch with ground truth), green = clear (both systems agree it's benign)."),
+        ("Rule Verdict column", "NO_ALERT, SUSPICIOUS (warnings only), or ATTACK (one or more critical-severity rules fired)."),
+        ("LLM Verdict column", "CLEAR (mapped from NO/INSUFFICIENT) or ATTACK (mapped from YES)."),
+        ("Truth column", "Ground-truth label predetermined by scenario design (calibration set) or by the parameterised family it was sampled from (holdout)."),
+    ],
 )
 
 # ---------------------------------------------------------------------------
@@ -56,7 +73,7 @@ llm_acc = llm_correct / total_eval * 100
 # ===========================================================================
 m1, m2, m3, m4 = st.columns(4)
 m1.metric("Servers Connected", 7, delta="All Online", help="Number of server types being monitored (auth, file, admin, network, database, web, email)")
-m2.metric("Events Analyzed", f"{total_events:,}", delta="From 7 sources", help="Total log events ingested across all 15 forensic scenarios")
+m2.metric("Events Analyzed", f"{total_events:,}", delta="From 7 sources", help="Total log events ingested across all 115 forensic scenarios (15 calibration + 100 holdout)")
 m3.metric("Threats Detected", threats, delta=f"{warnings} warnings", help="Incidents where the LLM confirmed an active attack. Warnings indicate suspicious but unconfirmed activity.")
 m4.metric("Detection Accuracy", f"{llm_acc:.0f}%", delta=f"+{llm_acc - rule_acc:.0f}% vs Rules", help="LLM verdict accuracy compared to ground truth. Delta shows improvement over the rule engine.")
 
@@ -89,14 +106,14 @@ for idx, (src_key, info) in enumerate(SOURCE_TYPE_INFO.items()):
 # ===========================================================================
 st.markdown("---")
 st.subheader("Detection Performance")
-st.caption("Comparing rule-based detection vs LLM analysis across all 15 scenarios.")
+st.caption(f"Comparing rule-based detection vs LLM analysis across all {total_eval} scenarios. Headline accuracy on the holdout split is reported on the Research page.")
 
 perf_left, perf_right = st.columns(2)
 
 with perf_left:
     fig = go.Figure()
     fig.add_trace(go.Bar(
-        x=["Rule Engine", "LLM (Qwen 3.5-27B)"],
+        x=["Rule Engine", "LLM (Gemma)"],
         y=[rule_acc, llm_acc],
         text=[f"{rule_acc:.0f}%", f"{llm_acc:.0f}%"],
         textposition="outside",
@@ -112,11 +129,11 @@ with perf_left:
 
 with perf_right:
     st.markdown(f"""
-The LLM correctly classified **{llm_correct}/15** scenarios compared to **{rule_correct}/15** for the rule engine.
+The LLM correctly classified **{llm_correct}/{total_eval}** scenarios compared to **{rule_correct}/{total_eval}** for the rule engine across the full corpus.
 
-**Where rules fail:** Rules missed 5 scenarios involving subtle insider threats, session hijacks, delayed log events, conflicting signals, and ultra-slow exfiltration — attacks that require contextual reasoning beyond threshold detection.
+**The headline splits sharply by label.** On the 100-scenario holdout, the LLM reaches 100% accuracy on attacks (statistically established, *p* < 0.001) but only 51% on benigns. On the 34 *hard-benign* scenarios designed to fire alerts, it falls to 38%.
 
-**LLM advantage:** The LLM correlates events across time and sources, understands user intent, and recognizes patterns that static rules cannot detect.
+**Forensic role:** The LLM is best characterised as a high-recall first-pass triage layer that contributes recall on subtle multi-day insider patterns rules miss, with a real false-positive cost on legitimate-but-noisy activity. It is not an autonomous detector.
 """)
 
 # ===========================================================================
@@ -124,16 +141,16 @@ The LLM correctly classified **{llm_correct}/15** scenarios compared to **{rule_
 # ===========================================================================
 st.markdown("---")
 st.subheader("Monitored Incidents")
-st.caption("15 forensic scenarios analyzed. Red = confirmed attack, green = cleared, yellow = suspicious. Click to investigate.")
+st.caption(f"{total_eval} forensic scenarios analyzed (15 calibration + {max(0, total_eval - 15)} holdout). Red = confirmed attack, green = cleared, yellow = suspicious. Click to investigate.")
 
 # Header row
 hdr = st.columns([0.5, 1, 3, 2, 2, 1.5, 2])
 hdr[0].markdown(tip("**Sev**", "Severity level: red=attack confirmed, yellow=suspicious, green=clear"), unsafe_allow_html=True)
-hdr[1].markdown(tip("**ID**", "Scenario identifier (S01–S15)"), unsafe_allow_html=True)
+hdr[1].markdown(tip("**ID**", f"Scenario identifier (S01–S{total_eval:02d}). S01–S15 are the calibration set; S16+ are the generator-created holdout."), unsafe_allow_html=True)
 hdr[2].markdown(tip("**Incident**", "Type of forensic scenario being investigated"), unsafe_allow_html=True)
-hdr[3].markdown(tip("**Rule Verdict**", "Rule engine classification based on alert thresholds"), unsafe_allow_html=True)
-hdr[4].markdown(tip("**LLM Verdict**", "LLM analyst classification (Qwen 3.5-27B)"), unsafe_allow_html=True)
-hdr[5].markdown(tip("**Truth**", "Ground truth label from scenario design"), unsafe_allow_html=True)
+hdr[3].markdown(tip("**Rule Verdict**", "Rule engine classification based on alert thresholds (R001–R012)"), unsafe_allow_html=True)
+hdr[4].markdown(tip("**LLM Verdict**", "LLM analyst classification (open-weight Gemma, temperature 0.1)"), unsafe_allow_html=True)
+hdr[5].markdown(tip("**Truth**", "Ground truth label from scenario design (calibration) or family parameters (holdout)"), unsafe_allow_html=True)
 hdr[6].markdown("**Action**")
 
 # Incident rows
@@ -151,7 +168,10 @@ for inc in incidents_sorted:
     display_name = inc["name"]
     if num == 15:
         display_name = f"⚠ {display_name}"
-        cols[2].markdown(tip(display_name, "LLM false positive — classified legitimate end-of-quarter activity as an attack"), unsafe_allow_html=True)
+        cols[2].markdown(tip(display_name, "LLM false positive — classified legitimate end-of-quarter bulk activity as an attack. Ablation-confirmed rule-context amplification (see Research page)."), unsafe_allow_html=True)
+    elif num == 2:
+        display_name = f"⚠ {display_name}"
+        cols[2].markdown(tip(display_name, "LLM false positive — classified Singapore business-travel activity as an attack. Also the source of the single invalid citation observed across all 115 scenarios (a sentence placed in an evidence-id slot)."), unsafe_allow_html=True)
     else:
         cols[2].markdown(display_name)
     cols[3].markdown(f'<span style="color:{rv_color};font-weight:600;">{rv_display}</span>', unsafe_allow_html=True)
