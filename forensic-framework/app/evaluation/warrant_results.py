@@ -262,6 +262,118 @@ def paired_effects(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def _delivered_value(record: dict[str, Any]) -> float:
+    return float(
+        record["operational_status"].startswith("valid")
+        and record.get("predicted_verdict") != "INSUFFICIENT"
+    )
+
+
+def _surfaced_unsafe_value(record: dict[str, Any]) -> float:
+    if not _delivered_value(record):
+        return 0.0
+    return float(_claim_counts(record)[1])
+
+
+def _base_case_macro(
+    values: list[tuple[str, float]],
+) -> float | None:
+    grouped: dict[str, list[float]] = defaultdict(list)
+    for base_case_id, value in values:
+        grouped[base_case_id].append(value)
+    return _mean([_mean(items) for items in grouped.values() if items])
+
+
+def variant_contrasts(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Compare each mutation with its canonical record within base case.
+
+    These are descriptive, base-case-macro contrasts.  They do not replace the
+    pre-specified primary intervention contrast or make repetitions independent.
+    """
+
+    index = {
+        (
+            record["base_case_id"],
+            record["variant"],
+            record["condition"],
+            record["repetition"],
+        ): record
+        for record in records
+    }
+    variants = sorted({record["variant"] for record in records} - {"canonical"})
+    conditions = sorted({record["condition"] for record in records})
+    result: dict[str, Any] = {}
+    for variant in variants:
+        by_condition: dict[str, Any] = {}
+        for condition in conditions:
+            pairs = []
+            for key, mutated in index.items():
+                base_case_id, key_variant, key_condition, repetition = key
+                if key_variant != variant or key_condition != condition:
+                    continue
+                canonical = index.get(
+                    (base_case_id, "canonical", condition, repetition)
+                )
+                if canonical is not None:
+                    pairs.append((base_case_id, canonical, mutated))
+            if not pairs:
+                continue
+
+            expected_changes = [
+                (base, float(left["expected_verdict"] != right["expected_verdict"]))
+                for base, left, right in pairs
+            ]
+            changed_target_pairs = [
+                (base, left, right)
+                for base, left, right in pairs
+                if left["expected_verdict"] != right["expected_verdict"]
+            ]
+            by_condition[condition] = {
+                "paired_record_n": len(pairs),
+                "base_case_n": len({base for base, _, _ in pairs}),
+                "expected_verdict_change_rate": _base_case_macro(expected_changes),
+                "verdict_flip_rate": _base_case_macro([
+                    (base, float(left.get("predicted_verdict") != right.get("predicted_verdict")))
+                    for base, left, right in pairs
+                ]),
+                "suspect_flip_rate": _base_case_macro([
+                    (base, float(left.get("predicted_suspect") != right.get("predicted_suspect")))
+                    for base, left, right in pairs
+                ]),
+                "coverage_change_mutated_minus_canonical": _base_case_macro([
+                    (base, _delivered_value(right) - _delivered_value(left))
+                    for base, left, right in pairs
+                ]),
+                "unsafe_exposure_change_mutated_minus_canonical": _base_case_macro([
+                    (
+                        base,
+                        _surfaced_unsafe_value(right) - _surfaced_unsafe_value(left),
+                    )
+                    for base, left, right in pairs
+                ]),
+                "exact_accuracy_change_mutated_minus_canonical": _base_case_macro([
+                    (
+                        base,
+                        float(right.get("exact_correct", False))
+                        - float(left.get("exact_correct", False)),
+                    )
+                    for base, left, right in pairs
+                ]),
+                "correct_expected_transition_rate": _base_case_macro([
+                    (
+                        base,
+                        float(
+                            left.get("predicted_verdict") == left["expected_verdict"]
+                            and right.get("predicted_verdict") == right["expected_verdict"]
+                        ),
+                    )
+                    for base, left, right in changed_target_pairs
+                ]),
+            }
+        result[variant] = by_condition
+    return result
+
+
 def axis_error_profile(records: list[dict[str, Any]]) -> dict[str, Any]:
     """Summarize mechanical axis labels without treating claims as independent."""
 
@@ -465,6 +577,7 @@ def summarize_run(records: list[dict[str, Any]]) -> dict[str, Any]:
         "record_count": len(records),
         "conditions": conditions,
         "paired_effects": paired_effects(records),
+        "variant_contrasts": variant_contrasts(records),
         "by_variant": grouped_diagnostics(
             records, "variant", include_paired_effects=True
         ),

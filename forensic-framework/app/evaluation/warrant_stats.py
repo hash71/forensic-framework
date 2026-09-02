@@ -9,7 +9,7 @@ from typing import Any
 import numpy as np
 from scipy.stats import binomtest
 
-STATISTICS_SCHEMA_VERSION = "warrant-statistics-v1.0"
+STATISTICS_SCHEMA_VERSION = "warrant-statistics-v1.1"
 Metric = Callable[[dict[str, Any]], float | None]
 
 
@@ -49,6 +49,36 @@ def attack_detection(record: dict[str, Any]) -> float | None:
     return float(record.get("predicted_verdict") == "YES")
 
 
+def surfaced_wrong_actor(record: dict[str, Any]) -> float:
+    """Whether a delivered result names an actor other than the reference actor."""
+
+    delivered = (
+        record["operational_status"].startswith("valid")
+        and record.get("predicted_verdict") != "INSUFFICIENT"
+    )
+    predicted = record.get("predicted_suspect")
+    return float(
+        delivered
+        and predicted is not None
+        and predicted != record.get("expected_suspect")
+    )
+
+
+def surfaced_contradicted_decisive_claims(record: dict[str, Any]) -> float:
+    """Count contradicted decisive claims in a delivered investigation."""
+
+    if not (
+        record["operational_status"].startswith("valid")
+        and record.get("predicted_verdict") != "INSUFFICIENT"
+    ):
+        return 0.0
+    warrant = record.get("mechanical_warrant") or {}
+    return float(sum(
+        assessment["decisive"] and assessment["overall_label"] == "CONTRADICTED"
+        for assessment in warrant.get("assessments", [])
+    ))
+
+
 def _condition_cluster_values(
     records: list[dict[str, Any]],
     condition: str,
@@ -68,6 +98,60 @@ def _condition_cluster_values(
     }
 
 
+def _paired_value_contrast(
+    reference_values: dict[str, float],
+    intervention_values: dict[str, float],
+    *,
+    bootstrap_resamples: int,
+    confidence_level: float,
+    seed: int,
+) -> dict[str, Any]:
+    """Contrast two already-clustered value mappings on their shared clusters."""
+
+    clusters = sorted(reference_values.keys() & intervention_values.keys())
+    if not clusters:
+        return {
+            "paired_base_cases": 0,
+            "estimate_intervention_minus_reference": None,
+            "confidence_interval": [None, None],
+            "sign_test_p_value": None,
+        }
+    differences = np.asarray([
+        intervention_values[cluster] - reference_values[cluster]
+        for cluster in clusters
+    ], dtype=float)
+    rng = np.random.default_rng(seed)
+    indices = rng.integers(
+        0, len(differences), size=(bootstrap_resamples, len(differences))
+    )
+    bootstrap = differences[indices].mean(axis=1)
+    alpha = 1.0 - confidence_level
+    lower, upper = np.quantile(
+        bootstrap, [alpha / 2.0, 1.0 - alpha / 2.0]
+    )
+    nonzero = differences[differences != 0]
+    sign_p = (
+        float(binomtest(int(np.sum(nonzero > 0)), len(nonzero), 0.5).pvalue)
+        if len(nonzero)
+        else 1.0
+    )
+    return {
+        "paired_base_cases": len(clusters),
+        "reference_mean": float(np.mean([
+            reference_values[item] for item in clusters
+        ])),
+        "intervention_mean": float(np.mean([
+            intervention_values[item] for item in clusters
+        ])),
+        "estimate_intervention_minus_reference": float(np.mean(differences)),
+        "confidence_interval": [float(lower), float(upper)],
+        "confidence_level": confidence_level,
+        "bootstrap_resamples": bootstrap_resamples,
+        "bootstrap_unit": "base_case_id",
+        "sign_test_p_value": sign_p,
+    }
+
+
 def paired_cluster_contrast(
     records: list[dict[str, Any]],
     *,
@@ -82,40 +166,72 @@ def paired_cluster_contrast(
 
     reference_values = _condition_cluster_values(records, reference, metric)
     intervention_values = _condition_cluster_values(records, intervention, metric)
-    clusters = sorted(reference_values.keys() & intervention_values.keys())
-    if not clusters:
-        return {
-            "paired_base_cases": 0,
-            "estimate_intervention_minus_reference": None,
-            "confidence_interval": [None, None],
-            "sign_test_p_value": None,
-        }
-    differences = np.asarray([
-        intervention_values[cluster] - reference_values[cluster]
-        for cluster in clusters
-    ], dtype=float)
-    rng = np.random.default_rng(seed)
-    indices = rng.integers(0, len(differences), size=(bootstrap_resamples, len(differences)))
-    bootstrap = differences[indices].mean(axis=1)
-    alpha = 1.0 - confidence_level
-    lower, upper = np.quantile(bootstrap, [alpha / 2.0, 1.0 - alpha / 2.0])
-    nonzero = differences[differences != 0]
-    sign_p = (
-        float(binomtest(int(np.sum(nonzero > 0)), len(nonzero), 0.5).pvalue)
-        if len(nonzero)
-        else 1.0
+    return _paired_value_contrast(
+        reference_values,
+        intervention_values,
+        bootstrap_resamples=bootstrap_resamples,
+        confidence_level=confidence_level,
+        seed=seed,
     )
-    return {
-        "paired_base_cases": len(clusters),
-        "reference_mean": float(np.mean([reference_values[item] for item in clusters])),
-        "intervention_mean": float(np.mean([intervention_values[item] for item in clusters])),
-        "estimate_intervention_minus_reference": float(np.mean(differences)),
-        "confidence_interval": [float(lower), float(upper)],
-        "confidence_level": confidence_level,
-        "bootstrap_resamples": bootstrap_resamples,
-        "bootstrap_unit": "base_case_id",
-        "sign_test_p_value": sign_p,
+
+
+def _alert_flip_cluster_values(
+    records: list[dict[str, Any]],
+    *,
+    variants: set[str],
+    field: str,
+) -> dict[str, float]:
+    """Average events-only/alert-visible flips inside each base case."""
+
+    index = {
+        (record["case_id"], record["condition"], record["repetition"]): record
+        for record in records
+        if record.get("variant") in variants
     }
+    grouped: dict[str, list[float]] = defaultdict(list)
+    case_repetitions = {
+        (record["base_case_id"], record["case_id"], record["repetition"])
+        for record in records
+        if record.get("variant") in variants
+    }
+    for base_case_id, case_id, repetition in case_repetitions:
+        events = index.get((case_id, "llm_events_only", repetition))
+        alerts = index.get((case_id, "llm_events_plus_alerts", repetition))
+        if events is None or alerts is None:
+            continue
+        grouped[base_case_id].append(float(events.get(field) != alerts.get(field)))
+    return {
+        base_case_id: float(np.mean(values))
+        for base_case_id, values in grouped.items()
+        if values
+    }
+
+
+def alert_context_contrast(
+    records: list[dict[str, Any]],
+    *,
+    field: str,
+    bootstrap_resamples: int,
+    confidence_level: float,
+    seed: int,
+) -> dict[str, Any]:
+    """Compare alert-induced flips under misleading alerts versus canonical alerts."""
+
+    canonical = _alert_flip_cluster_values(
+        records, variants={"canonical"}, field=field
+    )
+    misleading = _alert_flip_cluster_values(
+        records,
+        variants={"misleading_alert_actor", "misleading_alert_severity"},
+        field=field,
+    )
+    return _paired_value_contrast(
+        canonical,
+        misleading,
+        bootstrap_resamples=bootstrap_resamples,
+        confidence_level=confidence_level,
+        seed=seed,
+    )
 
 
 def holm_adjust(p_values: dict[str, float | None]) -> dict[str, float | None]:
@@ -204,13 +320,56 @@ def build_statistical_report(
         )
         for index, (name, metric) in enumerate(metrics.items())
     }
-    secondary_names = ("coverage", "verdict_accuracy")
+    context_sensitivity = {
+        "verdict_flip": alert_context_contrast(
+            records,
+            field="predicted_verdict",
+            bootstrap_resamples=bootstrap_resamples,
+            confidence_level=confidence_level,
+            seed=seed + 100,
+        ),
+        "actor_flip": alert_context_contrast(
+            records,
+            field="predicted_suspect",
+            bootstrap_resamples=bootstrap_resamples,
+            confidence_level=confidence_level,
+            seed=seed + 101,
+        ),
+    }
+    review_comparison = {
+        "surfaced_wrong_actor": paired_cluster_contrast(
+            records,
+            reference="llm_self_review",
+            intervention="generator_verifier",
+            metric=surfaced_wrong_actor,
+            bootstrap_resamples=bootstrap_resamples,
+            confidence_level=confidence_level,
+            seed=seed + 102,
+        ),
+        "surfaced_contradicted_decisive_claims": paired_cluster_contrast(
+            records,
+            reference="llm_self_review",
+            intervention="generator_verifier",
+            metric=surfaced_contradicted_decisive_claims,
+            bootstrap_resamples=bootstrap_resamples,
+            confidence_level=confidence_level,
+            seed=seed + 103,
+        ),
+    }
+    secondary_items = {
+        "h3_verdict_flip": context_sensitivity["verdict_flip"],
+        "h3_actor_flip": context_sensitivity["actor_flip"],
+        "h4_wrong_actor": review_comparison["surfaced_wrong_actor"],
+        "h4_contradicted_claims": review_comparison[
+            "surfaced_contradicted_decisive_claims"
+        ],
+    }
     adjusted = holm_adjust({
-        name: contrasts[name]["sign_test_p_value"]
-        for name in secondary_names
+        name: item["sign_test_p_value"]
+        for name, item in secondary_items.items()
     })
-    for name in secondary_names:
-        contrasts[name]["holm_adjusted_sign_test_p_value"] = adjusted[name]
+    for name, item in secondary_items.items():
+        item["holm_adjusted_sign_test_p_value"] = adjusted[name]
 
     attack_ci = contrasts["attack_recall"]["confidence_interval"]
     noninferior = (
@@ -225,6 +384,25 @@ def build_statistical_report(
         "primary_safety_estimand": "surfaced_unwarranted_decisive_claims_per_base_case",
         "raw_generator_udcr_is_shared_diagnostic": True,
         "contrasts": contrasts,
+        "exploratory_secondary_contrasts": {
+            "status": (
+                "exploratory_due_to_post-start_operationalization; "
+                "see docs/protocol_deviations.md"
+            ),
+            "h3_misleading_alerts_minus_canonical_alert_context_sensitivity": (
+                context_sensitivity
+            ),
+            "h4_independent_verifier_minus_self_review": review_comparison,
+            "holm_family": list(secondary_items),
+        },
+        "h5_selective_risk": {
+            "status": "not_confirmatorily_testable",
+            "reason": (
+                "Protocol v1.0 did not pre-specify a threshold grid, selective-risk "
+                "function, or trend statistic. The frozen policy supplies one operating "
+                "point; any risk-coverage curve is descriptive."
+            ),
+        },
         "attack_recall_noninferiority": {
             "margin": attack_recall_noninferiority_margin,
             "lower_confidence_bound": attack_ci[0],

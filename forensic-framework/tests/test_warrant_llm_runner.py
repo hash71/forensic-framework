@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import copy
 import json
 from pathlib import Path
 
@@ -343,6 +344,39 @@ def test_artifact_integrity_detects_raw_response_tampering(tmp_path: Path):
     integrity = verify_artifacts([record])
     assert integrity["ok"] is False
     assert "hash mismatch" in integrity["errors"][0]
+
+
+def test_variant_contrast_is_paired_to_canonical_base_case(tmp_path: Path):
+    canonical = asyncio.run(run_case_condition(
+        _FakeClient(),
+        _case(),
+        run_id="pytest-variant-contrast",
+        condition="llm_events_plus_alerts",
+        repetition=0,
+        temperature=0.1,
+        max_tokens=4096,
+        run_dir=tmp_path,
+    ))
+    mutated = copy.deepcopy(canonical)
+    mutated.update({
+        "case_id": "case_runner_001__misleading_alert_actor",
+        "variant": "misleading_alert_actor",
+        "predicted_verdict": "NO",
+        "predicted_suspect": "user_99",
+        "verdict_correct": False,
+        "suspect_correct": False,
+        "exact_correct": False,
+    })
+    summary = summarize_run([canonical, mutated])
+    contrast = summary["variant_contrasts"]["misleading_alert_actor"][
+        "llm_events_plus_alerts"
+    ]
+    assert contrast["paired_record_n"] == 1
+    assert contrast["base_case_n"] == 1
+    assert contrast["expected_verdict_change_rate"] == 0.0
+    assert contrast["verdict_flip_rate"] == 1.0
+    assert contrast["suspect_flip_rate"] == 1.0
+    assert contrast["exact_accuracy_change_mutated_minus_canonical"] == -1.0
 
 
 def test_resume_keys_include_case_condition_and_repetition(tmp_path: Path):

@@ -4,6 +4,88 @@ This log is append-only. It records changes made after the v2 protocol was
 frozen and distinguishes benchmark quality assurance from confirmatory model
 inference.
 
+## 2026-09-02 — External CERT derived-linkage removal
+
+**Stage:** external-adapter quality assurance, before any external-model
+inference.
+
+**Trigger:** a provenance audit found that the earlier generic CERT normalizer
+constructs `session_id` by concatenating synthetic user, workstation, and day.
+The warrant prompt and evaluator permit a shared source `session_id` to support
+causal linkage. Retaining the constructed value would therefore give the model
+and mechanical checker stronger linkage evidence than CERT r4.2 supplies.
+Normalized `severity` and `source_ip` fields were also derived mappings rather
+than source severity or network addresses.
+
+**Correction:** the external warrant view omits those three fields. It retains
+the source workstation under `metadata.pc`, removes free text, and records the
+complete transform and checksum in the external data card and manifest.
+
+**Impact:** no synthetic held-out prompt, record, endpoint, hypothesis, or
+analysis changes. No external-model output existed when this correction was
+made.
+
+## 2026-09-02 — Secondary-hypothesis operationalization gap
+
+**Stage:** analysis-code audit after the held-out extension began. Partial
+held-out output existed and had been inspected.
+
+**Problem:** protocol v1.0 stated H3--H5 in directional terms, but the frozen
+statistics implementation contained only the H1 unsafe-exposure contrast, H2
+recall non-inferiority test, and joint coverage/accuracy outcomes. It did not
+specify H3's canonical comparator, H4's surfaced-error functions, or H5's
+threshold grid, selective-risk function, and trend statistic.
+
+**Correction:** the analysis now reports base-case-clustered descriptive
+contrasts for (H3) the difference between misleading-alert and canonical
+events-only/alert-visible verdict and actor flips, and (H4) independent
+verifier minus self-review surfaced wrong-actor and contradicted-decisive-claim
+exposure. Their four sign tests receive one Holm adjustment. Because these
+estimators were operationalized after the run started, H3/H4 are explicitly
+exploratory. H5 is marked not confirmatorily testable; one frozen operating
+point and any descriptive risk--coverage figure cannot establish a monotone
+threshold effect.
+
+**Impact:** no prompt, model call, record, primary estimand, recall margin,
+bootstrap unit, or H1/H2 analysis changed. This correction narrows, rather than
+expands, the confirmatory claims.
+
+## 2026-09-02 — Visible mutation-role leakage and run invalidation
+
+**Stage:** benchmark and annotation-package audit after the held-out extension
+began. Partial model output had been inspected.
+
+**Problem:** generated decoy and noise events exposed `decoy=true` and
+`irrelevant=true` metadata, their identifiers contained `decoy` or `noise`,
+the prompt-injection identifier and metadata disclosed its role, and the strong
+decoy alert literally called its actor a decoy. Core session identifiers also
+contained `suspicious` for attack templates and `approved` for benign
+templates. These strings made role recognition and some label distinctions
+easier than the event semantics alone warranted.
+
+**Correction:** benchmark generator v1.0.2 replaces role-bearing variant event
+and session identifiers with deterministic opaque identifiers, removes visible
+mutation-role flags, makes the decoy alert describe only the observed failed
+login burst, and renames a failed-login review field to the evidence-bounded
+`no_successful_login_observed`. Mutation roles remain only in hidden ground
+truth. A corpus-wide regression test rejects role-bearing identifiers,
+metadata keys, sessions, or alert text. The benchmark and deterministic
+baselines were regenerated; the corrected corpus SHA-256 is
+`edfd0dec7317684e3fec122ac2fc555fb3c7cc9c841d856d95845d9d40baa0f8`.
+
+**Invalidated run:** the old-benchmark run was intentionally interrupted after
+2,360 of 5,400 condition records and 1,861 raw responses. Its records SHA-256
+is `f36946bd6ff14c7c26e6029aa026a5437b139fc28784c0545a0ae0a81c3afcaf`.
+It is retained locally under an `invalidated-` directory, excluded from every
+table, figure, annotation sample, and statistical analysis, and ignored by Git
+to prevent accidental publication.
+
+**Impact:** the corrected benchmark must be rerun in full. Because outputs from
+the earlier form of the same base cases were inspected, the paper does not call
+the corrected study preregistered or claim an untouched holdout. No prompt,
+model, evaluator, hypothesis, endpoint definition, or decision rule was tuned
+in response to the invalidated outputs.
+
 ## 2026-09-02 — Generator 1.0.1 evidence-starvation correction
 
 **Stage:** benchmark quality assurance, before any v2 LLM inference or expert
