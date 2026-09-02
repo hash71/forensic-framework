@@ -1,0 +1,66 @@
+schema_version: warrant-simulated-review-config-v1.0
+batch:
+  max_items: 8
+  max_chars: 32000
+  max_tokens: 4096
+  retry_attempts: 2
+reviewers:
+  - reviewer_id: sim_local_gemma_strict
+    panel_role: consensus
+    provider: ollama-local
+    api_style: ollama
+    endpoint: http://127.0.0.1:11434
+    model: forensic-warrant-gemma4-e4b:v1
+    profile: strict_evidentiary
+    temperature: 0.0
+    thinking: false
+    seed: 4101
+    role_note: local Gemma-family strict-evidence prompt
+    batch:
+      max_items: 1
+      max_chars: 12000
+      max_tokens: 1536
+      retry_attempts: 2
+  - reviewer_id: sim_remote_gemma_counterfactual
+    panel_role: consensus
+    provider: configured-remote
+    api_style: openai
+    endpoint_env: MODAL_ENDPOINT
+    token_env: MODAL_TOKEN
+    model_env: MODAL_MODEL
+    profile: counterfactual_skeptic
+    temperature: 0.1
+    seed: 5202
+    role_note: frozen remote deployment; same-family and self-evaluation bias possible
+  - reviewer_id: sim_local_gemma_operational
+    panel_role: consensus
+    provider: ollama-local
+    api_style: ollama
+    endpoint: http://127.0.0.1:11434
+    model: forensic-warrant-gemma4-e4b:v1
+    profile: operational_dfir
+    temperature: 0.2
+    thinking: false
+    seed: 7303
+    role_note: local Gemma-family operational-DFIR prompt; same weights as strict judge
+    batch:
+      max_items: 1
+      max_chars: 12000
+      max_tokens: 1536
+      retry_attempts: 2
+  - reviewer_id: sim_local_qwen_stress
+    panel_role: stress_only
+    provider: ollama-local
+    api_style: ollama
+    endpoint: http://127.0.0.1:11434
+    model: qwen3:0.6b
+    profile: operational_dfir
+    temperature: 0.0
+    thinking: false
+    seed: 6303
+    role_note: optional distinct-family small-model stress judge; excluded from consensus
+    batch:
+      max_items: 1
+      max_chars: 12000
+      max_tokens: 1536
+      retry_attempts: 2

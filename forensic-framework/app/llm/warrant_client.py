@@ -74,6 +74,7 @@ class WarrantLLMClient:
         model: str | None = None,
         provider: str | None = None,
         model_revision: str | None = None,
+        api_style: str = "openai",
         timeout_seconds: float = 300.0,
         client: httpx.AsyncClient | None = None,
     ) -> None:
@@ -82,6 +83,9 @@ class WarrantLLMClient:
         self.model = model or os.getenv("MODAL_MODEL", "fusion-gemma")
         self.provider = provider or os.getenv("LLM_PROVIDER", "openai-compatible")
         self.model_revision = model_revision or os.getenv("MODAL_MODEL_REVISION")
+        if api_style not in {"openai", "ollama"}:
+            raise ValueError("api_style must be 'openai' or 'ollama'")
+        self.api_style = api_style
         self.timeout_seconds = timeout_seconds
         self._external_client = client is not None
         self._client = client
@@ -110,6 +114,8 @@ class WarrantLLMClient:
         max_tokens: int = 4096,
         seed: int | None = None,
         model: str | None = None,
+        json_mode: bool = False,
+        thinking: bool | None = None,
     ) -> ChatCompletionResult:
         if self._client is None:
             raise RuntimeError("Use WarrantLLMClient as an async context manager.")
@@ -117,42 +123,89 @@ class WarrantLLMClient:
         if self.token:
             headers["Authorization"] = f"Bearer {self.token}"
         requested_model = model or self.model
-        payload: dict[str, Any] = {
-            "model": requested_model,
-            "messages": [
-                {"role": "system", "content": system_prompt},
-                {"role": "user", "content": user_prompt},
-            ],
-            "temperature": temperature,
-            "max_tokens": max_tokens,
-            "chat_template_kwargs": {"enable_thinking": False},
-        }
-        if seed is not None:
-            payload["seed"] = seed
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt},
+        ]
+        if self.api_style == "ollama":
+            options: dict[str, Any] = {
+                "temperature": temperature,
+                "num_predict": max_tokens,
+            }
+            if seed is not None:
+                options["seed"] = seed
+            payload = {
+                "model": requested_model,
+                "messages": messages,
+                "stream": False,
+                "options": options,
+            }
+            if json_mode:
+                payload["format"] = "json"
+            if thinking is not None:
+                payload["think"] = thinking
+            url = f"{self.endpoint}/api/chat"
+        else:
+            payload = {
+                "model": requested_model,
+                "messages": messages,
+                "temperature": temperature,
+                "max_tokens": max_tokens,
+                "chat_template_kwargs": {"enable_thinking": False},
+            }
+            if seed is not None:
+                payload["seed"] = seed
+            if json_mode:
+                payload["response_format"] = {"type": "json_object"}
+            if thinking is not None:
+                payload["think"] = thinking
+            url = f"{self.endpoint}/v1/chat/completions"
 
         started = time.perf_counter()
         response = await self._client.post(
-            f"{self.endpoint}/v1/chat/completions",
+            url,
             headers=headers,
             json=payload,
         )
         latency_ms = (time.perf_counter() - started) * 1000
         response.raise_for_status()
         data = response.json()
-        try:
-            content = data["choices"][0]["message"]["content"]
-        except (KeyError, IndexError, TypeError) as exc:
-            raise ValueError("Endpoint returned no chat-completion message content.") from exc
-        usage = data.get("usage") or {}
+        if self.api_style == "ollama":
+            try:
+                content = data["message"]["content"]
+            except (KeyError, TypeError) as exc:
+                raise ValueError("Ollama returned no chat message content.") from exc
+            input_tokens = data.get("prompt_eval_count")
+            output_tokens = data.get("eval_count")
+            total_tokens = (
+                input_tokens + output_tokens
+                if isinstance(input_tokens, int) and isinstance(output_tokens, int)
+                else None
+            )
+            returned_model = data.get("model")
+            system_fingerprint = None
+        else:
+            try:
+                content = data["choices"][0]["message"]["content"]
+            except (KeyError, IndexError, TypeError) as exc:
+                raise ValueError(
+                    "Endpoint returned no chat-completion message content."
+                ) from exc
+            usage = data.get("usage") or {}
+            input_tokens = usage.get("prompt_tokens")
+            output_tokens = usage.get("completion_tokens")
+            total_tokens = usage.get("total_tokens")
+            returned_model = data.get("model")
+            system_fingerprint = data.get("system_fingerprint")
         return ChatCompletionResult(
             content=str(content),
             response_json=data,
             requested_model=requested_model,
-            returned_model=data.get("model"),
-            system_fingerprint=data.get("system_fingerprint"),
-            input_tokens=usage.get("prompt_tokens"),
-            output_tokens=usage.get("completion_tokens"),
-            total_tokens=usage.get("total_tokens"),
+            returned_model=returned_model,
+            system_fingerprint=system_fingerprint,
+            input_tokens=input_tokens,
+            output_tokens=output_tokens,
+            total_tokens=total_tokens,
             latency_ms=latency_ms,
             http_status=response.status_code,
             endpoint_sha256=endpoint_fingerprint(self.endpoint),

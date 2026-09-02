@@ -98,5 +98,11 @@ forensic-framework/data/warrant_runs/test-full-*/raw/
 forensic-framework/data/warrant_runs/external-cert-*/records.jsonl
 forensic-framework/data/warrant_runs/external-cert-*/raw/
 
+# Simulated-reviewer raw provider responses are checksum-bound run artifacts.
+# Structured judgments, manifests, analyses, and human-review triage remain tracked.
+forensic-framework/data/warrant_simulations/**/raw/
+forensic-framework/data/warrant_simulations/pilot-*/
+forensic-framework/data/warrant_simulations/invalidated-*/
+
 # Third-party course/reference papers are kept locally, not redistributed.
 guidelines_and_samples/**/*.pdf

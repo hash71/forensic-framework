@@ -174,6 +174,7 @@ def test_client_records_model_and_usage_without_exposing_token():
     def handler(request: httpx.Request) -> httpx.Response:
         payload = json.loads(request.content)
         assert payload["model"] == "verifier-model"
+        assert "response_format" not in payload
         assert request.headers["authorization"] == "Bearer secret-token"
         return httpx.Response(
             200,
@@ -211,6 +212,77 @@ def test_client_records_model_and_usage_without_exposing_token():
     assert result.total_tokens == 12
     assert result.provider == "test-provider"
     assert "secret-token" not in repr(result)
+
+
+def test_client_json_mode_requests_one_json_object():
+    def handler(request: httpx.Request) -> httpx.Response:
+        payload = json.loads(request.content)
+        assert payload["response_format"] == {"type": "json_object"}
+        assert payload["think"] is False
+        return httpx.Response(
+            200,
+            json={"choices": [{"message": {"content": '{"ok":true}'}}]},
+        )
+
+    async def exercise() -> None:
+        http_client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        client = WarrantLLMClient(
+            endpoint="https://private.invalid",
+            client=http_client,
+        )
+        async with client:
+            await client.call(
+                system_prompt="system",
+                user_prompt="user",
+                json_mode=True,
+                thinking=False,
+            )
+        await http_client.aclose()
+
+    asyncio.run(exercise())
+
+
+def test_client_supports_native_ollama_json_without_thinking():
+    def handler(request: httpx.Request) -> httpx.Response:
+        payload = json.loads(request.content)
+        assert request.url.path == "/api/chat"
+        assert payload["format"] == "json"
+        assert payload["think"] is False
+        assert payload["stream"] is False
+        assert payload["options"]["seed"] == 42
+        return httpx.Response(
+            200,
+            json={
+                "model": "local-model",
+                "message": {"role": "assistant", "content": '{"ok":true}'},
+                "prompt_eval_count": 10,
+                "eval_count": 2,
+            },
+        )
+
+    async def exercise() -> ChatCompletionResult:
+        http_client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+        client = WarrantLLMClient(
+            endpoint="http://127.0.0.1:11434",
+            model="local-model",
+            provider="ollama-local",
+            api_style="ollama",
+            client=http_client,
+        )
+        async with client:
+            result = await client.call(
+                system_prompt="system",
+                user_prompt="user",
+                json_mode=True,
+                thinking=False,
+                seed=42,
+            )
+        await http_client.aclose()
+        return result
+
+    result = asyncio.run(exercise())
+    assert result.content == '{"ok":true}'
+    assert result.total_tokens == 12
 
 
 def test_safe_error_redacts_endpoint_and_bearer_token():

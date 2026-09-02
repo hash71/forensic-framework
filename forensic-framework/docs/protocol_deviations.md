@@ -204,3 +204,37 @@ to satisfy even with zero endpoint or parser failures.
 set. Endpoint and parser failures remain retained as failures rather than
 excluded, so they do not silently reduce the analysis set. This correction
 does not change the benchmark, model output, endpoint, or effect definition.
+
+## 2026-09-02 — Post-result simulated AI-reviewer sensitivity study
+
+**Stage:** after the corrected held-out and external outcomes were frozen and
+after the independent expert labels remained unavailable.
+
+**Trigger:** the authors requested an AI simulation to exercise the review
+workflow and prioritize a smaller set for later real review. This analysis was
+not in the confirmatory protocol and cannot validate the mechanical labels.
+
+**Addition:** three prompt/deployment roles judge the existing 400-claim blind
+sample. The simulation has its own schema, manifests, raw-response provenance,
+strict operational-validity checks, consensus analysis, and explicit validity
+boundary. A small Qwen judge is retained only as an operational stress pilot
+after failing strict schema validity on two of five pilot claims.
+
+**Impact:** no confirmatory hypothesis, frozen model output, mechanical score,
+or human-analysis file changes. Simulated consensus is exploratory sensitivity
+evidence and post-hoc triage. It is never described as expert annotation,
+adjudication, or ground truth.
+
+**Invalidated launch:** the first full simulation was stopped with 158 valid
+remote judgments and zero accepted local judgments after Ollama consumed the
+local response budget in a hidden reasoning field and emitted empty content.
+The partial run is retained under an `invalidated-` name. No label from it is
+used; the final run restarts after explicit `think:false` support was frozen.
+
+**Second invalidated launch:** a clean JSON-mode launch completed 400 remote
+judgments but was stopped with 101 strict-local and 12 operational-local
+judgments. Concurrent local requests sometimes ended with `done:false`, while
+multi-item local batches repeated or renamed opaque IDs. Strict validation
+rejected those calls, but recovery was inefficient. The final configuration
+uses sequential, single-item local requests and restarts every reviewer from
+zero; none of the partial labels is reused.
