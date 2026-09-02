@@ -315,6 +315,14 @@ def test_review_conditions_share_generator_and_verifier_responses(tmp_path: Path
         ["generator_verifier"]["generator_hash_match_rate"]
         == 1.0
     )
+    assert summary["operations"]["overall"]["unique_calls"] == 3
+    assert "canonical" in summary["by_variant"]
+    assert "credential_compromise" in summary["by_family"]
+    assert (
+        summary["mechanical_axis_profiles"]["llm_events_plus_alerts"]
+        ["decisive_claims"]["citation"]["unwarranted_rate"]
+        == 0.0
+    )
 
 
 def test_artifact_integrity_detects_raw_response_tampering(tmp_path: Path):

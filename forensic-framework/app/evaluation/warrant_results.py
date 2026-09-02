@@ -11,7 +11,7 @@ from typing import Any
 
 from app.ingestion.warrant_benchmark import PROJECT_ROOT
 
-RESULTS_SCHEMA_VERSION = "warrant-results-v1.0"
+RESULTS_SCHEMA_VERSION = "warrant-results-v1.1"
 
 
 def load_run_records(path: Path) -> list[dict[str, Any]]:
@@ -33,6 +33,14 @@ def _safe_rate(numerator: float, denominator: float) -> float | None:
 
 def _mean(values: list[float]) -> float | None:
     return statistics.mean(values) if values else None
+
+
+def _percentile(values: list[float], probability: float) -> float | None:
+    if not values:
+        return None
+    ordered = sorted(values)
+    index = round((len(ordered) - 1) * probability)
+    return ordered[index]
 
 
 def _claim_counts(record: dict[str, Any]) -> tuple[int, int]:
@@ -254,6 +262,131 @@ def paired_effects(records: list[dict[str, Any]]) -> dict[str, Any]:
     }
 
 
+def axis_error_profile(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Summarize mechanical axis labels without treating claims as independent."""
+
+    counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    decisive_counts: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    for record in records:
+        warrant = record.get("mechanical_warrant") or {}
+        for assessment in warrant.get("assessments", []):
+            for axis in assessment.get("axes", []):
+                counts[axis["axis"]][axis["label"]] += 1
+                if assessment.get("decisive"):
+                    decisive_counts[axis["axis"]][axis["label"]] += 1
+
+    def summarize(source: dict[str, dict[str, int]]) -> dict[str, Any]:
+        result: dict[str, Any] = {}
+        for axis, labels in sorted(source.items()):
+            applicable = sum(
+                count for label, count in labels.items()
+                if label != "NOT_APPLICABLE"
+            )
+            unwarranted = sum(
+                count for label, count in labels.items()
+                if label in {"CONTRADICTED", "INSUFFICIENT"}
+            )
+            result[axis] = {
+                "labels": dict(sorted(labels.items())),
+                "applicable": applicable,
+                "unwarranted": unwarranted,
+                "unwarranted_rate": _safe_rate(unwarranted, applicable),
+            }
+        return result
+
+    return {
+        "all_claims": summarize(counts),
+        "decisive_claims": summarize(decisive_counts),
+        "interpretation_note": (
+            "Counts are descriptive mechanical labels nested within base cases; "
+            "they are not independent observations or expert error rates."
+        ),
+    }
+
+
+def operation_summary(records: list[dict[str, Any]]) -> dict[str, Any]:
+    """Deduplicate shared raw calls before reporting latency and token use."""
+
+    calls: dict[str, tuple[str, dict[str, Any]]] = {}
+    for record in records:
+        for stage in ("generator", "verifier"):
+            call = ((record.get(stage) or {}).get("call") or {})
+            digest = call.get("raw_response_sha256")
+            if not digest:
+                continue
+            if stage == "generator":
+                role = "generator"
+            elif record["condition"] == "llm_self_review":
+                role = "self_review"
+            else:
+                role = "alert_blind_verifier"
+            # Shared downstream records reuse the same raw artifact path.  Two
+            # genuinely separate calls may return byte-identical JSON, so a
+            # content digest alone would incorrectly collapse them.
+            call_key = call.get("raw_response_path") or f"{role}:{digest}"
+            calls.setdefault(call_key, (role, call))
+
+    by_role: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for role, call in calls.values():
+        by_role[role].append(call)
+
+    def summarize(selected: list[dict[str, Any]]) -> dict[str, Any]:
+        latencies = [float(call["latency_ms"]) for call in selected if call.get("latency_ms") is not None]
+        input_tokens = [int(call["input_tokens"]) for call in selected if call.get("input_tokens") is not None]
+        output_tokens = [int(call["output_tokens"]) for call in selected if call.get("output_tokens") is not None]
+        costs = [float(call["estimated_cost_usd"]) for call in selected if call.get("estimated_cost_usd") is not None]
+        return {
+            "unique_calls": len(selected),
+            "latency_ms_median": _percentile(latencies, 0.5),
+            "latency_ms_p95": _percentile(latencies, 0.95),
+            "input_tokens_total": sum(input_tokens),
+            "output_tokens_total": sum(output_tokens),
+            "estimated_cost_usd_total": sum(costs) if costs else None,
+            "cost_coverage_rate": _safe_rate(len(costs), len(selected)),
+        }
+
+    return {
+        "overall": summarize([call for _, call in calls.values()]),
+        "by_role": {
+            role: summarize(selected)
+            for role, selected in sorted(by_role.items())
+        },
+        "deduplication_note": (
+            "Calls shared across review-condition records are counted once by "
+            "raw-response artifact path; byte-identical independent calls remain "
+            "distinct."
+        ),
+    }
+
+
+def _condition_summaries(records: list[dict[str, Any]]) -> dict[str, Any]:
+    by_condition: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in records:
+        by_condition[record["condition"]].append(record)
+    return {
+        condition: summarize_condition(selected)
+        for condition, selected in sorted(by_condition.items())
+    }
+
+
+def grouped_diagnostics(
+    records: list[dict[str, Any]],
+    field: str,
+    *,
+    include_paired_effects: bool,
+) -> dict[str, Any]:
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for record in records:
+        grouped[str(record[field])].append(record)
+    return {
+        value: {
+            "conditions": _condition_summaries(selected),
+            **({"paired_effects": paired_effects(selected)} if include_paired_effects else {}),
+        }
+        for value, selected in sorted(grouped.items())
+    }
+
+
 def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
     """Verify every retained raw-response hash and pairing invariant."""
 
@@ -315,9 +448,14 @@ def summarize_run(records: list[dict[str, Any]]) -> dict[str, Any]:
     run_ids = {record["run_id"] for record in records}
     if len(run_ids) != 1:
         raise ValueError("records from multiple runs must be summarized separately")
-    by_condition: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for record in records:
-        by_condition[record["condition"]].append(record)
+    conditions = _condition_summaries(records)
+    generator_conditions = {
+        condition: axis_error_profile([
+            record for record in records if record["condition"] == condition
+        ])
+        for condition in ("llm_events_only", "llm_events_plus_alerts")
+        if condition in conditions
+    }
     return {
         "results_schema_version": RESULTS_SCHEMA_VERSION,
         "run_id": next(iter(run_ids)),
@@ -325,10 +463,15 @@ def summarize_run(records: list[dict[str, Any]]) -> dict[str, Any]:
         "split": sorted({record["split"] for record in records}),
         "base_case_count": len({record["base_case_id"] for record in records}),
         "record_count": len(records),
-        "conditions": {
-            condition: summarize_condition(condition_records)
-            for condition, condition_records in sorted(by_condition.items())
-        },
+        "conditions": conditions,
         "paired_effects": paired_effects(records),
+        "by_variant": grouped_diagnostics(
+            records, "variant", include_paired_effects=True
+        ),
+        "by_family": grouped_diagnostics(
+            records, "family", include_paired_effects=False
+        ),
+        "mechanical_axis_profiles": generator_conditions,
+        "operations": operation_summary(records),
         "artifact_integrity": verify_artifacts(records),
     }
