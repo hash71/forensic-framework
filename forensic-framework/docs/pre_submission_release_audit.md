@@ -19,6 +19,9 @@ human-label integration or substantive manuscript change.
 
 - `python -m pytest -q`: 191 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
+- Ubuntu 24.04 GitHub Actions repeats the benchmark, test, and compile checks;
+  its third-party actions are pinned to immutable commits for their current
+  Node.js 24 releases.
 - The one-command paper reproduction validated the 48-base-case,
   480-case-variant benchmark, reanalyzed 5,400 synthetic and 360 external
   records, reran both 10,000-resample statistical analyses, regenerated all
