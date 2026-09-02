@@ -17,7 +17,7 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 204 tests passed.
+- `python -m pytest -q`: 205 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
 - Ubuntu 24.04 GitHub Actions repeats the benchmark, test, Python compile, and
   isolated official-template PDF checks; its third-party actions are pinned to

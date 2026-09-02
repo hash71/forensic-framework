@@ -57,6 +57,10 @@ style:
 python3 build_pdf.py
 ```
 
+The canonical conference source is `conference_paper/paper.tex`. The tracked
+`conference_paper/submission/` tree is a historical course submission retained
+for provenance; it is not an input to the current paper or artifact.
+
 The paper directory also contains a Dockerfile with an immutable base-image
 digest and Debian package snapshot for hosts without a local TeX Live
 installation.

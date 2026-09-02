@@ -57,6 +57,39 @@ def test_submission_source_uses_official_layout_without_spacing_hacks() -> None:
         assert forbidden not in source
 
 
+def test_all_placeholder_result_macros_are_defined_by_generated_inputs(
+    tmp_path: Path,
+) -> None:
+    builder = _load_pdf_builder()
+    paper_dir = PAPER_BUILDER.parent
+    generated = tuple(
+        paper_dir / name for name in builder.REQUIRED_GENERATED_FILES
+    )
+
+    assert builder.validate_required_result_macros(
+        paper_dir / "paper.tex", generated
+    ) == 84
+
+    incomplete = []
+    for source in generated:
+        destination = tmp_path / source.name
+        text = source.read_text()
+        if source.name == "generated_results.tex":
+            text = re.sub(
+                r"^\\newcommand\{\\TestRecords\}.*\n",
+                "",
+                text,
+                count=1,
+                flags=re.MULTILINE,
+            )
+        destination.write_text(text)
+        incomplete.append(destination)
+    with pytest.raises(RuntimeError, match="TestRecords"):
+        builder.validate_required_result_macros(
+            paper_dir / "paper.tex", tuple(incomplete)
+        )
+
+
 def test_human_macro_export_is_bound_to_analysis_hash(tmp_path: Path) -> None:
     generator = _load_generator()
     analysis = {

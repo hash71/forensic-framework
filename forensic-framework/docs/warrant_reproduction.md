@@ -26,9 +26,10 @@ docker run --rm --user "$(id -u):$(id -g)" \
 
 The Dockerfile pins both its base-image digest and Debian package snapshot. The
 compiler checks the official style digest, uses a fixed `SOURCE_DATE_EPOCH`,
-builds in a clean temporary directory, and rejects undefined references,
-undefined citations, overfull boxes, fatal errors, non-Letter output,
-identifying PDF metadata, and unembedded fonts.
+requires every frozen generated input and result macro, builds in a clean
+temporary directory, and rejects undefined references, undefined citations,
+overfull boxes, fatal errors, non-Letter output, identifying PDF metadata, and
+unembedded fonts.
 
 ## One-command analysis and paper rebuild
 

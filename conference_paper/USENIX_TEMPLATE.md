@@ -18,9 +18,10 @@ style's engine assumptions. Tectonic is not a supported submission build because
 the official style's `microtype` spacing option is pdfTeX-only.
 
 The container pins its base-image digest and Debian package snapshot. The build
-also fails before promoting its output if the PDF is not U.S. Letter, contains
-author/title metadata, exceeds 20 total pages, has an unembedded font, or
-disagrees with the final LaTeX log's page count.
+requires every frozen generated input and result macro, then fails before
+promoting its output if the PDF is not U.S. Letter, contains author/title
+metadata, exceeds 20 total pages, has an unembedded font, or disagrees with the
+final LaTeX log's page count.
 
 Before submission, the PDF must also pass the conference's open-source format
 checker and the vendored style must be rechecked if USENIX updates its archive.

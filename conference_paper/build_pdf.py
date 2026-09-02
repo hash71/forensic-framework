@@ -26,6 +26,32 @@ CRITICAL_LOG_PATTERNS = (
     re.compile(r"Fatal error", re.IGNORECASE),
     re.compile(r"Emergency stop", re.IGNORECASE),
 )
+REQUIRED_GENERATED_FILES = (
+    "generated_axis_rows.tex",
+    "generated_confidence_results.tex",
+    "generated_external_results.tex",
+    "generated_results.tex",
+    "generated_simulated_results.tex",
+    "generated_variant_rows.tex",
+)
+REQUIRED_FIGURE_FILES = (
+    "figures/coverage-risk.pdf",
+    "figures/warrant-study-design.pdf",
+)
+FIXED_RESULT_FALLBACKS = {
+    "ExternalClusters",
+    "ExternalWindows",
+    "TestBaseCases",
+}
+PLACEHOLDER_MACRO_PATTERN = re.compile(
+    r"\\(?:newcommand|providecommand)\s*"
+    r"\{\s*\\(?P<name>[A-Za-z]+)\s*\}\s*"
+    r"\{\s*\\todoresult\s*\}"
+)
+DEFINED_MACRO_PATTERN = re.compile(
+    r"\\(?:newcommand|renewcommand|providecommand)\s*"
+    r"\{\s*\\(?P<name>[A-Za-z]+)\s*\}"
+)
 
 
 def _sha256(path: Path) -> str:
@@ -125,22 +151,54 @@ def validate_pdf_format(path: Path) -> dict[str, object]:
     }
 
 
-def _copy_inputs(work: Path) -> None:
+def validate_required_result_macros(
+    paper_path: Path,
+    generated_paths: tuple[Path, ...],
+) -> int:
+    """Reject generated inputs that silently fall back to placeholder values."""
+
+    manuscript = paper_path.read_text(encoding="utf-8")
+    required = {
+        match.group("name")
+        for match in PLACEHOLDER_MACRO_PATTERN.finditer(manuscript)
+    } | FIXED_RESULT_FALLBACKS
+    if not required:
+        raise RuntimeError("manuscript declares no required result macros")
+    defined: set[str] = set()
+    for path in generated_paths:
+        text = path.read_text(encoding="utf-8")
+        defined.update(
+            match.group("name") for match in DEFINED_MACRO_PATTERN.finditer(text)
+        )
+    missing = sorted(required - defined)
+    if missing:
+        raise RuntimeError(
+            "generated paper inputs omit required result macros: "
+            + ", ".join(missing)
+        )
+    return len(required)
+
+
+def _copy_inputs(work: Path) -> int:
     required = (
         PAPER_DIR / "paper.tex",
         PAPER_DIR / "references.bib",
         PAPER_DIR / "usenix.sty",
     )
-    generated = tuple(sorted(PAPER_DIR.glob("generated_*.tex")))
-    figures = tuple(sorted((PAPER_DIR / "figures").glob("*.pdf")))
-    if not generated or not figures:
-        raise FileNotFoundError("generated LaTeX inputs or PDF figures are missing")
+    generated = tuple(PAPER_DIR / name for name in REQUIRED_GENERATED_FILES)
+    optional_human = PAPER_DIR / "generated_human_results.tex"
+    if optional_human.is_file():
+        generated += (optional_human,)
+    figures = tuple(PAPER_DIR / name for name in REQUIRED_FIGURE_FILES)
     for source in required + generated + figures:
         if not source.is_file():
             raise FileNotFoundError(source)
+    required_result_macros = validate_required_result_macros(required[0], generated)
+    for source in required + generated + figures:
         destination = work / source.relative_to(PAPER_DIR)
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source, destination)
+    return required_result_macros
 
 
 def build_pdf(output_dir: Path) -> dict[str, object]:
@@ -167,7 +225,7 @@ def build_pdf(output_dir: Path) -> dict[str, object]:
 
     with tempfile.TemporaryDirectory(prefix="warrantlab-paper-") as temporary:
         work = Path(temporary)
-        _copy_inputs(work)
+        required_result_macros = _copy_inputs(work)
         _run(latex_args, cwd=work, env=environment)
         _run([bibtex, "paper"], cwd=work, env=environment)
         _run(latex_args, cwd=work, env=environment)
@@ -208,6 +266,7 @@ def build_pdf(output_dir: Path) -> dict[str, object]:
         "compiler": "pdfLaTeX",
         "source_date_epoch": PDF_SOURCE_DATE_EPOCH,
         "official_style_sha256": style_digest,
+        "required_result_macros": required_result_macros,
         **format_summary,
         "bytes": output_pdf.stat().st_size,
         "pdf_sha256": _sha256(output_pdf),
