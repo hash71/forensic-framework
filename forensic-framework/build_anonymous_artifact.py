@@ -21,7 +21,20 @@ from pypdf import PdfReader
 FRAMEWORK_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
-ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.4"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.5"
+RELEASE_CLEARANCE_SCHEMA_VERSION = "warrantlab-release-clearance-v1.0"
+RELEASE_TARGETS = ("local-validation", "anonymous-review", "public-release")
+REQUIRED_RELEASE_GATES = (
+    "code_license",
+    "original_benchmark_license",
+    "paper_release_terms",
+    "endpoint_output_redistribution",
+)
+FROZEN_ENDPOINT_SHA256 = (
+    "b70491802b316a1f01c0d461a3a335fb8e886052d7a998d2afc9cad4c785bb37"
+)
+SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+UTC_TIMESTAMP_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 
 ROOT_FILES = (
     "THIRD_PARTY_NOTICES.md",
@@ -188,6 +201,125 @@ def validate_release_notice() -> dict:
         "sha256": sha256(notice_path),
         "external_source_license": CERT_NOTICE_METADATA["source_license"],
         "status": "validated",
+    }
+
+
+def validate_release_clearance(
+    path: Path,
+    *,
+    distribution_target: str,
+    release_notice_summary: dict,
+) -> dict:
+    """Validate human release attestations and enforce the requested target.
+
+    A local-validation build may retain pending gates, but it is explicitly
+    marked as non-distributable. Reviewer and public builds fail closed until
+    every required decision has a dated, checksum-bound evidence reference.
+    """
+
+    if distribution_target not in RELEASE_TARGETS:
+        raise ValueError(f"unsupported distribution target: {distribution_target}")
+    path = _within_repo(path)
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    try:
+        clearance = json.loads(path.read_text())
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"cannot parse release clearance: {exc}") from exc
+    if clearance.get("release_clearance_schema_version") != RELEASE_CLEARANCE_SCHEMA_VERSION:
+        raise ValueError("unsupported release-clearance schema")
+
+    endpoint = clearance.get("endpoint_context")
+    if not isinstance(endpoint, dict):
+        raise ValueError("release clearance lacks endpoint_context")
+    if endpoint.get("endpoint_sha256") != FROZEN_ENDPOINT_SHA256:
+        raise ValueError("release clearance does not identify the frozen endpoint")
+    if endpoint.get("deployment_platform") != "Modal":
+        raise ValueError("release clearance deployment platform must be Modal")
+    if endpoint.get("public_endpoint") is not True:
+        raise ValueError("release clearance must record the public endpoint boundary")
+    account_holder_status = endpoint.get("account_holder_status")
+    if account_holder_status not in {"unverified", "verified"}:
+        raise ValueError("invalid endpoint account-holder status")
+
+    notice = clearance.get("third_party_notice")
+    if not isinstance(notice, dict):
+        raise ValueError("release clearance lacks third_party_notice")
+    if notice.get("status") != "validated":
+        raise ValueError("third-party notice is not marked validated")
+    if notice.get("sha256") != release_notice_summary.get("sha256"):
+        raise ValueError("release clearance third-party notice hash is stale")
+
+    gates = clearance.get("gates")
+    if not isinstance(gates, dict):
+        raise ValueError("release clearance lacks gates")
+    if set(gates) != set(REQUIRED_RELEASE_GATES):
+        raise ValueError("release clearance gate set does not match the schema")
+    outstanding: list[str] = []
+    approved: list[str] = []
+    for gate_name in REQUIRED_RELEASE_GATES:
+        gate = gates.get(gate_name)
+        if not isinstance(gate, dict):
+            raise ValueError(f"release clearance lacks gate: {gate_name}")
+        status = gate.get("status")
+        if status == "pending":
+            if any(
+                gate.get(field) is not None
+                for field in ("decision", "evidence_sha256", "approved_utc")
+            ):
+                raise ValueError(
+                    f"pending release gate contains approval data: {gate_name}"
+                )
+            outstanding.append(gate_name)
+            continue
+        if status != "approved":
+            raise ValueError(f"invalid release gate status for {gate_name}: {status!r}")
+        decision = gate.get("decision")
+        evidence_sha256 = gate.get("evidence_sha256")
+        approved_utc = gate.get("approved_utc")
+        if not isinstance(decision, str) or not decision.strip():
+            raise ValueError(f"approved release gate lacks a decision: {gate_name}")
+        if not isinstance(evidence_sha256, str) or not SHA256_RE.fullmatch(
+            evidence_sha256
+        ):
+            raise ValueError(
+                f"approved release gate lacks a valid evidence SHA-256: {gate_name}"
+            )
+        if not isinstance(approved_utc, str) or not UTC_TIMESTAMP_RE.fullmatch(
+            approved_utc
+        ):
+            raise ValueError(
+                f"approved release gate lacks a UTC approval timestamp: {gate_name}"
+            )
+        approved.append(gate_name)
+
+    if (
+        gates["endpoint_output_redistribution"].get("status") == "approved"
+        and account_holder_status != "verified"
+    ):
+        raise ValueError(
+            "endpoint-output approval requires verified account-holder status"
+        )
+
+    if distribution_target != "local-validation" and outstanding:
+        raise ValueError(
+            f"{distribution_target} release blocked by pending gates: "
+            + ", ".join(outstanding)
+        )
+    status = {
+        "local-validation": "local_validation_only_not_cleared_for_distribution",
+        "anonymous-review": "cleared_for_anonymous_review",
+        "public-release": "cleared_for_public_release",
+    }[distribution_target]
+    return {
+        "path": "forensic-framework/config/release_clearance.json",
+        "sha256": sha256(path),
+        "requested_target": distribution_target,
+        "status": status,
+        "contains_structured_model_output": True,
+        "endpoint_sha256": FROZEN_ENDPOINT_SHA256,
+        "approved_gates": approved,
+        "outstanding_gates": outstanding,
     }
 
 
@@ -601,6 +733,7 @@ def _write_readme(
     has_human_analysis: bool,
     run_summaries: dict,
     has_simulated_analysis: bool = False,
+    release_clearance: dict,
 ) -> None:
     if has_human_analysis:
         human_note = (
@@ -646,10 +779,29 @@ def _write_readme(
     if not include_raw:
         command += " --allow-omitted-raw"
 
-    path.write_text(
-        """# WarrantLab anonymous artifact
+    distribution_banner = (
+        "DISTRIBUTION STATUS: LOCAL VALIDATION ONLY — DO NOT UPLOAD OR SHARE."
+        if release_clearance["status"]
+        == "local_validation_only_not_cleared_for_distribution"
+        else "DISTRIBUTION STATUS: "
+        + release_clearance["status"].replace("_", " ").upper()
+        + "."
+    )
+    outstanding = release_clearance["outstanding_gates"]
+    outstanding_note = (
+        " Pending gates: `" + "`, `".join(outstanding) + "`."
+        if outstanding
+        else " All required release attestations are recorded."
+    )
 
-This artifact accompanies the anonymous paper *The Forensic Warrant Gap*.
+    path.write_text(
+        "# WarrantLab anonymous artifact\n\n"
+        + "**"
+        + distribution_banner
+        + "**"
+        + outstanding_note
+        + "\n\n"
+        + """This artifact accompanies the anonymous paper *The Forensic Warrant Gap*.
 It contains the frozen benchmark, analysis code, model-run records, statistical
 outputs, paper source, and a rendered manuscript. No network access is required
 to reproduce the reported analyses or rebuild the paper after installing the
@@ -726,6 +878,17 @@ def _write_zip(staging_root: Path, output: Path) -> None:
             archive.writestr(info, path.read_bytes(), compresslevel=9)
 
 
+def default_output_for_target(distribution_target: str) -> Path:
+    if distribution_target not in RELEASE_TARGETS:
+        raise ValueError(f"unsupported distribution target: {distribution_target}")
+    return (
+        REPO_ROOT
+        / "output"
+        / "artifact"
+        / f"warrantlab-{distribution_target}.zip"
+    )
+
+
 def build_artifact(
     *,
     development_run_dir: Path,
@@ -738,6 +901,8 @@ def build_artifact(
     paper_pdf: Path,
     output: Path,
     include_raw: bool,
+    release_clearance_path: Path,
+    distribution_target: str,
     identity_terms: list[str],
     allow_dirty: bool,
     force: bool,
@@ -745,6 +910,11 @@ def build_artifact(
     if _tracked_tree_dirty() and not allow_dirty:
         raise ValueError("tracked working tree is dirty; commit changes or pass --allow-dirty")
     release_notice_summary = validate_release_notice()
+    release_clearance_summary = validate_release_clearance(
+        release_clearance_path,
+        distribution_target=distribution_target,
+        release_notice_summary=release_notice_summary,
+    )
     run_summaries = {
         "development": validate_release_run(development_run_dir),
         "synthetic_confirmatory": validate_release_run(synthetic_run_dir),
@@ -797,6 +967,11 @@ def build_artifact(
         staging.mkdir()
         for relative in ROOT_FILES + PAPER_FILES + FRAMEWORK_FILES:
             _copy_file(REPO_ROOT / relative, staging)
+        _copy_file(
+            release_clearance_path,
+            staging,
+            Path("forensic-framework/config/release_clearance.json"),
+        )
         for relative in SOURCE_TREES:
             _copy_tree(REPO_ROOT / relative, staging, include_raw=False)
         for generated in sorted(PAPER_ROOT.glob("generated_*.tex")):
@@ -849,6 +1024,7 @@ def build_artifact(
             has_human_analysis=human_analysis is not None,
             run_summaries=run_summaries,
             has_simulated_analysis=simulated_review_dir is not None,
+            release_clearance=release_clearance_summary,
         )
 
         issues = scan_release_tree(staging, identity_terms=identity_terms)
@@ -871,6 +1047,7 @@ def build_artifact(
             },
             "include_raw_model_transcripts": include_raw,
             "third_party_notice": release_notice_summary,
+            "release_clearance": release_clearance_summary,
             "paper_pdf_sha256": sha256(paper_pdf),
             "runs": run_summaries,
             "confidence_audit": confidence_audit_summary,
@@ -913,14 +1090,32 @@ def main() -> int:
     parser.add_argument(
         "--output",
         type=Path,
-        default=REPO_ROOT / "output" / "artifact" / "warrantlab-anonymous.zip",
+        help=(
+            "archive path; defaults to output/artifact/warrantlab-"
+            "<distribution-target>.zip"
+        ),
     )
     parser.add_argument("--omit-raw", action="store_true")
+    parser.add_argument(
+        "--release-clearance",
+        type=Path,
+        default=FRAMEWORK_ROOT / "config" / "release_clearance.json",
+    )
+    parser.add_argument(
+        "--distribution-target",
+        choices=RELEASE_TARGETS,
+        default="local-validation",
+        help=(
+            "local-validation permits pending gates but marks the archive as "
+            "non-distributable; reviewer/public targets fail closed"
+        ),
+    )
     parser.add_argument("--identity-term", action="append", default=[])
     parser.add_argument("--allow-dirty", action="store_true")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     terms = sorted(set(default_identity_terms() + args.identity_term))
+    output = args.output or default_output_for_target(args.distribution_target)
     result = build_artifact(
         development_run_dir=args.development_run_dir,
         synthetic_run_dir=args.synthetic_run_dir,
@@ -930,8 +1125,10 @@ def main() -> int:
         simulated_review_dir=args.simulated_review_dir,
         targeted_review_dir=args.targeted_review_dir,
         paper_pdf=args.paper_pdf,
-        output=args.output,
+        output=output,
         include_raw=not args.omit_raw,
+        release_clearance_path=args.release_clearance,
+        distribution_target=args.distribution_target,
         identity_terms=terms,
         allow_dirty=args.allow_dirty,
         force=args.force,

@@ -143,8 +143,18 @@ build a deterministic anonymous archive from a clean commit:
   --human-analysis data/warrant_annotations/<final-package>/human_analysis.json \
   --simulated-review-dir data/warrant_simulations/<simulation-run> \
   --targeted-review-dir data/warrant_annotations/<targeted-package> \
-  --paper-pdf ../conference_paper/build/paper.pdf
+  --paper-pdf ../conference_paper/build/paper.pdf \
+  --distribution-target local-validation
 ```
+
+`local-validation` is the safe default. It creates a checksum-bound archive for
+clean-room testing but marks both its README and manifest as **not cleared for
+distribution**. Do not upload or share that ZIP. After the copyright holders,
+authors, and endpoint account holder complete the dated, evidence-bound entries
+in `config/release_clearance.json`, use `--distribution-target
+anonymous-review` for a conference-review artifact or `public-release` for a
+public archive. Either distributable target fails before staging if any gate is
+pending. See `docs/release_clearance.md`.
 
 Omit `--human-analysis` until a complete, independently adjudicated,
 checksum-bound analysis actually exists. The artifact README and manifest
@@ -187,6 +197,10 @@ missing or unlisted files, size changes, and SHA-256 mismatches. This internal
 check detects corruption but cannot authenticate a maliciously replaced ZIP
 and manifest together; reviewers must also compare the downloaded ZIP digest
 with the SHA-256 published by the conference artifact record.
+
+Verification also reports the requested distribution target, clearance status,
+and any outstanding gates. A successful integrity check on a
+`local-validation` archive does **not** authorize its distribution.
 
 Full confirmatory `records.jsonl` files and per-call `raw/` directories are
 intentionally excluded from ordinary Git history because they are large,

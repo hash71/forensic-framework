@@ -69,3 +69,5 @@ benchmark data, and paper materials. See
 [`forensic-framework/docs/release_license_audit.md`](forensic-framework/docs/release_license_audit.md)
 for the decision record and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)
 for component-specific attribution and license boundaries.
+The artifact release gate and its safe local-only default are documented in
+[`forensic-framework/docs/release_clearance.md`](forensic-framework/docs/release_clearance.md).

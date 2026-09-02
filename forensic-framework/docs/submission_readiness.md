@@ -62,6 +62,9 @@ A submission-ready claim requires all of the following:
   output content retained in scored records; omitting raw transcript files
   alone does not close this gate, and the current ZIP must not be uploaded
   until this is confirmed or an aggregate-only replacement is built;
+- [x] a fail-closed machine-readable release gate that labels ordinary builds
+  local-validation-only and rejects anonymous-review/public targets while any
+  license or endpoint-output approval remains pending;
 - [x] an identity-scrubbed reviewer artifact frozen with the
   exact manuscript results; and
 - [x] a fresh-environment reproduction from the raw-transcript-omitted

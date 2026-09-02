@@ -50,7 +50,7 @@ This is an engineering release audit, not legal advice.
 | Paper text and figures | No repository release license selected | Authors reconcile the chosen preprint/artifact terms with the venue publication agreement. |
 | Adapted CERT r4.2 records and derived portions | Upstream CC BY 4.0 confirmed | Preserve `THIRD_PARTY_NOTICES.md`, the DOI, creator, license link, modification statement, and no-endorsement boundary. Do not present a project-wide license as replacing this notice. |
 | Gemma-family model weights | Not distributed | No weight redistribution decision is required for the current artifact. Preserve model provenance and the official Apache-2.0 model-card link. |
-| Retained structured output from the configured remote endpoint | Operator terms not archived | Authors must confirm that the endpoint agreement permits the retained output content to be shared with reviewers and later distributed publicly. Omitting raw transcript files alone is insufficient because parsed model content remains in scored records. If permission cannot be established, build an aggregate-only artifact and explain the omission in the Open Science appendix. |
+| Retained structured output from the configured remote endpoint | Public `modal.run` deployment confirmed; account holder unverified | Modal's May 2026 agreement treats Input and Output as Customer Data and says the Customer owns Customer Data as between Modal and that Customer. The repository does not prove that an author is the deployment's Customer or that no separate caller terms apply. Authors must archive account-holder/operator evidence before sharing retained content. Omitting raw transcripts alone is insufficient because parsed model content remains in scored records. |
 | `usenix.sty` | Official template, locally modified for engine compatibility | Preserve the source link and modification notice. Confirm any additional public-archive requirement with USENIX before the permanent post-acceptance release. |
 | Historical `IEEEtran` files | LPPL 1.3 notices retained in file headers | Keep their headers and modification rules; they are outside the anonymous artifact. |
 | Package dependencies | Not vendored | Preserve version locks; package-specific licenses apply when installed. |
@@ -74,3 +74,11 @@ must not be uploaded even for confidential conference review; use an
 aggregate-only build if permission cannot be established. Until the remaining
 entries are complete, it must not be described as an openly licensed public
 release.
+
+The machine-readable `config/release_clearance.json` now enforces this boundary.
+Its safe default is `local-validation`, which emits a visibly non-distributable
+archive. `anonymous-review` and `public-release` targets fail closed until each
+human decision includes an exact decision, approval time, and evidence digest.
+The control prevents accidental upload but does not substitute for review of
+the underlying agreements. Modal terms checked 2026-09-03:
+<https://modal.com/legal/terms>.

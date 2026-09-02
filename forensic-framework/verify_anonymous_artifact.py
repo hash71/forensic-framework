@@ -13,9 +13,21 @@ from typing import Any
 
 
 MANIFEST_NAME = "ARTIFACT_MANIFEST.json"
-SUPPORTED_SCHEMA = "warrantlab-anonymous-artifact-v1.4"
+SUPPORTED_SCHEMA = "warrantlab-anonymous-artifact-v1.5"
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
+RELEASE_STATUSES = {
+    "local-validation": "local_validation_only_not_cleared_for_distribution",
+    "anonymous-review": "cleared_for_anonymous_review",
+    "public-release": "cleared_for_public_release",
+}
+REQUIRED_RELEASE_GATES = {
+    "code_license",
+    "original_benchmark_license",
+    "paper_release_terms",
+    "endpoint_output_redistribution",
+}
+RELEASE_CLEARANCE_PATH = "forensic-framework/config/release_clearance.json"
 
 
 class VerificationError(ValueError):
@@ -65,6 +77,40 @@ def _load_manifest(root: Path) -> dict[str, Any]:
         raise VerificationError("manifest does not record a passed identity scan")
     if not isinstance(manifest.get("files"), list) or not manifest["files"]:
         raise VerificationError("manifest files must be a non-empty array")
+    clearance = manifest.get("release_clearance")
+    if not isinstance(clearance, dict):
+        raise VerificationError("manifest lacks release_clearance")
+    target = clearance.get("requested_target")
+    status = clearance.get("status")
+    if target not in RELEASE_STATUSES or status != RELEASE_STATUSES.get(target):
+        raise VerificationError("manifest release target and status are inconsistent")
+    outstanding = clearance.get("outstanding_gates")
+    approved = clearance.get("approved_gates")
+    if not isinstance(outstanding, list) or not all(
+        isinstance(item, str) for item in outstanding
+    ):
+        raise VerificationError("manifest has invalid outstanding release gates")
+    if not isinstance(approved, list) or not all(
+        isinstance(item, str) for item in approved
+    ):
+        raise VerificationError("manifest has invalid approved release gates")
+    if (
+        len(outstanding) != len(set(outstanding))
+        or len(approved) != len(set(approved))
+        or set(outstanding) & set(approved)
+        or set(outstanding) | set(approved) != REQUIRED_RELEASE_GATES
+    ):
+        raise VerificationError("manifest release-gate partition is invalid")
+    if target != "local-validation" and outstanding:
+        raise VerificationError("distribution-cleared artifact retains pending gates")
+    if clearance.get("contains_structured_model_output") is not True:
+        raise VerificationError("manifest must record retained structured model output")
+    if clearance.get("path") != RELEASE_CLEARANCE_PATH:
+        raise VerificationError("manifest has invalid release-clearance path")
+    if not SHA256_RE.fullmatch(str(clearance.get("sha256", ""))):
+        raise VerificationError("manifest has invalid release-clearance SHA-256")
+    if not SHA256_RE.fullmatch(str(clearance.get("endpoint_sha256", ""))):
+        raise VerificationError("manifest has invalid endpoint SHA-256")
     return manifest
 
 
@@ -153,10 +199,29 @@ def verify_artifact(root: Path, *, strict: bool = False) -> dict[str, Any]:
     if errors:
         raise VerificationError("artifact verification failed:\n- " + "\n- ".join(errors))
 
+    clearance = manifest["release_clearance"]
+    clearance_entry = next(
+        (
+            entry
+            for entry in manifest["files"]
+            if isinstance(entry, dict) and entry.get("path") == RELEASE_CLEARANCE_PATH
+        ),
+        None,
+    )
+    if clearance_entry is None:
+        raise VerificationError("release-clearance file is not manifest-bound")
+    if clearance_entry.get("sha256") != clearance["sha256"]:
+        raise VerificationError("release-clearance summary hash does not match payload")
+
     return {
         "status": "passed",
         "artifact_schema_version": manifest["artifact_schema_version"],
         "source_commit": manifest["source_commit"],
+        "distribution_target": manifest["release_clearance"]["requested_target"],
+        "distribution_status": manifest["release_clearance"]["status"],
+        "outstanding_release_gates": manifest["release_clearance"][
+            "outstanding_gates"
+        ],
         "files_verified": len(expected_paths),
         "bytes_verified": bytes_verified,
         "strict": strict,

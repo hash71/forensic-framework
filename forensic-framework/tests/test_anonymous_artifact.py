@@ -12,6 +12,31 @@ from reportlab.pdfgen import canvas
 import build_anonymous_artifact as artifact
 
 
+def _pending_clearance(notice_sha256: str) -> dict:
+    return {
+        "release_clearance_schema_version": artifact.RELEASE_CLEARANCE_SCHEMA_VERSION,
+        "endpoint_context": {
+            "deployment_platform": "Modal",
+            "endpoint_sha256": artifact.FROZEN_ENDPOINT_SHA256,
+            "public_endpoint": True,
+            "account_holder_status": "unverified",
+        },
+        "third_party_notice": {
+            "status": "validated",
+            "sha256": notice_sha256,
+        },
+        "gates": {
+            name: {
+                "status": "pending",
+                "decision": None,
+                "evidence_sha256": None,
+                "approved_utc": None,
+            }
+            for name in artifact.REQUIRED_RELEASE_GATES
+        },
+    }
+
+
 def _write_complete_run(run_dir: Path) -> None:
     run_dir.mkdir()
     records = '{"case_id":"case-1"}\n'
@@ -161,6 +186,79 @@ def test_zip_writer_is_deterministic(tmp_path):
         assert archive.namelist() == ["a.txt", "b.txt"]
 
 
+def test_default_archive_name_exposes_distribution_target(tmp_path, monkeypatch):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    assert artifact.default_output_for_target("local-validation") == (
+        tmp_path / "output/artifact/warrantlab-local-validation.zip"
+    )
+    assert artifact.default_output_for_target("anonymous-review").name == (
+        "warrantlab-anonymous-review.zip"
+    )
+
+
+def test_release_clearance_labels_pending_local_build_and_blocks_distribution(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    path = tmp_path / "clearance.json"
+    path.write_text(json.dumps(_pending_clearance("n" * 64)))
+    notice = {"sha256": "n" * 64}
+
+    summary = artifact.validate_release_clearance(
+        path,
+        distribution_target="local-validation",
+        release_notice_summary=notice,
+    )
+    assert summary["status"] == (
+        "local_validation_only_not_cleared_for_distribution"
+    )
+    assert summary["outstanding_gates"] == list(artifact.REQUIRED_RELEASE_GATES)
+
+    with pytest.raises(ValueError, match="anonymous-review release blocked"):
+        artifact.validate_release_clearance(
+            path,
+            distribution_target="anonymous-review",
+            release_notice_summary=notice,
+        )
+
+
+def test_release_clearance_requires_dated_checksum_bound_approvals(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    path = tmp_path / "clearance.json"
+    clearance = _pending_clearance("n" * 64)
+    for name, gate in clearance["gates"].items():
+        gate.update(
+            {
+                "status": "approved",
+                "decision": f"approved decision for {name}",
+                "evidence_sha256": "e" * 64,
+                "approved_utc": "2026-09-03T12:00:00Z",
+            }
+        )
+    clearance["endpoint_context"]["account_holder_status"] = "verified"
+    path.write_text(json.dumps(clearance))
+    notice = {"sha256": "n" * 64}
+
+    summary = artifact.validate_release_clearance(
+        path,
+        distribution_target="anonymous-review",
+        release_notice_summary=notice,
+    )
+    assert summary["status"] == "cleared_for_anonymous_review"
+    assert summary["outstanding_gates"] == []
+
+    clearance["gates"]["code_license"]["evidence_sha256"] = "not-a-hash"
+    path.write_text(json.dumps(clearance))
+    with pytest.raises(ValueError, match="valid evidence SHA-256"):
+        artifact.validate_release_clearance(
+            path,
+            distribution_target="anonymous-review",
+            release_notice_summary=notice,
+        )
+
+
 def test_omitted_raw_staging_normalizes_analyses_and_paper_derivatives(
     tmp_path, monkeypatch
 ):
@@ -265,6 +363,10 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
         has_human_analysis=False,
         run_summaries=runs,
         has_simulated_analysis=True,
+        release_clearance={
+            "status": "local_validation_only_not_cleared_for_distribution",
+            "outstanding_gates": list(artifact.REQUIRED_RELEASE_GATES),
+        },
     )
     text = readme.read_text()
     normalized_text = " ".join(text.split())
@@ -283,6 +385,8 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     assert "--human-analysis" not in text
     assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text
     assert "not human or expert validation" in text
+    assert "LOCAL VALIDATION ONLY — DO NOT UPLOAD OR SHARE" in text
+    assert "endpoint_output_redistribution" in text
 
     artifact._write_readme(
         readme,
@@ -290,6 +394,10 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
         has_human_package=True,
         has_human_analysis=True,
         run_summaries=runs,
+        release_clearance={
+            "status": "cleared_for_anonymous_review",
+            "outstanding_gates": [],
+        },
     )
     text = readme.read_text()
     assert "--human-analysis ../human-validation/adjudicated_analysis.json" in text

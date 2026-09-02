@@ -106,6 +106,15 @@ human-label integration or substantive manuscript change.
   authored code, original benchmark, or paper. Raw endpoint transcript files
   are omitted, but retained structured output content still requires a human
   review of the applicable endpoint-operator redistribution terms.
+- The endpoint is a public `modal.run` deployment. Modal's May 2026 agreement
+  treats Input and Output as Customer Data owned by the Customer as between
+  Modal and that Customer, but the repository does not establish that an author
+  owns the deployment account. The structured-output gate therefore remains
+  open.
+- Artifact schema v1.5 records a requested distribution target and binds the
+  release-clearance declaration into the payload manifest. Local builds are
+  visibly marked **do not upload or share**; anonymous-review and public builds
+  fail before staging while any required attestation is pending.
 
 ### Ethics boundary
 

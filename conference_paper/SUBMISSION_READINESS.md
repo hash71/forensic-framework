@@ -85,6 +85,9 @@ the shepherd-approval deadline.
   content retained in scored records; raw-file omission alone does not prove
   this permission. Do not upload the current reviewer ZIP until this is
   confirmed or an aggregate-only replacement is built.
+- [x] The artifact builder defaults to a visibly non-distributable local build
+  and rejects anonymous-review/public targets until all license and endpoint
+  attestations are dated and checksum-bound.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in
   grayscale, embeds its fonts, and contains no author identity.
 - [ ] Authors approve the final paper, author order, title, ORCIDs, ethics
