@@ -44,9 +44,9 @@ phrased as `to our knowledge` with explicit comparison criteria.
 | [CORTEX](https://arxiv.org/abs/2510.00311) | Production SOC investigations | Specialized agents, typed tools, linked evidence, auditable triage decisions | v2 isolates warrant errors under paired controlled mutations and measures a fixed abstention policy at one operating point |
 | [Holmes](https://arxiv.org/abs/2601.14601) | Cloud-network DDoS investigation | Evidence-grounded, auditable, cost-controlled agent | Evidence-grounded cloud investigation is therefore not itself novel |
 | [Retrieval-Augmented LLMs for Security Incident Analysis](https://arxiv.org/abs/2603.18196) | Multi-source logs | Targeted retrieval, MITRE ATT&CK context, attack-sequence reconstruction | v2 evaluates whether each generated proposition is warranted |
-| [SIR-Bench](https://arxiv.org/abs/2604.12040) | 794 cloud incident-response cases from 129 incident patterns | Triage accuracy, novel finding discovery, tool appropriateness, adversarial LLM judging | v2 makes false or over-strong cited findings, counterevidence, and claim precision primary endpoints |
-| [AuditBench](https://arxiv.org/abs/2606.10281) | More than 50 Windows/Linux audit-log scenarios | Four investigation tasks, five frontier models, prompt and representation effects, explanation errors | v2 supplies paired causal context interventions and a forensic warrant ontology |
-| [SecRespond](https://arxiv.org/abs/2607.26791) | 10 compromised cloud-host ranges, 23 models | Full post-compromise investigation and remediation; no model completes a full range | v2 narrows scope to measurable evidence licensing and safe abstention |
+| [SIR-Bench](https://arxiv.org/abs/2604.12040) | 794 cloud incident-response cases from 129 incident patterns; five security engineers label/review expected findings linked to event IDs, resources, and times | Triage accuracy, novel finding discovery, tool appropriateness, human-aligned adversarial LLM judging | v2 makes false or over-strong cited findings, counterevidence, and claim precision primary endpoints; SIR-Bench's paper still describes public data/code release as future work |
+| [AuditBench](https://arxiv.org/abs/2606.10281) | More than 50 Windows/Linux audit-log scenarios | Four investigation tasks, five frontier models, prompt and representation effects, explanation errors | v2 supplies paired causal context interventions and a forensic warrant ontology; its submission artifact lists only four representative scenarios and was not publicly retrievable during this audit |
+| [SecRespond](https://arxiv.org/abs/2607.26791) | 10 public compromised cloud-host ranges, 23 models, and 280 security-expert-designed checkpoints | Separates checkpoint discovery, evidence, attribution, and planning; one blinded security expert rescored 600 checkpoint--trajectory instances for judge validation | Its separately developed decomposition triangulates the construct, but its range facts and reports do not validate v2's claim-axis labels or mechanical proxy |
 | [DFIR-Metric](https://arxiv.org/abs/2505.19973) | Knowledge, CTF, and tool-testing tasks | Broad DFIR capability benchmark | v2 is an evidence-bearing incident-reasoning benchmark rather than a general knowledge test |
 
 ## 3. Evidence attribution and factuality
@@ -145,6 +145,12 @@ variants are nested observations.
 
 Dataset inclusion depends on license, accessibility, a defensible investigation
 unit, and whether claim-level ground truth can be constructed without leakage.
+The dated, primary-source audit in
+[`public_validation_source_audit.md`](public_validation_source_audit.md)
+examines SIR-Bench, AuditBench, FORCEBENCH, and SecRespond against explicit
+substitution criteria.  It finds that SecRespond and FORCEBENCH strengthen
+construct validity, but none can replace independent annotation of the frozen
+WarrantLab claims.
 
 ## 9. Venue constraints checked on 2026-09-02
 

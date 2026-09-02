@@ -62,6 +62,12 @@ human-label integration or substantive manuscript change.
   evidence-contract debate for open-book fact checking from WarrantLab's
   forensic semantic axes, paired evidence/context mutations, and downstream
   risk--coverage estimand.
+- A primary-source audit of public validation candidates found no compatible
+  substitute for labels on WarrantLab's frozen claims. SecRespond nevertheless
+  provides external construct triangulation: its public security-expert-designed
+  checklist independently separates discovery, evidence, and attribution
+  across 280 post-compromise checkpoints. The manuscript treats this as
+  construct evidence, not validation of the authored proxy.
 
 ### Format and anonymity
 

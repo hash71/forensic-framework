@@ -1010,7 +1010,11 @@ untrusted content, including strings that resemble instructions.
 rules and can disagree with experts, as prior work warns for automatic
 attribution metrics~\cite{godbole2025verify}.  The synthetic generator supplies explicit
 authorization and linkage fields that are often absent in practice.  Expert
-annotation is therefore required for the strongest claim.
+annotation is therefore required for the strongest claim.  As external
+construct triangulation, SecRespond separately decomposes 280 expert-designed
+post-compromise checkpoints into discovery, evidence, and attribution
+~\cite{wang2026secrespond}; its different reports and reference facts do not
+validate our axis labels or authored proxy.
 
 \textbf{Internal validity.}  Development data influenced prompt versions and
 the v1.1 safety-estimand clarification.  We disclose both; no prompt or
@@ -1060,7 +1064,7 @@ SIR-Bench~\cite{begimher2026sirbench} & Triage, novel findings, tool use &
 $\checkmark$ & -- & -- & -- \\
 AuditBench~\cite{anand2026auditbench} & Four audit-log investigation tasks &
 $\checkmark$ & -- & -- & -- \\
-SecRespond~\cite{wang2026secrespond} & Post-compromise report and remediation &
+SecRespond~\cite{wang2026secrespond} & 280 report/remediation checkpoints &
 $\checkmark$ & -- & -- & -- \\
 \system (this work) & Atomic claim--evidence relation & $\checkmark$ &
 $\checkmark$ & $\checkmark$ & $\checkmark$ \\
@@ -1081,9 +1085,13 @@ findings to event identifiers, resources, and times, and an automated matcher
 is calibrated against analyst judgments~\cite{begimher2026sirbench}.
 AuditBench checks task-specific timestamps, hosts, paths, and explanation
 content across four investigation tasks~\cite{anand2026auditbench}.
-SecRespond scores checkpoint discovery, cited evidence, and attribution in a
-full post-compromise report~\cite{wang2026secrespond}.  These benchmarks make
-the broader task substantially more realistic than our synthetic micro-cases.
+SecRespond's security experts design 280 checkpoints that separately score
+discovery, cited evidence, and attribution in full post-compromise reports; its
+three-judge scoring was checked by one security expert on 600
+checkpoint--trajectory ratings~\cite{wang2026secrespond}.  This independently
+supports the importance of evidence and attribution as separate constructs,
+but does not validate our claims, axes, or proxy.  These benchmarks make the
+broader task substantially more realistic than our synthetic micro-cases.
 Table~\ref{tab:closest-work} identifies the narrower complement: controlled
 measurement of whether the \emph{exact fields and force} of each proposition
 are warranted under paired context and evidence mutations, and whether a
