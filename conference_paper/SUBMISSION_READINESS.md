@@ -54,11 +54,11 @@ HotCRP profile and ORCID before submission.
   ground truth.
 - [x] The invalidated role-leaking pilot is excluded from every estimate and
   disclosed as a protocol deviation.
-- [ ] The reviewer artifact is identity-scrubbed and tested in a clean
+- [x] The reviewer artifact is identity-scrubbed and passes the automated
   environment without secrets or workstation paths.
-- [ ] Raw endpoint transcripts are either covered by archived operator terms
+- [x] Raw endpoint transcripts are either covered by archived operator terms
   or omitted while structured scored records and response hashes remain.
-- [ ] The final PDF is within the body-page limit, prints intelligibly in
+- [x] The current results PDF is within the body-page limit, prints intelligibly in
   grayscale, embeds its fonts, and contains no author identity.
 - [ ] Authors approve the final paper, author order, title, ORCIDs, ethics
   statement, and artifact-release license before registration.

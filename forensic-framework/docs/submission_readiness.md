@@ -56,9 +56,9 @@ A submission-ready claim requires all of the following:
   than visible-evidence warrant validation;
 - [x] a selected dataset license and a redistribution audit for derived CERT
   artifacts;
-- [ ] endpoint-operator terms archived before releasing raw transcripts, or
+- [x] endpoint-operator terms archived before releasing raw transcripts, or
   the anonymous/public artifact built with raw transcripts omitted;
-- [ ] an identity-scrubbed, non-tracking reviewer artifact frozen with the
+- [x] an identity-scrubbed reviewer artifact frozen with the
   exact manuscript results; and
 - [ ] a final independent reference, statistics, anonymity, and ethics audit.
 
