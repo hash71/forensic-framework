@@ -47,9 +47,14 @@ phrased as `to our knowledge` with explicit comparison criteria.
 
 | Work | Key idea | Use in v2 |
 |---|---|---|
+| [Attribution, Citation, and Quotation survey](https://aclanthology.org/2026.acl-long.1430/) | Systematizes 134 papers and 300 evaluation metrics across a fragmented evidence-based generation literature | State citation validity, completeness, semantic warrant, and decision reliability as separate properties rather than an overloaded grounding score |
 | [ALCE](https://aclanthology.org/2023.emnlp-main.398/) | Citation correctness and completeness are distinct; cited generation remains incompletely supported | Separate identifier validity, citation completeness, and semantic warrant |
 | [FActScore](https://aclanthology.org/2023.emnlp-main.741/) | Decompose long-form output into atomic facts and score support | Define atomic forensic claims as the evaluation unit |
 | [RAGAS](https://aclanthology.org/2024.eacl-demo.16/) | Separates context relevance, faithfulness, and answer quality | Avoid a single overloaded grounding score |
+| [AttributionBench](https://aclanthology.org/2024.findings-acl.886/) | Tests whether every generated claim is fully supported and shows that automatic attribution evaluation is difficult | Require blinded expert validation before treating the mechanical warrant checker as ground truth |
+| [RECV](https://aclanthology.org/2025.findings-acl.1059/) | Decomposes evidence-based claim verification into deductive and abductive reasoning types; current LLMs struggle with abduction | Distinguish forensic semantic axes and expose missing-link reasoning rather than score only a final entailment label |
+| [Evidence Attribution in Fact-Checking](https://aclanthology.org/2025.naacl-long.282/) | Uses citation masking and recovery with both human and automatic attribution assessment | Treat evidence perturbation and human validation as complementary checks |
+| [Verify with Caution](https://aclanthology.org/2025.findings-acl.1175/) | Automatic factuality evaluators disagree and can misestimate system error outside their calibration domains | Report expert-vs-mechanical confusion and per-axis error before using the proxy for substantive conclusions |
 | [Atomic Calibration of LLMs](https://aclanthology.org/2025.findings-ijcnlp.9/) | Response-level confidence hides claim-level calibration failure | Evaluate confidence per material atomic claim |
 | [Relevant Is Not Warranted / FORCEBENCH](https://arxiv.org/abs/2605.28044) | A real, relevant citation may under-warrant claim strength; paired force-raised claims reveal citation laundering | Adapt evidence-force testing to actor, authorization, intent, causality, chronology, and forensic decisions |
 | [Cited but Not Verified](https://arxiv.org/abs/2605.06635) | Link validity and relevance can remain high while factual accuracy is substantially lower | Treat citation resolution as a surface check, never a factuality result |
@@ -148,4 +153,3 @@ unit, and whether claim-level ground truth can be constructed without leakage.
 
 Venue choice must follow evidence readiness. The study will not be shortened or
 its failures hidden to meet a deadline.
-

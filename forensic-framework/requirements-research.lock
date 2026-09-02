@@ -21,7 +21,9 @@ certifi==2026.7.22
     #   httpx
     #   requests
 charset-normalizer==3.5.1
-    # via requests
+    # via
+    #   reportlab
+    #   requests
 click==8.5.0
     # via
     #   streamlit
@@ -47,6 +49,8 @@ idna==3.19
     #   anyio
     #   httpx
     #   requests
+iniconfig==2.3.0
+    # via pytest
 interface-meta==2.0.1
     # via formulaic
 itsdangerous==2.2.0
@@ -84,6 +88,7 @@ packaging==26.3
     #   altair
     #   patsy
     #   plotly
+    #   pytest
     #   statsmodels
     #   streamlit
 pandas==3.0.5
@@ -94,9 +99,13 @@ pandas==3.0.5
 patsy==1.0.3
     # via statsmodels
 pillow==12.3.0
-    # via streamlit
+    # via
+    #   reportlab
+    #   streamlit
 plotly==7.0.0
     # via -r requirements.txt
+pluggy==1.6.0
+    # via pytest
 protobuf==7.36.1
     # via streamlit
 psycopg2-binary==2.9.12
@@ -111,6 +120,12 @@ pydantic-core==2.46.5
     # via pydantic
 pydeck==0.9.3
     # via streamlit
+pygments==2.21.0
+    # via pytest
+pypdf==6.16.2
+    # via -r requirements-research.txt
+pytest==9.1.1
+    # via -r requirements-research.txt
 python-dateutil==2.9.0.post0
     # via pandas
 python-dotenv==1.2.3
@@ -123,6 +138,8 @@ referencing==0.37.0
     # via
     #   jsonschema
     #   jsonschema-specifications
+reportlab==4.5.1
+    # via -r requirements-research.txt
 requests==2.34.2
     # via streamlit
 rpds-py==2026.6.3

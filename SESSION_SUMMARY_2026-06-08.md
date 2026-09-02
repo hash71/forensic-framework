@@ -94,7 +94,7 @@ At T = 0.1 the model is verdict-deterministic across 110 repeated runs
 
 ### Project switched to Gemma
 
-- `.env` repointed: `MODAL_ENDPOINT=https://nazmul-is-awesome--fusion-gemma-serve.modal.run`,
+- `.env` repointed to the private remote inference endpoint (redacted from version control),
   `MODAL_MODEL=fusion-gemma`.
 - `app/llm/client.py` default model + `max_tokens` reduced 8192 → 2048
   to fit Gemma's 32K context window on the largest holdout scenarios.

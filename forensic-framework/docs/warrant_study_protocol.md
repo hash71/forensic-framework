@@ -219,6 +219,16 @@ An adjudicator resolves disagreements without seeing model identity. Annotators
 receive the visible case evidence, claim, and cited events, but not the hidden
 generator mutation label or system condition.
 
+The claim-sample target is 400 after deduplicating shared generator responses.
+For orientation, a simple random sample of 400 has a worst-case nominal 95%
+binomial half-width of approximately 4.9 percentage points. This is not treated
+as the study's actual precision because unequal stratum weights, claim
+clustering, prevalence, and adjudication error can widen uncertainty; the
+reported two-stage design-aware intervals determine achieved precision.
+Within each nonempty stratum, a fixed seed and SHA-256 keyed order provide a
+reproducible pseudorandom ranking with equal planned inclusion fractions for
+claims in that stratum.
+
 Each claim receives:
 
 - overall warrant: supported, contradicted, insufficient, or not applicable;
@@ -254,6 +264,18 @@ Unsafe claim exposure is never interpreted alone. Coverage, attack recall, and
 verdict accuracy are jointly reported so an always-abstain system cannot appear
 useful by suppressing every claim. The 3-point attack-recall noninferiority
 margin remains unchanged.
+
+For the final human-labeled estimate, each sampled adjudicated claim is joined
+back to every frozen condition record that reused its generator-response hash.
+An unsafe contribution requires an adjudicated `CONTRADICTED` or
+`INSUFFICIENT` overall label and adjudicated decisive materiality; whether the
+claim was surfaced is determined from that condition record. Inverse
+sampling-fraction weights estimate the unique-claim population. The point
+estimate first normalizes record-level claim contributions within each base
+case and then averages base cases. Its percentile interval uses a two-stage
+bootstrap: sampled claims are resampled within annotation strata and complete
+base-case clusters are resampled independently. This human-labeled estimate,
+not the mechanical census, is the substantive H1 result after annotation.
 
 ### 9.2 Non-inferiority endpoint
 
@@ -321,7 +343,7 @@ Calibration and operations:
   are reported separately and included in operational-failure metrics.
 - No system is dropped because it performs poorly.
 - No prompt is changed after final test inference begins.
-- If fewer than 40 independent base cases remain valid, confirmatory claims are
+- If fewer than 36 independent held-out base cases remain valid, confirmatory claims are
   withheld and the study is reported as exploratory.
 - If independent expert annotation cannot be obtained, automated warrant scores
   are explicitly labeled proxy outcomes and the strongest forensic-validity

@@ -518,7 +518,9 @@ def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
             if not path.exists():
                 errors.append(f"missing raw response: {path_value}")
                 continue
-            actual = hashlib.sha256(path.read_text().encode()).hexdigest()
+            # Hash the retained bytes, not newline-normalized text. Provider
+            # responses may legally contain CRLF inside string content.
+            actual = hashlib.sha256(path.read_bytes()).hexdigest()
             if actual != expected:
                 errors.append(f"raw response hash mismatch: {path_value}")
             checked[str(path)] = actual

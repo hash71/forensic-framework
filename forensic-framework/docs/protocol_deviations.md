@@ -4,6 +4,35 @@ This log is append-only. It records changes made after the v2 protocol was
 frozen and distinguishes benchmark quality assurance from confirmatory model
 inference.
 
+## 2026-09-02 — Human-labeled primary-estimator implementation
+
+**Stage:** corrected held-out inference in progress; no expert labels existed.
+Only run cardinality and operational-status counts from the corrected run had
+been inspected, not aggregate or condition-level study outcomes.
+
+**Gap:** protocol v1.1 already required human claim labels to replace the
+mechanical proxy for the final primary safety endpoint and fixed the stratified
+sample, inverse sampling-fraction weighting, unsafe-label definition,
+condition contrast, and base-case inferential unit. The implementation,
+however, produced only human--mechanical agreement and did not join the
+adjudicated labels back to the condition-specific delivery decisions. Leaving
+that gap would let expert review validate a checker without changing the
+headline endpoint.
+
+**Correction:** analysis v1.2 joins each sampled unique claim to all frozen
+records sharing its case and generator-response hash, applies adjudicated
+warrant and materiality labels, estimates condition-specific surfaced unsafe
+claims with inverse sampling-fraction weights, and reports the pre-specified
+abstention-minus-alerts contrast. A two-stage percentile bootstrap resamples
+claims within annotation strata and independent base-case clusters. Tests use
+synthetic labels only; no study annotation is simulated or imputed.
+
+**Impact:** no prompt, model call, benchmark, claim sample, human label,
+primary estimand, comparator, unsafe-label definition, or delivery decision is
+changed. The estimator now implements the already stated human-replacement
+rule. Its post-start coding time is disclosed so readers need not infer an
+untouched preregistration.
+
 ## 2026-09-02 — External CERT derived-linkage removal
 
 **Stage:** external-adapter quality assurance, before any external-model

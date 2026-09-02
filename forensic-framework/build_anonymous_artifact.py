@@ -1,0 +1,490 @@
+#!/usr/bin/env python3
+"""Build a deterministic, identity-scanned anonymous WarrantLab artifact."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import re
+import shutil
+import subprocess
+import tempfile
+import zipfile
+from pathlib import Path
+
+from pypdf import PdfReader
+
+
+FRAMEWORK_ROOT = Path(__file__).resolve().parent
+REPO_ROOT = FRAMEWORK_ROOT.parent
+PAPER_ROOT = REPO_ROOT / "conference_paper"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.0"
+
+PRIVATE_NAMES = {
+    ".env",
+    ".DS_Store",
+    "records.private-original.jsonl",
+}
+PRIVATE_SUFFIXES = {".key", ".pem"}
+TEXT_SUFFIXES = {
+    ".bib",
+    ".cfg",
+    ".csv",
+    ".html",
+    ".json",
+    ".jsonl",
+    ".md",
+    ".py",
+    ".sty",
+    ".tex",
+    ".txt",
+    ".yaml",
+    ".yml",
+}
+
+PAPER_FILES = (
+    "conference_paper/paper.tex",
+    "conference_paper/references.bib",
+    "conference_paper/usenix.sty",
+    "conference_paper/generate_paper_artifacts.py",
+    "conference_paper/REFERENCE_AUDIT.md",
+    "conference_paper/SUBMISSION_READINESS.md",
+)
+
+FRAMEWORK_FILES = (
+    "forensic-framework/requirements-research.txt",
+    "forensic-framework/requirements-research.lock",
+    "forensic-framework/generate_warrant_benchmark.py",
+    "forensic-framework/prepare_cert_warrant_external.py",
+    "forensic-framework/run_warrant_baselines.py",
+    "forensic-framework/run_warrant_llm.py",
+    "forensic-framework/run_warrant_results.py",
+    "forensic-framework/run_warrant_statistics.py",
+    "forensic-framework/run_cert_warrant_external.py",
+    "forensic-framework/prepare_warrant_annotations.py",
+    "forensic-framework/prepare_warrant_adjudication.py",
+    "forensic-framework/analyze_warrant_annotations.py",
+    "forensic-framework/sanitize_warrant_release.py",
+    "forensic-framework/reproduce_warrant_paper.py",
+    "forensic-framework/build_anonymous_artifact.py",
+    "forensic-framework/app/__init__.py",
+    "forensic-framework/app/evaluation/__init__.py",
+    "forensic-framework/app/evaluation/claims.py",
+    "forensic-framework/app/evaluation/warrant.py",
+    "forensic-framework/app/evaluation/warrant_annotations.py",
+    "forensic-framework/app/evaluation/warrant_baselines.py",
+    "forensic-framework/app/evaluation/warrant_human.py",
+    "forensic-framework/app/evaluation/warrant_results.py",
+    "forensic-framework/app/evaluation/warrant_stats.py",
+    "forensic-framework/app/ingestion/__init__.py",
+    "forensic-framework/app/ingestion/warrant_benchmark.py",
+    "forensic-framework/app/ingestion/warrant_external.py",
+    "forensic-framework/app/ingestion/adapters/__init__.py",
+    "forensic-framework/app/ingestion/adapters/cert_insider.py",
+    "forensic-framework/app/llm/__init__.py",
+    "forensic-framework/app/llm/warrant_client.py",
+    "forensic-framework/app/llm/warrant_prompts.py",
+    "forensic-framework/app/llm/warrant_runner.py",
+    "forensic-framework/config/warrant_study.yaml",
+    "forensic-framework/config/ollama/Modelfile.gemma4-e4b-warrant",
+    "forensic-framework/tests/__init__.py",
+    "forensic-framework/tests/conftest.py",
+    "forensic-framework/tests/test_anonymous_artifact.py",
+    "forensic-framework/tests/test_cert_adapter.py",
+    "forensic-framework/tests/test_paper_artifacts.py",
+    "forensic-framework/tests/test_prepare_warrant_annotations.py",
+    "forensic-framework/tests/test_warrant.py",
+    "forensic-framework/tests/test_warrant_annotations.py",
+    "forensic-framework/tests/test_warrant_baselines.py",
+    "forensic-framework/tests/test_warrant_benchmark.py",
+    "forensic-framework/tests/test_warrant_external.py",
+    "forensic-framework/tests/test_warrant_human.py",
+    "forensic-framework/tests/test_warrant_llm_runner.py",
+    "forensic-framework/tests/test_warrant_release.py",
+    "forensic-framework/tests/test_warrant_reproduction.py",
+    "forensic-framework/tests/test_warrant_stats.py",
+)
+
+SOURCE_TREES = (
+    "forensic-framework/data/warrant_benchmark",
+    "forensic-framework/data/warrant_external",
+    "forensic-framework/docs",
+)
+
+
+def sha256(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _within_repo(path: Path) -> Path:
+    resolved = path.resolve()
+    try:
+        resolved.relative_to(REPO_ROOT.resolve())
+    except ValueError as exc:
+        raise ValueError(f"artifact source is outside repository: {path}") from exc
+    return resolved
+
+
+def _safe_source_file(path: Path) -> bool:
+    return (
+        path.is_file()
+        and not path.is_symlink()
+        and path.name not in PRIVATE_NAMES
+        and path.suffix.lower() not in PRIVATE_SUFFIXES
+        and "__pycache__" not in path.parts
+        and ".pytest_cache" not in path.parts
+        and ".git" not in path.parts
+    )
+
+
+def files_in_tree(path: Path, *, include_raw: bool = True) -> list[Path]:
+    root = _within_repo(path)
+    if not root.is_dir():
+        raise FileNotFoundError(root)
+    files = []
+    for candidate in sorted(root.rglob("*")):
+        if not _safe_source_file(candidate):
+            continue
+        if not include_raw and "raw" in candidate.relative_to(root).parts:
+            continue
+        files.append(candidate)
+    return files
+
+
+def validate_release_run(run_dir: Path) -> dict:
+    """Require a complete run whose public records match its redaction manifest."""
+
+    run_dir = _within_repo(run_dir)
+    manifest_path = run_dir / "manifest.json"
+    records_path = run_dir / "records.jsonl"
+    release_path = run_dir / "release_redactions.json"
+    for required in (manifest_path, records_path, release_path):
+        if not required.is_file():
+            raise FileNotFoundError(f"release run is missing {required.name}: {run_dir}")
+    manifest = json.loads(manifest_path.read_text())
+    release = json.loads(release_path.read_text())
+    counts = manifest.get("counts_for_this_invocation", {})
+    planned = counts.get("planned")
+    completed = counts.get("completed")
+    record_count = sum(1 for line in records_path.read_text().splitlines() if line.strip())
+    if not isinstance(planned, int) or completed != planned or record_count != planned:
+        raise ValueError(
+            f"run is incomplete: planned={planned}, completed={completed}, "
+            f"records={record_count}"
+        )
+    if release.get("post_redaction_records_sha256") != sha256(records_path):
+        raise ValueError("records do not match release_redactions.json")
+    if release.get("run_id") != manifest.get("run_id"):
+        raise ValueError("run ID differs between run and release manifests")
+    return {
+        "run_id": manifest["run_id"],
+        "path": run_dir.relative_to(REPO_ROOT.resolve()).as_posix(),
+        "record_count": record_count,
+        "records_sha256": sha256(records_path),
+    }
+
+
+def _git_value(key: str) -> str | None:
+    result = subprocess.run(
+        ["git", "config", "--get", key],
+        cwd=REPO_ROOT,
+        check=False,
+        capture_output=True,
+        text=True,
+    )
+    value = result.stdout.strip()
+    return value or None
+
+
+def default_identity_terms() -> list[str]:
+    terms = {
+        Path.home().name,
+        str(Path.home()),
+        str(REPO_ROOT.resolve()),
+    }
+    for key in ("user.name", "user.email"):
+        value = _git_value(key)
+        if value:
+            terms.add(value)
+    return sorted(term for term in terms if len(term.strip()) >= 4)
+
+
+def scan_release_tree(root: Path, *, identity_terms: list[str]) -> list[dict[str, str]]:
+    """Return identity, workstation-path, and credential-like release violations."""
+
+    identity_bytes = [term.casefold().encode() for term in identity_terms]
+    path_patterns = (
+        re.compile(r"/" + r"Users/[^/\s]+", re.IGNORECASE),
+        re.compile(r"/" + r"home/[^/\s]+", re.IGNORECASE),
+        re.compile(r"[A-Za-z]:\\" + r"Users\\[^\\\s]+", re.IGNORECASE),
+    )
+    secret_patterns = (
+        re.compile(r"\b" + r"AKIA[0-9A-Z]{16}\b"),
+        re.compile(r"\b" + r"gh[pousr]_[A-Za-z0-9]{20,}\b"),
+        re.compile(r"\b" + r"sk" + r"-[A-Za-z0-9_-]{20,}\b"),
+        re.compile(r"(?i)(api[_-]?key|access[_-]?token|client[_-]?secret)\s*[:=]\s*['\"]?[A-Za-z0-9_./+-]{16,}"),
+    )
+    issue_keys: set[tuple[str, str]] = set()
+    for path in sorted(root.rglob("*")):
+        if not path.is_file():
+            continue
+        relative = path.relative_to(root).as_posix()
+        if path.name in PRIVATE_NAMES or path.suffix.lower() in PRIVATE_SUFFIXES:
+            issue_keys.add((relative, "private_filename"))
+            continue
+        data = path.read_bytes()
+        folded = data.lower()
+        for index, term in enumerate(identity_bytes, start=1):
+            if term and term in folded:
+                issue_keys.add((relative, f"identity_term_{index}"))
+        text = ""
+        if path.suffix.lower() in TEXT_SUFFIXES:
+            text = data.decode("utf-8", errors="replace")
+        elif path.suffix.lower() == ".pdf":
+            try:
+                reader = PdfReader(path)
+                metadata = "\n".join(
+                    f"{key}: {value}" for key, value in (reader.metadata or {}).items()
+                )
+                pages = "\n".join(page.extract_text() or "" for page in reader.pages)
+                text = metadata + "\n" + pages
+            except Exception:  # pragma: no cover - defensive release failure
+                issue_keys.add((relative, "pdf_parse_failure"))
+        extracted = text.casefold().encode()
+        for index, term in enumerate(identity_bytes, start=1):
+            if term and term in extracted:
+                issue_keys.add((relative, f"identity_term_{index}"))
+        if any(pattern.search(text) for pattern in path_patterns):
+            issue_keys.add((relative, "absolute_user_path"))
+        if any(pattern.search(text) for pattern in secret_patterns):
+            issue_keys.add((relative, "credential_like_value"))
+    return [
+        {"file": file, "rule": rule}
+        for file, rule in sorted(issue_keys)
+    ]
+
+
+def _copy_file(source: Path, staging_root: Path, destination: Path | None = None) -> None:
+    source = _within_repo(source)
+    if not _safe_source_file(source):
+        raise ValueError(f"unsafe artifact source: {source}")
+    relative = destination or source.relative_to(REPO_ROOT)
+    target = staging_root / relative
+    if target.exists() and sha256(target) != sha256(source):
+        raise ValueError(f"artifact destination collision: {relative}")
+    target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(source, target)
+
+
+def _copy_tree(source: Path, staging_root: Path, *, include_raw: bool = True) -> None:
+    for path in files_in_tree(source, include_raw=include_raw):
+        _copy_file(path, staging_root)
+
+
+def _git_commit() -> str:
+    result = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return result.stdout.strip()
+
+
+def _tracked_tree_dirty() -> bool:
+    result = subprocess.run(
+        ["git", "status", "--porcelain", "--untracked-files=no"],
+        cwd=REPO_ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return bool(result.stdout.strip())
+
+
+def _write_readme(path: Path, *, include_raw: bool, has_human: bool) -> None:
+    human_note = (
+        "The human-validation package and adjudicated analysis are included."
+        if has_human
+        else "Human annotations are not included; do not treat proxy labels as expert validation."
+    )
+    raw_note = (
+        "Raw model transcripts are included for output-level audit."
+        if include_raw
+        else "Raw model transcripts are omitted; scored structured records are included."
+    )
+    path.write_text(
+        """# WarrantLab anonymous artifact
+
+This artifact accompanies the anonymous paper *The Forensic Warrant Gap*.
+It contains the frozen benchmark, analysis code, model-run records, statistical
+outputs, paper source, and a rendered manuscript. No network access is required
+to reproduce the reported analyses or rebuild the paper after installing the
+locked research dependencies.
+
+## Reproduction
+
+From `forensic-framework/`, create a Python environment, install
+`requirements-research.lock`, and run `reproduce_warrant_paper.py` with the
+synthetic run directory and, when present, the external run and human-analysis
+paths recorded in `ARTIFACT_MANIFEST.json`. The command validates run
+cardinality and hashes before regenerating tables, figures, statistics, and the
+PDF.
+
+"""
+        + raw_note
+        + "\n\n"
+        + human_note
+        + "\n\nAll payload files are enumerated with SHA-256 hashes in `ARTIFACT_MANIFEST.json`.\n"
+    )
+
+
+def _write_zip(staging_root: Path, output: Path) -> None:
+    with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+        for path in sorted(candidate for candidate in staging_root.rglob("*") if candidate.is_file()):
+            relative = path.relative_to(staging_root).as_posix()
+            info = zipfile.ZipInfo(relative, date_time=(2026, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = (0o644 & 0xFFFF) << 16
+            archive.writestr(info, path.read_bytes(), compresslevel=9)
+
+
+def build_artifact(
+    *,
+    development_run_dir: Path,
+    synthetic_run_dir: Path,
+    external_run_dir: Path | None,
+    human_package_dir: Path | None,
+    paper_pdf: Path,
+    output: Path,
+    include_raw: bool,
+    identity_terms: list[str],
+    allow_dirty: bool,
+    force: bool,
+) -> dict:
+    if _tracked_tree_dirty() and not allow_dirty:
+        raise ValueError("tracked working tree is dirty; commit changes or pass --allow-dirty")
+    run_summaries = {
+        "development": validate_release_run(development_run_dir),
+        "synthetic_confirmatory": validate_release_run(synthetic_run_dir),
+    }
+    if external_run_dir:
+        run_summaries["external_transfer"] = validate_release_run(external_run_dir)
+    paper_pdf = _within_repo(paper_pdf)
+    if not paper_pdf.is_file():
+        raise FileNotFoundError(paper_pdf)
+    if output.exists():
+        if not force:
+            raise FileExistsError(f"output exists: {output}")
+        if not output.is_file():
+            raise ValueError(f"refusing to replace non-file output: {output}")
+        output.unlink()
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    with tempfile.TemporaryDirectory(prefix="warrantlab-artifact-") as temporary:
+        staging = Path(temporary) / "warrantlab-anonymous-artifact"
+        staging.mkdir()
+        for relative in PAPER_FILES + FRAMEWORK_FILES:
+            _copy_file(REPO_ROOT / relative, staging)
+        for relative in SOURCE_TREES:
+            _copy_tree(REPO_ROOT / relative, staging, include_raw=False)
+        for generated in sorted(PAPER_ROOT.glob("generated_*.tex")):
+            _copy_file(generated, staging)
+        for figure in (
+            PAPER_ROOT / "figures" / "warrant-study-design.pdf",
+            PAPER_ROOT / "figures" / "coverage-risk.pdf",
+        ):
+            _copy_file(figure, staging)
+        for run_dir in (development_run_dir, synthetic_run_dir, external_run_dir):
+            if run_dir:
+                _copy_tree(run_dir, staging, include_raw=include_raw)
+        if human_package_dir:
+            human_root = _within_repo(human_package_dir)
+            for source in files_in_tree(human_root, include_raw=False):
+                destination = Path("human-validation") / source.relative_to(human_root)
+                _copy_file(source, staging, destination)
+        _copy_file(paper_pdf, staging, Path("paper") / "warrantlab-paper.pdf")
+        _write_readme(
+            staging / "ARTIFACT_README.md",
+            include_raw=include_raw,
+            has_human=human_package_dir is not None,
+        )
+
+        issues = scan_release_tree(staging, identity_terms=identity_terms)
+        if issues:
+            preview = ", ".join(f"{item['file']} ({item['rule']})" for item in issues[:10])
+            raise ValueError(f"anonymous release scan failed: {preview}")
+
+        files = []
+        for path in sorted(candidate for candidate in staging.rglob("*") if candidate.is_file()):
+            relative = path.relative_to(staging).as_posix()
+            files.append({"path": relative, "bytes": path.stat().st_size, "sha256": sha256(path)})
+        manifest = {
+            "artifact_schema_version": ARTIFACT_SCHEMA_VERSION,
+            "source_commit": _git_commit(),
+            "identity_scan": {
+                "status": "passed",
+                "term_count": len(identity_terms),
+                "absolute_path_scan": True,
+                "credential_pattern_scan": True,
+            },
+            "include_raw_model_transcripts": include_raw,
+            "paper_pdf_sha256": sha256(paper_pdf),
+            "runs": run_summaries,
+            "human_validation_included": human_package_dir is not None,
+            "human_package_path": "human-validation" if human_package_dir else None,
+            "files": files,
+        }
+        manifest_path = staging / "ARTIFACT_MANIFEST.json"
+        manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + "\n")
+        post_manifest_issues = scan_release_tree(staging, identity_terms=identity_terms)
+        if post_manifest_issues:
+            raise ValueError("generated artifact manifest failed the anonymous release scan")
+        _write_zip(staging, output)
+    manifest["archive_sha256"] = sha256(output)
+    manifest["archive_bytes"] = output.stat().st_size
+    return manifest
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--development-run-dir", required=True, type=Path)
+    parser.add_argument("--synthetic-run-dir", required=True, type=Path)
+    parser.add_argument("--external-run-dir", type=Path)
+    parser.add_argument("--human-package-dir", type=Path)
+    parser.add_argument(
+        "--paper-pdf",
+        type=Path,
+        default=PAPER_ROOT / "build" / "paper.pdf",
+    )
+    parser.add_argument(
+        "--output",
+        type=Path,
+        default=REPO_ROOT / "output" / "artifact" / "warrantlab-anonymous.zip",
+    )
+    parser.add_argument("--omit-raw", action="store_true")
+    parser.add_argument("--identity-term", action="append", default=[])
+    parser.add_argument("--allow-dirty", action="store_true")
+    parser.add_argument("--force", action="store_true")
+    args = parser.parse_args()
+    terms = sorted(set(default_identity_terms() + args.identity_term))
+    result = build_artifact(
+        development_run_dir=args.development_run_dir,
+        synthetic_run_dir=args.synthetic_run_dir,
+        external_run_dir=args.external_run_dir,
+        human_package_dir=args.human_package_dir,
+        paper_pdf=args.paper_pdf,
+        output=args.output,
+        include_raw=not args.omit_raw,
+        identity_terms=terms,
+        allow_dirty=args.allow_dirty,
+        force=args.force,
+    )
+    print(json.dumps(result, indent=2, sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

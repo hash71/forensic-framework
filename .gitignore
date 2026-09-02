@@ -78,6 +78,8 @@ tmp/
 # Rebuildable paper packages and draft renderings
 conference_paper/*.zip
 conference_paper/paper.pdf
+output/artifact/*.zip
+output/pdf/*.pdf
 paper_drafts/**/*.zip
 paper_drafts/*.docx
 paper_drafts/*.pdf
@@ -86,6 +88,15 @@ paper_drafts/slide-*.jpg
 
 # Deliberately retained local outputs from invalidated research runs
 forensic-framework/data/warrant_runs/invalidated-*/
+**/records.private-original.jsonl
+
+# Large confirmatory transcripts live in checksum-bound release artifacts,
+# not ordinary Git history. Manifests, redaction reports, analyses, and
+# statistics in these run directories remain tracked.
+forensic-framework/data/warrant_runs/test-full-*/records.jsonl
+forensic-framework/data/warrant_runs/test-full-*/raw/
+forensic-framework/data/warrant_runs/external-cert-*/records.jsonl
+forensic-framework/data/warrant_runs/external-cert-*/raw/
 
 # Third-party course/reference papers are kept locally, not redistributed.
 guidelines_and_samples/**/*.pdf

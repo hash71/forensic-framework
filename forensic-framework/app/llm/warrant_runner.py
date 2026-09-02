@@ -77,6 +77,13 @@ def _safe_error(exc: Exception) -> dict[str, str]:
     def redact(value: str) -> str:
         value = re.sub(r"https?://[^\s'\"]+", "[REDACTED_ENDPOINT]", value)
         value = re.sub(r"(?i)bearer\s+[A-Za-z0-9._~+/=-]+", "Bearer [REDACTED]", value)
+        replacements = (
+            (str(PROJECT_ROOT), "[PROJECT_ROOT]"),
+            (str(PROJECT_ROOT.parent), "[MONOREPO_ROOT]"),
+            (str(Path.home()), "[USER_HOME]"),
+        )
+        for source, replacement in replacements:
+            value = value.replace(source, replacement)
         return value
 
     return {

@@ -16,10 +16,17 @@ The ambitious target is **USENIX Security 2027, Cycle 2**:
 
 Official call: <https://www.usenix.org/conference/usenixsecurity27/call-for-papers>
 
-Venue selection follows evidence readiness. DFRWS USA 2027 or RAID 2027 are
-fallbacks after their official calls are available. The study will not hide a
-failed non-inferiority result, count variants as independent incidents, or
-describe proxy labels as expert truth to meet a deadline.
+Venue selection follows evidence readiness. A directly aligned, time-sensitive
+alternative is Digital Forensics Conference Europe 2027 (organized by DFRWS):
+10-page double-blind full papers, abstract/title due 2026-09-18 AoE and final
+paper due 2026-09-25 AoE. Its scope explicitly includes AI-assisted digital
+forensics, cloud forensics, tool validation, triage, and event reconstruction.
+We pursue that deadline only if every expert-annotation and ethics gate is
+genuinely complete; otherwise USENIX Security 2027 Cycle 2 remains the target.
+The study will not hide a failed non-inferiority result, count variants as
+independent incidents, or describe proxy labels as expert truth to meet a
+deadline. Official DFC Europe call:
+<https://dfrws.org/call-for-papers-dfc-europe-2027/>.
 
 ## Scientific gates
 
@@ -38,6 +45,8 @@ A submission-ready claim requires all of the following:
 - [x] a blinded, deduplicated, deterministic annotation package;
 - [ ] complete held-out inference over every planned variant and repetition;
 - [ ] two independent DFIR annotators plus blinded adjudication;
+- [ ] institutional determination, informed consent, qualified-reviewer
+  screening, and professional compensation terms completed before annotation;
 - [ ] validated automatic labels with agreement and label-prevalence reporting;
 - [ ] at least one reproducibly identified strong model and two independent
   frontier providers, or an explicit narrowing of all model-general claims;
@@ -45,6 +54,8 @@ A submission-ready claim requires all of the following:
   evidence labels are independently defensible;
 - [x] a selected dataset license and a redistribution audit for derived CERT
   artifacts;
+- [ ] endpoint-operator terms archived before releasing raw transcripts, or
+  the anonymous/public artifact built with raw transcripts omitted;
 - [ ] an identity-scrubbed, non-tracking reviewer artifact frozen with the
   exact manuscript results; and
 - [ ] a final independent reference, statistics, anonymity, and ethics audit.

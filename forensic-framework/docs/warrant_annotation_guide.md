@@ -1,7 +1,12 @@
 # Forensic Claim-Warrant Annotation Guide
 
-Version: 1.0  
+Version: 1.1
 Applies to: evidential-warrant benchmark v2
+
+Before recruitment or labeling, complete the institutional, consent,
+qualification, compensation, and data-handling preflight in
+`docs/annotator_recruitment_and_consent.md`. The technical package does not
+constitute ethics approval or consent by itself.
 
 ## 1. Annotation question
 
@@ -238,6 +243,23 @@ one of these outputs.
 
 ## 10. Annotation workflow
 
+The study coordinator gives each independent reviewer only the `blind/`
+directory. Do not share `admin_do_not_share_with_annotators/` or the package
+manifest until all labels are frozen.
+
+Open `blind/review.html` in a current browser. The page is self-contained,
+makes no network requests, and stores progress in that browser's local storage.
+Select the assigned review arm (`Annotator 1` or `Annotator 2`) and enter the
+assigned opaque annotator ID. Each independent annotator must use only their
+assigned arm; the item orders intentionally differ. Click **Download CSV** at
+the end of every working session and return that file to the coordinator.
+Local browser storage is a convenience, not a backup. The blank CSV files in
+`blind/` are the schema-preserving fallback if the review page cannot be used.
+The offline page also accumulates active-visible seconds per item for aggregate
+workload reporting. It records no wall-clock timestamps, makes no network
+request, and pauses timing while the page is hidden. The timer is not a speed
+target and does not affect compensation.
+
 1. Read the claim without model identity or condition metadata.
 2. Verify citation identifiers.
 3. Inspect the cited events.
@@ -248,12 +270,41 @@ one of these outputs.
 8. Write a one- or two-sentence rationale.
 9. Record uncertainty; do not resolve ambiguity by guessing.
 
+Set `materiality_decisive=true` when the identified warrant failure could
+reasonably change the incident verdict, suspect, severity, attack-chain stage,
+or abstention decision. Otherwise set it to `false`. Leave no required field
+blank in a completed review.
+
 ## 11. Adjudication
 
 The adjudicator sees both independent labels and rationales but not model
-identity. The adjudicator records a final label and reason, preserving the
-original annotations. Guideline changes discovered during development are
-versioned. After final test annotation begins, clarifications may explain an
-existing rule but may not change label definitions without reporting a protocol
-deviation and re-annotating affected claims.
+identity. Only after both independent CSV files are returned and frozen, the
+coordinator creates the adjudication package:
 
+```bash
+.venv/bin/python prepare_warrant_adjudication.py \
+  data/warrant_annotations/<package> \
+  <annotator-1.csv> <annotator-2.csv> <adjudication-output>
+```
+
+The adjudicator opens `<adjudication-output>/review.html`, uses a third opaque
+reviewer ID, and exports the final CSV. The page highlights every field where
+the two reviewers differ. The adjudicator records a final label and reason,
+preserving both original annotations.
+
+The coordinator then validates completeness, independence, checksums,
+inter-rater agreement, sampling-design weights, and human-versus-mechanical
+performance:
+
+```bash
+.venv/bin/python analyze_warrant_annotations.py \
+  data/warrant_annotations/<package> \
+  data/warrant_runs/<run>/records.jsonl \
+  <annotator-1.csv> <annotator-2.csv> <adjudication.csv> \
+  --output data/warrant_annotations/<package>/human_analysis.json
+```
+
+Guideline changes discovered during development are versioned. After final
+test annotation begins, clarifications may explain an existing rule but may
+not change label definitions without reporting a protocol deviation and
+re-annotating affected claims.

@@ -95,11 +95,49 @@ def test_export_writes_two_blank_annotator_templates(tmp_path: Path):
         tmp_path,
         sample_size=10,
         seed=3,
+        provenance={"source_run_id": "run_1"},
     )
 
     assert manifest["selected_claims"] == 1
+    assert manifest["provenance"] == {"source_run_id": "run_1"}
+    assert sum(manifest["population_stratum_counts"].values()) == 1
+    assert sum(manifest["stratum_counts"].values()) == 1
     assert (tmp_path / "blind" / "items.jsonl").exists()
+    assert (tmp_path / "blind" / "ANNOTATION_GUIDE.md").exists()
+    assert (tmp_path / "blind" / "review.html").exists()
+    guide = (tmp_path / "blind" / "ANNOTATION_GUIDE.md").read_text()
+    assert manifest["annotation_guide_sha256"]
+    assert "Do the cited events" in guide
     with (tmp_path / "blind" / "annotator_1.csv").open() as handle:
         rows = list(csv.DictReader(handle))
     assert rows[0]["annotation_id"].startswith("ann_")
     assert rows[0]["overall_label"] == ""
+    review_html = (tmp_path / "blind" / "review.html").read_text()
+    assert "hidden-model" not in review_html
+    assert 'value="adjudication"' not in review_html
+    assert "const encoded = 'ey" in review_html
+    assert '/[",\\n]/.test(s)' in review_html
+    assert "rows.join('\\n')+'\\n'" in review_html
+    assert '/[",\n]/.test(s)' not in review_html
+    assert "rows.join('\n')+'\n'" not in review_html
+
+
+def test_annotators_receive_different_deterministic_orders(tmp_path: Path):
+    records = [
+        _record("llm_events_plus_alerts", response_hash=f"hash_{index}")
+        for index in range(12)
+    ]
+    export_annotation_package(
+        records,
+        {"case_1": _case()},
+        tmp_path,
+        sample_size=12,
+        seed=19,
+    )
+    with (tmp_path / "blind" / "annotator_1.csv").open() as handle:
+        first = [row["annotation_id"] for row in csv.DictReader(handle)]
+    with (tmp_path / "blind" / "annotator_2.csv").open() as handle:
+        second = [row["annotation_id"] for row in csv.DictReader(handle)]
+
+    assert set(first) == set(second)
+    assert first != second
