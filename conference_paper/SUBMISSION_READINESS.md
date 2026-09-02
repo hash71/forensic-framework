@@ -56,6 +56,9 @@ HotCRP profile and ORCID before submission.
   disclosed as a protocol deviation.
 - [x] The reviewer artifact is identity-scrubbed and passes the automated
   environment without secrets or workstation paths.
+- [x] The raw-transcript-omitted archive reproduces both analyses, figures,
+  and the 12-page paper from a fresh virtual environment using its documented
+  command.
 - [x] Raw endpoint transcripts are either covered by archived operator terms
   or omitted while structured scored records and response hashes remain.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in

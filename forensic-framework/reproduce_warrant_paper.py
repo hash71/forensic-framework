@@ -30,6 +30,14 @@ def _load_records(path: Path) -> list[dict]:
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
 
+def ensure_paper_build_dir() -> Path:
+    """Create the ignored Tectonic output directory in a fresh artifact."""
+
+    build_dir = PAPER_DIR / "build"
+    build_dir.mkdir(parents=True, exist_ok=True)
+    return build_dir
+
+
 def verify_complete_run(run_dir: Path) -> dict:
     """Reject incomplete, duplicated, or benchmark-mismatched frozen runs."""
 
@@ -65,10 +73,25 @@ def verify_complete_run(run_dir: Path) -> dict:
     run_ids = {record["run_id"] for record in records}
     if run_ids != {manifest["run_id"]}:
         raise ValueError(f"run-id mismatch: records={run_ids}, manifest={manifest['run_id']}")
+    records_sha256 = _sha256(records_path)
+    release_path = run_dir / "release_redactions.json"
+    release_verified = False
+    if release_path.exists():
+        release = json.loads(release_path.read_text())
+        expected_records_sha256 = release.get("post_redaction_records_sha256")
+        if expected_records_sha256 != records_sha256:
+            raise ValueError(
+                f"release-record hash mismatch: {records_sha256} != "
+                f"{expected_records_sha256}"
+            )
+        if release.get("run_id") != manifest["run_id"]:
+            raise ValueError("release-redaction run ID does not match run manifest")
+        release_verified = True
     return {
         "run_id": manifest["run_id"],
         "record_count": len(records),
-        "records_sha256": _sha256(records_path),
+        "records_sha256": records_sha256,
+        "release_records_sha256_verified": release_verified,
         "benchmark_sha256": actual_benchmark,
         "git_commit": manifest.get("git_commit"),
     }
@@ -80,6 +103,14 @@ def main() -> int:
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-analysis", type=Path)
     parser.add_argument("--bootstrap-resamples", type=int, default=10_000)
+    parser.add_argument(
+        "--allow-omitted-raw",
+        action="store_true",
+        help=(
+            "Reproduce from a release that intentionally omits every raw model "
+            "transcript; retained raw subsets and hash mismatches still fail."
+        ),
+    )
     parser.add_argument("--skip-tests", action="store_true")
     parser.add_argument("--no-compile", action="store_true")
     args = parser.parse_args()
@@ -105,7 +136,10 @@ def main() -> int:
     for selected in (run_dir, external_dir):
         if selected is None:
             continue
-        _run(sys.executable, "run_warrant_results.py", str(selected), cwd=PROJECT_ROOT)
+        result_args = [sys.executable, "run_warrant_results.py", str(selected)]
+        if args.allow_omitted_raw:
+            result_args.append("--allow-omitted-raw")
+        _run(*result_args, cwd=PROJECT_ROOT)
         _run(
             sys.executable,
             "run_warrant_statistics.py",
@@ -133,6 +167,7 @@ def main() -> int:
                 "tectonic is required to compile the paper; rerun with --no-compile "
                 "to regenerate analysis artifacts only"
             )
+        ensure_paper_build_dir()
         _run(
             tectonic,
             "--keep-logs",

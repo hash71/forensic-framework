@@ -346,6 +346,46 @@ def test_artifact_integrity_detects_raw_response_tampering(tmp_path: Path):
     assert "hash mismatch" in integrity["errors"][0]
 
 
+def test_release_integrity_permits_only_complete_raw_omission(tmp_path: Path):
+    client = _FakeClient()
+    first = asyncio.run(run_case_condition(
+        client,
+        _case(),
+        run_id="pytest-omitted-raw",
+        condition="llm_events_only",
+        repetition=0,
+        temperature=0.1,
+        max_tokens=4096,
+        run_dir=tmp_path,
+    ))
+    second = asyncio.run(run_case_condition(
+        client,
+        _case(),
+        run_id="pytest-omitted-raw",
+        condition="llm_events_only",
+        repetition=1,
+        temperature=0.1,
+        max_tokens=4096,
+        run_dir=tmp_path,
+    ))
+    first_path = Path(first["generator"]["call"]["raw_response_path"])
+    second_path = Path(second["generator"]["call"]["raw_response_path"])
+
+    first_path.unlink()
+    strict = verify_artifacts([first])
+    omitted = verify_artifacts([first], allow_omitted_raw=True)
+    assert strict["ok"] is False
+    assert omitted["ok"] is True
+    assert omitted["raw_response_status"] == "omitted_by_release_policy"
+    assert omitted["unique_raw_responses_missing"] == 1
+
+    partial = verify_artifacts([first, second], allow_omitted_raw=True)
+    assert partial["ok"] is False
+    assert partial["raw_response_status"] == "incomplete"
+    assert "partial raw-response set" in partial["errors"][0]
+    assert second_path.exists()
+
+
 def test_variant_contrast_is_paired_to_canonical_base_case(tmp_path: Path):
     canonical = asyncio.run(run_case_condition(
         _FakeClient(),

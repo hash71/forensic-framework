@@ -60,6 +60,9 @@ A submission-ready claim requires all of the following:
   the anonymous/public artifact built with raw transcripts omitted;
 - [x] an identity-scrubbed reviewer artifact frozen with the
   exact manuscript results; and
+- [x] a fresh-environment reproduction from the raw-transcript-omitted
+  anonymous archive, including packaged tests, both statistical analyses,
+  figures, and PDF compilation; and
 - [ ] a final independent reference, statistics, anonymity, and ethics audit.
 
 ## Current claim boundary

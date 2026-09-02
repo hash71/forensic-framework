@@ -94,3 +94,38 @@ def test_zip_writer_is_deterministic(tmp_path):
     assert first.read_bytes() == second.read_bytes()
     with zipfile.ZipFile(first) as archive:
         assert archive.namelist() == ["a.txt", "b.txt"]
+
+
+def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
+    readme = tmp_path / "README.md"
+    runs = {
+        "synthetic_confirmatory": {
+            "path": "forensic-framework/data/warrant_runs/synthetic"
+        },
+        "external_transfer": {
+            "path": "forensic-framework/data/warrant_runs/external"
+        },
+    }
+
+    artifact._write_readme(
+        readme,
+        include_raw=False,
+        has_human_package=True,
+        has_human_analysis=False,
+        run_summaries=runs,
+    )
+    text = readme.read_text()
+    assert "--allow-omitted-raw" in text
+    assert "no adjudicated expert analysis exists" in text
+    assert "--human-analysis" not in text
+
+    artifact._write_readme(
+        readme,
+        include_raw=False,
+        has_human_package=True,
+        has_human_analysis=True,
+        run_summaries=runs,
+    )
+    text = readme.read_text()
+    assert "--human-analysis ../human-validation/adjudicated_analysis.json" in text
+    assert "checksum-bound adjudicated expert analysis" in text

@@ -499,10 +499,21 @@ def grouped_diagnostics(
     }
 
 
-def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
-    """Verify every retained raw-response hash and pairing invariant."""
+def verify_artifacts(
+    records: list[dict[str, Any]],
+    *,
+    allow_omitted_raw: bool = False,
+) -> dict[str, Any]:
+    """Verify retained raw bytes and pairing invariants.
+
+    ``allow_omitted_raw`` is only for a release that deliberately excludes the
+    entire raw-transcript layer.  A partial raw set is still an integrity error,
+    and every retained file is always hash-checked.
+    """
 
     checked: dict[str, str] = {}
+    referenced: dict[str, str] = {}
+    missing: set[str] = set()
     errors: list[str] = []
     for record in records:
         for stage in ("generator", "verifier"):
@@ -515,8 +526,9 @@ def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
             path = Path(path_value)
             if not path.is_absolute():
                 path = PROJECT_ROOT / path
+            referenced[str(path)] = expected
             if not path.exists():
-                errors.append(f"missing raw response: {path_value}")
+                missing.add(str(path))
                 continue
             # Hash the retained bytes, not newline-normalized text. Provider
             # responses may legally contain CRLF inside string content.
@@ -524,6 +536,25 @@ def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
             if actual != expected:
                 errors.append(f"raw response hash mismatch: {path_value}")
             checked[str(path)] = actual
+
+    if missing:
+        if allow_omitted_raw and not checked:
+            raw_status = "omitted_by_release_policy"
+        elif allow_omitted_raw:
+            raw_status = "incomplete"
+            errors.append(
+                "partial raw-response set: release omission is permitted only "
+                f"when all raw files are absent ({len(missing)} missing, "
+                f"{len(checked)} retained)"
+            )
+        else:
+            raw_status = "incomplete"
+            errors.extend(
+                f"missing raw response: {path}"
+                for path in sorted(missing)
+            )
+    else:
+        raw_status = "verified"
 
     grouped: dict[tuple[str, int], list[dict[str, Any]]] = defaultdict(list)
     for record in records:
@@ -551,12 +582,19 @@ def verify_artifacts(records: list[dict[str, Any]]) -> dict[str, Any]:
 
     return {
         "ok": not errors,
+        "raw_response_status": raw_status,
+        "unique_raw_responses_referenced": len(referenced),
         "unique_raw_responses_checked": len(checked),
+        "unique_raw_responses_missing": len(missing),
         "errors": errors,
     }
 
 
-def summarize_run(records: list[dict[str, Any]]) -> dict[str, Any]:
+def summarize_run(
+    records: list[dict[str, Any]],
+    *,
+    allow_omitted_raw: bool = False,
+) -> dict[str, Any]:
     if not records:
         raise ValueError("cannot summarize an empty run")
     run_ids = {record["run_id"] for record in records}
@@ -588,5 +626,8 @@ def summarize_run(records: list[dict[str, Any]]) -> dict[str, Any]:
         ),
         "mechanical_axis_profiles": generator_conditions,
         "operations": operation_summary(records),
-        "artifact_integrity": verify_artifacts(records),
+        "artifact_integrity": verify_artifacts(
+            records,
+            allow_omitted_raw=allow_omitted_raw,
+        ),
     }

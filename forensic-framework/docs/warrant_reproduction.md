@@ -20,8 +20,7 @@ From `forensic-framework/`, run:
 ```bash
 .venv/bin/python reproduce_warrant_paper.py \
   data/warrant_runs/<complete-synthetic-run> \
-  --external-run-dir data/warrant_runs/<complete-external-run> \
-  --human-analysis data/warrant_annotations/<package>/human_analysis.json
+  --external-run-dir data/warrant_runs/<complete-external-run>
 ```
 
 The command rejects incomplete or duplicate runs, verifies each benchmark
@@ -30,6 +29,12 @@ checksum against its manifest, regenerates `analysis.json` and
 vector figures, and compiles `conference_paper/build/paper.pdf`. When supplied,
 the adjudicated human analysis must be checksum-bound to the same synthetic
 records file or the rebuild stops.
+
+For a reviewer artifact that deliberately omits every raw model transcript,
+add `--allow-omitted-raw`. This mode is all-or-none: a partial raw-response set
+or any retained-file hash mismatch still fails. After real adjudication exists,
+also add
+`--human-analysis data/warrant_annotations/<package>/human_analysis.json`.
 
 Use `--no-compile` when Tectonic is unavailable. Use `--skip-tests` only after
 the unchanged environment has already passed the same commit's tests.
@@ -80,8 +85,13 @@ build a deterministic anonymous archive from a clean commit:
   --synthetic-run-dir data/warrant_runs/<confirmatory-run> \
   --external-run-dir data/warrant_runs/<external-run> \
   --human-package-dir data/warrant_annotations/<final-package> \
+  --human-analysis data/warrant_annotations/<final-package>/human_analysis.json \
   --paper-pdf ../conference_paper/build/paper.pdf
 ```
+
+Omit `--human-analysis` until a complete, independently adjudicated,
+checksum-bound analysis actually exists. The artifact README and manifest
+distinguish an unfilled annotation package from completed expert validation.
 
 The builder uses an explicit allowlist, excludes private record backups and
 environment files, validates run cardinality and release hashes, scans for

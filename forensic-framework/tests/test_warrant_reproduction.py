@@ -61,3 +61,40 @@ def test_verify_complete_run_rejects_duplicate_record_keys(
 
     with pytest.raises(ValueError, match="unique records"):
         reproduction.verify_complete_run(run_dir)
+
+
+def test_verify_complete_run_checks_release_record_hash(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(reproduction, "PROJECT_ROOT", tmp_path)
+    run_dir = _write_complete_run(tmp_path)
+    records = run_dir / "records.jsonl"
+    (run_dir / "release_redactions.json").write_text(
+        json.dumps(
+            {
+                "run_id": "run_1",
+                "post_redaction_records_sha256": hashlib.sha256(
+                    records.read_bytes()
+                ).hexdigest(),
+            }
+        )
+    )
+
+    verified = reproduction.verify_complete_run(run_dir)
+    assert verified["release_records_sha256_verified"] is True
+
+    records.write_text(records.read_text() + "\n")
+    with pytest.raises(ValueError, match="release-record hash mismatch"):
+        reproduction.verify_complete_run(run_dir)
+
+
+def test_ensure_paper_build_dir_supports_fresh_artifact(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    paper_dir = tmp_path / "conference_paper"
+    monkeypatch.setattr(reproduction, "PAPER_DIR", paper_dir)
+
+    build_dir = reproduction.ensure_paper_build_dir()
+
+    assert build_dir == paper_dir / "build"
+    assert build_dir.is_dir()

@@ -19,7 +19,7 @@ from pypdf import PdfReader
 FRAMEWORK_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
-ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.0"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.1"
 
 PRIVATE_NAMES = {
     ".env",
@@ -304,17 +304,49 @@ def _tracked_tree_dirty() -> bool:
     return bool(result.stdout.strip())
 
 
-def _write_readme(path: Path, *, include_raw: bool, has_human: bool) -> None:
-    human_note = (
-        "The human-validation package and adjudicated analysis are included."
-        if has_human
-        else "Human annotations are not included; do not treat proxy labels as expert validation."
-    )
+def _write_readme(
+    path: Path,
+    *,
+    include_raw: bool,
+    has_human_package: bool,
+    has_human_analysis: bool,
+    run_summaries: dict,
+) -> None:
+    if has_human_analysis:
+        human_note = (
+            "The blinded annotation package and checksum-bound adjudicated "
+            "expert analysis are included."
+        )
+    elif has_human_package:
+        human_note = (
+            "The blinded, unfilled annotation package is included, but no "
+            "adjudicated expert analysis exists. Do not treat mechanical proxy "
+            "labels as expert validation."
+        )
+    else:
+        human_note = (
+            "No human-annotation package or adjudicated expert analysis is "
+            "included; do not treat mechanical proxy labels as expert validation."
+        )
     raw_note = (
         "Raw model transcripts are included for output-level audit."
         if include_raw
         else "Raw model transcripts are omitted; scored structured records are included."
     )
+    synthetic_path = Path(run_summaries["synthetic_confirmatory"]["path"])
+    synthetic_arg = synthetic_path.relative_to("forensic-framework").as_posix()
+    command = (
+        ".venv/bin/python reproduce_warrant_paper.py " + synthetic_arg
+    )
+    if "external_transfer" in run_summaries:
+        external_path = Path(run_summaries["external_transfer"]["path"])
+        external_arg = external_path.relative_to("forensic-framework").as_posix()
+        command += " --external-run-dir " + external_arg
+    if has_human_analysis:
+        command += " --human-analysis ../human-validation/adjudicated_analysis.json"
+    if not include_raw:
+        command += " --allow-omitted-raw"
+
     path.write_text(
         """# WarrantLab anonymous artifact
 
@@ -326,12 +358,20 @@ locked research dependencies.
 
 ## Reproduction
 
-From `forensic-framework/`, create a Python environment, install
-`requirements-research.lock`, and run `reproduce_warrant_paper.py` with the
-synthetic run directory and, when present, the external run and human-analysis
-paths recorded in `ARTIFACT_MANIFEST.json`. The command validates run
-cardinality and hashes before regenerating tables, figures, statistics, and the
-PDF.
+From the artifact root:
+
+```bash
+python3 -m venv forensic-framework/.venv
+forensic-framework/.venv/bin/python -m pip install -r forensic-framework/requirements-research.lock
+cd forensic-framework
+"""
+        + command
+        + """
+```
+
+The command validates run cardinality, benchmark hashes, release-record hashes,
+and either retained raw-response hashes or the all-raw-omitted release policy
+before regenerating tables, figures, statistics, and the PDF.
 
 """
         + raw_note
@@ -357,6 +397,7 @@ def build_artifact(
     synthetic_run_dir: Path,
     external_run_dir: Path | None,
     human_package_dir: Path | None,
+    human_analysis: Path | None,
     paper_pdf: Path,
     output: Path,
     include_raw: bool,
@@ -372,6 +413,24 @@ def build_artifact(
     }
     if external_run_dir:
         run_summaries["external_transfer"] = validate_release_run(external_run_dir)
+    human_analysis_summary = None
+    if human_analysis is not None:
+        human_analysis = _within_repo(human_analysis)
+        if not human_analysis.is_file():
+            raise FileNotFoundError(human_analysis)
+        human_data = json.loads(human_analysis.read_text())
+        expected_records_hash = run_summaries["synthetic_confirmatory"][
+            "records_sha256"
+        ]
+        actual_records_hash = (human_data.get("source_sha256") or {}).get("records")
+        if actual_records_hash != expected_records_hash:
+            raise ValueError(
+                "human analysis is not checksum-bound to the synthetic release records"
+            )
+        human_analysis_summary = {
+            "path": "human-validation/adjudicated_analysis.json",
+            "sha256": sha256(human_analysis),
+        }
     paper_pdf = _within_repo(paper_pdf)
     if not paper_pdf.is_file():
         raise FileNotFoundError(paper_pdf)
@@ -405,11 +464,19 @@ def build_artifact(
             for source in files_in_tree(human_root, include_raw=False):
                 destination = Path("human-validation") / source.relative_to(human_root)
                 _copy_file(source, staging, destination)
+        if human_analysis is not None:
+            _copy_file(
+                human_analysis,
+                staging,
+                Path("human-validation") / "adjudicated_analysis.json",
+            )
         _copy_file(paper_pdf, staging, Path("paper") / "warrantlab-paper.pdf")
         _write_readme(
             staging / "ARTIFACT_README.md",
             include_raw=include_raw,
-            has_human=human_package_dir is not None,
+            has_human_package=human_package_dir is not None,
+            has_human_analysis=human_analysis is not None,
+            run_summaries=run_summaries,
         )
 
         issues = scan_release_tree(staging, identity_terms=identity_terms)
@@ -433,8 +500,10 @@ def build_artifact(
             "include_raw_model_transcripts": include_raw,
             "paper_pdf_sha256": sha256(paper_pdf),
             "runs": run_summaries,
-            "human_validation_included": human_package_dir is not None,
+            "human_annotation_package_included": human_package_dir is not None,
+            "human_adjudicated_analysis_included": human_analysis is not None,
             "human_package_path": "human-validation" if human_package_dir else None,
+            "human_analysis": human_analysis_summary,
             "files": files,
         }
         manifest_path = staging / "ARTIFACT_MANIFEST.json"
@@ -454,6 +523,7 @@ def main() -> int:
     parser.add_argument("--synthetic-run-dir", required=True, type=Path)
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-package-dir", type=Path)
+    parser.add_argument("--human-analysis", type=Path)
     parser.add_argument(
         "--paper-pdf",
         type=Path,
@@ -475,6 +545,7 @@ def main() -> int:
         synthetic_run_dir=args.synthetic_run_dir,
         external_run_dir=args.external_run_dir,
         human_package_dir=args.human_package_dir,
+        human_analysis=args.human_analysis,
         paper_pdf=args.paper_pdf,
         output=args.output,
         include_raw=not args.omit_raw,
