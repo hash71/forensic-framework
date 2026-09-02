@@ -155,6 +155,61 @@ def test_generated_table_inputs_own_their_terminal_booktabs_rule(
     assert axis_rows.read_text().rstrip().endswith(r"\bottomrule")
 
 
+def test_simulated_macros_preserve_non_expert_validity_boundary(
+    tmp_path: Path,
+) -> None:
+    generator = _load_generator()
+    analysis = {
+        "validity_boundary": "AI sensitivity study; not expert validation",
+        "sample": {"claims": 400, "population_claims": 11284},
+        "reviewers": [{}, {}, {}],
+        "panel": {
+            "items_with_any_disagreement": 120,
+            "items_with_overall_disagreement": 80,
+            "items_with_materiality_disagreement": 40,
+        },
+        "consensus_vs_mechanical_proxy": {
+            "overall": {
+                "design_weighted_agreement": 0.7,
+                "design_weighted_cohen_kappa": 0.5,
+            },
+            "materially_unwarranted_flag": {
+                "design_weighted_precision": 0.6,
+                "design_weighted_recall": 0.8,
+            },
+        },
+        "simulated_primary_endpoint": {
+            "reference_condition": "llm_events_plus_alerts",
+            "intervention_condition": "generator_verifier_abstention",
+            "selected_claims_joined_to_primary_conditions": 210,
+            "condition_estimates": {
+                "llm_events_plus_alerts": {
+                    "surfaced_unwarranted_decisive_claims_per_base_case": 0.4
+                },
+                "generator_verifier_abstention": {
+                    "surfaced_unwarranted_decisive_claims_per_base_case": 0.1
+                },
+            },
+            "contrast_intervention_minus_reference": {
+                "estimate": -0.3,
+                "confidence_interval": [-0.5, -0.1],
+            },
+        },
+        "source_sha256": {"records": "e" * 64},
+    }
+    source = tmp_path / "simulated_analysis.json"
+    output = tmp_path / "simulated_results.tex"
+    source.write_text(json.dumps(analysis))
+
+    generator.write_simulated_result_macros(source, output)
+
+    text = output.read_text()
+    assert "not expert validation" in text
+    assert r"\newcommand{\SimPanelAnyDisagreement}{30.0\%}" in text
+    assert r"\newcommand{\SimMechanicalWeightedAgreement}{70.0\%}" in text
+    assert r"\newcommand{\SimPrimaryUnsafeDifference}{-.300}" in text
+
+
 def test_external_macros_report_failure_inclusive_validity(tmp_path: Path) -> None:
     generator = _load_generator()
     run_dir = tmp_path / "external"

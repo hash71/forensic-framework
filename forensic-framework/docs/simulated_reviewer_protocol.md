@@ -76,6 +76,14 @@ decisiveness. It is targeted triage, not probability sampling; expert results
 on that subset cannot estimate population accuracy without a separate sampling
 design.
 
+The analysis writes `analysis.json`, `consensus.jsonl`,
+`disagreements.jsonl`, and `priority_for_human_review.csv`. The derived JSONL
+files make every field-level majority and disagreement directly auditable.
+`prepare_targeted_human_review.py` converts the first 120 priority rows into a
+new offline blind package with independently shuffled reviewer arms. The
+selection basis stays in the administrative directory and is never embedded
+in the reviewer interface.
+
 ## Interpretation rule
 
 Agreement would show that the result is not unique to one authored rule set,

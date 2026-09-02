@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import csv
+import hashlib
+import json
+
 import pytest
 
 from app.evaluation.warrant_annotations import ANNOTATION_AXES
 from app.evaluation.warrant_simulated import (
     consensus_reviews,
     deterministic_batches,
+    export_targeted_review_package,
     simulated_system_prompt,
     validate_simulated_response,
     reviewer_batch_config,
@@ -60,6 +65,9 @@ def test_response_validation_accepts_only_frozen_schema() -> None:
             ["ann_1", "ann_2"],
         )
 
+    with pytest.raises(ValueError, match="JSON object"):
+        validate_simulated_response({"reviews": ["not-an-object"]}, ["ann_1"])
+
 
 def test_missing_evidence_has_auditable_narrow_normalization() -> None:
     review = _review("ann_1")
@@ -107,3 +115,69 @@ def test_consensus_is_field_level_majority_not_fake_adjudication() -> None:
     assert consensus["ann_1"]["overall_label"] == "INSUFFICIENT"
     assert consensus["ann_1"]["materiality_decisive"] == "true"
     assert "overall_label" in disagreements[0]["disagreement_fields"]
+
+
+def test_targeted_review_export_keeps_selection_basis_out_of_blind_dir(
+    tmp_path,
+) -> None:
+    source = tmp_path / "source"
+    blind = source / "blind"
+    admin = source / "admin_do_not_share_with_annotators"
+    blind.mkdir(parents=True)
+    admin.mkdir(parents=True)
+    items = [
+        {
+            **_item(f"ann_{index}"),
+            "annotation_export_version": "warrant-annotation-export-v1.2",
+        }
+        for index in range(3)
+    ]
+    keys = [
+        {
+            "annotation_id": f"ann_{index}",
+            "expected_verdict": "YES",
+            "generation_group": "alerts_visible_shared",
+            "claim_type": "observation",
+            "generator_decisive": True,
+        }
+        for index in range(3)
+    ]
+    items_text = "".join(json.dumps(row) + "\n" for row in items)
+    keys_text = "".join(json.dumps(row) + "\n" for row in keys)
+    (blind / "items.jsonl").write_text(items_text)
+    (admin / "key.jsonl").write_text(keys_text)
+    (source / "manifest.json").write_text(json.dumps({
+        "annotation_export_version": "warrant-annotation-export-v1.2",
+        "items_sha256": hashlib.sha256(items_text.encode()).hexdigest(),
+        "admin_key_sha256": hashlib.sha256(keys_text.encode()).hexdigest(),
+    }))
+    priority = tmp_path / "priority.csv"
+    with priority.open("w", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=["annotation_id", "ai_consensus_overall", "priority_score"],
+        )
+        writer.writeheader()
+        writer.writerows([
+            {
+                "annotation_id": "ann_2",
+                "ai_consensus_overall": "INSUFFICIENT",
+                "priority_score": "10",
+            },
+            {
+                "annotation_id": "ann_0",
+                "ai_consensus_overall": "SUPPORTED",
+                "priority_score": "8",
+            },
+        ])
+
+    output = tmp_path / "targeted"
+    manifest = export_targeted_review_package(
+        source, priority, output, limit=2, seed=9
+    )
+    assert manifest["selected_claims"] == 2
+    assert "cannot estimate population" in manifest["validity_boundary"]
+    assert not (output / "blind" / "selection_basis.csv").exists()
+    selection = (output / "admin_do_not_share_with_annotators" / "selection_basis.csv")
+    assert "INSUFFICIENT" in selection.read_text()
+    assert (output / "blind" / "review.html").is_file()

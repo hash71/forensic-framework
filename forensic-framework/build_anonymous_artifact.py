@@ -65,6 +65,9 @@ FRAMEWORK_FILES = (
     "forensic-framework/prepare_warrant_annotations.py",
     "forensic-framework/prepare_warrant_adjudication.py",
     "forensic-framework/analyze_warrant_annotations.py",
+    "forensic-framework/analyze_warrant_simulated_review.py",
+    "forensic-framework/run_warrant_simulated_review.py",
+    "forensic-framework/prepare_targeted_human_review.py",
     "forensic-framework/sanitize_warrant_release.py",
     "forensic-framework/reproduce_warrant_paper.py",
     "forensic-framework/build_anonymous_artifact.py",
@@ -77,6 +80,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/app/evaluation/warrant_human.py",
     "forensic-framework/app/evaluation/warrant_results.py",
     "forensic-framework/app/evaluation/warrant_stats.py",
+    "forensic-framework/app/evaluation/warrant_simulated.py",
     "forensic-framework/app/ingestion/__init__.py",
     "forensic-framework/app/ingestion/warrant_benchmark.py",
     "forensic-framework/app/ingestion/warrant_external.py",
@@ -87,6 +91,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/app/llm/warrant_prompts.py",
     "forensic-framework/app/llm/warrant_runner.py",
     "forensic-framework/config/warrant_study.yaml",
+    "forensic-framework/config/warrant_simulated_review.yaml",
     "forensic-framework/config/ollama/Modelfile.gemma4-e4b-warrant",
     "forensic-framework/tests/__init__.py",
     "forensic-framework/tests/conftest.py",
@@ -104,6 +109,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/tests/test_warrant_release.py",
     "forensic-framework/tests/test_warrant_reproduction.py",
     "forensic-framework/tests/test_warrant_stats.py",
+    "forensic-framework/tests/test_warrant_simulated.py",
 )
 
 SOURCE_TREES = (
@@ -182,6 +188,66 @@ def validate_release_run(run_dir: Path) -> dict:
         "path": run_dir.relative_to(REPO_ROOT.resolve()).as_posix(),
         "record_count": record_count,
         "records_sha256": sha256(records_path),
+    }
+
+
+def validate_simulated_review(run_dir: Path) -> dict:
+    """Validate a complete non-human reviewer panel and its derived analysis."""
+
+    run_dir = _within_repo(run_dir)
+    manifest_path = run_dir / "manifest.json"
+    analysis_path = run_dir / "analysis.json"
+    consensus_path = run_dir / "consensus.jsonl"
+    for required in (manifest_path, analysis_path, consensus_path):
+        if not required.is_file():
+            raise FileNotFoundError(
+                f"simulated review is missing {required.name}: {run_dir}"
+            )
+    manifest = json.loads(manifest_path.read_text())
+    analysis = json.loads(analysis_path.read_text())
+    boundary = "not human or expert validation"
+    if boundary not in manifest.get("validity_boundary", ""):
+        raise ValueError("simulated-run manifest lacks the non-expert boundary")
+    if "not expert validation" not in analysis.get("validity_boundary", ""):
+        raise ValueError("simulated analysis lacks the non-expert boundary")
+    item_count = int(manifest["item_count"])
+    consensus_count = sum(
+        1 for line in consensus_path.read_text().splitlines() if line.strip()
+    )
+    if consensus_count != item_count:
+        raise ValueError(
+            f"simulated consensus incomplete: {consensus_count} != {item_count}"
+        )
+    reviewers = [
+        reviewer["reviewer_id"]
+        for reviewer in manifest["reviewers"]
+        if reviewer["panel_role"] == "consensus"
+    ]
+    if len(reviewers) != 3:
+        raise ValueError("simulated consensus panel must contain three reviewers")
+    judgment_hashes = analysis["source_sha256"]["judgments"]
+    for reviewer in reviewers:
+        judgments = run_dir / "reviewers" / reviewer / "judgments.jsonl"
+        if not judgments.is_file():
+            raise FileNotFoundError(judgments)
+        count = sum(1 for line in judgments.read_text().splitlines() if line.strip())
+        if count != item_count:
+            raise ValueError(
+                f"simulated reviewer incomplete: {reviewer} {count} != {item_count}"
+            )
+        if judgment_hashes.get(reviewer) != sha256(judgments):
+            raise ValueError(f"simulated judgment hash mismatch: {reviewer}")
+    if analysis["source_sha256"]["simulated_run_manifest"] != sha256(manifest_path):
+        raise ValueError("simulated analysis is not bound to its run manifest")
+    return {
+        "run_id": manifest["run_id"],
+        "path": run_dir.relative_to(REPO_ROOT.resolve()).as_posix(),
+        "reviewer_count": len(reviewers),
+        "item_count": item_count,
+        "analysis_sha256": sha256(analysis_path),
+        "consensus_sha256": sha256(consensus_path),
+        "raw_responses_included": False,
+        "validity_boundary": analysis["validity_boundary"],
     }
 
 
@@ -311,6 +377,7 @@ def _write_readme(
     has_human_package: bool,
     has_human_analysis: bool,
     run_summaries: dict,
+    has_simulated_analysis: bool = False,
 ) -> None:
     if has_human_analysis:
         human_note = (
@@ -344,6 +411,8 @@ def _write_readme(
         command += " --external-run-dir " + external_arg
     if has_human_analysis:
         command += " --human-analysis ../human-validation/adjudicated_analysis.json"
+    if has_simulated_analysis:
+        command += " --simulated-analysis ../simulated-ai-review/analysis.json"
     if not include_raw:
         command += " --allow-omitted-raw"
 
@@ -377,6 +446,13 @@ before regenerating tables, figures, statistics, and the PDF.
         + raw_note
         + "\n\n"
         + human_note
+        + (
+            "\n\nThe `simulated-ai-review` directory contains an exploratory "
+            "language-model judge sensitivity panel. It is not human or expert "
+            "validation, and raw simulation responses are excluded."
+            if has_simulated_analysis
+            else ""
+        )
         + "\n\nAll payload files are enumerated with SHA-256 hashes in `ARTIFACT_MANIFEST.json`.\n"
     )
 
@@ -398,6 +474,8 @@ def build_artifact(
     external_run_dir: Path | None,
     human_package_dir: Path | None,
     human_analysis: Path | None,
+    simulated_review_dir: Path | None,
+    targeted_review_dir: Path | None,
     paper_pdf: Path,
     output: Path,
     include_raw: bool,
@@ -414,6 +492,9 @@ def build_artifact(
     if external_run_dir:
         run_summaries["external_transfer"] = validate_release_run(external_run_dir)
     human_analysis_summary = None
+    simulated_review_summary = None
+    if simulated_review_dir is not None:
+        simulated_review_summary = validate_simulated_review(simulated_review_dir)
     if human_analysis is not None:
         human_analysis = _within_repo(human_analysis)
         if not human_analysis.is_file():
@@ -470,6 +551,20 @@ def build_artifact(
                 staging,
                 Path("human-validation") / "adjudicated_analysis.json",
             )
+        if simulated_review_dir is not None:
+            simulated_root = _within_repo(simulated_review_dir)
+            for source in files_in_tree(simulated_root, include_raw=False):
+                destination = (
+                    Path("simulated-ai-review") / source.relative_to(simulated_root)
+                )
+                _copy_file(source, staging, destination)
+        if targeted_review_dir is not None:
+            targeted_root = _within_repo(targeted_review_dir)
+            for source in files_in_tree(targeted_root, include_raw=False):
+                destination = (
+                    Path("targeted-human-review") / source.relative_to(targeted_root)
+                )
+                _copy_file(source, staging, destination)
         _copy_file(paper_pdf, staging, Path("paper") / "warrantlab-paper.pdf")
         _write_readme(
             staging / "ARTIFACT_README.md",
@@ -477,6 +572,7 @@ def build_artifact(
             has_human_package=human_package_dir is not None,
             has_human_analysis=human_analysis is not None,
             run_summaries=run_summaries,
+            has_simulated_analysis=simulated_review_dir is not None,
         )
 
         issues = scan_release_tree(staging, identity_terms=identity_terms)
@@ -504,6 +600,11 @@ def build_artifact(
             "human_adjudicated_analysis_included": human_analysis is not None,
             "human_package_path": "human-validation" if human_package_dir else None,
             "human_analysis": human_analysis_summary,
+            "simulated_ai_review": simulated_review_summary,
+            "targeted_human_review_package_included": targeted_review_dir is not None,
+            "targeted_human_review_path": (
+                "targeted-human-review" if targeted_review_dir else None
+            ),
             "files": files,
         }
         manifest_path = staging / "ARTIFACT_MANIFEST.json"
@@ -524,6 +625,8 @@ def main() -> int:
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-package-dir", type=Path)
     parser.add_argument("--human-analysis", type=Path)
+    parser.add_argument("--simulated-review-dir", type=Path)
+    parser.add_argument("--targeted-review-dir", type=Path)
     parser.add_argument(
         "--paper-pdf",
         type=Path,
@@ -546,6 +649,8 @@ def main() -> int:
         external_run_dir=args.external_run_dir,
         human_package_dir=args.human_package_dir,
         human_analysis=args.human_analysis,
+        simulated_review_dir=args.simulated_review_dir,
+        targeted_review_dir=args.targeted_review_dir,
         paper_pdf=args.paper_pdf,
         output=args.output,
         include_raw=not args.omit_raw,

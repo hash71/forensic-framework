@@ -9,6 +9,7 @@ from pathlib import Path
 
 from app.evaluation.warrant_simulated import (
     analyze_simulated_panel,
+    write_jsonl,
     write_priority_csv,
 )
 
@@ -20,7 +21,7 @@ def main() -> int:
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("--priority-limit", type=int, default=120)
     args = parser.parse_args()
-    analysis, priority = analyze_simulated_panel(
+    analysis, priority, consensus, disagreements = analyze_simulated_panel(
         args.package_dir,
         args.records_path,
         args.run_dir,
@@ -28,10 +29,16 @@ def main() -> int:
     )
     analysis_path = args.run_dir / "analysis.json"
     priority_path = args.run_dir / "priority_for_human_review.csv"
+    consensus_path = args.run_dir / "consensus.jsonl"
+    disagreements_path = args.run_dir / "disagreements.jsonl"
     analysis_path.write_text(json.dumps(analysis, indent=2, sort_keys=True) + "\n")
     write_priority_csv(priority_path, priority)
+    write_jsonl(consensus_path, consensus)
+    write_jsonl(disagreements_path, disagreements)
     print(analysis_path)
     print(priority_path)
+    print(consensus_path)
+    print(disagreements_path)
     return 0
 
 

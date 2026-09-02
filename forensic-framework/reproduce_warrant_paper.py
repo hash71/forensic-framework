@@ -102,6 +102,7 @@ def main() -> int:
     parser.add_argument("run_dir", type=Path, help="complete synthetic warrant run")
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-analysis", type=Path)
+    parser.add_argument("--simulated-analysis", type=Path)
     parser.add_argument("--bootstrap-resamples", type=int, default=10_000)
     parser.add_argument(
         "--allow-omitted-raw",
@@ -118,6 +119,9 @@ def main() -> int:
     run_dir = args.run_dir.resolve()
     external_dir = args.external_run_dir.resolve() if args.external_run_dir else None
     human_analysis = args.human_analysis.resolve() if args.human_analysis else None
+    simulated_analysis = (
+        args.simulated_analysis.resolve() if args.simulated_analysis else None
+    )
     verified = {"synthetic": verify_complete_run(run_dir)}
     if external_dir is not None:
         verified["external"] = verify_complete_run(external_dir)
@@ -128,6 +132,15 @@ def main() -> int:
         ]:
             raise ValueError("human analysis is not bound to the synthetic run")
         verified["human_analysis_sha256"] = _sha256(human_analysis)
+    if simulated_analysis is not None:
+        simulated = json.loads(simulated_analysis.read_text())
+        if "not expert validation" not in simulated["validity_boundary"]:
+            raise ValueError("simulated analysis lacks the required validity boundary")
+        if simulated["source_sha256"]["records"] != verified["synthetic"][
+            "records_sha256"
+        ]:
+            raise ValueError("simulated analysis is not bound to the synthetic run")
+        verified["simulated_analysis_sha256"] = _sha256(simulated_analysis)
 
     if not args.skip_tests:
         _run(sys.executable, "generate_warrant_benchmark.py", "--check-only", cwd=PROJECT_ROOT)
@@ -158,6 +171,8 @@ def main() -> int:
         paper_args.extend(("--external-run-dir", str(external_dir)))
     if human_analysis is not None:
         paper_args.extend(("--human-analysis", str(human_analysis)))
+    if simulated_analysis is not None:
+        paper_args.extend(("--simulated-analysis", str(simulated_analysis)))
     _run(*paper_args, cwd=MONOREPO_ROOT)
 
     if not args.no_compile:

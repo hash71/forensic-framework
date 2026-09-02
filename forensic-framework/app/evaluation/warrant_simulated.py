@@ -14,7 +14,16 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-from app.evaluation.warrant_annotations import ANNOTATION_AXES, annotation_stratum
+from app.evaluation.warrant_annotations import (
+    ANNOTATION_AXES,
+    ANNOTATION_EXPORT_VERSION,
+    ANNOTATION_GUIDE_PATH,
+    _jsonl_text,
+    _ordered_ids,
+    _write_answer_template,
+    _write_review_html,
+    annotation_stratum,
+)
 from app.evaluation.warrant_human import (
     _agreement,
     _binary_warrant_metrics,
@@ -26,6 +35,7 @@ from app.evaluation.warrant_human import (
 
 SIMULATED_REVIEW_SCHEMA_VERSION = "warrant-simulated-review-v1.0"
 SIMULATED_ANALYSIS_SCHEMA_VERSION = "warrant-simulated-analysis-v1.0"
+TARGETED_REVIEW_EXPORT_VERSION = "warrant-targeted-review-export-v1.0"
 WARRANT_LABELS = {"SUPPORTED", "CONTRADICTED", "INSUFFICIENT", "NOT_APPLICABLE"}
 
 
@@ -200,6 +210,8 @@ def validate_simulated_response(
     if set(payload) != {"reviews"} or not isinstance(payload["reviews"], list):
         raise ValueError("response must contain only a reviews array")
     reviews = payload["reviews"]
+    if any(not isinstance(review, dict) for review in reviews):
+        raise ValueError("every review must be a JSON object")
     actual_ids = [review.get("annotation_id") for review in reviews]
     if actual_ids != expected_ids:
         raise ValueError("response annotation IDs are missing, extra, or reordered")
@@ -398,7 +410,12 @@ def analyze_simulated_panel(
     run_dir: Path,
     *,
     priority_limit: int = 120,
-) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+) -> tuple[
+    dict[str, Any],
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+    list[dict[str, Any]],
+]:
     """Analyze a complete simulated panel as sensitivity evidence only."""
 
     package_manifest_path = package_dir / "manifest.json"
@@ -565,7 +582,11 @@ def analyze_simulated_panel(
             },
         },
     }
-    return analysis, priority
+    consensus_rows = [
+        {"annotation_id": annotation_id, **consensus[annotation_id]}
+        for annotation_id in sorted(consensus)
+    ]
+    return analysis, priority, consensus_rows, disagreements
 
 
 def write_priority_csv(path: Path, priority: list[dict[str, Any]]) -> None:
@@ -589,3 +610,144 @@ def write_priority_csv(path: Path, priority: list[dict[str, Any]]) -> None:
                 "reasons": " | ".join(row["reasons"]),
                 "ai_disagreement_fields": " | ".join(row["ai_disagreement_fields"]),
             })
+
+
+def write_jsonl(path: Path, rows: list[dict[str, Any]]) -> None:
+    """Write deterministic compact JSONL for audit-facing derived records."""
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(_jsonl_text(rows))
+
+
+def export_targeted_review_package(
+    source_package: Path,
+    priority_csv: Path,
+    output_dir: Path,
+    *,
+    limit: int = 120,
+    seed: int = 20_260_903,
+) -> dict[str, Any]:
+    """Export a blind post-hoc subset for later real-human error analysis.
+
+    The subset is selected for disagreement and risk, not with a probability
+    design.  Its future labels therefore cannot estimate population rates.
+    """
+
+    if limit <= 0:
+        raise ValueError("targeted review limit must be positive")
+    manifest_path = source_package / "manifest.json"
+    items_path = source_package / "blind" / "items.jsonl"
+    key_path = source_package / "admin_do_not_share_with_annotators" / "key.jsonl"
+    source_manifest = json.loads(manifest_path.read_text())
+    if sha256_bytes(items_path.read_bytes()) != source_manifest["items_sha256"]:
+        raise ValueError("source annotation items do not match their manifest")
+    if sha256_bytes(key_path.read_bytes()) != source_manifest["admin_key_sha256"]:
+        raise ValueError("source annotation key does not match its manifest")
+
+    priority_rows = list(csv.DictReader(priority_csv.open(newline="")))
+    selected_priority: list[dict[str, str]] = []
+    selected_ids: set[str] = set()
+    for row in priority_rows:
+        annotation_id = row.get("annotation_id", "")
+        if not annotation_id or annotation_id in selected_ids:
+            continue
+        selected_priority.append(row)
+        selected_ids.add(annotation_id)
+        if len(selected_ids) == limit:
+            break
+    if len(selected_ids) != min(limit, len(priority_rows)):
+        raise ValueError("priority file does not contain enough unique annotation IDs")
+
+    items = read_jsonl(items_path)
+    keys = read_jsonl(key_path)
+    item_index = {item["annotation_id"]: item for item in items}
+    key_index = {item["annotation_id"]: item for item in keys}
+    missing = selected_ids.difference(item_index).union(
+        selected_ids.difference(key_index)
+    )
+    if missing:
+        raise ValueError(f"priority IDs are absent from source package: {sorted(missing)}")
+
+    selected_items = [item_index[row["annotation_id"]] for row in selected_priority]
+    selected_keys = [key_index[row["annotation_id"]] for row in selected_priority]
+    orders = {
+        "annotator_1": _ordered_ids(selected_items, seed=seed, arm="targeted_annotator_1"),
+        "annotator_2": _ordered_ids(selected_items, seed=seed, arm="targeted_annotator_2"),
+        "adjudication": _ordered_ids(selected_items, seed=seed, arm="targeted_adjudication"),
+    }
+    selected_by_id = {item["annotation_id"]: item for item in selected_items}
+    blind_items = [selected_by_id[item_id] for item_id in orders["adjudication"]]
+    blind_dir = output_dir / "blind"
+    admin_dir = output_dir / "admin_do_not_share_with_annotators"
+    blind_dir.mkdir(parents=True, exist_ok=True)
+    admin_dir.mkdir(parents=True, exist_ok=True)
+    items_text = _jsonl_text(blind_items)
+    keys_text = _jsonl_text(selected_keys)
+    guide_text = ANNOTATION_GUIDE_PATH.read_text()
+    (blind_dir / "items.jsonl").write_text(items_text)
+    (blind_dir / "ANNOTATION_GUIDE.md").write_text(guide_text)
+    _write_answer_template(blind_dir / "annotator_1.csv", orders["annotator_1"])
+    _write_answer_template(blind_dir / "annotator_2.csv", orders["annotator_2"])
+    _write_answer_template(blind_dir / "adjudication.csv", orders["adjudication"])
+    _write_review_html(
+        blind_dir / "review.html",
+        blind_items,
+        {
+            "annotator_1": orders["annotator_1"],
+            "annotator_2": orders["annotator_2"],
+        },
+    )
+    (admin_dir / "key.jsonl").write_text(keys_text)
+    selection_path = admin_dir / "selection_basis.csv"
+    with selection_path.open("w", newline="") as handle:
+        fields = list(selected_priority[0]) if selected_priority else ["annotation_id"]
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        writer.writerows(selected_priority)
+
+    manifest = {
+        "targeted_review_export_version": TARGETED_REVIEW_EXPORT_VERSION,
+        "source_annotation_export_version": source_manifest.get(
+            "annotation_export_version", ANNOTATION_EXPORT_VERSION
+        ),
+        "seed": seed,
+        "source_claims": len(items),
+        "selected_claims": len(blind_items),
+        "selection_policy": (
+            "post-hoc targeted triage ordered by AI-panel disagreement, "
+            "AI-versus-mechanical disagreement, high-risk semantic axes, and "
+            "generator decisiveness"
+        ),
+        "validity_boundary": (
+            "Future human labels on this targeted subset diagnose important "
+            "failure modes; they cannot estimate population prevalence or "
+            "replace the frozen probability sample."
+        ),
+        "items_sha256": sha256_bytes(items_text.encode()),
+        "annotation_guide_sha256": sha256_bytes(guide_text.encode()),
+        "admin_key_sha256": sha256_bytes(keys_text.encode()),
+        "priority_source_sha256": sha256_bytes(priority_csv.read_bytes()),
+        "selection_basis_sha256": sha256_bytes(selection_path.read_bytes()),
+        "source_sha256": {
+            "manifest": sha256_bytes(manifest_path.read_bytes()),
+            "items": sha256_bytes(items_path.read_bytes()),
+            "admin_key": sha256_bytes(key_path.read_bytes()),
+        },
+        "annotator_1_order_sha256": sha256_bytes(
+            "\n".join(orders["annotator_1"]).encode()
+        ),
+        "annotator_2_order_sha256": sha256_bytes(
+            "\n".join(orders["annotator_2"]).encode()
+        ),
+        "adjudication_order_sha256": sha256_bytes(
+            "\n".join(orders["adjudication"]).encode()
+        ),
+        "blinding_warning": (
+            "Share only the blind directory. The admin directory reveals "
+            "AI-panel, mechanical-proxy, and study metadata."
+        ),
+    }
+    (output_dir / "manifest.json").write_text(
+        json.dumps(manifest, indent=2, sort_keys=True) + "\n"
+    )
+    return manifest

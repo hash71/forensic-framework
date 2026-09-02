@@ -98,3 +98,20 @@ def test_ensure_paper_build_dir_supports_fresh_artifact(
 
     assert build_dir == paper_dir / "build"
     assert build_dir.is_dir()
+
+
+def test_simulated_analysis_requires_non_expert_boundary_and_record_binding(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    monkeypatch.setattr(reproduction, "PROJECT_ROOT", tmp_path)
+    run_dir = _write_complete_run(tmp_path)
+    records_hash = hashlib.sha256((run_dir / "records.jsonl").read_bytes()).hexdigest()
+    analysis = {
+        "validity_boundary": "AI sensitivity study; not expert validation",
+        "source_sha256": {"records": records_hash},
+    }
+    path = tmp_path / "simulated.json"
+    path.write_text(json.dumps(analysis))
+    verified = reproduction.verify_complete_run(run_dir)
+    assert analysis["source_sha256"]["records"] == verified["records_sha256"]

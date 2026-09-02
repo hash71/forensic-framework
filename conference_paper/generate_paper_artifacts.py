@@ -492,6 +492,66 @@ def write_human_result_macros(analysis_path: Path, output_path: Path) -> None:
     )
 
 
+def write_simulated_result_macros(analysis_path: Path, output_path: Path) -> None:
+    """Write explicitly non-human AI-panel sensitivity macros."""
+
+    analysis = _load_json(analysis_path)
+    if "not expert validation" not in analysis["validity_boundary"]:
+        raise ValueError("simulated analysis lacks the required validity boundary")
+    sample = analysis["sample"]
+    panel = analysis["panel"]
+    proxy = analysis["consensus_vs_mechanical_proxy"]
+    flag = proxy["materially_unwarranted_flag"]
+    primary = analysis["simulated_primary_endpoint"]
+    reference = primary["condition_estimates"][primary["reference_condition"]]
+    intervention = primary["condition_estimates"][primary["intervention_condition"]]
+    contrast = primary["contrast_intervention_minus_reference"]
+    values = {
+        "SimPanelClaims": str(sample["claims"]),
+        "SimPanelPopulationClaims": str(sample["population_claims"]),
+        "SimPanelReviewers": str(len(analysis["reviewers"])),
+        "SimPanelAnyDisagreement": _pct(
+            panel["items_with_any_disagreement"] / sample["claims"]
+        ),
+        "SimPanelOverallDisagreement": _pct(
+            panel["items_with_overall_disagreement"] / sample["claims"]
+        ),
+        "SimPanelMaterialityDisagreement": _pct(
+            panel["items_with_materiality_disagreement"] / sample["claims"]
+        ),
+        "SimMechanicalWeightedAgreement": _pct(
+            proxy["overall"]["design_weighted_agreement"]
+        ),
+        "SimMechanicalWeightedKappa": _number(
+            proxy["overall"]["design_weighted_cohen_kappa"]
+        ),
+        "SimFlagPrecision": _pct(flag["design_weighted_precision"]),
+        "SimFlagRecall": _pct(flag["design_weighted_recall"]),
+        "SimPrimaryJoinedClaims": str(
+            primary["selected_claims_joined_to_primary_conditions"]
+        ),
+        "SimPrimaryAlertsUnsafeExposure": _number(
+            reference["surfaced_unwarranted_decisive_claims_per_base_case"]
+        ),
+        "SimPrimaryAbstainUnsafeExposure": _number(
+            intervention["surfaced_unwarranted_decisive_claims_per_base_case"]
+        ),
+        "SimPrimaryUnsafeDifference": _number(contrast["estimate"]),
+        "SimPrimaryUnsafeCILow": _number(contrast["confidence_interval"][0]),
+        "SimPrimaryUnsafeCIHigh": _number(contrast["confidence_interval"][1]),
+    }
+    provenance = (
+        "% Generated; AI-panel sensitivity evidence only, not expert validation.\n"
+        f"% simulated_analysis_sha256={_sha256(analysis_path)}\n"
+        f"% source_records_sha256={analysis['source_sha256']['records']}\n"
+    )
+    output_path.write_text(
+        provenance
+        + "\n".join(_macro(name, value) for name, value in values.items())
+        + "\n"
+    )
+
+
 def _rounded_box(
     pdf: canvas.Canvas,
     x: float,
@@ -724,6 +784,7 @@ def main() -> int:
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-analysis", type=Path)
+    parser.add_argument("--simulated-analysis", type=Path)
     parser.add_argument("--paper-dir", type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args()
     paper_dir = args.paper_dir.resolve()
@@ -748,6 +809,13 @@ def main() -> int:
         )
     else:
         (paper_dir / "generated_human_results.tex").unlink(missing_ok=True)
+    if args.simulated_analysis is not None:
+        write_simulated_result_macros(
+            args.simulated_analysis,
+            paper_dir / "generated_simulated_results.tex",
+        )
+    else:
+        (paper_dir / "generated_simulated_results.tex").unlink(missing_ok=True)
     print(paper_dir / "generated_results.tex")
     print(paper_dir / "generated_variant_rows.tex")
     print(paper_dir / "generated_axis_rows.tex")
@@ -757,6 +825,8 @@ def main() -> int:
         print(paper_dir / "generated_external_results.tex")
     if args.human_analysis is not None:
         print(paper_dir / "generated_human_results.tex")
+    if args.simulated_analysis is not None:
+        print(paper_dir / "generated_simulated_results.tex")
     return 0
 
 

@@ -113,11 +113,14 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
         has_human_package=True,
         has_human_analysis=False,
         run_summaries=runs,
+        has_simulated_analysis=True,
     )
     text = readme.read_text()
     assert "--allow-omitted-raw" in text
     assert "no adjudicated expert analysis exists" in text
     assert "--human-analysis" not in text
+    assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text
+    assert "not human or expert validation" in text
 
     artifact._write_readme(
         readme,
