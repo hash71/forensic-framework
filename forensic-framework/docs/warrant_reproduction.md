@@ -172,6 +172,19 @@ to five minutes on a current laptop, including dependency installation. After
 the locked dependencies are installed, the analysis and paper rebuild require
 no network access, model weights, or credentials.
 
+Immediately after extracting the anonymous ZIP, verify its manifest-bound
+payload before creating a virtual environment:
+
+```bash
+python3 forensic-framework/verify_anonymous_artifact.py --strict .
+```
+
+The standard-library-only verifier rejects unsafe or duplicate manifest paths,
+missing or unlisted files, size changes, and SHA-256 mismatches. This internal
+check detects corruption but cannot authenticate a maliciously replaced ZIP
+and manifest together; reviewers must also compare the downloaded ZIP digest
+with the SHA-256 published by the conference artifact record.
+
 Full confirmatory `records.jsonl` files and per-call `raw/` directories are
 intentionally excluded from ordinary Git history because they are large,
 generated artifacts. Git tracks the exact run manifest, release-redaction

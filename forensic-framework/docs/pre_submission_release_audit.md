@@ -17,7 +17,7 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 183 tests passed.
+- `python -m pytest -q`: 191 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
 - The one-command paper reproduction validated the 48-base-case,
   480-case-variant benchmark, reanalyzed 5,400 synthetic and 360 external
@@ -92,6 +92,10 @@ human-label integration or substantive manuscript change.
 - PDF metadata contains no author identity. The anonymous artifact excludes
   Git history and raw endpoint transcripts, records all payload hashes, and
   must pass its absolute-path, credential-pattern, and identity scans.
+- A standard-library-only verifier checks canonical manifest paths, every
+  payload size and SHA-256, and (in immediate post-extraction strict mode)
+  rejects unlisted files. The release instructions separately require the ZIP
+  digest to be compared with the conference artifact record.
 
 ### Ethics boundary
 

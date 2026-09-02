@@ -74,6 +74,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/sanitize_warrant_release.py",
     "forensic-framework/reproduce_warrant_paper.py",
     "forensic-framework/build_anonymous_artifact.py",
+    "forensic-framework/verify_anonymous_artifact.py",
     "forensic-framework/app/__init__.py",
     "forensic-framework/app/evaluation/__init__.py",
     "forensic-framework/app/evaluation/claims.py",
@@ -113,6 +114,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/tests/test_warrant_reproduction.py",
     "forensic-framework/tests/test_warrant_stats.py",
     "forensic-framework/tests/test_warrant_simulated.py",
+    "forensic-framework/tests/test_verify_anonymous_artifact.py",
 )
 
 SOURCE_TREES = (
@@ -605,6 +607,7 @@ locked research dependencies.
 From the artifact root:
 
 ```bash
+python3 forensic-framework/verify_anonymous_artifact.py --strict .
 python3 -m venv forensic-framework/.venv
 forensic-framework/.venv/bin/python -m pip install -r forensic-framework/requirements-research.lock
 cd forensic-framework
@@ -631,7 +634,16 @@ digest is disclosed but cannot be rechecked against absent source bytes.
             if has_simulated_analysis
             else ""
         )
-        + "\n\nAll payload files are enumerated with SHA-256 hashes in `ARTIFACT_MANIFEST.json`.\n"
+        + """
+
+All payload files are enumerated with SHA-256 hashes in
+`ARTIFACT_MANIFEST.json`. The strict verification command checks safe canonical
+paths, file sizes, and all payload hashes, and rejects unlisted files. Run it
+immediately after extraction; later reproduction intentionally creates an
+unlisted virtual environment and build directory. The internal manifest detects
+corruption but does not authenticate the ZIP itself, so compare the ZIP's
+SHA-256 with the digest published in the conference artifact record.
+"""
     )
 
 

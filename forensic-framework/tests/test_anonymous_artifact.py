@@ -273,6 +273,8 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     assert "byte-stable under the reproduction command" in text
     assert "does not call Gemma or any remote endpoint" in text
     assert "About 1 GB of free disk" in text
+    assert "verify_anonymous_artifact.py --strict ." in text
+    assert "does not authenticate the ZIP itself" in text
     assert "--human-analysis" not in text
     assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text
     assert "not human or expert validation" in text
