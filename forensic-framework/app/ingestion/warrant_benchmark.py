@@ -26,7 +26,7 @@ STUDY_SPEC_PATH = PROJECT_ROOT / "config" / "warrant_study.yaml"
 BENCHMARK_DIR = PROJECT_ROOT / "data" / "warrant_benchmark"
 CASES_PATH = BENCHMARK_DIR / "cases.jsonl"
 MANIFEST_PATH = BENCHMARK_DIR / "manifest.json"
-GENERATOR_VERSION = "warrant-benchmark-v1.0"
+GENERATOR_VERSION = "warrant-benchmark-v1.0.1"
 SCHEMA_VERSION = "warrant-case-v1.0"
 TZ = timezone(timedelta(hours=6))
 
@@ -189,7 +189,7 @@ def _credential_compromise(base_case_id: str, rng: random.Random) -> BaseCase:
                      session_id=session, metadata={"authorized": False, "file_size_bytes": 4_200_000})
     deletion = b.add(10, "admin", user, "log_delete", resource="/var/log/audit.log",
                      source_ip=ip, session_id=session, metadata={"authorized": False})
-    decisive = [login, download]
+    decisive = [login, download, deletion]
     findings = [
         _finding("f_login", "observation", user, "login", "cloud_console", [login], decisive=True, authorization="unauthorized"),
         _finding("f_download", "observation", user, "file_download", "/data/finance/payroll.csv", [download], decisive=True, authorization="unauthorized"),
@@ -285,7 +285,7 @@ def _destructive_administration(base_case_id: str, rng: random.Random) -> BaseCa
                      source_ip=ip, session_id=session, severity="critical", metadata={"authorized": False})
     logs = b.add(8, "admin", user, "log_delete", resource="/var/log/cluster-audit.log",
                  source_ip=ip, session_id=session, severity="critical", metadata={"authorized": False})
-    decisive = [backup, deletion]
+    decisive = [backup, deletion, logs]
     findings = [
         _finding("f_backup", "observation", user, "backup_disable", "cluster-prod", [backup], decisive=True, authorization="unauthorized"),
         _finding("f_delete", "observation", user, "resource_delete", "cluster-prod/database-primary", [deletion], decisive=True, authorization="unauthorized"),

@@ -1,0 +1,73 @@
+{
+  "baseline_version": "warrant-baselines-v1.0",
+  "independent_unit": "base_case",
+  "models": {
+    "always_attack": {
+      "abstention_rate": 0.0,
+      "attack_recall": 1.0,
+      "balanced_accuracy": 0.5,
+      "base_cases": 36,
+      "binary_accuracy": 0.45,
+      "case_variants": 360,
+      "exact_three_way_accuracy": 0.45,
+      "false_positive_rate": 1.0,
+      "macro_f1": 0.3103448275862069,
+      "matthews_correlation": 0.0,
+      "mean_confidence": 1.0
+    },
+    "always_benign": {
+      "abstention_rate": 0.0,
+      "attack_recall": 0.0,
+      "balanced_accuracy": 0.5,
+      "base_cases": 36,
+      "binary_accuracy": 0.55,
+      "case_variants": 360,
+      "exact_three_way_accuracy": 0.4,
+      "false_positive_rate": 0.0,
+      "macro_f1": 0.3548387096774194,
+      "matthews_correlation": 0.0,
+      "mean_confidence": 1.0
+    },
+    "gradient_boosted_trees_events_alerts": {
+      "abstention_rate": 0.0,
+      "attack_recall": 1.0,
+      "balanced_accuracy": 0.9924242424242424,
+      "base_cases": 36,
+      "binary_accuracy": 0.9916666666666667,
+      "case_variants": 360,
+      "exact_three_way_accuracy": 0.85,
+      "false_positive_rate": 0.015151515151515152,
+      "macro_f1": 0.9915960501435674,
+      "matthews_correlation": 0.9833321660356334,
+      "mean_confidence": 0.9897756300250298
+    },
+    "logistic_regression_events_alerts": {
+      "abstention_rate": 0.0,
+      "attack_recall": 1.0,
+      "balanced_accuracy": 1.0,
+      "base_cases": 36,
+      "binary_accuracy": 1.0,
+      "case_variants": 360,
+      "exact_three_way_accuracy": 0.85,
+      "false_positive_rate": 0.0,
+      "macro_f1": 1.0,
+      "matthews_correlation": 1.0,
+      "mean_confidence": 0.9824798338763129
+    },
+    "tuned_rules": {
+      "abstention_rate": 0.15,
+      "attack_recall": 1.0,
+      "balanced_accuracy": 1.0,
+      "base_cases": 36,
+      "binary_accuracy": 1.0,
+      "case_variants": 360,
+      "exact_three_way_accuracy": 1.0,
+      "false_positive_rate": 0.0,
+      "macro_f1": 1.0,
+      "matthews_correlation": 1.0,
+      "mean_confidence": 0.8625
+    }
+  },
+  "prediction_records": 2160,
+  "predictions_path": "data/warrant_benchmark/baseline_predictions.jsonl"
+}
