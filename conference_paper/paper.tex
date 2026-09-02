@@ -89,6 +89,28 @@
   \newcommand{\ExternalAbstainBenignRejection}{\todoresult}
   \newcommand{\ExternalAbstainUnsafeExposure}{\todoresult}
 }
+\newif\ifhumanresults
+\IfFileExists{generated_human_results.tex}{
+  \humanresultstrue
+  \input{generated_human_results.tex}
+}{
+  \humanresultsfalse
+}
+\ifhumanresults
+  \newcommand{\PrimaryWarrantBasis}{sampling-weighted adjudicated expert labels}
+  \newcommand{\PrimaryAlertsUnsafeExposure}{\HumanPrimaryAlertsUnsafeExposure}
+  \newcommand{\PrimaryAbstainUnsafeExposure}{\HumanPrimaryAbstainUnsafeExposure}
+  \newcommand{\PrimaryUnsafeDifference}{\HumanPrimaryUnsafeDifference}
+  \newcommand{\PrimaryUnsafeCILow}{\HumanPrimaryUnsafeCILow}
+  \newcommand{\PrimaryUnsafeCIHigh}{\HumanPrimaryUnsafeCIHigh}
+\else
+  \newcommand{\PrimaryWarrantBasis}{the unvalidated mechanical proxy}
+  \newcommand{\PrimaryAlertsUnsafeExposure}{\AlertsUnsafeExposure}
+  \newcommand{\PrimaryAbstainUnsafeExposure}{\AbstainUnsafeExposure}
+  \newcommand{\PrimaryUnsafeDifference}{\UnsafeDifference}
+  \newcommand{\PrimaryUnsafeCILow}{\UnsafeCILow}
+  \newcommand{\PrimaryUnsafeCIHigh}{\UnsafeCIHigh}
+\fi
 \providecommand{\OperationalFailures}{\todoresult}
 \providecommand{\UniqueModelCalls}{\todoresult}
 \providecommand{\MedianLatencySeconds}{\todoresult}
@@ -131,11 +153,12 @@ incident families, each rendered into ten paired evidence and context
 mutations (480 records).  We compare events-only generation, alert-conditioned
 generation, self-review, alert-blind verification, and verification followed
 by abstention; stochastic conditions use three repetitions and inference is
-clustered by base case.  In the frozen held-out evaluation, alert-conditioned
-generation surfaced \AlertsUnsafeExposure\ unwarranted decisive claims per
-case at \AlertsCoverage\ coverage.  Verification plus abstention changed this
-exposure by \UnsafeDifference\ (95\% cluster-bootstrap CI
-[\UnsafeCILow,~\UnsafeCIHigh]) but changed attack recall by
+clustered by base case.  In the frozen held-out evaluation, using
+\PrimaryWarrantBasis, alert-conditioned generation surfaced
+\PrimaryAlertsUnsafeExposure\ unwarranted decisive claims per case at
+\AlertsCoverage\ coverage.  Verification plus abstention changed this exposure
+by \PrimaryUnsafeDifference\ (95\% bootstrap CI
+[\PrimaryUnsafeCILow,~\PrimaryUnsafeCIHigh]) but changed attack recall by
 \RecallDifference\ [\RecallCILow,~\RecallCIHigh] and coverage by
 \CoverageDifference\ [\CoverageCILow,~\CoverageCIHigh].  Thus, the safety
 gain did \NoninferiorResult\ satisfy the pre-specified 3-point recall
@@ -478,12 +501,17 @@ not optional decoration.
 The protocol targets one small local model, one stronger open-weight model,
 and two frontier APIs from different providers.  The available environment
 contained a 0.6B Qwen3 model, two 7.5B local Gemma-family artifacts, and a
-remote OpenAI-compatible endpoint exposing only the alias
-\texttt{fusion-gemma}.  Local digests, the remote endpoint hash, prompt hashes,
+remote OpenAI-compatible endpoint.  Its model API reports alias
+\texttt{fusion-gemma}, served-root label \texttt{gemma-4-26B-A4B-it}, a
+name matching the documented 26B-A4B mixture-of-experts member of the Gemma 4
+family~\cite{gemmateam2026gemma4}, a 32,768-token maximum context, and vLLM
+0.19.0.  The endpoint exposes no immutable weight digest or revision, so the
+name does not authenticate the served checkpoint.  Local digests, the remote
+endpoint hash, prompt hashes,
 temperature (0.1), token limit, timestamps, latency, token counts, raw-response
-path, parser state, and error state are recorded.  Because the remote revision
-is not exposed and two independent frontier providers were unavailable, its
-results describe one frozen deployment, not a named model family or a
+path, parser state, and error state are recorded.  Because the remote weights
+remain revision-opaque and two independent frontier providers were unavailable,
+its results describe one frozen deployment, not the Gemma family or a
 cross-model capability.
 
 Local smoke tests are retained rather than silently filtered: one 7.5B model
@@ -516,8 +544,14 @@ the held-out extension began found that these secondary hypotheses lacked
 fully specified estimators; partial outputs had already been inspected.  We
 therefore report newly operationalized H3/H4 base-case contrasts as
 exploratory, and do not test H5 confirmatorily because no threshold grid, risk
-function, or trend statistic was pre-specified.  The primary H1/H2 estimators
-are unchanged.
+function, or trend statistic was pre-specified.  The primary H1/H2 estimands
+remain fixed.  A separate audit during the corrected run found that the code
+validated human labels against the proxy but did not implement the protocol's
+requirement that adjudicated labels replace the proxy for H1.  Before any
+expert labels existed and without inspecting corrected-run aggregate outcomes,
+we added the pre-specified inverse-weighted claim-to-record join and a two-stage
+claim-stratum/base-case bootstrap.  This post-start implementation is
+disclosed; it changes neither the contrast nor any model output.
 
 Protocol v1.0 originally named raw \udcr as the primary intervention outcome.
 During development we recognized that a valid paired review design must reuse
@@ -553,6 +587,11 @@ $\pi\in\{0.01,0.05,0.10\}$, positive predictive value is
 \end{equation}
 
 We do not infer workload from the benchmark prevalence.
+For the synthetic study, ``attack recall'' conditions on records whose
+visible-evidence target is \textsc{yes}; latent attacks made
+\textsc{insufficient} by evidence removal are not counted as warranted
+positives.  The external section labels its separate CERT answer-key recall as
+a latent-scenario target.
 
 %-------------------------------------------------------------------------------
 \section{Held-Out Results}
@@ -575,9 +614,11 @@ did not expose price metadata, so we do not estimate dollar cost.
 
 \begin{table*}[t]
 \centering
-\caption{Held-out results.  Unsafe exposure is unwarranted decisive claims
-actually delivered per case.  Raw \udcr for the four alert-visible conditions
-is identical by paired design and is not an intervention effect.}
+\caption{Held-out mechanical-proxy results.  Unsafe exposure is proxy-unwarranted
+decisive claims actually delivered per case; the adjudicated sampling-weighted
+primary estimate is reported in Section~\ref{sec:annotation}.  Raw \udcr for the
+four alert-visible conditions is identical by paired design and is not an
+intervention effect.}
 \label{tab:main-results}
 \small
 \begin{tabular}{lrrrrrr}
@@ -648,8 +689,9 @@ within cases and no row is an expert error rate.}
 
 \subsection{Safety is purchased with coverage}
 
-Verifier-plus-abstention changes unsafe exposure by \UnsafeDifference\ claims
-per base case (95\% CI [\UnsafeCILow,~\UnsafeCIHigh]) relative to the shared
+Using \PrimaryWarrantBasis, verifier-plus-abstention changes unsafe exposure by
+\PrimaryUnsafeDifference\ claims per base case (95\% CI
+[\PrimaryUnsafeCILow,~\PrimaryUnsafeCIHigh]) relative to the shared
 alert-conditioned generator.  It simultaneously changes coverage by
 \CoverageDifference\ [\CoverageCILow,~\CoverageCIHigh] and attack recall by
 \RecallDifference\ [\RecallCILow,~\RecallCIHigh].  The lower recall bound
@@ -768,23 +810,76 @@ of confirmatory causal contrasts.
 \label{sec:annotation}
 %-------------------------------------------------------------------------------
 
-The protocol samples 400 unique material claims after deduplicating generator
-responses shared across review conditions.  Sampling is deterministic and
-stratified by expected verdict, generation group, claim type, and decisiveness.
+The protocol samples 400 unique atomic claims after deduplicating generator
+responses shared across review conditions.  A simple random sample of this size
+has a worst-case nominal 95\% binomial half-width of 4.9 points, but we use the
+design-aware intervals from the actual weighted, clustered sample rather than
+claiming that nominal precision.  Sampling uses a reproducible, seed-keyed
+SHA-256 pseudorandom order within strata defined by expected verdict,
+generation group, claim type, and decisiveness.
 Two DFIR annotators independently receive visible events, baselines, the atomic
 claim, cited events, and investigation context.  They do not receive model,
 condition, family, mutation, hidden label, or expected verdict.  They label
 overall warrant and each semantic axis as supported, contradicted,
 insufficient, or not applicable, provide a rationale, and mark materiality.
-An adjudicator resolves disagreement while blinded to system identity.
+Only after both files are frozen does a third DFIR reviewer receive the two
+labels and rationales in a separate adjudication interface; the adjudicator
+remains blinded to system identity.
+
+Before recruitment, we require the responsible institution's determination,
+plain-language informed consent, predeclared professional compensation, and
+documented DFIR qualification.  Consent and payment records remain separate
+from labels; only aggregate, non-identifying experience bands and timing may be
+reported.  Expert labeling cannot begin while any of these fields is unresolved.
 
 The release separates a shareable blind directory from an administrative key
-and hashes both.  We report raw agreement, per-label prevalence, positive
-agreement, and a chance-corrected coefficient.  If expert annotation is not
-completed, all warrant values in this paper remain explicitly
+and hashes both.  Because equal round-robin allocation oversamples rare strata,
+human-versus-mechanical estimates use inverse sampling-fraction weights.  We
+report raw and design-weighted agreement, per-label prevalence, positive
+agreement, and Cohen's $\kappa$ overall and by semantic axis.  If expert
+annotation is not completed, all warrant values in this paper remain explicitly
 \emph{mechanical proxy outcomes}; H1 becomes exploratory and no claim about
 true forensic-validity rates is made.  This gate prevents an authored
 evaluator from validating itself.
+
+\ifhumanresults
+Across \HumanSampleClaims\ sampled claims from a population of
+\HumanPopulationClaims, independent reviewers agreed on the overall label in
+\HumanRawAgreement\ of items (design-weighted \HumanWeightedAgreement;
+$95\%$ CI [\HumanWeightedAgreementCILow, \HumanWeightedAgreementCIHigh];
+$\kappa=\HumanKappa$, design-weighted $\kappa=\HumanWeightedKappa$).  Against
+adjudication, the mechanical proxy achieved \MechanicalHumanWeightedAgreement\
+design-weighted overall agreement ($95\%$ CI
+[\MechanicalHumanWeightedAgreementCILow,
+\MechanicalHumanWeightedAgreementCIHigh]; $\kappa=\MechanicalHumanKappa$).  For the
+decisive-materiality field, reviewer agreement was
+\HumanMaterialityWeightedAgreement\ and the generated flag matched
+adjudication in \MechanicalMaterialityWeightedAgreement\ of weighted items.  For the
+materially unwarranted flag used in the safety outcome, its design-weighted
+precision was \MechanicalFlagPrecision\ ($95\%$ CI
+[\MechanicalFlagPrecisionCILow, \MechanicalFlagPrecisionCIHigh]) and recall was
+\MechanicalFlagRecall\ ($95\%$ CI
+[\MechanicalFlagRecallCILow, \MechanicalFlagRecallCIHigh]; specificity
+\MechanicalFlagSpecificity; F1
+\MechanicalFlagFOne).  Per-axis prevalence, positive agreement, confusion
+matrices, and unweighted estimates are retained in the released analysis.
+Joining the adjudicated sample back to the frozen shared generator responses
+places \HumanPrimaryJoinedClaims\ sampled claims in the primary contrast.  The
+sampling-weighted estimate is \HumanPrimaryAlertsUnsafeExposure\ surfaced
+unwarranted decisive claims per base case for alert-conditioned generation and
+\HumanPrimaryAbstainUnsafeExposure\ for verification plus abstention, a change
+of \HumanPrimaryUnsafeDifference\ (two-stage claim-stratum/base-case bootstrap
+95\% CI [\HumanPrimaryUnsafeCILow, \HumanPrimaryUnsafeCIHigh]).
+Median active-visible review time was \AnnotatorOneMedianMinutes\ and
+\AnnotatorTwoMedianMinutes\ minutes per item for the independent reviewers and
+\AdjudicatorMedianMinutes\ minutes for adjudication (\AnnotationTotalHours\
+hours total across all three roles).
+\else
+\textbf{Current validity gate.}  The blinded package and adjudication pipeline
+are frozen, but independent DFIR labels have not yet been returned.  Therefore
+all warrant measurements throughout this draft remain mechanical-proxy outcomes rather than
+expert error rates, and the manuscript is not submission-ready.
+\fi
 
 %-------------------------------------------------------------------------------
 \section{Discussion}
@@ -824,7 +919,8 @@ untrusted content, including strings that resemble instructions.
 \subsection{Threats to validity}
 
 \textbf{Construct validity.}  The mechanical evaluator encodes conservative
-rules and can disagree with experts.  The synthetic generator supplies explicit
+rules and can disagree with experts, as prior work warns for automatic
+attribution metrics~\cite{godbole2025verify}.  The synthetic generator supplies explicit
 authorization and linkage fields that are often absent in practice.  Expert
 annotation is therefore required for the strongest claim.
 
@@ -840,8 +936,9 @@ inferiority.  Claims and variants are never counted as independent samples.
 
 \textbf{External validity.}  Twelve templates cannot represent production
 collection gaps, organizational policies, analyst questions, or base rates.
-The remote alias is revision-opaque, local small models often fail the output
-contract, and two planned frontier providers are missing.  Results therefore
+The remote weights are revision-opaque despite a runtime-reported family label,
+local small models often fail the output contract, and two planned frontier
+providers are missing.  Results therefore
 apply to the frozen deployment and benchmark, not ``LLMs'' in general.
 
 \textbf{Adversarial validity.}  Passive prompt injection tests one mechanism;
@@ -884,7 +981,7 @@ $\checkmark$ & $\checkmark$ & $\checkmark$ \\
 
 \textbf{Forensic and SOC LLMs.}  Digital-forensics research warns that fluent
 LLM outputs can be inaccurate, non-deterministic, and hard to admit as evidence
-without validation~\cite{scanlon2023chatgpt,wickramasekara2026capabilities}.
+without validation~\cite{scanlon2023chatgpt,chernyshev2026capabilities}.
 GenDFIR combines rule-selected artifacts with retrieval-augmented timeline
 reasoning~\cite{loumachi2025gendfir}; DFIR-Metric broadens knowledge and tool
 evaluation~\cite{cherif2025dfirmetric}; cloud-specific work reconstructs
@@ -907,11 +1004,27 @@ review policy improves exposure without winning by refusal.
 completeness~\cite{gao2023alce}; FActScore decomposes long responses into atomic
 facts~\cite{min2023factscore}; RAGAS separates context relevance,
 faithfulness, and answer quality~\cite{es2024ragas}; and attributed QA studies
-whether answers are supported by sources~\cite{bohnet2022attributed}.  The
-closest conceptual work is FORCEBENCH, which holds evidence fixed while raising
-claim force~\cite{qian2026forcebench}.  We adapt evidence-force calibration to
+whether answers are supported by sources~\cite{bohnet2022attributed}.
+A 2026 survey of 134 papers and 300 metrics finds the evidence-based generation
+literature fragmented across citation, attribution, and quotation terminology
+and evaluation dimensions~\cite{schreieder2026survey}; we therefore name each
+surface and semantic property separately rather than reporting one grounding
+score.
+AttributionBench directly evaluates whether every generated claim is fully
+supported by its cited evidence and documents the difficulty of automatic
+attribution judgment~\cite{li2024attributionbench}.  RECV decomposes
+claim--evidence verification into deductive and abductive reasoning types, and
+finds persistent abductive failures~\cite{dougrezlewis2025recv}; citation
+masking and recovery provides a complementary human-validated attribution
+test~\cite{xing2025evidence}.  Automatic factuality evaluators can nevertheless
+disagree at the instance level and misestimate system error outside their
+calibration domains~\cite{godbole2025verify}; this motivates our mandatory
+expert validation and per-axis error report.  The closest conceptual work is FORCEBENCH,
+which holds evidence fixed while raising claim force
+~\cite{qian2026forcebench}.  We instead decompose the proposition into
 forensic actor, authorization, intent, causality, chronology, and decision
-claims, and couple it to downstream exposure and abstention.
+axes, then manipulate both evidence and untrusted alert context and measure
+downstream exposure under abstention.
 
 \textbf{Self-checking and abstention.}  SelfCheckGPT detects inconsistent
 generation without an external knowledge base~\cite{manakul2023selfcheckgpt};
@@ -941,9 +1054,10 @@ A real citation can support the topic of a forensic claim without supporting
 its actor, intent, causal relation, or strength.  \system operationalizes this
 gap with atomic claims, paired evidence mutations, an alert-blind verifier, and
 selective reporting.  On the frozen held-out deployment, citation validity is
-\AlertsCitationValidity\ while alert-conditioned generation still surfaces
-\AlertsUnsafeExposure\ unwarranted decisive claims per case.  Verification plus
-abstention changes exposure by \UnsafeDifference, but its attack-recall change
+\AlertsCitationValidity\ while, using \PrimaryWarrantBasis,
+alert-conditioned generation surfaces \PrimaryAlertsUnsafeExposure\ unwarranted
+decisive claims per case.  Verification plus abstention changes exposure by
+\PrimaryUnsafeDifference, but its attack-recall change
 of \RecallDifference\ does \NoninferiorResult\ satisfy the pre-specified
 non-inferiority margin.  The appropriate conclusion is not that citations make
 LLM forensics safe, nor that abstention alone solves overclaiming.  Safety must
@@ -975,19 +1089,21 @@ incident prevalence.
 \section*{Open Science}
 %-------------------------------------------------------------------------------
 
-The anonymous artifact will include the 480-record benchmark, generation
+The anonymous artifact will include the 480-case-variant benchmark, generation
 specification and seed, data card, checksums, frozen JSON schemas and prompts,
 deterministic baselines, raw model responses where provider terms permit,
 response hashes and provenance manifests, parsers, the mechanical evaluator,
 the blinded annotation package, analysis scripts, environment locks, tests,
-and commands that regenerate every table and figure.  Endpoint secrets,
-private URLs, workstation paths, and the administrative annotation key will not
-appear in the reviewer artifact.  The current repository records the full
-development history; an identity-scrubbed snapshot with a non-tracking URL will
-be frozen for submission.  Upon acceptance, a stable public archive and an
-explicit dataset license will replace the anonymous link.  Third-party models
-are referenced by immutable digest when available; the revision-opaque remote
-alias is disclosed rather than presented as reproducible weights.
+and commands that regenerate every table and figure.  The administrative
+annotation key is withheld from annotators while labels are collected and
+included in the reviewer artifact only after labels are frozen.  Endpoint
+secrets, private URLs, workstation paths, and annotator identities will not
+appear.  The current repository records the full development history; an
+identity-scrubbed snapshot with a non-tracking URL will be frozen for
+submission.  Upon acceptance, a stable public archive and an explicit dataset
+license will replace the anonymous link.  Third-party models are referenced by
+immutable digest when available; the remote family label and missing weight
+digest are both disclosed rather than presented as reproducible weights.
 
 \bibliographystyle{plain}
 \bibliography{references}

@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import random
+import reportlab
 from collections import defaultdict
 from pathlib import Path
 from statistics import mean
@@ -63,9 +64,9 @@ AXIS_ORDER = (
     "evidence_relation",
 )
 
-_FONT_ROOT = Path("/System/Library/Fonts/Supplemental")
-pdfmetrics.registerFont(TTFont("FigureSans", str(_FONT_ROOT / "Arial.ttf")))
-pdfmetrics.registerFont(TTFont("FigureSansBold", str(_FONT_ROOT / "Arial Bold.ttf")))
+_FONT_ROOT = Path(reportlab.__file__).resolve().parent / "fonts"
+pdfmetrics.registerFont(TTFont("FigureSans", str(_FONT_ROOT / "Vera.ttf")))
+pdfmetrics.registerFont(TTFont("FigureSansBold", str(_FONT_ROOT / "VeraBd.ttf")))
 
 
 def _sha256(path: Path) -> str:
@@ -357,6 +358,119 @@ def write_external_result_macros(run_dir: Path, output_path: Path) -> None:
     )
 
 
+def write_human_result_macros(analysis_path: Path, output_path: Path) -> None:
+    """Write macros from a checksum-bound, adjudicated human audit."""
+
+    analysis = _load_json(analysis_path)
+    inter = analysis["inter_rater"]["overall"]
+    mechanical = analysis["mechanical_validation"]["overall"]
+    flag = analysis["mechanical_validation"]["materially_unwarranted_flag"]
+    intervals = analysis["bootstrap"]["metrics"]
+    human_agreement_ci = intervals["inter_rater_overall_agreement"][
+        "confidence_interval"
+    ]
+    mechanical_agreement_ci = intervals["mechanical_overall_agreement"][
+        "confidence_interval"
+    ]
+    precision_ci = intervals["materially_unwarranted_precision"][
+        "confidence_interval"
+    ]
+    recall_ci = intervals["materially_unwarranted_recall"]["confidence_interval"]
+    primary = analysis["human_primary_endpoint"]
+    primary_reference = primary["condition_estimates"][
+        primary["reference_condition"]
+    ]
+    primary_intervention = primary["condition_estimates"][
+        primary["intervention_condition"]
+    ]
+    primary_contrast = primary["contrast_intervention_minus_reference"]
+    timing = analysis["annotation_timing"]
+    values = {
+        "HumanSampleClaims": str(analysis["sample"]["selected_claims"]),
+        "HumanPopulationClaims": str(analysis["sample"]["population_claims"]),
+        "HumanRawAgreement": _pct(inter["agreement"]),
+        "HumanWeightedAgreement": _pct(inter["design_weighted_agreement"]),
+        "HumanWeightedAgreementCILow": _pct(human_agreement_ci[0]),
+        "HumanWeightedAgreementCIHigh": _pct(human_agreement_ci[1]),
+        "HumanKappa": _number(inter["cohen_kappa"]),
+        "HumanWeightedKappa": _number(inter["design_weighted_cohen_kappa"]),
+        "HumanMaterialityWeightedAgreement": _pct(
+            analysis["inter_rater"]["materiality_decisive"][
+                "design_weighted_agreement"
+            ]
+        ),
+        "MechanicalHumanAgreement": _pct(mechanical["agreement"]),
+        "MechanicalHumanWeightedAgreement": _pct(
+            mechanical["design_weighted_agreement"]
+        ),
+        "MechanicalHumanWeightedAgreementCILow": _pct(
+            mechanical_agreement_ci[0]
+        ),
+        "MechanicalHumanWeightedAgreementCIHigh": _pct(
+            mechanical_agreement_ci[1]
+        ),
+        "MechanicalHumanKappa": _number(
+            mechanical["design_weighted_cohen_kappa"]
+        ),
+        "MechanicalMaterialityWeightedAgreement": _pct(
+            analysis["mechanical_validation"]["materiality_decisive"][
+                "design_weighted_agreement"
+            ]
+        ),
+        "MechanicalFlagPrecision": _pct(flag["design_weighted_precision"]),
+        "MechanicalFlagPrecisionCILow": _pct(precision_ci[0]),
+        "MechanicalFlagPrecisionCIHigh": _pct(precision_ci[1]),
+        "MechanicalFlagRecall": _pct(flag["design_weighted_recall"]),
+        "MechanicalFlagRecallCILow": _pct(recall_ci[0]),
+        "MechanicalFlagRecallCIHigh": _pct(recall_ci[1]),
+        "MechanicalFlagSpecificity": _pct(flag["design_weighted_specificity"]),
+        "MechanicalFlagFOne": _pct(flag["design_weighted_f1"]),
+        "HumanPrimaryJoinedClaims": str(
+            primary["selected_claims_joined_to_primary_conditions"]
+        ),
+        "HumanPrimaryAlertsUnsafeExposure": _number(
+            primary_reference[
+                "surfaced_unwarranted_decisive_claims_per_base_case"
+            ]
+        ),
+        "HumanPrimaryAbstainUnsafeExposure": _number(
+            primary_intervention[
+                "surfaced_unwarranted_decisive_claims_per_base_case"
+            ]
+        ),
+        "HumanPrimaryUnsafeDifference": _number(primary_contrast["estimate"]),
+        "HumanPrimaryUnsafeCILow": _number(
+            primary_contrast["confidence_interval"][0]
+        ),
+        "HumanPrimaryUnsafeCIHigh": _number(
+            primary_contrast["confidence_interval"][1]
+        ),
+        "AnnotatorOneMedianMinutes": _number(
+            timing["annotator_1"]["median_seconds_per_item"] / 60.0
+        ),
+        "AnnotatorTwoMedianMinutes": _number(
+            timing["annotator_2"]["median_seconds_per_item"] / 60.0
+        ),
+        "AdjudicatorMedianMinutes": _number(
+            timing["adjudicator"]["median_seconds_per_item"] / 60.0
+        ),
+        "AnnotationTotalHours": _number(sum(
+            timing[role]["total_hours"]
+            for role in ("annotator_1", "annotator_2", "adjudicator")
+        )),
+    }
+    provenance = (
+        "% Generated; do not edit by hand.\n"
+        f"% human_analysis_sha256={_sha256(analysis_path)}\n"
+        f"% source_records_sha256={analysis['source_sha256']['records']}\n"
+    )
+    output_path.write_text(
+        provenance
+        + "\n".join(_macro(name, value) for name, value in values.items())
+        + "\n"
+    )
+
+
 def _rounded_box(
     pdf: canvas.Canvas,
     x: float,
@@ -588,6 +702,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("--external-run-dir", type=Path)
+    parser.add_argument("--human-analysis", type=Path)
     parser.add_argument("--paper-dir", type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args()
     paper_dir = args.paper_dir.resolve()
@@ -603,6 +718,15 @@ def main() -> int:
             args.external_run_dir,
             paper_dir / "generated_external_results.tex",
         )
+    else:
+        (paper_dir / "generated_external_results.tex").unlink(missing_ok=True)
+    if args.human_analysis is not None:
+        write_human_result_macros(
+            args.human_analysis,
+            paper_dir / "generated_human_results.tex",
+        )
+    else:
+        (paper_dir / "generated_human_results.tex").unlink(missing_ok=True)
     print(paper_dir / "generated_results.tex")
     print(paper_dir / "generated_variant_rows.tex")
     print(paper_dir / "generated_axis_rows.tex")
@@ -610,6 +734,8 @@ def main() -> int:
     print(figures / "coverage-risk.pdf")
     if args.external_run_dir is not None:
         print(paper_dir / "generated_external_results.tex")
+    if args.human_analysis is not None:
+        print(paper_dir / "generated_human_results.tex")
     return 0
 
 
