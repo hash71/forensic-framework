@@ -17,12 +17,16 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 175 tests passed.
+- `python -m pytest -q`: 180 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
 - The one-command paper reproduction validated the 48-base-case,
   480-case-variant benchmark, reanalyzed 5,400 synthetic and 360 external
   records, reran both 10,000-resample statistical analyses, regenerated all
   tables and figures, and compiled the manuscript.
+- The 12-case historical development manifest predates its benchmark-path
+  field. Its records, cardinality, unique keys, case-ID digest, and release hash
+  are verified; the confidence audit discloses that its stored benchmark digest
+  cannot be rechecked against benchmark bytes in the release.
 - Both generated figure PDFs are byte-reproducible; their builders use
   invariant metadata and a regression test compares independent outputs.
 - The anonymous archive is separately rebuilt and tested from a fresh virtual
@@ -40,6 +44,11 @@ human-label integration or substantive manuscript change.
   calibrated confidence policy. The paper now enumerates its 0.65 generator-
   confidence threshold and every rule-based rejection trigger; verifier
   confidence is recorded but unused. H5 remains not confirmatorily testable.
+- A checksum-bound post-hoc audit verifies that the 0.65 confidence component
+  rejected zero valid development outputs and zero of 1,044 valid held-out
+  outputs. It reports Brier score and fixed-bin ECE against verdict, exact
+  verdict-plus-suspect, and mechanical claim-safety targets, but fits no
+  calibrator and selects no replacement threshold from test outcomes.
 - The 32-cluster CERT transfer analysis is explicitly separate and uses latent
   scenario labels only for operational stress testing, not as visible-evidence
   warrant ground truth.
@@ -71,7 +80,7 @@ human-label integration or substantive manuscript change.
 
 ### Format and anonymity
 
-- The PDF is U.S. Letter, two-column, 13 pages total, and the main body ends on
+- The PDF is U.S. Letter, two-column, 14 pages total, and the main body ends on
   page 11, below the 13-page body limit.
 - Ethical Considerations and Open Science are explicit appendices A and B,
   placed after the main body and before the references.

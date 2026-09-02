@@ -112,6 +112,69 @@ def test_human_macro_export_is_bound_to_analysis_hash(tmp_path: Path) -> None:
     assert r"\newcommand{\AnnotationTotalHours}{40.000}" in text
 
 
+def test_confidence_macros_preserve_no_tuning_boundary(tmp_path: Path) -> None:
+    generator = _load_generator()
+    row_090 = {
+        "threshold": 0.90,
+        "operational_coverage": 0.80,
+        "verdict_selective_risk": 0.10,
+        "exact_selective_risk": 0.40,
+        "mechanically_unsafe_record_rate": 0.30,
+    }
+    row_095 = {
+        "threshold": 0.95,
+        "operational_coverage": 0.20,
+        "verdict_selective_risk": 0.05,
+        "exact_selective_risk": 0.35,
+        "mechanically_unsafe_record_rate": 0.25,
+    }
+    target = {
+        "positive_outcome_rate": 0.75,
+        "brier_score": 0.20,
+        "ece_10_equal_width": 0.10,
+    }
+    audit = {
+        "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+        "source_sha256": {
+            "development_records": "d" * 64,
+            "test_records": "t" * 64,
+        },
+        "calibrator_fit_decision": {
+            "status": "not_fit",
+            "threshold_selected": None,
+        },
+        "development": {
+            "valid_output_n": 12,
+            "distinct_confidence_values": 4,
+            "singleton_confidence_values": 3,
+            "frozen_threshold_rule": {"threshold": 0.65, "rejected_valid_n": 0},
+        },
+        "test": {
+            "valid_output_n": 1044,
+            "operational_failure_n": 36,
+            "mean_confidence": 0.90,
+            "frozen_threshold_rule": {"rejected_valid_n": 0},
+            "calibration": {
+                "verdict_correct": target,
+                "exact_correct": target,
+                "mechanically_zero_unsafe_claims": target,
+            },
+            "risk_coverage": [row_090, row_095],
+        },
+    }
+    source = tmp_path / "confidence_audit.json"
+    output = tmp_path / "confidence_results.tex"
+    source.write_text(json.dumps(audit))
+
+    generator.write_confidence_result_macros(source, output)
+
+    text = output.read_text()
+    assert "confidence_audit_sha256=" in text
+    assert r"\newcommand{\ConfidenceTestOutputs}{1,044}" in text
+    assert r"\newcommand{\ConfidenceTestExactECE}{10.0\%}" in text
+    assert r"\newcommand{\ConfidenceNinetyCoverage}{80.0\%}" in text
+
+
 def test_generated_table_inputs_own_their_terminal_booktabs_rule(
     tmp_path: Path,
 ) -> None:

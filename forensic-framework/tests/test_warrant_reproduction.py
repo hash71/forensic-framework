@@ -49,6 +49,37 @@ def test_verify_complete_run_checks_cardinality_and_benchmark(
 
     assert verified["record_count"] == 2
     assert verified["git_commit"] == "abc123"
+    assert verified["benchmark_sha256_verification"] == "packaged_file_hash_verified"
+
+
+def test_historical_development_run_requires_explicit_manifest_only_mode(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setattr(reproduction, "PROJECT_ROOT", tmp_path)
+    run_dir = _write_complete_run(tmp_path)
+    manifest_path = run_dir / "manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    manifest.pop("benchmark_path")
+    case_ids = sorted({
+        json.loads(line)["case_id"]
+        for line in (run_dir / "records.jsonl").read_text().splitlines()
+    })
+    manifest["case_ids_sha256"] = hashlib.sha256(
+        "\n".join(case_ids).encode()
+    ).hexdigest()
+    manifest_path.write_text(json.dumps(manifest))
+
+    with pytest.raises(ValueError, match="lacks benchmark_path"):
+        reproduction.verify_complete_run(run_dir)
+
+    verified = reproduction.verify_complete_run(
+        run_dir,
+        allow_manifest_only_benchmark=True,
+    )
+    assert (
+        verified["benchmark_sha256_verification"]
+        == "manifest_only_historical_source_not_packaged"
+    )
 
 
 def test_verify_complete_run_rejects_duplicate_record_keys(

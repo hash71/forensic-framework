@@ -12,6 +12,18 @@ from typing import Any
 from app.ingestion.warrant_benchmark import PROJECT_ROOT
 
 RESULTS_SCHEMA_VERSION = "warrant-results-v1.1"
+CONFIDENCE_AUDIT_SCHEMA_VERSION = "warrant-confidence-audit-v1.0"
+CONFIDENCE_AUDIT_THRESHOLDS = (
+    0.0,
+    0.65,
+    0.70,
+    0.75,
+    0.80,
+    0.85,
+    0.90,
+    0.95,
+    1.0,
+)
 
 
 def load_run_records(path: Path) -> list[dict[str, Any]]:
@@ -53,6 +65,305 @@ def _claim_counts(record: dict[str, Any]) -> tuple[int, int]:
         for assessment in warrant["assessments"]
     )
     return decisive, unwarranted
+
+
+def _generator_confidence(record: dict[str, Any]) -> float:
+    parsed = ((record.get("generator") or {}).get("parsed_output") or {})
+    value = parsed.get("overall_confidence")
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError(
+            "valid alert-visible output lacks numeric generator overall_confidence: "
+            f"{record.get('case_id')} repetition {record.get('repetition')}"
+        )
+    confidence = float(value)
+    if not 0.0 <= confidence <= 1.0:
+        raise ValueError(
+            f"generator overall_confidence outside [0, 1]: {confidence}"
+        )
+    return confidence
+
+
+def _calibration_summary(
+    confidences: list[float],
+    outcomes: list[float],
+) -> dict[str, Any]:
+    """Return fixed-bin descriptive calibration metrics.
+
+    Outputs may be correlated within base case, so these values are diagnostics,
+    not inferential estimates.  Fixed-width bins avoid outcome-aware binning.
+    """
+
+    if len(confidences) != len(outcomes) or not confidences:
+        raise ValueError("calibration inputs must be non-empty and equal length")
+    bins: list[dict[str, Any]] = []
+    weighted_error = 0.0
+    maximum_error = 0.0
+    for index in range(10):
+        members = [
+            position
+            for position, confidence in enumerate(confidences)
+            if min(int(confidence * 10), 9) == index
+        ]
+        if not members:
+            continue
+        mean_confidence = statistics.mean(
+            confidences[position] for position in members
+        )
+        outcome_rate = statistics.mean(outcomes[position] for position in members)
+        absolute_gap = abs(mean_confidence - outcome_rate)
+        weighted_error += len(members) / len(confidences) * absolute_gap
+        maximum_error = max(maximum_error, absolute_gap)
+        bins.append({
+            "lower": index / 10,
+            "upper": (index + 1) / 10,
+            "upper_inclusive": index == 9,
+            "n": len(members),
+            "mean_confidence": mean_confidence,
+            "outcome_rate": outcome_rate,
+            "absolute_gap": absolute_gap,
+        })
+    mean_confidence = statistics.mean(confidences)
+    outcome_rate = statistics.mean(outcomes)
+    return {
+        "n": len(confidences),
+        "mean_reported_confidence": mean_confidence,
+        "positive_outcome_rate": outcome_rate,
+        "mean_confidence_minus_outcome_rate": mean_confidence - outcome_rate,
+        "brier_score": statistics.mean(
+            (confidence - outcome) ** 2
+            for confidence, outcome in zip(confidences, outcomes)
+        ),
+        "ece_10_equal_width": weighted_error,
+        "maximum_calibration_error": maximum_error,
+        "nonempty_bin_count": len(bins),
+        "bins": bins,
+    }
+
+
+def confidence_diagnostics(
+    records: list[dict[str, Any]],
+    *,
+    condition: str = "llm_events_plus_alerts",
+    policy_threshold: float = 0.65,
+) -> dict[str, Any]:
+    """Audit generator confidence without selecting a threshold.
+
+    The policy consumes generator confidence from the shared alert-visible
+    generation.  Invalid generations remain in the operational denominator but
+    cannot contribute a confidence value.
+    """
+
+    selected = [
+        record for record in records if record.get("condition") == condition
+    ]
+    if not selected:
+        raise ValueError(f"run has no records for confidence condition {condition}")
+    valid = [
+        record
+        for record in selected
+        if str(record.get("operational_status", "")).startswith("valid")
+    ]
+    if not valid:
+        raise ValueError(f"condition {condition} has no valid outputs")
+    confidences = [_generator_confidence(record) for record in valid]
+    verdict_outcomes = [float(bool(record.get("verdict_correct"))) for record in valid]
+    exact_outcomes = [float(bool(record.get("exact_correct"))) for record in valid]
+    unsafe_counts = [_claim_counts(record)[1] for record in valid]
+    if any(record.get("mechanical_warrant") is None for record in valid):
+        raise ValueError("valid confidence-audit record lacks mechanical warrant data")
+    mechanically_safe = [float(count == 0) for count in unsafe_counts]
+
+    frequency: dict[float, int] = defaultdict(int)
+    for confidence in confidences:
+        frequency[confidence] += 1
+
+    risk_coverage = []
+    for threshold in CONFIDENCE_AUDIT_THRESHOLDS:
+        accepted_positions = [
+            index
+            for index, confidence in enumerate(confidences)
+            if confidence >= threshold
+        ]
+        accepted_n = len(accepted_positions)
+        risk_coverage.append({
+            "threshold": threshold,
+            "selected_valid_n": accepted_n,
+            "rejected_valid_n": len(valid) - accepted_n,
+            "valid_output_coverage": _safe_rate(accepted_n, len(valid)),
+            "operational_coverage": _safe_rate(accepted_n, len(selected)),
+            "verdict_selective_risk": (
+                1.0
+                - statistics.mean(verdict_outcomes[index] for index in accepted_positions)
+                if accepted_positions
+                else None
+            ),
+            "exact_selective_risk": (
+                1.0
+                - statistics.mean(exact_outcomes[index] for index in accepted_positions)
+                if accepted_positions
+                else None
+            ),
+            "mechanically_unsafe_record_rate": (
+                1.0
+                - statistics.mean(mechanically_safe[index] for index in accepted_positions)
+                if accepted_positions
+                else None
+            ),
+            "mean_unwarranted_decisive_claims": (
+                statistics.mean(unsafe_counts[index] for index in accepted_positions)
+                if accepted_positions
+                else None
+            ),
+        })
+
+    rejected_by_policy = sum(
+        confidence < policy_threshold for confidence in confidences
+    )
+    return {
+        "condition": condition,
+        "record_n": len(selected),
+        "valid_output_n": len(valid),
+        "operational_failure_n": len(selected) - len(valid),
+        "base_case_n": len({record["base_case_id"] for record in selected}),
+        "confidence_source": "generator.parsed_output.overall_confidence",
+        "confidence_target_semantics": (
+            "The frozen schema bounds an overall score to [0,1] but does not "
+            "define whether it predicts verdict correctness, exact verdict-plus-"
+            "suspect correctness, or claim-level warrant."
+        ),
+        "minimum_confidence": min(confidences),
+        "maximum_confidence": max(confidences),
+        "mean_confidence": statistics.mean(confidences),
+        "distinct_confidence_values": len(frequency),
+        "singleton_confidence_values": sum(
+            count == 1 for count in frequency.values()
+        ),
+        "confidence_frequency": [
+            {"confidence": confidence, "n": count}
+            for confidence, count in sorted(frequency.items())
+        ],
+        "frozen_threshold_rule": {
+            "threshold": policy_threshold,
+            "comparison": "reject when confidence < threshold",
+            "rejected_valid_n": rejected_by_policy,
+            "rejected_valid_rate": _safe_rate(rejected_by_policy, len(valid)),
+            "status": (
+                "inert_on_valid_outputs"
+                if rejected_by_policy == 0
+                else "active_on_valid_outputs"
+            ),
+        },
+        "calibration": {
+            "verdict_correct": {
+                "positive_outcome_definition": "three-way verdict is correct",
+                **_calibration_summary(confidences, verdict_outcomes),
+            },
+            "exact_correct": {
+                "positive_outcome_definition": (
+                    "both verdict and required suspect attribution are correct"
+                ),
+                **_calibration_summary(confidences, exact_outcomes),
+            },
+            "mechanically_zero_unsafe_claims": {
+                "positive_outcome_definition": (
+                    "record contains zero mechanically unwarranted decisive claims"
+                ),
+                **_calibration_summary(confidences, mechanically_safe),
+            },
+        },
+        "risk_coverage": risk_coverage,
+        "interpretation_boundary": (
+            "Per-output calibration and threshold rows are retrospective, "
+            "descriptive diagnostics. Variants and repetitions are nested within "
+            "base cases and are not treated as independent inferential units."
+        ),
+    }
+
+
+def build_confidence_audit(
+    development_records: list[dict[str, Any]],
+    test_records: list[dict[str, Any]],
+    *,
+    development_records_sha256: str,
+    test_records_sha256: str,
+    condition: str = "llm_events_plus_alerts",
+    policy_threshold: float = 0.65,
+) -> dict[str, Any]:
+    """Build a deterministic, source-bound confidence-policy audit."""
+
+    if not 0.0 <= policy_threshold <= 1.0:
+        raise ValueError("policy threshold must be in [0, 1]")
+    development_splits = {record.get("split") for record in development_records}
+    test_splits = {record.get("split") for record in test_records}
+    if development_splits != {"development"}:
+        raise ValueError(f"expected development-only records, found {development_splits}")
+    if test_splits != {"test"}:
+        raise ValueError(f"expected test-only records, found {test_splits}")
+    development_ids = {record["base_case_id"] for record in development_records}
+    test_ids = {record["base_case_id"] for record in test_records}
+    overlap = sorted(development_ids & test_ids)
+    if overlap:
+        raise ValueError(f"development/test base-case overlap: {overlap[:5]}")
+    development_run_ids = {record["run_id"] for record in development_records}
+    test_run_ids = {record["run_id"] for record in test_records}
+    if len(development_run_ids) != 1 or len(test_run_ids) != 1:
+        raise ValueError("confidence audit requires exactly one development and one test run")
+
+    development = confidence_diagnostics(
+        development_records,
+        condition=condition,
+        policy_threshold=policy_threshold,
+    )
+    test = confidence_diagnostics(
+        test_records,
+        condition=condition,
+        policy_threshold=policy_threshold,
+    )
+    return {
+        "confidence_audit_schema_version": CONFIDENCE_AUDIT_SCHEMA_VERSION,
+        "analysis_role": "post-hoc calibration and abstention diagnostic",
+        "source_sha256": {
+            "development_records": development_records_sha256,
+            "test_records": test_records_sha256,
+        },
+        "source_run_ids": {
+            "development": sorted(development_run_ids),
+            "test": sorted(test_run_ids),
+        },
+        "split_integrity": {
+            "development_base_case_n": len(development_ids),
+            "test_base_case_n": len(test_ids),
+            "overlap_n": 0,
+        },
+        "development": development,
+        "test": test,
+        "calibrator_fit_decision": {
+            "status": "not_fit",
+            "threshold_selected": None,
+            "reasons": [
+                (
+                    f"The development partition has only {development['base_case_n']} "
+                    "independent base cases."
+                ),
+                (
+                    "Development confidence has only "
+                    f"{development['distinct_confidence_values']} distinct values, "
+                    f"including {development['singleton_confidence_values']} "
+                    "singleton levels."
+                ),
+                (
+                    f"The frozen {policy_threshold:.2f} confidence gate rejected "
+                    f"{development['frozen_threshold_rule']['rejected_valid_n']} valid "
+                    "development outputs, so its local rejection behavior is unobserved."
+                ),
+                "The frozen prompt and schema do not define the score's prediction target.",
+            ],
+        },
+        "held_out_use_boundary": (
+            "Test labels were used only for this retrospective diagnostic. No "
+            "calibrator or replacement threshold was selected, and H5 remains untested."
+        ),
+    }
 
 
 def _causal_error(record: dict[str, Any]) -> bool:

@@ -4,6 +4,30 @@ This log is append-only. It records changes made after the v2 protocol was
 frozen and distinguishes benchmark quality assurance from confirmatory model
 inference.
 
+## 2026-09-03 — Retrospective confidence-policy audit
+
+**Stage:** all development and corrected held-out model outputs and aggregate
+outcomes existed and had been inspected.
+
+**Gap:** the frozen 0.65 generator-confidence threshold was described, but the
+release did not quantify whether it ever rejected a valid output or whether
+the underspecified `overall_confidence` score tracked verdict correctness,
+exact attribution, or claim safety. The 12-case development partition was too
+small and sparse to support a defensible fitted calibrator.
+
+**Correction:** a deterministic audit now hashes both source record files,
+checks disjoint base-case IDs, keeps operational failures in coverage, and
+reports Brier score, fixed-width ten-bin ECE, and an explicit threshold grid
+against three separately named targets. The development decision is
+`not_fit`; no replacement threshold is selected. Held-out threshold rows are
+marked retrospective and descriptive, with variants and repetitions remaining
+nested inside 36 base cases.
+
+**Impact:** the audit changes no prompt, output, policy decision, primary
+estimand, confirmatory result, or H5 status. It exposes that the confidence gate
+rejected zero valid development and held-out outputs and prevents those test
+labels from being repurposed for favorable threshold tuning.
+
 ## 2026-09-02 — Human-labeled primary-estimator implementation
 
 **Stage:** corrected held-out inference in progress; no expert labels existed.

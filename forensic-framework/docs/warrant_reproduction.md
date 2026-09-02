@@ -20,6 +20,7 @@ From `forensic-framework/`, run:
 ```bash
 .venv/bin/python reproduce_warrant_paper.py \
   data/warrant_runs/<complete-synthetic-run> \
+  --development-run-dir data/warrant_runs/<complete-development-run> \
   --external-run-dir data/warrant_runs/<complete-external-run>
 ```
 
@@ -29,6 +30,18 @@ checksum against its manifest, regenerates `analysis.json` and
 vector figures, and compiles `conference_paper/build/paper.pdf`. When supplied,
 the adjudicated human analysis must be checksum-bound to the same synthetic
 records file or the rebuild stops.
+
+When `--development-run-dir` is supplied, the command also regenerates the
+checksum-bound `confidence_audit.json`. It verifies a base-case-disjoint split,
+reports the frozen confidence gate's actual rejection behavior and descriptive
+calibration diagnostics, and records that no calibrator or replacement
+threshold was fitted from the sparse development set or selected on test data.
+The historical development manifest predates the `benchmark_path` field. For
+that run only, reproduction verifies record cardinality, unique keys, the
+case-ID digest, release-record digest, and stored benchmark digest, and reports
+that the old benchmark bytes are not packaged. The confidence audit consumes
+only the checksum-bound output records; test and external runs still require
+and hash their packaged benchmark files.
 
 For a reviewer artifact that deliberately omits every raw model transcript,
 add `--allow-omitted-raw`. This mode is all-or-none: a partial raw-response set

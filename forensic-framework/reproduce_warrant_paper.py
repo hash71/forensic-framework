@@ -38,7 +38,11 @@ def ensure_paper_build_dir() -> Path:
     return build_dir
 
 
-def verify_complete_run(run_dir: Path) -> dict:
+def verify_complete_run(
+    run_dir: Path,
+    *,
+    allow_manifest_only_benchmark: bool = False,
+) -> dict:
     """Reject incomplete, duplicated, or benchmark-mismatched frozen runs."""
 
     manifest_path = run_dir / "manifest.json"
@@ -61,15 +65,36 @@ def verify_complete_run(run_dir: Path) -> dict:
             f"{run_dir}: expected {expected} unique records, found "
             f"{len(records)} records and {len(keys)} unique keys"
         )
-    benchmark_path = PROJECT_ROOT / manifest["benchmark_path"]
-    if not benchmark_path.exists():
-        raise FileNotFoundError(f"manifest benchmark missing: {benchmark_path}")
-    actual_benchmark = _sha256(benchmark_path)
-    if actual_benchmark != manifest["benchmark_sha256"]:
+    case_ids = sorted({record["case_id"] for record in records})
+    actual_case_ids_sha256 = hashlib.sha256("\n".join(case_ids).encode()).hexdigest()
+    expected_case_ids_sha256 = manifest.get("case_ids_sha256")
+    if (
+        expected_case_ids_sha256 is not None
+        and actual_case_ids_sha256 != expected_case_ids_sha256
+    ):
         raise ValueError(
-            f"benchmark hash mismatch: {actual_benchmark} != "
-            f"{manifest['benchmark_sha256']}"
+            f"case-ID hash mismatch: {actual_case_ids_sha256} != "
+            f"{expected_case_ids_sha256}"
         )
+    benchmark_value = manifest.get("benchmark_sha256")
+    benchmark_relative = manifest.get("benchmark_path")
+    if benchmark_relative is None:
+        if not allow_manifest_only_benchmark:
+            raise ValueError(f"{run_dir}: manifest lacks benchmark_path")
+        if not isinstance(benchmark_value, str) or len(benchmark_value) != 64:
+            raise ValueError(f"{run_dir}: invalid manifest-only benchmark hash")
+        actual_benchmark = benchmark_value
+        benchmark_verification = "manifest_only_historical_source_not_packaged"
+    else:
+        benchmark_path = PROJECT_ROOT / benchmark_relative
+        if not benchmark_path.exists():
+            raise FileNotFoundError(f"manifest benchmark missing: {benchmark_path}")
+        actual_benchmark = _sha256(benchmark_path)
+        if actual_benchmark != benchmark_value:
+            raise ValueError(
+                f"benchmark hash mismatch: {actual_benchmark} != {benchmark_value}"
+            )
+        benchmark_verification = "packaged_file_hash_verified"
     run_ids = {record["run_id"] for record in records}
     if run_ids != {manifest["run_id"]}:
         raise ValueError(f"run-id mismatch: records={run_ids}, manifest={manifest['run_id']}")
@@ -93,6 +118,8 @@ def verify_complete_run(run_dir: Path) -> dict:
         "records_sha256": records_sha256,
         "release_records_sha256_verified": release_verified,
         "benchmark_sha256": actual_benchmark,
+        "benchmark_sha256_verification": benchmark_verification,
+        "case_ids_sha256": actual_case_ids_sha256,
         "git_commit": manifest.get("git_commit"),
     }
 
@@ -100,6 +127,14 @@ def verify_complete_run(run_dir: Path) -> dict:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", type=Path, help="complete synthetic warrant run")
+    parser.add_argument(
+        "--development-run-dir",
+        type=Path,
+        help=(
+            "disjoint development run used only to audit whether confidence "
+            "calibration was supportable"
+        ),
+    )
     parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--human-analysis", type=Path)
     parser.add_argument("--simulated-analysis", type=Path)
@@ -117,12 +152,20 @@ def main() -> int:
     args = parser.parse_args()
 
     run_dir = args.run_dir.resolve()
+    development_dir = (
+        args.development_run_dir.resolve() if args.development_run_dir else None
+    )
     external_dir = args.external_run_dir.resolve() if args.external_run_dir else None
     human_analysis = args.human_analysis.resolve() if args.human_analysis else None
     simulated_analysis = (
         args.simulated_analysis.resolve() if args.simulated_analysis else None
     )
     verified = {"synthetic": verify_complete_run(run_dir)}
+    if development_dir is not None:
+        verified["development"] = verify_complete_run(
+            development_dir,
+            allow_manifest_only_benchmark=True,
+        )
     if external_dir is not None:
         verified["external"] = verify_complete_run(external_dir)
     if human_analysis is not None:
@@ -162,6 +205,20 @@ def main() -> int:
             cwd=PROJECT_ROOT,
         )
 
+    confidence_audit = None
+    if development_dir is not None:
+        confidence_audit = run_dir / "confidence_audit.json"
+        _run(
+            sys.executable,
+            "run_warrant_confidence_audit.py",
+            str(development_dir),
+            str(run_dir),
+            "--output",
+            str(confidence_audit),
+            cwd=PROJECT_ROOT,
+        )
+        verified["confidence_audit_sha256"] = _sha256(confidence_audit)
+
     paper_args = [
         sys.executable,
         str(PAPER_DIR / "generate_paper_artifacts.py"),
@@ -169,6 +226,8 @@ def main() -> int:
     ]
     if external_dir is not None:
         paper_args.extend(("--external-run-dir", str(external_dir)))
+    if confidence_audit is not None:
+        paper_args.extend(("--confidence-audit", str(confidence_audit)))
     if human_analysis is not None:
         paper_args.extend(("--human-analysis", str(human_analysis)))
     if simulated_analysis is not None:

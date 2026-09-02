@@ -10,7 +10,12 @@ from pathlib import Path
 import httpx
 import pytest
 
-from app.evaluation.warrant_results import summarize_run, verify_artifacts
+from app.evaluation.warrant_results import (
+    build_confidence_audit,
+    confidence_diagnostics,
+    summarize_run,
+    verify_artifacts,
+)
 from app.llm.warrant_client import (
     ChatCompletionResult,
     WarrantLLMClient,
@@ -504,3 +509,131 @@ def test_resume_keys_include_case_condition_and_repetition(tmp_path: Path):
         "c1|llm_events_only|0",
         "c1|llm_events_only|1",
     }
+
+
+def _confidence_record(
+    *,
+    split: str,
+    base_case_id: str,
+    confidence: float,
+    verdict_correct: bool,
+    exact_correct: bool,
+    unsafe_claims: int = 0,
+) -> dict:
+    assessments = [
+        {
+            "decisive": True,
+            "overall_label": "INSUFFICIENT",
+            "axes": [],
+        }
+        for _ in range(unsafe_claims)
+    ]
+    return {
+        "run_id": f"{split}-run",
+        "case_id": f"{base_case_id}__canonical",
+        "base_case_id": base_case_id,
+        "condition": "llm_events_plus_alerts",
+        "repetition": 0,
+        "split": split,
+        "operational_status": "valid",
+        "verdict_correct": verdict_correct,
+        "exact_correct": exact_correct,
+        "generator": {"parsed_output": {"overall_confidence": confidence}},
+        "mechanical_warrant": {
+            "decisive_claims": unsafe_claims,
+            "assessments": assessments,
+        },
+    }
+
+
+def test_confidence_diagnostics_keeps_failures_in_operational_coverage() -> None:
+    records = [
+        _confidence_record(
+            split="test",
+            base_case_id="t1",
+            confidence=0.90,
+            verdict_correct=True,
+            exact_correct=True,
+        ),
+        _confidence_record(
+            split="test",
+            base_case_id="t2",
+            confidence=0.80,
+            verdict_correct=False,
+            exact_correct=False,
+            unsafe_claims=1,
+        ),
+        {
+            **_confidence_record(
+                split="test",
+                base_case_id="t3",
+                confidence=0.70,
+                verdict_correct=False,
+                exact_correct=False,
+            ),
+            "operational_status": "generator_failure",
+            "generator": None,
+            "mechanical_warrant": None,
+        },
+    ]
+
+    audit = confidence_diagnostics(records, policy_threshold=0.65)
+    threshold = next(
+        row for row in audit["risk_coverage"] if row["threshold"] == 0.65
+    )
+
+    assert audit["valid_output_n"] == 2
+    assert audit["frozen_threshold_rule"]["status"] == "inert_on_valid_outputs"
+    assert threshold["valid_output_coverage"] == 1.0
+    assert threshold["operational_coverage"] == pytest.approx(2 / 3)
+    assert threshold["verdict_selective_risk"] == 0.5
+    assert audit["calibration"]["verdict_correct"]["brier_score"] == pytest.approx(
+        ((0.90 - 1.0) ** 2 + (0.80 - 0.0) ** 2) / 2
+    )
+    assert (
+        audit["calibration"]["mechanically_zero_unsafe_claims"]
+        ["positive_outcome_rate"]
+        == 0.5
+    )
+
+
+def test_confidence_audit_refuses_test_tuning_and_checks_split_overlap() -> None:
+    development = [
+        _confidence_record(
+            split="development",
+            base_case_id="d1",
+            confidence=0.90,
+            verdict_correct=True,
+            exact_correct=False,
+        )
+    ]
+    test = [
+        _confidence_record(
+            split="test",
+            base_case_id="t1",
+            confidence=0.95,
+            verdict_correct=True,
+            exact_correct=True,
+        )
+    ]
+
+    audit = build_confidence_audit(
+        development,
+        test,
+        development_records_sha256="d" * 64,
+        test_records_sha256="e" * 64,
+    )
+
+    assert audit["calibrator_fit_decision"]["status"] == "not_fit"
+    assert audit["calibrator_fit_decision"]["threshold_selected"] is None
+    assert "No calibrator or replacement threshold" in audit["held_out_use_boundary"]
+    assert audit["split_integrity"]["overlap_n"] == 0
+
+    overlapping = [{**test[0], "base_case_id": "d1"}]
+    with pytest.raises(ValueError, match="base-case overlap"):
+        build_confidence_audit(
+            development,
+            overlapping,
+            development_records_sha256="d" * 64,
+            test_records_sha256="e" * 64,
+        )

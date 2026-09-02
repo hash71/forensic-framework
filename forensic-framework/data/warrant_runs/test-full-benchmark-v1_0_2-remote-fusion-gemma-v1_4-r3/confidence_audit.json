@@ -1,0 +1,539 @@
+{
+  "analysis_role": "post-hoc calibration and abstention diagnostic",
+  "calibrator_fit_decision": {
+    "reasons": [
+      "The development partition has only 12 independent base cases.",
+      "Development confidence has only 4 distinct values, including 3 singleton levels.",
+      "The frozen 0.65 confidence gate rejected 0 valid development outputs, so its local rejection behavior is unobserved.",
+      "The frozen prompt and schema do not define the score's prediction target."
+    ],
+    "status": "not_fit",
+    "threshold_selected": null
+  },
+  "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+  "development": {
+    "base_case_n": 12,
+    "calibration": {
+      "exact_correct": {
+        "bins": [
+          {
+            "absolute_gap": 0.85,
+            "lower": 0.8,
+            "mean_confidence": 0.85,
+            "n": 1,
+            "outcome_rate": 0.0,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.3681818181818183,
+            "lower": 0.9,
+            "mean_confidence": 0.9136363636363637,
+            "n": 11,
+            "outcome_rate": 0.5454545454545454,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.40125,
+        "ece_10_equal_width": 0.40833333333333344,
+        "maximum_calibration_error": 0.85,
+        "mean_confidence_minus_outcome_rate": 0.4083333333333333,
+        "mean_reported_confidence": 0.9083333333333333,
+        "n": 12,
+        "nonempty_bin_count": 2,
+        "positive_outcome_definition": "both verdict and required suspect attribution are correct",
+        "positive_outcome_rate": 0.5
+      },
+      "mechanically_zero_unsafe_claims": {
+        "bins": [
+          {
+            "absolute_gap": 0.15000000000000002,
+            "lower": 0.8,
+            "mean_confidence": 0.85,
+            "n": 1,
+            "outcome_rate": 1.0,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.27727272727272734,
+            "lower": 0.9,
+            "mean_confidence": 0.9136363636363637,
+            "n": 11,
+            "outcome_rate": 0.6363636363636364,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.28458333333333335,
+        "ece_10_equal_width": 0.2666666666666667,
+        "maximum_calibration_error": 0.27727272727272734,
+        "mean_confidence_minus_outcome_rate": 0.2416666666666667,
+        "mean_reported_confidence": 0.9083333333333333,
+        "n": 12,
+        "nonempty_bin_count": 2,
+        "positive_outcome_definition": "record contains zero mechanically unwarranted decisive claims",
+        "positive_outcome_rate": 0.6666666666666666
+      },
+      "verdict_correct": {
+        "bins": [
+          {
+            "absolute_gap": 0.85,
+            "lower": 0.8,
+            "mean_confidence": 0.85,
+            "n": 1,
+            "outcome_rate": 0.0,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.08636363636363631,
+            "lower": 0.9,
+            "mean_confidence": 0.9136363636363637,
+            "n": 11,
+            "outcome_rate": 1.0,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.06791666666666665,
+        "ece_10_equal_width": 0.14999999999999994,
+        "maximum_calibration_error": 0.85,
+        "mean_confidence_minus_outcome_rate": -0.008333333333333304,
+        "mean_reported_confidence": 0.9083333333333333,
+        "n": 12,
+        "nonempty_bin_count": 2,
+        "positive_outcome_definition": "three-way verdict is correct",
+        "positive_outcome_rate": 0.9166666666666666
+      }
+    },
+    "condition": "llm_events_plus_alerts",
+    "confidence_frequency": [
+      {
+        "confidence": 0.85,
+        "n": 1
+      },
+      {
+        "confidence": 0.9,
+        "n": 9
+      },
+      {
+        "confidence": 0.95,
+        "n": 1
+      },
+      {
+        "confidence": 1.0,
+        "n": 1
+      }
+    ],
+    "confidence_source": "generator.parsed_output.overall_confidence",
+    "confidence_target_semantics": "The frozen schema bounds an overall score to [0,1] but does not define whether it predicts verdict correctness, exact verdict-plus-suspect correctness, or claim-level warrant.",
+    "distinct_confidence_values": 4,
+    "frozen_threshold_rule": {
+      "comparison": "reject when confidence < threshold",
+      "rejected_valid_n": 0,
+      "rejected_valid_rate": 0.0,
+      "status": "inert_on_valid_outputs",
+      "threshold": 0.65
+    },
+    "interpretation_boundary": "Per-output calibration and threshold rows are retrospective, descriptive diagnostics. Variants and repetitions are nested within base cases and are not treated as independent inferential units.",
+    "maximum_confidence": 1.0,
+    "mean_confidence": 0.9083333333333333,
+    "minimum_confidence": 0.85,
+    "operational_failure_n": 0,
+    "record_n": 12,
+    "risk_coverage": [
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.0,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.65,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.7,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.75,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.8,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.5,
+        "mean_unwarranted_decisive_claims": 0.6666666666666666,
+        "mechanically_unsafe_record_rate": 0.33333333333333337,
+        "operational_coverage": 1.0,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 12,
+        "threshold": 0.85,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.08333333333333337
+      },
+      {
+        "exact_selective_risk": 0.4545454545454546,
+        "mean_unwarranted_decisive_claims": 0.7272727272727273,
+        "mechanically_unsafe_record_rate": 0.36363636363636365,
+        "operational_coverage": 0.9166666666666666,
+        "rejected_valid_n": 1,
+        "selected_valid_n": 11,
+        "threshold": 0.9,
+        "valid_output_coverage": 0.9166666666666666,
+        "verdict_selective_risk": 0.0
+      },
+      {
+        "exact_selective_risk": 0.0,
+        "mean_unwarranted_decisive_claims": 1,
+        "mechanically_unsafe_record_rate": 0.5,
+        "operational_coverage": 0.16666666666666666,
+        "rejected_valid_n": 10,
+        "selected_valid_n": 2,
+        "threshold": 0.95,
+        "valid_output_coverage": 0.16666666666666666,
+        "verdict_selective_risk": 0.0
+      },
+      {
+        "exact_selective_risk": 0.0,
+        "mean_unwarranted_decisive_claims": 0,
+        "mechanically_unsafe_record_rate": 0.0,
+        "operational_coverage": 0.08333333333333333,
+        "rejected_valid_n": 11,
+        "selected_valid_n": 1,
+        "threshold": 1.0,
+        "valid_output_coverage": 0.08333333333333333,
+        "verdict_selective_risk": 0.0
+      }
+    ],
+    "singleton_confidence_values": 3,
+    "valid_output_n": 12
+  },
+  "held_out_use_boundary": "Test labels were used only for this retrospective diagnostic. No calibrator or replacement threshold was selected, and H5 remains untested.",
+  "source_run_ids": {
+    "development": [
+      "development-remote-fusion-gemma-v1_4"
+    ],
+    "test": [
+      "test-full-benchmark-v1_0_2-remote-fusion-gemma-v1_4-r3"
+    ]
+  },
+  "source_sha256": {
+    "development_records": "4fa0c4bac9de2100ef7c01f16eca2894dc593c96d5b7d036cfe48393e06aa511",
+    "test_records": "13dd19550baf66785b3d25418a83ec90c116f2a0306ffababe6fd529bad5039a"
+  },
+  "split_integrity": {
+    "development_base_case_n": 12,
+    "overlap_n": 0,
+    "test_base_case_n": 36
+  },
+  "test": {
+    "base_case_n": 36,
+    "calibration": {
+      "exact_correct": {
+        "bins": [
+          {
+            "absolute_gap": 0.7,
+            "lower": 0.7,
+            "mean_confidence": 0.7,
+            "n": 3,
+            "outcome_rate": 0.0,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.7876344086021506,
+            "lower": 0.8,
+            "mean_confidence": 0.8091397849462366,
+            "n": 186,
+            "outcome_rate": 0.021505376344086023,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.361578947368421,
+            "lower": 0.9,
+            "mean_confidence": 0.9171345029239766,
+            "n": 855,
+            "outcome_rate": 0.5555555555555556,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.42475814176245213,
+        "ece_10_equal_width": 0.4384578544061302,
+        "maximum_calibration_error": 0.7876344086021506,
+        "mean_confidence_minus_outcome_rate": 0.4384578544061303,
+        "mean_reported_confidence": 0.8972701149425287,
+        "n": 1044,
+        "nonempty_bin_count": 3,
+        "positive_outcome_definition": "both verdict and required suspect attribution are correct",
+        "positive_outcome_rate": 0.45881226053639845
+      },
+      "mechanically_zero_unsafe_claims": {
+        "bins": [
+          {
+            "absolute_gap": 0.30000000000000004,
+            "lower": 0.7,
+            "mean_confidence": 0.7,
+            "n": 3,
+            "outcome_rate": 1.0,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.239247311827957,
+            "lower": 0.8,
+            "mean_confidence": 0.8091397849462366,
+            "n": 186,
+            "outcome_rate": 0.5698924731182796,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.30076023391812867,
+            "lower": 0.9,
+            "mean_confidence": 0.9171345029239766,
+            "n": 855,
+            "outcome_rate": 0.6163742690058479,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.3215014367816092,
+        "ece_10_equal_width": 0.28979885057471266,
+        "maximum_calibration_error": 0.30076023391812867,
+        "mean_confidence_minus_outcome_rate": 0.2880747126436781,
+        "mean_reported_confidence": 0.8972701149425287,
+        "n": 1044,
+        "nonempty_bin_count": 3,
+        "positive_outcome_definition": "record contains zero mechanically unwarranted decisive claims",
+        "positive_outcome_rate": 0.6091954022988506
+      },
+      "verdict_correct": {
+        "bins": [
+          {
+            "absolute_gap": 0.033333333333333326,
+            "lower": 0.7,
+            "mean_confidence": 0.7,
+            "n": 3,
+            "outcome_rate": 0.6666666666666666,
+            "upper": 0.8,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.45430107526881724,
+            "lower": 0.8,
+            "mean_confidence": 0.8091397849462366,
+            "n": 186,
+            "outcome_rate": 0.3548387096774194,
+            "upper": 0.9,
+            "upper_inclusive": false
+          },
+          {
+            "absolute_gap": 0.024736842105263168,
+            "lower": 0.9,
+            "mean_confidence": 0.9171345029239766,
+            "n": 855,
+            "outcome_rate": 0.8923976608187134,
+            "upper": 1.0,
+            "upper_inclusive": true
+          }
+        ],
+        "brier_score": 0.1568462643678161,
+        "ece_10_equal_width": 0.10129310344827588,
+        "maximum_calibration_error": 0.45430107526881724,
+        "mean_confidence_minus_outcome_rate": 0.1012931034482758,
+        "mean_reported_confidence": 0.8972701149425287,
+        "n": 1044,
+        "nonempty_bin_count": 3,
+        "positive_outcome_definition": "three-way verdict is correct",
+        "positive_outcome_rate": 0.7959770114942529
+      }
+    },
+    "condition": "llm_events_plus_alerts",
+    "confidence_frequency": [
+      {
+        "confidence": 0.7,
+        "n": 3
+      },
+      {
+        "confidence": 0.8,
+        "n": 152
+      },
+      {
+        "confidence": 0.85,
+        "n": 34
+      },
+      {
+        "confidence": 0.9,
+        "n": 698
+      },
+      {
+        "confidence": 0.95,
+        "n": 21
+      },
+      {
+        "confidence": 1.0,
+        "n": 136
+      }
+    ],
+    "confidence_source": "generator.parsed_output.overall_confidence",
+    "confidence_target_semantics": "The frozen schema bounds an overall score to [0,1] but does not define whether it predicts verdict correctness, exact verdict-plus-suspect correctness, or claim-level warrant.",
+    "distinct_confidence_values": 6,
+    "frozen_threshold_rule": {
+      "comparison": "reject when confidence < threshold",
+      "rejected_valid_n": 0,
+      "rejected_valid_rate": 0.0,
+      "status": "inert_on_valid_outputs",
+      "threshold": 0.65
+    },
+    "interpretation_boundary": "Per-output calibration and threshold rows are retrospective, descriptive diagnostics. Variants and repetitions are nested within base cases and are not treated as independent inferential units.",
+    "maximum_confidence": 1.0,
+    "mean_confidence": 0.8972701149425287,
+    "minimum_confidence": 0.7,
+    "operational_failure_n": 36,
+    "record_n": 1080,
+    "risk_coverage": [
+      {
+        "exact_selective_risk": 0.5411877394636015,
+        "mean_unwarranted_decisive_claims": 0.64272030651341,
+        "mechanically_unsafe_record_rate": 0.3908045977011494,
+        "operational_coverage": 0.9666666666666667,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 1044,
+        "threshold": 0.0,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.20402298850574707
+      },
+      {
+        "exact_selective_risk": 0.5411877394636015,
+        "mean_unwarranted_decisive_claims": 0.64272030651341,
+        "mechanically_unsafe_record_rate": 0.3908045977011494,
+        "operational_coverage": 0.9666666666666667,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 1044,
+        "threshold": 0.65,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.20402298850574707
+      },
+      {
+        "exact_selective_risk": 0.5411877394636015,
+        "mean_unwarranted_decisive_claims": 0.64272030651341,
+        "mechanically_unsafe_record_rate": 0.3908045977011494,
+        "operational_coverage": 0.9666666666666667,
+        "rejected_valid_n": 0,
+        "selected_valid_n": 1044,
+        "threshold": 0.7,
+        "valid_output_coverage": 1.0,
+        "verdict_selective_risk": 0.20402298850574707
+      },
+      {
+        "exact_selective_risk": 0.5398655139289146,
+        "mean_unwarranted_decisive_claims": 0.6445725264169068,
+        "mechanically_unsafe_record_rate": 0.3919308357348703,
+        "operational_coverage": 0.9638888888888889,
+        "rejected_valid_n": 3,
+        "selected_valid_n": 1041,
+        "threshold": 0.75,
+        "valid_output_coverage": 0.9971264367816092,
+        "verdict_selective_risk": 0.2036503362151777
+      },
+      {
+        "exact_selective_risk": 0.5398655139289146,
+        "mean_unwarranted_decisive_claims": 0.6445725264169068,
+        "mechanically_unsafe_record_rate": 0.3919308357348703,
+        "operational_coverage": 0.9638888888888889,
+        "rejected_valid_n": 3,
+        "selected_valid_n": 1041,
+        "threshold": 0.8,
+        "valid_output_coverage": 0.9971264367816092,
+        "verdict_selective_risk": 0.2036503362151777
+      },
+      {
+        "exact_selective_risk": 0.46231721034870643,
+        "mean_unwarranted_decisive_claims": 0.671541057367829,
+        "mechanically_unsafe_record_rate": 0.3847019122609674,
+        "operational_coverage": 0.8231481481481482,
+        "rejected_valid_n": 155,
+        "selected_valid_n": 889,
+        "threshold": 0.85,
+        "valid_output_coverage": 0.8515325670498084,
+        "verdict_selective_risk": 0.12373453318335204
+      },
+      {
+        "exact_selective_risk": 0.4444444444444444,
+        "mean_unwarranted_decisive_claims": 0.6807017543859649,
+        "mechanically_unsafe_record_rate": 0.3836257309941521,
+        "operational_coverage": 0.7916666666666666,
+        "rejected_valid_n": 189,
+        "selected_valid_n": 855,
+        "threshold": 0.9,
+        "valid_output_coverage": 0.8189655172413793,
+        "verdict_selective_risk": 0.10760233918128659
+      },
+      {
+        "exact_selective_risk": 0.4267515923566879,
+        "mean_unwarranted_decisive_claims": 0.6751592356687898,
+        "mechanically_unsafe_record_rate": 0.356687898089172,
+        "operational_coverage": 0.14537037037037037,
+        "rejected_valid_n": 887,
+        "selected_valid_n": 157,
+        "threshold": 0.95,
+        "valid_output_coverage": 0.1503831417624521,
+        "verdict_selective_risk": 0.0573248407643312
+      },
+      {
+        "exact_selective_risk": 0.375,
+        "mean_unwarranted_decisive_claims": 0.5735294117647058,
+        "mechanically_unsafe_record_rate": 0.30147058823529416,
+        "operational_coverage": 0.1259259259259259,
+        "rejected_valid_n": 908,
+        "selected_valid_n": 136,
+        "threshold": 1.0,
+        "valid_output_coverage": 0.13026819923371646,
+        "verdict_selective_risk": 0.06617647058823528
+      }
+    ],
+    "singleton_confidence_values": 0,
+    "valid_output_n": 1044
+  }
+}

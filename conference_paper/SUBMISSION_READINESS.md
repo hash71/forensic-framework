@@ -50,6 +50,8 @@ HotCRP profile and ORCID before submission.
   the paper.
 - [x] All current tables, figures, confidence intervals, and prose regenerate
   from the frozen artifacts with one command.
+- [x] The frozen confidence gate has a checksum-bound post-hoc audit; it fits no
+  calibrator, selects no held-out threshold, and keeps H5 explicitly untested.
 - [x] A three-role, 400-claim AI-judge sensitivity panel is reported as
   exploratory judge-dependence evidence, never as human or expert validation.
 - [x] A separate 120-claim post-hoc priority package is ready for expert
@@ -61,7 +63,7 @@ HotCRP profile and ORCID before submission.
 - [x] The reviewer artifact is identity-scrubbed and passes the automated
   environment without secrets or workstation paths.
 - [x] The raw-transcript-omitted archive reproduces both analyses, figures,
-  and the 13-page manuscript (11 body pages followed by appendices and
+  and the 14-page manuscript (11 body pages followed by appendices and
   references) from a fresh virtual environment using its documented command.
 - [x] Raw endpoint transcripts are either covered by archived operator terms
   or omitted while structured scored records and response hashes remain.

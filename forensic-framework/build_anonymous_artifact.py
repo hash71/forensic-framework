@@ -19,7 +19,7 @@ from pypdf import PdfReader
 FRAMEWORK_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
-ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.1"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.2"
 
 PRIVATE_NAMES = {
     ".env",
@@ -60,6 +60,7 @@ FRAMEWORK_FILES = (
     "forensic-framework/run_warrant_baselines.py",
     "forensic-framework/run_warrant_llm.py",
     "forensic-framework/run_warrant_results.py",
+    "forensic-framework/run_warrant_confidence_audit.py",
     "forensic-framework/run_warrant_statistics.py",
     "forensic-framework/run_cert_warrant_external.py",
     "forensic-framework/prepare_warrant_annotations.py",
@@ -188,6 +189,46 @@ def validate_release_run(run_dir: Path) -> dict:
         "path": run_dir.relative_to(REPO_ROOT.resolve()).as_posix(),
         "record_count": record_count,
         "records_sha256": sha256(records_path),
+    }
+
+
+def validate_confidence_audit(
+    path: Path,
+    *,
+    development_records_sha256: str,
+    test_records_sha256: str,
+) -> dict:
+    """Require a no-tuning audit bound to the packaged development/test runs."""
+
+    path = _within_repo(path)
+    if not path.is_file():
+        raise FileNotFoundError(path)
+    audit = json.loads(path.read_text())
+    if (
+        audit.get("confidence_audit_schema_version")
+        != "warrant-confidence-audit-v1.0"
+    ):
+        raise ValueError("unsupported confidence-audit schema")
+    sources = audit.get("source_sha256") or {}
+    if sources.get("development_records") != development_records_sha256:
+        raise ValueError("confidence audit is not bound to the development records")
+    if sources.get("test_records") != test_records_sha256:
+        raise ValueError("confidence audit is not bound to the test records")
+    decision = audit.get("calibrator_fit_decision") or {}
+    if (
+        decision.get("status") != "not_fit"
+        or decision.get("threshold_selected") is not None
+    ):
+        raise ValueError("confidence audit must not tune a replacement threshold")
+    if "No calibrator or replacement threshold" not in audit.get(
+        "held_out_use_boundary", ""
+    ):
+        raise ValueError("confidence audit lacks the held-out no-tuning boundary")
+    return {
+        "path": path.relative_to(REPO_ROOT.resolve()).as_posix(),
+        "sha256": sha256(path),
+        "calibrator_fit_status": "not_fit",
+        "replacement_threshold_selected": False,
     }
 
 
@@ -405,6 +446,9 @@ def _write_readme(
     command = (
         ".venv/bin/python reproduce_warrant_paper.py " + synthetic_arg
     )
+    development_path = Path(run_summaries["development"]["path"])
+    development_arg = development_path.relative_to("forensic-framework").as_posix()
+    command += " --development-run-dir " + development_arg
     if "external_transfer" in run_summaries:
         external_path = Path(run_summaries["external_transfer"]["path"])
         external_arg = external_path.relative_to("forensic-framework").as_posix()
@@ -438,9 +482,12 @@ cd forensic-framework
         + """
 ```
 
-The command validates run cardinality, benchmark hashes, release-record hashes,
-and either retained raw-response hashes or the all-raw-omitted release policy
-before regenerating tables, figures, statistics, and the PDF.
+The command validates run cardinality, case-ID and release-record hashes,
+packaged benchmark hashes where the manifest records a source path, and either
+retained raw-response hashes or the all-raw-omitted release policy before
+regenerating tables, figures, statistics, and the PDF. The historical
+development manifest predates its benchmark-path field; its stored benchmark
+digest is disclosed but cannot be rechecked against absent source bytes.
 
 """
         + raw_note
@@ -491,6 +538,11 @@ def build_artifact(
     }
     if external_run_dir:
         run_summaries["external_transfer"] = validate_release_run(external_run_dir)
+    confidence_audit_summary = validate_confidence_audit(
+        synthetic_run_dir / "confidence_audit.json",
+        development_records_sha256=run_summaries["development"]["records_sha256"],
+        test_records_sha256=run_summaries["synthetic_confirmatory"]["records_sha256"],
+    )
     human_analysis_summary = None
     simulated_review_summary = None
     if simulated_review_dir is not None:
@@ -596,6 +648,7 @@ def build_artifact(
             "include_raw_model_transcripts": include_raw,
             "paper_pdf_sha256": sha256(paper_pdf),
             "runs": run_summaries,
+            "confidence_audit": confidence_audit_summary,
             "human_annotation_package_included": human_package_dir is not None,
             "human_adjudicated_analysis_included": human_analysis is not None,
             "human_package_path": "human-validation" if human_package_dir else None,

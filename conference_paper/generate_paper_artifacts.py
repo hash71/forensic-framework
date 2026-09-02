@@ -246,6 +246,94 @@ def write_result_macros(run_dir: Path, output_path: Path) -> None:
     )
 
 
+def write_confidence_result_macros(audit_path: Path, output_path: Path) -> None:
+    """Export the post-hoc, source-bound confidence audit without tuning."""
+
+    audit = _load_json(audit_path)
+    if (
+        audit.get("confidence_audit_schema_version")
+        != "warrant-confidence-audit-v1.0"
+    ):
+        raise ValueError("unsupported confidence-audit schema")
+    if audit["calibrator_fit_decision"]["status"] != "not_fit":
+        raise ValueError(
+            "paper expects no fitted calibrator from the sparse development set"
+        )
+    if audit["calibrator_fit_decision"]["threshold_selected"] is not None:
+        raise ValueError("held-out confidence audit must not select a replacement threshold")
+
+    development = audit["development"]
+    test = audit["test"]
+    threshold = development["frozen_threshold_rule"]["threshold"]
+
+    def threshold_row(value: float) -> dict:
+        matches = [
+            row for row in test["risk_coverage"]
+            if abs(float(row["threshold"]) - value) < 1e-12
+        ]
+        if len(matches) != 1:
+            raise ValueError(f"confidence audit lacks threshold row {value}")
+        return matches[0]
+
+    verdict = test["calibration"]["verdict_correct"]
+    exact = test["calibration"]["exact_correct"]
+    safe = test["calibration"]["mechanically_zero_unsafe_claims"]
+    at_090 = threshold_row(0.90)
+    at_095 = threshold_row(0.95)
+    values = {
+        "ConfidenceThreshold": f"{threshold:.2f}",
+        "ConfidenceDevOutputs": str(development["valid_output_n"]),
+        "ConfidenceDevLevels": str(development["distinct_confidence_values"]),
+        "ConfidenceDevSingletonLevels": str(
+            development["singleton_confidence_values"]
+        ),
+        "ConfidenceDevRejected": str(
+            development["frozen_threshold_rule"]["rejected_valid_n"]
+        ),
+        "ConfidenceTestOutputs": f"{int(test['valid_output_n']):,}",
+        "ConfidenceTestFailures": str(test["operational_failure_n"]),
+        "ConfidenceTestRejected": str(
+            test["frozen_threshold_rule"]["rejected_valid_n"]
+        ),
+        "ConfidenceTestMean": _pct(test["mean_confidence"]),
+        "ConfidenceTestVerdictRate": _pct(verdict["positive_outcome_rate"]),
+        "ConfidenceTestVerdictBrier": _number(verdict["brier_score"]),
+        "ConfidenceTestVerdictECE": _pct(verdict["ece_10_equal_width"]),
+        "ConfidenceTestExactRate": _pct(exact["positive_outcome_rate"]),
+        "ConfidenceTestExactBrier": _number(exact["brier_score"]),
+        "ConfidenceTestExactECE": _pct(exact["ece_10_equal_width"]),
+        "ConfidenceTestSafeRate": _pct(safe["positive_outcome_rate"]),
+        "ConfidenceTestSafeBrier": _number(safe["brier_score"]),
+        "ConfidenceTestSafeECE": _pct(safe["ece_10_equal_width"]),
+        "ConfidenceNinetyCoverage": _pct(at_090["operational_coverage"]),
+        "ConfidenceNinetyVerdictRisk": _pct(at_090["verdict_selective_risk"]),
+        "ConfidenceNinetyExactRisk": _pct(at_090["exact_selective_risk"]),
+        "ConfidenceNinetyUnsafeRate": _pct(
+            at_090["mechanically_unsafe_record_rate"]
+        ),
+        "ConfidenceNinetyFiveCoverage": _pct(at_095["operational_coverage"]),
+        "ConfidenceNinetyFiveVerdictRisk": _pct(
+            at_095["verdict_selective_risk"]
+        ),
+        "ConfidenceNinetyFiveExactRisk": _pct(at_095["exact_selective_risk"]),
+        "ConfidenceNinetyFiveUnsafeRate": _pct(
+            at_095["mechanically_unsafe_record_rate"]
+        ),
+    }
+    provenance = (
+        "% Generated; retrospective confidence diagnostic only.\n"
+        f"% confidence_audit_sha256={_sha256(audit_path)}\n"
+        "% development_records_sha256="
+        f"{audit['source_sha256']['development_records']}\n"
+        f"% test_records_sha256={audit['source_sha256']['test_records']}\n"
+    )
+    output_path.write_text(
+        provenance
+        + "\n".join(_macro(name, value) for name, value in values.items())
+        + "\n"
+    )
+
+
 def write_variant_rows(run_dir: Path, output_path: Path) -> None:
     analysis = _load_json(run_dir / "analysis.json")
     rows = []
@@ -799,6 +887,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("--external-run-dir", type=Path)
+    parser.add_argument("--confidence-audit", type=Path)
     parser.add_argument("--human-analysis", type=Path)
     parser.add_argument("--simulated-analysis", type=Path)
     parser.add_argument("--paper-dir", type=Path, default=Path(__file__).resolve().parent)
@@ -818,6 +907,13 @@ def main() -> int:
         )
     else:
         (paper_dir / "generated_external_results.tex").unlink(missing_ok=True)
+    if args.confidence_audit is not None:
+        write_confidence_result_macros(
+            args.confidence_audit,
+            paper_dir / "generated_confidence_results.tex",
+        )
+    else:
+        (paper_dir / "generated_confidence_results.tex").unlink(missing_ok=True)
     if args.human_analysis is not None:
         write_human_result_macros(
             args.human_analysis,
@@ -839,6 +935,8 @@ def main() -> int:
     print(figures / "coverage-risk.pdf")
     if args.external_run_dir is not None:
         print(paper_dir / "generated_external_results.tex")
+    if args.confidence_audit is not None:
+        print(paper_dir / "generated_confidence_results.tex")
     if args.human_analysis is not None:
         print(paper_dir / "generated_human_results.tex")
     if args.simulated_analysis is not None:

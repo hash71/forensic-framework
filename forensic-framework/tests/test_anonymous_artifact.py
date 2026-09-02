@@ -47,6 +47,44 @@ def test_validate_release_run_checks_completion_and_public_hash(tmp_path, monkey
         artifact.validate_release_run(run_dir)
 
 
+def test_confidence_audit_must_bind_both_runs_and_forbid_test_tuning(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    audit_path = tmp_path / "confidence_audit.json"
+    audit = {
+        "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+        "source_sha256": {
+            "development_records": "d" * 64,
+            "test_records": "t" * 64,
+        },
+        "calibrator_fit_decision": {
+            "status": "not_fit",
+            "threshold_selected": None,
+        },
+        "held_out_use_boundary": (
+            "No calibrator or replacement threshold was selected from test labels."
+        ),
+    }
+    audit_path.write_text(json.dumps(audit))
+
+    summary = artifact.validate_confidence_audit(
+        audit_path,
+        development_records_sha256="d" * 64,
+        test_records_sha256="t" * 64,
+    )
+    assert summary["calibrator_fit_status"] == "not_fit"
+
+    audit["calibrator_fit_decision"]["threshold_selected"] = 0.90
+    audit_path.write_text(json.dumps(audit))
+    with pytest.raises(ValueError, match="must not tune"):
+        artifact.validate_confidence_audit(
+            audit_path,
+            development_records_sha256="d" * 64,
+            test_records_sha256="t" * 64,
+        )
+
+
 def test_release_scan_detects_identity_path_and_credential(tmp_path):
     (tmp_path / "clean.txt").write_text("Anonymous research artifact")
     assert artifact.scan_release_tree(tmp_path, identity_terms=["private-author"]) == []
@@ -99,6 +137,9 @@ def test_zip_writer_is_deterministic(tmp_path):
 def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     readme = tmp_path / "README.md"
     runs = {
+        "development": {
+            "path": "forensic-framework/data/warrant_runs/development"
+        },
         "synthetic_confirmatory": {
             "path": "forensic-framework/data/warrant_runs/synthetic"
         },
@@ -117,6 +158,7 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     )
     text = readme.read_text()
     assert "--allow-omitted-raw" in text
+    assert "--development-run-dir data/warrant_runs/development" in text
     assert "no adjudicated expert analysis exists" in text
     assert "--human-analysis" not in text
     assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text

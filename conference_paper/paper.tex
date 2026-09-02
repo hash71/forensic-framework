@@ -107,6 +107,13 @@
 }{
   \simulatedresultsfalse
 }
+\newif\ifconfidenceresults
+\IfFileExists{generated_confidence_results.tex}{
+  \confidenceresultstrue
+  \input{generated_confidence_results.tex}
+}{
+  \confidenceresultsfalse
+}
 \ifhumanresults
   \newcommand{\PrimaryWarrantBasis}{sampling-weighted adjudicated expert labels}
   \newcommand{\PrimaryAlertsUnsafeExposure}{\HumanPrimaryAlertsUnsafeExposure}
@@ -174,7 +181,13 @@ by \PrimaryUnsafeDifference\ (95\% bootstrap CI
 \CoverageDifference\ [\CoverageCILow,~\CoverageCIHigh].  Thus, the safety
 gain did \NoninferiorResult\ satisfy the pre-specified 3-point recall
 non-inferiority margin.  Citation validity remained
-\AlertsCitationValidity---showing why it is an inadequate safety metric.  The
+\AlertsCitationValidity---showing why it is an inadequate safety metric.
+\ifconfidenceresults
+The fixed confidence gate rejected none of \ConfidenceTestOutputs\ valid
+held-out generations; mean confidence was \ConfidenceTestMean\ despite only
+\ConfidenceTestExactRate\ exact verdict-plus-suspect correctness.
+\fi
+The
 \ifsimulatedresults
 exploratory AI-panel sensitivity estimate was only
 \SimPrimaryUnsafeDifference\ [\SimPrimaryUnsafeCILow,
@@ -259,8 +272,9 @@ The paper makes four contributions:
   splits, deterministic baselines, and attack-bearing untrusted log content.
   \item We give a paired evaluation of alert context, self-review,
   independent verification, and abstention.  It reports unsafe claim exposure
-  jointly with coverage and recall, preventing an always-abstain system from
-  appearing safe.
+  jointly with coverage and recall, and audits whether self-reported confidence
+  can support rejection, preventing either confidence inflation or an
+  always-abstain system from appearing safe.
   \item We provide a reproducible protocol: frozen prompts and schemas, raw
   response hashes, append-only failures, base-case cluster bootstrap,
   prevalence-adjusted operating points, and a blinded two-annotator package.
@@ -616,6 +630,16 @@ visible-evidence target is \textsc{yes}; latent attacks made
 positives.  The external section labels its separate CERT answer-key recall as
 a latent-scenario target.
 
+After the run, we also audit the generator's single self-reported
+\texttt{overall\_confidence} field.  This diagnostic was not pre-specified and
+does not select a new policy.  We report Brier score and fixed-width ten-bin
+expected calibration error (ECE) against three explicitly distinct binary
+targets: verdict correctness, exact verdict-plus-suspect correctness, and zero
+mechanically unwarranted decisive claims.  Threshold rows retain operational
+failures in the coverage denominator.  They are descriptive because variants
+and repetitions are nested within base cases and the frozen schema did not
+define which target ``overall'' confidence was intended to predict.
+
 %-------------------------------------------------------------------------------
 \section{Held-Out Results}
 \label{sec:results}
@@ -738,6 +762,41 @@ exposure is preferable, but points farther left review fewer cases.  Error bars
 are base-case cluster-bootstrap 95\% intervals.}
 \label{fig:coverage-risk}
 \end{figure}
+
+\ifconfidenceresults
+\subsection{Self-reported confidence does not calibrate abstention}
+
+The development partition provides no defensible basis for fitting a
+calibrator.  Its \ConfidenceDevOutputs\ valid shared alert-visible outputs use
+only \ConfidenceDevLevels\ confidence values, of which
+\ConfidenceDevSingletonLevels\ occur once; all scores are at least 0.85.
+Consequently, the frozen \ConfidenceThreshold\ gate rejected
+\ConfidenceDevRejected\ valid development outputs.  The underspecified target,
+small independent sample, sparse score support, and unobserved rejection region
+led us to fit no calibrator and select no replacement threshold.
+
+The held-out audit reaches the same operational conclusion.  Among
+\ConfidenceTestOutputs\ valid outputs (plus \ConfidenceTestFailures\ generator
+failures), the 0.65 gate rejected \ConfidenceTestRejected.  Mean reported
+confidence was \ConfidenceTestMean, versus \ConfidenceTestVerdictRate\ verdict
+correctness, \ConfidenceTestExactRate\ exact correctness, and
+\ConfidenceTestSafeRate\ with zero mechanically unwarranted decisive claims.
+The corresponding Brier scores were \ConfidenceTestVerdictBrier,
+\ConfidenceTestExactBrier, and \ConfidenceTestSafeBrier; fixed-bin ECE was
+\ConfidenceTestVerdictECE, \ConfidenceTestExactECE, and
+\ConfidenceTestSafeECE.  Thus the score is closest to coarse verdict accuracy,
+but substantially overstates exact attribution and claim safety.
+
+Post-hoc threshold rows illustrate why a larger number alone is not a safety
+control.  At 0.90, operational coverage is \ConfidenceNinetyCoverage, while
+verdict risk is \ConfidenceNinetyVerdictRisk, exact risk
+\ConfidenceNinetyExactRisk, and the mechanically unsafe-record rate
+\ConfidenceNinetyUnsafeRate.  Raising the threshold to 0.95 collapses coverage
+to \ConfidenceNinetyFiveCoverage, yet exact risk remains
+\ConfidenceNinetyFiveExactRisk\ and the unsafe-record rate
+\ConfidenceNinetyFiveUnsafeRate.  These rows were computed only after test
+outcomes existed; they neither tune the policy nor rescue H5.
+\fi
 
 \subsection{Alert context and review}
 
@@ -990,10 +1049,13 @@ framing unless the study explicitly measures that choice.
 
 Third, abstention must be evaluated as a selective system.  A useful operating
 point reduces unsafe exposure while retaining pre-specified attack recall and
-acceptable coverage.  Our frozen policy fails that joint criterion.  Future
-work should calibrate claim-level confidence on disjoint data, learn axis-
-specific rejection thresholds, and route only disputed material claims for
-human review rather than suppressing an entire investigation.
+acceptable coverage.  Our frozen policy fails that joint criterion, and its
+confidence component never rejects a valid output.  A single ``overall'' score
+also overstates exact attribution and claim safety, so merely raising its
+threshold is not calibration.  Future work should define the prediction target,
+calibrate claim- or axis-level confidence on a larger disjoint partition under
+a pre-specified risk constraint, and route disputed material claims for human
+review rather than suppressing an entire investigation.
 
 \subsection{Deployment boundary}
 
@@ -1019,7 +1081,9 @@ validate our axis labels or authored proxy.
 \textbf{Internal validity.}  Development data influenced prompt versions and
 the v1.1 safety-estimand clarification.  We disclose both; no prompt or
 evaluator change is permitted after held-out inference begins.  The generator
-and reference labels share authored templates, creating correlated error.
+and reference labels share authored templates, creating correlated error.  The
+confidence audit was designed after test outcomes existed, so it selects no
+threshold and supports only a retrospective diagnostic.
 
 \textbf{Statistical conclusion validity.}  There are 36 independent held-out
 cases and only three nested repetitions.  Cluster intervals can be wide, family
