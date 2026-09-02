@@ -506,6 +506,10 @@ def write_simulated_result_macros(analysis_path: Path, output_path: Path) -> Non
     reference = primary["condition_estimates"][primary["reference_condition"]]
     intervention = primary["condition_estimates"][primary["intervention_condition"]]
     contrast = primary["contrast_intervention_minus_reference"]
+    reviewer_differences = [
+        endpoint["contrast_intervention_minus_reference"]["estimate"]
+        for endpoint in analysis["individual_reviewer_sensitivity_endpoints"].values()
+    ]
     values = {
         "SimPanelClaims": str(sample["claims"]),
         "SimPanelPopulationClaims": str(sample["population_claims"]),
@@ -513,6 +517,13 @@ def write_simulated_result_macros(analysis_path: Path, output_path: Path) -> Non
             reviewer["panel_role"] == "consensus"
             for reviewer in analysis["reviewers"]
         )),
+        "SimPanelCoreConsensusClaims": str(panel["items_with_core_consensus"]),
+        "SimPanelCompleteConsensusClaims": str(
+            panel["items_with_complete_field_consensus"]
+        ),
+        "SimPanelUnresolvedOverall": str(
+            panel["items_without_overall_consensus"]
+        ),
         "SimPanelAnyDisagreement": _pct(
             panel["items_with_any_disagreement"] / sample["claims"]
         ),
@@ -542,6 +553,8 @@ def write_simulated_result_macros(analysis_path: Path, output_path: Path) -> Non
         "SimPrimaryUnsafeDifference": _number(contrast["estimate"]),
         "SimPrimaryUnsafeCILow": _number(contrast["confidence_interval"][0]),
         "SimPrimaryUnsafeCIHigh": _number(contrast["confidence_interval"][1]),
+        "SimReviewerUnsafeDifferenceLow": _number(min(reviewer_differences)),
+        "SimReviewerUnsafeDifferenceHigh": _number(max(reviewer_differences)),
     }
     provenance = (
         "% Generated; AI-panel sensitivity evidence only, not expert validation.\n"

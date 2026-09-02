@@ -175,6 +175,13 @@ by \PrimaryUnsafeDifference\ (95\% bootstrap CI
 gain did \NoninferiorResult\ satisfy the pre-specified 3-point recall
 non-inferiority margin.  Citation validity remained
 \AlertsCitationValidity---showing why it is an inadequate safety metric.  The
+\ifsimulatedresults
+exploratory AI-panel sensitivity estimate was only
+\SimPrimaryUnsafeDifference\ [\SimPrimaryUnsafeCILow,
+\SimPrimaryUnsafeCIHigh], with individual-reviewer changes spanning
+\SimReviewerUnsafeDifferenceLow\ to \SimReviewerUnsafeDifferenceHigh;
+therefore it does not validate the mechanical proxy.  The
+\fi
 independent CERT transfer stress test had \ExternalOperationalValidity\
 operational validity, and the verifier delivered no reports at
 \ExternalVerifierCoverage\ coverage.  The
@@ -926,9 +933,12 @@ favorable judge scores~\cite{goel2025great}, while LLM judges can diverge from
 humans and remain sensitive to prompt complexity and leniency
 ~\cite{thakur2025judges}.
 
-Every role returned all \SimPanelClaims\ schema-valid judgments.  A strict
-field-level majority exists for every item, but \SimPanelAnyDisagreement\ of
-items contain at least one disputed field; overall warrant is disputed on
+Every role returned all \SimPanelClaims\ schema-valid judgments.  All
+\SimPanelCoreConsensusClaims\ items have a strict majority on overall warrant
+and materiality, while \SimPanelCompleteConsensusClaims\ have a majority on
+all fields; three-way axis ties remain unresolved rather than being
+adjudicated by code.  \SimPanelAnyDisagreement\ of items contain at least one
+disputed field; overall warrant is disputed on
 \SimPanelOverallDisagreement\ and materiality on
 \SimPanelMaterialityDisagreement.  Sampling-design-weighted overall agreement
 between AI consensus and the authored mechanical proxy is
@@ -943,7 +953,11 @@ case for alert-conditioned generation and
 \SimPrimaryAbstainUnsafeExposure\ for verifier-plus-abstention, a change of
 \SimPrimaryUnsafeDifference\ (95\% bootstrap CI
 [\SimPrimaryUnsafeCILow,~\SimPrimaryUnsafeCIHigh]).  This estimate tests
-conclusion sensitivity; it is not an expert-error rate.  We release consensus,
+conclusion sensitivity; across the three complete single-reviewer estimates,
+the change ranges from \SimReviewerUnsafeDifferenceLow\ to
+\SimReviewerUnsafeDifferenceHigh.  This wide dependence on reviewer stance,
+together with the low chance-adjusted proxy agreement, fails to validate the
+mechanical result.  It is not an expert-error rate.  We release consensus,
 disagreement, and provenance records and a post-hoc 120-item blind priority
 package for later real review.  Because that subset is targeted rather than a
 probability sample, it can diagnose important failures but cannot estimate

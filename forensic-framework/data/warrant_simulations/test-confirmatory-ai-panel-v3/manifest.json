@@ -1,0 +1,95 @@
+{
+  "annotation_items_sha256": "9464688b178aa1d55d3aedebffa82466bbaa6e314a26ba67f8fe798cda13779d",
+  "annotation_manifest_sha256": "05d4ed3e54cd5c2156dbb81f8cf85cedac9a4d0824c3c5941f700dec158148c6",
+  "annotation_package": "data/warrant_annotations/test_confirmatory_v1",
+  "batch": {
+    "max_chars": 32000,
+    "max_items": 8,
+    "max_tokens": 4096,
+    "retry_attempts": 2
+  },
+  "config_path": "config/warrant_simulated_review.yaml",
+  "config_sha256": "313de761efad892dbcf42d716b158c63745335cf5799bbd292535ec9301b7ef9",
+  "item_count": 400,
+  "reviewers": [
+    {
+      "api_style": "ollama",
+      "batch": {
+        "max_chars": 12000,
+        "max_items": 1,
+        "max_tokens": 1536,
+        "retry_attempts": 2
+      },
+      "endpoint_sha256": "b26993598dffd1f14aed97def57ef67f753518a9b773d8a12033c82b4fa545ca",
+      "model": "forensic-warrant-gemma4-e4b:v1",
+      "panel_role": "consensus",
+      "profile": "strict_evidentiary",
+      "provider": "ollama-local",
+      "reviewer_id": "sim_local_gemma_strict",
+      "role_note": "local Gemma-family strict-evidence prompt",
+      "seed": 4101,
+      "system_prompt_sha256": "a7721ad1bd19463e327c9c3daa6ce88556c6f519eea777ce421fe2e765612554",
+      "temperature": 0.0,
+      "thinking": false
+    },
+    {
+      "api_style": "openai",
+      "batch": null,
+      "endpoint_sha256": "b70491802b316a1f01c0d461a3a335fb8e886052d7a998d2afc9cad4c785bb37",
+      "model": "fusion-gemma",
+      "panel_role": "consensus",
+      "profile": "counterfactual_skeptic",
+      "provider": "configured-remote",
+      "reviewer_id": "sim_remote_gemma_counterfactual",
+      "role_note": "frozen remote deployment; same-family and self-evaluation bias possible",
+      "seed": 5202,
+      "system_prompt_sha256": "6f9464c792196bf5b0914c2bde354523c59207cfc734a6eb3aedfa8763a083fd",
+      "temperature": 0.1,
+      "thinking": null
+    },
+    {
+      "api_style": "ollama",
+      "batch": {
+        "max_chars": 12000,
+        "max_items": 1,
+        "max_tokens": 1536,
+        "retry_attempts": 2
+      },
+      "endpoint_sha256": "b26993598dffd1f14aed97def57ef67f753518a9b773d8a12033c82b4fa545ca",
+      "model": "forensic-warrant-gemma4-e4b:v1",
+      "panel_role": "consensus",
+      "profile": "operational_dfir",
+      "provider": "ollama-local",
+      "reviewer_id": "sim_local_gemma_operational",
+      "role_note": "local Gemma-family operational-DFIR prompt; same weights as strict judge",
+      "seed": 7303,
+      "system_prompt_sha256": "8aee53268e2ffe70bd8aef93db170e9f50dbc59383eecd6856d93ee065d777bd",
+      "temperature": 0.2,
+      "thinking": false
+    },
+    {
+      "api_style": "ollama",
+      "batch": {
+        "max_chars": 12000,
+        "max_items": 1,
+        "max_tokens": 1536,
+        "retry_attempts": 2
+      },
+      "endpoint_sha256": "b26993598dffd1f14aed97def57ef67f753518a9b773d8a12033c82b4fa545ca",
+      "model": "qwen3:0.6b",
+      "panel_role": "stress_only",
+      "profile": "operational_dfir",
+      "provider": "ollama-local",
+      "reviewer_id": "sim_local_qwen_stress",
+      "role_note": "optional distinct-family small-model stress judge; excluded from consensus",
+      "seed": 6303,
+      "system_prompt_sha256": "8aee53268e2ffe70bd8aef93db170e9f50dbc59383eecd6856d93ee065d777bd",
+      "temperature": 0.0,
+      "thinking": false
+    }
+  ],
+  "run_id": "test-confirmatory-ai-panel-v3",
+  "simulated_review_schema_version": "warrant-simulated-review-v1.0",
+  "source_git_commit": "d7da640b540922b0084ee995316e0e99990dd120",
+  "validity_boundary": "language-model sensitivity panel; not human or expert validation"
+}

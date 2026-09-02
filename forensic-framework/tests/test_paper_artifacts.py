@@ -168,6 +168,9 @@ def test_simulated_macros_preserve_non_expert_validity_boundary(
             {"panel_role": "consensus"},
         ],
         "panel": {
+            "items_with_core_consensus": 390,
+            "items_with_complete_field_consensus": 250,
+            "items_without_overall_consensus": 10,
             "items_with_any_disagreement": 120,
             "items_with_overall_disagreement": 80,
             "items_with_materiality_disagreement": 40,
@@ -199,6 +202,11 @@ def test_simulated_macros_preserve_non_expert_validity_boundary(
                 "confidence_interval": [-0.5, -0.1],
             },
         },
+        "individual_reviewer_sensitivity_endpoints": {
+            "one": {"contrast_intervention_minus_reference": {"estimate": -0.2}},
+            "two": {"contrast_intervention_minus_reference": {"estimate": -0.3}},
+            "three": {"contrast_intervention_minus_reference": {"estimate": -0.4}},
+        },
         "source_sha256": {"records": "e" * 64},
     }
     source = tmp_path / "simulated_analysis.json"
@@ -212,6 +220,8 @@ def test_simulated_macros_preserve_non_expert_validity_boundary(
     assert r"\newcommand{\SimPanelAnyDisagreement}{30.0\%}" in text
     assert r"\newcommand{\SimMechanicalWeightedAgreement}{70.0\%}" in text
     assert r"\newcommand{\SimPrimaryUnsafeDifference}{-.300}" in text
+    assert r"\newcommand{\SimPanelUnresolvedOverall}{10}" in text
+    assert r"\newcommand{\SimReviewerUnsafeDifferenceLow}{-.400}" in text
 
 
 def test_external_macros_report_failure_inclusive_validity(tmp_path: Path) -> None:
