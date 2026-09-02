@@ -9,6 +9,7 @@ from pathlib import Path
 import httpx
 import pytest
 
+from app.evaluation.warrant_results import summarize_run, verify_artifacts
 from app.llm.warrant_client import (
     ChatCompletionResult,
     WarrantLLMClient,
@@ -304,6 +305,36 @@ def test_review_conditions_share_generator_and_verifier_responses(tmp_path: Path
         if record["condition"] in {"generator_verifier", "generator_verifier_abstention"}
     ]
     assert len({record["verifier"]["call"]["raw_response_sha256"] for record in verifier_records}) == 1
+
+    summary = summarize_run(records)
+    assert summary["artifact_integrity"]["ok"] is True
+    assert summary["artifact_integrity"]["unique_raw_responses_checked"] == 3
+    assert summary["conditions"]["llm_events_plus_alerts"]["attack_recall"] == 1.0
+    assert (
+        summary["paired_effects"]["shared_generation_reviews"]
+        ["generator_verifier"]["generator_hash_match_rate"]
+        == 1.0
+    )
+
+
+def test_artifact_integrity_detects_raw_response_tampering(tmp_path: Path):
+    client = _FakeClient()
+    record = asyncio.run(run_case_condition(
+        client,
+        _case(),
+        run_id="pytest-integrity",
+        condition="llm_events_only",
+        repetition=0,
+        temperature=0.1,
+        max_tokens=4096,
+        run_dir=tmp_path,
+    ))
+    path = Path(record["generator"]["call"]["raw_response_path"])
+    path.write_text("tampered")
+
+    integrity = verify_artifacts([record])
+    assert integrity["ok"] is False
+    assert "hash mismatch" in integrity["errors"][0]
 
 
 def test_resume_keys_include_case_condition_and_repetition(tmp_path: Path):
