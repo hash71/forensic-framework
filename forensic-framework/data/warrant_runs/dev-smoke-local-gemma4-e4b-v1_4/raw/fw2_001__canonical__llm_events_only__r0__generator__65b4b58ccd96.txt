@@ -1,0 +1,169 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_001__canonical",
+  "verdict": "YES",
+  "suspect": "user_936",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login_failed",
+      "object": null,
+      "time": "2026-07-13T01:26:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_001_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "User user_936 attempted login from IP 198.51.100.6 outside normal hours."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-13T01:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_001_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "User user_936 successfully logged in, but metadata indicates the login was not authorized and MFA was not verified."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "file_download",
+      "object": "/data/finance/payroll.csv",
+      "time": "2026-07-13T01:33:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "User user_936 successfully downloaded payroll.csv, but metadata indicates the action was not authorized."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "log_delete",
+      "object": "/var/log/audit.log",
+      "time": "2026-07-13T01:36:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "User user_936 successfully deleted audit logs, but metadata indicates the action was not authorized."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_936",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_004",
+        "evt_fw2_001_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.95,
+      "decisive": true,
+      "rationale": "Visible evidence shows successful unauthorized access (evt_fw2_001_004) and a harmful change (log_delete, evt_fw2_001_006), meeting the incident definition threshold."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_001_004",
+    "evt_fw2_001_005",
+    "evt_fw2_001_006"
+  ],
+  "evidence_against": [
+    "None"
+  ],
+  "missing_evidence": [
+    "Confirmation of whether the file download (evt_fw2_001_005) constitutes external data transfer (exfiltration) or merely internal access."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The successful login (evt_fw2_001_004) and subsequent actions were due to a system misconfiguration allowing unauthorized access without triggering proper authorization checks.",
+      "cited_event_ids": [
+        "evt_fw2_001_004"
+      ],
+      "confidence": 0.3
+    },
+    {
+      "hypothesis": "The user user_936, despite being outside normal hours, was performing legitimate administrative tasks that required bypassing standard authorization protocols.",
+      "cited_event_ids": [
+        "evt_fw2_001_006"
+      ],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.95,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

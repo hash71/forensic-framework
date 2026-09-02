@@ -1,0 +1,136 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_021__canonical",
+  "verdict": "YES",
+  "suspect": "user_346",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "assume_role",
+      "object": "role:storage_reader",
+      "time": "2026-07-14T01:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_021_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states authorization was false."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "list_objects",
+      "object": "bucket:customer-backups",
+      "time": "2026-07-14T01:23:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The event metadata explicitly states authorization was false and it occurred within the same session as the unauthorized role assumption."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "get_object",
+      "object": "bucket:customer-backups/full.sql",
+      "time": "2026-07-14T01:26:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states authorization was false and resulted in a successful transfer of a 15MB object."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_346",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_002",
+        "evt_fw2_021_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Visible evidence shows successful unauthorized access to a sensitive resource (customer-backups) and subsequent data transfer (get_object) of a SQL file."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_021_002",
+    "evt_fw2_021_003",
+    "evt_fw2_021_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Evidence to determine if the credentials for user_346 were compromised or if the user performed the actions intentionally."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The credentials for user_346 were stolen by an external actor using IP 198.51.100.195, as the activity occurs outside normal hours and from an unknown IP.",
+      "cited_event_ids": [
+        "evt_fw2_021_002"
+      ],
+      "confidence": 0.5
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

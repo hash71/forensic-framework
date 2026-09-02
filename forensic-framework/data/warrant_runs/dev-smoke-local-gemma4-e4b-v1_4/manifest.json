@@ -1,0 +1,39 @@
+{
+  "base_case_count": 1,
+  "benchmark_sha256": "fb21e904b66be2af83fab22c9630582585ac2f85e5a05c055c9f9a75e194c126",
+  "case_count": 1,
+  "case_ids_sha256": "332a62f7d96d6305b0f4829b416b48483667b06188a4d93c5019a41cfa3f2e54",
+  "conditions": [
+    "llm_events_only"
+  ],
+  "counts_for_this_invocation": {
+    "completed": 1,
+    "failures": 0,
+    "planned": 1,
+    "valid": 1
+  },
+  "created_at": "2026-09-02T00:50:39.445286+00:00",
+  "dependency_versions": {
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5"
+  },
+  "endpoint_sha256": "b26993598dffd1f14aed97def57ef67f753518a9b773d8a12033c82b4fa545ca",
+  "git_commit": "e460400bd5ff0df35e5bb63b9590fe0679784df7",
+  "max_tokens": 4096,
+  "model_revision": "sha256:3d609a2c293731e30619621ada2b4f05697225082bf03a67eb0982cf23b1323b",
+  "pairing_policy": {
+    "alert_blind_verifier": "shared_between_verifier_conditions",
+    "alerts_visible_generation": "shared_across_alert_review_conditions",
+    "events_only_generation": "independent"
+  },
+  "provider": "ollama-local",
+  "python_version": "3.11.16",
+  "records_path": "data/warrant_runs/dev-smoke-local-gemma4-e4b-v1_4/records.jsonl",
+  "repetitions": 1,
+  "requested_generator_model": "forensic-warrant-gemma4-e4b:v1",
+  "requested_verifier_model": "forensic-warrant-gemma4-e4b:v1",
+  "run_id": "dev-smoke-local-gemma4-e4b-v1_4",
+  "run_schema_version": "warrant-run-v1.0",
+  "temperature": 0.1,
+  "warrant_evaluator_version": "warrant-evaluator-v1.1"
+}

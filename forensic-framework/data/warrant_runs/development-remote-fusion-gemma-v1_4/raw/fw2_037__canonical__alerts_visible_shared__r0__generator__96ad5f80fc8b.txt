@@ -1,0 +1,302 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_037__canonical",
+  "verdict": "INSUFFICIENT",
+  "suspect": "user_450",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "period_close_approved",
+      "object": "quarter-close",
+      "time": "2026-07-20T20:00:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_037_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The event metadata explicitly states the action was authorized and the ticket status was approved."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q1_ledger.xlsx",
+      "time": "2026-07-20T20:05:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q2_ledger.xlsx",
+      "time": "2026-07-20T20:06:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q3_ledger.xlsx",
+      "time": "2026-07-20T20:07:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c5",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q4_ledger.xlsx",
+      "time": "2026-07-20T20:08:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c6",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q5_ledger.xlsx",
+      "time": "2026-07-20T20:09:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c7",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_download",
+      "object": "/data/finance/q6_ledger.xlsx",
+      "time": "2026-07-20T20:10:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_007"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file download occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c8",
+      "claim_type": "observation",
+      "subject": "user_450",
+      "predicate": "file_upload",
+      "object": "/data/finance/consolidated_q4.xlsx",
+      "time": "2026-07-20T20:20:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file upload occurred within the same session (sess_fw2_037_approved) as the approved period close."
+    },
+    {
+      "claim_id": "c9",
+      "claim_type": "decision",
+      "subject": "user_450",
+      "predicate": "verdict_insufficient",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7",
+        "c8"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_037_001",
+        "evt_fw2_037_002",
+        "evt_fw2_037_003",
+        "evt_fw2_037_004",
+        "evt_fw2_037_005",
+        "evt_fw2_037_006",
+        "evt_fw2_037_007",
+        "evt_fw2_037_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "While the volume of file downloads is high, all actions occurred within a single session tied to an approved 'period_close_approved' event. There is no visible evidence of unauthorized access or data exfiltration to an external destination; the activity is consistent with a legitimate period-close workflow."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_037_002",
+    "evt_fw2_037_003",
+    "evt_fw2_037_004",
+    "evt_fw2_037_005",
+    "evt_fw2_037_006",
+    "evt_fw2_037_007"
+  ],
+  "evidence_against": [
+    "evt_fw2_037_001",
+    "evt_fw2_037_008"
+  ],
+  "missing_evidence": [
+    "Evidence of data transfer to an external or unauthorized destination.",
+    "Evidence of session hijacking or credential compromise."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The user is performing legitimate quarterly financial consolidation as part of the approved period close process.",
+      "cited_event_ids": [
+        "evt_fw2_037_001",
+        "evt_fw2_037_008"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "hypothesis": "An attacker has compromised user_450's credentials and is using the approved period-close window to mask bulk data collection.",
+      "cited_event_ids": [
+        "evt_fw2_037_002",
+        "evt_fw2_037_003",
+        "evt_fw2_037_004",
+        "evt_fw2_037_005",
+        "evt_fw2_037_006",
+        "evt_fw2_037_007"
+      ],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.85,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

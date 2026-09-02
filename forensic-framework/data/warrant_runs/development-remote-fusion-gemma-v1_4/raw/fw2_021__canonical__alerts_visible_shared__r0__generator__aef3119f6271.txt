@@ -1,0 +1,165 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_021__canonical",
+  "verdict": "YES",
+  "suspect": "user_346",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "assume_role",
+      "object": "role:storage_reader",
+      "time": "2026-07-14T01:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_021_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states authorized: false for the assume_role action."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "list_objects",
+      "object": "bucket:customer-backups",
+      "time": "2026-07-14T01:23:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The event metadata explicitly states authorized: false for the list_objects action and shares session_id sess_fw2_021_suspicious with c1."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_346",
+      "predicate": "get_object",
+      "object": "bucket:customer-backups/full.sql",
+      "time": "2026-07-14T01:26:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states authorized: false for the get_object action and shares session_id sess_fw2_021_suspicious with c2."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "hypothesis",
+      "subject": "user_346",
+      "predicate": "credential_rotation_due",
+      "object": null,
+      "time": "2026-07-14T01:17:00+06:00",
+      "quantity": null,
+      "scope": null,
+      "modality": "possible",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_021_001"
+      ],
+      "evidence_relation": "insufficient",
+      "confidence": 0.5,
+      "decisive": false,
+      "rationale": "The rotation warning might suggest the credentials used in the subsequent session were compromised or nearing expiration."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_346",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_021_002",
+        "evt_fw2_021_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Visible evidence shows successful unauthorized access (assume_role) and unauthorized data transfer (get_object) of a backup file."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_021_002",
+    "evt_fw2_021_003",
+    "evt_fw2_021_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Evidence to determine if the session was initiated by the legitimate user or an attacker using compromised credentials.",
+    "Network logs to confirm the nature of the data transfer from 198.51.100.195."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account user_346 was compromised by an external actor using the IP 198.51.100.195, as the activity deviates from the user's normal IP (10.10.6.164) and normal hours.",
+      "cited_event_ids": [
+        "evt_fw2_021_002",
+        "evt_fw2_021_004"
+      ],
+      "confidence": 0.7
+    },
+    {
+      "hypothesis": "The user user_346 is performing unauthorized testing or maintenance from a non-standard location.",
+      "cited_event_ids": [
+        "evt_fw2_021_002"
+      ],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

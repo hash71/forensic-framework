@@ -1,0 +1,112 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_017_002 directly confirms user_427 performed a backup_disable on cluster-prod at the specified time, and the metadata explicitly marks it as unauthorized.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_017_003 confirms the resource_delete on cluster-prod/database-primary. The claim of causality via session_id 'sess_fw2_017_suspicious' is supported by the shared session ID in the event data.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_017_004 confirms the log_delete on /var/log/cluster-audit.log. Causality via shared session_id is supported.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_017_001 confirms the change_request_rejected action for user_427 on cluster-prod.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "SUPPORTED"
+      },
+      "rationale": "The combination of unauthorized backup disabling, resource deletion, and log deletion (all successful) constitutes a confirmed security incident involving user_427.",
+      "missing_evidence": []
+    }
+  ],
+  "recommended_verdict": "YES",
+  "decisive_claim_ids_requiring_review": [
+    "decision_1"
+  ],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 1.0
+}
+```

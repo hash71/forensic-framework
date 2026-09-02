@@ -1,0 +1,130 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_029__canonical",
+  "verdict": "NO",
+  "suspect": "user_231",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "travel_approved",
+      "object": "trip:regional-office",
+      "time": "2026-07-05T20:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_029_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "An administrative travel approval event exists for the user's trip to the regional office."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-05T20:31:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_029_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The login event was successful, used an expected device, and passed MFA."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "file_read",
+      "object": "/data/legal/contract.pdf",
+      "time": "2026-07-05T20:36:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The file access occurred within the same session as the authorized login and targets a directory within the user's normal baseline."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "decision",
+      "subject": "user_231",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_001",
+        "evt_fw2_029_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "The login from a non-baseline IP is reconciled by a prior approved travel event, and the subsequent activity is authorized."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_029_001",
+    "evt_fw2_029_002"
+  ],
+  "evidence_against": [
+    "evt_fw2_029_003"
+  ],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account was compromised via session hijacking or credential theft, and the travel approval was coincidental or also compromised.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

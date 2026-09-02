@@ -1,0 +1,163 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_025__canonical",
+  "verdict": "NO",
+  "suspect": "user_403",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_403",
+      "predicate": "ticket_approved",
+      "object": "cluster-prod",
+      "time": "2026-07-06T20:10:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_025_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The event metadata explicitly states the ticket was approved and authorized."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_403",
+      "predicate": "privilege_change",
+      "object": "role:maintenance_admin",
+      "time": "2026-07-06T20:15:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_025_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The privilege change occurred within the same session as the approved ticket and is marked as authorized."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_403",
+      "predicate": "log_rotate",
+      "object": "/var/log/application.log",
+      "time": "2026-07-06T20:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_025_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The log rotation was performed under the authorized session."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_403",
+      "predicate": "privilege_revert",
+      "object": "role:devops_specialist",
+      "time": "2026-07-06T21:00:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_025_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The user reverted privileges to their normal role, completing the authorized maintenance window."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_403",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_025_001",
+        "evt_fw2_025_002",
+        "evt_fw2_025_003",
+        "evt_fw2_025_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "All observed actions are explicitly marked as authorized and follow a logical maintenance lifecycle: ticket approval, privilege escalation, maintenance task (log rotation), and privilege reversion."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_025_001",
+    "evt_fw2_025_002",
+    "evt_fw2_025_003",
+    "evt_fw2_025_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "An attacker compromised user_403's credentials and performed authorized actions to mask malicious activity, though no unauthorized actions are visible in this log set.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

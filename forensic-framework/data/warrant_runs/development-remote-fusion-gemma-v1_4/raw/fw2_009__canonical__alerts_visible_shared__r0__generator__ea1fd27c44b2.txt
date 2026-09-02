@@ -1,0 +1,227 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_009__canonical",
+  "verdict": "YES",
+  "suspect": "user_183",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_183",
+      "predicate": "file_read",
+      "object": "/data/sales/customer_export_0.csv",
+      "time": "2026-07-22T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_009_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Event metadata explicitly marks the access as unauthorized."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_183",
+      "predicate": "file_read",
+      "object": "/data/sales/customer_export_1.csv",
+      "time": "2026-07-23T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_009_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Event metadata explicitly marks the access as unauthorized."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_183",
+      "predicate": "file_read",
+      "object": "/data/sales/customer_export_2.csv",
+      "time": "2026-07-24T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_009_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Event metadata explicitly marks the access as unauthorized."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_183",
+      "predicate": "archive_create",
+      "object": "/tmp/customer_exports.tar",
+      "time": "2026-07-25T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_009_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Creation of an archive in /tmp following unauthorized file reads within the same session."
+    },
+    {
+      "claim_id": "c5",
+      "claim_type": "observation",
+      "subject": "user_183",
+      "predicate": "network_transfer",
+      "object": "203.0.113.88",
+      "time": "2026-07-25T01:31:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_009_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Successful unauthorized network transfer to an external destination following data staging."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_183",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_009_001",
+        "evt_fw2_009_002",
+        "evt_fw2_009_003",
+        "evt_fw2_009_004",
+        "evt_fw2_009_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "The sequence of events shows unauthorized access to sensitive files, staging them into an archive, and a subsequent successful unauthorized external network transfer."
+    },
+    {
+      "claim_id": "h1",
+      "claim_type": "hypothesis",
+      "subject": "user_183",
+      "predicate": "file_read",
+      "object": null,
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "possible",
+      "authorization": null,
+      "intent": "malicious",
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_009_001",
+        "evt_fw2_009_002",
+        "evt_fw2_009_003",
+        "evt_fw2_009_004",
+        "evt_fw2_009_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.5,
+      "decisive": false,
+      "rationale": "The pattern of access, staging, and transfer is consistent with data exfiltration by a malicious actor using user_183's credentials."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_009_001",
+    "evt_fw2_009_002",
+    "evt_fw2_009_003",
+    "evt_fw2_009_004",
+    "evt_fw2_009_005"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Confirmation of whether the external IP 203.0.113.88 is a known corporate endpoint or a malicious actor's infrastructure.",
+    "Evidence of whether user_183's credentials were compromised (e.g., login from an unusual location/device)."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account user_183 was compromised by an external attacker who performed the unauthorized file access and exfiltration.",
+      "cited_event_ids": [
+        "evt_fw2_009_001",
+        "evt_fw2_009_005"
+      ],
+      "confidence": 0.4
+    },
+    {
+      "hypothesis": "The activity represents a misconfigured automated process or script running under the user_183 context that is incorrectly flagged as unauthorized.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

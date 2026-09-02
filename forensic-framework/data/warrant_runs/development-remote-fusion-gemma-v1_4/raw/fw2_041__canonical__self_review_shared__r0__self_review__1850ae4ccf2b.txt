@@ -1,0 +1,112 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_041_001 directly confirms the test_scope_approved action for user_650 on host:staging-web at the specified time.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_041_002 confirms a login_failed action for user_650 on host:staging-web.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_041_007 confirms the vulnerability_scan action for user_650 on host:staging-web.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_041_008 confirms the test_complete action for user_650 on host:staging-web.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "INSUFFICIENT",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "INSUFFICIENT",
+        "causality": "INSUFFICIENT",
+        "decision": "INSUFFICIENT"
+      },
+      "rationale": "While the events are consistent with an authorized test, the decision to rule out a security incident (verdict_no) is based on the assumption that the 'test_activity' metadata in the failed logins and scan events is truthful and hasn't been spoofed or misused. The evidence shows the activity matches the approved scope, but cannot definitively prove the intent was benign or that the account wasn't compromised to perform the 'authorized' test (as noted in the alternative hypothesis).",
+      "missing_evidence": []
+    }
+  ],
+  "recommended_verdict": "INSUFFICIENT",
+  "decisive_claim_ids_requiring_review": [
+    "decision_1"
+  ],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 0.9
+}
+```

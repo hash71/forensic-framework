@@ -1,0 +1,112 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "SUPPORTED",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_045_001 confirms a failed login for user_268 on the cloud_console at the specified timestamp.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "SUPPORTED",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_045_008 confirms a failed login for user_268 on the cloud_console at the specified timestamp.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "SUPPORTED",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_045_009 confirms an account_lock for user_268 on the cloud_console at the specified timestamp, with metadata indicating it was an authorized protective control.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "SUPPORTED",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_045_010 confirms an account_review_complete for user_268 at the specified timestamp, with metadata indicating it was authorized and that no successful attacker login occurred.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "SUPPORTED"
+      },
+      "rationale": "The combination of the account lock (protective control) and the subsequent administrative review confirming no successful attacker login supports the decision that no security incident (unauthorized access) occurred.",
+      "missing_evidence": []
+    }
+  ],
+  "recommended_verdict": "NO",
+  "decisive_claim_ids_requiring_review": [
+    "decision_1"
+  ],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 1.0
+}
+```

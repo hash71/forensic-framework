@@ -1,0 +1,158 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_013__canonical",
+  "verdict": "YES",
+  "suspect": "user_474",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_474",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-11T01:07:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_013_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Successful login for user_474 with MFA verified."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_474",
+      "predicate": "ticket_denied",
+      "object": "role:database_admin",
+      "time": "2026-07-11T01:10:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_013_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "A request for database_admin role was denied."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_474",
+      "predicate": "privilege_change",
+      "object": "role:database_admin",
+      "time": "2026-07-11T01:12:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_013_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The metadata explicitly marks the privilege change to database_admin as unauthorized."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_474",
+      "predicate": "database_export",
+      "object": "customer_master",
+      "time": "2026-07-11T01:15:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_013_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "An unauthorized export of the customer_master database occurred involving 12,000,000 bytes."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_474",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_013_003",
+        "evt_fw2_013_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Visible evidence of unauthorized privilege escalation followed by an unauthorized database export of sensitive data."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_013_003",
+    "evt_fw2_013_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account user_474 was compromised by an external actor using valid credentials and MFA.",
+      "cited_event_ids": [
+        "evt_fw2_013_001"
+      ],
+      "confidence": 0.5
+    }
+  ],
+  "overall_confidence": 1.0,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

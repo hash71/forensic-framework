@@ -1,0 +1,157 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_041__canonical",
+  "verdict": "NO",
+  "suspect": "user_650",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_650",
+      "predicate": "test_scope_approved",
+      "object": "host:staging-web",
+      "time": "2026-07-18T20:24:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_041_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The event metadata explicitly states the test scope was approved."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_650",
+      "predicate": "login_failed",
+      "object": "host:staging-web",
+      "time": "2026-07-18T20:29:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_041_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Failed login attempt occurred during an authorized test window."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_650",
+      "predicate": "vulnerability_scan",
+      "object": "host:staging-web",
+      "time": "2026-07-18T20:39:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_041_007"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "A vulnerability scan was performed as part of the authorized test activity."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_650",
+      "predicate": "test_complete",
+      "object": "host:staging-web",
+      "time": "2026-07-18T21:04:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_041_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The test activity was concluded successfully."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_650",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_041_001",
+        "evt_fw2_041_002",
+        "evt_fw2_041_007",
+        "evt_fw2_041_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "All observed activities (failed logins and vulnerability scanning) are explicitly marked as authorized test activity within an approved scope."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_041_001",
+    "evt_fw2_041_002",
+    "evt_fw2_041_007",
+    "evt_fw2_041_008"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The activity represents an attacker using the credentials of user_650 to perform unauthorized testing, masking their actions as an approved test.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

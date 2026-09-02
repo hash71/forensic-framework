@@ -1,0 +1,110 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "NOT_APPLICABLE",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_001_001 directly confirms a failed login for user_936 at the specified time.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "NOT_APPLICABLE",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_001_004 confirms a successful login where metadata explicitly flags 'authorized: false'.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_001_005 confirms the download of the specified file with 'authorized: false' metadata, occurring within the same session (sess_fw2_001_suspicious) as the unauthorized login.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_001_006 confirms the deletion of the specified log file with 'authorized: false' metadata, occurring within the same session as the unauthorized login.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "SUPPORTED"
+      },
+      "rationale": "The sequence of events (unauthorized login, unauthorized file access, and unauthorized log deletion) within a single session provides sufficient evidence of a security incident.",
+      "missing_evidence": []
+    }
+  ],
+  "recommended_verdict": "YES",
+  "decisive_claim_ids_requiring_review": [],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 1.0
+}
+```

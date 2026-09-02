@@ -1,0 +1,179 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_045__canonical",
+  "verdict": "INSUFFICIENT",
+  "suspect": "user_268",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "login_failed",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:11:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "single",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "A failed login attempt was recorded for user_268."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "login_failed",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:18:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "single",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Multiple failed login attempts occurred for user_268 from 198.51.100.40."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "account_lock",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "single",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_009"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The account was locked following the failed login attempts."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "account_review_complete",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:41:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "single",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_010"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "An administrative review was completed for the account."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_268",
+      "predicate": "verdict_insufficient",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_045_001",
+        "evt_fw2_045_008",
+        "evt_fw2_045_009",
+        "evt_fw2_045_010"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "While failed logins and an account lock occurred, there is no evidence of a successful unauthorized login or data exfiltration. The subsequent account review does not clarify if the attempts were malicious or benign."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_045_001",
+    "evt_fw2_045_002",
+    "evt_fw2_045_003",
+    "evt_fw2_045_004",
+    "evt_fw2_045_005",
+    "evt_fw2_045_006",
+    "evt_fw2_045_007",
+    "evt_fw2_045_008",
+    "evt_fw2_045_009"
+  ],
+  "evidence_against": [
+    "evt_fw2_045_010"
+  ],
+  "missing_evidence": [
+    "Evidence of a successful login from the suspicious IP (198.51.100.40)",
+    "Evidence of unauthorized resource access or data transfer",
+    "Details of the 'account_review_complete' to determine if the threat was mitigated or dismissed"
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "A brute-force or credential stuffing attack was attempted by an external actor from 198.51.100.40, but was successfully blocked by the account lock mechanism.",
+      "cited_event_ids": [
+        "evt_fw2_045_001",
+        "evt_fw2_045_009"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "hypothesis": "The user attempted to log in from an unrecognized location/IP and forgot their credentials, leading to an accidental account lock.",
+      "cited_event_ids": [
+        "evt_fw2_045_001",
+        "evt_fw2_045_009"
+      ],
+      "confidence": 0.4
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

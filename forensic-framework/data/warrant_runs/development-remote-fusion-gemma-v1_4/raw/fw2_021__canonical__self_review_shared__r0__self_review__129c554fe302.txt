@@ -1,0 +1,114 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_021_002 directly confirms user_346 attempted an assume_role on role:storage_reader with metadata 'authorized: false'.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_021_003 confirms the list_objects action on bucket:customer-backups with 'authorized: false'. The causal link to c1 is supported by the shared session_id 'sess_fw2_021_suspicious'.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_021_004 confirms the get_object action on bucket:customer-backups/full.sql with 'authorized: false'. The causal link to c2 is supported by the shared session_id 'sess_fw2_021_suspicious'.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "INSUFFICIENT",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "NOT_APPLICABLE",
+        "action": "SUPPORTED",
+        "object": "NOT_APPLICABLE",
+        "temporal": "SUPPORTED",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "NOT_APPLICABLE",
+        "intent": "INSUFFICIENT",
+        "causality": "INSUFFICIENT",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "While evt_fw2_021_001 confirms a credential rotation warning, there is no evidence linking this specific warning to the subsequent unauthorized session. The hypothesis that the warning caused the compromise is speculative.",
+      "missing_evidence": [
+        "Evidence linking the specific credentials flagged for rotation to the session 'sess_fw2_021_suspicious'."
+      ]
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "SUPPORTED"
+      },
+      "rationale": "The combination of unauthorized role assumption (c1) and unauthorized data retrieval (c3) constitutes a confirmed security incident involving user_346's credentials.",
+      "missing_evidence": []
+    }
+  ],
+  "recommended_verdict": "YES",
+  "decisive_claim_ids_requiring_review": [
+    "decision_1"
+  ],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 1.0
+}
+```

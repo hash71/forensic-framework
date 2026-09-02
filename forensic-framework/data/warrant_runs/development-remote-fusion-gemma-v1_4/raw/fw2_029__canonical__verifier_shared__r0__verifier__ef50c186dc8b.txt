@@ -1,0 +1,96 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_029_001 directly confirms user_231 had a travel approval for trip:regional-office at the specified timestamp.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "NOT_APPLICABLE",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_029_002 confirms a successful login for user_231, including MFA verification and expected device usage.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "INSUFFICIENT",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "INSUFFICIENT",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "INSUFFICIENT",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "While the file read (evt_fw2_029_003) is confirmed, the claim that it targets a directory within the user's 'normal baseline' cannot be verified by the provided events, as no baseline data is present.",
+      "missing_evidence": [
+        "user_baseline_access_patterns"
+      ]
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "INSUFFICIENT",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "NOT_APPLICABLE",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "INSUFFICIENT",
+        "intent": "INSUFFICIENT",
+        "causality": "INSUFFICIENT",
+        "decision": "INSUFFICIENT"
+      },
+      "rationale": "The decision that no security incident occurred relies on the assumption that the IP address (203.0.113.24) is reconciled by the travel approval. However, the travel approval (evt_fw2_029_001) shows a different source IP (10.10.20.185). There is no evidence linking the travel approval to the specific IP used for login.",
+      "missing_evidence": [
+        "correlation_between_travel_ip_and_login_ip"
+      ]
+    }
+  ],
+  "recommended_verdict": "INSUFFICIENT",
+  "decisive_claim_ids_requiring_review": [
+    "c4"
+  ],
+  "omitted_counterevidence_event_ids": [],
+  "verifier_confidence": 0.9
+}
+```

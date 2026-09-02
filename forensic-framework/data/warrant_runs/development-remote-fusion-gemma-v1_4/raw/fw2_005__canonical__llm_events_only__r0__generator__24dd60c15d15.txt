@@ -1,0 +1,171 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_005__canonical",
+  "verdict": "YES",
+  "suspect": "user_256",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-11T01:22:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_005_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Successful login from a known IP and device."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "file_read",
+      "object": "/data/engineering/design.pdf",
+      "time": "2026-07-11T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Authorized file access within the user's normal directory."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "session_ip_change",
+      "object": null,
+      "time": "2026-07-11T01:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The session transitioned to an IP address (198.51.100.208) not in the user's baseline."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "network_transfer",
+      "object": "203.0.113.200",
+      "time": "2026-07-11T01:33:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Successful transfer of 8,000,000 bytes to an external destination via the unauthorized IP."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_256",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_003",
+        "evt_fw2_005_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "The sequence shows an authorized session being hijacked or used from an unauthorized IP, followed by an unauthorized external data transfer."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_005_003",
+    "evt_fw2_005_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Evidence to determine if the session hijacking was due to credential theft or a legitimate but unrecorded change in user network environment."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The user's session was hijacked via session token theft after the initial authorized login.",
+      "cited_event_ids": [
+        "evt_fw2_005_001",
+        "evt_fw2_005_003"
+      ],
+      "confidence": 0.5
+    },
+    {
+      "hypothesis": "The user is using a VPN or proxy that changed their IP address, and the network transfer is a legitimate but unmapped business process.",
+      "cited_event_ids": [
+        "evt_fw2_005_003",
+        "evt_fw2_005_004"
+      ],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

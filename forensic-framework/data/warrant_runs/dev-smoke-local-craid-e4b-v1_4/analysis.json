@@ -1,0 +1,57 @@
+{
+  "artifact_integrity": {
+    "errors": [],
+    "ok": true,
+    "unique_raw_responses_checked": 1
+  },
+  "base_case_count": 1,
+  "conditions": {
+    "llm_events_only": {
+      "abstention_rate": 0.0,
+      "attack_recall": 0.0,
+      "benign_rejection": null,
+      "citation_completeness": null,
+      "citation_validity": null,
+      "counterevidence_recall": null,
+      "coverage": 0.0,
+      "decisive_causal_error_rate": null,
+      "decisive_claims": 0,
+      "delivered_decisive_claims": 0,
+      "delivered_udcr_micro": null,
+      "delivered_unwarranted_decisive_claims": 0,
+      "generator_failure_rate": 1.0,
+      "mechanical_allow_rate": 0.0,
+      "n": 1,
+      "operational_failure_rate": 1.0,
+      "raw_udcr_macro": null,
+      "raw_udcr_micro": null,
+      "review_failure_rate": 0.0,
+      "review_recommended_abstention_rate": 0.0,
+      "selective_exact_accuracy": null,
+      "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+      "unwarranted_decisive_claims": 0,
+      "valid_n": 0,
+      "verdict_accuracy": 0.0,
+      "verdict_and_suspect_exact_accuracy": 0.0,
+      "zero_raw_udcr_rate": null
+    }
+  },
+  "paired_effects": {
+    "events_only_vs_alerts": {
+      "alert_increased_udcr_rate": null,
+      "mean_udcr_change_alerts_minus_events": null,
+      "new_decisive_causal_error_rate": null,
+      "paired_n": 0,
+      "suspect_flip_rate": null,
+      "verdict_flip_rate": null
+    },
+    "shared_generation_reviews": {}
+  },
+  "record_count": 1,
+  "requested_model": "craid-e4b-local:latest",
+  "results_schema_version": "warrant-results-v1.0",
+  "run_id": "dev-smoke-local-craid-e4b-v1_4",
+  "split": [
+    "development"
+  ]
+}

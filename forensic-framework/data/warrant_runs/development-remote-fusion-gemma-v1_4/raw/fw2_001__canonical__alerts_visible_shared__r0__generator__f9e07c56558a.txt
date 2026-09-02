@@ -1,0 +1,170 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_001__canonical",
+  "verdict": "YES",
+  "suspect": "user_936",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login_failed",
+      "object": null,
+      "time": "2026-07-13T01:26:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_001_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Failed login attempt recorded for user_936."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-13T01:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Successful login occurred with metadata explicitly stating authorized: false and mfa_verified: false."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "file_download",
+      "object": "/data/finance/payroll.csv",
+      "time": "2026-07-13T01:33:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Unauthorized file download of payroll data occurred within the same session as the unauthorized login."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "log_delete",
+      "object": "/var/log/audit.log",
+      "time": "2026-07-13T01:36:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Unauthorized deletion of audit logs occurred within the same session as the unauthorized login."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_936",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_004",
+        "evt_fw2_001_005",
+        "evt_fw2_001_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "Visible evidence confirms unauthorized access (login), unauthorized data access (file_download), and unauthorized system modification (log_delete) within a single session."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_001_004",
+    "evt_fw2_001_005",
+    "evt_fw2_001_006"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account was compromised via credential stuffing or brute force, as suggested by the sequence of failed logins followed by a successful unauthorized login.",
+      "cited_event_ids": [
+        "evt_fw2_001_001",
+        "evt_fw2_001_002",
+        "evt_fw2_001_003",
+        "evt_fw2_001_004"
+      ],
+      "confidence": 0.6
+    },
+    {
+      "hypothesis": "A legitimate user is performing unauthorized actions, though the source IP (198.51.100.6) deviates from the baseline (10.10.20.90).",
+      "cited_event_ids": [],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.95,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

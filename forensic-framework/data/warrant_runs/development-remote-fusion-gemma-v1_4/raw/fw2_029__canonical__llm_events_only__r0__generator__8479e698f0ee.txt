@@ -1,0 +1,159 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_029__canonical",
+  "verdict": "NO",
+  "suspect": "user_231",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "travel_approved",
+      "object": "trip:regional-office",
+      "time": "2026-07-05T20:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_029_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The user had an approved travel status for a regional office prior to the login event."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-05T20:31:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_029_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The login was successful, used an expected device, and passed MFA, which is consistent with authorized access."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "file_read",
+      "object": "/data/legal/contract.pdf",
+      "time": "2026-07-05T20:36:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The file access was within the user's normal directory (/data/legal/) and was marked as authorized."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_231",
+      "predicate": "logout",
+      "object": null,
+      "time": "2026-07-05T20:56:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The session ended with a successful logout."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_231",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2",
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_001",
+        "evt_fw2_029_002",
+        "evt_fw2_029_003",
+        "evt_fw2_029_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "All observed activities (login, file access, logout) were explicitly authorized, used expected devices/MFA, and occurred within the user's normal directory following an approved travel event."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_029_001",
+    "evt_fw2_029_002",
+    "evt_fw2_029_003",
+    "evt_fw2_029_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account was compromised via session hijacking, but the attacker's actions perfectly mimicked the user's authorized workflow and directory access.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

@@ -1,0 +1,157 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_045__canonical",
+  "verdict": "NO",
+  "suspect": "user_268",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "login_failed",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:11:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Initial failed login attempt recorded for user_268."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "login_failed",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:18:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_008"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Final failed login attempt in the sequence before account lock."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "account_lock",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_009"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The account was locked by a protective control following the failed attempts."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_268",
+      "predicate": "account_review_complete",
+      "object": "cloud_console",
+      "time": "2026-07-04T20:41:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_010"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "An administrative review was completed, and metadata explicitly states no successful attacker login occurred."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_268",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_045_010"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "While failed login attempts occurred, the account was locked as a protective measure and a subsequent administrative review confirmed no successful unauthorized access."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_045_001",
+    "evt_fw2_045_008",
+    "evt_fw2_045_009",
+    "evt_fw2_045_010"
+  ],
+  "evidence_against": [
+    "evt_fw2_045_010"
+  ],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The failed logins were caused by a legitimate user forgetting their password, which was subsequently resolved by an administrator.",
+      "cited_event_ids": [
+        "evt_fw2_045_001",
+        "evt_fw2_045_010"
+      ],
+      "confidence": 0.5
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

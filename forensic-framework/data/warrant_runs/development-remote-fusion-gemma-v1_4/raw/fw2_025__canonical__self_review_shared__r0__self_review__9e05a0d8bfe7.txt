@@ -1,0 +1,116 @@
+```json
+{
+  "claims": [
+    {
+      "claim_id": "c1",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "NOT_APPLICABLE",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_025_001 directly confirms user_403 performed a ticket_approved action on cluster-prod at the specified timestamp with authorized status.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c2",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_025_002 confirms the privilege_change to role:maintenance_admin. The causal link to c1 is supported by the shared session_id 'sess_fw2_025_approved'.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c3",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_025_003 confirms the log_rotate action on the specified resource within the same authorized session.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "c4",
+      "overall_label": "SUPPORTED",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "SUPPORTED",
+        "quantitative": "SUPPORTED",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "NOT_APPLICABLE",
+        "causality": "SUPPORTED",
+        "decision": "NOT_APPLICABLE"
+      },
+      "rationale": "Event evt_fw2_025_004 confirms the privilege_revert to role:devops_specialist within the authorized session.",
+      "missing_evidence": []
+    },
+    {
+      "claim_id": "decision_1",
+      "overall_label": "INSUFFICIENT",
+      "axis_labels": {
+        "citation": "SUPPORTED",
+        "actor": "SUPPORTED",
+        "action": "SUPPORTED",
+        "object": "SUPPORTED",
+        "temporal": "NOT_APPLICABLE",
+        "quantitative": "NOT_APPLICABLE",
+        "scope": "NOT_APPLICABLE",
+        "modality": "SUPPORTED",
+        "authorization": "SUPPORTED",
+        "intent": "INSUFFICIENT",
+        "causality": "SUPPORTED",
+        "decision": "INSUFFICIENT"
+      },
+      "rationale": "While the sequence of events is documented and appears authorized, the decision 'verdict_no' (no security incident) assumes the legitimacy of the 'authorized' metadata. The detector alert (alert_fw2_025_001) correctly identifies that these actions occurred off-hours (20:00 vs baseline 08:00-18:00). The original output fails to reconcile why the off-hours activity is not considered suspicious or if the 'authorized' flag itself could be part of a compromised administrative workflow. The evidence supports the *occurrence* of the events, but is insufficient to definitively rule out a sophisticated incident involving credential misuse during an approved window.",
+      "missing_evidence": [
+        "Verification of why the maintenance occurred outside of normal hours (08:00-18:00) despite the 'authorized' flag."
+      ]
+    }
+  ],
+  "recommended_verdict": "INSUFFICIENT",
+  "decisive_claim_ids_requiring_review": [
+    "decision_1"
+  ],
+  "omitted_counterevidence_event_ids": [
+    "alert_fw2_025_001"
+  ],
+  "verifier_confidence": 0.9
+}
+```

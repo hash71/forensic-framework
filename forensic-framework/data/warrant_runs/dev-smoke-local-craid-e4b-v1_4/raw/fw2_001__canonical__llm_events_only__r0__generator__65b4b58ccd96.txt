@@ -1,0 +1,142 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_001__canonical",
+  "verdict": "YES",
+  "suspect": "user_936",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login_failed",
+      "object": null,
+      "time": "2026-07-13T01:26:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_001_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "user_936 attempted login from 198.51.100.6 outside normal hours."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-13T01:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_001_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "user_936 successfully logged in (evt_fw2_001_004) despite metadata indicating unauthorized access and lack of MFA verification."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "file_download",
+      "object": "/data/finance/payroll.csv",
+      "time": "2026-07-13T01:33:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": false,
+      "rationale": "user_936 downloaded a file from a normal directory, but the access was recorded as unauthorized."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_936",
+      "predicate": "log_delete",
+      "object": "/var/log/audit.log",
+      "time": "2026-07-13T01:36:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "one_event",
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_001_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "user_936 successfully deleted an audit log file, and the action was recorded as unauthorized."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_001_004",
+    "evt_fw2_001_006"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Confirmation that the file download (evt_fw2_001_005) resulted in external data transfer (exfiltration)."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account user_936 was compromised by an external actor who used valid credentials but bypassed MFA, leading to unauthorized actions.",
+      "cited_event_ids": [
+        "evt_fw2_001_004"
+      ],
+      "confidence": 0.8
+    },
+    {
+      "hypothesis": "The unauthorized status (authorized: false) in the events is due to a system misconfiguration or temporary policy lapse, not malicious intent.",
+      "cited_event_ids": [
+        "evt_fw2_001_004",
+        "evt_fw2_001_006"
+      ],
+      "confidence": 0.3
+    }
+  ],
+  "overall_confidence": 0.95,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

@@ -1,0 +1,158 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_017__canonical",
+  "verdict": "YES",
+  "suspect": "user_427",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_427",
+      "predicate": "change_request_rejected",
+      "object": "cluster-prod",
+      "time": "2026-07-17T01:09:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_017_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "A change request for cluster-prod was denied for user_427."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_427",
+      "predicate": "backup_disable",
+      "object": "cluster-prod",
+      "time": "2026-07-17T01:12:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_017_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states the backup_disable action was not authorized."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_427",
+      "predicate": "resource_delete",
+      "object": "cluster-prod/database-primary",
+      "time": "2026-07-17T01:15:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_017_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states the resource_delete action was not authorized; shares session_id with c2."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_427",
+      "predicate": "log_delete",
+      "object": "/var/log/cluster-audit.log",
+      "time": "2026-07-17T01:17:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_017_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The event metadata explicitly states the log_delete action was not authorized; shares session_id with c3."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_427",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "confirmed",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c2",
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_017_002",
+        "evt_fw2_017_003",
+        "evt_fw2_017_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "There is visible evidence of successful unauthorized changes (backup_disable, resource_delete) and unauthorized log deletion."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_017_002",
+    "evt_fw2_017_003",
+    "evt_fw2_017_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account user_427 was compromised by an external actor using the IP 198.51.100.63, as this IP is not in the user's normal_ips baseline.",
+      "cited_event_ids": [],
+      "confidence": 0.5
+    }
+  ],
+  "overall_confidence": 1.0,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

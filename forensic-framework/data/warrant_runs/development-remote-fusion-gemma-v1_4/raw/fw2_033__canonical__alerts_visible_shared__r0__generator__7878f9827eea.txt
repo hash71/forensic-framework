@@ -1,0 +1,253 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_033__canonical",
+  "verdict": "NO",
+  "suspect": "user_819",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "backup_job_approved",
+      "object": "backup:nightly-finance",
+      "time": "2026-07-07T20:03:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_033_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The backup job was explicitly marked as authorized and approved."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "file_read",
+      "object": "/data/operations/snapshot_0.bin",
+      "time": "2026-07-07T20:08:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "sess_fw2_033_approved",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "File access occurred within an approved session."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "file_read",
+      "object": "/data/operations/snapshot_1.bin",
+      "time": "2026-07-07T20:09:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "sess_fw2_033_approved",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "File access occurred within an approved session."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "file_read",
+      "object": "/data/operations/snapshot_2.bin",
+      "time": "2026-07-07T20:10:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "sess_fw2_033_approved",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "File access occurred within an approved session."
+    },
+    {
+      "claim_id": "c5",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "file_read",
+      "object": "/data/operations/snapshot_3.bin",
+      "time": "2026-07-07T20:11:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "sess_fw2_033_approved",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_005"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "File access occurred within an approved session."
+    },
+    {
+      "claim_id": "c6",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "network_transfer",
+      "object": "10.20.0.15",
+      "time": "2026-07-07T20:18:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "sess_fw2_033_approved",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_006"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The network transfer was part of the approved session and destination was internal."
+    },
+    {
+      "claim_id": "c7",
+      "claim_type": "observation",
+      "subject": "user_819",
+      "predicate": "backup_job_complete",
+      "object": "backup:nightly-finance",
+      "time": "2026-07-07T20:23:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_007"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "The backup job completed successfully and was authorized."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_819",
+      "predicate": "verdict_no",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_033_001",
+        "evt_fw2_033_002",
+        "evt_fw2_033_003",
+        "evt_fw2_033_004",
+        "evt_fw2_033_005",
+        "evt_fw2_033_006",
+        "evt_fw2_033_007"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "All observed activities (file reads and network transfer) are explicitly linked to an approved backup job (evt_fw2_033_001) and occurred within an authorized session (sess_fw2_033_approved). The transfer was to an internal destination."
+    }
+  ],
+  "evidence_for": [],
+  "evidence_against": [
+    "evt_fw2_033_001",
+    "evt_fw2_033_002",
+    "evt_fw2_033_003",
+    "evt_fw2_033_004",
+    "evt_fw2_033_005",
+    "evt_fw2_033_006",
+    "evt_fw2_033_007"
+  ],
+  "missing_evidence": [],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The account was compromised and the attacker performed actions that mimicked a legitimate backup job.",
+      "cited_event_ids": [],
+      "confidence": 0.1
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

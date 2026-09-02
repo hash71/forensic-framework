@@ -1,0 +1,163 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_005__canonical",
+  "verdict": "YES",
+  "suspect": "user_256",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "login",
+      "object": null,
+      "time": "2026-07-11T01:22:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_005_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Initial successful login from expected IP 10.10.11.159."
+    },
+    {
+      "claim_id": "c2",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "file_read",
+      "object": "/data/engineering/design.pdf",
+      "time": "2026-07-11T01:27:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_002"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": false,
+      "rationale": "Authorized file access within normal directory for user_256."
+    },
+    {
+      "claim_id": "c3",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "session_ip_change",
+      "object": null,
+      "time": "2026-07-11T01:30:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_003"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "The session transitioned to an external IP 198.51.100.208, which is not in the user's normal IPs."
+    },
+    {
+      "claim_id": "c4",
+      "claim_type": "observation",
+      "subject": "user_256",
+      "predicate": "network_transfer",
+      "object": "203.0.113.200",
+      "time": "2026-07-11T01:33:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": null,
+      "modality": "observed",
+      "authorization": "unauthorized",
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 1.0,
+      "decisive": true,
+      "rationale": "An unauthorized transfer of 8,000,000 bytes occurred to an external destination 203.0.113.200 following the IP change."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "user_256",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c3",
+        "c4"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_005_003",
+        "evt_fw2_005_004"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.9,
+      "decisive": true,
+      "rationale": "The sequence of an unauthorized session IP change followed by a large unauthorized external network transfer constitutes evidence of successful unauthorized data transfer."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_005_003",
+    "evt_fw2_005_004"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "Verification of whether the 8MB transferred was sensitive engineering data.",
+    "Logs confirming if the IP change was due to a VPN or proxy used by the legitimate user."
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "The user connected to a VPN or proxy mid-session, resulting in an IP change and subsequent external traffic that is benign but flagged as unauthorized.",
+      "cited_event_ids": [
+        "evt_fw2_005_003",
+        "evt_fw2_005_004"
+      ],
+      "confidence": 0.3
+    }
+  ],
+  "overall_confidence": 0.9,
+  "abstain": false,
+  "abstention_reason": null
+}
+```
