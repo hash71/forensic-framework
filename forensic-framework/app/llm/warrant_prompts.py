@@ -7,7 +7,7 @@ from typing import Any
 
 from app.evaluation.claims import SCHEMA_VERSION
 
-GENERATOR_PROMPT_VERSION = "warrant-generator-v1.1"
+GENERATOR_PROMPT_VERSION = "warrant-generator-v1.2"
 SELF_REVIEW_PROMPT_VERSION = "warrant-self-review-v1.0"
 VERIFIER_PROMPT_VERSION = "warrant-verifier-v1.1"
 
@@ -181,7 +181,7 @@ def build_warrant_generator_prompt(
         "8. For an observation, object may copy an exact cited resource field or be null. A source_ip is not the resource object; discuss it only in rationale.",
         "9. Use scope only when it is exactly 'single', 'one_event', 'cited_events_only', or copied from metadata.scope; otherwise use null.",
         "10. Use time only for a single instant shared by the claim's cited evidence; otherwise use null.",
-        "11. Use causal_parent_claim_ids only when cited parent and child events share an explicit session_id, process_id, trace_id, request_id, or flow_id. Decision claims may reference supported decisive claims.",
+        "11. causal_parent_claim_ids may contain only claim_id values already present in this output, never event_id values. Use it only when cited parent and child events share an explicit session_id, process_id, trace_id, request_id, or flow_id. Decision claims may reference supported decisive claim IDs.",
         "12. Set authorization only when a cited event or supplied baseline explicitly establishes it; anomaly alone is not unauthorized behavior.",
         "13. A supports relation with observed/confirmed modality means every populated material field is directly licensed by the citations. Use possible/unknown or insufficient when it is not.",
         "",
