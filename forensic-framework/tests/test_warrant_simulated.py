@@ -8,6 +8,7 @@ import pytest
 
 from app.evaluation.warrant_annotations import ANNOTATION_AXES
 from app.evaluation.warrant_simulated import (
+    _reviewer_operations,
     consensus_reviews,
     deterministic_batches,
     export_targeted_review_package,
@@ -181,3 +182,40 @@ def test_targeted_review_export_keeps_selection_basis_out_of_blind_dir(
     selection = (output / "admin_do_not_share_with_annotators" / "selection_basis.csv")
     assert "INSUFFICIENT" in selection.read_text()
     assert (output / "blind" / "review.html").is_file()
+
+
+def test_reviewer_operations_deduplicate_batched_call_metadata(tmp_path) -> None:
+    reviewer_dir = tmp_path / "reviewers" / "sim_a"
+    reviewer_dir.mkdir(parents=True)
+    call = {
+        "raw_response_sha256": "a" * 64,
+        "returned_model": "model-a",
+        "model_revision": None,
+        "input_tokens": 100,
+        "output_tokens": 20,
+    }
+    rows = [
+        {
+            "annotation_id": f"ann_{index}",
+            "review": {
+                "schema_normalizations": (
+                    ["missing_evidence:null_to_empty_string"] if index == 0 else []
+                )
+            },
+            "call": call,
+        }
+        for index in range(2)
+    ]
+    (reviewer_dir / "judgments.jsonl").write_text(
+        "".join(json.dumps(row) + "\n" for row in rows)
+    )
+    (reviewer_dir / "failures.jsonl").write_text(
+        json.dumps({"error_type": "ValueError"}) + "\n"
+    )
+
+    operations = _reviewer_operations(tmp_path, ["sim_a"])["sim_a"]
+
+    assert operations["accepted_judgments"] == 2
+    assert operations["accepted_calls"] == 1
+    assert operations["input_tokens"] == 100
+    assert operations["failed_attempts_retained"] == 1

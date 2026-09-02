@@ -509,7 +509,10 @@ def write_simulated_result_macros(analysis_path: Path, output_path: Path) -> Non
     values = {
         "SimPanelClaims": str(sample["claims"]),
         "SimPanelPopulationClaims": str(sample["population_claims"]),
-        "SimPanelReviewers": str(len(analysis["reviewers"])),
+        "SimPanelReviewers": str(sum(
+            reviewer["panel_role"] == "consensus"
+            for reviewer in analysis["reviewers"]
+        )),
         "SimPanelAnyDisagreement": _pct(
             panel["items_with_any_disagreement"] / sample["claims"]
         ),

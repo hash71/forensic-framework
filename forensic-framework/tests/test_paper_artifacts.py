@@ -162,7 +162,11 @@ def test_simulated_macros_preserve_non_expert_validity_boundary(
     analysis = {
         "validity_boundary": "AI sensitivity study; not expert validation",
         "sample": {"claims": 400, "population_claims": 11284},
-        "reviewers": [{}, {}, {}],
+        "reviewers": [
+            {"panel_role": "consensus"},
+            {"panel_role": "consensus"},
+            {"panel_role": "consensus"},
+        ],
         "panel": {
             "items_with_any_disagreement": 120,
             "items_with_overall_disagreement": 80,
@@ -267,4 +271,4 @@ def test_every_manuscript_citation_has_bibtex_and_audit_entry() -> None:
 
     assert cited <= bib_keys
     assert audited == cited
-    assert len(cited) == 32
+    assert len(cited) == 34

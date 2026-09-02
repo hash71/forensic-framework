@@ -1,6 +1,6 @@
-# Reference Audit — 32 entries cited by the submission
+# Reference Audit — 34 entries cited by the submission
 
-Audit date: 2026-09-02
+Audit date: 2026-09-03
 
 This list is generated from the citation keys actually present in `paper.tex`,
 not from every unused entry retained in `references.bib`. Each cited work was
@@ -25,6 +25,7 @@ No cited entry is accepted from title-only search results or memory.
 | `gemmateam2026gemma4` | Gemma 4 Technical Report | [arXiv:2607.02770](https://arxiv.org/abs/2607.02770) and the official Gemma 4 model card |
 | `glasser2013bridging` | Bridging the Gap: A Pragmatic Approach to Generating Insider Threat Data | IEEE DOI `10.1109/SPW.2013.37` |
 | `godbole2025verify` | Verify with Caution: The Pitfalls of Relying on Imperfect Factuality Metrics | ACL DOI `10.18653/v1/2025.findings-acl.1175` |
+| `goel2025great` | Great Models Think Alike and this Undermines AI Oversight | [PMLR 267](https://proceedings.mlr.press/v267/goel25b.html) |
 | `greshake2023not` | Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection | ACM DOI `10.1145/3605764.3623985` |
 | `guo2017calibration` | On Calibration of Modern Neural Networks | [PMLR 70](https://proceedings.mlr.press/v70/guo17a.html) |
 | `karanjai2026loginject` | LogInject / Context Contamination in LLM Analysis of Network Security Logs | [USENIX Security 2026](https://www.usenix.org/conference/usenixsecurity26/presentation/karanjai) |
@@ -38,6 +39,7 @@ No cited entry is accepted from title-only search results or memory.
 | `schreieder2026survey` | Attribution, Citation, and Quotation: A Survey of Evidence-Based Text Generation with Large Language Models | ACL DOI `10.18653/v1/2026.acl-long.1430` |
 | `sei2016certdataset` | Insider Threat Test Dataset | [Carnegie Mellon SEI dataset record](https://insights.sei.cmu.edu/library/insider-threat-test-dataset/), DOI `10.1184/R1/12841247.v1` |
 | `singh2025llmsoc` | LLMs in the SOC | [arXiv:2508.18947](https://arxiv.org/abs/2508.18947) |
+| `thakur2025judges` | Judging the Judges: Evaluating Alignment and Vulnerabilities in LLMs-as-Judges | [ACL Anthology](https://aclanthology.org/2025.gem-1.33/) |
 | `wang2026secrespond` | SecRespond | [arXiv:2607.26791](https://arxiv.org/abs/2607.26791) |
 | `wei2025cortex` | CORTEX | [arXiv:2510.00311](https://arxiv.org/abs/2510.00311) |
 | `xing2025evidence` | Evaluating Evidence Attribution in Generated Fact Checking Explanations | ACL DOI `10.18653/v1/2025.naacl-long.282` |

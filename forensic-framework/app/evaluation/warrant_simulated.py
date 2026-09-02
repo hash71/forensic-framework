@@ -350,6 +350,55 @@ def _load_reviewer_judgments(
     return output
 
 
+def _reviewer_operations(
+    run_dir: Path,
+    reviewer_ids: list[str],
+) -> dict[str, dict[str, Any]]:
+    """Summarize accepted calls, retries, models, tokens, and normalizations."""
+
+    output: dict[str, dict[str, Any]] = {}
+    for reviewer_id in reviewer_ids:
+        reviewer_dir = run_dir / "reviewers" / reviewer_id
+        judgments_path = reviewer_dir / "judgments.jsonl"
+        failures_path = reviewer_dir / "failures.jsonl"
+        judgments = read_jsonl(judgments_path) if judgments_path.exists() else []
+        failures = read_jsonl(failures_path) if failures_path.exists() else []
+        accepted_calls: dict[str, dict[str, Any]] = {}
+        normalizations = Counter()
+        for judgment in judgments:
+            call = judgment["call"]
+            accepted_calls.setdefault(call["raw_response_sha256"], call)
+            normalizations.update(judgment["review"].get("schema_normalizations", []))
+        output[reviewer_id] = {
+            "accepted_judgments": len(judgments),
+            "accepted_calls": len(accepted_calls),
+            "failed_attempts_retained": len(failures),
+            "failure_types": dict(sorted(Counter(
+                failure["error_type"] for failure in failures
+            ).items())),
+            "schema_normalizations": dict(sorted(normalizations.items())),
+            "returned_models": sorted({
+                str(call["returned_model"])
+                for call in accepted_calls.values()
+                if call.get("returned_model")
+            }),
+            "model_revisions": sorted({
+                str(call["model_revision"])
+                for call in accepted_calls.values()
+                if call.get("model_revision")
+            }),
+            "input_tokens": sum(
+                int(call.get("input_tokens") or 0)
+                for call in accepted_calls.values()
+            ),
+            "output_tokens": sum(
+                int(call.get("output_tokens") or 0)
+                for call in accepted_calls.values()
+            ),
+        }
+    return output
+
+
 def _priority_rows(
     keys: list[dict[str, Any]],
     consensus: dict[str, dict[str, str]],
@@ -438,6 +487,7 @@ def analyze_simulated_panel(
     if len(panel_reviewer_ids) != 3:
         raise ValueError("simulated consensus panel requires exactly three reviewers")
     reviewers = _load_reviewer_judgments(run_dir, reviewer_ids)
+    operations = _reviewer_operations(run_dir, reviewer_ids)
     completeness = {
         reviewer: len(rows) for reviewer, rows in reviewers.items()
     }
@@ -543,6 +593,7 @@ def analyze_simulated_panel(
             "design_weighted": True,
         },
         "reviewer_completeness": completeness,
+        "operations": operations,
         "reviewers": run_manifest["reviewers"],
         "pairwise_ai_agreement": pairwise,
         "panel": {

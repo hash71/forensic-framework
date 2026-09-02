@@ -100,6 +100,13 @@
 }{
   \humanresultsfalse
 }
+\newif\ifsimulatedresults
+\IfFileExists{generated_simulated_results.tex}{
+  \simulatedresultstrue
+  \input{generated_simulated_results.tex}
+}{
+  \simulatedresultsfalse
+}
 \ifhumanresults
   \newcommand{\PrimaryWarrantBasis}{sampling-weighted adjudicated expert labels}
   \newcommand{\PrimaryAlertsUnsafeExposure}{\HumanPrimaryAlertsUnsafeExposure}
@@ -827,9 +834,11 @@ transfer evidence and preserve the synthetic paired study as the only source
 of confirmatory causal contrasts.
 
 %-------------------------------------------------------------------------------
-\section{Human Validation}
+\section{Validity Audits}
 \label{sec:annotation}
 %-------------------------------------------------------------------------------
+
+\subsection{Planned independent human validation}
 
 The protocol samples 400 unique atomic claims after deduplicating generator
 responses shared across review conditions.  A simple random sample of this size
@@ -900,6 +909,46 @@ hours total across all three roles).
 are frozen, but independent DFIR labels have not yet been returned.  Therefore
 all warrant measurements throughout this draft remain mechanical-proxy outcomes rather than
 expert error rates, and the manuscript is not submission-ready.
+\fi
+
+\ifsimulatedresults
+\subsection{Exploratory AI-judge sensitivity (not expert validation)}
+
+To exercise the frozen rubric while institutional approval and qualified DFIR
+reviewers remain unavailable, three language-model roles independently labeled
+the same \SimPanelClaims-claim blind sample.  A local Gemma deployment used
+strict-evidentiary and separately seeded operational-DFIR prompts; a remote
+Gemma-family deployment used a counterfactual-skeptic prompt.  Thus the panel
+varies prompts and serving deployments, but not three independent model
+families.  Moreover, the remote deployment also generated the reports.
+Prior work shows that model similarity can produce correlated errors and
+favorable judge scores~\cite{goel2025great}, while LLM judges can diverge from
+humans and remain sensitive to prompt complexity and leniency
+~\cite{thakur2025judges}.
+
+Every role returned all \SimPanelClaims\ schema-valid judgments.  A strict
+field-level majority exists for every item, but \SimPanelAnyDisagreement\ of
+items contain at least one disputed field; overall warrant is disputed on
+\SimPanelOverallDisagreement\ and materiality on
+\SimPanelMaterialityDisagreement.  Sampling-design-weighted overall agreement
+between AI consensus and the authored mechanical proxy is
+\SimMechanicalWeightedAgreement\ ($\kappa=\SimMechanicalWeightedKappa$).
+Treating AI consensus only as a sensitivity reference, the mechanical
+materially-unwarranted flag has \SimFlagPrecision\ precision and
+\SimFlagRecall\ recall.
+
+Replacing the proxy with AI consensus in the frozen weighted join gives
+\SimPrimaryAlertsUnsafeExposure\ surfaced unwarranted decisive claims per base
+case for alert-conditioned generation and
+\SimPrimaryAbstainUnsafeExposure\ for verifier-plus-abstention, a change of
+\SimPrimaryUnsafeDifference\ (95\% bootstrap CI
+[\SimPrimaryUnsafeCILow,~\SimPrimaryUnsafeCIHigh]).  This estimate tests
+conclusion sensitivity; it is not an expert-error rate.  We release consensus,
+disagreement, and provenance records and a post-hoc 120-item blind priority
+package for later real review.  Because that subset is targeted rather than a
+probability sample, it can diagnose important failures but cannot estimate
+population prevalence.  The independent-human validity gate above remains
+open regardless of panel agreement.
 \fi
 
 %-------------------------------------------------------------------------------
@@ -1046,6 +1095,15 @@ which holds evidence fixed while raising claim force
 forensic actor, authorization, intent, causality, chronology, and decision
 axes, then manipulate both evidence and untrusted alert context and measure
 downstream exposure under abstention.
+
+\textbf{Language-model evaluators.}  Automated judges can scale custom
+rubric-based review, but their agreement is not independent validation.  A
+multi-model study finds prompt sensitivity, leniency, and residual divergence
+from human scores even among its strongest judges~\cite{thakur2025judges}.
+Model-similarity analysis further shows increasingly correlated failures and
+judge preference for similar generators~\cite{goel2025great}.  These findings
+motivate our role-separated, provenance-rich sensitivity panel and the rule
+that its consensus cannot enter the human-analysis path.
 
 \textbf{Self-checking and abstention.}  SelfCheckGPT detects inconsistent
 generation without an external knowledge base~\cite{manakul2023selfcheckgpt};
