@@ -43,7 +43,7 @@ A submission-ready claim requires all of the following:
   frontier providers, or an explicit narrowing of all model-general claims;
 - [ ] an external-data stress test whose investigation unit and visible-
   evidence labels are independently defensible;
-- [ ] a selected dataset license and a redistribution audit for derived CERT
+- [x] a selected dataset license and a redistribution audit for derived CERT
   artifacts;
 - [ ] an identity-scrubbed, non-tracking reviewer artifact frozen with the
   exact manuscript results; and

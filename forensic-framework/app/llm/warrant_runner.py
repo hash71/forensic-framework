@@ -273,6 +273,11 @@ def _base_record(
     repetition: int,
     model_id: str,
 ) -> dict[str, Any]:
+    target = case.get("evaluation_target") or case["ground_truth"]
+    expected_verdict = target.get("verdict", target.get("warranted_verdict"))
+    expected_suspect = target.get("suspect", target.get("warranted_suspect"))
+    if expected_verdict is None:
+        raise ValueError(f"{case['case_id']}: evaluation target has no verdict")
     return {
         "run_schema_version": RUN_SCHEMA_VERSION,
         "warrant_evaluator_version": WARRANT_EVALUATOR_VERSION,
@@ -286,8 +291,12 @@ def _base_record(
         "condition": condition,
         "repetition": repetition,
         "requested_model": model_id,
-        "expected_verdict": case["ground_truth"]["warranted_verdict"],
-        "expected_suspect": case["ground_truth"]["warranted_suspect"],
+        "expected_verdict": expected_verdict,
+        "expected_suspect": expected_suspect,
+        "evaluation_label_semantics": target.get(
+            "label_semantics", "visible_evidence_warrant"
+        ),
+        "source_dataset": case.get("source_dataset", "warrantlab_synthetic"),
     }
 
 
@@ -613,6 +622,8 @@ async def run_experiment(
     verifier_model: str | None = None,
     provider: str | None = None,
     model_revision: str | None = None,
+    benchmark_path: Path | None = None,
+    benchmark_label_semantics: str = "visible_evidence_warrant",
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     records_path = run_dir / "records.jsonl"
@@ -677,6 +688,7 @@ async def run_experiment(
             dependency_versions[package] = importlib.metadata.version(package)
         except importlib.metadata.PackageNotFoundError:
             dependency_versions[package] = None
+    resolved_benchmark_path = benchmark_path or CASES_PATH
     manifest = {
         "run_schema_version": RUN_SCHEMA_VERSION,
         "warrant_evaluator_version": WARRANT_EVALUATOR_VERSION,
@@ -694,7 +706,9 @@ async def run_experiment(
         "case_count": len(cases),
         "base_case_count": len({case["base_case_id"] for case in cases}),
         "case_ids_sha256": _sha256_text("\n".join(case_ids)),
-        "benchmark_sha256": hashlib.sha256(CASES_PATH.read_bytes()).hexdigest(),
+        "benchmark_path": str(resolved_benchmark_path.relative_to(PROJECT_ROOT)),
+        "benchmark_sha256": hashlib.sha256(resolved_benchmark_path.read_bytes()).hexdigest(),
+        "benchmark_label_semantics": benchmark_label_semantics,
         "requested_generator_model": client.model,
         "requested_verifier_model": verifier_model or client.model,
         "provider": client.provider,
