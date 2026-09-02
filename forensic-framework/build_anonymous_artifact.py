@@ -590,6 +590,16 @@ outputs, paper source, and a rendered manuscript. No network access is required
 to reproduce the reported analyses or rebuild the paper after installing the
 locked research dependencies.
 
+## Requirements and expected cost
+
+- Python 3.11 or newer and Tectonic (validated with Tectonic 0.17.0).
+- About 1 GB of free disk for the virtual environment and regenerated outputs.
+- No GPU, model server, API credential, or model download. Reproduction uses
+  frozen scored records and does not call Gemma or any remote endpoint.
+- On the reference laptop, dependency installation plus the full command takes
+  under two minutes; allow up to five minutes on a typical current CPU. Network
+  access is needed only for the one-time dependency installation.
+
 ## Reproduction
 
 From the artifact root:

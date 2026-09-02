@@ -485,6 +485,29 @@ It is not pooled with the confirmatory synthetic contrasts.
 \label{sec:system}
 %-------------------------------------------------------------------------------
 
+\subsection{Use and threat model}
+
+We consider an analyst-facing pipeline that summarizes a bounded collected
+event set and an optional detector alert; it cannot autonomously accuse,
+contain, or discipline a person.  The desired security property is that no
+decisive proposition reaches the analyst as evidence-supported unless the
+visible record warrants every material field.  The protected decision surface
+therefore includes the verdict, named actor, authorization, intent, causality,
+time, quantity, and scope, with retained coverage and attack recall treated as
+co-equal utility requirements.
+
+The generator and verifier are untrusted advisory components.  An attacker may
+cause logged activity and place inert strings in attacker-controllable record
+fields; a fallible detector may supply a wrong actor or severity; and collection
+or normalization may omit evidence or drift in schema.  Benign decoys and noise
+can induce the same overclaiming failure without an adversary.  We assume the
+frozen manifests, hidden reference data, evaluator, and visible event
+identifiers have not been altered after collection.  The benchmark measures
+passive prompt injection, misleading context, and evidence insufficiency; it
+does not evaluate forged provenance, compromised collectors or retrieval,
+adaptive multi-turn attackers, or autonomous response actions
+\cite{greshake2023not,karanjai2026loginject}.
+
 \begin{figure*}[t]
 \centering
 \includegraphics[width=0.96\textwidth]{figures/warrant-study-design.pdf}

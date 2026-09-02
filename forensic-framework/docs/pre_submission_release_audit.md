@@ -95,6 +95,10 @@ human-label integration or substantive manuscript change.
 
 ### Ethics boundary
 
+- The systems section states the protected analyst-facing decision surface,
+  attacker-controlled log text and misleading alerts, trusted frozen
+  provenance, and excluded adaptive, collector-compromise, and autonomous-action
+  threats.
 - The benchmark is synthetic and contains no real users, routable
   infrastructure, credentials, or executed attack payloads.
 - Passive prompt-injection strings are inert test data. The system is scoped to

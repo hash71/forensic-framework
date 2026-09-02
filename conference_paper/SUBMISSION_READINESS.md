@@ -20,13 +20,15 @@ current proxy-only draft.
 - Paper submission: January 26, 2027
 - Artifact grace-period deadline: January 29, 2027
 
-The title and author list are fixed at registration. Every author needs a
-HotCRP profile and ORCID before submission.
+The title, full author list, and topics are fixed at registration; the abstract
+must be non-blank but remains tentative. Every author needs a HotCRP profile and
+ORCID before submission.
 
 ## Venue requirements
 
 - At most 13 pages of body text; references and submission appendices are
-  excluded from that limit.
+  excluded from that limit. An accepted camera-ready paper has a 20-page total
+  limit including references and appendices.
 - Anonymous author block and anonymous, non-tracking artifact URL.
 - A mandatory Open Science appendix describing every artifact or explaining
   why it cannot be shared.
@@ -34,8 +36,19 @@ HotCRP profile and ORCID before submission.
   the manuscript.
 - The paper must be complete at submission; reviewers are not required to read
   optional appendices.
+- ML-assisted security work should use the primary field of the security
+  problem, remain relevant to systems security, and state the attacker, threat
+  surfaces, trust assumptions, generality, and practicality. The manuscript now
+  gives an explicit analyst-assistance threat model and keeps autonomous action
+  outside scope.
 - Human authors must verify all AI-assisted prose, code, data, references, and
   results. Fabricated citations or results are academic misconduct.
+
+For the anonymous artifact, USENIX recommends `anonymous.4open.science` with
+conference identifier `SEC27`. The URL becomes final after paper submission;
+the three-day grace period may be used only to anonymize and upload artifacts,
+not to change the paper, and the frozen files must remain accessible through
+the shepherd-approval deadline.
 
 ## Evidence gates before submission
 

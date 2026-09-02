@@ -166,6 +166,12 @@ records complete release-policy omission, then regenerates the dependent paper
 macros and figures before hashing the payload. The documented clean-room command
 therefore leaves every manifest-listed derivative byte-identical.
 
+The reviewer reproduction is CPU-only and uses frozen scored records; it does
+not invoke Gemma, Ollama, or a remote endpoint. Budget about 1 GB of disk and up
+to five minutes on a current laptop, including dependency installation. After
+the locked dependencies are installed, the analysis and paper rebuild require
+no network access, model weights, or credentials.
+
 Full confirmatory `records.jsonl` files and per-call `raw/` directories are
 intentionally excluded from ordinary Git history because they are large,
 generated artifacts. Git tracks the exact run manifest, release-redaction
