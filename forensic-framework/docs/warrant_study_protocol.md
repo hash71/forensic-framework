@@ -4,6 +4,11 @@ Protocol version: 1.0
 Frozen on: 2026-09-02  
 Status: prospective protocol for the v2 study; the prior 115-scenario study is pilot evidence only
 
+Post-run status note: the original H5 wording and condition list below are
+preserved as frozen. No confidence calibrator or threshold grid was actually
+fitted; H5 is not confirmatorily testable and the implemented 0.65 policy is a
+fixed heuristic. See `docs/protocol_deviations.md`.
+
 ## 1. Study objective
 
 This study evaluates whether an LLM's cited log evidence warrants the exact

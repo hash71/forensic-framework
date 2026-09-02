@@ -36,6 +36,10 @@ human-label integration or substantive manuscript change.
 - The primary comparison is paired on base case and reports a base-case
   cluster bootstrap confidence interval. The failed 3-point attack-recall
   non-inferiority test remains visible in the abstract, results, and conclusion.
+- The abstention mechanism is a fixed heuristic at one operating point, not a
+  calibrated confidence policy. The paper now enumerates its 0.65 generator-
+  confidence threshold and every rule-based rejection trigger; verifier
+  confidence is recorded but unused. H5 remains not confirmatorily testable.
 - The 32-cluster CERT transfer analysis is explicitly separate and uses latent
   scenario labels only for operational stress testing, not as visible-evidence
   warrant ground truth.

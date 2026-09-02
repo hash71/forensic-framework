@@ -489,10 +489,12 @@ same model to inspect the shared alert-visible output for unsupported claims,
 missed counterevidence, and a recommended verdict.  \emph{Generator--verifier}
 uses an independently prompted, alert-blind verifier that sees the claims,
 visible events, and baselines, but not detector alerts.  Finally,
-\emph{verifier plus abstention} applies a deterministic policy that withholds
-an output when the verifier recommends \textsc{insufficient}, the mechanical
-checker finds an unwarranted decisive claim, or decisive counterevidence was
-missed.
+\emph{verifier plus abstention} applies a fixed heuristic policy, not a
+calibrated score.  It withholds an output when the generator abstains or reports
+confidence below 0.65, the verifier recommends \textsc{insufficient}, the
+mechanical checker finds an unwarranted decisive claim or invalid citation, or
+decisive counterevidence was missed.  Verifier-reported confidence is retained
+for audit but does not control the policy.
 
 The generator receives a strict JSON schema and instructions to use direct
 observations for logged facts, hypotheses for inferences, and
@@ -782,8 +784,10 @@ held-out variants.  Gradient boosting and logistic regression each obtain 85\%
 three-way accuracy, while tuned rules obtain 100\%.  This ceiling is evidence
 that the synthetic verdict task is transparent, not that real cloud forensics
 is solved.  We therefore do not claim an LLM detection improvement over these
-baselines.  Prevalence-adjusted PPV is reported only for delivered binary
-decisions; abstentions are neither true nor false negatives.
+baselines.  At the frozen operating point, no condition issues \textsc{yes} on
+a visible-evidence \textsc{no} target, so the raw plug-in PPV is 100\% at each
+assumed prevalence.  This boundary estimate from nested synthetic records is
+not deployment precision; abstentions are neither true nor false negatives.
 
 \subsection{External transfer is a separate, harder claim}
 

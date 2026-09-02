@@ -73,7 +73,11 @@ exposure. Their four sign tests receive one Holm adjustment. Because these
 estimators were operationalized after the run started, H3/H4 are explicitly
 exploratory. H5 is marked not confirmatorily testable; one frozen operating
 point and any descriptive risk--coverage figure cannot establish a monotone
-threshold effect.
+threshold effect. The configured `calibration_split: development` records the
+planned split policy; it does not imply that a calibrator was fitted. The
+implemented policy uses the generator's fixed 0.65 confidence threshold plus
+rule-based rejection triggers, and records but does not threshold the
+verifier's self-reported confidence.
 
 **Impact:** no prompt, model call, record, primary estimand, recall margin,
 bootstrap unit, or H1/H2 analysis changed. This correction narrows, rather than

@@ -24,7 +24,13 @@ The target contribution is narrower:
 > evidential warrant, using paired evidence and context mutations to separate
 > citation validity from whether evidence licenses exact attribution,
 > chronology, quantity, authorization, intent, causal, and decision claims;
-> followed by an independently verified and calibrated abstention intervention.
+> followed by an alert-blind verifier and a fixed abstention intervention whose
+> safety--coverage trade-off is measured at one frozen operating point.
+
+The implemented intervention is not a calibrated confidence policy. Protocol
+H5 could not be tested confirmatorily because no threshold grid, selective-risk
+function, or trend statistic was pre-specified; calibration remains future
+work.
 
 Any final priority claim must be rechecked immediately before submission and
 phrased as `to our knowledge` with explicit comparison criteria.
@@ -35,7 +41,7 @@ phrased as `to our knowledge` with explicit comparison criteria.
 |---|---|---|---|
 | [Audit-LLM](https://arxiv.org/abs/2408.08902) | CERT r4.2/r5.2 and PicoDomain | Multi-agent decomposition, tools, evidence-based debate, insider-threat conclusions | Atomic claim warrant and counterfactual context effects are not its primary evaluation object |
 | [GenDFIR](https://arxiv.org/abs/2409.02572) | Forensic timelines | Rule-based artifact selection plus retrieval-augmented timeline reasoning | v2 evaluates exact claim-evidence relations rather than semantic enrichment alone |
-| [CORTEX](https://arxiv.org/abs/2510.00311) | Production SOC investigations | Specialized agents, typed tools, linked evidence, auditable triage decisions | v2 isolates warrant errors under paired controlled mutations and calibrated abstention |
+| [CORTEX](https://arxiv.org/abs/2510.00311) | Production SOC investigations | Specialized agents, typed tools, linked evidence, auditable triage decisions | v2 isolates warrant errors under paired controlled mutations and measures a fixed abstention policy at one operating point |
 | [Holmes](https://arxiv.org/abs/2601.14601) | Cloud-network DDoS investigation | Evidence-grounded, auditable, cost-controlled agent | Evidence-grounded cloud investigation is therefore not itself novel |
 | [Retrieval-Augmented LLMs for Security Incident Analysis](https://arxiv.org/abs/2603.18196) | Multi-source logs | Targeted retrieval, MITRE ATT&CK context, attack-sequence reconstruction | v2 evaluates whether each generated proposition is warranted |
 | [SIR-Bench](https://arxiv.org/abs/2604.12040) | 794 cloud incident-response cases from 129 incident patterns | Triage accuracy, novel finding discovery, tool appropriateness, adversarial LLM judging | v2 makes false or over-strong cited findings, counterevidence, and claim precision primary endpoints |
