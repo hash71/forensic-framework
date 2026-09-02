@@ -7,7 +7,7 @@ from typing import Any
 
 from app.evaluation.claims import SCHEMA_VERSION
 
-GENERATOR_PROMPT_VERSION = "warrant-generator-v1.3"
+GENERATOR_PROMPT_VERSION = "warrant-generator-v1.4"
 SELF_REVIEW_PROMPT_VERSION = "warrant-self-review-v1.0"
 VERIFIER_PROMPT_VERSION = "warrant-verifier-v1.1"
 
@@ -188,6 +188,7 @@ def build_warrant_generator_prompt(
         "15. Hypothesis claims must be non-decisive and must not substitute for the direct observations supporting a decision.",
         "16. Shared account, IP address, or temporal order alone is not an explicit causal link. In particular, do not link failed attempts as a causal parent of a later successful login unless an allowed linkage identifier is shared.",
         "17. A decision claim's subject must equal the suspect account exactly, or be null when suspect is null; never replace it with an inferred human, attacker, or external actor.",
+        "18. Every direct observation that the decision depends on must use decisive=true and appear in the decision claim's causal_parent_claim_ids. Details not needed for the verdict use decisive=false.",
         "",
         "OUTPUT JSON SHAPE:",
         json.dumps(_atomic_schema_example(case_id), indent=2),

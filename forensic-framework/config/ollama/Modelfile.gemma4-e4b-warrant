@@ -1,0 +1,6 @@
+FROM hf.co/unsloth/gemma-4-E4B-it-GGUF:UD-Q4_K_XL
+
+# The warrant prompt plus a complete atomic response exceeds the base model's
+# default 4096-token context. Keep the underlying weights and quantization
+# unchanged while making the study context explicit and reproducible.
+PARAMETER num_ctx 16384

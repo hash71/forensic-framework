@@ -56,3 +56,18 @@ change a prompt, parser, validator, abstention threshold, or condition.
 - **Next step:** v1.3 is the candidate frozen generator prompt for aggregate
   calibration across all 12 canonical development families. No further prompt
   change may use held-out output.
+
+## 2026-09-02 — generator v1.3 to v1.4 (final development revision)
+
+- **Cases inspected:** `fw2_001__canonical` only (development split), in a
+  hosted generator-verifier smoke test.
+- **Outcome:** the generator marked its `YES` decision decisive but marked all
+  direct observations used by that decision non-decisive. The independent
+  verifier found the observations supported, while the deterministic decision
+  check correctly reported that no non-decision decisive claim backed the
+  verdict.
+- **Change:** generator v1.4 requires every observation necessary to the
+  decision to be marked decisive and referenced by the decision claim.
+- **Freeze:** v1.4 is the final prompt revision. The aggregate 12-family
+  development run is diagnostic only; no further prompt or evaluator change
+  will be made from model-quality results. Held-out output remains unseen.
