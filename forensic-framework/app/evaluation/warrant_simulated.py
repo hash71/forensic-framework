@@ -277,10 +277,10 @@ def _majority(values: list[str]) -> str | None:
 def consensus_reviews(
     reviewers: dict[str, dict[str, dict[str, Any]]],
     expected_ids: set[str],
-) -> tuple[dict[str, dict[str, str]], list[dict[str, Any]]]:
-    """Return strict-majority field consensus and per-item disagreement data."""
+) -> tuple[dict[str, dict[str, str | None]], list[dict[str, Any]]]:
+    """Return strict-majority fields, retaining three-way ties as null."""
 
-    consensus: dict[str, dict[str, str]] = {}
+    consensus: dict[str, dict[str, str | None]] = {}
     disagreements: list[dict[str, Any]] = []
     for annotation_id in sorted(expected_ids):
         available = {
@@ -300,9 +300,10 @@ def consensus_reviews(
             field: _majority([view[field] for view in views.values()])
             for field in fields
         }
-        if any(value is None for value in selected.values()):
-            continue
-        consensus[annotation_id] = {field: str(value) for field, value in selected.items()}
+        consensus[annotation_id] = {
+            field: str(value) if value is not None else None
+            for field, value in selected.items()
+        }
         disagreements.append({
             "annotation_id": annotation_id,
             "reviewer_count": len(available),
@@ -315,6 +316,9 @@ def consensus_reviews(
             "disagreement_fields": [
                 field for field in fields
                 if len({view[field] for view in views.values()}) > 1
+            ],
+            "unresolved_fields": [
+                field for field, value in selected.items() if value is None
             ],
         })
     return consensus, disagreements
@@ -401,7 +405,7 @@ def _reviewer_operations(
 
 def _priority_rows(
     keys: list[dict[str, Any]],
-    consensus: dict[str, dict[str, str]],
+    consensus: dict[str, dict[str, str | None]],
     disagreements: list[dict[str, Any]],
     mechanical: dict[str, dict[str, str]],
     *,
@@ -416,6 +420,20 @@ def _priority_rows(
         fields = disagreement["disagreement_fields"]
         reasons = []
         score = 0
+        unresolved = disagreement["unresolved_fields"]
+        if "overall_label" in unresolved:
+            score += 12
+            reasons.append("AI reviewers have no majority on overall warrant")
+        if "materiality_decisive" in unresolved:
+            score += 10
+            reasons.append("AI reviewers have no majority on decision materiality")
+        unresolved_high_risk = {
+            "axis_actor", "axis_authorization", "axis_intent",
+            "axis_causality", "axis_decision",
+        }.intersection(unresolved)
+        score += 3 * len(unresolved_high_risk)
+        if unresolved_high_risk:
+            reasons.append("AI reviewers have no majority on high-risk semantic axes")
         if "overall_label" in fields:
             score += 8
             reasons.append("AI reviewers disagree on overall warrant")
@@ -429,10 +447,16 @@ def _priority_rows(
         score += 2 * len(high_risk)
         if high_risk:
             reasons.append("AI reviewers disagree on high-risk semantic axes")
-        if selected["overall_label"] != machine["overall_label"]:
+        if (
+            selected["overall_label"] is not None
+            and selected["overall_label"] != machine["overall_label"]
+        ):
             score += 8
             reasons.append("AI consensus differs from mechanical overall label")
-        if selected["materiality_decisive"] != machine["materiality_decisive"]:
+        if (
+            selected["materiality_decisive"] is not None
+            and selected["materiality_decisive"] != machine["materiality_decisive"]
+        ):
             score += 5
             reasons.append("AI consensus differs from mechanical materiality")
         if key_index[annotation_id]["generator_decisive"]:
@@ -503,7 +527,7 @@ def analyze_simulated_panel(
     }
     consensus, disagreements = consensus_reviews(panel_reviewers, expected_ids)
     if len(consensus) != len(expected_ids):
-        raise ValueError("strict-majority AI consensus is incomplete")
+        raise ValueError("simulated panel lacks judgments for one or more items")
 
     weights = _design_weights(package_manifest, keys)
     records = read_jsonl(records_path)
@@ -531,8 +555,29 @@ def analyze_simulated_panel(
                 },
             }
 
+    resolved_by_field = {
+        field: {
+            annotation_id: {field: str(selected[field])}
+            for annotation_id, selected in consensus.items()
+            if selected[field] is not None
+        }
+        for field in (
+            "overall_label",
+            "materiality_decisive",
+            *(f"axis_{axis}" for axis in ANNOTATION_AXES),
+        )
+    }
+    core_consensus = {
+        annotation_id: {
+            "overall_label": str(selected["overall_label"]),
+            "materiality_decisive": str(selected["materiality_decisive"]),
+        }
+        for annotation_id, selected in consensus.items()
+        if selected["overall_label"] is not None
+        and selected["materiality_decisive"] is not None
+    }
     materially_unwarranted = _binary_warrant_metrics(
-        consensus, mechanical, weights
+        core_consensus, mechanical, weights
     )
     materially_unwarranted["positive_definition"] = (
         "AI-panel consensus overall label is CONTRADICTED or INSUFFICIENT and "
@@ -544,36 +589,95 @@ def analyze_simulated_panel(
             "and the authored mechanical proxy, not accuracy against expert truth."
         ),
         "overall": {
-            **_agreement(consensus, mechanical, "overall_label", weights),
-            "confusion": _confusion(consensus, mechanical, "overall_label", weights),
+            **_agreement(
+                resolved_by_field["overall_label"],
+                mechanical,
+                "overall_label",
+                weights,
+            ),
+            "confusion": _confusion(
+                resolved_by_field["overall_label"],
+                mechanical,
+                "overall_label",
+                weights,
+            ),
         },
         "materiality_decisive": {
-            **_agreement(consensus, mechanical, "materiality_decisive", weights),
+            **_agreement(
+                resolved_by_field["materiality_decisive"],
+                mechanical,
+                "materiality_decisive",
+                weights,
+            ),
             "confusion": _confusion(
-                consensus, mechanical, "materiality_decisive", weights
+                resolved_by_field["materiality_decisive"],
+                mechanical,
+                "materiality_decisive",
+                weights,
             ),
         },
         "materially_unwarranted_flag": materially_unwarranted,
         "axes": {
-            axis: _agreement(consensus, mechanical, f"axis_{axis}", weights)
+            axis: _agreement(
+                resolved_by_field[f"axis_{axis}"],
+                mechanical,
+                f"axis_{axis}",
+                weights,
+            )
             for axis in ANNOTATION_AXES
         },
     }
+    resolved_keys = [
+        key for key in keys if key["annotation_id"] in core_consensus
+    ]
     simulated_primary = _human_primary_endpoint(
-        keys,
-        consensus,
+        resolved_keys,
+        core_consensus,
         records,
         weights,
     )
-    simulated_primary["status"] = "simulated_ai_panel_sensitivity_estimate"
+    core_is_complete = len(core_consensus) == len(expected_ids)
+    simulated_primary["status"] = (
+        "simulated_ai_panel_sensitivity_estimate"
+        if core_is_complete
+        else "simulated_ai_panel_complete_case_sensitivity_estimate"
+    )
     simulated_primary["positive_definition"] = (
         "AI-panel strict-majority overall label is CONTRADICTED or INSUFFICIENT "
         "and AI-panel materiality_decisive=true"
     )
     simulated_primary["estimand_note"] = (
-        "AI-panel consensus replaces the mechanical label only for a sensitivity "
-        "analysis. This is not human validation or an expert-error estimate."
-    )
+        (
+            "Every sampled item has a strict majority on overall warrant and "
+            "materiality; unresolved axis fields are retained but do not enter "
+            "this endpoint. "
+        )
+        if core_is_complete
+        else (
+            "AI-panel consensus replaces the mechanical label only where "
+            "overall warrant and materiality have a strict majority. "
+            "Unresolved items are not tie-broken, so this complete-case "
+            "estimate is not a population estimate. "
+        )
+    ) + "This is not human validation or an expert-error estimate."
+    reviewer_sensitivity_endpoints = {}
+    for reviewer_id in panel_reviewer_ids:
+        endpoint = _human_primary_endpoint(
+            keys,
+            views[reviewer_id],
+            records,
+            weights,
+        )
+        endpoint["status"] = "individual_ai_reviewer_sensitivity_estimate"
+        endpoint["positive_definition"] = (
+            "This AI reviewer's overall label is CONTRADICTED or INSUFFICIENT "
+            "and materiality_decisive=true"
+        )
+        endpoint["estimand_note"] = (
+            "Complete single-AI-reviewer sensitivity estimate; not human "
+            "validation, adjudication, or an expert-error estimate."
+        )
+        reviewer_sensitivity_endpoints[reviewer_id] = endpoint
     priority = _priority_rows(
         keys,
         consensus,
@@ -598,7 +702,25 @@ def analyze_simulated_panel(
         "pairwise_ai_agreement": pairwise,
         "panel": {
             "consensus_rule": "strict field-level majority",
-            "complete_consensus_items": len(consensus),
+            "items_with_any_field_consensus": len(consensus),
+            "items_with_complete_field_consensus": sum(
+                all(value is not None for value in selected.values())
+                for selected in consensus.values()
+            ),
+            "items_with_core_consensus": len(core_consensus),
+            "items_without_overall_consensus": sum(
+                selected["overall_label"] is None
+                for selected in consensus.values()
+            ),
+            "items_without_materiality_consensus": sum(
+                selected["materiality_decisive"] is None
+                for selected in consensus.values()
+            ),
+            "unresolved_fields": dict(sorted(Counter(
+                field
+                for row in disagreements
+                for field in row["unresolved_fields"]
+            ).items())),
             "items_with_any_disagreement": sum(
                 bool(row["disagreement_fields"]) for row in disagreements
             ),
@@ -612,6 +734,7 @@ def analyze_simulated_panel(
         },
         "consensus_vs_mechanical_proxy": consensus_vs_mechanical,
         "simulated_primary_endpoint": simulated_primary,
+        "individual_reviewer_sensitivity_endpoints": reviewer_sensitivity_endpoints,
         "human_review_priority": {
             "selection": (
                 "post-hoc targeted triage by AI disagreement, proxy disagreement, "

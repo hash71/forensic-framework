@@ -238,3 +238,29 @@ multi-item local batches repeated or renamed opaque IDs. Strict validation
 rejected those calls, but recovery was inefficient. The final configuration
 uses sequential, single-item local requests and restarts every reviewer from
 zero; none of the partial labels is reused.
+
+## 2026-09-03 — Preserve unresolved three-reviewer label ties
+
+**Stage:** after all three definitive AI-reviewer roles completed, during the
+first aggregate-analysis attempt. The attempt stopped before writing an
+analysis file.
+
+**Problem:** the frozen rule required a strict field-level majority but the
+implementation incorrectly assumed that three labels always imply one. With
+four categorical warrant labels, all three reviewers can select different
+values. The analyzer stopped with `strict-majority AI consensus is incomplete`.
+No aggregate agreement, endpoint, or condition result was produced or
+inspected before this correction.
+
+**Correction:** no tie-break is introduced. Every all-different field is
+retained as null in `consensus.jsonl` and enumerated in the disagreement
+record. Agreement with the mechanical proxy is calculated only where the
+relevant field has a majority. The consensus endpoint is a clearly labeled
+complete-case sensitivity estimate requiring majority on both overall warrant
+and materiality. Complete per-reviewer sensitivity endpoints are also reported
+so every collected label contributes to a transparent robustness range.
+
+**Impact:** this change prevents fabricated agreement and exposes consensus
+coverage. Because unresolved complete cases can be non-random, the consensus
+endpoint is not a population estimate and remains exploratory. Human
+validation requirements are unchanged.

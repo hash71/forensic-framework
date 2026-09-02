@@ -118,6 +118,19 @@ def test_consensus_is_field_level_majority_not_fake_adjudication() -> None:
     assert "overall_label" in disagreements[0]["disagreement_fields"]
 
 
+def test_consensus_preserves_all_different_tie_as_unresolved() -> None:
+    reviewers = {
+        "sim_a": {"ann_1": _review("ann_1", "SUPPORTED")},
+        "sim_b": {"ann_1": _review("ann_1", "INSUFFICIENT")},
+        "sim_c": {"ann_1": _review("ann_1", "CONTRADICTED")},
+    }
+
+    consensus, disagreements = consensus_reviews(reviewers, {"ann_1"})
+
+    assert consensus["ann_1"]["overall_label"] is None
+    assert "overall_label" in disagreements[0]["unresolved_fields"]
+
+
 def test_targeted_review_export_keeps_selection_basis_out_of_blind_dir(
     tmp_path,
 ) -> None:
