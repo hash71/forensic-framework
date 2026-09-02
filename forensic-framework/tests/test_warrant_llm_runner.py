@@ -14,7 +14,12 @@ from app.llm.warrant_client import (
     WarrantLLMClient,
     parse_json_object,
 )
-from app.llm.warrant_runner import _load_completed, _safe_error, run_case_condition
+from app.llm.warrant_runner import (
+    _load_completed,
+    _safe_error,
+    run_case_condition,
+    run_case_group,
+)
 
 
 def _case() -> dict:
@@ -267,6 +272,38 @@ def test_reviewer_can_abstain_but_cannot_reverse_verdict(tmp_path: Path):
     assert abstaining["predicted_verdict"] == "INSUFFICIENT"
     assert reversed_review["operational_status"] == "review_failure"
     assert reversed_review["exact_correct"] is False
+
+
+def test_review_conditions_share_generator_and_verifier_responses(tmp_path: Path):
+    client = _FakeClient()
+    conditions = [
+        "llm_events_plus_alerts",
+        "llm_self_review",
+        "generator_verifier",
+        "generator_verifier_abstention",
+    ]
+    records = asyncio.run(run_case_group(
+        client,
+        _case(),
+        run_id="pytest-paired",
+        conditions=conditions,
+        repetition=0,
+        temperature=0.1,
+        max_tokens=4096,
+        run_dir=tmp_path,
+        verifier_model="verifier-model",
+    ))
+
+    assert len(client.calls) == 3  # one generator, one self-review, one verifier
+    assert {record["condition"] for record in records} == set(conditions)
+    assert {record["generation_group"] for record in records} == {"alerts_visible_shared"}
+    assert len({record["generator_response_sha256"] for record in records}) == 1
+    verifier_records = [
+        record
+        for record in records
+        if record["condition"] in {"generator_verifier", "generator_verifier_abstention"}
+    ]
+    assert len({record["verifier"]["call"]["raw_response_sha256"] for record in verifier_records}) == 1
 
 
 def test_resume_keys_include_case_condition_and_repetition(tmp_path: Path):

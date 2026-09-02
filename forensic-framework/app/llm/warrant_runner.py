@@ -127,16 +127,21 @@ def _run_key(case_id: str, condition: str, repetition: int) -> str:
 
 
 def _load_completed(records_path: Path) -> set[str]:
+    return set(_load_record_map(records_path))
+
+
+def _load_record_map(records_path: Path) -> dict[str, dict[str, Any]]:
     if not records_path.exists():
-        return set()
-    completed = set()
+        return {}
+    records = {}
     with records_path.open() as handle:
         for line in handle:
             if not line.strip():
                 continue
             record = json.loads(line)
-            completed.add(_run_key(record["case_id"], record["condition"], record["repetition"]))
-    return completed
+            key = _run_key(record["case_id"], record["condition"], record["repetition"])
+            records[key] = record
+    return records
 
 
 def _raw_path(run_dir: Path, case_id: str, condition: str, repetition: int, stage: str) -> Path:
@@ -286,9 +291,11 @@ def _base_record(
     }
 
 
-async def run_case_condition(
+async def _complete_record(
     client: WarrantLLMClient,
     case: dict[str, Any],
+    generator: dict[str, Any],
+    output: InvestigationOutput | None,
     *,
     run_id: str,
     condition: str,
@@ -297,6 +304,8 @@ async def run_case_condition(
     max_tokens: int,
     run_dir: Path,
     verifier_model: str | None = None,
+    review_result: tuple[dict[str, Any], VerifierOutput | None] | None = None,
+    generation_group: str | None = None,
 ) -> dict[str, Any]:
     record = _base_record(
         case,
@@ -305,18 +314,11 @@ async def run_case_condition(
         repetition=repetition,
         model_id=client.model,
     )
-    alerts_visible = condition != "llm_events_only"
-    generator, output = await _call_generator(
-        client,
-        case,
-        alerts_visible=alerts_visible,
-        repetition=repetition,
-        temperature=temperature,
-        max_tokens=max_tokens,
-        run_dir=run_dir,
-        condition=condition,
-    )
     record["generator"] = generator
+    record["generation_group"] = generation_group or condition
+    record["generator_response_sha256"] = (generator.get("call") or {}).get(
+        "raw_response_sha256"
+    )
     if output is None:
         record.update({
             "operational_status": "generator_failure",
@@ -342,18 +344,20 @@ async def run_case_condition(
     verifier_data: dict[str, Any] | None = None
     verifier_output: VerifierOutput | None = None
     if condition in {"llm_self_review", "generator_verifier", "generator_verifier_abstention"}:
-        verifier_data, verifier_output = await _call_verifier(
-            client,
-            case,
-            output,
-            repetition=repetition,
-            temperature=temperature,
-            max_tokens=max_tokens,
-            run_dir=run_dir,
-            condition=condition,
-            verifier_model=verifier_model,
-            self_review=condition == "llm_self_review",
-        )
+        if review_result is None:
+            review_result = await _call_verifier(
+                client,
+                case,
+                output,
+                repetition=repetition,
+                temperature=temperature,
+                max_tokens=max_tokens,
+                run_dir=run_dir,
+                condition=condition,
+                verifier_model=verifier_model,
+                self_review=condition == "llm_self_review",
+            )
+        verifier_data, verifier_output = review_result
     record["verifier"] = verifier_data
 
     predicted_verdict = output.verdict
@@ -389,6 +393,211 @@ async def run_case_condition(
     return record
 
 
+async def run_case_condition(
+    client: WarrantLLMClient,
+    case: dict[str, Any],
+    *,
+    run_id: str,
+    condition: str,
+    repetition: int,
+    temperature: float,
+    max_tokens: int,
+    run_dir: Path,
+    verifier_model: str | None = None,
+) -> dict[str, Any]:
+    """Run one standalone condition.
+
+    Aggregate experiments use :func:`run_case_group` so review interventions
+    share the exact same alert-visible generator response.
+    """
+
+    generator, output = await _call_generator(
+        client,
+        case,
+        alerts_visible=condition != "llm_events_only",
+        repetition=repetition,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        run_dir=run_dir,
+        condition=condition,
+    )
+    return await _complete_record(
+        client,
+        case,
+        generator,
+        output,
+        run_id=run_id,
+        condition=condition,
+        repetition=repetition,
+        temperature=temperature,
+        max_tokens=max_tokens,
+        run_dir=run_dir,
+        verifier_model=verifier_model,
+    )
+
+
+_ALERT_VISIBLE_CONDITIONS = (
+    "llm_events_plus_alerts",
+    "llm_self_review",
+    "generator_verifier",
+    "generator_verifier_abstention",
+)
+
+
+def _recover_generator(
+    existing: dict[str, dict[str, Any]],
+    case_id: str,
+    repetition: int,
+) -> tuple[dict[str, Any], InvestigationOutput | None] | None:
+    for condition in _ALERT_VISIBLE_CONDITIONS:
+        record = existing.get(_run_key(case_id, condition, repetition))
+        if record is None:
+            continue
+        generator = record["generator"]
+        parsed = generator.get("parsed_output")
+        output = InvestigationOutput.model_validate(parsed) if parsed is not None else None
+        return generator, output
+    return None
+
+
+def _recover_review(
+    existing: dict[str, dict[str, Any]],
+    case_id: str,
+    repetition: int,
+    conditions: tuple[str, ...],
+) -> tuple[dict[str, Any], VerifierOutput | None] | None:
+    for condition in conditions:
+        record = existing.get(_run_key(case_id, condition, repetition))
+        if record is None or record.get("verifier") is None:
+            continue
+        verifier = record["verifier"]
+        parsed = verifier.get("parsed_output")
+        output = VerifierOutput.model_validate(parsed) if parsed is not None else None
+        return verifier, output
+    return None
+
+
+async def run_case_group(
+    client: WarrantLLMClient,
+    case: dict[str, Any],
+    *,
+    run_id: str,
+    conditions: list[str],
+    repetition: int,
+    temperature: float,
+    max_tokens: int,
+    run_dir: Path,
+    verifier_model: str | None = None,
+    existing: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    """Run paired conditions while sharing generator and verifier artifacts."""
+
+    existing = existing or {}
+    missing = [
+        condition
+        for condition in conditions
+        if _run_key(case["case_id"], condition, repetition) not in existing
+    ]
+    records: list[dict[str, Any]] = []
+    if "llm_events_only" in missing:
+        records.append(await run_case_condition(
+            client,
+            case,
+            run_id=run_id,
+            condition="llm_events_only",
+            repetition=repetition,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            run_dir=run_dir,
+            verifier_model=verifier_model,
+        ))
+
+    alert_conditions = [condition for condition in missing if condition in _ALERT_VISIBLE_CONDITIONS]
+    if not alert_conditions:
+        return records
+
+    recovered = _recover_generator(existing, case["case_id"], repetition)
+    if recovered is None:
+        generator, output = await _call_generator(
+            client,
+            case,
+            alerts_visible=True,
+            repetition=repetition,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            run_dir=run_dir,
+            condition="alerts_visible_shared",
+        )
+    else:
+        generator, output = recovered
+
+    self_review = _recover_review(
+        existing,
+        case["case_id"],
+        repetition,
+        ("llm_self_review",),
+    )
+    if "llm_self_review" in alert_conditions and self_review is None and output is not None:
+        self_review = await _call_verifier(
+            client,
+            case,
+            output,
+            repetition=repetition,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            run_dir=run_dir,
+            condition="self_review_shared",
+            verifier_model=verifier_model,
+            self_review=True,
+        )
+
+    verifier = _recover_review(
+        existing,
+        case["case_id"],
+        repetition,
+        ("generator_verifier", "generator_verifier_abstention"),
+    )
+    needs_verifier = any(
+        condition in {"generator_verifier", "generator_verifier_abstention"}
+        for condition in alert_conditions
+    )
+    if needs_verifier and verifier is None and output is not None:
+        verifier = await _call_verifier(
+            client,
+            case,
+            output,
+            repetition=repetition,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            run_dir=run_dir,
+            condition="verifier_shared",
+            verifier_model=verifier_model,
+        )
+
+    for condition in alert_conditions:
+        review_result = None
+        if condition == "llm_self_review":
+            review_result = self_review
+        elif condition in {"generator_verifier", "generator_verifier_abstention"}:
+            review_result = verifier
+        records.append(await _complete_record(
+            client,
+            case,
+            generator,
+            output,
+            run_id=run_id,
+            condition=condition,
+            repetition=repetition,
+            temperature=temperature,
+            max_tokens=max_tokens,
+            run_dir=run_dir,
+            verifier_model=verifier_model,
+            review_result=review_result,
+            generation_group="alerts_visible_shared",
+        ))
+    return records
+
+
 async def run_experiment(
     cases: list[dict[str, Any]],
     *,
@@ -407,46 +616,56 @@ async def run_experiment(
 ) -> dict[str, Any]:
     run_dir.mkdir(parents=True, exist_ok=True)
     records_path = run_dir / "records.jsonl"
-    completed = _load_completed(records_path) if resume else set()
+    existing = _load_record_map(records_path) if resume else {}
     work = [
-        (case, condition, repetition)
+        (case, repetition)
         for case in cases
-        for condition in conditions
         for repetition in range(repetitions)
-        if _run_key(case["case_id"], condition, repetition) not in completed
+        if any(
+            _run_key(case["case_id"], condition, repetition) not in existing
+            for condition in conditions
+        )
     ]
     semaphore = asyncio.Semaphore(max(1, concurrency))
     write_lock = asyncio.Lock()
-    counts = {"planned": len(work), "completed": 0, "valid": 0, "failures": 0}
+    planned_records = sum(
+        _run_key(case["case_id"], condition, repetition) not in existing
+        for case in cases
+        for condition in conditions
+        for repetition in range(repetitions)
+    )
+    counts = {"planned": planned_records, "completed": 0, "valid": 0, "failures": 0}
 
     async with WarrantLLMClient(
         model=generator_model,
         provider=provider,
         model_revision=model_revision,
     ) as client:
-        async def execute(item: tuple[dict[str, Any], str, int]) -> None:
-            case, condition, repetition = item
+        async def execute(item: tuple[dict[str, Any], int]) -> None:
+            case, repetition = item
             async with semaphore:
-                record = await run_case_condition(
+                records = await run_case_group(
                     client,
                     case,
                     run_id=run_id,
-                    condition=condition,
+                    conditions=conditions,
                     repetition=repetition,
                     temperature=temperature,
                     max_tokens=max_tokens,
                     run_dir=run_dir,
                     verifier_model=verifier_model,
+                    existing=existing,
                 )
-            line = json.dumps(record, sort_keys=True, separators=(",", ":")) + "\n"
             async with write_lock:
                 with records_path.open("a") as handle:
-                    handle.write(line)
-                counts["completed"] += 1
-                if record["operational_status"].startswith("valid"):
-                    counts["valid"] += 1
-                else:
-                    counts["failures"] += 1
+                    for record in records:
+                        line = json.dumps(record, sort_keys=True, separators=(",", ":")) + "\n"
+                        handle.write(line)
+                        counts["completed"] += 1
+                        if record["operational_status"].startswith("valid"):
+                            counts["valid"] += 1
+                        else:
+                            counts["failures"] += 1
 
         await asyncio.gather(*(execute(item) for item in work))
 
@@ -464,6 +683,11 @@ async def run_experiment(
         "run_id": run_id,
         "created_at": _utc_now(),
         "conditions": conditions,
+        "pairing_policy": {
+            "events_only_generation": "independent",
+            "alerts_visible_generation": "shared_across_alert_review_conditions",
+            "alert_blind_verifier": "shared_between_verifier_conditions",
+        },
         "repetitions": repetitions,
         "temperature": temperature,
         "max_tokens": max_tokens,
