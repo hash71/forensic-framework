@@ -7,7 +7,7 @@ from typing import Any
 
 from app.evaluation.claims import SCHEMA_VERSION
 
-GENERATOR_PROMPT_VERSION = "warrant-generator-v1.2"
+GENERATOR_PROMPT_VERSION = "warrant-generator-v1.3"
 SELF_REVIEW_PROMPT_VERSION = "warrant-self-review-v1.0"
 VERIFIER_PROMPT_VERSION = "warrant-verifier-v1.1"
 
@@ -84,7 +84,7 @@ def _atomic_schema_example(case_id: str) -> dict[str, Any]:
         "claims": [
             {
                 "claim_id": "c1",
-                "claim_type": "observation | derived_fact | hypothesis | decision",
+                "claim_type": "observation",
                 "subject": "actor_or_null",
                 "predicate": "exact_event_action_for_observations",
                 "object": "resource_or_null",
@@ -184,6 +184,10 @@ def build_warrant_generator_prompt(
         "11. causal_parent_claim_ids may contain only claim_id values already present in this output, never event_id values. Use it only when cited parent and child events share an explicit session_id, process_id, trace_id, request_id, or flow_id. Decision claims may reference supported decisive claim IDs.",
         "12. Set authorization only when a cited event or supplied baseline explicitly establishes it; anomaly alone is not unauthorized behavior.",
         "13. A supports relation with observed/confirmed modality means every populated material field is directly licensed by the citations. Use possible/unknown or insufficient when it is not.",
+        "14. For this experiment, emit direct observations, hypotheses, and one decision; do not emit derived_fact claims. Put uncertain explanations in alternative_hypotheses or non-decisive hypothesis claims.",
+        "15. Hypothesis claims must be non-decisive and must not substitute for the direct observations supporting a decision.",
+        "16. Shared account, IP address, or temporal order alone is not an explicit causal link. In particular, do not link failed attempts as a causal parent of a later successful login unless an allowed linkage identifier is shared.",
+        "17. A decision claim's subject must equal the suspect account exactly, or be null when suspect is null; never replace it with an inferred human, attacker, or external actor.",
         "",
         "OUTPUT JSON SHAPE:",
         json.dumps(_atomic_schema_example(case_id), indent=2),

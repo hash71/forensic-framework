@@ -36,3 +36,23 @@ change a prompt, parser, validator, abstention threshold, or condition.
   never event IDs. No parser repair or post-hoc coercion was added.
 - **Unchanged:** benchmark, labels, evaluator, abstention thresholds,
   statistics, and held-out split.
+
+## 2026-09-02 — generator v1.2 to v1.3
+
+- **Cases inspected:** `fw2_001__canonical` only (development split), on the
+  hosted alias and local Craid model.
+- **Outcome:** both models produced schema-valid outputs. The hosted model
+  treated failed attempts as a causal parent of a later login despite no shared
+  allowed linkage key. Craid added free-form semantic `derived_fact` claims
+  (`successful unauthorized access`, `harmful change`) that were not expressed
+  as deterministic counts, durations, orderings, or baseline comparisons.
+- **Change:** generator v1.3 restricts this experiment to direct observations,
+  non-decisive hypotheses, and a decision; disallows inferred causal links from
+  account/IP/time alone; and constrains the decision subject to the reported
+  suspect account or null.
+- **Rationale:** this narrows the generated representation to propositions the
+  frozen deterministic validator can check. Richer interpretations remain in
+  alternative hypotheses for human annotation and the alert-blind verifier.
+- **Next step:** v1.3 is the candidate frozen generator prompt for aggregate
+  calibration across all 12 canonical development families. No further prompt
+  change may use held-out output.
