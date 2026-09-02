@@ -7,7 +7,7 @@ from typing import Any
 
 from app.evaluation.claims import SCHEMA_VERSION
 
-GENERATOR_PROMPT_VERSION = "warrant-generator-v1.0"
+GENERATOR_PROMPT_VERSION = "warrant-generator-v1.1"
 SELF_REVIEW_PROMPT_VERSION = "warrant-self-review-v1.0"
 VERIFIER_PROMPT_VERSION = "warrant-verifier-v1.1"
 
@@ -86,7 +86,7 @@ def _atomic_schema_example(case_id: str) -> dict[str, Any]:
                 "claim_id": "c1",
                 "claim_type": "observation | derived_fact | hypothesis | decision",
                 "subject": "actor_or_null",
-                "predicate": "one_atomic_action_or_relation",
+                "predicate": "exact_event_action_for_observations",
                 "object": "resource_or_null",
                 "time": "ISO-8601_instant_or_null",
                 "quantity": {"value": 1, "unit": "events", "tolerance": 0},
@@ -177,6 +177,13 @@ def build_warrant_generator_prompt(
         "4. Mark claims decisive only if they affect verdict, attribution, chain stage, or escalation.",
         "5. Do not infer human identity, authorization, intent, or causality from account activity alone.",
         "6. Abstain rather than fill an evidentiary gap.",
+        "7. For an observation, copy predicate exactly from one cited event's action field; do not paraphrase, pluralize, or add success/failure wording.",
+        "8. For an observation, object may copy an exact cited resource field or be null. A source_ip is not the resource object; discuss it only in rationale.",
+        "9. Use scope only when it is exactly 'single', 'one_event', 'cited_events_only', or copied from metadata.scope; otherwise use null.",
+        "10. Use time only for a single instant shared by the claim's cited evidence; otherwise use null.",
+        "11. Use causal_parent_claim_ids only when cited parent and child events share an explicit session_id, process_id, trace_id, request_id, or flow_id. Decision claims may reference supported decisive claims.",
+        "12. Set authorization only when a cited event or supplied baseline explicitly establishes it; anomaly alone is not unauthorized behavior.",
+        "13. A supports relation with observed/confirmed modality means every populated material field is directly licensed by the citations. Use possible/unknown or insufficient when it is not.",
         "",
         "OUTPUT JSON SHAPE:",
         json.dumps(_atomic_schema_example(case_id), indent=2),

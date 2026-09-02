@@ -18,6 +18,7 @@ from pydantic import Field, model_validator
 
 from app.evaluation.claims import InvestigationOutput, StrictModel, Verdict
 from app.evaluation.warrant import (
+    WARRANT_EVALUATOR_VERSION,
     WarrantAxis,
     WarrantLabel,
     apply_abstention_policy,
@@ -269,6 +270,7 @@ def _base_record(
 ) -> dict[str, Any]:
     return {
         "run_schema_version": RUN_SCHEMA_VERSION,
+        "warrant_evaluator_version": WARRANT_EVALUATOR_VERSION,
         "run_id": run_id,
         "recorded_at": _utc_now(),
         "case_id": case["case_id"],
@@ -458,6 +460,7 @@ async def run_experiment(
             dependency_versions[package] = None
     manifest = {
         "run_schema_version": RUN_SCHEMA_VERSION,
+        "warrant_evaluator_version": WARRANT_EVALUATOR_VERSION,
         "run_id": run_id,
         "created_at": _utc_now(),
         "conditions": conditions,

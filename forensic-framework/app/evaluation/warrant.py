@@ -31,6 +31,8 @@ from app.evaluation.claims import (
     Verdict,
 )
 
+WARRANT_EVALUATOR_VERSION = "warrant-evaluator-v1.1"
+
 
 class WarrantLabel(str, Enum):
     SUPPORTED = "SUPPORTED"
@@ -759,6 +761,10 @@ def _explicit_counterevidence_reason(
         return ("Authentication attempt failed; it does not establish successful access.", True)
     if metadata.get("authorized") is True:
         return ("The event explicitly records authorized activity.", True)
+    if metadata.get("authorized") is False:
+        # Explicit event-level authorization evidence outranks a broad baseline
+        # such as an ordinarily permitted directory.
+        return None
     if _canonical(metadata.get("ticket_status")) == "approved" or metadata.get("ticket_approved") is True:
         return ("An approved ticket covers the activity.", True)
     if action in _ACTION_EQUIVALENTS.get("privilege_revert", set()):
@@ -787,9 +793,25 @@ def find_counterevidence(
     baselines = baselines or {}
     candidates: list[CounterEvidenceCandidate] = []
     if output.verdict == Verdict.YES:
+        # Earlier failed or authorized events remain material context, but they
+        # cannot defeat later evidence that explicitly records a successful
+        # unauthorized action. Treat them as outcome-decisive only when no such
+        # independent incident evidence is visible.
+        explicit_incident_evidence = any(
+            _canonical(event.get("status")) in {"success", "successful"}
+            and isinstance(event.get("metadata"), dict)
+            and (event.get("metadata") or {}).get("authorized") is False
+            for event in events
+        )
         for event in events:
             event_id = event.get("event_id")
             if not event_id:
+                continue
+            action = _canonical(event.get("action"))
+            if (
+                explicit_incident_evidence
+                and action in _ACTION_EQUIVALENTS.get("login_failed", set())
+            ):
                 continue
             found = _explicit_counterevidence_reason(event, output.suspect, baselines)
             if found:
@@ -797,7 +819,7 @@ def find_counterevidence(
                 candidates.append(CounterEvidenceCandidate(
                     event_id=str(event_id),
                     reason=reason,
-                    decisive=decisive,
+                    decisive=decisive and not explicit_incident_evidence,
                 ))
 
     available_ids = {candidate.event_id for candidate in candidates}
@@ -864,4 +886,3 @@ def apply_abstention_policy(
         reasons=reasons,
         coverage=0.0 if reasons else 1.0,
     )
-

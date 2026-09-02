@@ -234,7 +234,7 @@ def test_authorized_baseline_can_support_authorized_resource_claim():
 
 
 def test_explicit_failed_login_is_decisive_counterevidence():
-    events = _events() + [{
+    events = [{
         "event_id": "evt_004",
         "timestamp": "2026-09-01T01:59:00+06:00",
         "source_type": "auth",
@@ -251,6 +251,26 @@ def test_explicit_failed_login_is_decisive_counterevidence():
     assert counter.recall == 0.0
     review = apply_abstention_policy(output, assess_investigation(output, events), counter)
     assert review.disposition == ReviewDisposition.ABSTAIN
+
+
+def test_failed_login_is_not_decisive_after_explicit_unauthorized_success():
+    events = _events() + [{
+        "event_id": "evt_004",
+        "timestamp": "2026-09-01T01:59:00+06:00",
+        "source_type": "auth",
+        "user": "user_07",
+        "action": "login_failed",
+        "resource": "cloud_console",
+        "status": "failure",
+        "metadata": {},
+    }]
+    output = _output()
+    counter = find_counterevidence(output, events)
+
+    assert "evt_004" not in {item.event_id for item in counter.available}
+    assert "evt_004" not in counter.decisive_missed_event_ids
+    review = apply_abstention_policy(output, assess_investigation(output, events), counter)
+    assert review.disposition == ReviewDisposition.ALLOW
 
 
 def test_citing_counterevidence_improves_recall():
@@ -372,4 +392,3 @@ def test_verifier_prompt_is_alert_blind():
     assert "none are provided" in prompt
     assert "SUPPORTED | CONTRADICTED | INSUFFICIENT" in prompt
     assert "DETECTOR ALERTS" not in prompt
-
