@@ -200,5 +200,7 @@ apply except where a component states its own license. See
 monorepo-root `THIRD_PARTY_NOTICES.md` for third-party terms. Do not describe
 this repository as open source until the copyright holders approve and add the
 corresponding license files.
+
 `docs/release_clearance.md` documents the fail-closed artifact distribution
 gate; the default build is for local validation only and must not be uploaded.
+It also documents the aggregate-only fallback and its reduced reproducibility.

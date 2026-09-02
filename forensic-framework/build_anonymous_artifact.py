@@ -21,9 +21,10 @@ from pypdf import PdfReader
 FRAMEWORK_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
-ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.5"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.6"
 RELEASE_CLEARANCE_SCHEMA_VERSION = "warrantlab-release-clearance-v1.0"
 RELEASE_TARGETS = ("local-validation", "anonymous-review", "public-release")
+CONTENT_PROFILES = ("structured-output", "aggregate-only")
 REQUIRED_RELEASE_GATES = (
     "code_license",
     "original_benchmark_license",
@@ -35,6 +36,15 @@ FROZEN_ENDPOINT_SHA256 = (
 )
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 UTC_TIMESTAMP_RE = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
+OUTPUT_FINGERPRINT_WORDS = 16
+WORD_RE = re.compile(r"[a-z0-9]+")
+AGGREGATE_RUN_FILES = (
+    "analysis.json",
+    "confidence_audit.json",
+    "manifest.json",
+    "release_redactions.json",
+    "statistics.json",
+)
 
 ROOT_FILES = (
     "THIRD_PARTY_NOTICES.md",
@@ -209,6 +219,7 @@ def validate_release_clearance(
     *,
     distribution_target: str,
     release_notice_summary: dict,
+    contains_structured_model_output: bool,
 ) -> dict:
     """Validate human release attestations and enforce the requested target.
 
@@ -257,6 +268,7 @@ def validate_release_clearance(
         raise ValueError("release clearance gate set does not match the schema")
     outstanding: list[str] = []
     approved: list[str] = []
+    not_applicable: list[str] = []
     for gate_name in REQUIRED_RELEASE_GATES:
         gate = gates.get(gate_name)
         if not isinstance(gate, dict):
@@ -270,7 +282,13 @@ def validate_release_clearance(
                 raise ValueError(
                     f"pending release gate contains approval data: {gate_name}"
                 )
-            outstanding.append(gate_name)
+            if (
+                gate_name == "endpoint_output_redistribution"
+                and not contains_structured_model_output
+            ):
+                not_applicable.append(gate_name)
+            else:
+                outstanding.append(gate_name)
             continue
         if status != "approved":
             raise ValueError(f"invalid release gate status for {gate_name}: {status!r}")
@@ -291,7 +309,13 @@ def validate_release_clearance(
             raise ValueError(
                 f"approved release gate lacks a UTC approval timestamp: {gate_name}"
             )
-        approved.append(gate_name)
+        if (
+            gate_name == "endpoint_output_redistribution"
+            and not contains_structured_model_output
+        ):
+            not_applicable.append(gate_name)
+        else:
+            approved.append(gate_name)
 
     if (
         gates["endpoint_output_redistribution"].get("status") == "approved"
@@ -316,10 +340,11 @@ def validate_release_clearance(
         "sha256": sha256(path),
         "requested_target": distribution_target,
         "status": status,
-        "contains_structured_model_output": True,
+        "contains_structured_model_output": contains_structured_model_output,
         "endpoint_sha256": FROZEN_ENDPOINT_SHA256,
         "approved_gates": approved,
         "outstanding_gates": outstanding,
+        "not_applicable_gates": not_applicable,
     }
 
 
@@ -606,6 +631,199 @@ def _copy_tree(source: Path, staging_root: Path, *, include_raw: bool = True) ->
         _copy_file(path, staging_root)
 
 
+def _copy_aggregate_run(source: Path, staging_root: Path) -> list[str]:
+    """Copy only aggregate run metadata and derived statistics."""
+
+    source = _within_repo(source)
+    copied: list[str] = []
+    for name in AGGREGATE_RUN_FILES:
+        candidate = source / name
+        if candidate.is_file():
+            _copy_file(candidate, staging_root)
+            copied.append(name)
+    required = {
+        "analysis.json",
+        "manifest.json",
+        "release_redactions.json",
+        "statistics.json",
+    }
+    missing = sorted(required - set(copied))
+    if missing:
+        raise ValueError(
+            f"aggregate-only run is missing required files in {source}: "
+            + ", ".join(missing)
+        )
+    return copied
+
+
+def _text_values(value: object):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, dict):
+        for child in value.values():
+            yield from _text_values(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from _text_values(child)
+
+
+def _word_ngrams(text: str, *, width: int = OUTPUT_FINGERPRINT_WORDS) -> set[str]:
+    words = WORD_RE.findall(text.casefold())
+    return {
+        " ".join(words[index : index + width])
+        for index in range(len(words) - width + 1)
+    }
+
+
+def _model_output_fingerprints(
+    run_dirs: list[Path],
+    simulated_review_dir: Path | None,
+) -> tuple[set[str], int]:
+    """Fingerprint long phrases emitted by the frozen model invocations."""
+
+    fingerprints: set[str] = set()
+    output_strings = 0
+    for run_dir in run_dirs:
+        records_path = _within_repo(run_dir) / "records.jsonl"
+        if not records_path.is_file():
+            raise FileNotFoundError(records_path)
+        with records_path.open(encoding="utf-8") as records:
+            for line_number, line in enumerate(records, start=1):
+                if not line.strip():
+                    continue
+                try:
+                    record = json.loads(line)
+                except json.JSONDecodeError as exc:
+                    raise ValueError(
+                        f"cannot fingerprint {records_path}:{line_number}: {exc}"
+                    ) from exc
+                branches = (record.get("generator", {}), record.get("verifier", {}))
+                for branch in branches:
+                    for value in _text_values(branch):
+                        grams = _word_ngrams(value)
+                        if grams:
+                            output_strings += 1
+                            fingerprints.update(grams)
+    if simulated_review_dir is not None:
+        reviewer_root = _within_repo(simulated_review_dir) / "reviewers"
+        for judgments_path in sorted(reviewer_root.glob("*/judgments.jsonl")):
+            with judgments_path.open(encoding="utf-8") as judgments:
+                for line_number, line in enumerate(judgments, start=1):
+                    if not line.strip():
+                        continue
+                    try:
+                        judgment = json.loads(line)
+                    except json.JSONDecodeError as exc:
+                        raise ValueError(
+                            f"cannot fingerprint {judgments_path}:{line_number}: {exc}"
+                        ) from exc
+                    for value in _text_values(judgment.get("review", {})):
+                        grams = _word_ngrams(value)
+                        if grams:
+                            output_strings += 1
+                            fingerprints.update(grams)
+    if not fingerprints:
+        raise ValueError("aggregate-only scan found no source model-output fingerprints")
+    return fingerprints, output_strings
+
+
+def _release_text(path: Path) -> str:
+    if path.suffix.lower() == ".pdf":
+        reader = PdfReader(path)
+        return "\n".join(page.extract_text() or "" for page in reader.pages)
+    if path.suffix.lower() in TEXT_SUFFIXES:
+        return path.read_text(encoding="utf-8", errors="replace")
+    return ""
+
+
+def validate_aggregate_release_tree(
+    staging_root: Path,
+    *,
+    run_dirs: list[Path],
+    simulated_review_dir: Path | None,
+) -> dict:
+    """Prove that a reduced artifact omits structured and verbatim model output."""
+
+    forbidden: list[str] = []
+    files = sorted(path for path in staging_root.rglob("*") if path.is_file())
+    for path in files:
+        relative = path.relative_to(staging_root)
+        relative_text = relative.as_posix()
+        if path.name in {"records.jsonl", "records.private-original.jsonl"}:
+            forbidden.append(relative_text)
+        if (
+            relative.parts[:3]
+            == ("forensic-framework", "data", "warrant_runs")
+            and path.name not in AGGREGATE_RUN_FILES
+        ):
+            forbidden.append(relative_text)
+        if "raw" in relative.parts:
+            forbidden.append(relative_text)
+        if relative.parts and relative.parts[0] in {
+            "human-validation",
+            "targeted-human-review",
+        }:
+            forbidden.append(relative_text)
+        if relative.parts and relative.parts[0] == "simulated-ai-review":
+            if len(relative.parts) != 2 or relative.parts[1] not in {
+                "analysis.json",
+                "manifest.json",
+            }:
+                forbidden.append(relative_text)
+    if forbidden:
+        raise ValueError(
+            "aggregate-only artifact contains forbidden structured-output paths: "
+            + ", ".join(sorted(set(forbidden))[:10])
+        )
+
+    fingerprints, output_string_count = _model_output_fingerprints(
+        run_dirs,
+        simulated_review_dir,
+    )
+    scanned_files = 0
+    overlaps: list[tuple[str, int]] = []
+    for path in files:
+        relative = path.relative_to(staging_root)
+        if not relative.parts:
+            continue
+        scan = relative.as_posix() == "ARTIFACT_README.md"
+        scan = scan or relative.parts[0] in {
+            "conference_paper",
+            "paper",
+            "simulated-ai-review",
+        }
+        scan = scan or relative.parts[:2] == ("forensic-framework", "docs")
+        scan = scan or relative.parts[:3] == (
+            "forensic-framework",
+            "data",
+            "warrant_runs",
+        )
+        if not scan:
+            continue
+        text = _release_text(path)
+        if not text:
+            continue
+        scanned_files += 1
+        matches = _word_ngrams(text) & fingerprints
+        if matches:
+            overlaps.append((relative.as_posix(), len(matches)))
+    if overlaps:
+        detail = ", ".join(f"{path} ({count})" for path, count in overlaps[:10])
+        raise ValueError(
+            "aggregate-only artifact contains long verbatim model-output overlap: "
+            + detail
+        )
+    return {
+        "status": "passed",
+        "forbidden_path_scan": True,
+        "fingerprint_width_words": OUTPUT_FINGERPRINT_WORDS,
+        "source_output_strings_fingerprinted": output_string_count,
+        "unique_output_fingerprints": len(fingerprints),
+        "release_files_scanned": scanned_files,
+        "verbatim_overlap_count": 0,
+    }
+
+
 def _run_staged(args: list[str], *, cwd: Path) -> None:
     """Run one deterministic derivation inside the staged release tree."""
 
@@ -725,6 +943,82 @@ def _tracked_tree_dirty() -> bool:
     return bool(result.stdout.strip())
 
 
+def _distribution_notice(release_clearance: dict) -> str:
+    banner = (
+        "DISTRIBUTION STATUS: LOCAL VALIDATION ONLY — DO NOT UPLOAD OR SHARE."
+        if release_clearance["status"]
+        == "local_validation_only_not_cleared_for_distribution"
+        else "DISTRIBUTION STATUS: "
+        + release_clearance["status"].replace("_", " ").upper()
+        + "."
+    )
+    outstanding = release_clearance["outstanding_gates"]
+    outstanding_note = (
+        " Pending gates: `" + "`, `".join(outstanding) + "`."
+        if outstanding
+        else " All applicable release attestations are recorded."
+    )
+    not_applicable = release_clearance.get("not_applicable_gates", [])
+    not_applicable_note = (
+        " Not applicable to this content profile: `"
+        + "`, `".join(not_applicable)
+        + "`."
+        if not_applicable
+        else ""
+    )
+    return "**" + banner + "**" + outstanding_note + not_applicable_note
+
+
+def _write_aggregate_readme(
+    path: Path,
+    *,
+    release_clearance: dict,
+) -> None:
+    path.write_text(
+        "# WarrantLab aggregate-only artifact\n\n"
+        + _distribution_notice(release_clearance)
+        + """
+
+This reduced artifact is a contingency for cases where permission to
+redistribute the frozen endpoint's output cannot be established. It includes
+the original benchmark inputs, analysis code, run manifests, aggregate
+statistics, aggregate AI-sensitivity analysis, paper source, figures, and the
+rendered manuscript.
+
+It excludes every raw transcript, every structured per-record model output,
+every per-item AI judgment, and every human-review package that reproduces a
+model-generated claim. A build-time path denylist and 16-word fingerprint scan
+check the paper, documentation, aggregate JSON, and PDFs for long verbatim
+overlap with the frozen outputs.
+
+## Integrity verification
+
+Immediately after extraction, run:
+
+```bash
+python3 forensic-framework/verify_anonymous_artifact.py --strict .
+```
+
+The manifest binds every included file by size and SHA-256 and records the
+omitted content class, source record digests, output-fingerprint scan, release
+target, and pending approvals.
+
+## Reproducibility boundary
+
+This profile supports code inspection, benchmark regeneration, verification of
+the disclosed aggregate files, and a fresh procedural rerun against a newly
+configured endpoint. It cannot recompute the paper's frozen statistics from
+individual records because those records are deliberately absent. A fresh
+model call is not bitwise reproduction of the revision-opaque deployment.
+
+Use the structured-output profile for full result-level reproduction only after
+the endpoint-output redistribution gate is approved. Integrity verification is
+not a distribution license; the code, benchmark, and paper approvals recorded
+in `forensic-framework/config/release_clearance.json` still apply.
+"""
+    )
+
+
 def _write_readme(
     path: Path,
     *,
@@ -779,27 +1073,9 @@ def _write_readme(
     if not include_raw:
         command += " --allow-omitted-raw"
 
-    distribution_banner = (
-        "DISTRIBUTION STATUS: LOCAL VALIDATION ONLY — DO NOT UPLOAD OR SHARE."
-        if release_clearance["status"]
-        == "local_validation_only_not_cleared_for_distribution"
-        else "DISTRIBUTION STATUS: "
-        + release_clearance["status"].replace("_", " ").upper()
-        + "."
-    )
-    outstanding = release_clearance["outstanding_gates"]
-    outstanding_note = (
-        " Pending gates: `" + "`, `".join(outstanding) + "`."
-        if outstanding
-        else " All required release attestations are recorded."
-    )
-
     path.write_text(
         "# WarrantLab anonymous artifact\n\n"
-        + "**"
-        + distribution_banner
-        + "**"
-        + outstanding_note
+        + _distribution_notice(release_clearance)
         + "\n\n"
         + """This artifact accompanies the anonymous paper *The Forensic Warrant Gap*.
 It contains the frozen benchmark, analysis code, model-run records, statistical
@@ -878,14 +1154,19 @@ def _write_zip(staging_root: Path, output: Path) -> None:
             archive.writestr(info, path.read_bytes(), compresslevel=9)
 
 
-def default_output_for_target(distribution_target: str) -> Path:
+def default_output_for_target(
+    distribution_target: str,
+    content_profile: str = "structured-output",
+) -> Path:
     if distribution_target not in RELEASE_TARGETS:
         raise ValueError(f"unsupported distribution target: {distribution_target}")
+    if content_profile not in CONTENT_PROFILES:
+        raise ValueError(f"unsupported content profile: {content_profile}")
     return (
         REPO_ROOT
         / "output"
         / "artifact"
-        / f"warrantlab-{distribution_target}.zip"
+        / f"warrantlab-{content_profile}-{distribution_target}.zip"
     )
 
 
@@ -901,12 +1182,25 @@ def build_artifact(
     paper_pdf: Path,
     output: Path,
     include_raw: bool,
+    content_profile: str,
     release_clearance_path: Path,
     distribution_target: str,
     identity_terms: list[str],
     allow_dirty: bool,
     force: bool,
 ) -> dict:
+    if content_profile not in CONTENT_PROFILES:
+        raise ValueError(f"unsupported content profile: {content_profile}")
+    aggregate_only = content_profile == "aggregate-only"
+    if aggregate_only and include_raw:
+        raise ValueError("aggregate-only builds require --omit-raw")
+    if aggregate_only and any(
+        value is not None
+        for value in (human_package_dir, human_analysis, targeted_review_dir)
+    ):
+        raise ValueError(
+            "aggregate-only builds cannot include human or targeted-review packages"
+        )
     if _tracked_tree_dirty() and not allow_dirty:
         raise ValueError("tracked working tree is dirty; commit changes or pass --allow-dirty")
     release_notice_summary = validate_release_notice()
@@ -914,6 +1208,7 @@ def build_artifact(
         release_clearance_path,
         distribution_target=distribution_target,
         release_notice_summary=release_notice_summary,
+        contains_structured_model_output=not aggregate_only,
     )
     run_summaries = {
         "development": validate_release_run(development_run_dir),
@@ -921,6 +1216,8 @@ def build_artifact(
     }
     if external_run_dir:
         run_summaries["external_transfer"] = validate_release_run(external_run_dir)
+    for summary in run_summaries.values():
+        summary["records_included"] = not aggregate_only
     confidence_audit_summary = validate_confidence_audit(
         synthetic_run_dir / "confidence_audit.json",
         development_records_sha256=run_summaries["development"]["records_sha256"],
@@ -981,9 +1278,21 @@ def build_artifact(
             PAPER_ROOT / "figures" / "coverage-risk.pdf",
         ):
             _copy_file(figure, staging)
-        for run_dir in (development_run_dir, synthetic_run_dir, external_run_dir):
+        aggregate_run_files: dict[str, list[str]] = {}
+        named_run_dirs = (
+            ("development", development_run_dir),
+            ("synthetic_confirmatory", synthetic_run_dir),
+            ("external_transfer", external_run_dir),
+        )
+        for run_name, run_dir in named_run_dirs:
             if run_dir:
-                _copy_tree(run_dir, staging, include_raw=include_raw)
+                if aggregate_only:
+                    aggregate_run_files[run_name] = _copy_aggregate_run(
+                        run_dir,
+                        staging,
+                    )
+                else:
+                    _copy_tree(run_dir, staging, include_raw=include_raw)
         if human_package_dir:
             human_root = _within_repo(human_package_dir)
             for source in files_in_tree(human_root, include_raw=False):
@@ -997,7 +1306,14 @@ def build_artifact(
             )
         if simulated_review_dir is not None:
             simulated_root = _within_repo(simulated_review_dir)
-            for source in files_in_tree(simulated_root, include_raw=False):
+            simulated_sources = (
+                [simulated_root / "analysis.json", simulated_root / "manifest.json"]
+                if aggregate_only
+                else files_in_tree(simulated_root, include_raw=False)
+            )
+            for source in simulated_sources:
+                if not source.is_file():
+                    raise FileNotFoundError(source)
                 destination = (
                     Path("simulated-ai-review") / source.relative_to(simulated_root)
                 )
@@ -1009,7 +1325,7 @@ def build_artifact(
                     Path("targeted-human-review") / source.relative_to(targeted_root)
                 )
                 _copy_file(source, staging, destination)
-        if not include_raw:
+        if not include_raw and not aggregate_only:
             _normalize_omitted_raw_derivatives(
                 staging,
                 run_summaries=run_summaries,
@@ -1017,15 +1333,33 @@ def build_artifact(
                 has_simulated_analysis=simulated_review_dir is not None,
             )
         _copy_file(paper_pdf, staging, Path("paper") / "warrantlab-paper.pdf")
-        _write_readme(
-            staging / "ARTIFACT_README.md",
-            include_raw=include_raw,
-            has_human_package=human_package_dir is not None,
-            has_human_analysis=human_analysis is not None,
-            run_summaries=run_summaries,
-            has_simulated_analysis=simulated_review_dir is not None,
-            release_clearance=release_clearance_summary,
-        )
+        if aggregate_only:
+            _write_aggregate_readme(
+                staging / "ARTIFACT_README.md",
+                release_clearance=release_clearance_summary,
+            )
+        else:
+            _write_readme(
+                staging / "ARTIFACT_README.md",
+                include_raw=include_raw,
+                has_human_package=human_package_dir is not None,
+                has_human_analysis=human_analysis is not None,
+                run_summaries=run_summaries,
+                has_simulated_analysis=simulated_review_dir is not None,
+                release_clearance=release_clearance_summary,
+            )
+
+        aggregate_scan_summary = None
+        if aggregate_only:
+            aggregate_scan_summary = validate_aggregate_release_tree(
+                staging,
+                run_dirs=[
+                    development_run_dir,
+                    synthetic_run_dir,
+                    *([external_run_dir] if external_run_dir is not None else []),
+                ],
+                simulated_review_dir=simulated_review_dir,
+            )
 
         issues = scan_release_tree(staging, identity_terms=identity_terms)
         if issues:
@@ -1038,6 +1372,7 @@ def build_artifact(
             files.append({"path": relative, "bytes": path.stat().st_size, "sha256": sha256(path)})
         manifest = {
             "artifact_schema_version": ARTIFACT_SCHEMA_VERSION,
+            "content_profile": content_profile,
             "source_commit": _git_commit(),
             "identity_scan": {
                 "status": "passed",
@@ -1048,6 +1383,8 @@ def build_artifact(
             "include_raw_model_transcripts": include_raw,
             "third_party_notice": release_notice_summary,
             "release_clearance": release_clearance_summary,
+            "aggregate_only_scan": aggregate_scan_summary,
+            "aggregate_run_files": aggregate_run_files if aggregate_only else None,
             "paper_pdf_sha256": sha256(paper_pdf),
             "runs": run_summaries,
             "confidence_audit": confidence_audit_summary,
@@ -1092,10 +1429,19 @@ def main() -> int:
         type=Path,
         help=(
             "archive path; defaults to output/artifact/warrantlab-"
-            "<distribution-target>.zip"
+            "<content-profile>-<distribution-target>.zip"
         ),
     )
     parser.add_argument("--omit-raw", action="store_true")
+    parser.add_argument(
+        "--content-profile",
+        choices=CONTENT_PROFILES,
+        default="structured-output",
+        help=(
+            "structured-output enables result-level reproduction; aggregate-only "
+            "excludes all per-record and per-judgment model output"
+        ),
+    )
     parser.add_argument(
         "--release-clearance",
         type=Path,
@@ -1115,7 +1461,10 @@ def main() -> int:
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
     terms = sorted(set(default_identity_terms() + args.identity_term))
-    output = args.output or default_output_for_target(args.distribution_target)
+    output = args.output or default_output_for_target(
+        args.distribution_target,
+        args.content_profile,
+    )
     result = build_artifact(
         development_run_dir=args.development_run_dir,
         synthetic_run_dir=args.synthetic_run_dir,
@@ -1127,6 +1476,7 @@ def main() -> int:
         paper_pdf=args.paper_pdf,
         output=output,
         include_raw=not args.omit_raw,
+        content_profile=args.content_profile,
         release_clearance_path=args.release_clearance,
         distribution_target=args.distribution_target,
         identity_terms=terms,

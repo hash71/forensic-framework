@@ -1047,12 +1047,13 @@ conclusion sensitivity; across the three complete single-reviewer estimates,
 the change ranges from \SimReviewerUnsafeDifferenceLow\ to
 \SimReviewerUnsafeDifferenceHigh.  This wide dependence on reviewer stance,
 together with the low chance-adjusted proxy agreement, fails to validate the
-mechanical result.  It is not an expert-error rate.  We release consensus,
-disagreement, and provenance records and a post-hoc 120-item blind priority
-package for later real review.  Because that subset is targeted rather than a
-probability sample, it can diagnose important failures but cannot estimate
-population prevalence.  The independent-human validity gate above remains
-open regardless of panel agreement.
+mechanical result.  It is not an expert-error rate.  The full local research
+package retains consensus, disagreement, and provenance records and a
+post-hoc 120-item blind priority package for later real review.  Because that
+subset is targeted rather than a probability sample, it can diagnose
+important failures but cannot estimate population prevalence.  A reduced
+aggregate-only release omits these per-item files.  The independent-human
+validity gate above remains open regardless of panel agreement.
 \fi
 
 %-------------------------------------------------------------------------------
@@ -1301,34 +1302,41 @@ incident prevalence.
 \section{Open Science}
 %-------------------------------------------------------------------------------
 
-The anonymous artifact includes the 480-case-variant benchmark, generation
-specification and seed, data card, checksums, frozen JSON schemas and prompts,
-deterministic baselines, structured scored records, response hashes and
-provenance manifests, parsers, the mechanical evaluator, the blinded annotation
-package, analysis scripts, environment locks, tests, and commands that
-regenerate every table and figure.  Raw endpoint transcripts are omitted from
-the reviewer artifact because the third-party operator's redistribution terms
-could not be archived.  The reviewer artifact retains the structured scored
-output content required to audit the analysis; its public archival release is
-therefore conditional on author verification that the endpoint agreement
-permits redistribution of that retained content.  The same check applies
-before sharing it with anonymous reviewers.  If permission cannot be
-established, the distributed artifact will use an aggregate-only release and
-document the omission.  A
-top-level third-party notice preserves the CERT dataset's creator, DOI, CC BY
-4.0 link, affected paths, and transformation statement.  The administrative
-annotation key is separated from the blind package and included for artifact
-reviewers, but it must not be given to annotators before their labels are
-frozen.  Endpoint secrets, private URLs, workstation paths, and annotator
-identities do not appear.  The current
-repository records the full development history; its identity-scrubbed
-reviewer snapshot regenerates the manuscript in a fresh environment and will be
-uploaded at a non-tracking anonymous URL only after the final freeze.  Upon
-acceptance, a stable public archive and author-approved code, original-data,
-and paper licenses will replace the anonymous link.  Third-party models are
-referenced by immutable digest when available; the remote family label and
-missing weight digest are both disclosed rather than presented as reproducible
-weights.
+The artifact builder produces two checksum-bound content profiles.  The full
+structured-output profile includes the 480-case-variant benchmark, generation
+specification and seed, schemas and prompts, scored records, response hashes,
+provenance, blinded annotation package, analysis code, locks, tests, and the
+commands that regenerate every result.  Raw transcripts are omitted from its
+reviewer form.  That omission is not sufficient for redistribution because the
+records retain parsed output.  The endpoint is a public Modal deployment;
+Modal's current agreement treats Input and Output as Customer Data owned by its
+Customer,
+\footnote{\url{https://modal.com/legal/terms}, effective May 2026; checked
+September 3, 2026.}
+but the repository does not establish that an author owns the deployment
+account or that no caller-specific terms apply.  The full profile therefore
+remains local-validation-only until that evidence is archived.
+
+The aggregate-only contingency retains benchmark inputs, code, run manifests,
+aggregate statistics, aggregate AI-sensitivity results, paper source, and
+figures, while excluding every transcript, structured per-record output,
+per-item AI judgment, and annotation package that reproduces a generated
+claim.  A path denylist and 16-word fingerprint scan found no long verbatim
+output overlap in the retained paper, documentation, aggregate JSON, or PDFs.
+This profile can verify disclosed aggregate files and rerun the procedure on a
+new endpoint, but cannot recompute frozen statistics from the omitted records;
+we expose that weaker reproducibility boundary rather than imply equivalence.
+It removes the endpoint-output gate, but author-approved code, original-data,
+and paper terms remain required before anonymous or public distribution.
+
+A top-level notice preserves the CERT creator, DOI, CC BY 4.0 link, affected
+paths, and transformation statement.  Secrets, private URLs, workstation
+paths, and identities do not appear.  Both profiles fail closed on unresolved
+release approvals and will be uploaded at a non-tracking anonymous URL only
+after the final freeze.  Upon acceptance, a stable public archive will replace
+that link.  Third-party models are referenced by immutable digest when
+available; the remote family label and missing weight digest are disclosed
+rather than presented as reproducible weights.
 
 \bibliographystyle{plain}
 \bibliography{references}

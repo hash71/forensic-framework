@@ -1,6 +1,10 @@
 # Release-clearance gate
 
-The artifact builder has three distribution targets:
+The artifact builder has two content profiles and three distribution targets.
+`structured-output` supports result-level reproduction and retains parsed model
+content. `aggregate-only` excludes per-record outputs, per-item judgments, and
+annotation packages that reproduce generated claims; its weaker
+reproducibility boundary is stated in the archive README.
 
 - `local-validation`: permits unresolved approvals, but labels the ZIP **do not
   upload or share**;
@@ -8,9 +12,9 @@ The artifact builder has three distribution targets:
 - `public-release`: applies the same fail-closed checks and records the stronger
   public-release target in the manifest.
 
-Unless `--output` is supplied, the filename includes the selected target (for
-example, `warrantlab-local-validation.zip`) so the local archive is not easily
-mistaken for a reviewer release.
+Unless `--output` is supplied, the filename includes both profile and target
+(for example, `warrantlab-aggregate-only-local-validation.zip`) so a local
+archive is not easily mistaken for a reviewer release.
 
 The authoritative declaration is
 `config/release_clearance.json`. It contains no endpoint URL, token, author
@@ -31,7 +35,8 @@ records; the anonymous artifact carries only its digest.
    applicable agreement permits redistribution of its retained structured
    output.
 
-The last gate cannot be closed merely by citing Gemma's Apache-2.0 model
+The last gate applies to the `structured-output` profile and cannot be closed
+merely by citing Gemma's Apache-2.0 model
 license. The endpoint used by the frozen experiment is a public `modal.run`
 deployment, and this repository contains neither its deployment source nor an
 account-ownership record. Modal's current Software as a Service Agreement,
@@ -59,6 +64,21 @@ Then request the intended target explicitly:
   ... \
   --distribution-target anonymous-review
 ```
+
+If the endpoint permission cannot be established, use the reduced profile:
+
+```bash
+.venv/bin/python build_anonymous_artifact.py \
+  ... \
+  --omit-raw \
+  --content-profile aggregate-only \
+  --distribution-target anonymous-review
+```
+
+For `aggregate-only`, the endpoint-output gate is recorded as not applicable.
+The code, original-benchmark, and paper-release gates still must be approved.
+The build also rejects record, raw-response, annotation, and per-judgment paths
+and scans retained release text for 16-word overlap with source model output.
 
 The builder checks completeness, syntax, the frozen endpoint digest, and the
 current `THIRD_PARTY_NOTICES.md` digest before creating a distribution-cleared

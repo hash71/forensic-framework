@@ -156,6 +156,17 @@ anonymous-review` for a conference-review artifact or `public-release` for a
 public archive. Either distributable target fails before staging if any gate is
 pending. See `docs/release_clearance.md`.
 
+When endpoint-output permission cannot be established, add `--omit-raw
+--content-profile aggregate-only`. This profile keeps input benchmarks, code,
+manifests, aggregate analyses, paper files, and figures but excludes structured
+records, all per-item model judgments, and annotation packages containing
+generated claims. Its build-time denylist and 16-word output-fingerprint scan
+must pass. The reduced archive can verify disclosed aggregate files and support
+a fresh procedural rerun, but it cannot recompute the frozen statistics from
+omitted individual records. Only the endpoint-output gate becomes not
+applicable; author approval of code, benchmark, and paper terms remains
+required for distribution.
+
 Omit `--human-analysis` until a complete, independently adjudicated,
 checksum-bound analysis actually exists. The artifact README and manifest
 distinguish an unfilled annotation package from completed expert validation.

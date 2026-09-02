@@ -65,6 +65,9 @@ A submission-ready claim requires all of the following:
 - [x] a fail-closed machine-readable release gate that labels ordinary builds
   local-validation-only and rejects anonymous-review/public targets while any
   license or endpoint-output approval remains pending;
+- [x] a true aggregate-only fallback that excludes structured run records,
+  per-item judgments, and claim-bearing annotation packages and verifies zero
+  long verbatim output overlap in retained release text;
 - [x] an identity-scrubbed reviewer artifact frozen with the
   exact manuscript results; and
 - [x] a fresh-environment reproduction from the raw-transcript-omitted

@@ -189,10 +189,16 @@ def test_zip_writer_is_deterministic(tmp_path):
 def test_default_archive_name_exposes_distribution_target(tmp_path, monkeypatch):
     monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
     assert artifact.default_output_for_target("local-validation") == (
-        tmp_path / "output/artifact/warrantlab-local-validation.zip"
+        tmp_path
+        / "output/artifact/warrantlab-structured-output-local-validation.zip"
     )
     assert artifact.default_output_for_target("anonymous-review").name == (
-        "warrantlab-anonymous-review.zip"
+        "warrantlab-structured-output-anonymous-review.zip"
+    )
+    assert artifact.default_output_for_target(
+        "anonymous-review", "aggregate-only"
+    ).name == (
+        "warrantlab-aggregate-only-anonymous-review.zip"
     )
 
 
@@ -208,6 +214,7 @@ def test_release_clearance_labels_pending_local_build_and_blocks_distribution(
         path,
         distribution_target="local-validation",
         release_notice_summary=notice,
+        contains_structured_model_output=True,
     )
     assert summary["status"] == (
         "local_validation_only_not_cleared_for_distribution"
@@ -219,7 +226,20 @@ def test_release_clearance_labels_pending_local_build_and_blocks_distribution(
             path,
             distribution_target="anonymous-review",
             release_notice_summary=notice,
+            contains_structured_model_output=True,
         )
+
+    aggregate = artifact.validate_release_clearance(
+        path,
+        distribution_target="local-validation",
+        release_notice_summary=notice,
+        contains_structured_model_output=False,
+    )
+    assert aggregate["contains_structured_model_output"] is False
+    assert aggregate["not_applicable_gates"] == [
+        "endpoint_output_redistribution"
+    ]
+    assert "endpoint_output_redistribution" not in aggregate["outstanding_gates"]
 
 
 def test_release_clearance_requires_dated_checksum_bound_approvals(
@@ -245,6 +265,7 @@ def test_release_clearance_requires_dated_checksum_bound_approvals(
         path,
         distribution_target="anonymous-review",
         release_notice_summary=notice,
+        contains_structured_model_output=True,
     )
     assert summary["status"] == "cleared_for_anonymous_review"
     assert summary["outstanding_gates"] == []
@@ -256,7 +277,105 @@ def test_release_clearance_requires_dated_checksum_bound_approvals(
             path,
             distribution_target="anonymous-review",
             release_notice_summary=notice,
+            contains_structured_model_output=True,
         )
+
+
+def test_aggregate_copy_omits_records_and_raw(tmp_path, monkeypatch):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    run = tmp_path / "run"
+    run.mkdir()
+    for name in (
+        "analysis.json",
+        "manifest.json",
+        "release_redactions.json",
+        "statistics.json",
+    ):
+        (run / name).write_text("{}\n")
+    (run / "records.jsonl").write_text('{"generated":"content"}\n')
+    raw = run / "raw"
+    raw.mkdir()
+    (raw / "response.txt").write_text("generated content\n")
+    staging = tmp_path / "staging"
+    staging.mkdir()
+
+    copied = artifact._copy_aggregate_run(run, staging)
+    assert copied == [
+        "analysis.json",
+        "manifest.json",
+        "release_redactions.json",
+        "statistics.json",
+    ]
+    copied_run = staging / "run"
+    assert not (copied_run / "records.jsonl").exists()
+    assert not (copied_run / "raw").exists()
+
+
+def test_aggregate_scan_rejects_structured_paths_and_verbatim_output(
+    tmp_path, monkeypatch
+):
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    phrase = (
+        "The observed authentication sequence proves unauthorized access followed "
+        "by deliberate collection and external transfer of protected documents"
+    )
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "records.jsonl").write_text(
+        json.dumps(
+            {
+                "generator": {"parsed_output": {"rationale": phrase}},
+                "verifier": {},
+            }
+        )
+        + "\n"
+    )
+    staging = tmp_path / "staging"
+    docs = staging / "forensic-framework" / "docs"
+    docs.mkdir(parents=True)
+    (docs / "safe.md").write_text("Aggregate numerical results only.\n")
+
+    summary = artifact.validate_aggregate_release_tree(
+        staging,
+        run_dirs=[run],
+        simulated_review_dir=None,
+    )
+    assert summary["status"] == "passed"
+    assert summary["verbatim_overlap_count"] == 0
+
+    (docs / "leak.md").write_text(phrase + ".\n")
+    with pytest.raises(ValueError, match="verbatim model-output overlap"):
+        artifact.validate_aggregate_release_tree(
+            staging,
+            run_dirs=[run],
+            simulated_review_dir=None,
+        )
+    (docs / "leak.md").unlink()
+    (staging / "records.jsonl").write_text("{}\n")
+    with pytest.raises(ValueError, match="forbidden structured-output paths"):
+        artifact.validate_aggregate_release_tree(
+            staging,
+            run_dirs=[run],
+            simulated_review_dir=None,
+        )
+
+
+def test_aggregate_readme_states_reproducibility_boundary(tmp_path):
+    readme = tmp_path / "README.md"
+    artifact._write_aggregate_readme(
+        readme,
+        release_clearance={
+            "status": "local_validation_only_not_cleared_for_distribution",
+            "outstanding_gates": ["code_license"],
+            "not_applicable_gates": ["endpoint_output_redistribution"],
+        },
+    )
+    text = readme.read_text()
+    assert "DO NOT UPLOAD OR SHARE" in text
+    assert "excludes every raw transcript" in text
+    assert "every structured per-record model output" in text
+    assert "cannot recompute the paper's frozen statistics" in text
+    assert "endpoint_output_redistribution" in text
 
 
 def test_omitted_raw_staging_normalizes_analyses_and_paper_derivatives(

@@ -88,6 +88,9 @@ the shepherd-approval deadline.
 - [x] The artifact builder defaults to a visibly non-distributable local build
   and rejects anonymous-review/public targets until all license and endpoint
   attestations are dated and checksum-bound.
+- [x] An aggregate-only fallback excludes every structured record, per-item AI
+  judgment, and claim-bearing annotation package, passes a long-output-overlap
+  scan, and states that frozen statistics cannot be recomputed from it.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in
   grayscale, embeds its fonts, and contains no author identity.
 - [ ] Authors approve the final paper, author order, title, ORCIDs, ethics

@@ -13,7 +13,7 @@ from typing import Any
 
 
 MANIFEST_NAME = "ARTIFACT_MANIFEST.json"
-SUPPORTED_SCHEMA = "warrantlab-anonymous-artifact-v1.5"
+SUPPORTED_SCHEMA = "warrantlab-anonymous-artifact-v1.6"
 SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
 COMMIT_RE = re.compile(r"^[0-9a-f]{40}$")
 RELEASE_STATUSES = {
@@ -28,6 +28,15 @@ REQUIRED_RELEASE_GATES = {
     "endpoint_output_redistribution",
 }
 RELEASE_CLEARANCE_PATH = "forensic-framework/config/release_clearance.json"
+CONTENT_PROFILES = {"structured-output", "aggregate-only"}
+OUTPUT_FINGERPRINT_WORDS = 16
+AGGREGATE_RUN_FILES = {
+    "analysis.json",
+    "confidence_audit.json",
+    "manifest.json",
+    "release_redactions.json",
+    "statistics.json",
+}
 
 
 class VerificationError(ValueError):
@@ -72,6 +81,9 @@ def _load_manifest(root: Path) -> dict[str, Any]:
         )
     if not COMMIT_RE.fullmatch(str(manifest.get("source_commit", ""))):
         raise VerificationError("manifest source_commit is not a full Git SHA-1")
+    content_profile = manifest.get("content_profile")
+    if content_profile not in CONTENT_PROFILES:
+        raise VerificationError("manifest has invalid content_profile")
     identity_scan = manifest.get("identity_scan")
     if not isinstance(identity_scan, dict) or identity_scan.get("status") != "passed":
         raise VerificationError("manifest does not record a passed identity scan")
@@ -86,6 +98,7 @@ def _load_manifest(root: Path) -> dict[str, Any]:
         raise VerificationError("manifest release target and status are inconsistent")
     outstanding = clearance.get("outstanding_gates")
     approved = clearance.get("approved_gates")
+    not_applicable = clearance.get("not_applicable_gates")
     if not isinstance(outstanding, list) or not all(
         isinstance(item, str) for item in outstanding
     ):
@@ -94,17 +107,96 @@ def _load_manifest(root: Path) -> dict[str, Any]:
         isinstance(item, str) for item in approved
     ):
         raise VerificationError("manifest has invalid approved release gates")
+    if not isinstance(not_applicable, list) or not all(
+        isinstance(item, str) for item in not_applicable
+    ):
+        raise VerificationError("manifest has invalid not-applicable release gates")
     if (
         len(outstanding) != len(set(outstanding))
         or len(approved) != len(set(approved))
+        or len(not_applicable) != len(set(not_applicable))
         or set(outstanding) & set(approved)
-        or set(outstanding) | set(approved) != REQUIRED_RELEASE_GATES
+        or set(outstanding) & set(not_applicable)
+        or set(approved) & set(not_applicable)
+        or set(outstanding) | set(approved) | set(not_applicable)
+        != REQUIRED_RELEASE_GATES
     ):
         raise VerificationError("manifest release-gate partition is invalid")
     if target != "local-validation" and outstanding:
         raise VerificationError("distribution-cleared artifact retains pending gates")
-    if clearance.get("contains_structured_model_output") is not True:
-        raise VerificationError("manifest must record retained structured model output")
+    contains_structured = clearance.get("contains_structured_model_output")
+    if content_profile == "structured-output":
+        if contains_structured is not True or not_applicable:
+            raise VerificationError(
+                "structured-output profile has inconsistent release clearance"
+            )
+        if manifest.get("aggregate_only_scan") is not None:
+            raise VerificationError("structured-output profile has aggregate-only scan")
+        if manifest.get("aggregate_run_files") is not None:
+            raise VerificationError("structured-output profile has aggregate run allowlist")
+    else:
+        if contains_structured is not False or set(not_applicable) != {
+            "endpoint_output_redistribution"
+        }:
+            raise VerificationError(
+                "aggregate-only profile has inconsistent release clearance"
+            )
+        aggregate_scan = manifest.get("aggregate_only_scan")
+        if not isinstance(aggregate_scan, dict) or aggregate_scan.get("status") != "passed":
+            raise VerificationError("aggregate-only profile lacks a passed output scan")
+        if aggregate_scan.get("forbidden_path_scan") is not True:
+            raise VerificationError("aggregate-only profile lacks a forbidden-path scan")
+        if aggregate_scan.get("fingerprint_width_words") != OUTPUT_FINGERPRINT_WORDS:
+            raise VerificationError("aggregate-only output fingerprint width is invalid")
+        if aggregate_scan.get("verbatim_overlap_count") != 0:
+            raise VerificationError("aggregate-only profile reports output overlap")
+        for field in (
+            "source_output_strings_fingerprinted",
+            "unique_output_fingerprints",
+            "release_files_scanned",
+        ):
+            value = aggregate_scan.get(field)
+            if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
+                raise VerificationError(
+                    f"aggregate-only profile has invalid scan count: {field}"
+                )
+        if manifest.get("include_raw_model_transcripts") is not False:
+            raise VerificationError("aggregate-only profile claims raw transcripts")
+        aggregate_run_files = manifest.get("aggregate_run_files")
+        if not isinstance(aggregate_run_files, dict) or not aggregate_run_files:
+            raise VerificationError("aggregate-only profile lacks run-file allowlists")
+        required_aggregate_files = {
+            "analysis.json",
+            "manifest.json",
+            "release_redactions.json",
+            "statistics.json",
+        }
+        for names in aggregate_run_files.values():
+            if (
+                not isinstance(names, list)
+                or not required_aggregate_files.issubset(names)
+                or not set(names).issubset(AGGREGATE_RUN_FILES)
+            ):
+                raise VerificationError("aggregate-only run-file allowlist is invalid")
+        for field in (
+            "human_annotation_package_included",
+            "human_adjudicated_analysis_included",
+            "targeted_human_review_package_included",
+        ):
+            if manifest.get(field) is not False:
+                raise VerificationError(
+                    f"aggregate-only profile has forbidden package flag: {field}"
+                )
+    runs = manifest.get("runs")
+    if not isinstance(runs, dict) or not runs:
+        raise VerificationError("manifest lacks run summaries")
+    expected_records_included = content_profile == "structured-output"
+    if any(
+        not isinstance(summary, dict)
+        or summary.get("records_included") is not expected_records_included
+        for summary in runs.values()
+    ):
+        raise VerificationError("run-summary record inclusion contradicts content profile")
     if clearance.get("path") != RELEASE_CLEARANCE_PATH:
         raise VerificationError("manifest has invalid release-clearance path")
     if not SHA256_RE.fullmatch(str(clearance.get("sha256", ""))):
@@ -147,6 +239,29 @@ def verify_artifact(root: Path, *, strict: bool = False) -> dict[str, Any]:
             errors.append(f"duplicate manifest path: {relative}")
             continue
         expected_paths.add(relative)
+
+        if manifest["content_profile"] == "aggregate-only":
+            if (
+                parts[-1] in {"records.jsonl", "records.private-original.jsonl"}
+                or "raw" in parts
+                or parts[0] in {"human-validation", "targeted-human-review"}
+                or (
+                    parts[:3]
+                    == ("forensic-framework", "data", "warrant_runs")
+                    and parts[-1] not in AGGREGATE_RUN_FILES
+                )
+                or (
+                    parts[0] == "simulated-ai-review"
+                    and (
+                        len(parts) != 2
+                        or parts[1] not in {"analysis.json", "manifest.json"}
+                    )
+                )
+            ):
+                errors.append(
+                    f"aggregate-only artifact contains forbidden payload: {relative}"
+                )
+                continue
 
         expected_bytes = entry.get("bytes")
         expected_hash = entry.get("sha256")
@@ -216,6 +331,7 @@ def verify_artifact(root: Path, *, strict: bool = False) -> dict[str, Any]:
     return {
         "status": "passed",
         "artifact_schema_version": manifest["artifact_schema_version"],
+        "content_profile": manifest["content_profile"],
         "source_commit": manifest["source_commit"],
         "distribution_target": manifest["release_clearance"]["requested_target"],
         "distribution_status": manifest["release_clearance"]["status"],

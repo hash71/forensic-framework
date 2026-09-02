@@ -111,10 +111,12 @@ human-label integration or substantive manuscript change.
   Modal and that Customer, but the repository does not establish that an author
   owns the deployment account. The structured-output gate therefore remains
   open.
-- Artifact schema v1.5 records a requested distribution target and binds the
-  release-clearance declaration into the payload manifest. Local builds are
-  visibly marked **do not upload or share**; anonymous-review and public builds
-  fail before staging while any required attestation is pending.
+- Artifact schema v1.6 records a content profile and requested distribution
+  target and binds the release-clearance declaration into the payload manifest.
+  Local builds are visibly marked **do not upload or share**; anonymous-review
+  and public builds fail before staging while any applicable attestation is
+  pending. The aggregate-only profile omits structured output and verifies both
+  forbidden paths and 16-word output fingerprints.
 
 ### Ethics boundary
 
@@ -143,8 +145,8 @@ human-label integration or substantive manuscript change.
    code, original-dataset, and paper licenses.
 5. Archive the applicable endpoint-operator agreement and confirm that it
    permits sharing the structured output content retained in scored records
-   with reviewers and the public; otherwise build an aggregate-only artifact
-   and explain the omission in the Open Science appendix. Do not upload the
-   current structured-output ZIP before this gate closes.
+   with reviewers and the public; otherwise use the implemented aggregate-only
+   profile and its explicitly reduced reproducibility. Do not upload the current
+   structured-output ZIP before this gate closes.
 6. Freeze the artifact at an anonymous, non-tracking URL that remains available
    for the full review period, then insert that URL into appendix B.

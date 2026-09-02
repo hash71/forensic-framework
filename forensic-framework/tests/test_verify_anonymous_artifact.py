@@ -25,18 +25,27 @@ def _write_artifact(root: Path) -> None:
     ]
     manifest = {
         "artifact_schema_version": verifier.SUPPORTED_SCHEMA,
+        "content_profile": "structured-output",
         "source_commit": "a" * 40,
         "identity_scan": {"status": "passed"},
+        "include_raw_model_transcripts": False,
         "release_clearance": {
             "requested_target": "local-validation",
             "status": "local_validation_only_not_cleared_for_distribution",
             "approved_gates": [],
             "outstanding_gates": outstanding,
+            "not_applicable_gates": [],
             "contains_structured_model_output": True,
             "path": verifier.RELEASE_CLEARANCE_PATH,
             "sha256": clearance_sha256,
             "endpoint_sha256": "e" * 64,
         },
+        "aggregate_only_scan": None,
+        "aggregate_run_files": None,
+        "runs": {"synthetic": {"records_included": True}},
+        "human_annotation_package_included": False,
+        "human_adjudicated_analysis_included": False,
+        "targeted_human_review_package_included": False,
         "files": [
             {
                 "path": "payload/result.txt",
@@ -59,6 +68,7 @@ def test_verify_artifact_checks_manifest_bound_payloads(tmp_path: Path) -> None:
     assert result == {
         "status": "passed",
         "artifact_schema_version": verifier.SUPPORTED_SCHEMA,
+        "content_profile": "structured-output",
         "source_commit": "a" * 40,
         "distribution_target": "local-validation",
         "distribution_status": (
@@ -99,6 +109,57 @@ def test_verify_artifact_rejects_false_distribution_clearance(tmp_path: Path) ->
         verifier.verify_artifact(tmp_path)
 
 
+def test_verify_aggregate_profile_rejects_manifest_bound_records(
+    tmp_path: Path,
+) -> None:
+    _write_artifact(tmp_path)
+    records = tmp_path / "forensic-framework/data/warrant_runs/run/records.jsonl"
+    records.parent.mkdir(parents=True)
+    records.write_text("{}\n")
+    manifest_path = tmp_path / verifier.MANIFEST_NAME
+    manifest = json.loads(manifest_path.read_text())
+    manifest["content_profile"] = "aggregate-only"
+    manifest["release_clearance"].update(
+        {
+            "contains_structured_model_output": False,
+            "outstanding_gates": [
+                "code_license",
+                "original_benchmark_license",
+                "paper_release_terms",
+            ],
+            "not_applicable_gates": ["endpoint_output_redistribution"],
+        }
+    )
+    manifest["aggregate_only_scan"] = {
+        "status": "passed",
+        "forbidden_path_scan": True,
+        "fingerprint_width_words": verifier.OUTPUT_FINGERPRINT_WORDS,
+        "verbatim_overlap_count": 0,
+        "source_output_strings_fingerprinted": 10,
+        "unique_output_fingerprints": 20,
+        "release_files_scanned": 5,
+    }
+    manifest["aggregate_run_files"] = {
+        "synthetic": [
+            "analysis.json",
+            "manifest.json",
+            "release_redactions.json",
+            "statistics.json",
+        ]
+    }
+    manifest["runs"]["synthetic"]["records_included"] = False
+    manifest["files"].append(
+        {
+            "path": "forensic-framework/data/warrant_runs/run/records.jsonl",
+            "bytes": records.stat().st_size,
+            "sha256": hashlib.sha256(records.read_bytes()).hexdigest(),
+        }
+    )
+    manifest_path.write_text(json.dumps(manifest))
+    with pytest.raises(verifier.VerificationError, match="forbidden payload"):
+        verifier.verify_artifact(tmp_path)
+
+
 @pytest.mark.parametrize(
     "unsafe",
     ["../outside.txt", "/absolute.txt", "a//b.txt", "..\\outside.txt"],
@@ -135,8 +196,10 @@ def test_verify_artifact_rejects_symlinked_payload_parent(tmp_path: Path) -> Non
     clearance_sha256 = hashlib.sha256(clearance_payload.read_bytes()).hexdigest()
     manifest = {
         "artifact_schema_version": verifier.SUPPORTED_SCHEMA,
+        "content_profile": "structured-output",
         "source_commit": "a" * 40,
         "identity_scan": {"status": "passed"},
+        "include_raw_model_transcripts": False,
         "release_clearance": {
             "requested_target": "local-validation",
             "status": "local_validation_only_not_cleared_for_distribution",
@@ -147,11 +210,18 @@ def test_verify_artifact_rejects_symlinked_payload_parent(tmp_path: Path) -> Non
                 "paper_release_terms",
                 "endpoint_output_redistribution",
             ],
+            "not_applicable_gates": [],
             "contains_structured_model_output": True,
             "path": verifier.RELEASE_CLEARANCE_PATH,
             "sha256": clearance_sha256,
             "endpoint_sha256": "e" * 64,
         },
+        "aggregate_only_scan": None,
+        "aggregate_run_files": None,
+        "runs": {"synthetic": {"records_included": True}},
+        "human_annotation_package_included": False,
+        "human_adjudicated_analysis_included": False,
+        "targeted_human_review_package_included": False,
         "files": [
             {
                 "path": "payload/result.txt",

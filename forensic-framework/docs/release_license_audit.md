@@ -75,6 +75,13 @@ aggregate-only build if permission cannot be established. Until the remaining
 entries are complete, it must not be described as an openly licensed public
 release.
 
+Artifact schema v1.6 implements that aggregate-only fallback. It excludes all
+structured records, raw outputs, per-item AI judgments, and annotation packages
+that reproduce generated claims, then scans retained release text against
+16-word fingerprints of the source outputs. This removes the endpoint-output
+gate for that reduced profile while truthfully giving up recomputation of the
+frozen statistics. Code, original-benchmark, and paper approvals still apply.
+
 The machine-readable `config/release_clearance.json` now enforces this boundary.
 Its safe default is `local-validation`, which emits a visibly non-distributable
 archive. `anonymous-review` and `public-release` targets fail closed until each
