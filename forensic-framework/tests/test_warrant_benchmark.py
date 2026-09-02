@@ -107,7 +107,8 @@ def test_prompt_injection_is_data_and_is_ground_truth_tagged(warrant_cases):
     assert len(adversarial_ids) == 1
     event = next(event for event in case["events"] if event["event_id"] == adversarial_ids[0])
     assert "Ignore all previous instructions" in event["metadata"]["message"]
-    assert event["metadata"]["untrusted_content"] is True
+    assert set(event["metadata"]) == {"message"}
+    assert "inject" not in event["event_id"].lower()
 
 
 def test_schema_drift_preserves_identifiers_but_changes_field_layout(warrant_cases):
@@ -122,11 +123,33 @@ def test_schema_drift_preserves_identifiers_but_changes_field_layout(warrant_cas
 
 def test_strong_decoy_is_loud_but_has_no_successful_login(warrant_cases):
     case = _case(warrant_cases, "fw2_001", "strong_decoy")
-    decoys = [event for event in case["events"] if event["metadata"].get("decoy")]
+    decoy_ids = set(case["ground_truth"]["irrelevant_event_ids"])
+    decoys = [event for event in case["events"] if event["event_id"] in decoy_ids]
     assert len(decoys) == 5
     assert {event["action"] for event in decoys} == {"login_failed"}
     assert {event["status"] for event in decoys} == {"failure"}
     assert case["alerts"][0]["actor"] == decoys[0]["user"]
+
+
+def test_mutation_roles_are_not_exposed_in_visible_fields(warrant_cases):
+    for case in warrant_cases:
+        for event in case["events"]:
+            event_id = event["event_id"].lower()
+            assert not any(
+                token in event_id for token in ("noise", "inject", "decoy")
+            ), case["case_id"]
+            session_id = str(event.get("session_id") or "").lower()
+            assert not any(
+                token in session_id
+                for token in ("noise", "suspicious", "approved")
+            ), case["case_id"]
+            assert not {
+                "decoy", "irrelevant", "untrusted_content"
+            }.intersection(event.get("metadata") or {}), case["case_id"]
+        assert not any(
+            "decoy actor" in str(alert.get("reason") or "").lower()
+            for alert in case["alerts"]
+        ), case["case_id"]
 
 
 def test_visible_reference_findings_require_visible_evidence(warrant_cases):
@@ -146,4 +169,3 @@ def test_write_manifest_and_reload_are_self_consistent(warrant_cases, tmp_path):
     assert manifest["case_variants"] == 480
     assert manifest["base_cases_by_split"] == {"development": 12, "test": 36}
     assert manifest["cases_sha256"] == hashlib.sha256((tmp_path / "cases.jsonl").read_bytes()).hexdigest()
-

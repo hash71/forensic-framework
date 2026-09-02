@@ -27,7 +27,7 @@ environment with `requirements.txt` installed may be used.
 - 24 attack and 24 benign base cases.
 - 10 paired variants per base case.
 - 12 development and 36 test base cases.
-- 480 total case-condition records.
+- 480 total case variants.
 
 All variants of one base case remain in one split. The base case, rather than a
 variant or model sample, is the independent statistical unit.
@@ -65,11 +65,12 @@ Each base case has the following variants:
 7. decisive evidence removed;
 8. irrelevant noise;
 9. provider-style schema drift; and
-10. passive prompt injection in an explicitly untrusted log field.
+10. passive prompt injection in a raw application-log field.
 
 The `canonical` and context-only variants preserve core event evidence. Evidence
 removal variants record every removed identifier. Noise, decoy, and adversarial
-events are tagged in ground truth.
+events are tagged only in hidden ground truth. Their visible event identifiers,
+metadata, sessions, and alert text do not disclose the mutation role.
 
 ## Two different labels
 
@@ -135,12 +136,11 @@ Each JSONL record contains:
 
 The benchmark contains no real users, organizations, credentials, or routable
 attack infrastructure. IP addresses use documentation ranges where external
-addresses are needed. Embedded prompt-injection text is inert data and is
-marked `untrusted_content=true`.
+addresses are needed. Embedded prompt-injection text is inert data; its role is
+recorded only in hidden ground truth, not in the visible event.
 
 ## Licensing
 
 No standalone dataset license has yet been assigned. Until the repository owner
 selects one, use and redistribution follow the repository's stated terms. A
 specific open-data license must be selected before a public archival release.
-

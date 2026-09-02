@@ -266,7 +266,8 @@ def tuned_rule_verdict(case: dict[str, Any]) -> tuple[str, float, str]:
         return "NO", 0.90, "Explicit authorization or closure evidence is present with no unauthorized event."
     failed_attempts_resolved = any(
         _action(event) == "account_review_complete"
-        and _metadata(event).get("successful_attacker_login") is False
+        and _metadata(event).get("review_finding")
+        == "no_successful_login_observed"
         for event in events
     )
     if failed_logins and not successful_logins and not unauthorized_harm and failed_attempts_resolved:
