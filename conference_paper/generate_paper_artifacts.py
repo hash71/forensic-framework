@@ -252,7 +252,7 @@ def write_confidence_result_macros(audit_path: Path, output_path: Path) -> None:
     audit = _load_json(audit_path)
     if (
         audit.get("confidence_audit_schema_version")
-        != "warrant-confidence-audit-v1.0"
+        != "warrant-confidence-audit-v1.1"
     ):
         raise ValueError("unsupported confidence-audit schema")
     if audit["calibrator_fit_decision"]["status"] != "not_fit":
@@ -326,6 +326,8 @@ def write_confidence_result_macros(audit_path: Path, output_path: Path) -> None:
         "% development_records_sha256="
         f"{audit['source_sha256']['development_records']}\n"
         f"% test_records_sha256={audit['source_sha256']['test_records']}\n"
+        "% benchmark_alignment="
+        f"{audit['benchmark_alignment']['status']}\n"
     )
     output_path.write_text(
         provenance

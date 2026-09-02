@@ -1,16 +1,24 @@
 {
   "analysis_role": "post-hoc calibration and abstention diagnostic",
+  "benchmark_alignment": {
+    "calibration_implication": "Development and test outputs are bound to different benchmark versions and are not a like-for-like calibration/test pair.",
+    "development_benchmark_sha256": "fb21e904b66be2af83fab22c9630582585ac2f85e5a05c055c9f9a75e194c126",
+    "same_benchmark": false,
+    "status": "different_versions",
+    "test_benchmark_sha256": "edfd0dec7317684e3fec122ac2fc555fb3c7cc9c841d856d95845d9d40baa0f8"
+  },
   "calibrator_fit_decision": {
     "reasons": [
       "The development partition has only 12 independent base cases.",
       "Development confidence has only 4 distinct values, including 3 singleton levels.",
       "The frozen 0.65 confidence gate rejected 0 valid development outputs, so its local rejection behavior is unobserved.",
+      "Development and test outputs use different benchmark versions.",
       "The frozen prompt and schema do not define the score's prediction target."
     ],
     "status": "not_fit",
     "threshold_selected": null
   },
-  "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+  "confidence_audit_schema_version": "warrant-confidence-audit-v1.1",
   "development": {
     "base_case_n": 12,
     "calibration": {
@@ -257,7 +265,9 @@
     ]
   },
   "source_sha256": {
+    "development_manifest": "33c69e3d21cdbcffd58b18f77f78fdfe2ae23cfb69c986d97d7081c86d67d6a8",
     "development_records": "4fa0c4bac9de2100ef7c01f16eca2894dc593c96d5b7d036cfe48393e06aa511",
+    "test_manifest": "ba2891c759e2ad184c76574df6de2cecb3a64214abf6b8006bdb070c5739eba6",
     "test_records": "13dd19550baf66785b3d25418a83ec90c116f2a0306ffababe6fd529bad5039a"
   },
   "split_integrity": {

@@ -24,10 +24,11 @@ From `forensic-framework/`:
   data/warrant_runs/test-full-benchmark-v1_0_2-remote-fusion-gemma-v1_4-r3
 ```
 
-The deterministic output is
+The deterministic v1.1 output is
 `data/warrant_runs/test-full-benchmark-v1_0_2-remote-fusion-gemma-v1_4-r3/confidence_audit.json`.
-It records SHA-256 hashes for both source JSONL files, verifies disjoint
-development/test base-case IDs, and refuses malformed confidence values.
+It records SHA-256 hashes for both source JSONL files and both run manifests,
+verifies disjoint development/test base-case IDs, checks the benchmark hashes
+bound by those manifests, and refuses malformed confidence values.
 
 ## Metrics
 
@@ -52,10 +53,12 @@ No row is selected as a new operating point.
 
 All 12 valid development outputs are at or above 0.85. They occupy only four
 confidence values, three of which occur once. The 0.65 rule consequently
-rejects zero valid development outputs. Together with the undefined prediction
-target and only 12 independent base cases, this is inadequate support for a
-fitted calibrator. The audit therefore records `status: not_fit` and
-`threshold_selected: null`.
+rejects zero valid development outputs. The development run is also bound to
+the pre-hardening benchmark hash (`fb21e9...`), while the corrected test run is
+bound to `edfd0d...`; they are not a like-for-like calibration/test pair.
+Together with the undefined prediction target and only 12 independent base
+cases, this is inadequate support for a fitted calibrator. The audit therefore
+records `status: not_fit` and `threshold_selected: null`.
 
 ## Held-out diagnostic
 
@@ -82,6 +85,6 @@ development and held-out output. Gemma's score is closer to coarse verdict
 correctness than to exact attribution or atomic-claim safety, but its intended
 target is not defined and its safety relationship is not reliably monotone.
 Calibrated abstention therefore requires a new, larger, disjoint calibration
-partition; an explicit prediction target; claim- or axis-level scores; a
-pre-specified risk function and acceptance constraint; and evaluation on a new
-untouched test set.
+partition generated under the same frozen benchmark version; an explicit
+prediction target; claim- or axis-level scores; a pre-specified risk function
+and acceptance constraint; and evaluation on a new untouched test set.

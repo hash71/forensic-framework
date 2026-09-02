@@ -434,11 +434,13 @@ decoy/noise identifiers and metadata, prompt-injection metadata, alert text,
 and attack/benign session names.  We interrupted and excluded all 2,360 partial
 records from that run, made roles visible only in hidden ground truth, added a
 corpus-wide leakage test, regenerated checksums and baselines, and reran from
-scratch.  Because output from the earlier form of the same cases had been
-inspected, we do not describe the corrected run as an untouched holdout or the
-study as preregistered.  The append-only deviation log preserves hashes and
-timing; no prompt, evaluator, endpoint, or decision rule was tuned from the
-invalidated output.
+scratch.  The completed development outputs also predate this hardening and
+remain bound to the earlier benchmark hash; we did not regenerate them or
+retune on corrected development cases.  Because output from the earlier form
+of the same cases had been inspected, we do not describe the corrected run as
+an untouched holdout or the study as preregistered.  The append-only deviation
+log preserves hashes and timing; no prompt, evaluator, endpoint, or decision
+rule was tuned from the invalidated output.
 
 \subsection{Why verdict accuracy is not the contribution}
 
@@ -771,9 +773,11 @@ calibrator.  Its \ConfidenceDevOutputs\ valid shared alert-visible outputs use
 only \ConfidenceDevLevels\ confidence values, of which
 \ConfidenceDevSingletonLevels\ occur once; all scores are at least 0.85.
 Consequently, the frozen \ConfidenceThreshold\ gate rejected
-\ConfidenceDevRejected\ valid development outputs.  The underspecified target,
-small independent sample, sparse score support, and unobserved rejection region
-led us to fit no calibrator and select no replacement threshold.
+\ConfidenceDevRejected\ valid development outputs.  Those outputs are also
+bound to the pre-hardening benchmark rather than the corrected test version.
+The version mismatch, underspecified target, small independent sample, sparse
+score support, and unobserved rejection region led us to fit no calibrator and
+select no replacement threshold.
 
 The held-out audit reaches the same operational conclusion.  Among
 \ConfidenceTestOutputs\ valid outputs (plus \ConfidenceTestFailures\ generator
@@ -1081,9 +1085,11 @@ validate our axis labels or authored proxy.
 \textbf{Internal validity.}  Development data influenced prompt versions and
 the v1.1 safety-estimand clarification.  We disclose both; no prompt or
 evaluator change is permitted after held-out inference begins.  The generator
-and reference labels share authored templates, creating correlated error.  The
-confidence audit was designed after test outcomes existed, so it selects no
-threshold and supports only a retrospective diagnostic.
+and reference labels share authored templates, creating correlated error.
+Prompt tuning used pre-hardening development cases that still contained
+role-bearing session names; corrected test cases removed them.  The confidence
+audit was designed after test outcomes existed, so it selects no threshold and
+supports only a retrospective diagnostic.
 
 \textbf{Statistical conclusion validity.}  There are 36 independent held-out
 cases and only three nested repetitions.  Cluster intervals can be wide, family
@@ -1232,8 +1238,15 @@ alert-conditioned generation surfaces \PrimaryAlertsUnsafeExposure\ unwarranted
 decisive claims per case.  Verification plus abstention changes exposure by
 \PrimaryUnsafeDifference, but its attack-recall change
 of \RecallDifference\ does \NoninferiorResult\ satisfy the pre-specified
-non-inferiority margin.  The appropriate conclusion is not that citations make
-LLM forensics safe, nor that abstention alone solves overclaiming.  On the
+non-inferiority margin.
+\ifconfidenceresults
+Its confidence gate rejects no valid held-out output,
+and mean confidence of \ConfidenceTestMean\ coexists with only
+\ConfidenceTestExactRate\ exact verdict-plus-suspect correctness.
+\fi
+The
+appropriate conclusion is not that citations make LLM forensics safe, nor that
+abstention alone solves overclaiming.  On the
 independent CERT transfer, operational validity falls to
 \ExternalOperationalValidity\ and the verifier delivers no reports.  Safety
 must be measured at claim level and jointly with coverage; deployment must

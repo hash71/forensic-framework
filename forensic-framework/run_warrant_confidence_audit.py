@@ -34,11 +34,17 @@ def main() -> int:
 
     development_path = args.development_run_dir / "records.jsonl"
     test_path = args.test_run_dir / "records.jsonl"
+    development_manifest_path = args.development_run_dir / "manifest.json"
+    test_manifest_path = args.test_run_dir / "manifest.json"
     audit = build_confidence_audit(
         load_run_records(development_path),
         load_run_records(test_path),
         development_records_sha256=_sha256(development_path),
         test_records_sha256=_sha256(test_path),
+        development_manifest=json.loads(development_manifest_path.read_text()),
+        test_manifest=json.loads(test_manifest_path.read_text()),
+        development_manifest_sha256=_sha256(development_manifest_path),
+        test_manifest_sha256=_sha256(test_manifest_path),
         condition=args.condition,
         policy_threshold=args.policy_threshold,
     )

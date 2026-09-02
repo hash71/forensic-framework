@@ -134,7 +134,7 @@ def test_confidence_macros_preserve_no_tuning_boundary(tmp_path: Path) -> None:
         "ece_10_equal_width": 0.10,
     }
     audit = {
-        "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+        "confidence_audit_schema_version": "warrant-confidence-audit-v1.1",
         "source_sha256": {
             "development_records": "d" * 64,
             "test_records": "t" * 64,
@@ -143,6 +143,7 @@ def test_confidence_macros_preserve_no_tuning_boundary(tmp_path: Path) -> None:
             "status": "not_fit",
             "threshold_selected": None,
         },
+        "benchmark_alignment": {"status": "different_versions"},
         "development": {
             "valid_output_n": 12,
             "distinct_confidence_values": 4,

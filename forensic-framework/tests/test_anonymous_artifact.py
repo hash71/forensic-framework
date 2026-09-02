@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import subprocess
 import zipfile
 from pathlib import Path
 
@@ -53,10 +54,16 @@ def test_confidence_audit_must_bind_both_runs_and_forbid_test_tuning(
     monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
     audit_path = tmp_path / "confidence_audit.json"
     audit = {
-        "confidence_audit_schema_version": "warrant-confidence-audit-v1.0",
+        "confidence_audit_schema_version": "warrant-confidence-audit-v1.1",
         "source_sha256": {
             "development_records": "d" * 64,
             "test_records": "t" * 64,
+            "development_manifest": "m" * 64,
+            "test_manifest": "n" * 64,
+        },
+        "benchmark_alignment": {
+            "development_benchmark_sha256": "a" * 64,
+            "test_benchmark_sha256": "b" * 64,
         },
         "calibrator_fit_decision": {
             "status": "not_fit",
@@ -72,6 +79,10 @@ def test_confidence_audit_must_bind_both_runs_and_forbid_test_tuning(
         audit_path,
         development_records_sha256="d" * 64,
         test_records_sha256="t" * 64,
+        development_manifest_sha256="m" * 64,
+        test_manifest_sha256="n" * 64,
+        development_benchmark_sha256="a" * 64,
+        test_benchmark_sha256="b" * 64,
     )
     assert summary["calibrator_fit_status"] == "not_fit"
 
@@ -82,6 +93,10 @@ def test_confidence_audit_must_bind_both_runs_and_forbid_test_tuning(
             audit_path,
             development_records_sha256="d" * 64,
             test_records_sha256="t" * 64,
+            development_manifest_sha256="m" * 64,
+            test_manifest_sha256="n" * 64,
+            development_benchmark_sha256="a" * 64,
+            test_benchmark_sha256="b" * 64,
         )
 
 
@@ -98,6 +113,18 @@ def test_release_scan_detects_identity_path_and_credential(tmp_path):
     assert "identity_term_1" in rules
     assert "absolute_user_path" in rules
     assert "credential_like_value" in rules
+
+
+def test_release_scan_rejects_generated_bytecode(tmp_path):
+    cache = tmp_path / "package" / "__pycache__"
+    cache.mkdir(parents=True)
+    (cache / "module.cpython-311.pyc").write_bytes(b"bytecode")
+    assert artifact.scan_release_tree(tmp_path, identity_terms=[]) == [
+        {
+            "file": "package/__pycache__/module.cpython-311.pyc",
+            "rule": "generated_cache_file",
+        }
+    ]
 
 
 def test_release_scan_extracts_pdf_text_and_metadata(tmp_path):
@@ -134,6 +161,89 @@ def test_zip_writer_is_deterministic(tmp_path):
         assert archive.namelist() == ["a.txt", "b.txt"]
 
 
+def test_omitted_raw_staging_normalizes_analyses_and_paper_derivatives(
+    tmp_path, monkeypatch
+):
+    staging = tmp_path / "staging"
+    framework = staging / "forensic-framework"
+    paper = staging / "conference_paper"
+    framework.mkdir(parents=True)
+    paper.mkdir()
+    (paper / "generate_paper_artifacts.py").write_text("# staged generator\n")
+    runs = {
+        "development": {
+            "path": "forensic-framework/data/warrant_runs/development"
+        },
+        "synthetic_confirmatory": {
+            "path": "forensic-framework/data/warrant_runs/synthetic"
+        },
+        "external_transfer": {
+            "path": "forensic-framework/data/warrant_runs/external"
+        },
+    }
+    for run in runs.values():
+        (staging / run["path"]).mkdir(parents=True)
+    (staging / "simulated-ai-review").mkdir()
+    (staging / "simulated-ai-review" / "analysis.json").write_text("{}\n")
+
+    calls = []
+
+    def fake_run(args, *, cwd):
+        calls.append((args, cwd))
+        if Path(args[1]).name == "run_warrant_results.py":
+            run_path = Path(args[2])
+            (run_path / "analysis.json").write_text(
+                json.dumps(
+                    {
+                        "artifact_integrity": {
+                            "ok": True,
+                            "raw_response_status": "omitted_by_release_policy",
+                            "unique_raw_responses_referenced": 3,
+                            "unique_raw_responses_checked": 0,
+                            "unique_raw_responses_missing": 3,
+                        }
+                    }
+                )
+            )
+
+    monkeypatch.setattr(artifact, "_run_staged", fake_run)
+    artifact._normalize_omitted_raw_derivatives(
+        staging,
+        run_summaries=runs,
+        has_human_analysis=False,
+        has_simulated_analysis=True,
+    )
+
+    result_calls = [args for args, _ in calls[:-1]]
+    assert len(result_calls) == 3
+    assert all(args[-1] == "--allow-omitted-raw" for args in result_calls)
+    generator_args, generator_cwd = calls[-1]
+    assert Path(generator_args[1]).name == "generate_paper_artifacts.py"
+    assert "--confidence-audit" in generator_args
+    assert "--external-run-dir" in generator_args
+    assert "--simulated-analysis" in generator_args
+    assert generator_cwd == staging
+
+
+def test_run_staged_surfaces_derivation_failure(tmp_path, monkeypatch):
+    failed = subprocess.CompletedProcess(
+        ["python", "derive.py"],
+        returncode=2,
+        stdout="",
+        stderr="invalid staged input",
+    )
+    observed = {}
+
+    def fake_subprocess_run(*args, **kwargs):
+        observed.update(kwargs)
+        return failed
+
+    monkeypatch.setattr(artifact.subprocess, "run", fake_subprocess_run)
+    with pytest.raises(ValueError, match="invalid staged input"):
+        artifact._run_staged(["python", "derive.py"], cwd=tmp_path)
+    assert observed["env"]["PYTHONDONTWRITEBYTECODE"] == "1"
+
+
 def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     readme = tmp_path / "README.md"
     runs = {
@@ -160,6 +270,7 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     assert "--allow-omitted-raw" in text
     assert "--development-run-dir data/warrant_runs/development" in text
     assert "no adjudicated expert analysis exists" in text
+    assert "byte-stable under the reproduction command" in text
     assert "--human-analysis" not in text
     assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text
     assert "not human or expert validation" in text

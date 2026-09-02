@@ -17,7 +17,7 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 180 tests passed.
+- `python -m pytest -q`: 183 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
 - The one-command paper reproduction validated the 48-base-case,
   480-case-variant benchmark, reanalyzed 5,400 synthetic and 360 external
@@ -48,7 +48,9 @@ human-label integration or substantive manuscript change.
   rejected zero valid development outputs and zero of 1,044 valid held-out
   outputs. It reports Brier score and fixed-bin ECE against verdict, exact
   verdict-plus-suspect, and mechanical claim-safety targets, but fits no
-  calibrator and selects no replacement threshold from test outcomes.
+  calibrator and selects no replacement threshold from test outcomes. It also
+  binds both run manifests and records that the pre-hardening development and
+  corrected test outputs do not share a benchmark version.
 - The 32-cluster CERT transfer analysis is explicitly separate and uses latent
   scenario labels only for operational stress testing, not as visible-evidence
   warrant ground truth.

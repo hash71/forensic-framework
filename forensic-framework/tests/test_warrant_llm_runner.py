@@ -622,10 +622,21 @@ def test_confidence_audit_refuses_test_tuning_and_checks_split_overlap() -> None
         test,
         development_records_sha256="d" * 64,
         test_records_sha256="e" * 64,
+        development_manifest={
+            "run_id": "development-run",
+            "benchmark_sha256": "a" * 64,
+        },
+        test_manifest={
+            "run_id": "test-run",
+            "benchmark_sha256": "b" * 64,
+        },
+        development_manifest_sha256="f" * 64,
+        test_manifest_sha256="0" * 64,
     )
 
     assert audit["calibrator_fit_decision"]["status"] == "not_fit"
     assert audit["calibrator_fit_decision"]["threshold_selected"] is None
+    assert audit["benchmark_alignment"]["status"] == "different_versions"
     assert "No calibrator or replacement threshold" in audit["held_out_use_boundary"]
     assert audit["split_integrity"]["overlap_n"] == 0
 
@@ -636,4 +647,14 @@ def test_confidence_audit_refuses_test_tuning_and_checks_split_overlap() -> None
             overlapping,
             development_records_sha256="d" * 64,
             test_records_sha256="e" * 64,
+            development_manifest={
+                "run_id": "development-run",
+                "benchmark_sha256": "a" * 64,
+            },
+            test_manifest={
+                "run_id": "test-run",
+                "benchmark_sha256": "b" * 64,
+            },
+            development_manifest_sha256="f" * 64,
+            test_manifest_sha256="0" * 64,
         )

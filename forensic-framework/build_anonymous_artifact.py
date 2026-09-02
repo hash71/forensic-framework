@@ -6,9 +6,11 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
+import sys
 import tempfile
 import zipfile
 from pathlib import Path
@@ -19,7 +21,7 @@ from pypdf import PdfReader
 FRAMEWORK_ROOT = Path(__file__).resolve().parent
 REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
-ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.2"
+ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.4"
 
 PRIVATE_NAMES = {
     ".env",
@@ -189,6 +191,8 @@ def validate_release_run(run_dir: Path) -> dict:
         "path": run_dir.relative_to(REPO_ROOT.resolve()).as_posix(),
         "record_count": record_count,
         "records_sha256": sha256(records_path),
+        "manifest_sha256": sha256(manifest_path),
+        "benchmark_sha256": manifest.get("benchmark_sha256"),
     }
 
 
@@ -197,6 +201,10 @@ def validate_confidence_audit(
     *,
     development_records_sha256: str,
     test_records_sha256: str,
+    development_manifest_sha256: str,
+    test_manifest_sha256: str,
+    development_benchmark_sha256: str,
+    test_benchmark_sha256: str,
 ) -> dict:
     """Require a no-tuning audit bound to the packaged development/test runs."""
 
@@ -206,7 +214,7 @@ def validate_confidence_audit(
     audit = json.loads(path.read_text())
     if (
         audit.get("confidence_audit_schema_version")
-        != "warrant-confidence-audit-v1.0"
+        != "warrant-confidence-audit-v1.1"
     ):
         raise ValueError("unsupported confidence-audit schema")
     sources = audit.get("source_sha256") or {}
@@ -214,6 +222,15 @@ def validate_confidence_audit(
         raise ValueError("confidence audit is not bound to the development records")
     if sources.get("test_records") != test_records_sha256:
         raise ValueError("confidence audit is not bound to the test records")
+    if sources.get("development_manifest") != development_manifest_sha256:
+        raise ValueError("confidence audit is not bound to the development manifest")
+    if sources.get("test_manifest") != test_manifest_sha256:
+        raise ValueError("confidence audit is not bound to the test manifest")
+    alignment = audit.get("benchmark_alignment") or {}
+    if alignment.get("development_benchmark_sha256") != development_benchmark_sha256:
+        raise ValueError("confidence audit development benchmark hash mismatch")
+    if alignment.get("test_benchmark_sha256") != test_benchmark_sha256:
+        raise ValueError("confidence audit test benchmark hash mismatch")
     decision = audit.get("calibrator_fit_decision") or {}
     if (
         decision.get("status") != "not_fit"
@@ -337,6 +354,9 @@ def scan_release_tree(root: Path, *, identity_terms: list[str]) -> list[dict[str
         if not path.is_file():
             continue
         relative = path.relative_to(root).as_posix()
+        if "__pycache__" in path.parts or path.suffix.lower() == ".pyc":
+            issue_keys.add((relative, "generated_cache_file"))
+            continue
         if path.name in PRIVATE_NAMES or path.suffix.lower() in PRIVATE_SUFFIXES:
             issue_keys.add((relative, "private_filename"))
             continue
@@ -389,6 +409,103 @@ def _copy_tree(source: Path, staging_root: Path, *, include_raw: bool = True) ->
         _copy_file(path, staging_root)
 
 
+def _run_staged(args: list[str], *, cwd: Path) -> None:
+    """Run one deterministic derivation inside the staged release tree."""
+
+    result = subprocess.run(
+        args,
+        cwd=cwd,
+        check=False,
+        capture_output=True,
+        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+        text=True,
+    )
+    if result.returncode:
+        detail = (result.stderr or result.stdout).strip()
+        raise ValueError(
+            f"staged artifact derivation failed ({' '.join(args)}): {detail}"
+        )
+
+
+def _normalize_omitted_raw_derivatives(
+    staging: Path,
+    *,
+    run_summaries: dict,
+    has_human_analysis: bool,
+    has_simulated_analysis: bool,
+) -> None:
+    """Bind packaged analyses to the archive's all-raw-omitted context.
+
+    Repository analyses are produced where raw transcripts are available and
+    therefore report them as hash-verified. An omitted-raw reviewer archive has
+    a different, deliberate integrity state. Regenerating the analyses inside
+    the staged tree makes that state truthful and makes the documented
+    clean-room command byte-stable for every manifest-listed derivative.
+    """
+
+    framework = staging / "forensic-framework"
+    paper = staging / "conference_paper"
+    for run in run_summaries.values():
+        run_path = staging / run["path"]
+        _run_staged(
+            [
+                sys.executable,
+                "run_warrant_results.py",
+                str(run_path),
+                "--allow-omitted-raw",
+            ],
+            cwd=framework,
+        )
+        analysis = json.loads((run_path / "analysis.json").read_text())
+        integrity = analysis.get("artifact_integrity") or {}
+        referenced = integrity.get("unique_raw_responses_referenced")
+        if (
+            not integrity.get("ok")
+            or integrity.get("raw_response_status")
+            != "omitted_by_release_policy"
+            or integrity.get("unique_raw_responses_checked") != 0
+            or not isinstance(referenced, int)
+            or referenced <= 0
+            or integrity.get("unique_raw_responses_missing") != referenced
+        ):
+            raise ValueError(
+                f"staged omitted-raw integrity normalization failed: {run_path}"
+            )
+
+    synthetic = staging / run_summaries["synthetic_confirmatory"]["path"]
+    paper_args = [
+        sys.executable,
+        str(paper / "generate_paper_artifacts.py"),
+        str(synthetic),
+        "--paper-dir",
+        str(paper),
+        "--confidence-audit",
+        str(synthetic / "confidence_audit.json"),
+    ]
+    if "external_transfer" in run_summaries:
+        paper_args.extend(
+            (
+                "--external-run-dir",
+                str(staging / run_summaries["external_transfer"]["path"]),
+            )
+        )
+    if has_human_analysis:
+        paper_args.extend(
+            (
+                "--human-analysis",
+                str(staging / "human-validation" / "adjudicated_analysis.json"),
+            )
+        )
+    if has_simulated_analysis:
+        paper_args.extend(
+            (
+                "--simulated-analysis",
+                str(staging / "simulated-ai-review" / "analysis.json"),
+            )
+        )
+    _run_staged(paper_args, cwd=staging)
+
+
 def _git_commit() -> str:
     result = subprocess.run(
         ["git", "rev-parse", "HEAD"],
@@ -439,7 +556,11 @@ def _write_readme(
     raw_note = (
         "Raw model transcripts are included for output-level audit."
         if include_raw
-        else "Raw model transcripts are omitted; scored structured records are included."
+        else (
+            "Raw model transcripts are omitted; scored structured records are included. "
+            "Packaged analyses record complete release-policy omission and are "
+            "byte-stable under the reproduction command."
+        )
     )
     synthetic_path = Path(run_summaries["synthetic_confirmatory"]["path"])
     synthetic_arg = synthetic_path.relative_to("forensic-framework").as_posix()
@@ -542,6 +663,10 @@ def build_artifact(
         synthetic_run_dir / "confidence_audit.json",
         development_records_sha256=run_summaries["development"]["records_sha256"],
         test_records_sha256=run_summaries["synthetic_confirmatory"]["records_sha256"],
+        development_manifest_sha256=run_summaries["development"]["manifest_sha256"],
+        test_manifest_sha256=run_summaries["synthetic_confirmatory"]["manifest_sha256"],
+        development_benchmark_sha256=run_summaries["development"]["benchmark_sha256"],
+        test_benchmark_sha256=run_summaries["synthetic_confirmatory"]["benchmark_sha256"],
     )
     human_analysis_summary = None
     simulated_review_summary = None
@@ -617,6 +742,13 @@ def build_artifact(
                     Path("targeted-human-review") / source.relative_to(targeted_root)
                 )
                 _copy_file(source, staging, destination)
+        if not include_raw:
+            _normalize_omitted_raw_derivatives(
+                staging,
+                run_summaries=run_summaries,
+                has_human_analysis=human_analysis is not None,
+                has_simulated_analysis=simulated_review_dir is not None,
+            )
         _copy_file(paper_pdf, staging, Path("paper") / "warrantlab-paper.pdf")
         _write_readme(
             staging / "ARTIFACT_README.md",

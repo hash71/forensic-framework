@@ -13,15 +13,17 @@ outcomes existed and had been inspected.
 release did not quantify whether it ever rejected a valid output or whether
 the underspecified `overall_confidence` score tracked verdict correctness,
 exact attribution, or claim safety. The 12-case development partition was too
-small and sparse to support a defensible fitted calibrator.
+small and sparse to support a defensible fitted calibrator. Its completed model
+outputs were also generated on the pre-hardening benchmark, whereas the
+corrected test output is bound to a different benchmark hash.
 
-**Correction:** a deterministic audit now hashes both source record files,
-checks disjoint base-case IDs, keeps operational failures in coverage, and
-reports Brier score, fixed-width ten-bin ECE, and an explicit threshold grid
-against three separately named targets. The development decision is
-`not_fit`; no replacement threshold is selected. Held-out threshold rows are
-marked retrospective and descriptive, with variants and repetitions remaining
-nested inside 36 base cases.
+**Correction:** a deterministic audit now hashes both source record files and
+run manifests, checks disjoint base-case IDs and benchmark-version alignment,
+keeps operational failures in coverage, and reports Brier score, fixed-width
+ten-bin ECE, and an explicit threshold grid against three separately named
+targets. The development decision is `not_fit`; no replacement threshold is
+selected. Held-out threshold rows are marked retrospective and descriptive,
+with variants and repetitions remaining nested inside 36 base cases.
 
 **Impact:** the audit changes no prompt, output, policy decision, primary
 estimand, confirmatory result, or H5 status. It exposes that the confidence gate

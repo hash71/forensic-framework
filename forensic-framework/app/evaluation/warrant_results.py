@@ -12,7 +12,7 @@ from typing import Any
 from app.ingestion.warrant_benchmark import PROJECT_ROOT
 
 RESULTS_SCHEMA_VERSION = "warrant-results-v1.1"
-CONFIDENCE_AUDIT_SCHEMA_VERSION = "warrant-confidence-audit-v1.0"
+CONFIDENCE_AUDIT_SCHEMA_VERSION = "warrant-confidence-audit-v1.1"
 CONFIDENCE_AUDIT_THRESHOLDS = (
     0.0,
     0.65,
@@ -286,6 +286,10 @@ def build_confidence_audit(
     *,
     development_records_sha256: str,
     test_records_sha256: str,
+    development_manifest: dict[str, Any],
+    test_manifest: dict[str, Any],
+    development_manifest_sha256: str,
+    test_manifest_sha256: str,
     condition: str = "llm_events_plus_alerts",
     policy_threshold: float = 0.65,
 ) -> dict[str, Any]:
@@ -308,6 +312,21 @@ def build_confidence_audit(
     test_run_ids = {record["run_id"] for record in test_records}
     if len(development_run_ids) != 1 or len(test_run_ids) != 1:
         raise ValueError("confidence audit requires exactly one development and one test run")
+    development_run_id = next(iter(development_run_ids))
+    test_run_id = next(iter(test_run_ids))
+    if development_manifest.get("run_id") != development_run_id:
+        raise ValueError("development manifest run ID does not match its records")
+    if test_manifest.get("run_id") != test_run_id:
+        raise ValueError("test manifest run ID does not match its records")
+    development_benchmark_sha256 = development_manifest.get("benchmark_sha256")
+    test_benchmark_sha256 = test_manifest.get("benchmark_sha256")
+    for label, value in (
+        ("development", development_benchmark_sha256),
+        ("test", test_benchmark_sha256),
+    ):
+        if not isinstance(value, str) or len(value) != 64:
+            raise ValueError(f"{label} manifest lacks a valid benchmark hash")
+    same_benchmark = development_benchmark_sha256 == test_benchmark_sha256
 
     development = confidence_diagnostics(
         development_records,
@@ -325,6 +344,8 @@ def build_confidence_audit(
         "source_sha256": {
             "development_records": development_records_sha256,
             "test_records": test_records_sha256,
+            "development_manifest": development_manifest_sha256,
+            "test_manifest": test_manifest_sha256,
         },
         "source_run_ids": {
             "development": sorted(development_run_ids),
@@ -334,6 +355,20 @@ def build_confidence_audit(
             "development_base_case_n": len(development_ids),
             "test_base_case_n": len(test_ids),
             "overlap_n": 0,
+        },
+        "benchmark_alignment": {
+            "development_benchmark_sha256": development_benchmark_sha256,
+            "test_benchmark_sha256": test_benchmark_sha256,
+            "same_benchmark": same_benchmark,
+            "status": "aligned" if same_benchmark else "different_versions",
+            "calibration_implication": (
+                "Development and test outputs are bound to the same benchmark bytes."
+                if same_benchmark
+                else (
+                    "Development and test outputs are bound to different benchmark "
+                    "versions and are not a like-for-like calibration/test pair."
+                )
+            ),
         },
         "development": development,
         "test": test,
@@ -355,6 +390,13 @@ def build_confidence_audit(
                     f"The frozen {policy_threshold:.2f} confidence gate rejected "
                     f"{development['frozen_threshold_rule']['rejected_valid_n']} valid "
                     "development outputs, so its local rejection behavior is unobserved."
+                ),
+                *(
+                    []
+                    if same_benchmark
+                    else [
+                        "Development and test outputs use different benchmark versions."
+                    ]
                 ),
                 "The frozen prompt and schema do not define the score's prediction target.",
             ],

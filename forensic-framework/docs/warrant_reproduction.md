@@ -160,7 +160,11 @@ transcripts are included by default for output-level auditing. Pass
 `--omit-raw` when provider or endpoint-operator redistribution terms have not
 been archived and reviewed, or when the conference artifact-size limit
 requires it. Scored structured records and response hashes remain available in
-the reduced package.
+the reduced package. For an omitted-raw archive, the builder regenerates each
+packaged `analysis.json` inside the staged tree so its integrity block truthfully
+records complete release-policy omission, then regenerates the dependent paper
+macros and figures before hashing the payload. The documented clean-room command
+therefore leaves every manifest-listed derivative byte-identical.
 
 Full confirmatory `records.jsonl` files and per-call `raw/` directories are
 intentionally excluded from ordinary Git history because they are large,

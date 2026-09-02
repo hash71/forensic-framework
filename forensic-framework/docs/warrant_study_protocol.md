@@ -9,7 +9,8 @@ preserved as frozen. No confidence calibrator or threshold grid was actually
 fitted; H5 is not confirmatorily testable and the implemented 0.65 policy is a
 fixed heuristic. A later checksum-bound diagnostic found that this confidence
 gate rejected no valid development or test output; it selects no replacement
-threshold. See `docs/confidence_calibration_audit.md` and
+threshold and records that development/test outputs use different benchmark
+versions. See `docs/confidence_calibration_audit.md` and
 `docs/protocol_deviations.md`.
 
 ## 1. Study objective
