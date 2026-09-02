@@ -20,6 +20,14 @@ from app.ingestion.warrant_benchmark import PROJECT_ROOT
 
 
 EXTERNAL_SCHEMA_VERSION = "warrant-external-cert-v1.0"
+CERT_SOURCE_CREATOR = "Brian Lindauer"
+CERT_SOURCE_PUBLISHER = (
+    "Carnegie Mellon University, Software Engineering Institute"
+)
+CERT_SOURCE_DOI = "10.1184/R1/12841247.v1"
+CERT_SOURCE_LICENSE = "CC BY 4.0"
+CERT_SOURCE_LICENSE_URL = "https://creativecommons.org/licenses/by/4.0/"
+CERT_SOURCE_RECORD_URL = "https://kilthub.cmu.edu/articles/dataset/12841247"
 CERT_SCENARIOS_DIR = PROJECT_ROOT / "data" / "real_scenarios"
 CERT_CASES_DIR = PROJECT_ROOT / "data" / "warrant_external"
 CERT_CASES_PATH = CERT_CASES_DIR / "cert_r4_2_cases.jsonl"
@@ -184,8 +192,12 @@ def prepare_cert_warrant_cases(
     manifest = {
         "external_schema_version": EXTERNAL_SCHEMA_VERSION,
         "source_dataset": "CERT Insider Threat Test Dataset r4.2",
-        "source_doi": "10.1184/R1/12841247.v1",
-        "source_license": "CC BY 4.0",
+        "source_creator": CERT_SOURCE_CREATOR,
+        "source_publisher": CERT_SOURCE_PUBLISHER,
+        "source_doi": CERT_SOURCE_DOI,
+        "source_record_url": CERT_SOURCE_RECORD_URL,
+        "source_license": CERT_SOURCE_LICENSE,
+        "source_license_url": CERT_SOURCE_LICENSE_URL,
         "case_count": len(cases),
         "independent_user_cluster_count": len(
             {case["base_case_id"] for case in cases}

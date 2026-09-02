@@ -37,7 +37,7 @@ No cited entry is accepted from title-only search results or memory.
 | `qian2026forcebench` | Relevant Is Not Warranted / FORCEBENCH | [arXiv:2605.28044](https://arxiv.org/abs/2605.28044) |
 | `scanlon2023chatgpt` | ChatGPT for Digital Forensic Investigation | Elsevier DOI `10.1016/j.fsidi.2023.301609` |
 | `schreieder2026survey` | Attribution, Citation, and Quotation: A Survey of Evidence-Based Text Generation with Large Language Models | ACL DOI `10.18653/v1/2026.acl-long.1430` |
-| `sei2016certdataset` | Insider Threat Test Dataset | [Carnegie Mellon SEI dataset record](https://insights.sei.cmu.edu/library/insider-threat-test-dataset/), DOI `10.1184/R1/12841247.v1` |
+| `sei2016certdataset` | Brian Lindauer, Insider Threat Test Dataset | [Carnegie Mellon KiltHub dataset record](https://kilthub.cmu.edu/articles/dataset/12841247), DOI `10.1184/R1/12841247.v1`, CC BY 4.0 |
 | `singh2025llmsoc` | LLMs in the SOC | [arXiv:2508.18947](https://arxiv.org/abs/2508.18947) |
 | `thakur2025judges` | Judging the Judges: Evaluating Alignment and Vulnerabilities in LLMs-as-Judges | [ACL Anthology](https://aclanthology.org/2025.gem-1.33/) |
 | `wang2026secrespond` | SecRespond | [arXiv:2607.26791](https://arxiv.org/abs/2607.26791) |

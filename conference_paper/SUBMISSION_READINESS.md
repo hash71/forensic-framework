@@ -78,8 +78,13 @@ the shepherd-approval deadline.
 - [x] The raw-transcript-omitted archive reproduces both analyses, figures,
   and the 14-page manuscript (11 body pages followed by appendices and
   references) from a fresh virtual environment using its documented command.
-- [x] Raw endpoint transcripts are either covered by archived operator terms
-  or omitted while structured scored records and response hashes remain.
+- [x] Raw endpoint transcript files are omitted from the reviewer archive.
+- [x] A top-level third-party notice preserves CERT r4.2 attribution, its CC BY
+  4.0 link, the affected paths, and the study's modification statement.
+- [ ] Endpoint-operator terms confirm redistribution of the structured output
+  content retained in scored records; raw-file omission alone does not prove
+  this permission. Do not upload the current reviewer ZIP until this is
+  confirmed or an aggregate-only replacement is built.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in
   grayscale, embeds its fonts, and contains no author identity.
 - [ ] Authors approve the final paper, author order, title, ORCIDs, ethics

@@ -58,3 +58,14 @@ tectonic -X compile paper.tex --outdir build --keep-logs --keep-intermediates
 
 GitHub Actions repeats the frozen-benchmark check and research test suite for
 every change under `forensic-framework/` or `conference_paper/`.
+
+## Licensing status
+
+No repository-wide public license has been selected yet. Default copyright
+rules therefore apply except where a file or third-party component states its
+own license. Before a public archival research release, the copyright holders
+must approve separate terms for the independently authored code, original
+benchmark data, and paper materials. See
+[`forensic-framework/docs/release_license_audit.md`](forensic-framework/docs/release_license_audit.md)
+for the decision record and [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md)
+for component-specific attribution and license boundaries.

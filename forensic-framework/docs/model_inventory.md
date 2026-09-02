@@ -24,10 +24,10 @@ result.
   immutable weight digest. The deployment cannot support a cross-provider or
   model-family-wide claim.
 - The served-root name matches Google's documented `gemma-4-26b-a4b-it`
-  identifier, but raw-transcript release remains conditional until the
-  separately configured endpoint operator's service terms are archived. The
-  upstream model card and output terms alone do not answer that operator-level
-  question.
+  identifier, but raw transcripts and parsed structured output remain
+  conditional until the separately configured endpoint operator's service
+  terms are archived. The upstream model license alone does not answer that
+  operator-level question.
 - No credentials for two independent frontier API providers are available in
   the experiment environment. The protocol target of two frontier providers is
   therefore currently unmet and must be described as a limitation unless

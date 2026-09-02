@@ -23,6 +23,10 @@ REPO_ROOT = FRAMEWORK_ROOT.parent
 PAPER_ROOT = REPO_ROOT / "conference_paper"
 ARTIFACT_SCHEMA_VERSION = "warrantlab-anonymous-artifact-v1.4"
 
+ROOT_FILES = (
+    "THIRD_PARTY_NOTICES.md",
+)
+
 PRIVATE_NAMES = {
     ".env",
     ".DS_Store",
@@ -123,9 +127,68 @@ SOURCE_TREES = (
     "forensic-framework/docs",
 )
 
+CERT_NOTICE_METADATA = {
+    "source_creator": "Brian Lindauer",
+    "source_doi": "10.1184/R1/12841247.v1",
+    "source_license": "CC BY 4.0",
+    "source_license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_record_url": "https://kilthub.cmu.edu/articles/dataset/12841247",
+}
+CERT_NOTICE_PATHS = (
+    "forensic-framework/data/warrant_external/",
+    (
+        "forensic-framework/data/warrant_runs/"
+        "external-cert-r4_2-remote-fusion-gemma-v1_4-r3/"
+    ),
+)
+
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def validate_release_notice() -> dict:
+    """Bind the top-level notice to authoritative external-data metadata."""
+
+    notice_path = REPO_ROOT / "THIRD_PARTY_NOTICES.md"
+    manifest_path = (
+        REPO_ROOT
+        / "forensic-framework/data/warrant_external/cert_r4_2_manifest.json"
+    )
+    if not notice_path.is_file():
+        raise FileNotFoundError(notice_path)
+    if not manifest_path.is_file():
+        raise FileNotFoundError(manifest_path)
+    notice = notice_path.read_text()
+    external_manifest = json.loads(manifest_path.read_text())
+    for field, expected in CERT_NOTICE_METADATA.items():
+        if external_manifest.get(field) != expected:
+            raise ValueError(
+                f"external manifest {field} does not match audited metadata"
+            )
+        display_value = (
+            f"https://doi.org/{expected}" if field == "source_doi" else expected
+        )
+        if display_value not in notice:
+            raise ValueError(f"third-party notice omits {field}")
+    for affected_path in CERT_NOTICE_PATHS:
+        if affected_path not in notice:
+            raise ValueError(
+                f"third-party notice omits affected path: {affected_path}"
+            )
+    for statement in (
+        "Modifications made for this study",
+        "No endorsement",
+        "disclaimer of warranties",
+    ):
+        if statement not in notice:
+            raise ValueError(f"third-party notice omits required statement: {statement}")
+    return {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sha256": sha256(notice_path),
+        "external_source_license": CERT_NOTICE_METADATA["source_license"],
+        "status": "validated",
+    }
 
 
 def _within_repo(path: Path) -> Path:
@@ -643,6 +706,12 @@ immediately after extraction; later reproduction intentionally creates an
 unlisted virtual environment and build directory. The internal manifest detects
 corruption but does not authenticate the ZIP itself, so compare the ZIP's
 SHA-256 with the digest published in the conference artifact record.
+
+`THIRD_PARTY_NOTICES.md` identifies component-specific upstream terms and
+affected paths. It does not grant a repository-wide license. Anonymous-review
+or public release remains conditional on the human authors approving the
+applicable original-material licenses and confirming the remote endpoint's
+terms for the structured output content retained in scored records.
 """
     )
 
@@ -675,6 +744,7 @@ def build_artifact(
 ) -> dict:
     if _tracked_tree_dirty() and not allow_dirty:
         raise ValueError("tracked working tree is dirty; commit changes or pass --allow-dirty")
+    release_notice_summary = validate_release_notice()
     run_summaries = {
         "development": validate_release_run(development_run_dir),
         "synthetic_confirmatory": validate_release_run(synthetic_run_dir),
@@ -725,7 +795,7 @@ def build_artifact(
     with tempfile.TemporaryDirectory(prefix="warrantlab-artifact-") as temporary:
         staging = Path(temporary) / "warrantlab-anonymous-artifact"
         staging.mkdir()
-        for relative in PAPER_FILES + FRAMEWORK_FILES:
+        for relative in ROOT_FILES + PAPER_FILES + FRAMEWORK_FILES:
             _copy_file(REPO_ROOT / relative, staging)
         for relative in SOURCE_TREES:
             _copy_tree(REPO_ROOT / relative, staging, include_raw=False)
@@ -800,6 +870,7 @@ def build_artifact(
                 "credential_pattern_scan": True,
             },
             "include_raw_model_transcripts": include_raw,
+            "third_party_notice": release_notice_summary,
             "paper_pdf_sha256": sha256(paper_pdf),
             "runs": run_summaries,
             "confidence_audit": confidence_audit_summary,

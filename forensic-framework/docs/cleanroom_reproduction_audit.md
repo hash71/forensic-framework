@@ -14,8 +14,8 @@ repository working tree.
 
 - the synthetic benchmark integrity check passed;
 - the standard-library-only strict verifier passed immediately after extraction;
-- all 132 tests shipped in the artifact passed;
-- all 145 manifest-listed payload hashes and the anonymous identity scan passed
+- all 134 tests shipped in the artifact passed;
+- all 147 manifest-listed payload hashes and the anonymous identity scan passed
   both before and after the documented reproduction command;
 - 5,400 synthetic and 360 external records were reanalyzed;
 - both base-case-clustered, 10,000-resample statistical analyses completed;

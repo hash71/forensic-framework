@@ -17,7 +17,7 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 191 tests passed.
+- `python -m pytest -q`: 193 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
 - Ubuntu 24.04 GitHub Actions repeats the benchmark, test, and compile checks;
   its third-party actions are pinned to immutable commits for their current
@@ -99,6 +99,13 @@ human-label integration or substantive manuscript change.
   payload size and SHA-256, and (in immediate post-extraction strict mode)
   rejects unlisted files. The release instructions separately require the ZIP
   digest to be compared with the conference artifact record.
+- The artifact-root third-party notice preserves the CERT r4.2 creator, DOI,
+  CC BY 4.0 link, modification description, disclaimer, no-endorsement
+  boundary, and every affected external-data path.
+- The repository still has no author-approved license for its independently
+  authored code, original benchmark, or paper. Raw endpoint transcript files
+  are omitted, but retained structured output content still requires a human
+  review of the applicable endpoint-operator redistribution terms.
 
 ### Ethics boundary
 
@@ -124,6 +131,11 @@ human-label integration or substantive manuscript change.
    repeat this audit against the changed results and prose.
 4. Have every human author verify all AI-assisted text, code, data, references,
    and results; approve title, author order, ORCIDs, ethics language, and the
-   artifact/dataset license.
-5. Freeze the artifact at an anonymous, non-tracking URL that remains available
+   code, original-dataset, and paper licenses.
+5. Archive the applicable endpoint-operator agreement and confirm that it
+   permits sharing the structured output content retained in scored records
+   with reviewers and the public; otherwise build an aggregate-only artifact
+   and explain the omission in the Open Science appendix. Do not upload the
+   current structured-output ZIP before this gate closes.
+6. Freeze the artifact at an anonymous, non-tracking URL that remains available
    for the full review period, then insert that URL into appendix B.

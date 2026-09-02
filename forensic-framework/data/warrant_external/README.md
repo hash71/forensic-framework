@@ -16,16 +16,19 @@ the attributed actor, intent, or a definitive incident verdict.
 
 ## Source, license, and attribution
 
-- Source: Carnegie Mellon University Software Engineering Institute, *Insider
-  Threat Test Dataset*, release 4.2.
+- Creator: Brian Lindauer.
+- Publisher: Carnegie Mellon University Software Engineering Institute.
+- Source: *Insider Threat Test Dataset*, release 4.2.
 - Persistent identifier: <https://doi.org/10.1184/R1/12841247.v1>
 - Source page: <https://kilthub.cmu.edu/articles/dataset/12841247>
 - License: Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 The JSONL file is an adapted research artifact. Redistribution must preserve
-the source attribution, DOI, a CC BY 4.0 notice, and an indication that fields
-were selected, compacted, and downsampled. No endorsement by Carnegie Mellon
-University or the Software Engineering Institute is implied.
+the creator and publisher attribution, DOI, a CC BY 4.0 notice and link, the
+license disclaimer, and an indication that fields were selected, compacted,
+and downsampled. No endorsement by Brian Lindauer, Carnegie Mellon University,
+or the Software Engineering Institute is implied. The artifact-root
+`THIRD_PARTY_NOTICES.md` maps these terms to every affected release path.
 
 ## Sampling frame
 

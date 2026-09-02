@@ -27,18 +27,21 @@ Google's official Gemma documentation lists `gemma-4-26b-a4b-it` as a Gemma 4
 model identifier and its model card identifies the family as Apache-2.0
 licensed. The capitalization-insensitive name matches the served-root label,
 which supports the family attribution but still does not authenticate the
-weights, quantization, fine-tuning, or revision actually served. The official
-Gemma terms also state that Google claims no rights in generated outputs.
+weights, quantization, fine-tuning, or revision actually served. Google's
+general Gemma terms page explicitly directs Gemma 4 users to the separate
+Apache-2.0 license. Its generated-output clause therefore is not treated as
+permission for Gemma 4 output or for this separately operated endpoint.
 
 Those upstream statements do not establish the terms imposed by the operator
 of this separately configured endpoint. Until the endpoint operator's service
-terms are archived and reviewed, a public artifact may release prompts,
-structured scored records, response hashes, and aggregate results, but raw
-model transcripts remain conditional. This is a release-policy precaution,
-not a claim that the transcripts are prohibited.
+terms are archived and reviewed, prompts, response hashes, and independently
+computed aggregate results can be prepared for release, but the parsed model
+content in structured scored records and raw model transcripts cannot be
+assumed redistributable. This is a release-policy precaution, not a claim that
+the operator prohibits those files.
 
 Primary upstream records (checked 2026-09-02):
 
 - <https://ai.google.dev/gemma/docs/core/model_card_4>
-- <https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api>
+- <https://ai.google.dev/gemma/apache_2>
 - <https://ai.google.dev/gemma/terms>

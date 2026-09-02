@@ -194,4 +194,9 @@ forensic-framework/
 
 ## License
 
-Research project. Not licensed for commercial use.
+No repository-wide public license has been selected. Default copyright rules
+apply except where a component states its own license. See
+`docs/release_license_audit.md` for the author decision record and the
+monorepo-root `THIRD_PARTY_NOTICES.md` for third-party terms. Do not describe
+this repository as open source until the copyright holders approve and add the
+corresponding license files.

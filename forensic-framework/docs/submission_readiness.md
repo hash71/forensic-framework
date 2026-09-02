@@ -54,10 +54,14 @@ A submission-ready claim requires all of the following:
 - [x] an external-data stress test with a defensible user-cluster unit and
   explicit latent-answer-key semantics, reported as transfer evidence rather
   than visible-evidence warrant validation;
-- [x] a selected dataset license and a redistribution audit for derived CERT
-  artifacts;
-- [x] endpoint-operator terms archived before releasing raw transcripts, or
-  the anonymous/public artifact built with raw transcripts omitted;
+- [x] a top-level third-party notice preserving the CERT creator, DOI, CC BY
+  4.0 link, affected paths, and modification statement;
+- [ ] author-approved licenses for independently authored code, original
+  benchmark data, and paper materials;
+- [ ] endpoint-operator terms confirming redistribution of the structured
+  output content retained in scored records; omitting raw transcript files
+  alone does not close this gate, and the current ZIP must not be uploaded
+  until this is confirmed or an aggregate-only replacement is built;
 - [x] an identity-scrubbed reviewer artifact frozen with the
   exact manuscript results; and
 - [x] a fresh-environment reproduction from the raw-transcript-omitted

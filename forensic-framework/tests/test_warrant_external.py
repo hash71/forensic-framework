@@ -117,5 +117,16 @@ def test_prepare_manifest_clusters_repeated_user_windows(tmp_path: Path) -> None
     assert manifest["attack_window_count"] == 2
     assert manifest["benign_window_count"] == 1
     assert manifest["source_license"] == "CC BY 4.0"
+    assert manifest["source_creator"] == "Brian Lindauer"
+    assert manifest["source_publisher"] == (
+        "Carnegie Mellon University, Software Engineering Institute"
+    )
+    assert manifest["source_doi"] == "10.1184/R1/12841247.v1"
+    assert manifest["source_license_url"] == (
+        "https://creativecommons.org/licenses/by/4.0/"
+    )
+    assert manifest["source_record_url"] == (
+        "https://kilthub.cmu.edu/articles/dataset/12841247"
+    )
     assert manifest["cases_sha256"]
     assert len(cases_path.read_text().splitlines()) == 3

@@ -1308,17 +1308,27 @@ provenance manifests, parsers, the mechanical evaluator, the blinded annotation
 package, analysis scripts, environment locks, tests, and commands that
 regenerate every table and figure.  Raw endpoint transcripts are omitted from
 the reviewer artifact because the third-party operator's redistribution terms
-could not be archived.  The administrative annotation key is separated from
-the blind package and included for artifact reviewers, but it must not be given
-to annotators before their labels are frozen.  Endpoint secrets, private URLs,
-workstation paths, and annotator identities do not appear.  The current
+could not be archived.  The reviewer artifact retains the structured scored
+output content required to audit the analysis; its public archival release is
+therefore conditional on author verification that the endpoint agreement
+permits redistribution of that retained content.  The same check applies
+before sharing it with anonymous reviewers.  If permission cannot be
+established, the distributed artifact will use an aggregate-only release and
+document the omission.  A
+top-level third-party notice preserves the CERT dataset's creator, DOI, CC BY
+4.0 link, affected paths, and transformation statement.  The administrative
+annotation key is separated from the blind package and included for artifact
+reviewers, but it must not be given to annotators before their labels are
+frozen.  Endpoint secrets, private URLs, workstation paths, and annotator
+identities do not appear.  The current
 repository records the full development history; its identity-scrubbed
 reviewer snapshot regenerates the manuscript in a fresh environment and will be
 uploaded at a non-tracking anonymous URL only after the final freeze.  Upon
-acceptance, a stable public archive and an author-approved dataset license will
-replace the anonymous link.  Third-party models are referenced by
-immutable digest when available; the remote family label and missing weight
-digest are both disclosed rather than presented as reproducible weights.
+acceptance, a stable public archive and author-approved code, original-data,
+and paper licenses will replace the anonymous link.  Third-party models are
+referenced by immutable digest when available; the remote family label and
+missing weight digest are both disclosed rather than presented as reproducible
+weights.
 
 \bibliographystyle{plain}
 \bibliography{references}

@@ -267,6 +267,7 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
         has_simulated_analysis=True,
     )
     text = readme.read_text()
+    normalized_text = " ".join(text.split())
     assert "--allow-omitted-raw" in text
     assert "--development-run-dir data/warrant_runs/development" in text
     assert "no adjudicated expert analysis exists" in text
@@ -275,6 +276,10 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     assert "About 1 GB of free disk" in text
     assert "verify_anonymous_artifact.py --strict ." in text
     assert "does not authenticate the ZIP itself" in text
+    assert "`THIRD_PARTY_NOTICES.md`" in text
+    assert "does not grant a repository-wide license" in text
+    assert "Anonymous-review or public release remains conditional" in normalized_text
+    assert "structured output content retained in scored records" in text
     assert "--human-analysis" not in text
     assert "--simulated-analysis ../simulated-ai-review/analysis.json" in text
     assert "not human or expert validation" in text
@@ -289,3 +294,48 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     text = readme.read_text()
     assert "--human-analysis ../human-validation/adjudicated_analysis.json" in text
     assert "checksum-bound adjudicated expert analysis" in text
+
+
+def test_release_notice_covers_external_material_and_pending_terms() -> None:
+    notice_path = artifact.REPO_ROOT / "THIRD_PARTY_NOTICES.md"
+    notice = notice_path.read_text()
+    normalized_notice = " ".join(notice.split())
+    assert "Brian Lindauer" in notice
+    assert "https://doi.org/10.1184/R1/12841247.v1" in notice
+    assert "https://creativecommons.org/licenses/by/4.0/" in notice
+    assert "forensic-framework/data/warrant_external/" in notice
+    assert (
+        "forensic-framework/data/warrant_runs/"
+        "external-cert-r4_2-remote-fusion-gemma-v1_4-r3/"
+    ) in notice
+    assert "forty synthetic user-month windows" in notice
+    assert "No endorsement" in notice
+    assert "No Gemma model weights" in notice
+    assert "endpoint-operator agreement" in normalized_notice
+    assert "not a license for the repository as a whole" in normalized_notice
+    assert "THIRD_PARTY_NOTICES.md" in artifact.ROOT_FILES
+    assert artifact.validate_release_notice() == {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sha256": hashlib.sha256(notice_path.read_bytes()).hexdigest(),
+        "external_source_license": "CC BY 4.0",
+        "status": "validated",
+    }
+
+
+def test_release_notice_validation_rejects_metadata_drift(
+    tmp_path, monkeypatch
+) -> None:
+    monkeypatch.setattr(artifact, "REPO_ROOT", tmp_path)
+    notice = tmp_path / "THIRD_PARTY_NOTICES.md"
+    source_notice = Path(__file__).parents[2] / "THIRD_PARTY_NOTICES.md"
+    notice.write_text(source_notice.read_text())
+    manifest_path = (
+        tmp_path
+        / "forensic-framework/data/warrant_external/cert_r4_2_manifest.json"
+    )
+    manifest_path.parent.mkdir(parents=True)
+    metadata = dict(artifact.CERT_NOTICE_METADATA)
+    metadata["source_license"] = "unverified"
+    manifest_path.write_text(json.dumps(metadata))
+    with pytest.raises(ValueError, match="source_license"):
+        artifact.validate_release_notice()
