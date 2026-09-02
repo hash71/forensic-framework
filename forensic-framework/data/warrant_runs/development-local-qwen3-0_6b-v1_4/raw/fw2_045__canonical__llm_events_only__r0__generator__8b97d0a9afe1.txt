@@ -1,0 +1,73 @@
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_045__canonical",
+  "verdict": "INSUFFICIENT",
+  "suspect": "account_or_actor_id | null",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "actor_or_null",
+      "predicate": "exact_event_action_for_observations",
+      "object": "resource_or_null",
+      "time": "2026-07-04T20:11:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "scope_or_null",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": "unknown",
+      "causal_parent_claim_ids": [],
+      "cited_event_ids": [
+        "evt_fw2_045_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": false,
+      "rationale": "Evidence of login failures from the same source IP and time frame, but no direct link to the account lock success."
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "actor_or_null",
+      "predicate": "verdict_yes | verdict_no | verdict_insufficient",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_045_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": true,
+      "rationale": "The account lock success is a positive, but the user's login attempts are not directly linked to the incident."
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_045_001"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "specific evidence needed to resolve uncertainty"
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "a materially plausible alternative",
+      "cited_event_ids": [],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.75,
+  "abstain": false,
+  "abstention_reason": null
+}

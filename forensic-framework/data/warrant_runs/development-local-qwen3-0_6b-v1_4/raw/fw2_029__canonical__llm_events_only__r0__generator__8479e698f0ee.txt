@@ -1,0 +1,69 @@
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_029__canonical",
+  "verdict": "YES",
+  "suspect": "account_or_actor_id | null",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "actor_or_null",
+      "predicate": "exact_event_action_for_observations",
+      "object": "resource_or_null",
+      "time": "2026-07-05T20:21:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "scope_or_null",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": "none",
+      "causal_parent_claim_ids": [],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": false,
+      "rationale": "visible evidence of successful unauthorized access (file read and login) meets the threshold for a YES verdict"
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "actor_or_null",
+      "predicate": "verdict_yes",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_029_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": true,
+      "rationale": "why the visible evidence meets the threshold for a YES verdict"
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_029_001"
+  ],
+  "missing_evidence": [
+    "specific evidence needed to resolve uncertainty"
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "a materially plausible alternative",
+      "cited_event_ids": [],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.75,
+  "abstain": false,
+  "abstention_reason": null
+}

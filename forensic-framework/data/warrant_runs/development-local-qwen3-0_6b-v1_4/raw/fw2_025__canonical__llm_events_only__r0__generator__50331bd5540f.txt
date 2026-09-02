@@ -1,0 +1,72 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_025__canonical",
+  "verdict": "INSUFFICIENT",
+  "suspect": "account_or_actor_id | null",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "actor_or_null",
+      "predicate": "exact_event_action_for_observations",
+      "object": "resource_or_null",
+      "time": "2026-07-06T20:10:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "scope_or_null",
+      "modality": "observed",
+      "authorization": "authorized",
+      "intent": null,
+      "causal_parent_claim_ids": [],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": false,
+      "rationale": "visible evidence of successful unauthorized access (ticket approval) and successful privilege changes, but insufficient to confirm verdict"
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "actor_or_null",
+      "predicate": "verdict_yes | verdict_no | verdict_insufficient",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_example_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": true,
+      "rationale": "why the visible evidence meets the verdict threshold"
+    }
+  ],
+  "evidence_for": [
+    "evt_example_001"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "specific evidence needed to resolve uncertainty"
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "a materially plausible alternative",
+      "cited_event_ids": [],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.75,
+  "abstain": false,
+  "abstention_reason": null
+}
+```

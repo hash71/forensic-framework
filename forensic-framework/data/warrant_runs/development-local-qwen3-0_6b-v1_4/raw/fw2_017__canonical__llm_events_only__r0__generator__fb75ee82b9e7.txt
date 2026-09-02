@@ -1,0 +1,72 @@
+```json
+{
+  "schema_version": "forensic-claim-v2.0",
+  "case_id": "fw2_017__canonical",
+  "verdict": "INSUFFICIENT",
+  "suspect": "account_or_actor_id | null",
+  "claims": [
+    {
+      "claim_id": "c1",
+      "claim_type": "observation",
+      "subject": "actor_or_null",
+      "predicate": "exact_event_action_for_observations",
+      "object": "resource_or_null",
+      "time": "2026-07-17T01:09:00+06:00",
+      "quantity": {
+        "value": 1,
+        "unit": "events",
+        "tolerance": 0
+      },
+      "scope": "scope_or_null",
+      "modality": "observed",
+      "authorization": "unknown",
+      "intent": "unknown",
+      "causal_parent_claim_ids": [],
+      "evidence_relation": "insufficient",
+      "confidence": 0.75,
+      "decisive": false,
+      "rationale": "No direct evidence supports a YES verdict; all actions are in the same time frame and unrelated to malicious intent"
+    },
+    {
+      "claim_id": "decision_1",
+      "claim_type": "decision",
+      "subject": "actor_or_null",
+      "predicate": "verdict_yes | verdict_no | verdict_insufficient",
+      "object": "security_incident",
+      "time": null,
+      "quantity": null,
+      "scope": null,
+      "modality": "probable",
+      "authorization": null,
+      "intent": null,
+      "causal_parent_claim_ids": [
+        "c1"
+      ],
+      "cited_event_ids": [
+        "evt_fw2_017_001"
+      ],
+      "evidence_relation": "supports",
+      "confidence": 0.75,
+      "decisive": true,
+      "rationale": "The visible evidence (denied action) meets the threshold for a YES verdict, but no definitive evidence supports it"
+    }
+  ],
+  "evidence_for": [
+    "evt_fw2_017_001"
+  ],
+  "evidence_against": [],
+  "missing_evidence": [
+    "specific evidence needed to resolve uncertainty"
+  ],
+  "alternative_hypotheses": [
+    {
+      "hypothesis": "a materially plausible alternative",
+      "cited_event_ids": [],
+      "confidence": 0.2
+    }
+  ],
+  "overall_confidence": 0.75,
+  "abstain": false,
+  "abstention_reason": null
+}
+```
