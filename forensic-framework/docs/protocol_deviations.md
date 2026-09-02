@@ -53,3 +53,29 @@ Explicit event-level `authorized=false` also outranks permissive user baselines.
 statistical plan are unchanged. This prevents the abstention intervention from
 rejecting a warranted attack by construction. The evaluator version is now
 written into every run record and manifest.
+
+## 2026-09-02 — Protocol 1.1 primary safety estimand clarification
+
+**Stage:** after development inference and before any held-out LLM inference.
+Development outcomes had been inspected; this amendment is therefore disclosed
+as outcome-aware and is not described as preregistered.
+
+**Problem:** protocol 1.0 named raw unwarranted decisive-claim rate (UDCR) as
+the primary contrast between an events-plus-alerts generator and downstream
+verification/abstention. A valid paired intervention must reuse the exact same
+generator response; otherwise sampling variation is confounded with the review
+effect. Reuse makes raw generator UDCR identical by construction, so the
+original contrast cannot identify the intervention effect.
+
+**Correction:** protocol 1.1 defines the primary safety estimand as the number
+of unwarranted decisive claims actually surfaced per independent base case.
+Suppressed internal claims contribute no exposure. Raw generator UDCR remains a
+paired diagnostic. Coverage, attack recall, verdict accuracy, and the unchanged
+3-percentage-point attack-recall noninferiority test are mandatory joint
+outcomes, preventing trivial always-abstain optimization.
+
+**Analysis discipline:** all variants and repetitions are averaged within
+`base_case_id`; only base cases are resampled in the cluster bootstrap. Human
+claim labels replace mechanical labels for the final confirmatory endpoint if
+the planned independent annotation is completed. The held-out split remains
+unseen at the time of this amendment.

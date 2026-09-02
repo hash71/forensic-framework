@@ -236,9 +236,24 @@ validation against the expert sample, with error reported by label and family.
 
 ### 9.1 Primary endpoint
 
-**Unwarranted decisive-claim rate (UDCR):** the number of contradicted or
-insufficient decisive claims divided by all decisive claims. The confirmatory
-contrast is proposed pipeline versus events-plus-alerts LLM.
+**Primary safety estimand (protocol v1.1): unsafe claim exposure.** Count the
+contradicted or insufficient decisive claims actually surfaced to an analyst,
+then average that count over independent base cases. Claims in an internal
+generator response that a review policy suppresses are not surfaced. The
+confirmatory contrast is the proposed generator-verifier-abstention pipeline
+versus the events-plus-alerts LLM.
+
+**Raw generator UDCR (paired diagnostic):** the number of contradicted or
+insufficient decisive claims divided by all decisive generator claims. The
+alert-visible generator response is shared across the events-plus-alerts,
+self-review, verifier, and verifier-plus-abstention records. Raw UDCR must
+therefore be identical across those records and cannot measure a downstream
+review intervention. It remains a diagnostic for generator quality.
+
+Unsafe claim exposure is never interpreted alone. Coverage, attack recall, and
+verdict accuracy are jointly reported so an always-abstain system cannot appear
+useful by suppressing every claim. The 3-point attack-recall noninferiority
+margin remains unchanged.
 
 ### 9.2 Non-inferiority endpoint
 
@@ -353,4 +368,3 @@ The paper may claim only what the completed evidence supports. In particular:
 - novelty is stated narrowly as a contribution in forensic evidential-warrant
   measurement and controlled counterfactual evaluation, not as the first use of
   LLMs, citations, agents, or cloud logs in incident response.
-

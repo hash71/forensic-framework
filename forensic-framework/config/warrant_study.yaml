@@ -1,10 +1,12 @@
 study:
   id: forensic-warrant-v2
-  protocol_version: "1.0"
+  protocol_version: "1.1"
   frozen_at: "2026-09-02"
   seed: 20260902
   independent_unit: base_case
-  primary_endpoint: unwarranted_decisive_claim_rate
+  primary_endpoint: surfaced_unwarranted_decisive_claims_per_base_case
+  original_primary_endpoint: raw_unwarranted_decisive_claim_rate
+  raw_generator_endpoint_role: paired_diagnostic
   primary_contrast:
     reference: llm_events_plus_alerts
     intervention: generator_verifier_abstention
@@ -139,4 +141,3 @@ exclusions:
   malformed_output_is_failure: true
   endpoint_failure_retained: true
   test_prompt_changes_allowed: false
-
