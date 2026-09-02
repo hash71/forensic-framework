@@ -33,6 +33,36 @@ CONDITION_STYLES = {
     "generator_verifier_abstention": (colors.HexColor("#111111"), "cross"),
 }
 
+VARIANT_LABELS = {
+    "canonical": "Canonical",
+    "no_alert": "No alert",
+    "misleading_alert_actor": "Wrong alert actor",
+    "misleading_alert_severity": "Misleading severity",
+    "strong_decoy": "Strong decoy",
+    "counterevidence_removed": "Counterevidence removed",
+    "decisive_evidence_removed": "Decisive evidence removed",
+    "irrelevant_noise": "Irrelevant noise",
+    "schema_drift": "Schema drift",
+    "passive_prompt_injection": "Passive prompt injection",
+}
+
+VARIANT_ORDER = tuple(VARIANT_LABELS)
+AXIS_ORDER = (
+    "citation",
+    "actor",
+    "action",
+    "object",
+    "temporal",
+    "quantitative",
+    "scope",
+    "modality",
+    "authorization",
+    "intent",
+    "causality",
+    "decision",
+    "evidence_relation",
+)
+
 _FONT_ROOT = Path("/System/Library/Fonts/Supplemental")
 pdfmetrics.registerFont(TTFont("FigureSans", str(_FONT_ROOT / "Arial.ttf")))
 pdfmetrics.registerFont(TTFont("FigureSansBold", str(_FONT_ROOT / "Arial Bold.ttf")))
@@ -57,6 +87,21 @@ def _number(value: float | None, digits: int = 3) -> str:
     if rounded.startswith("0."):
         return rounded[1:]
     return rounded
+
+
+def _compact_count(value: int | float | None) -> str:
+    if value is None:
+        return "--"
+    number = float(value)
+    if abs(number) >= 1_000_000:
+        return f"{number / 1_000_000:.2f}M"
+    if abs(number) >= 1_000:
+        return f"{number / 1_000:.1f}K"
+    return str(int(number))
+
+
+def _latex_text(value: str) -> str:
+    return value.replace("&", "\\&").replace("_", "\\_")
 
 
 def _macro(name: str, value: str) -> str:
@@ -93,6 +138,12 @@ def write_result_macros(run_dir: Path, output_path: Path) -> None:
     unsafe = contrasts["surfaced_unwarranted_claims_per_case"]
     recall = contrasts["attack_recall"]
     coverage = contrasts["coverage"]
+    secondary = statistics["exploratory_secondary_contrasts"]
+    h3 = secondary[
+        "h3_misleading_alerts_minus_canonical_alert_context_sensitivity"
+    ]
+    h4 = secondary["h4_independent_verifier_minus_self_review"]
+    operations = analysis["operations"]["overall"]
 
     values = {
         "TestRecords": str(analysis["record_count"]),
@@ -137,12 +188,168 @@ def write_result_macros(run_dir: Path, output_path: Path) -> None:
         "NoninferiorResult": "" if statistics["attack_recall_noninferiority"]["noninferior"] else "not",
         "AlertVerdictFlip": _pct(alert_pairs["verdict_flip_rate"]),
         "AlertActorFlip": _pct(alert_pairs["suspect_flip_rate"]),
+        "HThreeVerdictDifference": _pct(
+            h3["verdict_flip"]["estimate_intervention_minus_reference"]
+        ),
+        "HThreeVerdictCILow": _pct(h3["verdict_flip"]["confidence_interval"][0]),
+        "HThreeVerdictCIHigh": _pct(h3["verdict_flip"]["confidence_interval"][1]),
+        "HThreeActorDifference": _pct(
+            h3["actor_flip"]["estimate_intervention_minus_reference"]
+        ),
+        "HThreeActorCILow": _pct(h3["actor_flip"]["confidence_interval"][0]),
+        "HThreeActorCIHigh": _pct(h3["actor_flip"]["confidence_interval"][1]),
+        "HFourWrongActorDifference": _number(
+            h4["surfaced_wrong_actor"]["estimate_intervention_minus_reference"]
+        ),
+        "HFourWrongActorCILow": _number(
+            h4["surfaced_wrong_actor"]["confidence_interval"][0]
+        ),
+        "HFourWrongActorCIHigh": _number(
+            h4["surfaced_wrong_actor"]["confidence_interval"][1]
+        ),
+        "HFourContradictedDifference": _number(
+            h4["surfaced_contradicted_decisive_claims"][
+                "estimate_intervention_minus_reference"
+            ]
+        ),
+        "HFourContradictedCILow": _number(
+            h4["surfaced_contradicted_decisive_claims"]["confidence_interval"][0]
+        ),
+        "HFourContradictedCIHigh": _number(
+            h4["surfaced_contradicted_decisive_claims"]["confidence_interval"][1]
+        ),
+        "OperationalFailures": str(total - valid),
+        "UniqueModelCalls": str(operations["unique_calls"]),
+        "MedianLatencySeconds": _number(
+            operations["latency_ms_median"] / 1000
+            if operations["latency_ms_median"] is not None else None,
+            1,
+        ),
+        "NinetyFifthLatencySeconds": _number(
+            operations["latency_ms_p95"] / 1000
+            if operations["latency_ms_p95"] is not None else None,
+            1,
+        ),
+        "InputTokens": _compact_count(operations["input_tokens_total"]),
+        "OutputTokens": _compact_count(operations["output_tokens_total"]),
     }
     provenance = (
         "% Generated; do not edit by hand.\n"
         f"% run_id={analysis['run_id']}\n"
         f"% analysis_sha256={_sha256(analysis_path)}\n"
         f"% statistics_sha256={_sha256(statistics_path)}\n"
+        f"% records_sha256={_sha256(records_path)}\n"
+    )
+    output_path.write_text(
+        provenance + "\n".join(_macro(name, value) for name, value in values.items()) + "\n"
+    )
+
+
+def write_variant_rows(run_dir: Path, output_path: Path) -> None:
+    analysis = _load_json(run_dir / "analysis.json")
+    rows = []
+    for variant in VARIANT_ORDER:
+        group = analysis["by_variant"].get(variant)
+        if group is None:
+            continue
+        alerts = group["conditions"]["llm_events_plus_alerts"]
+        abstain = group["conditions"]["generator_verifier_abstention"]
+        canonical_contrast = analysis["variant_contrasts"].get(variant, {}).get(
+            "llm_events_plus_alerts"
+        )
+        rows.append(
+            " & ".join((
+                _latex_text(VARIANT_LABELS[variant]),
+                _pct(alerts["verdict_accuracy"]),
+                _number(alerts["surfaced_unwarranted_decisive_claims_per_case"]),
+                _pct(
+                    canonical_contrast["verdict_flip_rate"]
+                    if canonical_contrast is not None
+                    else None
+                ),
+                _pct(abstain["coverage"]),
+                _number(abstain["surfaced_unwarranted_decisive_claims_per_case"]),
+            )) + " \\\\"
+        )
+    output_path.write_text(
+        "% Generated from analysis.json; descriptive variant rows.\n"
+        + "\n".join(rows)
+        + "\n"
+    )
+
+
+def write_axis_rows(run_dir: Path, output_path: Path) -> None:
+    analysis = _load_json(run_dir / "analysis.json")
+    axes = analysis["mechanical_axis_profiles"]["llm_events_plus_alerts"][
+        "decisive_claims"
+    ]
+    rows = []
+    for axis in AXIS_ORDER:
+        if axis not in axes:
+            continue
+        item = axes[axis]
+        rows.append(
+            f"{_latex_text(axis.replace('_', ' '))} & {item['applicable']} & "
+            f"{_pct(item['unwarranted_rate'])} \\\\"
+        )
+    output_path.write_text(
+        "% Generated from analysis.json; mechanical descriptive labels only.\n"
+        + "\n".join(rows)
+        + "\n"
+    )
+
+
+def write_external_result_macros(run_dir: Path, output_path: Path) -> None:
+    """Write macros for the label-honest CERT transfer stress test."""
+
+    analysis_path = run_dir / "analysis.json"
+    records_path = run_dir / "records.jsonl"
+    analysis = _load_json(analysis_path)
+    records = _load_records(records_path)
+    semantics = {record.get("evaluation_label_semantics") for record in records}
+    expected = {"latent_incident_label_not_visible_evidence_warrant"}
+    if semantics != expected:
+        raise ValueError(
+            f"external run has unexpected label semantics: {sorted(semantics)}"
+        )
+    conditions = analysis["conditions"]
+    base = conditions["llm_events_plus_alerts"]
+    verifier = conditions["generator_verifier"]
+    abstain = conditions["generator_verifier_abstention"]
+    valid = sum(item["valid_n"] for item in conditions.values())
+    total = sum(item["n"] for item in conditions.values())
+    values = {
+        "ExternalRecords": str(analysis["record_count"]),
+        "ExternalClusters": str(analysis["base_case_count"]),
+        "ExternalWindows": str(len({record["case_id"] for record in records})),
+        "ExternalOperationalValidity": _pct(valid / total if total else None),
+        "ExternalBaseAccuracy": _pct(base["verdict_accuracy"]),
+        "ExternalBaseCoverage": _pct(base["coverage"]),
+        "ExternalBaseAttackRecall": _pct(base["attack_recall"]),
+        "ExternalBaseBenignRejection": _pct(base["benign_rejection"]),
+        "ExternalBaseUnsafeExposure": _number(
+            base["surfaced_unwarranted_decisive_claims_per_case"]
+        ),
+        "ExternalBaseCitationValidity": _pct(base["citation_validity"]),
+        "ExternalVerifierAccuracy": _pct(verifier["verdict_accuracy"]),
+        "ExternalVerifierCoverage": _pct(verifier["coverage"]),
+        "ExternalVerifierAttackRecall": _pct(verifier["attack_recall"]),
+        "ExternalVerifierBenignRejection": _pct(verifier["benign_rejection"]),
+        "ExternalVerifierUnsafeExposure": _number(
+            verifier["surfaced_unwarranted_decisive_claims_per_case"]
+        ),
+        "ExternalAbstainAccuracy": _pct(abstain["verdict_accuracy"]),
+        "ExternalAbstainCoverage": _pct(abstain["coverage"]),
+        "ExternalAbstainAttackRecall": _pct(abstain["attack_recall"]),
+        "ExternalAbstainBenignRejection": _pct(abstain["benign_rejection"]),
+        "ExternalAbstainUnsafeExposure": _number(
+            abstain["surfaced_unwarranted_decisive_claims_per_case"]
+        ),
+    }
+    provenance = (
+        "% Generated; do not edit by hand.\n"
+        f"% run_id={analysis['run_id']}\n"
+        f"% analysis_sha256={_sha256(analysis_path)}\n"
         f"% records_sha256={_sha256(records_path)}\n"
     )
     output_path.write_text(
@@ -380,17 +587,29 @@ def draw_coverage_risk(records_path: Path, output_path: Path) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("run_dir", type=Path)
+    parser.add_argument("--external-run-dir", type=Path)
     parser.add_argument("--paper-dir", type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args()
     paper_dir = args.paper_dir.resolve()
     figures = paper_dir / "figures"
     figures.mkdir(parents=True, exist_ok=True)
     write_result_macros(args.run_dir, paper_dir / "generated_results.tex")
+    write_variant_rows(args.run_dir, paper_dir / "generated_variant_rows.tex")
+    write_axis_rows(args.run_dir, paper_dir / "generated_axis_rows.tex")
     draw_study_design(figures / "warrant-study-design.pdf")
     draw_coverage_risk(args.run_dir / "records.jsonl", figures / "coverage-risk.pdf")
+    if args.external_run_dir is not None:
+        write_external_result_macros(
+            args.external_run_dir,
+            paper_dir / "generated_external_results.tex",
+        )
     print(paper_dir / "generated_results.tex")
+    print(paper_dir / "generated_variant_rows.tex")
+    print(paper_dir / "generated_axis_rows.tex")
     print(figures / "warrant-study-design.pdf")
     print(figures / "coverage-risk.pdf")
+    if args.external_run_dir is not None:
+        print(paper_dir / "generated_external_results.tex")
     return 0
 
 

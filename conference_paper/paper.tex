@@ -65,10 +65,52 @@
   \newcommand{\AlertVerdictFlip}{\todoresult}
   \newcommand{\AlertActorFlip}{\todoresult}
 }
+\IfFileExists{generated_external_results.tex}{
+  \input{generated_external_results.tex}
+}{
+  \newcommand{\ExternalRecords}{\todoresult}
+  \newcommand{\ExternalClusters}{32}
+  \newcommand{\ExternalWindows}{40}
+  \newcommand{\ExternalOperationalValidity}{\todoresult}
+  \newcommand{\ExternalBaseAccuracy}{\todoresult}
+  \newcommand{\ExternalBaseCoverage}{\todoresult}
+  \newcommand{\ExternalBaseAttackRecall}{\todoresult}
+  \newcommand{\ExternalBaseBenignRejection}{\todoresult}
+  \newcommand{\ExternalBaseUnsafeExposure}{\todoresult}
+  \newcommand{\ExternalBaseCitationValidity}{\todoresult}
+  \newcommand{\ExternalVerifierAccuracy}{\todoresult}
+  \newcommand{\ExternalVerifierCoverage}{\todoresult}
+  \newcommand{\ExternalVerifierAttackRecall}{\todoresult}
+  \newcommand{\ExternalVerifierBenignRejection}{\todoresult}
+  \newcommand{\ExternalVerifierUnsafeExposure}{\todoresult}
+  \newcommand{\ExternalAbstainAccuracy}{\todoresult}
+  \newcommand{\ExternalAbstainCoverage}{\todoresult}
+  \newcommand{\ExternalAbstainAttackRecall}{\todoresult}
+  \newcommand{\ExternalAbstainBenignRejection}{\todoresult}
+  \newcommand{\ExternalAbstainUnsafeExposure}{\todoresult}
+}
+\providecommand{\OperationalFailures}{\todoresult}
+\providecommand{\UniqueModelCalls}{\todoresult}
+\providecommand{\MedianLatencySeconds}{\todoresult}
+\providecommand{\NinetyFifthLatencySeconds}{\todoresult}
+\providecommand{\InputTokens}{\todoresult}
+\providecommand{\OutputTokens}{\todoresult}
+\providecommand{\HThreeVerdictDifference}{\todoresult}
+\providecommand{\HThreeVerdictCILow}{\todoresult}
+\providecommand{\HThreeVerdictCIHigh}{\todoresult}
+\providecommand{\HThreeActorDifference}{\todoresult}
+\providecommand{\HThreeActorCILow}{\todoresult}
+\providecommand{\HThreeActorCIHigh}{\todoresult}
+\providecommand{\HFourWrongActorDifference}{\todoresult}
+\providecommand{\HFourWrongActorCILow}{\todoresult}
+\providecommand{\HFourWrongActorCIHigh}{\todoresult}
+\providecommand{\HFourContradictedDifference}{\todoresult}
+\providecommand{\HFourContradictedCILow}{\todoresult}
+\providecommand{\HFourContradictedCIHigh}{\todoresult}
 
 \date{}
-\title{\Large \bf Citations Are Not Grounding:\\
-Measuring Evidential Warrant in LLM Cloud Forensics}
+\title{\Large \bf The Forensic Warrant Gap:\\
+Counterfactual Stress Tests for Evidence-Cited LLM Incident Reports}
 
 % USENIX Security uses double-blind review.  Restore authors only after review.
 \author{{\rm Anonymous submission}}
@@ -127,10 +169,13 @@ correctness and completeness~\cite{gao2023alce,min2023factscore}; recent
 evidence-force work shows that even relevant citations may under-warrant a
 claim's modality, scope, time, or number~\cite{qian2026forcebench}.  Security
 systems, meanwhile, increasingly combine LLM reasoning with alerts, tools, and
-retrieved logs~\cite{loumachi2025gendfir,wei2025cortex,cadet2026rag}.  Their
-evaluation usually emphasizes final verdicts or answer quality.  It rarely
-asks, proposition by proposition, whether visible evidence licenses the exact
-forensic language that reaches an analyst.
+retrieved logs~\cite{loumachi2025gendfir,wei2025cortex,cadet2026rag}.  New
+benchmarks test investigation depth, audit-log analysis, and full
+post-compromise response~\cite{begimher2026sirbench,anand2026auditbench,
+wang2026secrespond}.  Their evaluation emphasizes findings, task completion,
+or final verdicts.  It does not make the proposition-level question primary:
+does visible evidence license the exact forensic language that reaches an
+analyst?
 
 We study that missing unit of evaluation.  An \emph{atomic forensic claim}
 contains one subject--predicate--object assertion plus explicit qualifiers,
@@ -325,12 +370,17 @@ rewarding omniscient guesses about hidden events.
 Twelve base cases (one per family) form the development split and 36 form the
 test split.  Splitting is by base case before rendering variants.  Test prompts
 and schemas were frozen before test inference.  Two quality-control amendments
-made before held-out inference are recorded in an append-only deviation log:
-(i) evidence-starvation mutations were corrected when a supposedly removed
-attack still contained independently decisive evidence, and (ii) a feasibility
-threshold was corrected from an impossible 40 to the complete 36 held-out
-cases.  A development-outcome-aware estimand clarification is disclosed in
-Section~\ref{sec:protocol}.
+made before held-out inference corrected evidence-starvation mutations and an
+impossible feasibility threshold.  A later audit found visible role labels in
+decoy/noise identifiers and metadata, prompt-injection metadata, alert text,
+and attack/benign session names.  We interrupted and excluded all 2,360 partial
+records from that run, made roles visible only in hidden ground truth, added a
+corpus-wide leakage test, regenerated checksums and baselines, and reran from
+scratch.  Because output from the earlier form of the same cases had been
+inspected, we do not describe the corrected run as an untouched holdout or the
+study as preregistered.  The append-only deviation log preserves hashes and
+timing; no prompt, evaluator, endpoint, or decision rule was tuned from the
+invalidated output.
 
 \subsection{Why verdict accuracy is not the contribution}
 
@@ -343,6 +393,32 @@ three-way accuracy (both are near-perfect after collapsing
 a difficult detector leaderboard.  Its purpose is to expose whether a system
 attaches warranted actors, relations, modalities, and decisions to whatever
 verdict it produces.
+
+\subsection{External transfer stress test}
+
+To test whether the output contract and observed failure modes transfer beyond
+our authored templates, we separately process 40 balanced user--month windows
+from the synthetic CERT Insider Threat Test Dataset r4.2: 20 windows from
+answer-key insiders and 20 matched benign users~\cite{glasser2013bridging,
+sei2016certdataset}.  The normalized windows contain at most 150 events and
+form 32 user clusters because some users contribute multiple months.  We drop
+long synthetic message bodies and lists but retain event IDs, synthetic
+accounts, actions, resources, times, status, and source-workstation metadata.
+We also remove normalized severity, workstation strings stored as pseudo-IP
+addresses, and user--workstation--day session IDs created by the earlier
+adapter: none is source evidence, and the last would falsely license causal
+linkage.  No pre-incident baseline or detector alert is available; both are
+represented explicitly as empty rather than inferred from the evaluation
+window.
+
+This test has a different label contract.  The CERT answer key says whether a
+latent synthetic insider scenario occurred; it does not establish whether the
+downsampled visible window warrants a binary conclusion or human attribution.
+We use it only for exploratory attack/benign detection transfer.  Claim-level
+warrant remains a mechanical visible-record proxy, and user identity is the
+clustering unit.  The external run uses three repetitions of the unreviewed
+generator, shared alert-blind verifier, and deterministic abstention policy.
+It is not pooled with the confirmatory synthetic contrasts.
 
 %-------------------------------------------------------------------------------
 \section{Systems and Interventions}
@@ -433,9 +509,15 @@ prevalence-adjusted precision result.
 
 The primary hypothesis is that verifier-plus-abstention reduces unsafe claim
 exposure relative to alert-conditioned generation.  Attack recall is tested
-for non-inferiority with margin $\delta=0.03$.  Secondary hypotheses concern
-misleading-alert flips, independent versus self-review, and decreasing
-selective risk with coverage.
+for non-inferiority with margin $\delta=0.03$.  Protocol v1.0 also listed
+secondary hypotheses about misleading-alert flips, independent versus
+self-review, and decreasing selective risk with coverage.  A code audit after
+the held-out extension began found that these secondary hypotheses lacked
+fully specified estimators; partial outputs had already been inspected.  We
+therefore report newly operationalized H3/H4 base-case contrasts as
+exploratory, and do not test H5 confirmatorily because no threshold grid, risk
+function, or trend statistic was pre-specified.  The primary H1/H2 estimators
+are unchanged.
 
 Protocol v1.0 originally named raw \udcr as the primary intervention outcome.
 During development we recognized that a valid paired review design must reuse
@@ -452,9 +534,9 @@ not the variant, generation, claim, or repetition, is the independent unit.
 For every metric we first average repetitions and variants inside each base
 case, then compute a paired intervention-minus-reference contrast.  Confidence
 intervals use 10,000 complete base-case bootstrap resamples.  Exact sign tests
-are descriptive at this sample size; Holm correction covers the pre-specified
-secondary family.  The recall non-inferiority claim requires the lower 95\%
-bound to exceed $-0.03$.
+are descriptive at this sample size.  We Holm-adjust the four exploratory
+H3/H4 sign tests, but this does not restore confirmatory status.  The recall
+non-inferiority claim requires the lower 95\% bound to exceed $-0.03$.
 
 \subsection{Metrics}
 
@@ -485,7 +567,11 @@ operational validity is \OperationalValidity.  Integrity verification
 re-hashed each unique raw response and confirmed that alert-visible generator
 hashes match across the four downstream records and verifier hashes match
 across both verifier records.  No failed response was manually repaired or
-excluded.
+excluded.  Deduplicating shared artifacts yields \UniqueModelCalls\ model
+calls with \OperationalFailures\ failed condition records, median latency
+\MedianLatencySeconds\,s (95th percentile \NinetyFifthLatencySeconds\,s),
+\InputTokens\ input tokens, and \OutputTokens\ output tokens.  The endpoint
+did not expose price metadata, so we do not estimate dollar cost.
 
 \begin{table*}[t]
 \centering
@@ -527,6 +613,39 @@ inherit an insufficient parent.  Human-validated axis prevalence is reported
 separately in Section~\ref{sec:annotation}; mechanical categories must not be
 read as expert error rates.
 
+\subsection{Failure anatomy}
+
+The atomic contract reveals errors that a verdict or citation score collapses.
+In held-out case \texttt{fw2\_002}, for example, the generator correctly copied
+the account, login action, timestamp, and cited event.  It nevertheless made a
+failed-login claim a causal parent of the later successful login without an
+allowed shared session, trace, request, process, or flow identifier, labeled
+the child ``observed,'' and let the final confirmed decision inherit that
+parent.  Every cited identifier resolves; the gap is causal and modal force.
+In privilege-abuse cases, a different recurring error places
+``unauthorized'' in a free-form scope field even though authorization is a
+separate axis.  These are contract violations with different remediation:
+preserve the supported observation, remove the unsupported edge or qualifier,
+and reconsider only the decision that depends on it.
+
+\IfFileExists{generated_axis_rows.tex}{
+\begin{table}[t]
+\centering
+\caption{Mechanical labels for decisive alert-visible claims by semantic axis.
+Rates use applicable axis assessments and are descriptive; claims are nested
+within cases and no row is an expert error rate.}
+\label{tab:axis-profile}
+\small
+\begin{tabular}{lrr}
+\toprule
+\textbf{Axis} & \textbf{Applicable} & \textbf{Contradicted/insufficient} \\
+\midrule
+\input{generated_axis_rows.tex}
+\bottomrule
+\end{tabular}
+\end{table}
+}{}
+
 \subsection{Safety is purchased with coverage}
 
 Verifier-plus-abstention changes unsafe exposure by \UnsafeDifference\ claims
@@ -534,7 +653,7 @@ per base case (95\% CI [\UnsafeCILow,~\UnsafeCIHigh]) relative to the shared
 alert-conditioned generator.  It simultaneously changes coverage by
 \CoverageDifference\ [\CoverageCILow,~\CoverageCIHigh] and attack recall by
 \RecallDifference\ [\RecallCILow,~\RecallCIHigh].  The lower recall bound
-means the intervention \NoninferiorResult\ meet the 3-point non-inferiority
+means the intervention did \NoninferiorResult\ meet the 3-point non-inferiority
 criterion.  Its delivered \udcr is \AbstainDeliveredUDCR.
 
 This is a negative but operationally important result.  The policy can prevent
@@ -556,12 +675,40 @@ are base-case cluster-bootstrap 95\% intervals.}
 
 Across paired events-only and alert-visible generations, alerts change the
 verdict in \AlertVerdictFlip\ of comparisons and the named actor in
-\AlertActorFlip.  Variant-specific effects separate a useful alert from a
-misleading actor or severity field.  Self-review does not dominate the
-alert-blind verifier: it shares the generator's context and can reproduce the
-same framing, while an independent verifier is less exposed to alert metadata.
+\AlertActorFlip.  Relative to canonical alerts, the two misleading-alert
+mutations change this events-only/alert-visible flip rate by
+\HThreeVerdictDifference\ [\HThreeVerdictCILow,~\HThreeVerdictCIHigh] for
+verdict and \HThreeActorDifference\
+[\HThreeActorCILow,~\HThreeActorCIHigh] for actor.  Relative to self-review,
+the alert-blind verifier changes surfaced wrong-actor exposure by
+\HFourWrongActorDifference\ [\HFourWrongActorCILow,~\HFourWrongActorCIHigh]
+per case and surfaced contradicted decisive claims by
+\HFourContradictedDifference\
+[\HFourContradictedCILow,~\HFourContradictedCIHigh].  These H3/H4 contrasts
+are exploratory because their estimators were fixed after the run began.
 Neither review approach solves the safety--coverage trade-off at the frozen
-operating point.
+operating point, and the single frozen threshold cannot confirm a monotone
+risk--coverage hypothesis.
+
+\IfFileExists{generated_variant_rows.tex}{
+\begin{table*}[t]
+\centering
+\caption{Held-out robustness by paired mutation.  ``Canonical flip'' is the
+base-case-macro verdict flip rate between each alert-visible mutation and its
+canonical counterpart.  Variant rows are exploratory and nested within the
+same 36 base cases.}
+\label{tab:variant-results}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Mutation} & \textbf{Alerted acc.} & \textbf{Alerted unsafe} &
+\textbf{Canonical flip} & \textbf{Abstain coverage} & \textbf{Abstain unsafe} \\
+\midrule
+\input{generated_variant_rows.tex}
+\bottomrule
+\end{tabular}
+\end{table*}
+}{}
 
 \subsection{Baselines and prevalence}
 
@@ -572,6 +719,49 @@ that the synthetic verdict task is transparent, not that real cloud forensics
 is solved.  We therefore do not claim an LLM detection improvement over these
 baselines.  Prevalence-adjusted PPV is reported only for delivered binary
 decisions; abstentions are neither true nor false negatives.
+
+\subsection{External transfer is a separate, harder claim}
+
+The CERT stress test contains \ExternalWindows\ windows from
+\ExternalClusters\ user clusters and \ExternalRecords\ condition records;
+operational validity is \ExternalOperationalValidity.  Table~\ref{tab:external}
+reports the answer-key detection target alongside the mechanical visible-record
+proxy.  The unreviewed generator resolves \ExternalBaseCitationValidity\ of
+cited identifiers and surfaces \ExternalBaseUnsafeExposure\ proxy-unwarranted
+decisive claims per window.  Abstention changes that exposure to
+\ExternalAbstainUnsafeExposure\ at \ExternalAbstainCoverage\ coverage.
+
+\begin{table*}[t]
+\centering
+\caption{Exploratory CERT r4.2 transfer.  Accuracy, attack recall, and benign
+rejection use latent answer-key scenario labels; they are not visible-evidence
+warrant labels.  Unsafe exposure is the unvalidated mechanical proxy.}
+\label{tab:external}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Condition} & \textbf{Latent-label acc.} & \textbf{Coverage} &
+\textbf{Attack recall} & \textbf{Benign reject.} & \textbf{Unsafe exposure} \\
+\midrule
+Unreviewed generator & \ExternalBaseAccuracy & \ExternalBaseCoverage &
+\ExternalBaseAttackRecall & \ExternalBaseBenignRejection &
+\ExternalBaseUnsafeExposure \\
+Alert-blind verifier & \ExternalVerifierAccuracy & \ExternalVerifierCoverage &
+\ExternalVerifierAttackRecall & \ExternalVerifierBenignRejection &
+\ExternalVerifierUnsafeExposure \\
+Verifier + abstention & \ExternalAbstainAccuracy & \ExternalAbstainCoverage &
+\ExternalAbstainAttackRecall & \ExternalAbstainBenignRejection &
+\ExternalAbstainUnsafeExposure \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+This test cannot validate the authored mechanical checker, because the CERT
+answer key does not annotate proposition-level warrant.  Its value is instead
+to expose schema, context-length, operational, and selective-reporting behavior
+on independently generated event sequences.  We therefore report it as
+transfer evidence and preserve the synthetic paired study as the only source
+of confirmatory causal contrasts.
 
 %-------------------------------------------------------------------------------
 \section{Human Validation}
@@ -664,6 +854,34 @@ filters may also alter outputs.
 \label{sec:related}
 %-------------------------------------------------------------------------------
 
+\begin{table*}[t]
+\centering
+\caption{Closest incident-investigation benchmarks and their primary
+evaluation units.  ``Evidence-linked'' includes task-specific fields or
+checkpoint-level evidence; ``axis warrant'' separately tests every material
+field of one atomic claim.  A dash means the column is not the work's stated
+primary contribution, not that the work ignores evidence.}
+\label{tab:closest-work}
+\small
+\begin{tabular}{p{0.14\textwidth}p{0.22\textwidth}p{0.105\textwidth}
+                p{0.105\textwidth}p{0.095\textwidth}p{0.09\textwidth}}
+\toprule
+\textbf{Benchmark} & \textbf{Primary evaluation object} &
+\textbf{Evidence-linked} & \textbf{Paired mutations} &
+\textbf{Axis warrant} & \textbf{Risk--coverage} \\
+\midrule
+SIR-Bench~\cite{begimher2026sirbench} & Triage, novel findings, tool use &
+$\checkmark$ & -- & -- & -- \\
+AuditBench~\cite{anand2026auditbench} & Four audit-log investigation tasks &
+$\checkmark$ & -- & -- & -- \\
+SecRespond~\cite{wang2026secrespond} & Post-compromise report and remediation &
+$\checkmark$ & -- & -- & -- \\
+\system (this work) & Atomic claim--evidence relation & $\checkmark$ &
+$\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
 \textbf{Forensic and SOC LLMs.}  Digital-forensics research warns that fluent
 LLM outputs can be inaccurate, non-deterministic, and hard to admit as evidence
 without validation~\cite{scanlon2023chatgpt,wickramasekara2026capabilities}.
@@ -671,10 +889,19 @@ GenDFIR combines rule-selected artifacts with retrieval-augmented timeline
 reasoning~\cite{loumachi2025gendfir}; DFIR-Metric broadens knowledge and tool
 evaluation~\cite{cherif2025dfirmetric}; cloud-specific work reconstructs
 incidents from audit logs~\cite{alharthi2025cloud}; and CORTEX uses specialized
-agents and typed tools for auditable triage~\cite{wei2025cortex}.  These systems
-motivate evidence-bearing outputs.  Our distinction is the controlled
-measurement of whether each cited proposition is warranted under paired
-context/evidence mutations.
+agents and typed tools for auditable triage~\cite{wei2025cortex}.  SIR-Bench
+tests whether agents move beyond alert parroting: experts link expected
+findings to event identifiers, resources, and times, and an automated matcher
+is calibrated against analyst judgments~\cite{begimher2026sirbench}.
+AuditBench checks task-specific timestamps, hosts, paths, and explanation
+content across four investigation tasks~\cite{anand2026auditbench}.
+SecRespond scores checkpoint discovery, cited evidence, and attribution in a
+full post-compromise report~\cite{wang2026secrespond}.  These benchmarks make
+the broader task substantially more realistic than our synthetic micro-cases.
+Table~\ref{tab:closest-work} identifies the narrower complement: controlled
+measurement of whether the \emph{exact fields and force} of each proposition
+are warranted under paired context and evidence mutations, and whether a
+review policy improves exposure without winning by refusal.
 
 \textbf{Attribution and factuality.}  ALCE evaluates citation correctness and
 completeness~\cite{gao2023alce}; FActScore decomposes long responses into atomic
@@ -696,7 +923,9 @@ measure a review policy on a shared generator output and treat coverage loss as
 a first-class outcome.
 
 \textbf{Security context and human factors.}  Indirect prompt injection shows
-that retrieved data can steer LLM-integrated applications~\cite{greshake2023not}.
+that retrieved data can steer LLM-integrated applications~\cite{greshake2023not};
+LogInject demonstrates the same confused-deputy risk specifically for network
+security logs~\cite{karanjai2026loginject}.
 SOC studies find LLM use concentrated in sensemaking rather than autonomous
 high-stakes decisions~\cite{singh2025llmsoc}, while incident-response field
 work reports omissions and inaccuracies in autonomous summaries
@@ -712,7 +941,7 @@ A real citation can support the topic of a forensic claim without supporting
 its actor, intent, causal relation, or strength.  \system operationalizes this
 gap with atomic claims, paired evidence mutations, an alert-blind verifier, and
 selective reporting.  On the frozen held-out deployment, citation validity is
-\AlertsCitationValidity while alert-conditioned generation still surfaces
+\AlertsCitationValidity\ while alert-conditioned generation still surfaces
 \AlertsUnsafeExposure\ unwarranted decisive claims per case.  Verification plus
 abstention changes exposure by \UnsafeDifference, but its attack-recall change
 of \RecallDifference\ does \NoninferiorResult\ satisfy the pre-specified
