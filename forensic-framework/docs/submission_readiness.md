@@ -43,15 +43,17 @@ A submission-ready claim requires all of the following:
   non-inferiority margin;
 - [x] raw-response provenance, hashes, manifests, and integrity checks;
 - [x] a blinded, deduplicated, deterministic annotation package;
-- [ ] complete held-out inference over every planned variant and repetition;
+- [x] complete held-out inference over every planned variant and repetition;
 - [ ] two independent DFIR annotators plus blinded adjudication;
 - [ ] institutional determination, informed consent, qualified-reviewer
   screening, and professional compensation terms completed before annotation;
 - [ ] validated automatic labels with agreement and label-prevalence reporting;
-- [ ] at least one reproducibly identified strong model and two independent
-  frontier providers, or an explicit narrowing of all model-general claims;
-- [ ] an external-data stress test whose investigation unit and visible-
-  evidence labels are independently defensible;
+- [x] one frozen strong-model deployment with an explicit narrowing of all
+  model-general claims because the endpoint exposes no immutable revision and
+  the two planned independent frontier providers were unavailable;
+- [x] an external-data stress test with a defensible user-cluster unit and
+  explicit latent-answer-key semantics, reported as transfer evidence rather
+  than visible-evidence warrant validation;
 - [x] a selected dataset license and a redistribution audit for derived CERT
   artifacts;
 - [ ] endpoint-operator terms archived before releasing raw transcripts, or

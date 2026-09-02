@@ -72,6 +72,10 @@
   \newcommand{\ExternalClusters}{32}
   \newcommand{\ExternalWindows}{40}
   \newcommand{\ExternalOperationalValidity}{\todoresult}
+  \newcommand{\ExternalOperationalFailure}{\todoresult}
+  \newcommand{\ExternalGeneratorAttempts}{\todoresult}
+  \newcommand{\ExternalJSONFailures}{\todoresult}
+  \newcommand{\ExternalSchemaFailures}{\todoresult}
   \newcommand{\ExternalBaseAccuracy}{\todoresult}
   \newcommand{\ExternalBaseCoverage}{\todoresult}
   \newcommand{\ExternalBaseAttackRecall}{\todoresult}
@@ -164,6 +168,9 @@ by \PrimaryUnsafeDifference\ (95\% bootstrap CI
 gain did \NoninferiorResult\ satisfy the pre-specified 3-point recall
 non-inferiority margin.  Citation validity remained
 \AlertsCitationValidity---showing why it is an inadequate safety metric.  The
+independent CERT transfer stress test had \ExternalOperationalValidity\
+operational validity, and the verifier delivered no reports at
+\ExternalVerifierCoverage\ coverage.  The
 study supports atomic warrant evaluation and selective reporting, but not
 autonomous forensic attribution; the principal result is a measurable safety--
 coverage trade-off rather than a detector-accuracy claim.
@@ -669,7 +676,10 @@ separate axis.  These are contract violations with different remediation:
 preserve the supported observation, remove the unsupported edge or qualifier,
 and reconsider only the decision that depends on it.
 
-\IfFileExists{generated_axis_rows.tex}{
+% Keep booktabs' \noalign commands out of \IfFileExists' argument scanner.
+% Expanding a single wrapper macro here avoids a XeTeX failure after the
+% generated rows first become available.
+\newcommand{\AxisProfileTable}{%
 \begin{table}[t]
 \centering
 \caption{Mechanical labels for decisive alert-visible claims by semantic axis.
@@ -682,10 +692,10 @@ within cases and no row is an expert error rate.}
 \textbf{Axis} & \textbf{Applicable} & \textbf{Contradicted/insufficient} \\
 \midrule
 \input{generated_axis_rows.tex}
-\bottomrule
 \end{tabular}
 \end{table}
-}{}
+}
+\IfFileExists{generated_axis_rows.tex}{\AxisProfileTable}{}
 
 \subsection{Safety is purchased with coverage}
 
@@ -747,7 +757,6 @@ same 36 base cases.}
 \textbf{Canonical flip} & \textbf{Abstain coverage} & \textbf{Abstain unsafe} \\
 \midrule
 \input{generated_variant_rows.tex}
-\bottomrule
 \end{tabular}
 \end{table*}
 }{}
@@ -772,6 +781,18 @@ proxy.  The unreviewed generator resolves \ExternalBaseCitationValidity\ of
 cited identifiers and surfaces \ExternalBaseUnsafeExposure\ proxy-unwarranted
 decisive claims per window.  Abstention changes that exposure to
 \ExternalAbstainUnsafeExposure\ at \ExternalAbstainCoverage\ coverage.
+
+This is a failed portability test, not a validation success.  Structured
+generation fails on \ExternalOperationalFailure\ of condition records.  With
+failures and abstentions retained in the denominators, the unreviewed generator
+achieves \ExternalBaseAccuracy\ latent-label accuracy,
+\ExternalBaseAttackRecall\ attack recall, and
+\ExternalBaseBenignRejection\ benign rejection.  The verifier delivers no
+reports.  Its zero surfaced proxy exposure is therefore the trivial consequence
+of zero coverage, not evidence of a useful safety operating point.  Of
+\ExternalGeneratorAttempts\ generator calls, \ExternalJSONFailures\ return no
+parseable JSON and \ExternalSchemaFailures\ return JSON that violates the
+frozen claim contract; the analysis retains rather than repairs these failures.
 
 \begin{table*}[t]
 \centering
@@ -1060,10 +1081,13 @@ decisive claims per case.  Verification plus abstention changes exposure by
 \PrimaryUnsafeDifference, but its attack-recall change
 of \RecallDifference\ does \NoninferiorResult\ satisfy the pre-specified
 non-inferiority margin.  The appropriate conclusion is not that citations make
-LLM forensics safe, nor that abstention alone solves overclaiming.  Safety must
-be measured at claim level and jointly with coverage; deployment must remain
-analyst-supervised until independent experts validate the reference standard
-and a verifier achieves a useful operating point.
+LLM forensics safe, nor that abstention alone solves overclaiming.  On the
+independent CERT transfer, operational validity falls to
+\ExternalOperationalValidity\ and the verifier delivers no reports.  Safety
+must be measured at claim level and jointly with coverage; deployment must
+remain analyst-supervised until independent experts validate the reference
+standard and a verifier achieves a useful operating point across independently
+generated evidence.
 
 \appendix
 
@@ -1091,10 +1115,12 @@ incident prevalence.
 
 The anonymous artifact will include the 480-case-variant benchmark, generation
 specification and seed, data card, checksums, frozen JSON schemas and prompts,
-deterministic baselines, raw model responses where provider terms permit,
-response hashes and provenance manifests, parsers, the mechanical evaluator,
-the blinded annotation package, analysis scripts, environment locks, tests,
-and commands that regenerate every table and figure.  The administrative
+deterministic baselines, structured scored records, response hashes and
+provenance manifests, parsers, the mechanical evaluator, the blinded annotation
+package, analysis scripts, environment locks, tests, and commands that
+regenerate every table and figure.  Raw endpoint transcripts are omitted from
+the reviewer artifact because the third-party operator's redistribution terms
+could not be archived.  The administrative
 annotation key is withheld from annotators while labels are collected and
 included in the reviewer artifact only after labels are frozen.  Endpoint
 secrets, private URLs, workstation paths, and annotator identities will not

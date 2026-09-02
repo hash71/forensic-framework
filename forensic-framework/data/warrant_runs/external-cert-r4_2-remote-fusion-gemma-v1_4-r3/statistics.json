@@ -1,0 +1,172 @@
+{
+  "attack_recall_noninferiority": {
+    "lower_confidence_bound": -0.6176470588235294,
+    "margin": 0.03,
+    "noninferior": false
+  },
+  "contrasts": {
+    "attack_recall": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.6176470588235294,
+        -0.20588235294117646
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.4117647058823529,
+      "intervention_mean": 0.0,
+      "paired_base_cases": 17,
+      "reference_mean": 0.4117647058823529,
+      "sign_test_p_value": 0.0078125
+    },
+    "coverage": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.359375,
+        -0.09375
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.21875,
+      "intervention_mean": 0.0,
+      "paired_base_cases": 32,
+      "reference_mean": 0.21875,
+      "sign_test_p_value": 0.0078125
+    },
+    "raw_udcr": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        0.0,
+        0.0
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": 0.0,
+      "intervention_mean": 0.33333333333333337,
+      "paired_base_cases": 25,
+      "reference_mean": 0.33333333333333337,
+      "sign_test_p_value": 1.0
+    },
+    "surfaced_unwarranted_claims_per_case": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.453125,
+        -0.09895833333333333
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.26041666666666663,
+      "intervention_mean": 0.0,
+      "paired_base_cases": 32,
+      "reference_mean": 0.26041666666666663,
+      "sign_test_p_value": 0.0078125
+    },
+    "verdict_accuracy": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.359375,
+        -0.09375
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.21875,
+      "intervention_mean": 0.0,
+      "paired_base_cases": 32,
+      "reference_mean": 0.21875,
+      "sign_test_p_value": 0.0078125
+    }
+  },
+  "exploratory_secondary_contrasts": {
+    "h3_misleading_alerts_minus_canonical_alert_context_sensitivity": {
+      "actor_flip": {
+        "confidence_interval": [
+          null,
+          null
+        ],
+        "estimate_intervention_minus_reference": null,
+        "holm_adjusted_sign_test_p_value": null,
+        "paired_base_cases": 0,
+        "sign_test_p_value": null
+      },
+      "verdict_flip": {
+        "confidence_interval": [
+          null,
+          null
+        ],
+        "estimate_intervention_minus_reference": null,
+        "holm_adjusted_sign_test_p_value": null,
+        "paired_base_cases": 0,
+        "sign_test_p_value": null
+      }
+    },
+    "h4_independent_verifier_minus_self_review": {
+      "surfaced_contradicted_decisive_claims": {
+        "confidence_interval": [
+          null,
+          null
+        ],
+        "estimate_intervention_minus_reference": null,
+        "holm_adjusted_sign_test_p_value": null,
+        "paired_base_cases": 0,
+        "sign_test_p_value": null
+      },
+      "surfaced_wrong_actor": {
+        "confidence_interval": [
+          null,
+          null
+        ],
+        "estimate_intervention_minus_reference": null,
+        "holm_adjusted_sign_test_p_value": null,
+        "paired_base_cases": 0,
+        "sign_test_p_value": null
+      }
+    },
+    "holm_family": [
+      "h3_verdict_flip",
+      "h3_actor_flip",
+      "h4_wrong_actor",
+      "h4_contradicted_claims"
+    ],
+    "status": "exploratory_due_to_post-start_operationalization; see docs/protocol_deviations.md"
+  },
+  "finite_sample_note": "Bootstrap intervals and sign tests are descriptive when the number of independent base cases is small; no asymptotic p-value is substituted.",
+  "h5_selective_risk": {
+    "reason": "Protocol v1.0 did not pre-specify a threshold grid, selective-risk function, or trend statistic. The frozen policy supplies one operating point; any risk-coverage curve is descriptive.",
+    "status": "not_confirmatorily_testable"
+  },
+  "independence_note": "All variants and repetitions are averaged within base_case_id before the paired cluster bootstrap. Repetitions are not independent samples.",
+  "intervention_condition": "generator_verifier_abstention",
+  "operating_points": {
+    "generator_verifier": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": null,
+        "0.05": null,
+        "0.10": null
+      },
+      "sensitivity": 0.0
+    },
+    "generator_verifier_abstention": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": null,
+        "0.05": null,
+        "0.10": null
+      },
+      "sensitivity": 0.0
+    },
+    "llm_events_plus_alerts": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.45
+    }
+  },
+  "primary_safety_estimand": "surfaced_unwarranted_decisive_claims_per_base_case",
+  "raw_generator_udcr_is_shared_diagnostic": true,
+  "reference_condition": "llm_events_plus_alerts",
+  "statistics_schema_version": "warrant-statistics-v1.1"
+}

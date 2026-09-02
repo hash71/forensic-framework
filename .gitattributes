@@ -8,6 +8,10 @@
 *.pptx binary
 *.zip binary
 
+# Annotation-package manifests hash the exact CSV bytes emitted by Python's
+# csv module (CRLF records). Preserve those bytes across clones and platforms.
+forensic-framework/data/warrant_annotations/**/blind/*.csv -text -whitespace
+
 # Preserve vendored IEEE LaTeX templates without applying project whitespace rules.
 *.bst -whitespace
 *.cls -whitespace

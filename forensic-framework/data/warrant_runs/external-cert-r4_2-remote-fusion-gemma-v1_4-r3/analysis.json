@@ -1,0 +1,895 @@
+{
+  "artifact_integrity": {
+    "errors": [],
+    "ok": true,
+    "unique_raw_responses_checked": 197
+  },
+  "base_case_count": 32,
+  "by_family": {
+    "cert_attack_type_1": {
+      "conditions": {
+        "generator_verifier": {
+          "abstention_rate": 0.7333333333333333,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 12,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.26666666666666666,
+          "mechanical_allow_rate": 0.0,
+          "n": 15,
+          "operational_failure_rate": 0.26666666666666666,
+          "raw_udcr_macro": 0.5454545454545454,
+          "raw_udcr_micro": 0.5833333333333334,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.7333333333333333,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 7,
+          "valid_n": 11,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.45454545454545453
+        },
+        "generator_verifier_abstention": {
+          "abstention_rate": 0.7333333333333333,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 12,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.26666666666666666,
+          "mechanical_allow_rate": 0.0,
+          "n": 15,
+          "operational_failure_rate": 0.26666666666666666,
+          "raw_udcr_macro": 0.5454545454545454,
+          "raw_udcr_micro": 0.5833333333333334,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.7333333333333333,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 7,
+          "valid_n": 11,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.45454545454545453
+        },
+        "llm_events_plus_alerts": {
+          "abstention_rate": 0.3333333333333333,
+          "attack_recall": 0.4,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.4,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 12,
+          "delivered_decisive_claims": 7,
+          "delivered_udcr_micro": 1.0,
+          "delivered_unwarranted_decisive_claims": 7,
+          "generator_failure_rate": 0.26666666666666666,
+          "mechanical_allow_rate": 0.0,
+          "n": 15,
+          "operational_failure_rate": 0.26666666666666666,
+          "raw_udcr_macro": 0.5454545454545454,
+          "raw_udcr_micro": 0.5833333333333334,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.0,
+          "selective_exact_accuracy": 1.0,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.4666666666666667,
+          "unwarranted_decisive_claims": 7,
+          "valid_n": 11,
+          "verdict_accuracy": 0.4,
+          "verdict_and_suspect_exact_accuracy": 0.4,
+          "zero_raw_udcr_rate": 0.45454545454545453
+        }
+      }
+    },
+    "cert_attack_type_2": {
+      "conditions": {
+        "generator_verifier": {
+          "abstention_rate": 0.5833333333333334,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 26,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.4166666666666667,
+          "mechanical_allow_rate": 0.05555555555555555,
+          "n": 36,
+          "operational_failure_rate": 0.4166666666666667,
+          "raw_udcr_macro": 0.7619047619047619,
+          "raw_udcr_micro": 0.6538461538461539,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.5833333333333334,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 17,
+          "valid_n": 21,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.23809523809523808
+        },
+        "generator_verifier_abstention": {
+          "abstention_rate": 0.5833333333333334,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 26,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.4166666666666667,
+          "mechanical_allow_rate": 0.05555555555555555,
+          "n": 36,
+          "operational_failure_rate": 0.4166666666666667,
+          "raw_udcr_macro": 0.7619047619047619,
+          "raw_udcr_micro": 0.6538461538461539,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.5833333333333334,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 17,
+          "valid_n": 21,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.23809523809523808
+        },
+        "llm_events_plus_alerts": {
+          "abstention_rate": 0.08333333333333333,
+          "attack_recall": 0.5,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.5,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 26,
+          "delivered_decisive_claims": 23,
+          "delivered_udcr_micro": 0.7391304347826086,
+          "delivered_unwarranted_decisive_claims": 17,
+          "generator_failure_rate": 0.4166666666666667,
+          "mechanical_allow_rate": 0.05555555555555555,
+          "n": 36,
+          "operational_failure_rate": 0.4166666666666667,
+          "raw_udcr_macro": 0.7619047619047619,
+          "raw_udcr_micro": 0.6538461538461539,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.0,
+          "selective_exact_accuracy": 1.0,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.4722222222222222,
+          "unwarranted_decisive_claims": 17,
+          "valid_n": 21,
+          "verdict_accuracy": 0.5,
+          "verdict_and_suspect_exact_accuracy": 0.5,
+          "zero_raw_udcr_rate": 0.23809523809523808
+        }
+      }
+    },
+    "cert_attack_type_3": {
+      "conditions": {
+        "generator_verifier": {
+          "abstention_rate": 0.6666666666666666,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 9,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.3333333333333333,
+          "mechanical_allow_rate": 0.0,
+          "n": 9,
+          "operational_failure_rate": 0.3333333333333333,
+          "raw_udcr_macro": 0.5,
+          "raw_udcr_micro": 0.6666666666666666,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.6666666666666666,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 6,
+          "valid_n": 6,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.5
+        },
+        "generator_verifier_abstention": {
+          "abstention_rate": 0.6666666666666666,
+          "attack_recall": 0.0,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 9,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.3333333333333333,
+          "mechanical_allow_rate": 0.0,
+          "n": 9,
+          "operational_failure_rate": 0.3333333333333333,
+          "raw_udcr_macro": 0.5,
+          "raw_udcr_micro": 0.6666666666666666,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.6666666666666666,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 6,
+          "valid_n": 6,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.5
+        },
+        "llm_events_plus_alerts": {
+          "abstention_rate": 0.3333333333333333,
+          "attack_recall": 0.3333333333333333,
+          "benign_rejection": null,
+          "citation_completeness": 1.0,
+          "citation_validity": 1.0,
+          "counterevidence_recall": null,
+          "coverage": 0.3333333333333333,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 9,
+          "delivered_decisive_claims": 6,
+          "delivered_udcr_micro": 1.0,
+          "delivered_unwarranted_decisive_claims": 6,
+          "generator_failure_rate": 0.3333333333333333,
+          "mechanical_allow_rate": 0.0,
+          "n": 9,
+          "operational_failure_rate": 0.3333333333333333,
+          "raw_udcr_macro": 0.5,
+          "raw_udcr_micro": 0.6666666666666666,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.0,
+          "selective_exact_accuracy": 1.0,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.6666666666666666,
+          "unwarranted_decisive_claims": 6,
+          "valid_n": 6,
+          "verdict_accuracy": 0.3333333333333333,
+          "verdict_and_suspect_exact_accuracy": 0.3333333333333333,
+          "zero_raw_udcr_rate": 0.5
+        }
+      }
+    },
+    "cert_benign_user_month": {
+      "conditions": {
+        "generator_verifier": {
+          "abstention_rate": 0.65,
+          "attack_recall": null,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9815323565323565,
+          "citation_validity": 0.9971509971509972,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 39,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.35,
+          "mechanical_allow_rate": 0.0,
+          "n": 60,
+          "operational_failure_rate": 0.35,
+          "raw_udcr_macro": 0.1282051282051282,
+          "raw_udcr_micro": 0.1282051282051282,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.65,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 5,
+          "valid_n": 39,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.8717948717948718
+        },
+        "generator_verifier_abstention": {
+          "abstention_rate": 0.65,
+          "attack_recall": null,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9815323565323565,
+          "citation_validity": 0.9971509971509972,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 39,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.35,
+          "mechanical_allow_rate": 0.0,
+          "n": 60,
+          "operational_failure_rate": 0.35,
+          "raw_udcr_macro": 0.1282051282051282,
+          "raw_udcr_micro": 0.1282051282051282,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.65,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 5,
+          "valid_n": 39,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.8717948717948718
+        },
+        "llm_events_plus_alerts": {
+          "abstention_rate": 0.65,
+          "attack_recall": null,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9815323565323565,
+          "citation_validity": 0.9971509971509972,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 39,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.35,
+          "mechanical_allow_rate": 0.0,
+          "n": 60,
+          "operational_failure_rate": 0.35,
+          "raw_udcr_macro": 0.1282051282051282,
+          "raw_udcr_micro": 0.1282051282051282,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.0,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 5,
+          "valid_n": 39,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.8717948717948718
+        }
+      }
+    }
+  },
+  "by_variant": {
+    "observed_user_month": {
+      "conditions": {
+        "generator_verifier": {
+          "abstention_rate": 0.6416666666666667,
+          "attack_recall": 0.0,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9906462585034014,
+          "citation_validity": 0.9985569985569985,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 86,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.35833333333333334,
+          "mechanical_allow_rate": 0.016666666666666666,
+          "n": 120,
+          "operational_failure_rate": 0.35833333333333334,
+          "raw_udcr_macro": 0.38961038961038963,
+          "raw_udcr_micro": 0.4069767441860465,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.6416666666666667,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 35,
+          "valid_n": 77,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.6103896103896104
+        },
+        "generator_verifier_abstention": {
+          "abstention_rate": 0.6416666666666667,
+          "attack_recall": 0.0,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9906462585034014,
+          "citation_validity": 0.9985569985569985,
+          "counterevidence_recall": null,
+          "coverage": 0.0,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 86,
+          "delivered_decisive_claims": 0,
+          "delivered_udcr_micro": null,
+          "delivered_unwarranted_decisive_claims": 0,
+          "generator_failure_rate": 0.35833333333333334,
+          "mechanical_allow_rate": 0.016666666666666666,
+          "n": 120,
+          "operational_failure_rate": 0.35833333333333334,
+          "raw_udcr_macro": 0.38961038961038963,
+          "raw_udcr_micro": 0.4069767441860465,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.6416666666666667,
+          "selective_exact_accuracy": null,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+          "unwarranted_decisive_claims": 35,
+          "valid_n": 77,
+          "verdict_accuracy": 0.0,
+          "verdict_and_suspect_exact_accuracy": 0.0,
+          "zero_raw_udcr_rate": 0.6103896103896104
+        },
+        "llm_events_plus_alerts": {
+          "abstention_rate": 0.4166666666666667,
+          "attack_recall": 0.45,
+          "benign_rejection": 0.0,
+          "citation_completeness": 0.9906462585034014,
+          "citation_validity": 0.9985569985569985,
+          "counterevidence_recall": null,
+          "coverage": 0.225,
+          "decisive_causal_error_rate": 1.0,
+          "decisive_claims": 86,
+          "delivered_decisive_claims": 36,
+          "delivered_udcr_micro": 0.8333333333333334,
+          "delivered_unwarranted_decisive_claims": 30,
+          "generator_failure_rate": 0.35833333333333334,
+          "mechanical_allow_rate": 0.016666666666666666,
+          "n": 120,
+          "operational_failure_rate": 0.35833333333333334,
+          "raw_udcr_macro": 0.38961038961038963,
+          "raw_udcr_micro": 0.4069767441860465,
+          "review_failure_rate": 0.0,
+          "review_recommended_abstention_rate": 0.0,
+          "selective_exact_accuracy": 1.0,
+          "surfaced_unwarranted_decisive_claims_per_case": 0.25,
+          "unwarranted_decisive_claims": 35,
+          "valid_n": 77,
+          "verdict_accuracy": 0.225,
+          "verdict_and_suspect_exact_accuracy": 0.225,
+          "zero_raw_udcr_rate": 0.6103896103896104
+        }
+      },
+      "paired_effects": {
+        "events_only_vs_alerts": {
+          "alert_increased_udcr_rate": null,
+          "mean_udcr_change_alerts_minus_events": null,
+          "new_decisive_causal_error_rate": null,
+          "paired_n": 0,
+          "suspect_flip_rate": null,
+          "verdict_flip_rate": null
+        },
+        "shared_generation_reviews": {
+          "generator_verifier": {
+            "generator_hash_match_rate": 1.0,
+            "new_abstention_rate": 0.225,
+            "paired_n": 120
+          },
+          "generator_verifier_abstention": {
+            "generator_hash_match_rate": 1.0,
+            "new_abstention_rate": 0.225,
+            "paired_n": 120
+          }
+        }
+      }
+    }
+  },
+  "conditions": {
+    "generator_verifier": {
+      "abstention_rate": 0.6416666666666667,
+      "attack_recall": 0.0,
+      "benign_rejection": 0.0,
+      "citation_completeness": 0.9906462585034014,
+      "citation_validity": 0.9985569985569985,
+      "counterevidence_recall": null,
+      "coverage": 0.0,
+      "decisive_causal_error_rate": 1.0,
+      "decisive_claims": 86,
+      "delivered_decisive_claims": 0,
+      "delivered_udcr_micro": null,
+      "delivered_unwarranted_decisive_claims": 0,
+      "generator_failure_rate": 0.35833333333333334,
+      "mechanical_allow_rate": 0.016666666666666666,
+      "n": 120,
+      "operational_failure_rate": 0.35833333333333334,
+      "raw_udcr_macro": 0.38961038961038963,
+      "raw_udcr_micro": 0.4069767441860465,
+      "review_failure_rate": 0.0,
+      "review_recommended_abstention_rate": 0.6416666666666667,
+      "selective_exact_accuracy": null,
+      "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+      "unwarranted_decisive_claims": 35,
+      "valid_n": 77,
+      "verdict_accuracy": 0.0,
+      "verdict_and_suspect_exact_accuracy": 0.0,
+      "zero_raw_udcr_rate": 0.6103896103896104
+    },
+    "generator_verifier_abstention": {
+      "abstention_rate": 0.6416666666666667,
+      "attack_recall": 0.0,
+      "benign_rejection": 0.0,
+      "citation_completeness": 0.9906462585034014,
+      "citation_validity": 0.9985569985569985,
+      "counterevidence_recall": null,
+      "coverage": 0.0,
+      "decisive_causal_error_rate": 1.0,
+      "decisive_claims": 86,
+      "delivered_decisive_claims": 0,
+      "delivered_udcr_micro": null,
+      "delivered_unwarranted_decisive_claims": 0,
+      "generator_failure_rate": 0.35833333333333334,
+      "mechanical_allow_rate": 0.016666666666666666,
+      "n": 120,
+      "operational_failure_rate": 0.35833333333333334,
+      "raw_udcr_macro": 0.38961038961038963,
+      "raw_udcr_micro": 0.4069767441860465,
+      "review_failure_rate": 0.0,
+      "review_recommended_abstention_rate": 0.6416666666666667,
+      "selective_exact_accuracy": null,
+      "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+      "unwarranted_decisive_claims": 35,
+      "valid_n": 77,
+      "verdict_accuracy": 0.0,
+      "verdict_and_suspect_exact_accuracy": 0.0,
+      "zero_raw_udcr_rate": 0.6103896103896104
+    },
+    "llm_events_plus_alerts": {
+      "abstention_rate": 0.4166666666666667,
+      "attack_recall": 0.45,
+      "benign_rejection": 0.0,
+      "citation_completeness": 0.9906462585034014,
+      "citation_validity": 0.9985569985569985,
+      "counterevidence_recall": null,
+      "coverage": 0.225,
+      "decisive_causal_error_rate": 1.0,
+      "decisive_claims": 86,
+      "delivered_decisive_claims": 36,
+      "delivered_udcr_micro": 0.8333333333333334,
+      "delivered_unwarranted_decisive_claims": 30,
+      "generator_failure_rate": 0.35833333333333334,
+      "mechanical_allow_rate": 0.016666666666666666,
+      "n": 120,
+      "operational_failure_rate": 0.35833333333333334,
+      "raw_udcr_macro": 0.38961038961038963,
+      "raw_udcr_micro": 0.4069767441860465,
+      "review_failure_rate": 0.0,
+      "review_recommended_abstention_rate": 0.0,
+      "selective_exact_accuracy": 1.0,
+      "surfaced_unwarranted_decisive_claims_per_case": 0.25,
+      "unwarranted_decisive_claims": 35,
+      "valid_n": 77,
+      "verdict_accuracy": 0.225,
+      "verdict_and_suspect_exact_accuracy": 0.225,
+      "zero_raw_udcr_rate": 0.6103896103896104
+    }
+  },
+  "mechanical_axis_profiles": {
+    "llm_events_plus_alerts": {
+      "all_claims": {
+        "action": {
+          "applicable": 479,
+          "labels": {
+            "CONTRADICTED": 28,
+            "INSUFFICIENT": 24,
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 427
+          },
+          "unwarranted": 52,
+          "unwarranted_rate": 0.10855949895615867
+        },
+        "actor": {
+          "applicable": 556,
+          "labels": {
+            "INSUFFICIENT": 6,
+            "SUPPORTED": 550
+          },
+          "unwarranted": 6,
+          "unwarranted_rate": 0.01079136690647482
+        },
+        "authorization": {
+          "applicable": 9,
+          "labels": {
+            "INSUFFICIENT": 9,
+            "NOT_APPLICABLE": 547
+          },
+          "unwarranted": 9,
+          "unwarranted_rate": 1.0
+        },
+        "causality": {
+          "applicable": 181,
+          "labels": {
+            "INSUFFICIENT": 181,
+            "NOT_APPLICABLE": 375
+          },
+          "unwarranted": 181,
+          "unwarranted_rate": 1.0
+        },
+        "citation": {
+          "applicable": 556,
+          "labels": {
+            "INSUFFICIENT": 7,
+            "SUPPORTED": 549
+          },
+          "unwarranted": 7,
+          "unwarranted_rate": 0.012589928057553957
+        },
+        "decision": {
+          "applicable": 77,
+          "labels": {
+            "INSUFFICIENT": 25,
+            "NOT_APPLICABLE": 479,
+            "SUPPORTED": 52
+          },
+          "unwarranted": 25,
+          "unwarranted_rate": 0.3246753246753247
+        },
+        "evidence_relation": {
+          "applicable": 556,
+          "labels": {
+            "CONTRADICTED": 41,
+            "INSUFFICIENT": 120,
+            "SUPPORTED": 395
+          },
+          "unwarranted": 161,
+          "unwarranted_rate": 0.289568345323741
+        },
+        "intent": {
+          "applicable": 48,
+          "labels": {
+            "INSUFFICIENT": 48,
+            "NOT_APPLICABLE": 508
+          },
+          "unwarranted": 48,
+          "unwarranted_rate": 1.0
+        },
+        "modality": {
+          "applicable": 556,
+          "labels": {
+            "CONTRADICTED": 42,
+            "INSUFFICIENT": 80,
+            "SUPPORTED": 434
+          },
+          "unwarranted": 122,
+          "unwarranted_rate": 0.21942446043165467
+        },
+        "object": {
+          "applicable": 434,
+          "labels": {
+            "CONTRADICTED": 19,
+            "INSUFFICIENT": 1,
+            "NOT_APPLICABLE": 122,
+            "SUPPORTED": 414
+          },
+          "unwarranted": 20,
+          "unwarranted_rate": 0.04608294930875576
+        },
+        "quantitative": {
+          "applicable": 431,
+          "labels": {
+            "CONTRADICTED": 1,
+            "NOT_APPLICABLE": 125,
+            "SUPPORTED": 430
+          },
+          "unwarranted": 1,
+          "unwarranted_rate": 0.002320185614849188
+        },
+        "scope": {
+          "applicable": 306,
+          "labels": {
+            "INSUFFICIENT": 13,
+            "NOT_APPLICABLE": 250,
+            "SUPPORTED": 293
+          },
+          "unwarranted": 13,
+          "unwarranted_rate": 0.042483660130718956
+        },
+        "temporal": {
+          "applicable": 431,
+          "labels": {
+            "INSUFFICIENT": 1,
+            "NOT_APPLICABLE": 125,
+            "SUPPORTED": 430
+          },
+          "unwarranted": 1,
+          "unwarranted_rate": 0.002320185614849188
+        }
+      },
+      "decisive_claims": {
+        "action": {
+          "applicable": 9,
+          "labels": {
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 9
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": 0.0
+        },
+        "actor": {
+          "applicable": 86,
+          "labels": {
+            "INSUFFICIENT": 4,
+            "SUPPORTED": 82
+          },
+          "unwarranted": 4,
+          "unwarranted_rate": 0.046511627906976744
+        },
+        "authorization": {
+          "applicable": 0,
+          "labels": {
+            "NOT_APPLICABLE": 86
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": null
+        },
+        "causality": {
+          "applicable": 82,
+          "labels": {
+            "INSUFFICIENT": 82,
+            "NOT_APPLICABLE": 4
+          },
+          "unwarranted": 82,
+          "unwarranted_rate": 1.0
+        },
+        "citation": {
+          "applicable": 86,
+          "labels": {
+            "INSUFFICIENT": 5,
+            "SUPPORTED": 81
+          },
+          "unwarranted": 5,
+          "unwarranted_rate": 0.05813953488372093
+        },
+        "decision": {
+          "applicable": 77,
+          "labels": {
+            "INSUFFICIENT": 25,
+            "NOT_APPLICABLE": 9,
+            "SUPPORTED": 52
+          },
+          "unwarranted": 25,
+          "unwarranted_rate": 0.3246753246753247
+        },
+        "evidence_relation": {
+          "applicable": 86,
+          "labels": {
+            "INSUFFICIENT": 30,
+            "SUPPORTED": 56
+          },
+          "unwarranted": 30,
+          "unwarranted_rate": 0.3488372093023256
+        },
+        "intent": {
+          "applicable": 0,
+          "labels": {
+            "NOT_APPLICABLE": 86
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": null
+        },
+        "modality": {
+          "applicable": 86,
+          "labels": {
+            "INSUFFICIENT": 9,
+            "SUPPORTED": 77
+          },
+          "unwarranted": 9,
+          "unwarranted_rate": 0.10465116279069768
+        },
+        "object": {
+          "applicable": 9,
+          "labels": {
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 9
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": 0.0
+        },
+        "quantitative": {
+          "applicable": 9,
+          "labels": {
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 9
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": 0.0
+        },
+        "scope": {
+          "applicable": 9,
+          "labels": {
+            "INSUFFICIENT": 1,
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 8
+          },
+          "unwarranted": 1,
+          "unwarranted_rate": 0.1111111111111111
+        },
+        "temporal": {
+          "applicable": 9,
+          "labels": {
+            "NOT_APPLICABLE": 77,
+            "SUPPORTED": 9
+          },
+          "unwarranted": 0,
+          "unwarranted_rate": 0.0
+        }
+      },
+      "interpretation_note": "Counts are descriptive mechanical labels nested within base cases; they are not independent observations or expert error rates."
+    }
+  },
+  "operations": {
+    "by_role": {
+      "alert_blind_verifier": {
+        "cost_coverage_rate": 0.0,
+        "estimated_cost_usd_total": null,
+        "input_tokens_total": 1965594,
+        "latency_ms_median": 29812.954292006907,
+        "latency_ms_p95": 39631.08058299986,
+        "output_tokens_total": 131592,
+        "unique_calls": 77
+      },
+      "generator": {
+        "cost_coverage_rate": 0.0,
+        "estimated_cost_usd_total": null,
+        "input_tokens_total": 2908701,
+        "latency_ms_median": 39753.90758299909,
+        "latency_ms_p95": 60947.71366601344,
+        "output_tokens_total": 320875,
+        "unique_calls": 120
+      }
+    },
+    "deduplication_note": "Calls shared across review-condition records are counted once by raw-response artifact path; byte-identical independent calls remain distinct.",
+    "overall": {
+      "cost_coverage_rate": 0.0,
+      "estimated_cost_usd_total": null,
+      "input_tokens_total": 4874295,
+      "latency_ms_median": 35405.63445800217,
+      "latency_ms_p95": 59620.75529100548,
+      "output_tokens_total": 452467,
+      "unique_calls": 197
+    }
+  },
+  "paired_effects": {
+    "events_only_vs_alerts": {
+      "alert_increased_udcr_rate": null,
+      "mean_udcr_change_alerts_minus_events": null,
+      "new_decisive_causal_error_rate": null,
+      "paired_n": 0,
+      "suspect_flip_rate": null,
+      "verdict_flip_rate": null
+    },
+    "shared_generation_reviews": {
+      "generator_verifier": {
+        "generator_hash_match_rate": 1.0,
+        "new_abstention_rate": 0.225,
+        "paired_n": 120
+      },
+      "generator_verifier_abstention": {
+        "generator_hash_match_rate": 1.0,
+        "new_abstention_rate": 0.225,
+        "paired_n": 120
+      }
+    }
+  },
+  "record_count": 360,
+  "requested_model": "fusion-gemma",
+  "results_schema_version": "warrant-results-v1.1",
+  "run_id": "external-cert-r4_2-remote-fusion-gemma-v1_4-r3",
+  "split": [
+    "external"
+  ],
+  "variant_contrasts": {
+    "observed_user_month": {}
+  }
+}

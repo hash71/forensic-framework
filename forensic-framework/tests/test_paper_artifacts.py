@@ -112,6 +112,91 @@ def test_human_macro_export_is_bound_to_analysis_hash(tmp_path: Path) -> None:
     assert r"\newcommand{\AnnotationTotalHours}{40.000}" in text
 
 
+def test_generated_table_inputs_own_their_terminal_booktabs_rule(
+    tmp_path: Path,
+) -> None:
+    r"""Prevent XeTeX from seeing caller-side \bottomrule after row input."""
+
+    generator = _load_generator()
+    run_dir = tmp_path / "run"
+    run_dir.mkdir()
+    analysis = {
+        "by_variant": {
+            "canonical": {
+                "conditions": {
+                    "llm_events_plus_alerts": {
+                        "verdict_accuracy": 1.0,
+                        "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+                    },
+                    "generator_verifier_abstention": {
+                        "coverage": 1.0,
+                        "surfaced_unwarranted_decisive_claims_per_case": 0.0,
+                    },
+                }
+            }
+        },
+        "variant_contrasts": {},
+        "mechanical_axis_profiles": {
+            "llm_events_plus_alerts": {
+                "decisive_claims": {
+                    "citation": {"applicable": 1, "unwarranted_rate": 0.0}
+                }
+            }
+        },
+    }
+    (run_dir / "analysis.json").write_text(json.dumps(analysis))
+    variant_rows = tmp_path / "variant_rows.tex"
+    axis_rows = tmp_path / "axis_rows.tex"
+
+    generator.write_variant_rows(run_dir, variant_rows)
+    generator.write_axis_rows(run_dir, axis_rows)
+
+    assert variant_rows.read_text().rstrip().endswith(r"\bottomrule")
+    assert axis_rows.read_text().rstrip().endswith(r"\bottomrule")
+
+
+def test_external_macros_report_failure_inclusive_validity(tmp_path: Path) -> None:
+    generator = _load_generator()
+    run_dir = tmp_path / "external"
+    run_dir.mkdir()
+    condition = {
+        "valid_n": 2,
+        "n": 4,
+        "verdict_accuracy": 0.25,
+        "coverage": 0.25,
+        "attack_recall": 0.5,
+        "benign_rejection": 0.0,
+        "surfaced_unwarranted_decisive_claims_per_case": 0.25,
+        "citation_validity": 1.0,
+    }
+    analysis = {
+        "run_id": "external-test",
+        "record_count": 12,
+        "base_case_count": 1,
+        "conditions": {
+            "llm_events_plus_alerts": condition,
+            "generator_verifier": condition,
+            "generator_verifier_abstention": condition,
+        },
+    }
+    (run_dir / "analysis.json").write_text(json.dumps(analysis))
+    record = {
+        "case_id": "window-1",
+        "repetition": 0,
+        "evaluation_label_semantics": (
+            "latent_incident_label_not_visible_evidence_warrant"
+        ),
+    }
+    (run_dir / "records.jsonl").write_text(json.dumps(record) + "\n")
+    output = tmp_path / "external_results.tex"
+
+    generator.write_external_result_macros(run_dir, output)
+
+    text = output.read_text()
+    assert r"\newcommand{\ExternalOperationalValidity}{50.0\%}" in text
+    assert r"\newcommand{\ExternalOperationalFailure}{50.0\%}" in text
+
+
 def test_every_manuscript_citation_has_bibtex_and_audit_entry() -> None:
     paper_dir = PAPER_GENERATOR.parent
     manuscript = (paper_dir / "paper.tex").read_text()

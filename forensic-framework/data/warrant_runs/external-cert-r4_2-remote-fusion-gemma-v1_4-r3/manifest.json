@@ -1,0 +1,43 @@
+{
+  "base_case_count": 32,
+  "benchmark_label_semantics": "latent_incident_label_not_visible_evidence_warrant",
+  "benchmark_path": "data/warrant_external/cert_r4_2_cases.jsonl",
+  "benchmark_sha256": "5391a8148729df5087040943418bb64d06baded8d2b1d70c825b3bf7dbe3b523",
+  "case_count": 40,
+  "case_ids_sha256": "dc599d1102074ad2f7f12ee863afde0924aefb9377a65a5a6bd4996d1f4b0766",
+  "conditions": [
+    "llm_events_plus_alerts",
+    "generator_verifier",
+    "generator_verifier_abstention"
+  ],
+  "counts_for_this_invocation": {
+    "completed": 360,
+    "failures": 129,
+    "planned": 360,
+    "valid": 231
+  },
+  "created_at": "2026-09-02T05:19:52.903514+00:00",
+  "dependency_versions": {
+    "httpx": "0.28.1",
+    "pydantic": "2.13.5"
+  },
+  "endpoint_sha256": "b70491802b316a1f01c0d461a3a335fb8e886052d7a998d2afc9cad4c785bb37",
+  "git_commit": "bdf22ef210a120ed46ca27190dbd0195f1b1689e",
+  "max_tokens": 4096,
+  "model_revision": null,
+  "pairing_policy": {
+    "alert_blind_verifier": "shared_between_verifier_conditions",
+    "alerts_visible_generation": "shared_across_alert_review_conditions",
+    "events_only_generation": "independent"
+  },
+  "provider": "openai-compatible",
+  "python_version": "3.11.16",
+  "records_path": "data/warrant_runs/external-cert-r4_2-remote-fusion-gemma-v1_4-r3/records.jsonl",
+  "repetitions": 3,
+  "requested_generator_model": "fusion-gemma",
+  "requested_verifier_model": "fusion-gemma",
+  "run_id": "external-cert-r4_2-remote-fusion-gemma-v1_4-r3",
+  "run_schema_version": "warrant-run-v1.0",
+  "temperature": 0.1,
+  "warrant_evaluator_version": "warrant-evaluator-v1.1"
+}

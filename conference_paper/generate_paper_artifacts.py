@@ -8,7 +8,7 @@ import hashlib
 import json
 import random
 import reportlab
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 from statistics import mean
 
@@ -275,7 +275,7 @@ def write_variant_rows(run_dir: Path, output_path: Path) -> None:
     output_path.write_text(
         "% Generated from analysis.json; descriptive variant rows.\n"
         + "\n".join(rows)
-        + "\n"
+        + "\n\\bottomrule\n"
     )
 
 
@@ -296,7 +296,11 @@ def write_axis_rows(run_dir: Path, output_path: Path) -> None:
     output_path.write_text(
         "% Generated from analysis.json; mechanical descriptive labels only.\n"
         + "\n".join(rows)
-        + "\n"
+        # Keep the final booktabs rule in the included file. XeTeX can leave
+        # the alignment row open when a row-only input ends immediately before
+        # a caller-side \bottomrule, producing a misleading ``Misplaced
+        # \noalign`` error.
+        + "\n\\bottomrule\n"
     )
 
 
@@ -319,11 +323,28 @@ def write_external_result_macros(run_dir: Path, output_path: Path) -> None:
     abstain = conditions["generator_verifier_abstention"]
     valid = sum(item["valid_n"] for item in conditions.values())
     total = sum(item["n"] for item in conditions.values())
+    generator_attempts = {}
+    for record in records:
+        generator = record.get("generator") or {}
+        call = generator.get("call") or {}
+        key = call.get("raw_response_path") or (
+            f"{record['case_id']}:{record['repetition']}"
+        )
+        generator_attempts.setdefault(key, generator)
+    generator_error_types = Counter(
+        (generator.get("error") or {}).get("type")
+        for generator in generator_attempts.values()
+        if generator.get("error")
+    )
     values = {
         "ExternalRecords": str(analysis["record_count"]),
         "ExternalClusters": str(analysis["base_case_count"]),
         "ExternalWindows": str(len({record["case_id"] for record in records})),
         "ExternalOperationalValidity": _pct(valid / total if total else None),
+        "ExternalOperationalFailure": _pct(1.0 - valid / total if total else None),
+        "ExternalGeneratorAttempts": str(len(generator_attempts)),
+        "ExternalJSONFailures": str(generator_error_types["JSONDecodeError"]),
+        "ExternalSchemaFailures": str(generator_error_types["ValidationError"]),
         "ExternalBaseAccuracy": _pct(base["verdict_accuracy"]),
         "ExternalBaseCoverage": _pct(base["coverage"]),
         "ExternalBaseAttackRecall": _pct(base["attack_recall"]),

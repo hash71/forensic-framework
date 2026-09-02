@@ -1,0 +1,210 @@
+{
+  "attack_recall_noninferiority": {
+    "lower_confidence_bound": -0.4465020576131688,
+    "margin": 0.03,
+    "noninferior": false
+  },
+  "contrasts": {
+    "attack_recall": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.4465020576131688,
+        -0.26131687242798357
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.3518518518518518,
+      "intervention_mean": 0.6337448559670782,
+      "paired_base_cases": 18,
+      "reference_mean": 0.98559670781893,
+      "sign_test_p_value": 7.62939453125e-06
+    },
+    "coverage": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.39444444444444443,
+        -0.2574074074074074
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.32407407407407407,
+      "intervention_mean": 0.3555555555555555,
+      "paired_base_cases": 36,
+      "reference_mean": 0.6796296296296296,
+      "sign_test_p_value": 5.820766091346741e-11
+    },
+    "raw_udcr": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        0.0,
+        0.0
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": 0.0,
+      "intervention_mean": 0.2883599218824314,
+      "paired_base_cases": 36,
+      "reference_mean": 0.2883599218824314,
+      "sign_test_p_value": 1.0
+    },
+    "surfaced_unwarranted_claims_per_case": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.6277777777777778,
+        -0.3740740740740741
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.4962962962962964,
+      "intervention_mean": 0.0,
+      "paired_base_cases": 36,
+      "reference_mean": 0.4962962962962964,
+      "sign_test_p_value": 5.820766091346741e-11
+    },
+    "verdict_accuracy": {
+      "bootstrap_resamples": 10000,
+      "bootstrap_unit": "base_case_id",
+      "confidence_interval": [
+        -0.362962962962963,
+        -0.24074074074074073
+      ],
+      "confidence_level": 0.95,
+      "estimate_intervention_minus_reference": -0.30185185185185176,
+      "intervention_mean": 0.46759259259259256,
+      "paired_base_cases": 36,
+      "reference_mean": 0.7694444444444444,
+      "sign_test_p_value": 1.1641532182693481e-10
+    }
+  },
+  "exploratory_secondary_contrasts": {
+    "h3_misleading_alerts_minus_canonical_alert_context_sensitivity": {
+      "actor_flip": {
+        "bootstrap_resamples": 10000,
+        "bootstrap_unit": "base_case_id",
+        "confidence_interval": [
+          0.08333333333333333,
+          0.2361111111111111
+        ],
+        "confidence_level": 0.95,
+        "estimate_intervention_minus_reference": 0.1527777777777778,
+        "holm_adjusted_sign_test_p_value": 0.0029296875,
+        "intervention_mean": 0.1527777777777778,
+        "paired_base_cases": 36,
+        "reference_mean": 0.0,
+        "sign_test_p_value": 0.0009765625
+      },
+      "verdict_flip": {
+        "bootstrap_resamples": 10000,
+        "bootstrap_unit": "base_case_id",
+        "confidence_interval": [
+          -0.1851851851851852,
+          0.09722222222222222
+        ],
+        "confidence_level": 0.95,
+        "estimate_intervention_minus_reference": -0.04166666666666668,
+        "holm_adjusted_sign_test_p_value": 1.0,
+        "intervention_mean": 0.125,
+        "paired_base_cases": 36,
+        "reference_mean": 0.16666666666666666,
+        "sign_test_p_value": 0.79052734375
+      }
+    },
+    "h4_independent_verifier_minus_self_review": {
+      "surfaced_contradicted_decisive_claims": {
+        "bootstrap_resamples": 10000,
+        "bootstrap_unit": "base_case_id",
+        "confidence_interval": [
+          0.0,
+          0.0
+        ],
+        "confidence_level": 0.95,
+        "estimate_intervention_minus_reference": 0.0,
+        "holm_adjusted_sign_test_p_value": 1.0,
+        "intervention_mean": 0.006481481481481481,
+        "paired_base_cases": 36,
+        "reference_mean": 0.006481481481481481,
+        "sign_test_p_value": 1.0
+      },
+      "surfaced_wrong_actor": {
+        "bootstrap_resamples": 10000,
+        "bootstrap_unit": "base_case_id",
+        "confidence_interval": [
+          0.041666666666666664,
+          0.12777777777777777
+        ],
+        "confidence_level": 0.95,
+        "estimate_intervention_minus_reference": 0.08148148148148147,
+        "holm_adjusted_sign_test_p_value": 0.000244140625,
+        "intervention_mean": 0.212037037037037,
+        "paired_base_cases": 36,
+        "reference_mean": 0.13055555555555556,
+        "sign_test_p_value": 6.103515625e-05
+      }
+    },
+    "holm_family": [
+      "h3_verdict_flip",
+      "h3_actor_flip",
+      "h4_wrong_actor",
+      "h4_contradicted_claims"
+    ],
+    "status": "exploratory_due_to_post-start_operationalization; see docs/protocol_deviations.md"
+  },
+  "finite_sample_note": "Bootstrap intervals and sign tests are descriptive when the number of independent base cases is small; no asymptotic p-value is substituted.",
+  "h5_selective_risk": {
+    "reason": "Protocol v1.0 did not pre-specify a threshold grid, selective-risk function, or trend statistic. The frozen policy supplies one operating point; any risk-coverage curve is descriptive.",
+    "status": "not_confirmatorily_testable"
+  },
+  "independence_note": "All variants and repetitions are averaged within base_case_id before the paired cluster bootstrap. Repetitions are not independent samples.",
+  "intervention_condition": "generator_verifier_abstention",
+  "operating_points": {
+    "generator_verifier": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.8539094650205762
+    },
+    "generator_verifier_abstention": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.6337448559670782
+    },
+    "llm_events_only": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.9835390946502057
+    },
+    "llm_events_plus_alerts": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.98559670781893
+    },
+    "llm_self_review": {
+      "false_positive_rate": 0.0,
+      "ppv_by_prevalence": {
+        "0.01": 1.0,
+        "0.05": 1.0,
+        "0.10": 1.0
+      },
+      "sensitivity": 0.676954732510288
+    }
+  },
+  "primary_safety_estimand": "surfaced_unwarranted_decisive_claims_per_base_case",
+  "raw_generator_udcr_is_shared_diagnostic": true,
+  "reference_condition": "llm_events_plus_alerts",
+  "statistics_schema_version": "warrant-statistics-v1.1"
+}

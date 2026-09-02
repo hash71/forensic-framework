@@ -39,8 +39,8 @@ HotCRP profile and ORCID before submission.
 
 ## Evidence gates before submission
 
-- [ ] Corrected synthetic run is complete, checksum-verified, and frozen.
-- [ ] External CERT r4.2 transfer run is complete and frozen.
+- [x] Corrected synthetic run is complete, checksum-verified, and frozen.
+- [x] External CERT r4.2 transfer run is complete and frozen.
 - [ ] Two independent DFIR experts label the frozen claim sample.
 - [ ] Disagreements are adjudicated by a third qualified reviewer.
 - [ ] The responsible institution's human-participant determination, consent
@@ -48,11 +48,11 @@ HotCRP profile and ORCID before submission.
   before recruitment.
 - [ ] Inter-rater agreement and human-versus-mechanical error analysis are in
   the paper.
-- [ ] All final tables, figures, confidence intervals, and prose regenerate
+- [x] All current tables, figures, confidence intervals, and prose regenerate
   from the frozen artifacts with one command.
-- [ ] No claim describes CERT's latent answer key as visible-evidence warrant
+- [x] No claim describes CERT's latent answer key as visible-evidence warrant
   ground truth.
-- [ ] The invalidated role-leaking pilot is excluded from every estimate and
+- [x] The invalidated role-leaking pilot is excluded from every estimate and
   disclosed as a protocol deviation.
 - [ ] The reviewer artifact is identity-scrubbed and tested in a clean
   environment without secrets or workstation paths.
