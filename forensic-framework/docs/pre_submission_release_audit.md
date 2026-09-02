@@ -17,15 +17,16 @@ human-label integration or substantive manuscript change.
 
 ### Code and reproduction
 
-- `python -m pytest -q`: 193 tests passed.
+- `python -m pytest -q`: 204 tests passed.
 - `php artisan test --compact`: 2 Laravel tests passed.
-- Ubuntu 24.04 GitHub Actions repeats the benchmark, test, and compile checks;
-  its third-party actions are pinned to immutable commits for their current
-  Node.js 24 releases.
+- Ubuntu 24.04 GitHub Actions repeats the benchmark, test, Python compile, and
+  isolated official-template PDF checks; its third-party actions are pinned to
+  immutable commits for their current Node.js 24 releases.
 - The one-command paper reproduction validated the 48-base-case,
   480-case-variant benchmark, reanalyzed 5,400 synthetic and 360 external
   records, reran both 10,000-resample statistical analyses, regenerated all
-  tables and figures, and compiled the manuscript.
+  tables and figures, and compiled the manuscript with pdfLaTeX after verifying
+  the official USENIX Security 2027 style digest.
 - The 12-case historical development manifest predates its benchmark-path
   field. Its records, cardinality, unique keys, case-ID digest, and release hash
   are verified; the confidence audit discloses that its stored benchmark digest

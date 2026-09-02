@@ -9,9 +9,26 @@ python3.11 -m venv .venv
 .venv/bin/python -m pip install -r requirements-research.lock
 ```
 
-Tectonic is the only non-Python dependency needed to compile the manuscript.
-The paper figures use the Bitstream Vera fonts shipped with ReportLab, so the
-artifact generator does not depend on host-specific fonts.
+TeX Live with pdfLaTeX and BibTeX compiles the manuscript; Poppler's `pdfinfo`
+and `pdffonts` verify paper size, metadata, and font embedding. The paper
+figures use the Bitstream Vera fonts shipped with ReportLab, so the artifact
+generator does not depend on host-specific fonts. Tectonic is intentionally
+unsupported: its XeTeX engine cannot use the official USENIX 2027 style's
+pdfTeX-only microtype spacing option.
+
+For a containerized build from the monorepo root:
+
+```bash
+docker build -f conference_paper/Dockerfile -t warrantlab-paper .
+docker run --rm --user "$(id -u):$(id -g)" \
+  --volume "$PWD:/workspace" warrantlab-paper
+```
+
+The Dockerfile pins both its base-image digest and Debian package snapshot. The
+compiler checks the official style digest, uses a fixed `SOURCE_DATE_EPOCH`,
+builds in a clean temporary directory, and rejects undefined references,
+undefined citations, overfull boxes, fatal errors, non-Letter output,
+identifying PDF metadata, and unembedded fonts.
 
 ## One-command analysis and paper rebuild
 
@@ -53,8 +70,9 @@ To reproduce the exploratory AI-judge subsection, add
 command requires the analysis to carry an explicit non-expert validity
 boundary and to match the frozen synthetic `records.jsonl` hash.
 
-Use `--no-compile` when Tectonic is unavailable. Use `--skip-tests` only after
-the unchanged environment has already passed the same commit's tests.
+Use `--no-compile` when pdfLaTeX, BibTeX, or Poppler is unavailable. Use
+`--skip-tests` only after the unchanged environment has already passed the same
+commit's tests.
 
 ## Full model reproduction
 

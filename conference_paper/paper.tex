@@ -4,9 +4,6 @@
 % Test-set numbers are generated from immutable run artifacts.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[letterpaper,twocolumn,10pt]{article}
-% Tectonic uses XeTeX; preload hyperref because the official USENIX style
-% loads breakurl before hyperref, which breakurl rejects under XeTeX.
-\usepackage{hyperref}
 \usepackage{usenix}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
@@ -741,9 +738,8 @@ separate axis.  These are contract violations with different remediation:
 preserve the supported observation, remove the unsupported edge or qualifier,
 and reconsider only the decision that depends on it.
 
-% Keep booktabs' \noalign commands out of \IfFileExists' argument scanner.
-% Expanding a single wrapper macro here avoids a XeTeX failure after the
-% generated rows first become available.
+% Keep booktabs' \noalign commands out of \IfFileExists' argument scanner by
+% expanding a wrapper only after the generated rows are known to exist.
 \newcommand{\AxisProfileTable}{%
 \begin{table}[t]
 \centering

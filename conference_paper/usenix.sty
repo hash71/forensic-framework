@@ -29,15 +29,7 @@
 \usepackage{pslatex}
 
 % appearance
-% The official template enables `spacing`, which microtype supports only under
-% pdfTeX. Tectonic uses XeTeX, so retain kerning without triggering a fatal
-% engine error; pdfTeX builds keep the official options unchanged.
-\usepackage{iftex}
-\ifPDFTeX
-  \usepackage[kerning,spacing]{microtype}
-\else
-  \usepackage[protrusion=false,expansion=false,tracking=false,kerning=false,spacing=false]{microtype}
-\fi
+\usepackage[kerning,spacing]{microtype} % more compact and arguably nicer
 
 % Uncomment the following line if you want the columns of the last page 
 % equal in size. But note that doing so may cause issues with some 
@@ -46,9 +38,7 @@
 
 % refs and bib
 \usepackage{cite}               % order multiple entries in \cite{...}
-\ifPDFTeX
-  \usepackage{breakurl}         % break too-long URLs under the official pdfTeX path
-\fi
+\usepackage{breakurl}           % break too-long urls in refs
 \usepackage{url}                % allow \url in bibtex for clickable links
 \usepackage{xcolor}             % color definitions, to be use for...
 \usepackage[]{hyperref}         % ...clickable refs within pdf...

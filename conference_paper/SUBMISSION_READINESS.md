@@ -76,8 +76,9 @@ the shepherd-approval deadline.
 - [x] The reviewer artifact is identity-scrubbed and passes the automated
   environment without secrets or workstation paths.
 - [x] The raw-transcript-omitted archive reproduces both analyses, figures,
-  and the 14-page manuscript (11 body pages followed by appendices and
-  references) from a fresh virtual environment using its documented command.
+  and the 14-page manuscript (the body ends and the required appendices begin
+  on page 11; references begin on page 12) from a fresh environment using its
+  documented command.
 - [x] Raw endpoint transcript files are omitted from the reviewer archive.
 - [x] A top-level third-party notice preserves CERT r4.2 attribution, its CC BY
   4.0 link, the affected paths, and the study's modification statement.
@@ -93,6 +94,9 @@ the shepherd-approval deadline.
   scan, and states that frozen statistics cannot be recomputed from it.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in
   grayscale, embeds its fonts, and contains no author identity.
+- [x] The vendored style matches the official USENIX Security 2027 download by
+  enforced digest, has no engine-compatibility modifications, and compiles via
+  the required pdfLaTeX path without critical diagnostics.
 - [ ] Authors approve the final paper, author order, title, ORCIDs, ethics
   statement, and artifact-release license before registration.
 

@@ -50,14 +50,20 @@ php artisan test --compact
 
 Regenerate verified analysis artifacts from `forensic-framework/` with
 `reproduce_warrant_paper.py`, then build the manuscript from
-`conference_paper/` with Tectonic and the vendored USENIX style:
+`conference_paper/` with pdfLaTeX and the unmodified official USENIX 2027
+style:
 
 ```bash
-tectonic -X compile paper.tex --outdir build --keep-logs --keep-intermediates
+python3 build_pdf.py
 ```
 
-GitHub Actions repeats the frozen-benchmark check and research test suite for
-every change under `forensic-framework/` or `conference_paper/`.
+The paper directory also contains a Dockerfile with an immutable base-image
+digest and Debian package snapshot for hosts without a local TeX Live
+installation.
+
+GitHub Actions repeats the frozen-benchmark check, research test suite, Python
+compile check, and isolated official-template PDF build for every change under
+`forensic-framework/` or `conference_paper/`.
 
 ## Licensing status
 

@@ -45,3 +45,14 @@ jobs:
 
       - name: Compile-check Python sources
         run: python -m compileall -q app *.py
+
+      - name: Build and validate the anonymous submission PDF
+        run: |
+          docker build \
+            --file ../conference_paper/Dockerfile \
+            --tag warrantlab-paper:ci \
+            ..
+          docker run --rm \
+            --user "$(id -u):$(id -g)" \
+            --volume "$GITHUB_WORKSPACE:/workspace" \
+            warrantlab-paper:ci

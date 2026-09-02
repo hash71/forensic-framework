@@ -73,6 +73,8 @@ TEXT_SUFFIXES = {
 }
 
 PAPER_FILES = (
+    "conference_paper/Dockerfile",
+    "conference_paper/build_pdf.py",
     "conference_paper/paper.tex",
     "conference_paper/references.bib",
     "conference_paper/usenix.sty",
@@ -1085,13 +1087,16 @@ locked research dependencies.
 
 ## Requirements and expected cost
 
-- Python 3.11 or newer and Tectonic (validated with Tectonic 0.17.0).
+- Python 3.11 or newer, pdfLaTeX, BibTeX, and Poppler (`pdfinfo` and
+  `pdffonts`). A Dockerfile with a pinned base and Debian package snapshot is
+  included for hosts without them.
 - About 1 GB of free disk for the virtual environment and regenerated outputs.
 - No GPU, model server, API credential, or model download. Reproduction uses
   frozen scored records and does not call Gemma or any remote endpoint.
 - On the reference laptop, dependency installation plus the full command takes
   under two minutes; allow up to five minutes on a typical current CPU. Network
-  access is needed only for the one-time dependency installation.
+  access is needed only for one-time dependency installation and, if selected,
+  the first container build.
 
 ## Reproduction
 
@@ -1113,6 +1118,15 @@ retained raw-response hashes or the all-raw-omitted release policy before
 regenerating tables, figures, statistics, and the PDF. The historical
 development manifest predates its benchmark-path field; its stored benchmark
 digest is disclosed but cannot be rechecked against absent source bytes.
+
+If pdfLaTeX is not installed, add `--no-compile` to the reproduction command,
+return to the artifact root, and build the PDF in the included container:
+
+```bash
+docker build -f conference_paper/Dockerfile -t warrantlab-paper .
+docker run --rm --user "$(id -u):$(id -g)" \\
+  --volume "$PWD:/workspace" warrantlab-paper
+```
 
 """
         + raw_note

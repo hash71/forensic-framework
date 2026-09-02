@@ -14,8 +14,8 @@ repository working tree.
 
 - the synthetic benchmark integrity check passed;
 - the standard-library-only strict verifier passed immediately after extraction;
-- all 134 tests shipped in the artifact passed;
-- all 147 manifest-listed payload hashes and the anonymous identity scan passed
+- all 145 tests shipped in the artifact passed;
+- all 151 manifest-listed payload hashes and the anonymous identity scan passed
   both before and after the documented reproduction command;
 - 5,400 synthetic and 360 external records were reanalyzed;
 - both base-case-clustered, 10,000-resample statistical analyses completed;
@@ -29,13 +29,21 @@ repository working tree.
 - the development analysis likewise recorded complete raw-transcript omission,
   so all packaged analyses match the archive rather than the source workstation;
 - tables and vector figures regenerated;
-- Tectonic and BibTeX compiled a 14-page US-Letter PDF (11 body pages followed
-  by the ethics/open-science appendices and references); and
+- the official USENIX Security 2027 style digest was verified before
+  compilation;
+- pdfLaTeX and BibTeX compiled a 14-page US-Letter PDF (the body ends and the
+  ethics/open-science appendices begin on page 11; references begin on page
+  12);
+- two clean container builds produced the identical PDF SHA-256
+  `9ff85e857c8beb38f38e5b82e8de86a5d890b8b973675632c2b82835853656ee`;
+- every font is embedded and the final log contains no undefined citation,
+  undefined reference, overfull box, or fatal diagnostic; and
 - extracted text from the regenerated PDF was identical to the frozen paper.
 
-The PDF byte hash is not expected to match across Tectonic builds because PDF
-container metadata may change. The reported text, record hashes, tables,
-figures, and statistical inputs are the reproducibility targets.
+The paper builder fixes `SOURCE_DATE_EPOCH` to the result-freeze date and
+compiles in a fresh temporary directory, so the PDF is byte-reproducible within
+the documented TeX Live toolchain. The record hashes, tables, figures, and
+statistical inputs remain the scientific reproducibility targets.
 
 ## Release-policy boundary
 

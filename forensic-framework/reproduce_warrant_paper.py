@@ -6,7 +6,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -31,7 +30,7 @@ def _load_records(path: Path) -> list[dict]:
 
 
 def ensure_paper_build_dir() -> Path:
-    """Create the ignored Tectonic output directory in a fresh artifact."""
+    """Create the ignored verified-PDF output directory in a fresh artifact."""
 
     build_dir = PAPER_DIR / "build"
     build_dir.mkdir(parents=True, exist_ok=True)
@@ -235,21 +234,11 @@ def main() -> int:
     _run(*paper_args, cwd=MONOREPO_ROOT)
 
     if not args.no_compile:
-        tectonic = shutil.which("tectonic")
-        if tectonic is None:
-            raise RuntimeError(
-                "tectonic is required to compile the paper; rerun with --no-compile "
-                "to regenerate analysis artifacts only"
-            )
         ensure_paper_build_dir()
         _run(
-            tectonic,
-            "--keep-logs",
-            "--keep-intermediates",
-            "--outdir",
-            "build",
-            "paper.tex",
-            cwd=PAPER_DIR,
+            sys.executable,
+            str(PAPER_DIR / "build_pdf.py"),
+            cwd=MONOREPO_ROOT,
         )
 
     print(json.dumps(verified, indent=2, sort_keys=True))

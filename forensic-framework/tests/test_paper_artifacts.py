@@ -5,11 +5,18 @@ import json
 import re
 from pathlib import Path
 
+import pytest
+
 
 PAPER_GENERATOR = (
     Path(__file__).resolve().parents[2]
     / "conference_paper"
     / "generate_paper_artifacts.py"
+)
+PAPER_BUILDER = (
+    Path(__file__).resolve().parents[2]
+    / "conference_paper"
+    / "build_pdf.py"
 )
 
 
@@ -19,6 +26,35 @@ def _load_generator():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def _load_pdf_builder():
+    spec = importlib.util.spec_from_file_location("paper_pdf_builder", PAPER_BUILDER)
+    assert spec and spec.loader
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def test_official_usenix_2027_style_digest_is_enforced(tmp_path: Path) -> None:
+    builder = _load_pdf_builder()
+    style = PAPER_BUILDER.parent / "usenix.sty"
+
+    assert builder.validate_official_style(style) == builder.OFFICIAL_STYLE_SHA256
+
+    changed = tmp_path / "usenix.sty"
+    changed.write_bytes(style.read_bytes() + b"% local layout change\n")
+    with pytest.raises(ValueError, match="differs from the official"):
+        builder.validate_official_style(changed)
+
+
+def test_submission_source_uses_official_layout_without_spacing_hacks() -> None:
+    source = (PAPER_BUILDER.parent / "paper.tex").read_text()
+
+    assert r"\documentclass[letterpaper,twocolumn,10pt]{article}" in source
+    assert r"\usepackage{usenix}" in source
+    for forbidden in (r"\vspace{-", r"\titlespacing", r"\setlength{\textheight}"):
+        assert forbidden not in source
 
 
 def test_human_macro_export_is_bound_to_analysis_hash(tmp_path: Path) -> None:
@@ -179,7 +215,7 @@ def test_confidence_macros_preserve_no_tuning_boundary(tmp_path: Path) -> None:
 def test_generated_table_inputs_own_their_terminal_booktabs_rule(
     tmp_path: Path,
 ) -> None:
-    r"""Prevent XeTeX from seeing caller-side \bottomrule after row input."""
+    r"""Keep caller-side \bottomrule out of the existence-test argument."""
 
     generator = _load_generator()
     run_dir = tmp_path / "run"

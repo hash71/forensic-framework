@@ -12,6 +12,11 @@ from reportlab.pdfgen import canvas
 import build_anonymous_artifact as artifact
 
 
+def test_paper_build_environment_is_included() -> None:
+    assert "conference_paper/build_pdf.py" in artifact.PAPER_FILES
+    assert "conference_paper/Dockerfile" in artifact.PAPER_FILES
+
+
 def _pending_clearance(notice_sha256: str) -> dict:
     return {
         "release_clearance_schema_version": artifact.RELEASE_CLEARANCE_SCHEMA_VERSION,
@@ -495,6 +500,11 @@ def test_readme_distinguishes_unfilled_package_from_human_analysis(tmp_path):
     assert "byte-stable under the reproduction command" in text
     assert "does not call Gemma or any remote endpoint" in text
     assert "About 1 GB of free disk" in text
+    assert (
+        'docker run --rm --user "$(id -u):$(id -g)" '
+        + "\\"
+        + "\n  --volume"
+    ) in text
     assert "verify_anonymous_artifact.py --strict ." in text
     assert "does not authenticate the ZIP itself" in text
     assert "`THIRD_PARTY_NOTICES.md`" in text

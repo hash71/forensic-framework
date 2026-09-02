@@ -56,13 +56,12 @@ operator's terms.
 
 ## Publication templates
 
-`conference_paper/usenix.sty` is based on the official USENIX conference style
-file distributed from
-<https://www.usenix.org/conferences/author-resources/paper-templates>. The
-repository version prominently comments its small engine-compatibility change:
-the official `microtype` options are retained for pdfTeX, while unsupported
-options are disabled for the Tectonic/XeTeX reproduction path. It is included
-so reviewers can rebuild the required USENIX-formatted paper.
+`conference_paper/usenix.sty` is the unmodified functional content of the
+official USENIX Security 2027 conference style file distributed from
+<https://www.usenix.org/sites/default/files/usenixsecurity2027_latex_templates.zip>.
+The upstream file's SHA-256 is recorded in `conference_paper/USENIX_TEMPLATE.md`
+and enforced by the paper build. It is included so reviewers can rebuild the
+required USENIX-formatted paper with pdfLaTeX.
 
 Historical IEEE paper directories contain `IEEEtran.cls` and `IEEEtran.bst`.
 Their own headers identify the files as LPPL 1.3 works, retain the upstream

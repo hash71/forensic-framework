@@ -386,9 +386,9 @@ def write_axis_rows(run_dir: Path, output_path: Path) -> None:
     output_path.write_text(
         "% Generated from analysis.json; mechanical descriptive labels only.\n"
         + "\n".join(rows)
-        # Keep the final booktabs rule in the included file. XeTeX can leave
-        # the alignment row open when a row-only input ends immediately before
-        # a caller-side \bottomrule, producing a misleading ``Misplaced
+        # Keep the final booktabs rule in the included file. Some engines can
+        # leave the alignment row open when a row-only input ends immediately
+        # before a caller-side \bottomrule, producing a misleading ``Misplaced
         # \noalign`` error.
         + "\n\\bottomrule\n"
     )
