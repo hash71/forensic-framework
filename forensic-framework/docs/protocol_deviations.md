@@ -79,3 +79,17 @@ outcomes, preventing trivial always-abstain optimization.
 claim labels replace mechanical labels for the final confirmatory endpoint if
 the planned independent annotation is completed. The held-out split remains
 unseen at the time of this amendment.
+
+## 2026-09-02 — Feasibility threshold correction
+
+**Stage:** deterministic protocol audit before held-out LLM inference.
+
+**Problem:** protocol 1.0 required at least 40 valid independent base cases,
+but the frozen benchmark contains 48 base cases with exactly one development
+base per family, leaving 36 held-out base cases. The threshold was impossible
+to satisfy even with zero endpoint or parser failures.
+
+**Correction:** the minimum is 36, equal to the complete held-out base-case
+set. Endpoint and parser failures remain retained as failures rather than
+excluded, so they do not silently reduce the analysis set. This correction
+does not change the benchmark, model output, endpoint, or effect definition.
