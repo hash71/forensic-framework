@@ -1,0 +1,49 @@
+{
+  "base_cases": 48,
+  "base_cases_by_split": {
+    "development": 12,
+    "test": 36
+  },
+  "case_schema_version": "warrant-case-v1.0",
+  "case_variants": 480,
+  "cases_path": "data/warrant_benchmark/cases.jsonl",
+  "cases_sha256": "9c361828916f20e66ae3722f0d28fb6b982c452a41de5beacdf046402b1576c3",
+  "families": 12,
+  "family_case_variant_counts": {
+    "authorized_maintenance": 40,
+    "authorized_security_testing": 40,
+    "credential_compromise": 40,
+    "destructive_administration": 40,
+    "exposed_api_credentials": 40,
+    "failed_credential_stuffing": 40,
+    "international_travel": 40,
+    "privilege_abuse": 40,
+    "quarter_end_reporting": 40,
+    "scheduled_backup": 40,
+    "session_hijacking": 40,
+    "staged_data_exfiltration": 40
+  },
+  "generator_version": "warrant-benchmark-v1.0",
+  "seed": 20260902,
+  "spec_path": "config/warrant_study.yaml",
+  "spec_sha256": "1e6e11c93fbf8bd131f7243fe70508b4c6c95dcff4a1a1904abb2fa23575be1f",
+  "study_id": "forensic-warrant-v2",
+  "variant_counts": {
+    "canonical": 48,
+    "counterevidence_removed": 48,
+    "decisive_evidence_removed": 48,
+    "irrelevant_noise": 48,
+    "misleading_alert_actor": 48,
+    "misleading_alert_severity": 48,
+    "no_alert": 48,
+    "passive_prompt_injection": 48,
+    "schema_drift": 48,
+    "strong_decoy": 48
+  },
+  "variants_per_base_case": 10,
+  "warranted_verdict_counts": {
+    "INSUFFICIENT": 72,
+    "NO": 192,
+    "YES": 216
+  }
+}
