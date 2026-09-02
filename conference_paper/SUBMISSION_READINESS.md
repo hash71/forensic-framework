@@ -50,6 +50,10 @@ HotCRP profile and ORCID before submission.
   the paper.
 - [x] All current tables, figures, confidence intervals, and prose regenerate
   from the frozen artifacts with one command.
+- [x] A three-role, 400-claim AI-judge sensitivity panel is reported as
+  exploratory judge-dependence evidence, never as human or expert validation.
+- [x] A separate 120-claim post-hoc priority package is ready for expert
+  diagnosis and is explicitly excluded from population-prevalence inference.
 - [x] No claim describes CERT's latent answer key as visible-evidence warrant
   ground truth.
 - [x] The invalidated role-leaking pilot is excluded from every estimate and
@@ -57,8 +61,8 @@ HotCRP profile and ORCID before submission.
 - [x] The reviewer artifact is identity-scrubbed and passes the automated
   environment without secrets or workstation paths.
 - [x] The raw-transcript-omitted archive reproduces both analyses, figures,
-  and the 12-page paper from a fresh virtual environment using its documented
-  command.
+  and the 13-page manuscript (11 body pages followed by appendices and
+  references) from a fresh virtual environment using its documented command.
 - [x] Raw endpoint transcripts are either covered by archived operator terms
   or omitted while structured scored records and response hashes remain.
 - [x] The current results PDF is within the body-page limit, prints intelligibly in

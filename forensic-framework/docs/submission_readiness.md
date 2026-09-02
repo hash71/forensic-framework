@@ -1,6 +1,6 @@
 # Submission Readiness
 
-Updated: 2026-09-02
+Updated: 2026-09-03
 
 ## Target
 
@@ -63,6 +63,10 @@ A submission-ready claim requires all of the following:
 - [x] a fresh-environment reproduction from the raw-transcript-omitted
   anonymous archive, including packaged tests, both statistical analyses,
   figures, and PDF compilation; and
+- [x] a three-role, 400-claim AI-judge sensitivity analysis whose outputs are
+  checksum-bound, reproducible, and barred from the human-validation path;
+- [x] a 120-claim post-hoc priority package for later expert diagnosis, with an
+  explicit warning that it cannot estimate population prevalence; and
 - [ ] a final independent reference, statistics, anonymity, and ethics audit.
 
 ## Current claim boundary

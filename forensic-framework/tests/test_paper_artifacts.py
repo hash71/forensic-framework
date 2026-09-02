@@ -281,4 +281,41 @@ def test_every_manuscript_citation_has_bibtex_and_audit_entry() -> None:
 
     assert cited <= bib_keys
     assert audited == cited
-    assert len(cited) == 34
+    assert len(cited) == 35
+
+
+def test_usenix_appendices_are_explicit_and_precede_references() -> None:
+    manuscript = (PAPER_GENERATOR.parent / "paper.tex").read_text()
+    appendix = manuscript.index(r"\appendix")
+    ethics = manuscript.index(r"\section{Ethical Considerations}")
+    open_science = manuscript.index(r"\section{Open Science}")
+    bibliography = manuscript.index(r"\bibliography{references}")
+
+    assert appendix < ethics < open_science < bibliography
+
+
+def test_generated_figure_pdfs_are_byte_reproducible(tmp_path: Path) -> None:
+    generator = _load_generator()
+    design_one = tmp_path / "design-one.pdf"
+    design_two = tmp_path / "design-two.pdf"
+    generator.draw_study_design(design_one)
+    generator.draw_study_design(design_two)
+    assert design_one.read_bytes() == design_two.read_bytes()
+
+    records_path = tmp_path / "records.jsonl"
+    records = [
+        {
+            "condition": condition,
+            "base_case_id": "base-1",
+            "operational_status": "valid",
+            "predicted_verdict": "ATTACK",
+            "mechanical_warrant": {"assessments": []},
+        }
+        for condition in generator.CONDITION_LABELS
+    ]
+    records_path.write_text("".join(json.dumps(row) + "\n" for row in records))
+    risk_one = tmp_path / "risk-one.pdf"
+    risk_two = tmp_path / "risk-two.pdf"
+    generator.draw_coverage_risk(records_path, risk_one)
+    generator.draw_coverage_risk(records_path, risk_two)
+    assert risk_one.read_bytes() == risk_two.read_bytes()

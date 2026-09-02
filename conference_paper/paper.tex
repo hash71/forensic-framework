@@ -1049,7 +1049,8 @@ primary contribution, not that the work ignores evidence.}
 \toprule
 \textbf{Benchmark} & \textbf{Primary evaluation object} &
 \textbf{Evidence-linked} & \textbf{Paired mutations} &
-\textbf{Axis warrant} & \textbf{Risk--coverage} \\
+\textbf{\shortstack{Axis\\warrant}} &
+\textbf{\shortstack{Risk--\\coverage}} \\
 \midrule
 SIR-Bench~\cite{begimher2026sirbench} & Triage, novel findings, tool use &
 $\checkmark$ & -- & -- & -- \\
@@ -1103,8 +1104,11 @@ masking and recovery provides a complementary human-validated attribution
 test~\cite{xing2025evidence}.  Automatic factuality evaluators can nevertheless
 disagree at the instance level and misestimate system error outside their
 calibration domains~\cite{godbole2025verify}; this motivates our mandatory
-expert validation and per-axis error report.  The closest conceptual work is FORCEBENCH,
-which holds evidence fixed while raising claim force
+expert validation and per-axis error report.  Two close conceptual works are
+GAVEL and FORCEBENCH.  GAVEL binds atomic subclaims to explicit evidence units
+and combines multi-agent debate with deterministic citation checks, but
+evaluates open-book fact checking rather than forensic reports
+~\cite{xu2026gavel}.  FORCEBENCH holds evidence fixed while raising claim force
 ~\cite{qian2026forcebench}.  We instead decompose the proposition into
 forensic actor, authorization, intent, causality, chronology, and decision
 axes, then manipulate both evidence and untrusted alert context and measure
@@ -1164,7 +1168,7 @@ generated evidence.
 \appendix
 
 %-------------------------------------------------------------------------------
-\section*{Ethical Considerations}
+\section{Ethical Considerations}
 %-------------------------------------------------------------------------------
 
 The benchmark is fully synthetic and contains no real users, credentials,
@@ -1182,24 +1186,25 @@ used to train punitive employee-monitoring systems or to estimate real-world
 incident prevalence.
 
 %-------------------------------------------------------------------------------
-\section*{Open Science}
+\section{Open Science}
 %-------------------------------------------------------------------------------
 
-The anonymous artifact will include the 480-case-variant benchmark, generation
+The anonymous artifact includes the 480-case-variant benchmark, generation
 specification and seed, data card, checksums, frozen JSON schemas and prompts,
 deterministic baselines, structured scored records, response hashes and
 provenance manifests, parsers, the mechanical evaluator, the blinded annotation
 package, analysis scripts, environment locks, tests, and commands that
 regenerate every table and figure.  Raw endpoint transcripts are omitted from
 the reviewer artifact because the third-party operator's redistribution terms
-could not be archived.  The administrative
-annotation key is withheld from annotators while labels are collected and
-included in the reviewer artifact only after labels are frozen.  Endpoint
-secrets, private URLs, workstation paths, and annotator identities will not
-appear.  The current repository records the full development history; an
-identity-scrubbed snapshot with a non-tracking URL will be frozen for
-submission.  Upon acceptance, a stable public archive and an explicit dataset
-license will replace the anonymous link.  Third-party models are referenced by
+could not be archived.  The administrative annotation key is separated from
+the blind package and included for artifact reviewers, but it must not be given
+to annotators before their labels are frozen.  Endpoint secrets, private URLs,
+workstation paths, and annotator identities do not appear.  The current
+repository records the full development history; its identity-scrubbed
+reviewer snapshot regenerates the manuscript in a fresh environment and will be
+uploaded at a non-tracking anonymous URL only after the final freeze.  Upon
+acceptance, a stable public archive and an author-approved dataset license will
+replace the anonymous link.  Third-party models are referenced by
 immutable digest when available; the remote family label and missing weight
 digest are both disclosed rather than presented as reproducible weights.
 

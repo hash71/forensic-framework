@@ -57,6 +57,7 @@ phrased as `to our knowledge` with explicit comparison criteria.
 | [Verify with Caution](https://aclanthology.org/2025.findings-acl.1175/) | Automatic factuality evaluators disagree and can misestimate system error outside their calibration domains | Report expert-vs-mechanical confusion and per-axis error before using the proxy for substantive conclusions |
 | [Atomic Calibration of LLMs](https://aclanthology.org/2025.findings-ijcnlp.9/) | Response-level confidence hides claim-level calibration failure | Evaluate confidence per material atomic claim |
 | [Relevant Is Not Warranted / FORCEBENCH](https://arxiv.org/abs/2605.28044) | A real, relevant citation may under-warrant claim strength; paired force-raised claims reveal citation laundering | Adapt evidence-force testing to actor, authorization, intent, causality, chronology, and forensic decisions |
+| [GAVEL](https://aclanthology.org/2026.findings-acl.1789/) | Binds atomic subclaims to explicit evidence units and combines multi-agent debate with deterministic citation checks on open-book fact-checking benchmarks | Evaluate forensic semantic axes under paired evidence and alert-context mutations, and measure downstream risk--coverage rather than propose a debate architecture |
 | [Cited but Not Verified](https://arxiv.org/abs/2605.06635) | Link validity and relevance can remain high while factual accuracy is substantially lower | Treat citation resolution as a surface check, never a factuality result |
 
 The v2 paper must cite FORCEBENCH prominently. The contribution is not the

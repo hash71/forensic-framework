@@ -1,6 +1,6 @@
 # Clean-room Reproduction Audit
 
-Date: 2026-09-02
+Date: 2026-09-03
 
 ## Scope
 
@@ -13,7 +13,7 @@ repository working tree.
 ## Result
 
 - the synthetic benchmark integrity check passed;
-- all 101 tests shipped in the artifact passed;
+- all 116 tests shipped in the artifact passed;
 - 5,400 synthetic and 360 external records were reanalyzed;
 - both base-case-clustered, 10,000-resample statistical analyses completed;
 - release-record SHA-256 values matched their redaction reports;
@@ -21,7 +21,8 @@ repository working tree.
   files as deliberately absent, with zero retained raw files and no integrity
   errors;
 - tables and vector figures regenerated;
-- Tectonic and BibTeX compiled a 12-page US-Letter PDF; and
+- Tectonic and BibTeX compiled a 13-page US-Letter PDF (11 body pages followed
+  by the ethics/open-science appendices and references); and
 - extracted text from the regenerated PDF was identical to the frozen paper.
 
 The PDF byte hash is not expected to match across Tectonic builds because PDF

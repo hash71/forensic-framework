@@ -1,4 +1,4 @@
-# Reference Audit — 34 entries cited by the submission
+# Reference Audit — 35 entries cited by the submission
 
 Audit date: 2026-09-03
 
@@ -9,7 +9,7 @@ No cited entry is accepted from title-only search results or memory.
 
 | Key | Work | Primary locator |
 |---|---|---|
-| `alharthi2025cloud` | LLM-Powered Automated Cloud Forensics | IEEE DOI `10.1109/SERVICES62574.2025.11120597` |
+| `alharthi2025cloud` | LLM-Powered Automated Cloud Forensics | [IEEE Xplore document 11120597](https://ieeexplore.ieee.org/document/11120597/), DOI `10.1109/CLOUD67622.2025.00012` |
 | `anand2026auditbench` | Benchmarking and Exploring the Capabilities of LLMs for Attack Investigations (AuditBench) | [arXiv:2606.10281](https://arxiv.org/abs/2606.10281) |
 | `begimher2026sirbench` | SIR-Bench | [arXiv:2604.12040](https://arxiv.org/abs/2604.12040) |
 | `bohnet2022attributed` | Attributed Question Answering | [arXiv:2212.08037](https://arxiv.org/abs/2212.08037) |
@@ -43,14 +43,21 @@ No cited entry is accepted from title-only search results or memory.
 | `wang2026secrespond` | SecRespond | [arXiv:2607.26791](https://arxiv.org/abs/2607.26791) |
 | `wei2025cortex` | CORTEX | [arXiv:2510.00311](https://arxiv.org/abs/2510.00311) |
 | `xing2025evidence` | Evaluating Evidence Attribution in Generated Fact Checking Explanations | ACL DOI `10.18653/v1/2025.naacl-long.282` |
+| `xu2026gavel` | GAVEL: Evidence-Contract Debate with Mechanized Scrutiny for Provenance-Grounded Fact-Checking | [ACL Anthology](https://aclanthology.org/2026.findings-acl.1789/), DOI `10.18653/v1/2026.findings-acl.1789` |
 
 ## Correction record
 
-The DOI `10.1016/j.fsidi.2025.302043` was previously attached to the wrong
+The cloud-forensics citation previously used the document number as the suffix
+of an unrelated proceedings DOI; IEEE Xplore identifies the correct DOI as
+`10.1109/CLOUD67622.2025.00012`, and the bibliography now uses that value. The
+DOI `10.1016/j.fsidi.2025.302043` was previously attached to the wrong
 authors. The Elsevier record and DBLP identify Maxim Chernyshev, Zubair A.
 Baig, Naeem Syed, Robin Doss, and Malcolm Shore; the bibliography and key were
 corrected accordingly. AttributionBench was added after direct verification
-against the ACL Anthology record.
+against the ACL Anthology record. GAVEL was added after the September 2026
+literature refresh and verified against its ACL Anthology proceedings record.
+The BibTeX accent for Michael F{\"a}rber was also corrected after visual PDF
+inspection exposed a literal quotation mark in the rendered surname.
 
 ## Mechanical consistency check
 

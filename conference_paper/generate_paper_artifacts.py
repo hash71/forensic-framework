@@ -614,7 +614,7 @@ def draw_study_design(path: Path) -> None:
     width, height = 7.0 * 72, 2.35 * 72
     pdf = canvas.Canvas(
         str(path), pagesize=(width, height), pageCompression=1,
-        initialFontName="FigureSans",
+        initialFontName="FigureSans", invariant=1,
     )
     pdf.setTitle("Paired forensic warrant study design")
 
@@ -732,7 +732,7 @@ def draw_coverage_risk(records_path: Path, output_path: Path) -> None:
 
     pdf = canvas.Canvas(
         str(output_path), pagesize=(width, height), pageCompression=1,
-        initialFontName="FigureSans",
+        initialFontName="FigureSans", invariant=1,
     )
     pdf.setTitle("Coverage versus unsafe claim exposure")
     legend = [
